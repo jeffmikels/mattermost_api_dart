@@ -1,0 +1,14 @@
+additionalProperties:
+  pubName: mattermost_api
+  pubAuthor: Jeff Mikels
+  pubAuthorEmail: jeffmikels@gmail.com
+  pubDescription: desc
+  pubHomepage: homepage
+  pubLibrary: mattermost.api
+  pubVersion: 0.1.0
+  useEnumExtension: true
+
+# templateDir: openapi_custom_templates
+# templateDir: /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator/src/main/resources/dart2
+skipValidateSpec: true
+skipOverwrite: false

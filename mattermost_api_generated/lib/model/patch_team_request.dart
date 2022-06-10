@@ -1,0 +1,178 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of mattermost.api;
+
+class PatchTeamRequest {
+  /// Returns a new [PatchTeamRequest] instance.
+  PatchTeamRequest({
+    this.displayName,
+    this.description,
+    this.companyName,
+    this.inviteId,
+    this.allowOpenInvite,
+  });
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? displayName;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? description;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? companyName;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? inviteId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? allowOpenInvite;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is PatchTeamRequest &&
+     other.displayName == displayName &&
+     other.description == description &&
+     other.companyName == companyName &&
+     other.inviteId == inviteId &&
+     other.allowOpenInvite == allowOpenInvite;
+
+  @override
+  int get hashCode =>
+    // ignore: unnecessary_parenthesis
+    (displayName == null ? 0 : displayName!.hashCode) +
+    (description == null ? 0 : description!.hashCode) +
+    (companyName == null ? 0 : companyName!.hashCode) +
+    (inviteId == null ? 0 : inviteId!.hashCode) +
+    (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode);
+
+  @override
+  String toString() => 'PatchTeamRequest[displayName=$displayName, description=$description, companyName=$companyName, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite]';
+
+  Map<String, dynamic> toJson() {
+    final _json = <String, dynamic>{};
+    if (displayName != null) {
+      _json[r'display_name'] = displayName;
+    }
+    if (description != null) {
+      _json[r'description'] = description;
+    }
+    if (companyName != null) {
+      _json[r'company_name'] = companyName;
+    }
+    if (inviteId != null) {
+      _json[r'invite_id'] = inviteId;
+    }
+    if (allowOpenInvite != null) {
+      _json[r'allow_open_invite'] = allowOpenInvite;
+    }
+    return _json;
+  }
+
+  /// Returns a new [PatchTeamRequest] instance and imports its values from
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static PatchTeamRequest? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PatchTeamRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PatchTeamRequest[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
+      return PatchTeamRequest(
+        displayName: mapValueOfType<String>(json, r'display_name'),
+        description: mapValueOfType<String>(json, r'description'),
+        companyName: mapValueOfType<String>(json, r'company_name'),
+        inviteId: mapValueOfType<String>(json, r'invite_id'),
+        allowOpenInvite: mapValueOfType<bool>(json, r'allow_open_invite'),
+      );
+    }
+    return null;
+  }
+
+  static List<PatchTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PatchTeamRequest>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PatchTeamRequest.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, PatchTeamRequest> mapFromJson(dynamic json) {
+    final map = <String, PatchTeamRequest>{};
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PatchTeamRequest.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
+    }
+    return map;
+  }
+
+  // maps a json object with a list of PatchTeamRequest-objects as value to a dart map
+  static Map<String, List<PatchTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PatchTeamRequest>>{};
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PatchTeamRequest.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
+    }
+    return map;
+  }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
+}
+
