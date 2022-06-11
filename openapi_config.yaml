@@ -7,8 +7,11 @@ additionalProperties:
   pubLibrary: mattermost.api
   pubVersion: 0.1.0
   useEnumExtension: true
+  apiClientName: MattermostApiClient # defaults to ApiClient if not specified
+  modelNamePrefix: Mattermost
+  apiNamePrefix: Mattermost
 
-# templateDir: openapi_custom_templates
+templateDir: openapi_mattermost_templates
 # templateDir: /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator/src/main/resources/dart2
 skipValidateSpec: true
 skipOverwrite: false

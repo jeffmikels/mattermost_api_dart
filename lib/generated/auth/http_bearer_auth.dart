@@ -27,7 +27,7 @@ class HttpBearerAuth implements Authentication {
   }
 
   @override
-  void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MattermostQueryParam> queryParams, Map<String, String> headerParams) {
     if (_accessToken == null) {
       return;
     }

@@ -18,9 +18,21 @@ OUTPUT = 'mattermost_api_generated'
 INPUT = 'mattermost-swagger.json'
 CONFIG = 'openapi_config.yaml'
 
+GENERATOR = 'openapi-generator'
+GENERATOR = 'java -jar /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar'
+
+print('removing previously generated files')
+os.system(f'rm -rf mattermost_api_generated/*')
+os.system(f'rm -rf lib/generated/*')
+os.system(f'rm -rf test/generated/*')
+os.system(f'rm -rf doc/generated/*')
+
+
 # we used to need --skip-validate-spec
-res = subprocess.run(['openapi-generator', 'generate', '-i', INPUT,
-                     '-g', 'dart', '-c', CONFIG, '-o', OUTPUT])
+# res = subprocess.run(['openapi-generator', 'generate', '-i', INPUT,
+#                      '-g', 'dart', '-c', CONFIG, '-o', OUTPUT])
+res = subprocess.run(['java', '-jar', '/Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar',
+                     'generate', '-i', INPUT, '-g', 'dart', '-c', CONFIG, '-o', OUTPUT])
 
 towrite = []
 apifn = os.path.join(OUTPUT, 'lib', 'api.dart')
@@ -35,7 +47,7 @@ with open(apifn, 'r') as apifile:
 
   for line in orig.split('\n'):
     # ignore the second ldap
-    if line == "part 'api/ldap_api.dart';":
+    if 'ldap_api.dart' in line:
       if usedldap:
         continue
       usedldap = True
@@ -53,39 +65,44 @@ print()
 print()
 print('performing replacements')
 replacements = [
+    # users_api replacements not needed with my openapi build
+    # Replacement(
+    #     os.path.join(OUTPUT, 'lib', 'api/mattermost_users_api.dart'),
+    #     '''num? ,''',
+    #     '''num? timestamp,'''
+    # ),
+    # Replacement(
+    #     os.path.join(OUTPUT, 'lib', 'api/mattermost_users_api.dart'),
+    #     '''userId,  : ,''',
+    #     '''userId, timestamp: timestamp,'''
+    # ),
+    # Replacement(
+    #     os.path.join(OUTPUT, 'lib', 'api/mattermost_users_api.dart'),
+    #     '''if ( != null) {''',
+    #     '''if ( timestamp != null) {'''
+    # ),
+    # Replacement(
+    #     os.path.join(OUTPUT, 'lib', 'api/mattermost_users_api.dart'),
+    #     '''queryParams.addAll(_queryParams('', '_', ));''',
+    #     '''queryParams.addAll(_queryParams('', '_', timestamp ));'''
+    # ),
+
+    # no longer needed with my new openapi build
+    # Replacement(
+    #     os.path.join(OUTPUT, 'lib', 'api/mattermost_groups_api.dart'),
+    #     '.cast<Map>()',
+    #     '.cast<Map<String, List<GroupWithSchemeAdmin>>>()'
+    # ),
+
+    # still needed for some reason
     Replacement(
-        os.path.join(OUTPUT, 'lib', 'api/users_api.dart'),
-        '''num? ,''',
-        '''num? timestamp,'''
-    ),
-    Replacement(
-        os.path.join(OUTPUT, 'lib', 'api/users_api.dart'),
-        '''userId,  : ,''',
-        '''userId, timestamp: timestamp,'''
-    ),
-    Replacement(
-        os.path.join(OUTPUT, 'lib', 'api/users_api.dart'),
-        '''if ( != null) {''',
-        '''if ( timestamp != null) {'''
-    ),
-    Replacement(
-        os.path.join(OUTPUT, 'lib', 'api/groups_api.dart'),
-        '.cast<Map>()',
-        '.cast<Map<String, List<GroupWithSchemeAdmin>>>()'
-    ),
-    Replacement(
-        os.path.join(OUTPUT, 'lib', 'api/users_api.dart'),
-        '''queryParams.addAll(_queryParams('', '_', ));''',
-        '''queryParams.addAll(_queryParams('', '_', timestamp ));'''
-    ),
-    Replacement(
-        os.path.join(OUTPUT, 'lib', 'model/post_list_with_search_matches.dart'),
+        os.path.join(OUTPUT, 'lib', 'model/mattermost_post_list_with_search_matches.dart'),
         ''': mapCastOfType<String, List>(json, r'matches'),''',
         ''': mapCastOfType<String, List<String>>(json, r'matches')!,'''
     ),
     Replacement(
-        os.path.join(OUTPUT, 'lib', 'model/open_interactive_dialog_request_dialog.dart'),
-        '''elements: Object.listFromJson(json[r'elements'])!,''',
+        os.path.join(OUTPUT, 'lib', 'model/mattermost_open_interactive_dialog_request_dialog.dart'),
+        '''elements: Map.listFromJson(json[r'elements'])!,''',
         '''elements: json[r'elements'] ?? const [],'''
     ),
 ]
@@ -96,21 +113,16 @@ for rep in replacements:
   open(rep.fn, 'w').write(data)
 
 
-print('removing previously generated files')
-os.system(f'rm -rf lib/generated/*')
-os.system(f'rm -rf test/generated/*')
-os.system(f'rm -rf doc/generated/*')
-
 print('finally... copying files to final location')
 
 lib = os.path.join(OUTPUT, 'lib')
-os.system(f'rsync -a "{lib}/" lib/generated/')
+os.system(f'rsync -av "{lib}/" lib/generated/')
 
 test = os.path.join(OUTPUT, 'test')
-os.system(f'rsync -a "{test}/" test/generated/')
+os.system(f'rsync -av "{test}/" test/generated/')
 
 doc = os.path.join(OUTPUT, 'doc')
-os.system(f'rsync -a "{doc}/" doc/generated/')
+os.system(f'rsync -av "{doc}/" doc/generated/')
 
 readme = os.path.join(OUTPUT, 'README.md')
 os.system(f'cp "{readme}" GENERATED_README.md')

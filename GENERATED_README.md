@@ -42,18 +42,18 @@ import 'package:mattermost_api/api.dart';
 
 // TODO Configure HTTP Bearer authorization: bearerAuth
 // Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
 // Case 2. Use Function which generate token.
 // String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = AuthenticationApi();
-final migrateAuthToLdapRequest = MigrateAuthToLdapRequest(); // MigrateAuthToLdapRequest | 
+final api_instance = MattermostAuthenticationApi();
+final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
-    api_instance.migrateAuthToLdap(migrateAuthToLdapRequest);
+    api_instance.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
 } catch (e) {
-    print('Exception when calling AuthenticationApi->migrateAuthToLdap: $e\n');
+    print('Exception when calling MattermostAuthenticationApi->migrateAuthToLdap: $e\n');
 }
 
 ```
@@ -64,732 +64,732 @@ All URIs are relative to *http://your-mattermost-url.com/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**migrateAuthToLdap**](doc//AuthenticationApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
-*AuthenticationApi* | [**migrateAuthToSaml**](doc//AuthenticationApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
-*BleveApi* | [**purgeBleveIndexes**](doc//BleveApi.md#purgebleveindexes) | **POST** /bleve/purge_indexes | Purge all Bleve indexes
-*BotsApi* | [**assignBot**](doc//BotsApi.md#assignbot) | **POST** /bots/{bot_user_id}/assign/{user_id} | Assign a bot to a user
-*BotsApi* | [**convertBotToUser**](doc//BotsApi.md#convertbottouser) | **POST** /bots/{bot_user_id}/convert_to_user | Convert a bot into a user
-*BotsApi* | [**convertUserToBot**](doc//BotsApi.md#convertusertobot) | **POST** /users/{user_id}/convert_to_bot | Convert a user into a bot
-*BotsApi* | [**createBot**](doc//BotsApi.md#createbot) | **POST** /bots | Create a bot
-*BotsApi* | [**deleteBotIconImage**](doc//BotsApi.md#deleteboticonimage) | **DELETE** /bots/{bot_user_id}/icon | Delete bot's LHS icon image
-*BotsApi* | [**disableBot**](doc//BotsApi.md#disablebot) | **POST** /bots/{bot_user_id}/disable | Disable a bot
-*BotsApi* | [**enableBot**](doc//BotsApi.md#enablebot) | **POST** /bots/{bot_user_id}/enable | Enable a bot
-*BotsApi* | [**getBot**](doc//BotsApi.md#getbot) | **GET** /bots/{bot_user_id} | Get a bot
-*BotsApi* | [**getBotIconImage**](doc//BotsApi.md#getboticonimage) | **GET** /bots/{bot_user_id}/icon | Get bot's LHS icon
-*BotsApi* | [**getBots**](doc//BotsApi.md#getbots) | **GET** /bots | Get bots
-*BotsApi* | [**patchBot**](doc//BotsApi.md#patchbot) | **PUT** /bots/{bot_user_id} | Patch a bot
-*BotsApi* | [**setBotIconImage**](doc//BotsApi.md#setboticonimage) | **POST** /bots/{bot_user_id}/icon | Set bot's LHS icon image
-*BrandApi* | [**deleteBrandImage**](doc//BrandApi.md#deletebrandimage) | **DELETE** /brand/image | Delete current brand image
-*BrandApi* | [**getBrandImage**](doc//BrandApi.md#getbrandimage) | **GET** /brand/image | Get brand image
-*BrandApi* | [**uploadBrandImage**](doc//BrandApi.md#uploadbrandimage) | **POST** /brand/image | Upload brand image
-*ChannelsApi* | [**addChannelMember**](doc//ChannelsApi.md#addchannelmember) | **POST** /channels/{channel_id}/members | Add user to channel
-*ChannelsApi* | [**autocompleteChannelsForTeam**](doc//ChannelsApi.md#autocompletechannelsforteam) | **GET** /teams/{team_id}/channels/autocomplete | Autocomplete channels
-*ChannelsApi* | [**autocompleteChannelsForTeamForSearch**](doc//ChannelsApi.md#autocompletechannelsforteamforsearch) | **GET** /teams/{team_id}/channels/search_autocomplete | Autocomplete channels for search
-*ChannelsApi* | [**channelMembersMinusGroupMembers**](doc//ChannelsApi.md#channelmembersminusgroupmembers) | **GET** /channels/{channel_id}/members_minus_group_members | Channel members minus group members.
-*ChannelsApi* | [**createChannel**](doc//ChannelsApi.md#createchannel) | **POST** /channels | Create a channel
-*ChannelsApi* | [**createDirectChannel**](doc//ChannelsApi.md#createdirectchannel) | **POST** /channels/direct | Create a direct message channel
-*ChannelsApi* | [**createGroupChannel**](doc//ChannelsApi.md#creategroupchannel) | **POST** /channels/group | Create a group message channel
-*ChannelsApi* | [**createSidebarCategoryForTeamForUser**](doc//ChannelsApi.md#createsidebarcategoryforteamforuser) | **POST** /users/{user_id}/teams/{team_id}/channels/categories | Create user's sidebar category
-*ChannelsApi* | [**deleteChannel**](doc//ChannelsApi.md#deletechannel) | **DELETE** /channels/{channel_id} | Delete a channel
-*ChannelsApi* | [**getAllChannels**](doc//ChannelsApi.md#getallchannels) | **GET** /channels | Get a list of all channels
-*ChannelsApi* | [**getChannel**](doc//ChannelsApi.md#getchannel) | **GET** /channels/{channel_id} | Get a channel
-*ChannelsApi* | [**getChannelByName**](doc//ChannelsApi.md#getchannelbyname) | **GET** /teams/{team_id}/channels/name/{channel_name} | Get a channel by name
-*ChannelsApi* | [**getChannelByNameForTeamName**](doc//ChannelsApi.md#getchannelbynameforteamname) | **GET** /teams/name/{team_name}/channels/name/{channel_name} | Get a channel by name and team name
-*ChannelsApi* | [**getChannelMember**](doc//ChannelsApi.md#getchannelmember) | **GET** /channels/{channel_id}/members/{user_id} | Get channel member
-*ChannelsApi* | [**getChannelMemberCountsByGroup**](doc//ChannelsApi.md#getchannelmembercountsbygroup) | **GET** /channels/{channel_id}/member_counts_by_group | Channel members counts for each group that has atleast one member in the channel
-*ChannelsApi* | [**getChannelMembers**](doc//ChannelsApi.md#getchannelmembers) | **GET** /channels/{channel_id}/members | Get channel members
-*ChannelsApi* | [**getChannelMembersByIds**](doc//ChannelsApi.md#getchannelmembersbyids) | **POST** /channels/{channel_id}/members/ids | Get channel members by ids
-*ChannelsApi* | [**getChannelMembersForUser**](doc//ChannelsApi.md#getchannelmembersforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/members | Get channel memberships and roles for a user
-*ChannelsApi* | [**getChannelMembersTimezones**](doc//ChannelsApi.md#getchannelmemberstimezones) | **GET** /channels/{channel_id}/timezones | Get timezones in a channel
-*ChannelsApi* | [**getChannelModerations**](doc//ChannelsApi.md#getchannelmoderations) | **GET** /channels/{channel_id}/moderations | Get information about channel's moderation.
-*ChannelsApi* | [**getChannelStats**](doc//ChannelsApi.md#getchannelstats) | **GET** /channels/{channel_id}/stats | Get channel statistics
-*ChannelsApi* | [**getChannelUnread**](doc//ChannelsApi.md#getchannelunread) | **GET** /users/{user_id}/channels/{channel_id}/unread | Get unread messages
-*ChannelsApi* | [**getChannelsForTeamForUser**](doc//ChannelsApi.md#getchannelsforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels | Get channels for user
-*ChannelsApi* | [**getChannelsForUser**](doc//ChannelsApi.md#getchannelsforuser) | **GET** /users/{user_id}/channels | Get all channels from all teams
-*ChannelsApi* | [**getDeletedChannelsForTeam**](doc//ChannelsApi.md#getdeletedchannelsforteam) | **GET** /teams/{team_id}/channels/deleted | Get deleted channels
-*ChannelsApi* | [**getPinnedPosts**](doc//ChannelsApi.md#getpinnedposts) | **GET** /channels/{channel_id}/pinned | Get a channel's pinned posts
-*ChannelsApi* | [**getPrivateChannelsForTeam**](doc//ChannelsApi.md#getprivatechannelsforteam) | **GET** /teams/{team_id}/channels/private | Get private channels
-*ChannelsApi* | [**getPublicChannelsByIdsForTeam**](doc//ChannelsApi.md#getpublicchannelsbyidsforteam) | **POST** /teams/{team_id}/channels/ids | Get a list of channels by ids
-*ChannelsApi* | [**getPublicChannelsForTeam**](doc//ChannelsApi.md#getpublicchannelsforteam) | **GET** /teams/{team_id}/channels | Get public channels
-*ChannelsApi* | [**getSidebarCategoriesForTeamForUser**](doc//ChannelsApi.md#getsidebarcategoriesforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories | Get user's sidebar categories
-*ChannelsApi* | [**getSidebarCategoryForTeamForUser**](doc//ChannelsApi.md#getsidebarcategoryforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Get sidebar category
-*ChannelsApi* | [**getSidebarCategoryOrderForTeamForUser**](doc//ChannelsApi.md#getsidebarcategoryorderforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories/order | Get user's sidebar category order
-*ChannelsApi* | [**moveChannel**](doc//ChannelsApi.md#movechannel) | **POST** /channels/{channel_id}/move | Move a channel
-*ChannelsApi* | [**patchChannel**](doc//ChannelsApi.md#patchchannel) | **PUT** /channels/{channel_id}/patch | Patch a channel
-*ChannelsApi* | [**patchChannelModerations**](doc//ChannelsApi.md#patchchannelmoderations) | **PUT** /channels/{channel_id}/moderations/patch | Update a channel's moderation settings.
-*ChannelsApi* | [**removeSidebarCategoryForTeamForUser**](doc//ChannelsApi.md#removesidebarcategoryforteamforuser) | **DELETE** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Delete sidebar category
-*ChannelsApi* | [**removeUserFromChannel**](doc//ChannelsApi.md#removeuserfromchannel) | **DELETE** /channels/{channel_id}/members/{user_id} | Remove user from channel
-*ChannelsApi* | [**restoreChannel**](doc//ChannelsApi.md#restorechannel) | **POST** /channels/{channel_id}/restore | Restore a channel
-*ChannelsApi* | [**searchAllChannels**](doc//ChannelsApi.md#searchallchannels) | **POST** /channels/search | Search all private and open type channels across all teams
-*ChannelsApi* | [**searchArchivedChannels**](doc//ChannelsApi.md#searcharchivedchannels) | **POST** /teams/{team_id}/channels/search_archived | Search archived channels
-*ChannelsApi* | [**searchChannels**](doc//ChannelsApi.md#searchchannels) | **POST** /teams/{team_id}/channels/search | Search channels
-*ChannelsApi* | [**searchGroupChannels**](doc//ChannelsApi.md#searchgroupchannels) | **POST** /channels/group/search | Search Group Channels
-*ChannelsApi* | [**updateChannel**](doc//ChannelsApi.md#updatechannel) | **PUT** /channels/{channel_id} | Update a channel
-*ChannelsApi* | [**updateChannelMemberSchemeRoles**](doc//ChannelsApi.md#updatechannelmemberschemeroles) | **PUT** /channels/{channel_id}/members/{user_id}/schemeRoles | Update the scheme-derived roles of a channel member.
-*ChannelsApi* | [**updateChannelNotifyProps**](doc//ChannelsApi.md#updatechannelnotifyprops) | **PUT** /channels/{channel_id}/members/{user_id}/notify_props | Update channel notifications
-*ChannelsApi* | [**updateChannelPrivacy**](doc//ChannelsApi.md#updatechannelprivacy) | **PUT** /channels/{channel_id}/privacy | Update channel's privacy
-*ChannelsApi* | [**updateChannelRoles**](doc//ChannelsApi.md#updatechannelroles) | **PUT** /channels/{channel_id}/members/{user_id}/roles | Update channel roles
-*ChannelsApi* | [**updateChannelScheme**](doc//ChannelsApi.md#updatechannelscheme) | **PUT** /channels/{channel_id}/scheme | Set a channel's scheme
-*ChannelsApi* | [**updateSidebarCategoriesForTeamForUser**](doc//ChannelsApi.md#updatesidebarcategoriesforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories | Update user's sidebar categories
-*ChannelsApi* | [**updateSidebarCategoryForTeamForUser**](doc//ChannelsApi.md#updatesidebarcategoryforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Update sidebar category
-*ChannelsApi* | [**updateSidebarCategoryOrderForTeamForUser**](doc//ChannelsApi.md#updatesidebarcategoryorderforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories/order | Update user's sidebar category order
-*ChannelsApi* | [**viewChannel**](doc//ChannelsApi.md#viewchannel) | **POST** /channels/members/{user_id}/view | View channel
-*CloudApi* | [**confirmCustomerPayment**](doc//CloudApi.md#confirmcustomerpayment) | **POST** /cloud/payment/confirm | Completes the payment setup intent
-*CloudApi* | [**createCustomerPayment**](doc//CloudApi.md#createcustomerpayment) | **POST** /cloud/payment | Create a customer setup payment intent
-*CloudApi* | [**getCloudCustomer**](doc//CloudApi.md#getcloudcustomer) | **GET** /cloud/customer | Get cloud customer
-*CloudApi* | [**getCloudLimits**](doc//CloudApi.md#getcloudlimits) | **GET** /cloud/limits | Get cloud workspace limits
-*CloudApi* | [**getCloudProducts**](doc//CloudApi.md#getcloudproducts) | **GET** /cloud/products | Get cloud products
-*CloudApi* | [**getInvoiceForSubscriptionAsPdf**](doc//CloudApi.md#getinvoiceforsubscriptionaspdf) | **GET** /cloud/subscription/invoices/{invoice_id}/pdf | Get cloud invoice PDF
-*CloudApi* | [**getInvoicesForSubscription**](doc//CloudApi.md#getinvoicesforsubscription) | **GET** /cloud/subscription/invoices | Get cloud subscription invoices
-*CloudApi* | [**getSubscription**](doc//CloudApi.md#getsubscription) | **GET** /cloud/subscription | Get cloud subscription
-*CloudApi* | [**getSubscriptionStats**](doc//CloudApi.md#getsubscriptionstats) | **GET** /cloud/subscription/stats | GET endpoint for cloud subscription stats
-*CloudApi* | [**postEndpointForCwsWebhooks**](doc//CloudApi.md#postendpointforcwswebhooks) | **POST** /cloud/webhook | POST endpoint for CWS Webhooks
-*CloudApi* | [**sendAdminUpgradeRequestEmail**](doc//CloudApi.md#sendadminupgraderequestemail) | **POST** /cloud/subscription/limitreached/invite | POST endpoint for triggering sending emails to admin with request to upgrade workspace
-*CloudApi* | [**sendAdminUpgradeRequestEmailOnJoin**](doc//CloudApi.md#sendadminupgraderequestemailonjoin) | **POST** /cloud/subscription/limitreached/join | POST endpoint for triggering sending emails to admin with request to upgrade workspace
-*CloudApi* | [**updateCloudCustomer**](doc//CloudApi.md#updatecloudcustomer) | **PUT** /cloud/customer | Update cloud customer
-*CloudApi* | [**updateCloudCustomerAddress**](doc//CloudApi.md#updatecloudcustomeraddress) | **PUT** /cloud/customer/address | Update cloud customer address
-*ClusterApi* | [**getClusterStatus**](doc//ClusterApi.md#getclusterstatus) | **GET** /cluster/status | Get cluster status
-*CommandsApi* | [**createCommand**](doc//CommandsApi.md#createcommand) | **POST** /commands | Create a command
-*CommandsApi* | [**deleteCommand**](doc//CommandsApi.md#deletecommand) | **DELETE** /commands/{command_id} | Delete a command
-*CommandsApi* | [**executeCommand**](doc//CommandsApi.md#executecommand) | **POST** /commands/execute | Execute a command
-*CommandsApi* | [**getCommandById**](doc//CommandsApi.md#getcommandbyid) | **GET** /commands/{command_id} | Get a command
-*CommandsApi* | [**listAutocompleteCommands**](doc//CommandsApi.md#listautocompletecommands) | **GET** /teams/{team_id}/commands/autocomplete | List autocomplete commands
-*CommandsApi* | [**listCommandAutocompleteSuggestions**](doc//CommandsApi.md#listcommandautocompletesuggestions) | **GET** /teams/{team_id}/commands/autocomplete_suggestions | List commands' autocomplete data
-*CommandsApi* | [**listCommands**](doc//CommandsApi.md#listcommands) | **GET** /commands | List commands for a team
-*CommandsApi* | [**moveCommand**](doc//CommandsApi.md#movecommand) | **PUT** /commands/{command_id}/move | Move a command
-*CommandsApi* | [**regenCommandToken**](doc//CommandsApi.md#regencommandtoken) | **PUT** /commands/{command_id}/regen_token | Generate a new token
-*CommandsApi* | [**updateCommand**](doc//CommandsApi.md#updatecommand) | **PUT** /commands/{command_id} | Update a command
-*ComplianceApi* | [**createComplianceReport**](doc//ComplianceApi.md#createcompliancereport) | **POST** /compliance/reports | Create report
-*ComplianceApi* | [**downloadComplianceReport**](doc//ComplianceApi.md#downloadcompliancereport) | **GET** /compliance/reports/{report_id}/download | Download a report
-*ComplianceApi* | [**getComplianceReport**](doc//ComplianceApi.md#getcompliancereport) | **GET** /compliance/reports/{report_id} | Get a report
-*ComplianceApi* | [**getComplianceReports**](doc//ComplianceApi.md#getcompliancereports) | **GET** /compliance/reports | Get reports
-*DataRetentionApi* | [**addChannelsToRetentionPolicy**](doc//DataRetentionApi.md#addchannelstoretentionpolicy) | **POST** /data_retention/policies/{policy_id}/channels | Add channels to a granular data retention policy
-*DataRetentionApi* | [**addTeamsToRetentionPolicy**](doc//DataRetentionApi.md#addteamstoretentionpolicy) | **POST** /data_retention/policies/{policy_id}/teams | Add teams to a granular data retention policy
-*DataRetentionApi* | [**createDataRetentionPolicy**](doc//DataRetentionApi.md#createdataretentionpolicy) | **POST** /data_retention/policies | Create a new granular data retention policy
-*DataRetentionApi* | [**deleteDataRetentionPolicy**](doc//DataRetentionApi.md#deletedataretentionpolicy) | **DELETE** /data_retention/policies/{policy_id} | Delete a granular data retention policy
-*DataRetentionApi* | [**getChannelPoliciesForUser**](doc//DataRetentionApi.md#getchannelpoliciesforuser) | **GET** /users/{user_id}/data_retention/channel_policies | Get the policies which are applied to a user's channels
-*DataRetentionApi* | [**getChannelsForRetentionPolicy**](doc//DataRetentionApi.md#getchannelsforretentionpolicy) | **GET** /data_retention/policies/{policy_id}/channels | Get the channels for a granular data retention policy
-*DataRetentionApi* | [**getDataRetentionPolicies**](doc//DataRetentionApi.md#getdataretentionpolicies) | **GET** /data_retention/policies | Get the granular data retention policies
-*DataRetentionApi* | [**getDataRetentionPoliciesCount**](doc//DataRetentionApi.md#getdataretentionpoliciescount) | **GET** /data_retention/policies_count | Get the number of granular data retention policies
-*DataRetentionApi* | [**getDataRetentionPolicy**](doc//DataRetentionApi.md#getdataretentionpolicy) | **GET** /data_retention/policy | Get the global data retention policy
-*DataRetentionApi* | [**getDataRetentionPolicyByID**](doc//DataRetentionApi.md#getdataretentionpolicybyid) | **GET** /data_retention/policies/{policy_id} | Get a granular data retention policy
-*DataRetentionApi* | [**getTeamPoliciesForUser**](doc//DataRetentionApi.md#getteampoliciesforuser) | **GET** /users/{user_id}/data_retention/team_policies | Get the policies which are applied to a user's teams
-*DataRetentionApi* | [**getTeamsForRetentionPolicy**](doc//DataRetentionApi.md#getteamsforretentionpolicy) | **GET** /data_retention/policies/{policy_id}/teams | Get the teams for a granular data retention policy
-*DataRetentionApi* | [**patchDataRetentionPolicy**](doc//DataRetentionApi.md#patchdataretentionpolicy) | **PATCH** /data_retention/policies/{policy_id} | Patch a granular data retention policy
-*DataRetentionApi* | [**removeChannelsFromRetentionPolicy**](doc//DataRetentionApi.md#removechannelsfromretentionpolicy) | **DELETE** /data_retention/policies/{policy_id}/channels | Delete channels from a granular data retention policy
-*DataRetentionApi* | [**removeTeamsFromRetentionPolicy**](doc//DataRetentionApi.md#removeteamsfromretentionpolicy) | **DELETE** /data_retention/policies/{policy_id}/teams | Delete teams from a granular data retention policy
-*DataRetentionApi* | [**searchChannelsForRetentionPolicy**](doc//DataRetentionApi.md#searchchannelsforretentionpolicy) | **POST** /data_retention/policies/{policy_id}/channels/search | Search for the channels in a granular data retention policy
-*DataRetentionApi* | [**searchTeamsForRetentionPolicy**](doc//DataRetentionApi.md#searchteamsforretentionpolicy) | **POST** /data_retention/policies/{policy_id}/teams/search | Search for the teams in a granular data retention policy
-*ElasticsearchApi* | [**purgeElasticsearchIndexes**](doc//ElasticsearchApi.md#purgeelasticsearchindexes) | **POST** /elasticsearch/purge_indexes | Purge all Elasticsearch indexes
-*ElasticsearchApi* | [**testElasticsearch**](doc//ElasticsearchApi.md#testelasticsearch) | **POST** /elasticsearch/test | Test Elasticsearch configuration
-*EmojiApi* | [**autocompleteEmoji**](doc//EmojiApi.md#autocompleteemoji) | **GET** /emoji/autocomplete | Autocomplete custom emoji
-*EmojiApi* | [**createEmoji**](doc//EmojiApi.md#createemoji) | **POST** /emoji | Create a custom emoji
-*EmojiApi* | [**deleteEmoji**](doc//EmojiApi.md#deleteemoji) | **DELETE** /emoji/{emoji_id} | Delete a custom emoji
-*EmojiApi* | [**getEmoji**](doc//EmojiApi.md#getemoji) | **GET** /emoji/{emoji_id} | Get a custom emoji
-*EmojiApi* | [**getEmojiByName**](doc//EmojiApi.md#getemojibyname) | **GET** /emoji/name/{emoji_name} | Get a custom emoji by name
-*EmojiApi* | [**getEmojiImage**](doc//EmojiApi.md#getemojiimage) | **GET** /emoji/{emoji_id}/image | Get custom emoji image
-*EmojiApi* | [**getEmojiList**](doc//EmojiApi.md#getemojilist) | **GET** /emoji | Get a list of custom emoji
-*EmojiApi* | [**searchEmoji**](doc//EmojiApi.md#searchemoji) | **POST** /emoji/search | Search custom emoji
-*ExportsApi* | [**deleteExport**](doc//ExportsApi.md#deleteexport) | **DELETE** /exports/{export_name} | Delete an export file
-*ExportsApi* | [**downloadExport**](doc//ExportsApi.md#downloadexport) | **GET** /exports/{export_name} | Download an export file
-*ExportsApi* | [**listExports**](doc//ExportsApi.md#listexports) | **GET** /exports | List export files
-*FilesApi* | [**getFile**](doc//FilesApi.md#getfile) | **GET** /files/{file_id} | Get a file
-*FilesApi* | [**getFileInfo**](doc//FilesApi.md#getfileinfo) | **GET** /files/{file_id}/info | Get metadata for a file
-*FilesApi* | [**getFileLink**](doc//FilesApi.md#getfilelink) | **GET** /files/{file_id}/link | Get a public file link
-*FilesApi* | [**getFilePreview**](doc//FilesApi.md#getfilepreview) | **GET** /files/{file_id}/preview | Get a file's preview
-*FilesApi* | [**getFilePublic**](doc//FilesApi.md#getfilepublic) | **GET** /files/{file_id}/public | Get a public file
-*FilesApi* | [**getFileThumbnail**](doc//FilesApi.md#getfilethumbnail) | **GET** /files/{file_id}/thumbnail | Get a file's thumbnail
-*FilesApi* | [**searchFiles**](doc//FilesApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
-*FilesApi* | [**uploadFile**](doc//FilesApi.md#uploadfile) | **POST** /files | Upload a file
-*GroupsApi* | [**addGroupMembers**](doc//GroupsApi.md#addgroupmembers) | **POST** /groups/{group_id}/members | Adds members to a custom group
-*GroupsApi* | [**createGroup**](doc//GroupsApi.md#creategroup) | **POST** /groups | Create a custom group
-*GroupsApi* | [**deleteGroup**](doc//GroupsApi.md#deletegroup) | **DELETE** /groups/{group_id} | Deletes a custom group
-*GroupsApi* | [**deleteGroupMembers**](doc//GroupsApi.md#deletegroupmembers) | **DELETE** /groups/{group_id}/members | Removes members from a custom group
-*GroupsApi* | [**getGroup**](doc//GroupsApi.md#getgroup) | **GET** /groups/{group_id} | Get a group
-*GroupsApi* | [**getGroupStats**](doc//GroupsApi.md#getgroupstats) | **GET** /groups/{group_id}/stats | Get group stats
-*GroupsApi* | [**getGroupSyncableForChannelId**](doc//GroupsApi.md#getgroupsyncableforchannelid) | **GET** /groups/{group_id}/channels/{channel_id} | Get GroupSyncable from channel ID
-*GroupsApi* | [**getGroupSyncableForTeamId**](doc//GroupsApi.md#getgroupsyncableforteamid) | **GET** /groups/{group_id}/teams/{team_id} | Get GroupSyncable from Team ID
-*GroupsApi* | [**getGroupSyncablesChannels**](doc//GroupsApi.md#getgroupsyncableschannels) | **GET** /groups/{group_id}/channels | Get group channels
-*GroupsApi* | [**getGroupSyncablesTeams**](doc//GroupsApi.md#getgroupsyncablesteams) | **GET** /groups/{group_id}/teams | Get group teams
-*GroupsApi* | [**getGroupUsers**](doc//GroupsApi.md#getgroupusers) | **GET** /groups/{group_id}/members | Get group users
-*GroupsApi* | [**getGroups**](doc//GroupsApi.md#getgroups) | **GET** /groups | Get groups
-*GroupsApi* | [**getGroupsAssociatedToChannelsByTeam**](doc//GroupsApi.md#getgroupsassociatedtochannelsbyteam) | **GET** /teams/{team_id}/groups_by_channels | Get team groups by channels
-*GroupsApi* | [**getGroupsByChannel**](doc//GroupsApi.md#getgroupsbychannel) | **GET** /channels/{channel_id}/groups | Get channel groups
-*GroupsApi* | [**getGroupsByTeam**](doc//GroupsApi.md#getgroupsbyteam) | **GET** /teams/{team_id}/groups | Get team groups
-*GroupsApi* | [**getGroupsByUserId**](doc//GroupsApi.md#getgroupsbyuserid) | **GET** /users/{user_id}/groups | Get groups for a userId
-*GroupsApi* | [**linkGroupSyncableForChannel**](doc//GroupsApi.md#linkgroupsyncableforchannel) | **POST** /groups/{group_id}/channels/{channel_id}/link | Link a channel to a group
-*GroupsApi* | [**linkGroupSyncableForTeam**](doc//GroupsApi.md#linkgroupsyncableforteam) | **POST** /groups/{group_id}/teams/{team_id}/link | Link a team to a group
-*GroupsApi* | [**patchGroup**](doc//GroupsApi.md#patchgroup) | **PUT** /groups/{group_id}/patch | Patch a group
-*GroupsApi* | [**patchGroupSyncableForChannel**](doc//GroupsApi.md#patchgroupsyncableforchannel) | **PUT** /groups/{group_id}/channels/{channel_id}/patch | Patch a GroupSyncable associated to Channel
-*GroupsApi* | [**patchGroupSyncableForTeam**](doc//GroupsApi.md#patchgroupsyncableforteam) | **PUT** /groups/{group_id}/teams/{team_id}/patch | Patch a GroupSyncable associated to Team
-*GroupsApi* | [**unlinkGroupSyncableForChannel**](doc//GroupsApi.md#unlinkgroupsyncableforchannel) | **DELETE** /groups/{group_id}/channels/{channel_id}/link | Delete a link from a channel to a group
-*GroupsApi* | [**unlinkGroupSyncableForTeam**](doc//GroupsApi.md#unlinkgroupsyncableforteam) | **DELETE** /groups/{group_id}/teams/{team_id}/link | Delete a link from a team to a group
-*GroupsApi* | [**unlinkLdapGroup**](doc//GroupsApi.md#unlinkldapgroup) | **DELETE** /ldap/groups/{remote_id}/link | Delete a link for LDAP group
-*ImportsApi* | [**listImports**](doc//ImportsApi.md#listimports) | **GET** /imports | List import files
-*InsightsApi* | [**getTopChannelsForTeam**](doc//InsightsApi.md#gettopchannelsforteam) | **GET** /teams/{team_id}/top/channels | Get a list of the top channels for a team.
-*InsightsApi* | [**getTopChannelsForUser**](doc//InsightsApi.md#gettopchannelsforuser) | **GET** /users/me/top/channels | Get a list of the top channels for a user.
-*InsightsApi* | [**getTopReactionsForTeam**](doc//InsightsApi.md#gettopreactionsforteam) | **GET** /teams/{team_id}/top/reactions | Get a list of the top reactions for a team.
-*InsightsApi* | [**getTopReactionsForUser**](doc//InsightsApi.md#gettopreactionsforuser) | **GET** /users/me/top/reactions | Get a list of the top reactions for a user.
-*IntegrationActionsApi* | [**openInteractiveDialog**](doc//IntegrationActionsApi.md#openinteractivedialog) | **POST** /actions/dialogs/open | Open a dialog
-*IntegrationActionsApi* | [**submitInteractiveDialog**](doc//IntegrationActionsApi.md#submitinteractivedialog) | **POST** /actions/dialogs/submit | Submit a dialog
-*JobsApi* | [**cancelJob**](doc//JobsApi.md#canceljob) | **POST** /jobs/{job_id}/cancel | Cancel a job.
-*JobsApi* | [**createJob**](doc//JobsApi.md#createjob) | **POST** /jobs | Create a new job.
-*JobsApi* | [**downloadJob**](doc//JobsApi.md#downloadjob) | **GET** /jobs/{job_id}/download | Download the results of a job.
-*JobsApi* | [**getJob**](doc//JobsApi.md#getjob) | **GET** /jobs/{job_id} | Get a job.
-*JobsApi* | [**getJobs**](doc//JobsApi.md#getjobs) | **GET** /jobs | Get the jobs.
-*JobsApi* | [**getJobsByType**](doc//JobsApi.md#getjobsbytype) | **GET** /jobs/type/{type} | Get the jobs of the given type.
-*LDAPApi* | [**deleteLdapPrivateCertificate**](doc//LDAPApi.md#deleteldapprivatecertificate) | **DELETE** /ldap/certificate/private | Remove private key
-*LDAPApi* | [**deleteLdapPublicCertificate**](doc//LDAPApi.md#deleteldappubliccertificate) | **DELETE** /ldap/certificate/public | Remove public certificate
-*LDAPApi* | [**migrateAuthToLdap**](doc//LDAPApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
-*LDAPApi* | [**migrateIdLdap**](doc//LDAPApi.md#migrateidldap) | **POST** /ldap/migrateid | Migrate Id LDAP
-*LDAPApi* | [**syncLdap**](doc//LDAPApi.md#syncldap) | **POST** /ldap/sync | Sync with LDAP
-*LDAPApi* | [**testLdap**](doc//LDAPApi.md#testldap) | **POST** /ldap/test | Test LDAP configuration
-*LDAPApi* | [**uploadLdapPrivateCertificate**](doc//LDAPApi.md#uploadldapprivatecertificate) | **POST** /ldap/certificate/private | Upload private key
-*LDAPApi* | [**uploadLdapPublicCertificate**](doc//LDAPApi.md#uploadldappubliccertificate) | **POST** /ldap/certificate/public | Upload public certificate
-*LdapApi* | [**getLdapGroups**](doc//LdapApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
-*LdapApi* | [**linkLdapGroup**](doc//LdapApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
-*MigrateApi* | [**migrateAuthToLdap**](doc//MigrateApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
-*MigrateApi* | [**migrateAuthToSaml**](doc//MigrateApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
-*OAuthApi* | [**createOAuthApp**](doc//OAuthApi.md#createoauthapp) | **POST** /oauth/apps | Register OAuth app
-*OAuthApi* | [**deleteOAuthApp**](doc//OAuthApi.md#deleteoauthapp) | **DELETE** /oauth/apps/{app_id} | Delete an OAuth app
-*OAuthApi* | [**getAuthorizedOAuthAppsForUser**](doc//OAuthApi.md#getauthorizedoauthappsforuser) | **GET** /users/{user_id}/oauth/apps/authorized | Get authorized OAuth apps
-*OAuthApi* | [**getOAuthApp**](doc//OAuthApi.md#getoauthapp) | **GET** /oauth/apps/{app_id} | Get an OAuth app
-*OAuthApi* | [**getOAuthAppInfo**](doc//OAuthApi.md#getoauthappinfo) | **GET** /oauth/apps/{app_id}/info | Get info on an OAuth app
-*OAuthApi* | [**getOAuthApps**](doc//OAuthApi.md#getoauthapps) | **GET** /oauth/apps | Get OAuth apps
-*OAuthApi* | [**regenerateOAuthAppSecret**](doc//OAuthApi.md#regenerateoauthappsecret) | **POST** /oauth/apps/{app_id}/regen_secret | Regenerate OAuth app secret
-*OAuthApi* | [**updateOAuthApp**](doc//OAuthApi.md#updateoauthapp) | **PUT** /oauth/apps/{app_id} | Update an OAuth app
-*OpenGraphApi* | [**openGraph**](doc//OpenGraphApi.md#opengraph) | **POST** /opengraph | Get open graph metadata for url
-*PermissionsApi* | [**getAncillaryPermissions**](doc//PermissionsApi.md#getancillarypermissions) | **GET** /permissions/ancillary | Return all system console subsection ancillary permissions
-*PluginsApi* | [**disablePlugin**](doc//PluginsApi.md#disableplugin) | **POST** /plugins/{plugin_id}/disable | Disable plugin
-*PluginsApi* | [**enablePlugin**](doc//PluginsApi.md#enableplugin) | **POST** /plugins/{plugin_id}/enable | Enable plugin
-*PluginsApi* | [**getMarketplacePlugins**](doc//PluginsApi.md#getmarketplaceplugins) | **GET** /plugins/marketplace | Gets all the marketplace plugins
-*PluginsApi* | [**getMarketplaceVisitedByAdmin**](doc//PluginsApi.md#getmarketplacevisitedbyadmin) | **GET** /plugins/marketplace/first_admin_visit | Get if the Plugin Marketplace has been visited by at least an admin.
-*PluginsApi* | [**getPluginStatuses**](doc//PluginsApi.md#getpluginstatuses) | **GET** /plugins/statuses | Get plugins status
-*PluginsApi* | [**getPlugins**](doc//PluginsApi.md#getplugins) | **GET** /plugins | Get plugins
-*PluginsApi* | [**getWebappPlugins**](doc//PluginsApi.md#getwebappplugins) | **GET** /plugins/webapp | Get webapp plugins
-*PluginsApi* | [**installMarketplacePlugin**](doc//PluginsApi.md#installmarketplaceplugin) | **POST** /plugins/marketplace | Installs a marketplace plugin
-*PluginsApi* | [**installPluginFromUrl**](doc//PluginsApi.md#installpluginfromurl) | **POST** /plugins/install_from_url | Install plugin from url
-*PluginsApi* | [**removePlugin**](doc//PluginsApi.md#removeplugin) | **DELETE** /plugins/{plugin_id} | Remove plugin
-*PluginsApi* | [**uploadPlugin**](doc//PluginsApi.md#uploadplugin) | **POST** /plugins | Upload plugin
-*PostsApi* | [**createPost**](doc//PostsApi.md#createpost) | **POST** /posts | Create a post
-*PostsApi* | [**createPostEphemeral**](doc//PostsApi.md#createpostephemeral) | **POST** /posts/ephemeral | Create a ephemeral post
-*PostsApi* | [**deletePost**](doc//PostsApi.md#deletepost) | **DELETE** /posts/{post_id} | Delete a post
-*PostsApi* | [**doPostAction**](doc//PostsApi.md#dopostaction) | **POST** /posts/{post_id}/actions/{action_id} | Perform a post action
-*PostsApi* | [**getFileInfosForPost**](doc//PostsApi.md#getfileinfosforpost) | **GET** /posts/{post_id}/files/info | Get file info for post
-*PostsApi* | [**getFlaggedPostsForUser**](doc//PostsApi.md#getflaggedpostsforuser) | **GET** /users/{user_id}/posts/flagged | Get a list of flagged posts
-*PostsApi* | [**getPost**](doc//PostsApi.md#getpost) | **GET** /posts/{post_id} | Get a post
-*PostsApi* | [**getPostThread**](doc//PostsApi.md#getpostthread) | **GET** /posts/{post_id}/thread | Get a thread
-*PostsApi* | [**getPostsAroundLastUnread**](doc//PostsApi.md#getpostsaroundlastunread) | **GET** /users/{user_id}/channels/{channel_id}/posts/unread | Get posts around oldest unread
-*PostsApi* | [**getPostsByIds**](doc//PostsApi.md#getpostsbyids) | **POST** /posts/ids | Get posts by a list of ids
-*PostsApi* | [**getPostsForChannel**](doc//PostsApi.md#getpostsforchannel) | **GET** /channels/{channel_id}/posts | Get posts for a channel
-*PostsApi* | [**patchPost**](doc//PostsApi.md#patchpost) | **PUT** /posts/{post_id}/patch | Patch a post
-*PostsApi* | [**pinPost**](doc//PostsApi.md#pinpost) | **POST** /posts/{post_id}/pin | Pin a post to the channel
-*PostsApi* | [**searchPosts**](doc//PostsApi.md#searchposts) | **POST** /teams/{team_id}/posts/search | Search for team posts
-*PostsApi* | [**setPostUnread**](doc//PostsApi.md#setpostunread) | **POST** /users/{user_id}/posts/{post_id}/set_unread | Mark as unread from a post.
-*PostsApi* | [**unpinPost**](doc//PostsApi.md#unpinpost) | **POST** /posts/{post_id}/unpin | Unpin a post to the channel
-*PostsApi* | [**updatePost**](doc//PostsApi.md#updatepost) | **PUT** /posts/{post_id} | Update a post
-*PreferencesApi* | [**deletePreferences**](doc//PreferencesApi.md#deletepreferences) | **POST** /users/{user_id}/preferences/delete | Delete user's preferences
-*PreferencesApi* | [**getPreferences**](doc//PreferencesApi.md#getpreferences) | **GET** /users/{user_id}/preferences | Get the user's preferences
-*PreferencesApi* | [**getPreferencesByCategory**](doc//PreferencesApi.md#getpreferencesbycategory) | **GET** /users/{user_id}/preferences/{category} | List a user's preferences by category
-*PreferencesApi* | [**getPreferencesByCategoryByName**](doc//PreferencesApi.md#getpreferencesbycategorybyname) | **GET** /users/{user_id}/preferences/{category}/name/{preference_name} | Get a specific user preference
-*PreferencesApi* | [**updatePreferences**](doc//PreferencesApi.md#updatepreferences) | **PUT** /users/{user_id}/preferences | Save the user's preferences
-*ReactionsApi* | [**deleteReaction**](doc//ReactionsApi.md#deletereaction) | **DELETE** /users/{user_id}/posts/{post_id}/reactions/{emoji_name} | Remove a reaction from a post
-*ReactionsApi* | [**getBulkReactions**](doc//ReactionsApi.md#getbulkreactions) | **POST** /posts/ids/reactions | Bulk get the reaction for posts
-*ReactionsApi* | [**getReactions**](doc//ReactionsApi.md#getreactions) | **GET** /posts/{post_id}/reactions | Get a list of reactions to a post
-*ReactionsApi* | [**saveReaction**](doc//ReactionsApi.md#savereaction) | **POST** /reactions | Create a reaction
-*RolesApi* | [**getAllRoles**](doc//RolesApi.md#getallroles) | **GET** /roles | Get a list of all the roles
-*RolesApi* | [**getRole**](doc//RolesApi.md#getrole) | **GET** /roles/{role_id} | Get a role
-*RolesApi* | [**getRoleByName**](doc//RolesApi.md#getrolebyname) | **GET** /roles/name/{role_name} | Get a role
-*RolesApi* | [**getRolesByNames**](doc//RolesApi.md#getrolesbynames) | **POST** /roles/names | Get a list of roles by name
-*RolesApi* | [**patchRole**](doc//RolesApi.md#patchrole) | **PUT** /roles/{role_id}/patch | Patch a role
-*RootApi* | [**acknowledgeNotification**](doc//RootApi.md#acknowledgenotification) | **POST** /notifications/ack | Acknowledge receiving of a notification
-*SAMLApi* | [**deleteSamlIdpCertificate**](doc//SAMLApi.md#deletesamlidpcertificate) | **DELETE** /saml/certificate/idp | Remove IDP certificate
-*SAMLApi* | [**deleteSamlPrivateCertificate**](doc//SAMLApi.md#deletesamlprivatecertificate) | **DELETE** /saml/certificate/private | Remove private key
-*SAMLApi* | [**deleteSamlPublicCertificate**](doc//SAMLApi.md#deletesamlpubliccertificate) | **DELETE** /saml/certificate/public | Remove public certificate
-*SAMLApi* | [**getSamlCertificateStatus**](doc//SAMLApi.md#getsamlcertificatestatus) | **GET** /saml/certificate/status | Get certificate status
-*SAMLApi* | [**getSamlMetadata**](doc//SAMLApi.md#getsamlmetadata) | **GET** /saml/metadata | Get metadata
-*SAMLApi* | [**getSamlMetadataFromIdp**](doc//SAMLApi.md#getsamlmetadatafromidp) | **POST** /saml/metadatafromidp | Get metadata from Identity Provider
-*SAMLApi* | [**migrateAuthToSaml**](doc//SAMLApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
-*SAMLApi* | [**resetSamlAuthDataToEmail**](doc//SAMLApi.md#resetsamlauthdatatoemail) | **POST** /saml/reset_auth_data | Reset AuthData to Email
-*SAMLApi* | [**uploadSamlIdpCertificate**](doc//SAMLApi.md#uploadsamlidpcertificate) | **POST** /saml/certificate/idp | Upload IDP certificate
-*SAMLApi* | [**uploadSamlPrivateCertificate**](doc//SAMLApi.md#uploadsamlprivatecertificate) | **POST** /saml/certificate/private | Upload private key
-*SAMLApi* | [**uploadSamlPublicCertificate**](doc//SAMLApi.md#uploadsamlpubliccertificate) | **POST** /saml/certificate/public | Upload public certificate
-*SchemesApi* | [**createScheme**](doc//SchemesApi.md#createscheme) | **POST** /schemes | Create a scheme
-*SchemesApi* | [**deleteScheme**](doc//SchemesApi.md#deletescheme) | **DELETE** /schemes/{scheme_id} | Delete a scheme
-*SchemesApi* | [**getChannelsForScheme**](doc//SchemesApi.md#getchannelsforscheme) | **GET** /schemes/{scheme_id}/channels | Get a page of channels which use this scheme.
-*SchemesApi* | [**getScheme**](doc//SchemesApi.md#getscheme) | **GET** /schemes/{scheme_id} | Get a scheme
-*SchemesApi* | [**getSchemes**](doc//SchemesApi.md#getschemes) | **GET** /schemes | Get the schemes.
-*SchemesApi* | [**getTeamsForScheme**](doc//SchemesApi.md#getteamsforscheme) | **GET** /schemes/{scheme_id}/teams | Get a page of teams which use this scheme.
-*SchemesApi* | [**patchScheme**](doc//SchemesApi.md#patchscheme) | **PUT** /schemes/{scheme_id}/patch | Patch a scheme
-*SearchApi* | [**searchFiles**](doc//SearchApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
-*SharedChannelsApi* | [**getAllSharedChannels**](doc//SharedChannelsApi.md#getallsharedchannels) | **GET** /sharedchannels/{team_id} | Get all shared channels for team.
-*SharedChannelsApi* | [**getRemoteClusterInfo**](doc//SharedChannelsApi.md#getremoteclusterinfo) | **GET** /sharedchannels/remote_info/{remote_id} | Get remote cluster info by ID for user.
-*StatusApi* | [**getUserStatus**](doc//StatusApi.md#getuserstatus) | **GET** /users/{user_id}/status | Get user status
-*StatusApi* | [**getUsersStatusesByIds**](doc//StatusApi.md#getusersstatusesbyids) | **POST** /users/status/ids | Get user statuses by id
-*StatusApi* | [**postUserRecentCustomStatusDelete**](doc//StatusApi.md#postuserrecentcustomstatusdelete) | **POST** /users/{user_id}/status/custom/recent/delete | Delete user's recent custom status
-*StatusApi* | [**removeRecentCustomStatus**](doc//StatusApi.md#removerecentcustomstatus) | **DELETE** /users/{user_id}/status/custom/recent | Delete user's recent custom status
-*StatusApi* | [**unsetUserCustomStatus**](doc//StatusApi.md#unsetusercustomstatus) | **DELETE** /users/{user_id}/status/custom | Unsets user custom status
-*StatusApi* | [**updateUserCustomStatus**](doc//StatusApi.md#updateusercustomstatus) | **PUT** /users/{user_id}/status/custom | Update user custom status
-*StatusApi* | [**updateUserStatus**](doc//StatusApi.md#updateuserstatus) | **PUT** /users/{user_id}/status | Update user status
-*SystemApi* | [**checkIntegrity**](doc//SystemApi.md#checkintegrity) | **POST** /integrity | Perform a database integrity check
-*SystemApi* | [**clearServerBusy**](doc//SystemApi.md#clearserverbusy) | **DELETE** /server_busy | Clears the server busy (high load) flag
-*SystemApi* | [**databaseRecycle**](doc//SystemApi.md#databaserecycle) | **POST** /database/recycle | Recycle database connections
-*SystemApi* | [**generateSupportPacket**](doc//SystemApi.md#generatesupportpacket) | **GET** /system/support_packet | Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance.
-*SystemApi* | [**getAnalyticsOld**](doc//SystemApi.md#getanalyticsold) | **GET** /analytics/old | Get analytics
-*SystemApi* | [**getAudits**](doc//SystemApi.md#getaudits) | **GET** /audits | Get audits
-*SystemApi* | [**getClientConfig**](doc//SystemApi.md#getclientconfig) | **GET** /config/client | Get client configuration
-*SystemApi* | [**getClientLicense**](doc//SystemApi.md#getclientlicense) | **GET** /license/client | Get client license
-*SystemApi* | [**getConfig**](doc//SystemApi.md#getconfig) | **GET** /config | Get configuration
-*SystemApi* | [**getEnvironmentConfig**](doc//SystemApi.md#getenvironmentconfig) | **GET** /config/environment | Get configuration made through environment variables
-*SystemApi* | [**getImageByUrl**](doc//SystemApi.md#getimagebyurl) | **GET** /image | Get an image by url
-*SystemApi* | [**getLogs**](doc//SystemApi.md#getlogs) | **GET** /logs | Get logs
-*SystemApi* | [**getNotices**](doc//SystemApi.md#getnotices) | **GET** /system/notices/{teamId} | Get notices for logged in user in specified team
-*SystemApi* | [**getPing**](doc//SystemApi.md#getping) | **GET** /system/ping | Check system health
-*SystemApi* | [**getRedirectLocation**](doc//SystemApi.md#getredirectlocation) | **GET** /redirect_location | Get redirect location
-*SystemApi* | [**getServerBusyExpires**](doc//SystemApi.md#getserverbusyexpires) | **GET** /server_busy | Get server busy expiry time.
-*SystemApi* | [**getSupportedTimezone**](doc//SystemApi.md#getsupportedtimezone) | **GET** /system/timezones | Retrieve a list of supported timezones
-*SystemApi* | [**getWarnMetricsStatus**](doc//SystemApi.md#getwarnmetricsstatus) | **GET** /warn_metrics/status | Get the warn metrics status (enabled or disabled)
-*SystemApi* | [**invalidateCaches**](doc//SystemApi.md#invalidatecaches) | **POST** /caches/invalidate | Invalidate all the caches
-*SystemApi* | [**markNoticesViewed**](doc//SystemApi.md#marknoticesviewed) | **PUT** /system/notices/view | Update notices as 'viewed'
-*SystemApi* | [**patchConfig**](doc//SystemApi.md#patchconfig) | **PUT** /config/patch | Patch configuration
-*SystemApi* | [**postLog**](doc//SystemApi.md#postlog) | **POST** /logs | Add log message
-*SystemApi* | [**reloadConfig**](doc//SystemApi.md#reloadconfig) | **POST** /config/reload | Reload configuration
-*SystemApi* | [**removeLicenseFile**](doc//SystemApi.md#removelicensefile) | **DELETE** /license | Remove license file
-*SystemApi* | [**requestLicenseRenewalLink**](doc//SystemApi.md#requestlicenserenewallink) | **GET** /license/renewal | Request the license renewal link
-*SystemApi* | [**requestTrialLicense**](doc//SystemApi.md#requesttriallicense) | **POST** /trial-license | Request and install a trial license for your server
-*SystemApi* | [**restartServer**](doc//SystemApi.md#restartserver) | **POST** /restart | Restart the system after an upgrade from Team Edition to Enterprise Edition
-*SystemApi* | [**sendTrialLicenseWarnMetricAck**](doc//SystemApi.md#sendtriallicensewarnmetricack) | **POST** /warn_metrics/trial-license-ack/{warn_metric_id} | Request trial license and acknowledge a warning of a metric status
-*SystemApi* | [**sendWarnMetricAck**](doc//SystemApi.md#sendwarnmetricack) | **POST** /warn_metrics/ack/{warn_metric_id} | Acknowledge a warning of a metric status
-*SystemApi* | [**setServerBusy**](doc//SystemApi.md#setserverbusy) | **POST** /server_busy | Set the server busy (high load) flag
-*SystemApi* | [**testEmail**](doc//SystemApi.md#testemail) | **POST** /email/test | Send a test email
-*SystemApi* | [**testS3Connection**](doc//SystemApi.md#tests3connection) | **POST** /file/s3_test | Test AWS S3 connection
-*SystemApi* | [**testSiteURL**](doc//SystemApi.md#testsiteurl) | **POST** /site_url/test | Checks the validity of a Site URL
-*SystemApi* | [**trialLicensePrevGet**](doc//SystemApi.md#triallicenseprevget) | **GET** /trial-license/prev | Get last trial license used
-*SystemApi* | [**updateConfig**](doc//SystemApi.md#updateconfig) | **PUT** /config | Update configuration
-*SystemApi* | [**updateMarketplaceVisitedByAdmin**](doc//SystemApi.md#updatemarketplacevisitedbyadmin) | **POST** /plugins/marketplace/first_admin_visit | Stores that the Plugin Marketplace has been visited by at least an admin.
-*SystemApi* | [**upgradeToEnterprise**](doc//SystemApi.md#upgradetoenterprise) | **POST** /upgrade_to_enterprise | Executes an inplace upgrade from Team Edition to Enterprise Edition
-*SystemApi* | [**upgradeToEnterpriseStatus**](doc//SystemApi.md#upgradetoenterprisestatus) | **GET** /upgrade_to_enterprise/status | Get the current status for the inplace upgrade from Team Edition to Enterprise Edition
-*SystemApi* | [**uploadLicenseFile**](doc//SystemApi.md#uploadlicensefile) | **POST** /license | Upload license file
-*TeamsApi* | [**addTeamMember**](doc//TeamsApi.md#addteammember) | **POST** /teams/{team_id}/members | Add user to team
-*TeamsApi* | [**addTeamMemberFromInvite**](doc//TeamsApi.md#addteammemberfrominvite) | **POST** /teams/members/invite | Add user to team from invite
-*TeamsApi* | [**addTeamMembers**](doc//TeamsApi.md#addteammembers) | **POST** /teams/{team_id}/members/batch | Add multiple users to team
-*TeamsApi* | [**createTeam**](doc//TeamsApi.md#createteam) | **POST** /teams | Create a team
-*TeamsApi* | [**getAllTeams**](doc//TeamsApi.md#getallteams) | **GET** /teams | Get teams
-*TeamsApi* | [**getTeam**](doc//TeamsApi.md#getteam) | **GET** /teams/{team_id} | Get a team
-*TeamsApi* | [**getTeamByName**](doc//TeamsApi.md#getteambyname) | **GET** /teams/name/{name} | Get a team by name
-*TeamsApi* | [**getTeamIcon**](doc//TeamsApi.md#getteamicon) | **GET** /teams/{team_id}/image | Get the team icon
-*TeamsApi* | [**getTeamInviteInfo**](doc//TeamsApi.md#getteaminviteinfo) | **GET** /teams/invite/{invite_id} | Get invite info for a team
-*TeamsApi* | [**getTeamMember**](doc//TeamsApi.md#getteammember) | **GET** /teams/{team_id}/members/{user_id} | Get a team member
-*TeamsApi* | [**getTeamMembers**](doc//TeamsApi.md#getteammembers) | **GET** /teams/{team_id}/members | Get team members
-*TeamsApi* | [**getTeamMembersByIds**](doc//TeamsApi.md#getteammembersbyids) | **POST** /teams/{team_id}/members/ids | Get team members by ids
-*TeamsApi* | [**getTeamMembersForUser**](doc//TeamsApi.md#getteammembersforuser) | **GET** /users/{user_id}/teams/members | Get team members for a user
-*TeamsApi* | [**getTeamStats**](doc//TeamsApi.md#getteamstats) | **GET** /teams/{team_id}/stats | Get a team stats
-*TeamsApi* | [**getTeamUnread**](doc//TeamsApi.md#getteamunread) | **GET** /users/{user_id}/teams/{team_id}/unread | Get unreads for a team
-*TeamsApi* | [**getTeamsForUser**](doc//TeamsApi.md#getteamsforuser) | **GET** /users/{user_id}/teams | Get a user's teams
-*TeamsApi* | [**getTeamsUnreadForUser**](doc//TeamsApi.md#getteamsunreadforuser) | **GET** /users/{user_id}/teams/unread | Get team unreads for a user
-*TeamsApi* | [**importTeam**](doc//TeamsApi.md#importteam) | **POST** /teams/{team_id}/import | Import a Team from other application
-*TeamsApi* | [**invalidateEmailInvites**](doc//TeamsApi.md#invalidateemailinvites) | **DELETE** /teams/invites/email | Invalidate active email invitations
-*TeamsApi* | [**inviteGuestsToTeam**](doc//TeamsApi.md#invitegueststoteam) | **POST** /teams/{team_id}/invite-guests/email | Invite guests to the team by email
-*TeamsApi* | [**inviteUsersToTeam**](doc//TeamsApi.md#inviteuserstoteam) | **POST** /teams/{team_id}/invite/email | Invite users to the team by email
-*TeamsApi* | [**patchTeam**](doc//TeamsApi.md#patchteam) | **PUT** /teams/{team_id}/patch | Patch a team
-*TeamsApi* | [**regenerateTeamInviteId**](doc//TeamsApi.md#regenerateteaminviteid) | **POST** /teams/{team_id}/regenerate_invite_id | Regenerate the Invite ID from a Team
-*TeamsApi* | [**removeTeamIcon**](doc//TeamsApi.md#removeteamicon) | **DELETE** /teams/{team_id}/image | Remove the team icon
-*TeamsApi* | [**removeTeamMember**](doc//TeamsApi.md#removeteammember) | **DELETE** /teams/{team_id}/members/{user_id} | Remove user from team
-*TeamsApi* | [**restoreTeam**](doc//TeamsApi.md#restoreteam) | **POST** /teams/{team_id}/restore | Restore a team
-*TeamsApi* | [**searchFiles**](doc//TeamsApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
-*TeamsApi* | [**searchTeams**](doc//TeamsApi.md#searchteams) | **POST** /teams/search | Search teams
-*TeamsApi* | [**setTeamIcon**](doc//TeamsApi.md#setteamicon) | **POST** /teams/{team_id}/image | Sets the team icon
-*TeamsApi* | [**softDeleteTeam**](doc//TeamsApi.md#softdeleteteam) | **DELETE** /teams/{team_id} | Delete a team
-*TeamsApi* | [**teamExists**](doc//TeamsApi.md#teamexists) | **GET** /teams/name/{name}/exists | Check if team exists
-*TeamsApi* | [**teamMembersMinusGroupMembers**](doc//TeamsApi.md#teammembersminusgroupmembers) | **GET** /teams/{team_id}/members_minus_group_members | Team members minus group members.
-*TeamsApi* | [**updateTeam**](doc//TeamsApi.md#updateteam) | **PUT** /teams/{team_id} | Update a team
-*TeamsApi* | [**updateTeamMemberRoles**](doc//TeamsApi.md#updateteammemberroles) | **PUT** /teams/{team_id}/members/{user_id}/roles | Update a team member roles
-*TeamsApi* | [**updateTeamMemberSchemeRoles**](doc//TeamsApi.md#updateteammemberschemeroles) | **PUT** /teams/{team_id}/members/{user_id}/schemeRoles | Update the scheme-derived roles of a team member.
-*TeamsApi* | [**updateTeamPrivacy**](doc//TeamsApi.md#updateteamprivacy) | **PUT** /teams/{team_id}/privacy | Update teams's privacy
-*TeamsApi* | [**updateTeamScheme**](doc//TeamsApi.md#updateteamscheme) | **PUT** /teams/{team_id}/scheme | Set a team's scheme
-*TermsOfServiceApi* | [**createTermsOfService**](doc//TermsOfServiceApi.md#createtermsofservice) | **POST** /terms_of_service | Creates a new terms of service
-*TermsOfServiceApi* | [**getTermsOfService**](doc//TermsOfServiceApi.md#gettermsofservice) | **GET** /terms_of_service | Get latest terms of service
-*TermsOfServiceApi* | [**getUserTermsOfService**](doc//TermsOfServiceApi.md#getusertermsofservice) | **GET** /users/{user_id}/terms_of_service | Fetches user's latest terms of service action if the latest action was for acceptance.
-*TermsOfServiceApi* | [**registerTermsOfServiceAction**](doc//TermsOfServiceApi.md#registertermsofserviceaction) | **POST** /users/{user_id}/terms_of_service | Records user action when they accept or decline custom terms of service
-*ThreadsApi* | [**getThreadMentionCountsByChannel**](doc//ThreadsApi.md#getthreadmentioncountsbychannel) | **GET** /users/{user_id}/teams/{team_id}/threads/mention_counts | Get all unread mention counts from followed threads, per-channel
-*ThreadsApi* | [**getUserThread**](doc//ThreadsApi.md#getuserthread) | **GET** /users/{user_id}/teams/{team_id}/threads/{thread_id} | Get a thread followed by the user
-*ThreadsApi* | [**getUserThreads**](doc//ThreadsApi.md#getuserthreads) | **GET** /users/{user_id}/teams/{team_id}/threads | Get all threads that user is following
-*ThreadsApi* | [**startFollowingThread**](doc//ThreadsApi.md#startfollowingthread) | **PUT** /users/{user_id}/teams/{team_id}/threads/{thread_id}/following | Start following a thread
-*ThreadsApi* | [**stopFollowingThread**](doc//ThreadsApi.md#stopfollowingthread) | **DELETE** /users/{user_id}/teams/{team_id}/threads/{thread_id}/following | Stop following a thread
-*ThreadsApi* | [**updateThreadReadForUser**](doc//ThreadsApi.md#updatethreadreadforuser) | **PUT** /users/{user_id}/teams/{team_id}/threads/{thread_id}/read/{timestamp} | Mark a thread that user is following read state to the timestamp
-*ThreadsApi* | [**updateThreadsReadForUser**](doc//ThreadsApi.md#updatethreadsreadforuser) | **PUT** /users/{user_id}/teams/{team_id}/threads/read | Mark all threads that user is following as read
-*UploadsApi* | [**createUpload**](doc//UploadsApi.md#createupload) | **POST** /uploads | Create an upload
-*UploadsApi* | [**getUpload**](doc//UploadsApi.md#getupload) | **GET** /uploads/{upload_id} | Get an upload session
-*UploadsApi* | [**uploadData**](doc//UploadsApi.md#uploaddata) | **POST** /uploads/{upload_id} | Perform a file upload
-*UsageApi* | [**getPostsUsage**](doc//UsageApi.md#getpostsusage) | **GET** /usage/posts | Get current usage of posts
-*UsersApi* | [**attachDeviceId**](doc//UsersApi.md#attachdeviceid) | **PUT** /users/sessions/device | Attach mobile device
-*UsersApi* | [**autocompleteUsers**](doc//UsersApi.md#autocompleteusers) | **GET** /users/autocomplete | Autocomplete users
-*UsersApi* | [**checkUserMfa**](doc//UsersApi.md#checkusermfa) | **POST** /users/mfa | Check MFA
-*UsersApi* | [**convertBotToUser**](doc//UsersApi.md#convertbottouser) | **POST** /bots/{bot_user_id}/convert_to_user | Convert a bot into a user
-*UsersApi* | [**convertUserToBot**](doc//UsersApi.md#convertusertobot) | **POST** /users/{user_id}/convert_to_bot | Convert a user into a bot
-*UsersApi* | [**createUser**](doc//UsersApi.md#createuser) | **POST** /users | Create a user
-*UsersApi* | [**createUserAccessToken**](doc//UsersApi.md#createuseraccesstoken) | **POST** /users/{user_id}/tokens | Create a user access token
-*UsersApi* | [**deleteUser**](doc//UsersApi.md#deleteuser) | **DELETE** /users/{user_id} | Deactivate a user account.
-*UsersApi* | [**demoteUserToGuest**](doc//UsersApi.md#demoteusertoguest) | **POST** /users/{user_id}/demote | Demote a user to a guest
-*UsersApi* | [**disableUserAccessToken**](doc//UsersApi.md#disableuseraccesstoken) | **POST** /users/tokens/disable | Disable personal access token
-*UsersApi* | [**enableUserAccessToken**](doc//UsersApi.md#enableuseraccesstoken) | **POST** /users/tokens/enable | Enable personal access token
-*UsersApi* | [**generateMfaSecret**](doc//UsersApi.md#generatemfasecret) | **POST** /users/{user_id}/mfa/generate | Generate MFA secret
-*UsersApi* | [**getChannelMembersWithTeamDataForUser**](doc//UsersApi.md#getchannelmemberswithteamdataforuser) | **GET** /users/{user_id}/channel_members | Get all channel members from all teams for a user
-*UsersApi* | [**getDefaultProfileImage**](doc//UsersApi.md#getdefaultprofileimage) | **GET** /users/{user_id}/image/default | Return user's default (generated) profile image
-*UsersApi* | [**getKnownUsers**](doc//UsersApi.md#getknownusers) | **GET** /users/known | Get user IDs of known users
-*UsersApi* | [**getProfileImage**](doc//UsersApi.md#getprofileimage) | **GET** /users/{user_id}/image | Get user's profile image
-*UsersApi* | [**getSessions**](doc//UsersApi.md#getsessions) | **GET** /users/{user_id}/sessions | Get user's sessions
-*UsersApi* | [**getTotalUsersStats**](doc//UsersApi.md#gettotalusersstats) | **GET** /users/stats | Get total count of users in the system
-*UsersApi* | [**getTotalUsersStatsFiltered**](doc//UsersApi.md#gettotalusersstatsfiltered) | **GET** /users/stats/filtered | Get total count of users in the system matching the specified filters
-*UsersApi* | [**getUploadsForUser**](doc//UsersApi.md#getuploadsforuser) | **GET** /users/{user_id}/uploads | Get uploads for a user
-*UsersApi* | [**getUser**](doc//UsersApi.md#getuser) | **GET** /users/{user_id} | Get a user
-*UsersApi* | [**getUserAccessToken**](doc//UsersApi.md#getuseraccesstoken) | **GET** /users/tokens/{token_id} | Get a user access token
-*UsersApi* | [**getUserAccessTokens**](doc//UsersApi.md#getuseraccesstokens) | **GET** /users/tokens | Get user access tokens
-*UsersApi* | [**getUserAccessTokensForUser**](doc//UsersApi.md#getuseraccesstokensforuser) | **GET** /users/{user_id}/tokens | Get user access tokens
-*UsersApi* | [**getUserAudits**](doc//UsersApi.md#getuseraudits) | **GET** /users/{user_id}/audits | Get user's audits
-*UsersApi* | [**getUserByEmail**](doc//UsersApi.md#getuserbyemail) | **GET** /users/email/{email} | Get a user by email
-*UsersApi* | [**getUserByUsername**](doc//UsersApi.md#getuserbyusername) | **GET** /users/username/{username} | Get a user by username
-*UsersApi* | [**getUserTermsOfService**](doc//UsersApi.md#getusertermsofservice) | **GET** /users/{user_id}/terms_of_service | Fetches user's latest terms of service action if the latest action was for acceptance.
-*UsersApi* | [**getUsers**](doc//UsersApi.md#getusers) | **GET** /users | Get users
-*UsersApi* | [**getUsersByGroupChannelIds**](doc//UsersApi.md#getusersbygroupchannelids) | **POST** /users/group_channels | Get users by group channels ids
-*UsersApi* | [**getUsersByIds**](doc//UsersApi.md#getusersbyids) | **POST** /users/ids | Get users by ids
-*UsersApi* | [**getUsersByUsernames**](doc//UsersApi.md#getusersbyusernames) | **POST** /users/usernames | Get users by usernames
-*UsersApi* | [**login**](doc//UsersApi.md#login) | **POST** /users/login | Login to Mattermost server
-*UsersApi* | [**loginByCwsToken**](doc//UsersApi.md#loginbycwstoken) | **POST** /users/login/cws | Auto-Login to Mattermost server using CWS token
-*UsersApi* | [**logout**](doc//UsersApi.md#logout) | **POST** /users/logout | Logout from the Mattermost server
-*UsersApi* | [**migrateAuthToLdap**](doc//UsersApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
-*UsersApi* | [**migrateAuthToSaml**](doc//UsersApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
-*UsersApi* | [**patchUser**](doc//UsersApi.md#patchuser) | **PUT** /users/{user_id}/patch | Patch a user
-*UsersApi* | [**permanentDeleteAllUsers**](doc//UsersApi.md#permanentdeleteallusers) | **DELETE** /users | Permanent delete all users
-*UsersApi* | [**promoteGuestToUser**](doc//UsersApi.md#promoteguesttouser) | **POST** /users/{user_id}/promote | Promote a guest to user
-*UsersApi* | [**publishUserTyping**](doc//UsersApi.md#publishusertyping) | **POST** /users/{user_id}/typing | Publish a user typing websocket event.
-*UsersApi* | [**registerTermsOfServiceAction**](doc//UsersApi.md#registertermsofserviceaction) | **POST** /users/{user_id}/terms_of_service | Records user action when they accept or decline custom terms of service
-*UsersApi* | [**resetPassword**](doc//UsersApi.md#resetpassword) | **POST** /users/password/reset | Reset password
-*UsersApi* | [**revokeAllSessions**](doc//UsersApi.md#revokeallsessions) | **POST** /users/{user_id}/sessions/revoke/all | Revoke all active sessions for a user
-*UsersApi* | [**revokeSession**](doc//UsersApi.md#revokesession) | **POST** /users/{user_id}/sessions/revoke | Revoke a user session
-*UsersApi* | [**revokeSessionsFromAllUsers**](doc//UsersApi.md#revokesessionsfromallusers) | **POST** /users/sessions/revoke/all | Revoke all sessions from all users.
-*UsersApi* | [**revokeUserAccessToken**](doc//UsersApi.md#revokeuseraccesstoken) | **POST** /users/tokens/revoke | Revoke a user access token
-*UsersApi* | [**searchUserAccessTokens**](doc//UsersApi.md#searchuseraccesstokens) | **POST** /users/tokens/search | Search tokens
-*UsersApi* | [**searchUsers**](doc//UsersApi.md#searchusers) | **POST** /users/search | Search users
-*UsersApi* | [**sendPasswordResetEmail**](doc//UsersApi.md#sendpasswordresetemail) | **POST** /users/password/reset/send | Send password reset email
-*UsersApi* | [**sendVerificationEmail**](doc//UsersApi.md#sendverificationemail) | **POST** /users/email/verify/send | Send verification email
-*UsersApi* | [**setDefaultProfileImage**](doc//UsersApi.md#setdefaultprofileimage) | **DELETE** /users/{user_id}/image | Delete user's profile image
-*UsersApi* | [**setProfileImage**](doc//UsersApi.md#setprofileimage) | **POST** /users/{user_id}/image | Set user's profile image
-*UsersApi* | [**switchAccountType**](doc//UsersApi.md#switchaccounttype) | **POST** /users/login/switch | Switch login method
-*UsersApi* | [**updateUser**](doc//UsersApi.md#updateuser) | **PUT** /users/{user_id} | Update a user
-*UsersApi* | [**updateUserActive**](doc//UsersApi.md#updateuseractive) | **PUT** /users/{user_id}/active | Update user active status
-*UsersApi* | [**updateUserAuth**](doc//UsersApi.md#updateuserauth) | **PUT** /users/{user_id}/auth | Update a user's authentication method
-*UsersApi* | [**updateUserMfa**](doc//UsersApi.md#updateusermfa) | **PUT** /users/{user_id}/mfa | Update a user's MFA
-*UsersApi* | [**updateUserPassword**](doc//UsersApi.md#updateuserpassword) | **PUT** /users/{user_id}/password | Update a user's password
-*UsersApi* | [**updateUserRoles**](doc//UsersApi.md#updateuserroles) | **PUT** /users/{user_id}/roles | Update a user's roles
-*UsersApi* | [**verifyUserEmail**](doc//UsersApi.md#verifyuseremail) | **POST** /users/email/verify | Verify user email
-*UsersApi* | [**verifyUserEmailWithoutToken**](doc//UsersApi.md#verifyuseremailwithouttoken) | **POST** /users/{user_id}/email/verify/member | Verify user email by ID
-*WebhooksApi* | [**createIncomingWebhook**](doc//WebhooksApi.md#createincomingwebhook) | **POST** /hooks/incoming | Create an incoming webhook
-*WebhooksApi* | [**createOutgoingWebhook**](doc//WebhooksApi.md#createoutgoingwebhook) | **POST** /hooks/outgoing | Create an outgoing webhook
-*WebhooksApi* | [**deleteIncomingWebhook**](doc//WebhooksApi.md#deleteincomingwebhook) | **DELETE** /hooks/incoming/{hook_id} | Delete an incoming webhook
-*WebhooksApi* | [**deleteOutgoingWebhook**](doc//WebhooksApi.md#deleteoutgoingwebhook) | **DELETE** /hooks/outgoing/{hook_id} | Delete an outgoing webhook
-*WebhooksApi* | [**getIncomingWebhook**](doc//WebhooksApi.md#getincomingwebhook) | **GET** /hooks/incoming/{hook_id} | Get an incoming webhook
-*WebhooksApi* | [**getIncomingWebhooks**](doc//WebhooksApi.md#getincomingwebhooks) | **GET** /hooks/incoming | List incoming webhooks
-*WebhooksApi* | [**getOutgoingWebhook**](doc//WebhooksApi.md#getoutgoingwebhook) | **GET** /hooks/outgoing/{hook_id} | Get an outgoing webhook
-*WebhooksApi* | [**getOutgoingWebhooks**](doc//WebhooksApi.md#getoutgoingwebhooks) | **GET** /hooks/outgoing | List outgoing webhooks
-*WebhooksApi* | [**regenOutgoingHookToken**](doc//WebhooksApi.md#regenoutgoinghooktoken) | **POST** /hooks/outgoing/{hook_id}/regen_token | Regenerate the token for the outgoing webhook.
-*WebhooksApi* | [**updateIncomingWebhook**](doc//WebhooksApi.md#updateincomingwebhook) | **PUT** /hooks/incoming/{hook_id} | Update an incoming webhook
-*WebhooksApi* | [**updateOutgoingWebhook**](doc//WebhooksApi.md#updateoutgoingwebhook) | **PUT** /hooks/outgoing/{hook_id} | Update an outgoing webhook
+*MattermostAuthenticationApi* | [**migrateAuthToLdap**](doc//MattermostAuthenticationApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
+*MattermostAuthenticationApi* | [**migrateAuthToSaml**](doc//MattermostAuthenticationApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
+*MattermostBleveApi* | [**purgeBleveIndexes**](doc//MattermostBleveApi.md#purgebleveindexes) | **POST** /bleve/purge_indexes | Purge all Bleve indexes
+*MattermostBotsApi* | [**assignBot**](doc//MattermostBotsApi.md#assignbot) | **POST** /bots/{bot_user_id}/assign/{user_id} | Assign a bot to a user
+*MattermostBotsApi* | [**convertBotToUser**](doc//MattermostBotsApi.md#convertbottouser) | **POST** /bots/{bot_user_id}/convert_to_user | Convert a bot into a user
+*MattermostBotsApi* | [**convertUserToBot**](doc//MattermostBotsApi.md#convertusertobot) | **POST** /users/{user_id}/convert_to_bot | Convert a user into a bot
+*MattermostBotsApi* | [**createBot**](doc//MattermostBotsApi.md#createbot) | **POST** /bots | Create a bot
+*MattermostBotsApi* | [**deleteBotIconImage**](doc//MattermostBotsApi.md#deleteboticonimage) | **DELETE** /bots/{bot_user_id}/icon | Delete bot's LHS icon image
+*MattermostBotsApi* | [**disableBot**](doc//MattermostBotsApi.md#disablebot) | **POST** /bots/{bot_user_id}/disable | Disable a bot
+*MattermostBotsApi* | [**enableBot**](doc//MattermostBotsApi.md#enablebot) | **POST** /bots/{bot_user_id}/enable | Enable a bot
+*MattermostBotsApi* | [**getBot**](doc//MattermostBotsApi.md#getbot) | **GET** /bots/{bot_user_id} | Get a bot
+*MattermostBotsApi* | [**getBotIconImage**](doc//MattermostBotsApi.md#getboticonimage) | **GET** /bots/{bot_user_id}/icon | Get bot's LHS icon
+*MattermostBotsApi* | [**getBots**](doc//MattermostBotsApi.md#getbots) | **GET** /bots | Get bots
+*MattermostBotsApi* | [**patchBot**](doc//MattermostBotsApi.md#patchbot) | **PUT** /bots/{bot_user_id} | Patch a bot
+*MattermostBotsApi* | [**setBotIconImage**](doc//MattermostBotsApi.md#setboticonimage) | **POST** /bots/{bot_user_id}/icon | Set bot's LHS icon image
+*MattermostBrandApi* | [**deleteBrandImage**](doc//MattermostBrandApi.md#deletebrandimage) | **DELETE** /brand/image | Delete current brand image
+*MattermostBrandApi* | [**getBrandImage**](doc//MattermostBrandApi.md#getbrandimage) | **GET** /brand/image | Get brand image
+*MattermostBrandApi* | [**uploadBrandImage**](doc//MattermostBrandApi.md#uploadbrandimage) | **POST** /brand/image | Upload brand image
+*MattermostChannelsApi* | [**addChannelMember**](doc//MattermostChannelsApi.md#addchannelmember) | **POST** /channels/{channel_id}/members | Add user to channel
+*MattermostChannelsApi* | [**autocompleteChannelsForTeam**](doc//MattermostChannelsApi.md#autocompletechannelsforteam) | **GET** /teams/{team_id}/channels/autocomplete | Autocomplete channels
+*MattermostChannelsApi* | [**autocompleteChannelsForTeamForSearch**](doc//MattermostChannelsApi.md#autocompletechannelsforteamforsearch) | **GET** /teams/{team_id}/channels/search_autocomplete | Autocomplete channels for search
+*MattermostChannelsApi* | [**channelMembersMinusGroupMembers**](doc//MattermostChannelsApi.md#channelmembersminusgroupmembers) | **GET** /channels/{channel_id}/members_minus_group_members | Channel members minus group members.
+*MattermostChannelsApi* | [**createChannel**](doc//MattermostChannelsApi.md#createchannel) | **POST** /channels | Create a channel
+*MattermostChannelsApi* | [**createDirectChannel**](doc//MattermostChannelsApi.md#createdirectchannel) | **POST** /channels/direct | Create a direct message channel
+*MattermostChannelsApi* | [**createGroupChannel**](doc//MattermostChannelsApi.md#creategroupchannel) | **POST** /channels/group | Create a group message channel
+*MattermostChannelsApi* | [**createSidebarCategoryForTeamForUser**](doc//MattermostChannelsApi.md#createsidebarcategoryforteamforuser) | **POST** /users/{user_id}/teams/{team_id}/channels/categories | Create user's sidebar category
+*MattermostChannelsApi* | [**deleteChannel**](doc//MattermostChannelsApi.md#deletechannel) | **DELETE** /channels/{channel_id} | Delete a channel
+*MattermostChannelsApi* | [**getAllChannels**](doc//MattermostChannelsApi.md#getallchannels) | **GET** /channels | Get a list of all channels
+*MattermostChannelsApi* | [**getChannel**](doc//MattermostChannelsApi.md#getchannel) | **GET** /channels/{channel_id} | Get a channel
+*MattermostChannelsApi* | [**getChannelByName**](doc//MattermostChannelsApi.md#getchannelbyname) | **GET** /teams/{team_id}/channels/name/{channel_name} | Get a channel by name
+*MattermostChannelsApi* | [**getChannelByNameForTeamName**](doc//MattermostChannelsApi.md#getchannelbynameforteamname) | **GET** /teams/name/{team_name}/channels/name/{channel_name} | Get a channel by name and team name
+*MattermostChannelsApi* | [**getChannelMember**](doc//MattermostChannelsApi.md#getchannelmember) | **GET** /channels/{channel_id}/members/{user_id} | Get channel member
+*MattermostChannelsApi* | [**getChannelMemberCountsByGroup**](doc//MattermostChannelsApi.md#getchannelmembercountsbygroup) | **GET** /channels/{channel_id}/member_counts_by_group | Channel members counts for each group that has atleast one member in the channel
+*MattermostChannelsApi* | [**getChannelMembers**](doc//MattermostChannelsApi.md#getchannelmembers) | **GET** /channels/{channel_id}/members | Get channel members
+*MattermostChannelsApi* | [**getChannelMembersByIds**](doc//MattermostChannelsApi.md#getchannelmembersbyids) | **POST** /channels/{channel_id}/members/ids | Get channel members by ids
+*MattermostChannelsApi* | [**getChannelMembersForUser**](doc//MattermostChannelsApi.md#getchannelmembersforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/members | Get channel memberships and roles for a user
+*MattermostChannelsApi* | [**getChannelMembersTimezones**](doc//MattermostChannelsApi.md#getchannelmemberstimezones) | **GET** /channels/{channel_id}/timezones | Get timezones in a channel
+*MattermostChannelsApi* | [**getChannelModerations**](doc//MattermostChannelsApi.md#getchannelmoderations) | **GET** /channels/{channel_id}/moderations | Get information about channel's moderation.
+*MattermostChannelsApi* | [**getChannelStats**](doc//MattermostChannelsApi.md#getchannelstats) | **GET** /channels/{channel_id}/stats | Get channel statistics
+*MattermostChannelsApi* | [**getChannelUnread**](doc//MattermostChannelsApi.md#getchannelunread) | **GET** /users/{user_id}/channels/{channel_id}/unread | Get unread messages
+*MattermostChannelsApi* | [**getChannelsForTeamForUser**](doc//MattermostChannelsApi.md#getchannelsforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels | Get channels for user
+*MattermostChannelsApi* | [**getChannelsForUser**](doc//MattermostChannelsApi.md#getchannelsforuser) | **GET** /users/{user_id}/channels | Get all channels from all teams
+*MattermostChannelsApi* | [**getDeletedChannelsForTeam**](doc//MattermostChannelsApi.md#getdeletedchannelsforteam) | **GET** /teams/{team_id}/channels/deleted | Get deleted channels
+*MattermostChannelsApi* | [**getPinnedPosts**](doc//MattermostChannelsApi.md#getpinnedposts) | **GET** /channels/{channel_id}/pinned | Get a channel's pinned posts
+*MattermostChannelsApi* | [**getPrivateChannelsForTeam**](doc//MattermostChannelsApi.md#getprivatechannelsforteam) | **GET** /teams/{team_id}/channels/private | Get private channels
+*MattermostChannelsApi* | [**getPublicChannelsByIdsForTeam**](doc//MattermostChannelsApi.md#getpublicchannelsbyidsforteam) | **POST** /teams/{team_id}/channels/ids | Get a list of channels by ids
+*MattermostChannelsApi* | [**getPublicChannelsForTeam**](doc//MattermostChannelsApi.md#getpublicchannelsforteam) | **GET** /teams/{team_id}/channels | Get public channels
+*MattermostChannelsApi* | [**getSidebarCategoriesForTeamForUser**](doc//MattermostChannelsApi.md#getsidebarcategoriesforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories | Get user's sidebar categories
+*MattermostChannelsApi* | [**getSidebarCategoryForTeamForUser**](doc//MattermostChannelsApi.md#getsidebarcategoryforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Get sidebar category
+*MattermostChannelsApi* | [**getSidebarCategoryOrderForTeamForUser**](doc//MattermostChannelsApi.md#getsidebarcategoryorderforteamforuser) | **GET** /users/{user_id}/teams/{team_id}/channels/categories/order | Get user's sidebar category order
+*MattermostChannelsApi* | [**moveChannel**](doc//MattermostChannelsApi.md#movechannel) | **POST** /channels/{channel_id}/move | Move a channel
+*MattermostChannelsApi* | [**patchChannel**](doc//MattermostChannelsApi.md#patchchannel) | **PUT** /channels/{channel_id}/patch | Patch a channel
+*MattermostChannelsApi* | [**patchChannelModerations**](doc//MattermostChannelsApi.md#patchchannelmoderations) | **PUT** /channels/{channel_id}/moderations/patch | Update a channel's moderation settings.
+*MattermostChannelsApi* | [**removeSidebarCategoryForTeamForUser**](doc//MattermostChannelsApi.md#removesidebarcategoryforteamforuser) | **DELETE** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Delete sidebar category
+*MattermostChannelsApi* | [**removeUserFromChannel**](doc//MattermostChannelsApi.md#removeuserfromchannel) | **DELETE** /channels/{channel_id}/members/{user_id} | Remove user from channel
+*MattermostChannelsApi* | [**restoreChannel**](doc//MattermostChannelsApi.md#restorechannel) | **POST** /channels/{channel_id}/restore | Restore a channel
+*MattermostChannelsApi* | [**searchAllChannels**](doc//MattermostChannelsApi.md#searchallchannels) | **POST** /channels/search | Search all private and open type channels across all teams
+*MattermostChannelsApi* | [**searchArchivedChannels**](doc//MattermostChannelsApi.md#searcharchivedchannels) | **POST** /teams/{team_id}/channels/search_archived | Search archived channels
+*MattermostChannelsApi* | [**searchChannels**](doc//MattermostChannelsApi.md#searchchannels) | **POST** /teams/{team_id}/channels/search | Search channels
+*MattermostChannelsApi* | [**searchGroupChannels**](doc//MattermostChannelsApi.md#searchgroupchannels) | **POST** /channels/group/search | Search Group Channels
+*MattermostChannelsApi* | [**updateChannel**](doc//MattermostChannelsApi.md#updatechannel) | **PUT** /channels/{channel_id} | Update a channel
+*MattermostChannelsApi* | [**updateChannelMemberSchemeRoles**](doc//MattermostChannelsApi.md#updatechannelmemberschemeroles) | **PUT** /channels/{channel_id}/members/{user_id}/schemeRoles | Update the scheme-derived roles of a channel member.
+*MattermostChannelsApi* | [**updateChannelNotifyProps**](doc//MattermostChannelsApi.md#updatechannelnotifyprops) | **PUT** /channels/{channel_id}/members/{user_id}/notify_props | Update channel notifications
+*MattermostChannelsApi* | [**updateChannelPrivacy**](doc//MattermostChannelsApi.md#updatechannelprivacy) | **PUT** /channels/{channel_id}/privacy | Update channel's privacy
+*MattermostChannelsApi* | [**updateChannelRoles**](doc//MattermostChannelsApi.md#updatechannelroles) | **PUT** /channels/{channel_id}/members/{user_id}/roles | Update channel roles
+*MattermostChannelsApi* | [**updateChannelScheme**](doc//MattermostChannelsApi.md#updatechannelscheme) | **PUT** /channels/{channel_id}/scheme | Set a channel's scheme
+*MattermostChannelsApi* | [**updateSidebarCategoriesForTeamForUser**](doc//MattermostChannelsApi.md#updatesidebarcategoriesforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories | Update user's sidebar categories
+*MattermostChannelsApi* | [**updateSidebarCategoryForTeamForUser**](doc//MattermostChannelsApi.md#updatesidebarcategoryforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories/{category_id} | Update sidebar category
+*MattermostChannelsApi* | [**updateSidebarCategoryOrderForTeamForUser**](doc//MattermostChannelsApi.md#updatesidebarcategoryorderforteamforuser) | **PUT** /users/{user_id}/teams/{team_id}/channels/categories/order | Update user's sidebar category order
+*MattermostChannelsApi* | [**viewChannel**](doc//MattermostChannelsApi.md#viewchannel) | **POST** /channels/members/{user_id}/view | View channel
+*MattermostCloudApi* | [**confirmCustomerPayment**](doc//MattermostCloudApi.md#confirmcustomerpayment) | **POST** /cloud/payment/confirm | Completes the payment setup intent
+*MattermostCloudApi* | [**createCustomerPayment**](doc//MattermostCloudApi.md#createcustomerpayment) | **POST** /cloud/payment | Create a customer setup payment intent
+*MattermostCloudApi* | [**getCloudCustomer**](doc//MattermostCloudApi.md#getcloudcustomer) | **GET** /cloud/customer | Get cloud customer
+*MattermostCloudApi* | [**getCloudLimits**](doc//MattermostCloudApi.md#getcloudlimits) | **GET** /cloud/limits | Get cloud workspace limits
+*MattermostCloudApi* | [**getCloudProducts**](doc//MattermostCloudApi.md#getcloudproducts) | **GET** /cloud/products | Get cloud products
+*MattermostCloudApi* | [**getInvoiceForSubscriptionAsPdf**](doc//MattermostCloudApi.md#getinvoiceforsubscriptionaspdf) | **GET** /cloud/subscription/invoices/{invoice_id}/pdf | Get cloud invoice PDF
+*MattermostCloudApi* | [**getInvoicesForSubscription**](doc//MattermostCloudApi.md#getinvoicesforsubscription) | **GET** /cloud/subscription/invoices | Get cloud subscription invoices
+*MattermostCloudApi* | [**getSubscription**](doc//MattermostCloudApi.md#getsubscription) | **GET** /cloud/subscription | Get cloud subscription
+*MattermostCloudApi* | [**getSubscriptionStats**](doc//MattermostCloudApi.md#getsubscriptionstats) | **GET** /cloud/subscription/stats | GET endpoint for cloud subscription stats
+*MattermostCloudApi* | [**postEndpointForCwsWebhooks**](doc//MattermostCloudApi.md#postendpointforcwswebhooks) | **POST** /cloud/webhook | POST endpoint for CWS Webhooks
+*MattermostCloudApi* | [**sendAdminUpgradeRequestEmail**](doc//MattermostCloudApi.md#sendadminupgraderequestemail) | **POST** /cloud/subscription/limitreached/invite | POST endpoint for triggering sending emails to admin with request to upgrade workspace
+*MattermostCloudApi* | [**sendAdminUpgradeRequestEmailOnJoin**](doc//MattermostCloudApi.md#sendadminupgraderequestemailonjoin) | **POST** /cloud/subscription/limitreached/join | POST endpoint for triggering sending emails to admin with request to upgrade workspace
+*MattermostCloudApi* | [**updateCloudCustomer**](doc//MattermostCloudApi.md#updatecloudcustomer) | **PUT** /cloud/customer | Update cloud customer
+*MattermostCloudApi* | [**updateCloudCustomerAddress**](doc//MattermostCloudApi.md#updatecloudcustomeraddress) | **PUT** /cloud/customer/address | Update cloud customer address
+*MattermostClusterApi* | [**getClusterStatus**](doc//MattermostClusterApi.md#getclusterstatus) | **GET** /cluster/status | Get cluster status
+*MattermostCommandsApi* | [**createCommand**](doc//MattermostCommandsApi.md#createcommand) | **POST** /commands | Create a command
+*MattermostCommandsApi* | [**deleteCommand**](doc//MattermostCommandsApi.md#deletecommand) | **DELETE** /commands/{command_id} | Delete a command
+*MattermostCommandsApi* | [**executeCommand**](doc//MattermostCommandsApi.md#executecommand) | **POST** /commands/execute | Execute a command
+*MattermostCommandsApi* | [**getCommandById**](doc//MattermostCommandsApi.md#getcommandbyid) | **GET** /commands/{command_id} | Get a command
+*MattermostCommandsApi* | [**listAutocompleteCommands**](doc//MattermostCommandsApi.md#listautocompletecommands) | **GET** /teams/{team_id}/commands/autocomplete | List autocomplete commands
+*MattermostCommandsApi* | [**listCommandAutocompleteSuggestions**](doc//MattermostCommandsApi.md#listcommandautocompletesuggestions) | **GET** /teams/{team_id}/commands/autocomplete_suggestions | List commands' autocomplete data
+*MattermostCommandsApi* | [**listCommands**](doc//MattermostCommandsApi.md#listcommands) | **GET** /commands | List commands for a team
+*MattermostCommandsApi* | [**moveCommand**](doc//MattermostCommandsApi.md#movecommand) | **PUT** /commands/{command_id}/move | Move a command
+*MattermostCommandsApi* | [**regenCommandToken**](doc//MattermostCommandsApi.md#regencommandtoken) | **PUT** /commands/{command_id}/regen_token | Generate a new token
+*MattermostCommandsApi* | [**updateCommand**](doc//MattermostCommandsApi.md#updatecommand) | **PUT** /commands/{command_id} | Update a command
+*MattermostComplianceApi* | [**createComplianceReport**](doc//MattermostComplianceApi.md#createcompliancereport) | **POST** /compliance/reports | Create report
+*MattermostComplianceApi* | [**downloadComplianceReport**](doc//MattermostComplianceApi.md#downloadcompliancereport) | **GET** /compliance/reports/{report_id}/download | Download a report
+*MattermostComplianceApi* | [**getComplianceReport**](doc//MattermostComplianceApi.md#getcompliancereport) | **GET** /compliance/reports/{report_id} | Get a report
+*MattermostComplianceApi* | [**getComplianceReports**](doc//MattermostComplianceApi.md#getcompliancereports) | **GET** /compliance/reports | Get reports
+*MattermostDataRetentionApi* | [**addChannelsToRetentionPolicy**](doc//MattermostDataRetentionApi.md#addchannelstoretentionpolicy) | **POST** /data_retention/policies/{policy_id}/channels | Add channels to a granular data retention policy
+*MattermostDataRetentionApi* | [**addTeamsToRetentionPolicy**](doc//MattermostDataRetentionApi.md#addteamstoretentionpolicy) | **POST** /data_retention/policies/{policy_id}/teams | Add teams to a granular data retention policy
+*MattermostDataRetentionApi* | [**createDataRetentionPolicy**](doc//MattermostDataRetentionApi.md#createdataretentionpolicy) | **POST** /data_retention/policies | Create a new granular data retention policy
+*MattermostDataRetentionApi* | [**deleteDataRetentionPolicy**](doc//MattermostDataRetentionApi.md#deletedataretentionpolicy) | **DELETE** /data_retention/policies/{policy_id} | Delete a granular data retention policy
+*MattermostDataRetentionApi* | [**getChannelPoliciesForUser**](doc//MattermostDataRetentionApi.md#getchannelpoliciesforuser) | **GET** /users/{user_id}/data_retention/channel_policies | Get the policies which are applied to a user's channels
+*MattermostDataRetentionApi* | [**getChannelsForRetentionPolicy**](doc//MattermostDataRetentionApi.md#getchannelsforretentionpolicy) | **GET** /data_retention/policies/{policy_id}/channels | Get the channels for a granular data retention policy
+*MattermostDataRetentionApi* | [**getDataRetentionPolicies**](doc//MattermostDataRetentionApi.md#getdataretentionpolicies) | **GET** /data_retention/policies | Get the granular data retention policies
+*MattermostDataRetentionApi* | [**getDataRetentionPoliciesCount**](doc//MattermostDataRetentionApi.md#getdataretentionpoliciescount) | **GET** /data_retention/policies_count | Get the number of granular data retention policies
+*MattermostDataRetentionApi* | [**getDataRetentionPolicy**](doc//MattermostDataRetentionApi.md#getdataretentionpolicy) | **GET** /data_retention/policy | Get the global data retention policy
+*MattermostDataRetentionApi* | [**getDataRetentionPolicyByID**](doc//MattermostDataRetentionApi.md#getdataretentionpolicybyid) | **GET** /data_retention/policies/{policy_id} | Get a granular data retention policy
+*MattermostDataRetentionApi* | [**getTeamPoliciesForUser**](doc//MattermostDataRetentionApi.md#getteampoliciesforuser) | **GET** /users/{user_id}/data_retention/team_policies | Get the policies which are applied to a user's teams
+*MattermostDataRetentionApi* | [**getTeamsForRetentionPolicy**](doc//MattermostDataRetentionApi.md#getteamsforretentionpolicy) | **GET** /data_retention/policies/{policy_id}/teams | Get the teams for a granular data retention policy
+*MattermostDataRetentionApi* | [**patchDataRetentionPolicy**](doc//MattermostDataRetentionApi.md#patchdataretentionpolicy) | **PATCH** /data_retention/policies/{policy_id} | Patch a granular data retention policy
+*MattermostDataRetentionApi* | [**removeChannelsFromRetentionPolicy**](doc//MattermostDataRetentionApi.md#removechannelsfromretentionpolicy) | **DELETE** /data_retention/policies/{policy_id}/channels | Delete channels from a granular data retention policy
+*MattermostDataRetentionApi* | [**removeTeamsFromRetentionPolicy**](doc//MattermostDataRetentionApi.md#removeteamsfromretentionpolicy) | **DELETE** /data_retention/policies/{policy_id}/teams | Delete teams from a granular data retention policy
+*MattermostDataRetentionApi* | [**searchChannelsForRetentionPolicy**](doc//MattermostDataRetentionApi.md#searchchannelsforretentionpolicy) | **POST** /data_retention/policies/{policy_id}/channels/search | Search for the channels in a granular data retention policy
+*MattermostDataRetentionApi* | [**searchTeamsForRetentionPolicy**](doc//MattermostDataRetentionApi.md#searchteamsforretentionpolicy) | **POST** /data_retention/policies/{policy_id}/teams/search | Search for the teams in a granular data retention policy
+*MattermostElasticsearchApi* | [**purgeElasticsearchIndexes**](doc//MattermostElasticsearchApi.md#purgeelasticsearchindexes) | **POST** /elasticsearch/purge_indexes | Purge all Elasticsearch indexes
+*MattermostElasticsearchApi* | [**testElasticsearch**](doc//MattermostElasticsearchApi.md#testelasticsearch) | **POST** /elasticsearch/test | Test Elasticsearch configuration
+*MattermostEmojiApi* | [**autocompleteEmoji**](doc//MattermostEmojiApi.md#autocompleteemoji) | **GET** /emoji/autocomplete | Autocomplete custom emoji
+*MattermostEmojiApi* | [**createEmoji**](doc//MattermostEmojiApi.md#createemoji) | **POST** /emoji | Create a custom emoji
+*MattermostEmojiApi* | [**deleteEmoji**](doc//MattermostEmojiApi.md#deleteemoji) | **DELETE** /emoji/{emoji_id} | Delete a custom emoji
+*MattermostEmojiApi* | [**getEmoji**](doc//MattermostEmojiApi.md#getemoji) | **GET** /emoji/{emoji_id} | Get a custom emoji
+*MattermostEmojiApi* | [**getEmojiByName**](doc//MattermostEmojiApi.md#getemojibyname) | **GET** /emoji/name/{emoji_name} | Get a custom emoji by name
+*MattermostEmojiApi* | [**getEmojiImage**](doc//MattermostEmojiApi.md#getemojiimage) | **GET** /emoji/{emoji_id}/image | Get custom emoji image
+*MattermostEmojiApi* | [**getEmojiList**](doc//MattermostEmojiApi.md#getemojilist) | **GET** /emoji | Get a list of custom emoji
+*MattermostEmojiApi* | [**searchEmoji**](doc//MattermostEmojiApi.md#searchemoji) | **POST** /emoji/search | Search custom emoji
+*MattermostExportsApi* | [**deleteExport**](doc//MattermostExportsApi.md#deleteexport) | **DELETE** /exports/{export_name} | Delete an export file
+*MattermostExportsApi* | [**downloadExport**](doc//MattermostExportsApi.md#downloadexport) | **GET** /exports/{export_name} | Download an export file
+*MattermostExportsApi* | [**listExports**](doc//MattermostExportsApi.md#listexports) | **GET** /exports | List export files
+*MattermostFilesApi* | [**getFile**](doc//MattermostFilesApi.md#getfile) | **GET** /files/{file_id} | Get a file
+*MattermostFilesApi* | [**getFileInfo**](doc//MattermostFilesApi.md#getfileinfo) | **GET** /files/{file_id}/info | Get metadata for a file
+*MattermostFilesApi* | [**getFileLink**](doc//MattermostFilesApi.md#getfilelink) | **GET** /files/{file_id}/link | Get a public file link
+*MattermostFilesApi* | [**getFilePreview**](doc//MattermostFilesApi.md#getfilepreview) | **GET** /files/{file_id}/preview | Get a file's preview
+*MattermostFilesApi* | [**getFilePublic**](doc//MattermostFilesApi.md#getfilepublic) | **GET** /files/{file_id}/public | Get a public file
+*MattermostFilesApi* | [**getFileThumbnail**](doc//MattermostFilesApi.md#getfilethumbnail) | **GET** /files/{file_id}/thumbnail | Get a file's thumbnail
+*MattermostFilesApi* | [**searchFiles**](doc//MattermostFilesApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
+*MattermostFilesApi* | [**uploadFile**](doc//MattermostFilesApi.md#uploadfile) | **POST** /files | Upload a file
+*MattermostGroupsApi* | [**addGroupMembers**](doc//MattermostGroupsApi.md#addgroupmembers) | **POST** /groups/{group_id}/members | Adds members to a custom group
+*MattermostGroupsApi* | [**createGroup**](doc//MattermostGroupsApi.md#creategroup) | **POST** /groups | Create a custom group
+*MattermostGroupsApi* | [**deleteGroup**](doc//MattermostGroupsApi.md#deletegroup) | **DELETE** /groups/{group_id} | Deletes a custom group
+*MattermostGroupsApi* | [**deleteGroupMembers**](doc//MattermostGroupsApi.md#deletegroupmembers) | **DELETE** /groups/{group_id}/members | Removes members from a custom group
+*MattermostGroupsApi* | [**getGroup**](doc//MattermostGroupsApi.md#getgroup) | **GET** /groups/{group_id} | Get a group
+*MattermostGroupsApi* | [**getGroupStats**](doc//MattermostGroupsApi.md#getgroupstats) | **GET** /groups/{group_id}/stats | Get group stats
+*MattermostGroupsApi* | [**getGroupSyncableForChannelId**](doc//MattermostGroupsApi.md#getgroupsyncableforchannelid) | **GET** /groups/{group_id}/channels/{channel_id} | Get GroupSyncable from channel ID
+*MattermostGroupsApi* | [**getGroupSyncableForTeamId**](doc//MattermostGroupsApi.md#getgroupsyncableforteamid) | **GET** /groups/{group_id}/teams/{team_id} | Get GroupSyncable from Team ID
+*MattermostGroupsApi* | [**getGroupSyncablesChannels**](doc//MattermostGroupsApi.md#getgroupsyncableschannels) | **GET** /groups/{group_id}/channels | Get group channels
+*MattermostGroupsApi* | [**getGroupSyncablesTeams**](doc//MattermostGroupsApi.md#getgroupsyncablesteams) | **GET** /groups/{group_id}/teams | Get group teams
+*MattermostGroupsApi* | [**getGroupUsers**](doc//MattermostGroupsApi.md#getgroupusers) | **GET** /groups/{group_id}/members | Get group users
+*MattermostGroupsApi* | [**getGroups**](doc//MattermostGroupsApi.md#getgroups) | **GET** /groups | Get groups
+*MattermostGroupsApi* | [**getGroupsAssociatedToChannelsByTeam**](doc//MattermostGroupsApi.md#getgroupsassociatedtochannelsbyteam) | **GET** /teams/{team_id}/groups_by_channels | Get team groups by channels
+*MattermostGroupsApi* | [**getGroupsByChannel**](doc//MattermostGroupsApi.md#getgroupsbychannel) | **GET** /channels/{channel_id}/groups | Get channel groups
+*MattermostGroupsApi* | [**getGroupsByTeam**](doc//MattermostGroupsApi.md#getgroupsbyteam) | **GET** /teams/{team_id}/groups | Get team groups
+*MattermostGroupsApi* | [**getGroupsByUserId**](doc//MattermostGroupsApi.md#getgroupsbyuserid) | **GET** /users/{user_id}/groups | Get groups for a userId
+*MattermostGroupsApi* | [**linkGroupSyncableForChannel**](doc//MattermostGroupsApi.md#linkgroupsyncableforchannel) | **POST** /groups/{group_id}/channels/{channel_id}/link | Link a channel to a group
+*MattermostGroupsApi* | [**linkGroupSyncableForTeam**](doc//MattermostGroupsApi.md#linkgroupsyncableforteam) | **POST** /groups/{group_id}/teams/{team_id}/link | Link a team to a group
+*MattermostGroupsApi* | [**patchGroup**](doc//MattermostGroupsApi.md#patchgroup) | **PUT** /groups/{group_id}/patch | Patch a group
+*MattermostGroupsApi* | [**patchGroupSyncableForChannel**](doc//MattermostGroupsApi.md#patchgroupsyncableforchannel) | **PUT** /groups/{group_id}/channels/{channel_id}/patch | Patch a GroupSyncable associated to Channel
+*MattermostGroupsApi* | [**patchGroupSyncableForTeam**](doc//MattermostGroupsApi.md#patchgroupsyncableforteam) | **PUT** /groups/{group_id}/teams/{team_id}/patch | Patch a GroupSyncable associated to Team
+*MattermostGroupsApi* | [**unlinkGroupSyncableForChannel**](doc//MattermostGroupsApi.md#unlinkgroupsyncableforchannel) | **DELETE** /groups/{group_id}/channels/{channel_id}/link | Delete a link from a channel to a group
+*MattermostGroupsApi* | [**unlinkGroupSyncableForTeam**](doc//MattermostGroupsApi.md#unlinkgroupsyncableforteam) | **DELETE** /groups/{group_id}/teams/{team_id}/link | Delete a link from a team to a group
+*MattermostGroupsApi* | [**unlinkLdapGroup**](doc//MattermostGroupsApi.md#unlinkldapgroup) | **DELETE** /ldap/groups/{remote_id}/link | Delete a link for LDAP group
+*MattermostImportsApi* | [**listImports**](doc//MattermostImportsApi.md#listimports) | **GET** /imports | List import files
+*MattermostInsightsApi* | [**getTopChannelsForTeam**](doc//MattermostInsightsApi.md#gettopchannelsforteam) | **GET** /teams/{team_id}/top/channels | Get a list of the top channels for a team.
+*MattermostInsightsApi* | [**getTopChannelsForUser**](doc//MattermostInsightsApi.md#gettopchannelsforuser) | **GET** /users/me/top/channels | Get a list of the top channels for a user.
+*MattermostInsightsApi* | [**getTopReactionsForTeam**](doc//MattermostInsightsApi.md#gettopreactionsforteam) | **GET** /teams/{team_id}/top/reactions | Get a list of the top reactions for a team.
+*MattermostInsightsApi* | [**getTopReactionsForUser**](doc//MattermostInsightsApi.md#gettopreactionsforuser) | **GET** /users/me/top/reactions | Get a list of the top reactions for a user.
+*MattermostIntegrationActionsApi* | [**openInteractiveDialog**](doc//MattermostIntegrationActionsApi.md#openinteractivedialog) | **POST** /actions/dialogs/open | Open a dialog
+*MattermostIntegrationActionsApi* | [**submitInteractiveDialog**](doc//MattermostIntegrationActionsApi.md#submitinteractivedialog) | **POST** /actions/dialogs/submit | Submit a dialog
+*MattermostJobsApi* | [**cancelJob**](doc//MattermostJobsApi.md#canceljob) | **POST** /jobs/{job_id}/cancel | Cancel a job.
+*MattermostJobsApi* | [**createJob**](doc//MattermostJobsApi.md#createjob) | **POST** /jobs | Create a new job.
+*MattermostJobsApi* | [**downloadJob**](doc//MattermostJobsApi.md#downloadjob) | **GET** /jobs/{job_id}/download | Download the results of a job.
+*MattermostJobsApi* | [**getJob**](doc//MattermostJobsApi.md#getjob) | **GET** /jobs/{job_id} | Get a job.
+*MattermostJobsApi* | [**getJobs**](doc//MattermostJobsApi.md#getjobs) | **GET** /jobs | Get the jobs.
+*MattermostJobsApi* | [**getJobsByType**](doc//MattermostJobsApi.md#getjobsbytype) | **GET** /jobs/type/{type} | Get the jobs of the given type.
+*MattermostLDAPApi* | [**deleteLdapPrivateCertificate**](doc//MattermostLDAPApi.md#deleteldapprivatecertificate) | **DELETE** /ldap/certificate/private | Remove private key
+*MattermostLDAPApi* | [**deleteLdapPublicCertificate**](doc//MattermostLDAPApi.md#deleteldappubliccertificate) | **DELETE** /ldap/certificate/public | Remove public certificate
+*MattermostLDAPApi* | [**migrateAuthToLdap**](doc//MattermostLDAPApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
+*MattermostLDAPApi* | [**migrateIdLdap**](doc//MattermostLDAPApi.md#migrateidldap) | **POST** /ldap/migrateid | Migrate Id LDAP
+*MattermostLDAPApi* | [**syncLdap**](doc//MattermostLDAPApi.md#syncldap) | **POST** /ldap/sync | Sync with LDAP
+*MattermostLDAPApi* | [**testLdap**](doc//MattermostLDAPApi.md#testldap) | **POST** /ldap/test | Test LDAP configuration
+*MattermostLDAPApi* | [**uploadLdapPrivateCertificate**](doc//MattermostLDAPApi.md#uploadldapprivatecertificate) | **POST** /ldap/certificate/private | Upload private key
+*MattermostLDAPApi* | [**uploadLdapPublicCertificate**](doc//MattermostLDAPApi.md#uploadldappubliccertificate) | **POST** /ldap/certificate/public | Upload public certificate
+*MattermostLdapApi* | [**getLdapGroups**](doc//MattermostLdapApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
+*MattermostLdapApi* | [**linkLdapGroup**](doc//MattermostLdapApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
+*MattermostMigrateApi* | [**migrateAuthToLdap**](doc//MattermostMigrateApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
+*MattermostMigrateApi* | [**migrateAuthToSaml**](doc//MattermostMigrateApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
+*MattermostOAuthApi* | [**createOAuthApp**](doc//MattermostOAuthApi.md#createoauthapp) | **POST** /oauth/apps | Register OAuth app
+*MattermostOAuthApi* | [**deleteOAuthApp**](doc//MattermostOAuthApi.md#deleteoauthapp) | **DELETE** /oauth/apps/{app_id} | Delete an OAuth app
+*MattermostOAuthApi* | [**getAuthorizedOAuthAppsForUser**](doc//MattermostOAuthApi.md#getauthorizedoauthappsforuser) | **GET** /users/{user_id}/oauth/apps/authorized | Get authorized OAuth apps
+*MattermostOAuthApi* | [**getOAuthApp**](doc//MattermostOAuthApi.md#getoauthapp) | **GET** /oauth/apps/{app_id} | Get an OAuth app
+*MattermostOAuthApi* | [**getOAuthAppInfo**](doc//MattermostOAuthApi.md#getoauthappinfo) | **GET** /oauth/apps/{app_id}/info | Get info on an OAuth app
+*MattermostOAuthApi* | [**getOAuthApps**](doc//MattermostOAuthApi.md#getoauthapps) | **GET** /oauth/apps | Get OAuth apps
+*MattermostOAuthApi* | [**regenerateOAuthAppSecret**](doc//MattermostOAuthApi.md#regenerateoauthappsecret) | **POST** /oauth/apps/{app_id}/regen_secret | Regenerate OAuth app secret
+*MattermostOAuthApi* | [**updateOAuthApp**](doc//MattermostOAuthApi.md#updateoauthapp) | **PUT** /oauth/apps/{app_id} | Update an OAuth app
+*MattermostOpenGraphApi* | [**openGraph**](doc//MattermostOpenGraphApi.md#opengraph) | **POST** /opengraph | Get open graph metadata for url
+*MattermostPermissionsApi* | [**getAncillaryPermissions**](doc//MattermostPermissionsApi.md#getancillarypermissions) | **GET** /permissions/ancillary | Return all system console subsection ancillary permissions
+*MattermostPluginsApi* | [**disablePlugin**](doc//MattermostPluginsApi.md#disableplugin) | **POST** /plugins/{plugin_id}/disable | Disable plugin
+*MattermostPluginsApi* | [**enablePlugin**](doc//MattermostPluginsApi.md#enableplugin) | **POST** /plugins/{plugin_id}/enable | Enable plugin
+*MattermostPluginsApi* | [**getMarketplacePlugins**](doc//MattermostPluginsApi.md#getmarketplaceplugins) | **GET** /plugins/marketplace | Gets all the marketplace plugins
+*MattermostPluginsApi* | [**getMarketplaceVisitedByAdmin**](doc//MattermostPluginsApi.md#getmarketplacevisitedbyadmin) | **GET** /plugins/marketplace/first_admin_visit | Get if the Plugin Marketplace has been visited by at least an admin.
+*MattermostPluginsApi* | [**getPluginStatuses**](doc//MattermostPluginsApi.md#getpluginstatuses) | **GET** /plugins/statuses | Get plugins status
+*MattermostPluginsApi* | [**getPlugins**](doc//MattermostPluginsApi.md#getplugins) | **GET** /plugins | Get plugins
+*MattermostPluginsApi* | [**getWebappPlugins**](doc//MattermostPluginsApi.md#getwebappplugins) | **GET** /plugins/webapp | Get webapp plugins
+*MattermostPluginsApi* | [**installMarketplacePlugin**](doc//MattermostPluginsApi.md#installmarketplaceplugin) | **POST** /plugins/marketplace | Installs a marketplace plugin
+*MattermostPluginsApi* | [**installPluginFromUrl**](doc//MattermostPluginsApi.md#installpluginfromurl) | **POST** /plugins/install_from_url | Install plugin from url
+*MattermostPluginsApi* | [**removePlugin**](doc//MattermostPluginsApi.md#removeplugin) | **DELETE** /plugins/{plugin_id} | Remove plugin
+*MattermostPluginsApi* | [**uploadPlugin**](doc//MattermostPluginsApi.md#uploadplugin) | **POST** /plugins | Upload plugin
+*MattermostPostsApi* | [**createPost**](doc//MattermostPostsApi.md#createpost) | **POST** /posts | Create a post
+*MattermostPostsApi* | [**createPostEphemeral**](doc//MattermostPostsApi.md#createpostephemeral) | **POST** /posts/ephemeral | Create a ephemeral post
+*MattermostPostsApi* | [**deletePost**](doc//MattermostPostsApi.md#deletepost) | **DELETE** /posts/{post_id} | Delete a post
+*MattermostPostsApi* | [**doPostAction**](doc//MattermostPostsApi.md#dopostaction) | **POST** /posts/{post_id}/actions/{action_id} | Perform a post action
+*MattermostPostsApi* | [**getFileInfosForPost**](doc//MattermostPostsApi.md#getfileinfosforpost) | **GET** /posts/{post_id}/files/info | Get file info for post
+*MattermostPostsApi* | [**getFlaggedPostsForUser**](doc//MattermostPostsApi.md#getflaggedpostsforuser) | **GET** /users/{user_id}/posts/flagged | Get a list of flagged posts
+*MattermostPostsApi* | [**getPost**](doc//MattermostPostsApi.md#getpost) | **GET** /posts/{post_id} | Get a post
+*MattermostPostsApi* | [**getPostThread**](doc//MattermostPostsApi.md#getpostthread) | **GET** /posts/{post_id}/thread | Get a thread
+*MattermostPostsApi* | [**getPostsAroundLastUnread**](doc//MattermostPostsApi.md#getpostsaroundlastunread) | **GET** /users/{user_id}/channels/{channel_id}/posts/unread | Get posts around oldest unread
+*MattermostPostsApi* | [**getPostsByIds**](doc//MattermostPostsApi.md#getpostsbyids) | **POST** /posts/ids | Get posts by a list of ids
+*MattermostPostsApi* | [**getPostsForChannel**](doc//MattermostPostsApi.md#getpostsforchannel) | **GET** /channels/{channel_id}/posts | Get posts for a channel
+*MattermostPostsApi* | [**patchPost**](doc//MattermostPostsApi.md#patchpost) | **PUT** /posts/{post_id}/patch | Patch a post
+*MattermostPostsApi* | [**pinPost**](doc//MattermostPostsApi.md#pinpost) | **POST** /posts/{post_id}/pin | Pin a post to the channel
+*MattermostPostsApi* | [**searchPosts**](doc//MattermostPostsApi.md#searchposts) | **POST** /teams/{team_id}/posts/search | Search for team posts
+*MattermostPostsApi* | [**setPostUnread**](doc//MattermostPostsApi.md#setpostunread) | **POST** /users/{user_id}/posts/{post_id}/set_unread | Mark as unread from a post.
+*MattermostPostsApi* | [**unpinPost**](doc//MattermostPostsApi.md#unpinpost) | **POST** /posts/{post_id}/unpin | Unpin a post to the channel
+*MattermostPostsApi* | [**updatePost**](doc//MattermostPostsApi.md#updatepost) | **PUT** /posts/{post_id} | Update a post
+*MattermostPreferencesApi* | [**deletePreferences**](doc//MattermostPreferencesApi.md#deletepreferences) | **POST** /users/{user_id}/preferences/delete | Delete user's preferences
+*MattermostPreferencesApi* | [**getPreferences**](doc//MattermostPreferencesApi.md#getpreferences) | **GET** /users/{user_id}/preferences | Get the user's preferences
+*MattermostPreferencesApi* | [**getPreferencesByCategory**](doc//MattermostPreferencesApi.md#getpreferencesbycategory) | **GET** /users/{user_id}/preferences/{category} | List a user's preferences by category
+*MattermostPreferencesApi* | [**getPreferencesByCategoryByName**](doc//MattermostPreferencesApi.md#getpreferencesbycategorybyname) | **GET** /users/{user_id}/preferences/{category}/name/{preference_name} | Get a specific user preference
+*MattermostPreferencesApi* | [**updatePreferences**](doc//MattermostPreferencesApi.md#updatepreferences) | **PUT** /users/{user_id}/preferences | Save the user's preferences
+*MattermostReactionsApi* | [**deleteReaction**](doc//MattermostReactionsApi.md#deletereaction) | **DELETE** /users/{user_id}/posts/{post_id}/reactions/{emoji_name} | Remove a reaction from a post
+*MattermostReactionsApi* | [**getBulkReactions**](doc//MattermostReactionsApi.md#getbulkreactions) | **POST** /posts/ids/reactions | Bulk get the reaction for posts
+*MattermostReactionsApi* | [**getReactions**](doc//MattermostReactionsApi.md#getreactions) | **GET** /posts/{post_id}/reactions | Get a list of reactions to a post
+*MattermostReactionsApi* | [**saveReaction**](doc//MattermostReactionsApi.md#savereaction) | **POST** /reactions | Create a reaction
+*MattermostRolesApi* | [**getAllRoles**](doc//MattermostRolesApi.md#getallroles) | **GET** /roles | Get a list of all the roles
+*MattermostRolesApi* | [**getRole**](doc//MattermostRolesApi.md#getrole) | **GET** /roles/{role_id} | Get a role
+*MattermostRolesApi* | [**getRoleByName**](doc//MattermostRolesApi.md#getrolebyname) | **GET** /roles/name/{role_name} | Get a role
+*MattermostRolesApi* | [**getRolesByNames**](doc//MattermostRolesApi.md#getrolesbynames) | **POST** /roles/names | Get a list of roles by name
+*MattermostRolesApi* | [**patchRole**](doc//MattermostRolesApi.md#patchrole) | **PUT** /roles/{role_id}/patch | Patch a role
+*MattermostRootApi* | [**acknowledgeNotification**](doc//MattermostRootApi.md#acknowledgenotification) | **POST** /notifications/ack | Acknowledge receiving of a notification
+*MattermostSAMLApi* | [**deleteSamlIdpCertificate**](doc//MattermostSAMLApi.md#deletesamlidpcertificate) | **DELETE** /saml/certificate/idp | Remove IDP certificate
+*MattermostSAMLApi* | [**deleteSamlPrivateCertificate**](doc//MattermostSAMLApi.md#deletesamlprivatecertificate) | **DELETE** /saml/certificate/private | Remove private key
+*MattermostSAMLApi* | [**deleteSamlPublicCertificate**](doc//MattermostSAMLApi.md#deletesamlpubliccertificate) | **DELETE** /saml/certificate/public | Remove public certificate
+*MattermostSAMLApi* | [**getSamlCertificateStatus**](doc//MattermostSAMLApi.md#getsamlcertificatestatus) | **GET** /saml/certificate/status | Get certificate status
+*MattermostSAMLApi* | [**getSamlMetadata**](doc//MattermostSAMLApi.md#getsamlmetadata) | **GET** /saml/metadata | Get metadata
+*MattermostSAMLApi* | [**getSamlMetadataFromIdp**](doc//MattermostSAMLApi.md#getsamlmetadatafromidp) | **POST** /saml/metadatafromidp | Get metadata from Identity Provider
+*MattermostSAMLApi* | [**migrateAuthToSaml**](doc//MattermostSAMLApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
+*MattermostSAMLApi* | [**resetSamlAuthDataToEmail**](doc//MattermostSAMLApi.md#resetsamlauthdatatoemail) | **POST** /saml/reset_auth_data | Reset AuthData to Email
+*MattermostSAMLApi* | [**uploadSamlIdpCertificate**](doc//MattermostSAMLApi.md#uploadsamlidpcertificate) | **POST** /saml/certificate/idp | Upload IDP certificate
+*MattermostSAMLApi* | [**uploadSamlPrivateCertificate**](doc//MattermostSAMLApi.md#uploadsamlprivatecertificate) | **POST** /saml/certificate/private | Upload private key
+*MattermostSAMLApi* | [**uploadSamlPublicCertificate**](doc//MattermostSAMLApi.md#uploadsamlpubliccertificate) | **POST** /saml/certificate/public | Upload public certificate
+*MattermostSchemesApi* | [**createScheme**](doc//MattermostSchemesApi.md#createscheme) | **POST** /schemes | Create a scheme
+*MattermostSchemesApi* | [**deleteScheme**](doc//MattermostSchemesApi.md#deletescheme) | **DELETE** /schemes/{scheme_id} | Delete a scheme
+*MattermostSchemesApi* | [**getChannelsForScheme**](doc//MattermostSchemesApi.md#getchannelsforscheme) | **GET** /schemes/{scheme_id}/channels | Get a page of channels which use this scheme.
+*MattermostSchemesApi* | [**getScheme**](doc//MattermostSchemesApi.md#getscheme) | **GET** /schemes/{scheme_id} | Get a scheme
+*MattermostSchemesApi* | [**getSchemes**](doc//MattermostSchemesApi.md#getschemes) | **GET** /schemes | Get the schemes.
+*MattermostSchemesApi* | [**getTeamsForScheme**](doc//MattermostSchemesApi.md#getteamsforscheme) | **GET** /schemes/{scheme_id}/teams | Get a page of teams which use this scheme.
+*MattermostSchemesApi* | [**patchScheme**](doc//MattermostSchemesApi.md#patchscheme) | **PUT** /schemes/{scheme_id}/patch | Patch a scheme
+*MattermostSearchApi* | [**searchFiles**](doc//MattermostSearchApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
+*MattermostSharedChannelsApi* | [**getAllSharedChannels**](doc//MattermostSharedChannelsApi.md#getallsharedchannels) | **GET** /sharedchannels/{team_id} | Get all shared channels for team.
+*MattermostSharedChannelsApi* | [**getRemoteClusterInfo**](doc//MattermostSharedChannelsApi.md#getremoteclusterinfo) | **GET** /sharedchannels/remote_info/{remote_id} | Get remote cluster info by ID for user.
+*MattermostStatusApi* | [**getUserStatus**](doc//MattermostStatusApi.md#getuserstatus) | **GET** /users/{user_id}/status | Get user status
+*MattermostStatusApi* | [**getUsersStatusesByIds**](doc//MattermostStatusApi.md#getusersstatusesbyids) | **POST** /users/status/ids | Get user statuses by id
+*MattermostStatusApi* | [**postUserRecentCustomStatusDelete**](doc//MattermostStatusApi.md#postuserrecentcustomstatusdelete) | **POST** /users/{user_id}/status/custom/recent/delete | Delete user's recent custom status
+*MattermostStatusApi* | [**removeRecentCustomStatus**](doc//MattermostStatusApi.md#removerecentcustomstatus) | **DELETE** /users/{user_id}/status/custom/recent | Delete user's recent custom status
+*MattermostStatusApi* | [**unsetUserCustomStatus**](doc//MattermostStatusApi.md#unsetusercustomstatus) | **DELETE** /users/{user_id}/status/custom | Unsets user custom status
+*MattermostStatusApi* | [**updateUserCustomStatus**](doc//MattermostStatusApi.md#updateusercustomstatus) | **PUT** /users/{user_id}/status/custom | Update user custom status
+*MattermostStatusApi* | [**updateUserStatus**](doc//MattermostStatusApi.md#updateuserstatus) | **PUT** /users/{user_id}/status | Update user status
+*MattermostSystemApi* | [**checkIntegrity**](doc//MattermostSystemApi.md#checkintegrity) | **POST** /integrity | Perform a database integrity check
+*MattermostSystemApi* | [**clearServerBusy**](doc//MattermostSystemApi.md#clearserverbusy) | **DELETE** /server_busy | Clears the server busy (high load) flag
+*MattermostSystemApi* | [**databaseRecycle**](doc//MattermostSystemApi.md#databaserecycle) | **POST** /database/recycle | Recycle database connections
+*MattermostSystemApi* | [**generateSupportPacket**](doc//MattermostSystemApi.md#generatesupportpacket) | **GET** /system/support_packet | Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance.
+*MattermostSystemApi* | [**getAnalyticsOld**](doc//MattermostSystemApi.md#getanalyticsold) | **GET** /analytics/old | Get analytics
+*MattermostSystemApi* | [**getAudits**](doc//MattermostSystemApi.md#getaudits) | **GET** /audits | Get audits
+*MattermostSystemApi* | [**getClientConfig**](doc//MattermostSystemApi.md#getclientconfig) | **GET** /config/client | Get client configuration
+*MattermostSystemApi* | [**getClientLicense**](doc//MattermostSystemApi.md#getclientlicense) | **GET** /license/client | Get client license
+*MattermostSystemApi* | [**getConfig**](doc//MattermostSystemApi.md#getconfig) | **GET** /config | Get configuration
+*MattermostSystemApi* | [**getEnvironmentConfig**](doc//MattermostSystemApi.md#getenvironmentconfig) | **GET** /config/environment | Get configuration made through environment variables
+*MattermostSystemApi* | [**getImageByUrl**](doc//MattermostSystemApi.md#getimagebyurl) | **GET** /image | Get an image by url
+*MattermostSystemApi* | [**getLogs**](doc//MattermostSystemApi.md#getlogs) | **GET** /logs | Get logs
+*MattermostSystemApi* | [**getNotices**](doc//MattermostSystemApi.md#getnotices) | **GET** /system/notices/{teamId} | Get notices for logged in user in specified team
+*MattermostSystemApi* | [**getPing**](doc//MattermostSystemApi.md#getping) | **GET** /system/ping | Check system health
+*MattermostSystemApi* | [**getRedirectLocation**](doc//MattermostSystemApi.md#getredirectlocation) | **GET** /redirect_location | Get redirect location
+*MattermostSystemApi* | [**getServerBusyExpires**](doc//MattermostSystemApi.md#getserverbusyexpires) | **GET** /server_busy | Get server busy expiry time.
+*MattermostSystemApi* | [**getSupportedTimezone**](doc//MattermostSystemApi.md#getsupportedtimezone) | **GET** /system/timezones | Retrieve a list of supported timezones
+*MattermostSystemApi* | [**getWarnMetricsStatus**](doc//MattermostSystemApi.md#getwarnmetricsstatus) | **GET** /warn_metrics/status | Get the warn metrics status (enabled or disabled)
+*MattermostSystemApi* | [**invalidateCaches**](doc//MattermostSystemApi.md#invalidatecaches) | **POST** /caches/invalidate | Invalidate all the caches
+*MattermostSystemApi* | [**markNoticesViewed**](doc//MattermostSystemApi.md#marknoticesviewed) | **PUT** /system/notices/view | Update notices as 'viewed'
+*MattermostSystemApi* | [**patchConfig**](doc//MattermostSystemApi.md#patchconfig) | **PUT** /config/patch | Patch configuration
+*MattermostSystemApi* | [**postLog**](doc//MattermostSystemApi.md#postlog) | **POST** /logs | Add log message
+*MattermostSystemApi* | [**reloadConfig**](doc//MattermostSystemApi.md#reloadconfig) | **POST** /config/reload | Reload configuration
+*MattermostSystemApi* | [**removeLicenseFile**](doc//MattermostSystemApi.md#removelicensefile) | **DELETE** /license | Remove license file
+*MattermostSystemApi* | [**requestLicenseRenewalLink**](doc//MattermostSystemApi.md#requestlicenserenewallink) | **GET** /license/renewal | Request the license renewal link
+*MattermostSystemApi* | [**requestTrialLicense**](doc//MattermostSystemApi.md#requesttriallicense) | **POST** /trial-license | Request and install a trial license for your server
+*MattermostSystemApi* | [**restartServer**](doc//MattermostSystemApi.md#restartserver) | **POST** /restart | Restart the system after an upgrade from Team Edition to Enterprise Edition
+*MattermostSystemApi* | [**sendTrialLicenseWarnMetricAck**](doc//MattermostSystemApi.md#sendtriallicensewarnmetricack) | **POST** /warn_metrics/trial-license-ack/{warn_metric_id} | Request trial license and acknowledge a warning of a metric status
+*MattermostSystemApi* | [**sendWarnMetricAck**](doc//MattermostSystemApi.md#sendwarnmetricack) | **POST** /warn_metrics/ack/{warn_metric_id} | Acknowledge a warning of a metric status
+*MattermostSystemApi* | [**setServerBusy**](doc//MattermostSystemApi.md#setserverbusy) | **POST** /server_busy | Set the server busy (high load) flag
+*MattermostSystemApi* | [**testEmail**](doc//MattermostSystemApi.md#testemail) | **POST** /email/test | Send a test email
+*MattermostSystemApi* | [**testS3Connection**](doc//MattermostSystemApi.md#tests3connection) | **POST** /file/s3_test | Test AWS S3 connection
+*MattermostSystemApi* | [**testSiteURL**](doc//MattermostSystemApi.md#testsiteurl) | **POST** /site_url/test | Checks the validity of a Site URL
+*MattermostSystemApi* | [**trialLicensePrevGet**](doc//MattermostSystemApi.md#triallicenseprevget) | **GET** /trial-license/prev | Get last trial license used
+*MattermostSystemApi* | [**updateConfig**](doc//MattermostSystemApi.md#updateconfig) | **PUT** /config | Update configuration
+*MattermostSystemApi* | [**updateMarketplaceVisitedByAdmin**](doc//MattermostSystemApi.md#updatemarketplacevisitedbyadmin) | **POST** /plugins/marketplace/first_admin_visit | Stores that the Plugin Marketplace has been visited by at least an admin.
+*MattermostSystemApi* | [**upgradeToEnterprise**](doc//MattermostSystemApi.md#upgradetoenterprise) | **POST** /upgrade_to_enterprise | Executes an inplace upgrade from Team Edition to Enterprise Edition
+*MattermostSystemApi* | [**upgradeToEnterpriseStatus**](doc//MattermostSystemApi.md#upgradetoenterprisestatus) | **GET** /upgrade_to_enterprise/status | Get the current status for the inplace upgrade from Team Edition to Enterprise Edition
+*MattermostSystemApi* | [**uploadLicenseFile**](doc//MattermostSystemApi.md#uploadlicensefile) | **POST** /license | Upload license file
+*MattermostTeamsApi* | [**addTeamMember**](doc//MattermostTeamsApi.md#addteammember) | **POST** /teams/{team_id}/members | Add user to team
+*MattermostTeamsApi* | [**addTeamMemberFromInvite**](doc//MattermostTeamsApi.md#addteammemberfrominvite) | **POST** /teams/members/invite | Add user to team from invite
+*MattermostTeamsApi* | [**addTeamMembers**](doc//MattermostTeamsApi.md#addteammembers) | **POST** /teams/{team_id}/members/batch | Add multiple users to team
+*MattermostTeamsApi* | [**createTeam**](doc//MattermostTeamsApi.md#createteam) | **POST** /teams | Create a team
+*MattermostTeamsApi* | [**getAllTeams**](doc//MattermostTeamsApi.md#getallteams) | **GET** /teams | Get teams
+*MattermostTeamsApi* | [**getTeam**](doc//MattermostTeamsApi.md#getteam) | **GET** /teams/{team_id} | Get a team
+*MattermostTeamsApi* | [**getTeamByName**](doc//MattermostTeamsApi.md#getteambyname) | **GET** /teams/name/{name} | Get a team by name
+*MattermostTeamsApi* | [**getTeamIcon**](doc//MattermostTeamsApi.md#getteamicon) | **GET** /teams/{team_id}/image | Get the team icon
+*MattermostTeamsApi* | [**getTeamInviteInfo**](doc//MattermostTeamsApi.md#getteaminviteinfo) | **GET** /teams/invite/{invite_id} | Get invite info for a team
+*MattermostTeamsApi* | [**getTeamMember**](doc//MattermostTeamsApi.md#getteammember) | **GET** /teams/{team_id}/members/{user_id} | Get a team member
+*MattermostTeamsApi* | [**getTeamMembers**](doc//MattermostTeamsApi.md#getteammembers) | **GET** /teams/{team_id}/members | Get team members
+*MattermostTeamsApi* | [**getTeamMembersByIds**](doc//MattermostTeamsApi.md#getteammembersbyids) | **POST** /teams/{team_id}/members/ids | Get team members by ids
+*MattermostTeamsApi* | [**getTeamMembersForUser**](doc//MattermostTeamsApi.md#getteammembersforuser) | **GET** /users/{user_id}/teams/members | Get team members for a user
+*MattermostTeamsApi* | [**getTeamStats**](doc//MattermostTeamsApi.md#getteamstats) | **GET** /teams/{team_id}/stats | Get a team stats
+*MattermostTeamsApi* | [**getTeamUnread**](doc//MattermostTeamsApi.md#getteamunread) | **GET** /users/{user_id}/teams/{team_id}/unread | Get unreads for a team
+*MattermostTeamsApi* | [**getTeamsForUser**](doc//MattermostTeamsApi.md#getteamsforuser) | **GET** /users/{user_id}/teams | Get a user's teams
+*MattermostTeamsApi* | [**getTeamsUnreadForUser**](doc//MattermostTeamsApi.md#getteamsunreadforuser) | **GET** /users/{user_id}/teams/unread | Get team unreads for a user
+*MattermostTeamsApi* | [**importTeam**](doc//MattermostTeamsApi.md#importteam) | **POST** /teams/{team_id}/import | Import a Team from other application
+*MattermostTeamsApi* | [**invalidateEmailInvites**](doc//MattermostTeamsApi.md#invalidateemailinvites) | **DELETE** /teams/invites/email | Invalidate active email invitations
+*MattermostTeamsApi* | [**inviteGuestsToTeam**](doc//MattermostTeamsApi.md#invitegueststoteam) | **POST** /teams/{team_id}/invite-guests/email | Invite guests to the team by email
+*MattermostTeamsApi* | [**inviteUsersToTeam**](doc//MattermostTeamsApi.md#inviteuserstoteam) | **POST** /teams/{team_id}/invite/email | Invite users to the team by email
+*MattermostTeamsApi* | [**patchTeam**](doc//MattermostTeamsApi.md#patchteam) | **PUT** /teams/{team_id}/patch | Patch a team
+*MattermostTeamsApi* | [**regenerateTeamInviteId**](doc//MattermostTeamsApi.md#regenerateteaminviteid) | **POST** /teams/{team_id}/regenerate_invite_id | Regenerate the Invite ID from a Team
+*MattermostTeamsApi* | [**removeTeamIcon**](doc//MattermostTeamsApi.md#removeteamicon) | **DELETE** /teams/{team_id}/image | Remove the team icon
+*MattermostTeamsApi* | [**removeTeamMember**](doc//MattermostTeamsApi.md#removeteammember) | **DELETE** /teams/{team_id}/members/{user_id} | Remove user from team
+*MattermostTeamsApi* | [**restoreTeam**](doc//MattermostTeamsApi.md#restoreteam) | **POST** /teams/{team_id}/restore | Restore a team
+*MattermostTeamsApi* | [**searchFiles**](doc//MattermostTeamsApi.md#searchfiles) | **POST** /teams/{team_id}/files/search | Search files in a team
+*MattermostTeamsApi* | [**searchTeams**](doc//MattermostTeamsApi.md#searchteams) | **POST** /teams/search | Search teams
+*MattermostTeamsApi* | [**setTeamIcon**](doc//MattermostTeamsApi.md#setteamicon) | **POST** /teams/{team_id}/image | Sets the team icon
+*MattermostTeamsApi* | [**softDeleteTeam**](doc//MattermostTeamsApi.md#softdeleteteam) | **DELETE** /teams/{team_id} | Delete a team
+*MattermostTeamsApi* | [**teamExists**](doc//MattermostTeamsApi.md#teamexists) | **GET** /teams/name/{name}/exists | Check if team exists
+*MattermostTeamsApi* | [**teamMembersMinusGroupMembers**](doc//MattermostTeamsApi.md#teammembersminusgroupmembers) | **GET** /teams/{team_id}/members_minus_group_members | Team members minus group members.
+*MattermostTeamsApi* | [**updateTeam**](doc//MattermostTeamsApi.md#updateteam) | **PUT** /teams/{team_id} | Update a team
+*MattermostTeamsApi* | [**updateTeamMemberRoles**](doc//MattermostTeamsApi.md#updateteammemberroles) | **PUT** /teams/{team_id}/members/{user_id}/roles | Update a team member roles
+*MattermostTeamsApi* | [**updateTeamMemberSchemeRoles**](doc//MattermostTeamsApi.md#updateteammemberschemeroles) | **PUT** /teams/{team_id}/members/{user_id}/schemeRoles | Update the scheme-derived roles of a team member.
+*MattermostTeamsApi* | [**updateTeamPrivacy**](doc//MattermostTeamsApi.md#updateteamprivacy) | **PUT** /teams/{team_id}/privacy | Update teams's privacy
+*MattermostTeamsApi* | [**updateTeamScheme**](doc//MattermostTeamsApi.md#updateteamscheme) | **PUT** /teams/{team_id}/scheme | Set a team's scheme
+*MattermostTermsOfServiceApi* | [**createTermsOfService**](doc//MattermostTermsOfServiceApi.md#createtermsofservice) | **POST** /terms_of_service | Creates a new terms of service
+*MattermostTermsOfServiceApi* | [**getTermsOfService**](doc//MattermostTermsOfServiceApi.md#gettermsofservice) | **GET** /terms_of_service | Get latest terms of service
+*MattermostTermsOfServiceApi* | [**getUserTermsOfService**](doc//MattermostTermsOfServiceApi.md#getusertermsofservice) | **GET** /users/{user_id}/terms_of_service | Fetches user's latest terms of service action if the latest action was for acceptance.
+*MattermostTermsOfServiceApi* | [**registerTermsOfServiceAction**](doc//MattermostTermsOfServiceApi.md#registertermsofserviceaction) | **POST** /users/{user_id}/terms_of_service | Records user action when they accept or decline custom terms of service
+*MattermostThreadsApi* | [**getThreadMentionCountsByChannel**](doc//MattermostThreadsApi.md#getthreadmentioncountsbychannel) | **GET** /users/{user_id}/teams/{team_id}/threads/mention_counts | Get all unread mention counts from followed threads, per-channel
+*MattermostThreadsApi* | [**getUserThread**](doc//MattermostThreadsApi.md#getuserthread) | **GET** /users/{user_id}/teams/{team_id}/threads/{thread_id} | Get a thread followed by the user
+*MattermostThreadsApi* | [**getUserThreads**](doc//MattermostThreadsApi.md#getuserthreads) | **GET** /users/{user_id}/teams/{team_id}/threads | Get all threads that user is following
+*MattermostThreadsApi* | [**startFollowingThread**](doc//MattermostThreadsApi.md#startfollowingthread) | **PUT** /users/{user_id}/teams/{team_id}/threads/{thread_id}/following | Start following a thread
+*MattermostThreadsApi* | [**stopFollowingThread**](doc//MattermostThreadsApi.md#stopfollowingthread) | **DELETE** /users/{user_id}/teams/{team_id}/threads/{thread_id}/following | Stop following a thread
+*MattermostThreadsApi* | [**updateThreadReadForUser**](doc//MattermostThreadsApi.md#updatethreadreadforuser) | **PUT** /users/{user_id}/teams/{team_id}/threads/{thread_id}/read/{timestamp} | Mark a thread that user is following read state to the timestamp
+*MattermostThreadsApi* | [**updateThreadsReadForUser**](doc//MattermostThreadsApi.md#updatethreadsreadforuser) | **PUT** /users/{user_id}/teams/{team_id}/threads/read | Mark all threads that user is following as read
+*MattermostUploadsApi* | [**createUpload**](doc//MattermostUploadsApi.md#createupload) | **POST** /uploads | Create an upload
+*MattermostUploadsApi* | [**getUpload**](doc//MattermostUploadsApi.md#getupload) | **GET** /uploads/{upload_id} | Get an upload session
+*MattermostUploadsApi* | [**uploadData**](doc//MattermostUploadsApi.md#uploaddata) | **POST** /uploads/{upload_id} | Perform a file upload
+*MattermostUsageApi* | [**getPostsUsage**](doc//MattermostUsageApi.md#getpostsusage) | **GET** /usage/posts | Get current usage of posts
+*MattermostUsersApi* | [**attachDeviceId**](doc//MattermostUsersApi.md#attachdeviceid) | **PUT** /users/sessions/device | Attach mobile device
+*MattermostUsersApi* | [**autocompleteUsers**](doc//MattermostUsersApi.md#autocompleteusers) | **GET** /users/autocomplete | Autocomplete users
+*MattermostUsersApi* | [**checkUserMfa**](doc//MattermostUsersApi.md#checkusermfa) | **POST** /users/mfa | Check MFA
+*MattermostUsersApi* | [**convertBotToUser**](doc//MattermostUsersApi.md#convertbottouser) | **POST** /bots/{bot_user_id}/convert_to_user | Convert a bot into a user
+*MattermostUsersApi* | [**convertUserToBot**](doc//MattermostUsersApi.md#convertusertobot) | **POST** /users/{user_id}/convert_to_bot | Convert a user into a bot
+*MattermostUsersApi* | [**createUser**](doc//MattermostUsersApi.md#createuser) | **POST** /users | Create a user
+*MattermostUsersApi* | [**createUserAccessToken**](doc//MattermostUsersApi.md#createuseraccesstoken) | **POST** /users/{user_id}/tokens | Create a user access token
+*MattermostUsersApi* | [**deleteUser**](doc//MattermostUsersApi.md#deleteuser) | **DELETE** /users/{user_id} | Deactivate a user account.
+*MattermostUsersApi* | [**demoteUserToGuest**](doc//MattermostUsersApi.md#demoteusertoguest) | **POST** /users/{user_id}/demote | Demote a user to a guest
+*MattermostUsersApi* | [**disableUserAccessToken**](doc//MattermostUsersApi.md#disableuseraccesstoken) | **POST** /users/tokens/disable | Disable personal access token
+*MattermostUsersApi* | [**enableUserAccessToken**](doc//MattermostUsersApi.md#enableuseraccesstoken) | **POST** /users/tokens/enable | Enable personal access token
+*MattermostUsersApi* | [**generateMfaSecret**](doc//MattermostUsersApi.md#generatemfasecret) | **POST** /users/{user_id}/mfa/generate | Generate MFA secret
+*MattermostUsersApi* | [**getChannelMembersWithTeamDataForUser**](doc//MattermostUsersApi.md#getchannelmemberswithteamdataforuser) | **GET** /users/{user_id}/channel_members | Get all channel members from all teams for a user
+*MattermostUsersApi* | [**getDefaultProfileImage**](doc//MattermostUsersApi.md#getdefaultprofileimage) | **GET** /users/{user_id}/image/default | Return user's default (generated) profile image
+*MattermostUsersApi* | [**getKnownUsers**](doc//MattermostUsersApi.md#getknownusers) | **GET** /users/known | Get user IDs of known users
+*MattermostUsersApi* | [**getProfileImage**](doc//MattermostUsersApi.md#getprofileimage) | **GET** /users/{user_id}/image | Get user's profile image
+*MattermostUsersApi* | [**getSessions**](doc//MattermostUsersApi.md#getsessions) | **GET** /users/{user_id}/sessions | Get user's sessions
+*MattermostUsersApi* | [**getTotalUsersStats**](doc//MattermostUsersApi.md#gettotalusersstats) | **GET** /users/stats | Get total count of users in the system
+*MattermostUsersApi* | [**getTotalUsersStatsFiltered**](doc//MattermostUsersApi.md#gettotalusersstatsfiltered) | **GET** /users/stats/filtered | Get total count of users in the system matching the specified filters
+*MattermostUsersApi* | [**getUploadsForUser**](doc//MattermostUsersApi.md#getuploadsforuser) | **GET** /users/{user_id}/uploads | Get uploads for a user
+*MattermostUsersApi* | [**getUser**](doc//MattermostUsersApi.md#getuser) | **GET** /users/{user_id} | Get a user
+*MattermostUsersApi* | [**getUserAccessToken**](doc//MattermostUsersApi.md#getuseraccesstoken) | **GET** /users/tokens/{token_id} | Get a user access token
+*MattermostUsersApi* | [**getUserAccessTokens**](doc//MattermostUsersApi.md#getuseraccesstokens) | **GET** /users/tokens | Get user access tokens
+*MattermostUsersApi* | [**getUserAccessTokensForUser**](doc//MattermostUsersApi.md#getuseraccesstokensforuser) | **GET** /users/{user_id}/tokens | Get user access tokens
+*MattermostUsersApi* | [**getUserAudits**](doc//MattermostUsersApi.md#getuseraudits) | **GET** /users/{user_id}/audits | Get user's audits
+*MattermostUsersApi* | [**getUserByEmail**](doc//MattermostUsersApi.md#getuserbyemail) | **GET** /users/email/{email} | Get a user by email
+*MattermostUsersApi* | [**getUserByUsername**](doc//MattermostUsersApi.md#getuserbyusername) | **GET** /users/username/{username} | Get a user by username
+*MattermostUsersApi* | [**getUserTermsOfService**](doc//MattermostUsersApi.md#getusertermsofservice) | **GET** /users/{user_id}/terms_of_service | Fetches user's latest terms of service action if the latest action was for acceptance.
+*MattermostUsersApi* | [**getUsers**](doc//MattermostUsersApi.md#getusers) | **GET** /users | Get users
+*MattermostUsersApi* | [**getUsersByGroupChannelIds**](doc//MattermostUsersApi.md#getusersbygroupchannelids) | **POST** /users/group_channels | Get users by group channels ids
+*MattermostUsersApi* | [**getUsersByIds**](doc//MattermostUsersApi.md#getusersbyids) | **POST** /users/ids | Get users by ids
+*MattermostUsersApi* | [**getUsersByUsernames**](doc//MattermostUsersApi.md#getusersbyusernames) | **POST** /users/usernames | Get users by usernames
+*MattermostUsersApi* | [**login**](doc//MattermostUsersApi.md#login) | **POST** /users/login | Login to Mattermost server
+*MattermostUsersApi* | [**loginByCwsToken**](doc//MattermostUsersApi.md#loginbycwstoken) | **POST** /users/login/cws | Auto-Login to Mattermost server using CWS token
+*MattermostUsersApi* | [**logout**](doc//MattermostUsersApi.md#logout) | **POST** /users/logout | Logout from the Mattermost server
+*MattermostUsersApi* | [**migrateAuthToLdap**](doc//MattermostUsersApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
+*MattermostUsersApi* | [**migrateAuthToSaml**](doc//MattermostUsersApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
+*MattermostUsersApi* | [**patchUser**](doc//MattermostUsersApi.md#patchuser) | **PUT** /users/{user_id}/patch | Patch a user
+*MattermostUsersApi* | [**permanentDeleteAllUsers**](doc//MattermostUsersApi.md#permanentdeleteallusers) | **DELETE** /users | Permanent delete all users
+*MattermostUsersApi* | [**promoteGuestToUser**](doc//MattermostUsersApi.md#promoteguesttouser) | **POST** /users/{user_id}/promote | Promote a guest to user
+*MattermostUsersApi* | [**publishUserTyping**](doc//MattermostUsersApi.md#publishusertyping) | **POST** /users/{user_id}/typing | Publish a user typing websocket event.
+*MattermostUsersApi* | [**registerTermsOfServiceAction**](doc//MattermostUsersApi.md#registertermsofserviceaction) | **POST** /users/{user_id}/terms_of_service | Records user action when they accept or decline custom terms of service
+*MattermostUsersApi* | [**resetPassword**](doc//MattermostUsersApi.md#resetpassword) | **POST** /users/password/reset | Reset password
+*MattermostUsersApi* | [**revokeAllSessions**](doc//MattermostUsersApi.md#revokeallsessions) | **POST** /users/{user_id}/sessions/revoke/all | Revoke all active sessions for a user
+*MattermostUsersApi* | [**revokeSession**](doc//MattermostUsersApi.md#revokesession) | **POST** /users/{user_id}/sessions/revoke | Revoke a user session
+*MattermostUsersApi* | [**revokeSessionsFromAllUsers**](doc//MattermostUsersApi.md#revokesessionsfromallusers) | **POST** /users/sessions/revoke/all | Revoke all sessions from all users.
+*MattermostUsersApi* | [**revokeUserAccessToken**](doc//MattermostUsersApi.md#revokeuseraccesstoken) | **POST** /users/tokens/revoke | Revoke a user access token
+*MattermostUsersApi* | [**searchUserAccessTokens**](doc//MattermostUsersApi.md#searchuseraccesstokens) | **POST** /users/tokens/search | Search tokens
+*MattermostUsersApi* | [**searchUsers**](doc//MattermostUsersApi.md#searchusers) | **POST** /users/search | Search users
+*MattermostUsersApi* | [**sendPasswordResetEmail**](doc//MattermostUsersApi.md#sendpasswordresetemail) | **POST** /users/password/reset/send | Send password reset email
+*MattermostUsersApi* | [**sendVerificationEmail**](doc//MattermostUsersApi.md#sendverificationemail) | **POST** /users/email/verify/send | Send verification email
+*MattermostUsersApi* | [**setDefaultProfileImage**](doc//MattermostUsersApi.md#setdefaultprofileimage) | **DELETE** /users/{user_id}/image | Delete user's profile image
+*MattermostUsersApi* | [**setProfileImage**](doc//MattermostUsersApi.md#setprofileimage) | **POST** /users/{user_id}/image | Set user's profile image
+*MattermostUsersApi* | [**switchAccountType**](doc//MattermostUsersApi.md#switchaccounttype) | **POST** /users/login/switch | Switch login method
+*MattermostUsersApi* | [**updateUser**](doc//MattermostUsersApi.md#updateuser) | **PUT** /users/{user_id} | Update a user
+*MattermostUsersApi* | [**updateUserActive**](doc//MattermostUsersApi.md#updateuseractive) | **PUT** /users/{user_id}/active | Update user active status
+*MattermostUsersApi* | [**updateUserAuth**](doc//MattermostUsersApi.md#updateuserauth) | **PUT** /users/{user_id}/auth | Update a user's authentication method
+*MattermostUsersApi* | [**updateUserMfa**](doc//MattermostUsersApi.md#updateusermfa) | **PUT** /users/{user_id}/mfa | Update a user's MFA
+*MattermostUsersApi* | [**updateUserPassword**](doc//MattermostUsersApi.md#updateuserpassword) | **PUT** /users/{user_id}/password | Update a user's password
+*MattermostUsersApi* | [**updateUserRoles**](doc//MattermostUsersApi.md#updateuserroles) | **PUT** /users/{user_id}/roles | Update a user's roles
+*MattermostUsersApi* | [**verifyUserEmail**](doc//MattermostUsersApi.md#verifyuseremail) | **POST** /users/email/verify | Verify user email
+*MattermostUsersApi* | [**verifyUserEmailWithoutToken**](doc//MattermostUsersApi.md#verifyuseremailwithouttoken) | **POST** /users/{user_id}/email/verify/member | Verify user email by ID
+*MattermostWebhooksApi* | [**createIncomingWebhook**](doc//MattermostWebhooksApi.md#createincomingwebhook) | **POST** /hooks/incoming | Create an incoming webhook
+*MattermostWebhooksApi* | [**createOutgoingWebhook**](doc//MattermostWebhooksApi.md#createoutgoingwebhook) | **POST** /hooks/outgoing | Create an outgoing webhook
+*MattermostWebhooksApi* | [**deleteIncomingWebhook**](doc//MattermostWebhooksApi.md#deleteincomingwebhook) | **DELETE** /hooks/incoming/{hook_id} | Delete an incoming webhook
+*MattermostWebhooksApi* | [**deleteOutgoingWebhook**](doc//MattermostWebhooksApi.md#deleteoutgoingwebhook) | **DELETE** /hooks/outgoing/{hook_id} | Delete an outgoing webhook
+*MattermostWebhooksApi* | [**getIncomingWebhook**](doc//MattermostWebhooksApi.md#getincomingwebhook) | **GET** /hooks/incoming/{hook_id} | Get an incoming webhook
+*MattermostWebhooksApi* | [**getIncomingWebhooks**](doc//MattermostWebhooksApi.md#getincomingwebhooks) | **GET** /hooks/incoming | List incoming webhooks
+*MattermostWebhooksApi* | [**getOutgoingWebhook**](doc//MattermostWebhooksApi.md#getoutgoingwebhook) | **GET** /hooks/outgoing/{hook_id} | Get an outgoing webhook
+*MattermostWebhooksApi* | [**getOutgoingWebhooks**](doc//MattermostWebhooksApi.md#getoutgoingwebhooks) | **GET** /hooks/outgoing | List outgoing webhooks
+*MattermostWebhooksApi* | [**regenOutgoingHookToken**](doc//MattermostWebhooksApi.md#regenoutgoinghooktoken) | **POST** /hooks/outgoing/{hook_id}/regen_token | Regenerate the token for the outgoing webhook.
+*MattermostWebhooksApi* | [**updateIncomingWebhook**](doc//MattermostWebhooksApi.md#updateincomingwebhook) | **PUT** /hooks/incoming/{hook_id} | Update an incoming webhook
+*MattermostWebhooksApi* | [**updateOutgoingWebhook**](doc//MattermostWebhooksApi.md#updateoutgoingwebhook) | **PUT** /hooks/outgoing/{hook_id} | Update an outgoing webhook
 
 
 ## Documentation For Models
 
- - [AddChannelMemberRequest](doc//AddChannelMemberRequest.md)
- - [AddGroupMembersRequest](doc//AddGroupMembersRequest.md)
- - [AddOn](doc//AddOn.md)
- - [AddTeamMemberRequest](doc//AddTeamMemberRequest.md)
- - [Address](doc//Address.md)
- - [AppError](doc//AppError.md)
- - [AttachDeviceIdRequest](doc//AttachDeviceIdRequest.md)
- - [Audit](doc//Audit.md)
- - [AutocompleteSuggestion](doc//AutocompleteSuggestion.md)
- - [BoardsLimits](doc//BoardsLimits.md)
- - [Bot](doc//Bot.md)
- - [Channel](doc//Channel.md)
- - [ChannelData](doc//ChannelData.md)
- - [ChannelMember](doc//ChannelMember.md)
- - [ChannelMemberCountByGroup](doc//ChannelMemberCountByGroup.md)
- - [ChannelMemberWithTeamData](doc//ChannelMemberWithTeamData.md)
- - [ChannelMemberWithTeamDataAllOf](doc//ChannelMemberWithTeamDataAllOf.md)
- - [ChannelModeratedRole](doc//ChannelModeratedRole.md)
- - [ChannelModeratedRoles](doc//ChannelModeratedRoles.md)
- - [ChannelModeratedRolesPatch](doc//ChannelModeratedRolesPatch.md)
- - [ChannelModeration](doc//ChannelModeration.md)
- - [ChannelModerationPatch](doc//ChannelModerationPatch.md)
- - [ChannelNotifyProps](doc//ChannelNotifyProps.md)
- - [ChannelStats](doc//ChannelStats.md)
- - [ChannelUnread](doc//ChannelUnread.md)
- - [ChannelUnreadAt](doc//ChannelUnreadAt.md)
- - [ChannelWithTeamData](doc//ChannelWithTeamData.md)
- - [ChannelWithTeamDataAllOf](doc//ChannelWithTeamDataAllOf.md)
- - [CheckUserMfa200Response](doc//CheckUserMfa200Response.md)
- - [CheckUserMfaRequest](doc//CheckUserMfaRequest.md)
- - [CloudCustomer](doc//CloudCustomer.md)
- - [ClusterInfo](doc//ClusterInfo.md)
- - [Command](doc//Command.md)
- - [CommandResponse](doc//CommandResponse.md)
- - [Compliance](doc//Compliance.md)
- - [Config](doc//Config.md)
- - [ConfigAnalyticsSettings](doc//ConfigAnalyticsSettings.md)
- - [ConfigClusterSettings](doc//ConfigClusterSettings.md)
- - [ConfigComplianceSettings](doc//ConfigComplianceSettings.md)
- - [ConfigEmailSettings](doc//ConfigEmailSettings.md)
- - [ConfigFileSettings](doc//ConfigFileSettings.md)
- - [ConfigGitLabSettings](doc//ConfigGitLabSettings.md)
- - [ConfigLdapSettings](doc//ConfigLdapSettings.md)
- - [ConfigLocalizationSettings](doc//ConfigLocalizationSettings.md)
- - [ConfigLogSettings](doc//ConfigLogSettings.md)
- - [ConfigMetricsSettings](doc//ConfigMetricsSettings.md)
- - [ConfigNativeAppSettings](doc//ConfigNativeAppSettings.md)
- - [ConfigPasswordSettings](doc//ConfigPasswordSettings.md)
- - [ConfigPrivacySettings](doc//ConfigPrivacySettings.md)
- - [ConfigRateLimitSettings](doc//ConfigRateLimitSettings.md)
- - [ConfigSamlSettings](doc//ConfigSamlSettings.md)
- - [ConfigServiceSettings](doc//ConfigServiceSettings.md)
- - [ConfigSqlSettings](doc//ConfigSqlSettings.md)
- - [ConfigSupportSettings](doc//ConfigSupportSettings.md)
- - [ConfigTeamSettings](doc//ConfigTeamSettings.md)
- - [ConvertBotToUserRequest](doc//ConvertBotToUserRequest.md)
- - [CreateBotRequest](doc//CreateBotRequest.md)
- - [CreateChannelRequest](doc//CreateChannelRequest.md)
- - [CreateCommandRequest](doc//CreateCommandRequest.md)
- - [CreateGroupRequest](doc//CreateGroupRequest.md)
- - [CreateGroupRequestGroup](doc//CreateGroupRequestGroup.md)
- - [CreateIncomingWebhookRequest](doc//CreateIncomingWebhookRequest.md)
- - [CreateJobRequest](doc//CreateJobRequest.md)
- - [CreateOAuthAppRequest](doc//CreateOAuthAppRequest.md)
- - [CreateOutgoingWebhookRequest](doc//CreateOutgoingWebhookRequest.md)
- - [CreatePostEphemeralRequest](doc//CreatePostEphemeralRequest.md)
- - [CreatePostEphemeralRequestPost](doc//CreatePostEphemeralRequestPost.md)
- - [CreatePostRequest](doc//CreatePostRequest.md)
- - [CreateSchemeRequest](doc//CreateSchemeRequest.md)
- - [CreateTeamRequest](doc//CreateTeamRequest.md)
- - [CreateUploadRequest](doc//CreateUploadRequest.md)
- - [CreateUserAccessTokenRequest](doc//CreateUserAccessTokenRequest.md)
- - [CreateUserRequest](doc//CreateUserRequest.md)
- - [DataRetentionPolicy](doc//DataRetentionPolicy.md)
- - [DataRetentionPolicyAllOf](doc//DataRetentionPolicyAllOf.md)
- - [DataRetentionPolicyCreate](doc//DataRetentionPolicyCreate.md)
- - [DataRetentionPolicyForChannel](doc//DataRetentionPolicyForChannel.md)
- - [DataRetentionPolicyForTeam](doc//DataRetentionPolicyForTeam.md)
- - [DataRetentionPolicyWithTeamAndChannelCounts](doc//DataRetentionPolicyWithTeamAndChannelCounts.md)
- - [DataRetentionPolicyWithTeamAndChannelCountsAllOf](doc//DataRetentionPolicyWithTeamAndChannelCountsAllOf.md)
- - [DataRetentionPolicyWithTeamAndChannelIds](doc//DataRetentionPolicyWithTeamAndChannelIds.md)
- - [DataRetentionPolicyWithTeamAndChannelIdsAllOf](doc//DataRetentionPolicyWithTeamAndChannelIdsAllOf.md)
- - [DataRetentionPolicyWithoutId](doc//DataRetentionPolicyWithoutId.md)
- - [DeleteGroupMembersRequest](doc//DeleteGroupMembersRequest.md)
- - [DisableUserAccessTokenRequest](doc//DisableUserAccessTokenRequest.md)
- - [Emoji](doc//Emoji.md)
- - [EnableUserAccessTokenRequest](doc//EnableUserAccessTokenRequest.md)
- - [EnvironmentConfig](doc//EnvironmentConfig.md)
- - [EnvironmentConfigAnalyticsSettings](doc//EnvironmentConfigAnalyticsSettings.md)
- - [EnvironmentConfigClusterSettings](doc//EnvironmentConfigClusterSettings.md)
- - [EnvironmentConfigComplianceSettings](doc//EnvironmentConfigComplianceSettings.md)
- - [EnvironmentConfigEmailSettings](doc//EnvironmentConfigEmailSettings.md)
- - [EnvironmentConfigFileSettings](doc//EnvironmentConfigFileSettings.md)
- - [EnvironmentConfigGitLabSettings](doc//EnvironmentConfigGitLabSettings.md)
- - [EnvironmentConfigLdapSettings](doc//EnvironmentConfigLdapSettings.md)
- - [EnvironmentConfigLocalizationSettings](doc//EnvironmentConfigLocalizationSettings.md)
- - [EnvironmentConfigLogSettings](doc//EnvironmentConfigLogSettings.md)
- - [EnvironmentConfigMetricsSettings](doc//EnvironmentConfigMetricsSettings.md)
- - [EnvironmentConfigNativeAppSettings](doc//EnvironmentConfigNativeAppSettings.md)
- - [EnvironmentConfigPasswordSettings](doc//EnvironmentConfigPasswordSettings.md)
- - [EnvironmentConfigRateLimitSettings](doc//EnvironmentConfigRateLimitSettings.md)
- - [EnvironmentConfigSamlSettings](doc//EnvironmentConfigSamlSettings.md)
- - [EnvironmentConfigServiceSettings](doc//EnvironmentConfigServiceSettings.md)
- - [EnvironmentConfigSqlSettings](doc//EnvironmentConfigSqlSettings.md)
- - [EnvironmentConfigSupportSettings](doc//EnvironmentConfigSupportSettings.md)
- - [EnvironmentConfigTeamSettings](doc//EnvironmentConfigTeamSettings.md)
- - [ExecuteCommandRequest](doc//ExecuteCommandRequest.md)
- - [FileInfo](doc//FileInfo.md)
- - [FileInfoList](doc//FileInfoList.md)
- - [FilesLimits](doc//FilesLimits.md)
- - [GenerateMfaSecret200Response](doc//GenerateMfaSecret200Response.md)
- - [GetDataRetentionPoliciesCount200Response](doc//GetDataRetentionPoliciesCount200Response.md)
- - [GetFileLink200Response](doc//GetFileLink200Response.md)
- - [GetGroupStats200Response](doc//GetGroupStats200Response.md)
- - [GetGroupUsers200Response](doc//GetGroupUsers200Response.md)
- - [GetPlugins200Response](doc//GetPlugins200Response.md)
- - [GetRedirectLocation200Response](doc//GetRedirectLocation200Response.md)
- - [GetSamlMetadataFromIdpRequest](doc//GetSamlMetadataFromIdpRequest.md)
- - [GetTeamInviteInfo200Response](doc//GetTeamInviteInfo200Response.md)
- - [GetUsersByGroupChannelIds200Response](doc//GetUsersByGroupChannelIds200Response.md)
- - [GlobalDataRetentionPolicy](doc//GlobalDataRetentionPolicy.md)
- - [Group](doc//Group.md)
- - [GroupSyncableChannel](doc//GroupSyncableChannel.md)
- - [GroupSyncableChannels](doc//GroupSyncableChannels.md)
- - [GroupSyncableTeam](doc//GroupSyncableTeam.md)
- - [GroupSyncableTeams](doc//GroupSyncableTeams.md)
- - [GroupWithSchemeAdmin](doc//GroupWithSchemeAdmin.md)
- - [ImportTeam200Response](doc//ImportTeam200Response.md)
- - [IncomingWebhook](doc//IncomingWebhook.md)
- - [InstallMarketplacePluginRequest](doc//InstallMarketplacePluginRequest.md)
- - [IntegrationsLimits](doc//IntegrationsLimits.md)
- - [IntegrityCheckResult](doc//IntegrityCheckResult.md)
- - [InviteGuestsToTeamRequest](doc//InviteGuestsToTeamRequest.md)
- - [Invoice](doc//Invoice.md)
- - [InvoiceLineItem](doc//InvoiceLineItem.md)
- - [Job](doc//Job.md)
- - [LDAPGroup](doc//LDAPGroup.md)
- - [LDAPGroupsPaged](doc//LDAPGroupsPaged.md)
- - [LicenseRenewalLink](doc//LicenseRenewalLink.md)
- - [LoginByCwsTokenRequest](doc//LoginByCwsTokenRequest.md)
- - [LoginRequest](doc//LoginRequest.md)
- - [MarketplacePlugin](doc//MarketplacePlugin.md)
- - [MessagesLimits](doc//MessagesLimits.md)
- - [MigrateAuthToLdapRequest](doc//MigrateAuthToLdapRequest.md)
- - [MigrateAuthToSamlRequest](doc//MigrateAuthToSamlRequest.md)
- - [MigrateIdLdapRequest](doc//MigrateIdLdapRequest.md)
- - [MoveChannelRequest](doc//MoveChannelRequest.md)
- - [MoveCommandRequest](doc//MoveCommandRequest.md)
- - [Notice](doc//Notice.md)
- - [OAuthApp](doc//OAuthApp.md)
- - [OpenGraph](doc//OpenGraph.md)
- - [OpenGraphArticle](doc//OpenGraphArticle.md)
- - [OpenGraphArticleAuthorsInner](doc//OpenGraphArticleAuthorsInner.md)
- - [OpenGraphAudiosInner](doc//OpenGraphAudiosInner.md)
- - [OpenGraphBook](doc//OpenGraphBook.md)
- - [OpenGraphImagesInner](doc//OpenGraphImagesInner.md)
- - [OpenGraphRequest](doc//OpenGraphRequest.md)
- - [OpenGraphVideosInner](doc//OpenGraphVideosInner.md)
- - [OpenInteractiveDialogRequest](doc//OpenInteractiveDialogRequest.md)
- - [OpenInteractiveDialogRequestDialog](doc//OpenInteractiveDialogRequestDialog.md)
- - [OrderedSidebarCategories](doc//OrderedSidebarCategories.md)
- - [OrphanedRecord](doc//OrphanedRecord.md)
- - [OutgoingWebhook](doc//OutgoingWebhook.md)
- - [PatchChannelRequest](doc//PatchChannelRequest.md)
- - [PatchGroupRequest](doc//PatchGroupRequest.md)
- - [PatchGroupSyncableForTeamRequest](doc//PatchGroupSyncableForTeamRequest.md)
- - [PatchPostRequest](doc//PatchPostRequest.md)
- - [PatchRoleRequest](doc//PatchRoleRequest.md)
- - [PatchSchemeRequest](doc//PatchSchemeRequest.md)
- - [PatchTeamRequest](doc//PatchTeamRequest.md)
- - [PatchUserRequest](doc//PatchUserRequest.md)
- - [PaymentMethod](doc//PaymentMethod.md)
- - [PaymentSetupIntent](doc//PaymentSetupIntent.md)
- - [PluginManifest](doc//PluginManifest.md)
- - [PluginManifestBackend](doc//PluginManifestBackend.md)
- - [PluginManifestServer](doc//PluginManifestServer.md)
- - [PluginManifestServerExecutables](doc//PluginManifestServerExecutables.md)
- - [PluginManifestWebapp](doc//PluginManifestWebapp.md)
- - [PluginStatus](doc//PluginStatus.md)
- - [Post](doc//Post.md)
- - [PostList](doc//PostList.md)
- - [PostListWithSearchMatches](doc//PostListWithSearchMatches.md)
- - [PostLogRequest](doc//PostLogRequest.md)
- - [PostMetadata](doc//PostMetadata.md)
- - [PostMetadataEmbedsInner](doc//PostMetadataEmbedsInner.md)
- - [PostMetadataImagesInner](doc//PostMetadataImagesInner.md)
- - [PostsUsage](doc//PostsUsage.md)
- - [Preference](doc//Preference.md)
- - [Product](doc//Product.md)
- - [ProductLimits](doc//ProductLimits.md)
- - [PublishUserTypingRequest](doc//PublishUserTypingRequest.md)
- - [PushNotification](doc//PushNotification.md)
- - [Reaction](doc//Reaction.md)
- - [RegenCommandToken200Response](doc//RegenCommandToken200Response.md)
- - [RegisterTermsOfServiceActionRequest](doc//RegisterTermsOfServiceActionRequest.md)
- - [RelationalIntegrityCheckData](doc//RelationalIntegrityCheckData.md)
- - [RemoteClusterInfo](doc//RemoteClusterInfo.md)
- - [RemoveRecentCustomStatusRequest](doc//RemoveRecentCustomStatusRequest.md)
- - [RequestTrialLicenseRequest](doc//RequestTrialLicenseRequest.md)
- - [ResetPasswordRequest](doc//ResetPasswordRequest.md)
- - [ResetSamlAuthDataToEmail200Response](doc//ResetSamlAuthDataToEmail200Response.md)
- - [ResetSamlAuthDataToEmailRequest](doc//ResetSamlAuthDataToEmailRequest.md)
- - [RetentionPolicyForChannelList](doc//RetentionPolicyForChannelList.md)
- - [RetentionPolicyForTeamList](doc//RetentionPolicyForTeamList.md)
- - [RevokeSessionRequest](doc//RevokeSessionRequest.md)
- - [RevokeUserAccessTokenRequest](doc//RevokeUserAccessTokenRequest.md)
- - [Role](doc//Role.md)
- - [SamlCertificateStatus](doc//SamlCertificateStatus.md)
- - [Scheme](doc//Scheme.md)
- - [SearchAllChannels200Response](doc//SearchAllChannels200Response.md)
- - [SearchAllChannelsRequest](doc//SearchAllChannelsRequest.md)
- - [SearchArchivedChannelsRequest](doc//SearchArchivedChannelsRequest.md)
- - [SearchChannelsForRetentionPolicyRequest](doc//SearchChannelsForRetentionPolicyRequest.md)
- - [SearchChannelsRequest](doc//SearchChannelsRequest.md)
- - [SearchEmojiRequest](doc//SearchEmojiRequest.md)
- - [SearchGroupChannelsRequest](doc//SearchGroupChannelsRequest.md)
- - [SearchPostsRequest](doc//SearchPostsRequest.md)
- - [SearchTeams200Response](doc//SearchTeams200Response.md)
- - [SearchTeamsForRetentionPolicyRequest](doc//SearchTeamsForRetentionPolicyRequest.md)
- - [SearchTeamsRequest](doc//SearchTeamsRequest.md)
- - [SearchUserAccessTokensRequest](doc//SearchUserAccessTokensRequest.md)
- - [SearchUsersRequest](doc//SearchUsersRequest.md)
- - [SendPasswordResetEmailRequest](doc//SendPasswordResetEmailRequest.md)
- - [SendVerificationEmailRequest](doc//SendVerificationEmailRequest.md)
- - [SendWarnMetricAckRequest](doc//SendWarnMetricAckRequest.md)
- - [ServerBusy](doc//ServerBusy.md)
- - [Session](doc//Session.md)
- - [SharedChannel](doc//SharedChannel.md)
- - [SidebarCategory](doc//SidebarCategory.md)
- - [SidebarCategoryWithChannels](doc//SidebarCategoryWithChannels.md)
- - [SlackAttachment](doc//SlackAttachment.md)
- - [SlackAttachmentField](doc//SlackAttachmentField.md)
- - [Status](doc//Status.md)
- - [StatusOK](doc//StatusOK.md)
- - [SubmitInteractiveDialogRequest](doc//SubmitInteractiveDialogRequest.md)
- - [Subscription](doc//Subscription.md)
- - [SubscriptionStats](doc//SubscriptionStats.md)
- - [SwitchAccountType200Response](doc//SwitchAccountType200Response.md)
- - [SwitchAccountTypeRequest](doc//SwitchAccountTypeRequest.md)
- - [System](doc//System.md)
- - [SystemStatusResponse](doc//SystemStatusResponse.md)
- - [Team](doc//Team.md)
- - [TeamExists](doc//TeamExists.md)
- - [TeamMap](doc//TeamMap.md)
- - [TeamMember](doc//TeamMember.md)
- - [TeamStats](doc//TeamStats.md)
- - [TeamUnread](doc//TeamUnread.md)
- - [TeamsLimits](doc//TeamsLimits.md)
- - [TermsOfService](doc//TermsOfService.md)
- - [TestSiteURLRequest](doc//TestSiteURLRequest.md)
- - [Timezone](doc//Timezone.md)
- - [TopChannel](doc//TopChannel.md)
- - [TopChannelList](doc//TopChannelList.md)
- - [TopReaction](doc//TopReaction.md)
- - [TopReactionList](doc//TopReactionList.md)
- - [UpdateChannelPrivacyRequest](doc//UpdateChannelPrivacyRequest.md)
- - [UpdateChannelRequest](doc//UpdateChannelRequest.md)
- - [UpdateCloudCustomerRequest](doc//UpdateCloudCustomerRequest.md)
- - [UpdateIncomingWebhookRequest](doc//UpdateIncomingWebhookRequest.md)
- - [UpdateOAuthAppRequest](doc//UpdateOAuthAppRequest.md)
- - [UpdateOutgoingWebhookRequest](doc//UpdateOutgoingWebhookRequest.md)
- - [UpdatePostRequest](doc//UpdatePostRequest.md)
- - [UpdateTeamMemberSchemeRolesRequest](doc//UpdateTeamMemberSchemeRolesRequest.md)
- - [UpdateTeamPrivacyRequest](doc//UpdateTeamPrivacyRequest.md)
- - [UpdateTeamRequest](doc//UpdateTeamRequest.md)
- - [UpdateTeamSchemeRequest](doc//UpdateTeamSchemeRequest.md)
- - [UpdateUserActiveRequest](doc//UpdateUserActiveRequest.md)
- - [UpdateUserCustomStatusRequest](doc//UpdateUserCustomStatusRequest.md)
- - [UpdateUserMfaRequest](doc//UpdateUserMfaRequest.md)
- - [UpdateUserPasswordRequest](doc//UpdateUserPasswordRequest.md)
- - [UpdateUserRequest](doc//UpdateUserRequest.md)
- - [UpdateUserRolesRequest](doc//UpdateUserRolesRequest.md)
- - [UpdateUserStatusRequest](doc//UpdateUserStatusRequest.md)
- - [UpgradeToEnterpriseStatus200Response](doc//UpgradeToEnterpriseStatus200Response.md)
- - [UploadFile201Response](doc//UploadFile201Response.md)
- - [UploadSession](doc//UploadSession.md)
- - [User](doc//User.md)
- - [UserAccessToken](doc//UserAccessToken.md)
- - [UserAccessTokenSanitized](doc//UserAccessTokenSanitized.md)
- - [UserAuthData](doc//UserAuthData.md)
- - [UserAutocomplete](doc//UserAutocomplete.md)
- - [UserAutocompleteInChannel](doc//UserAutocompleteInChannel.md)
- - [UserAutocompleteInTeam](doc//UserAutocompleteInTeam.md)
- - [UserNotifyProps](doc//UserNotifyProps.md)
- - [UserTermsOfService](doc//UserTermsOfService.md)
- - [UserThread](doc//UserThread.md)
- - [UserThreads](doc//UserThreads.md)
- - [UsersStats](doc//UsersStats.md)
- - [VerifyUserEmailRequest](doc//VerifyUserEmailRequest.md)
- - [ViewChannel200Response](doc//ViewChannel200Response.md)
- - [ViewChannelRequest](doc//ViewChannelRequest.md)
+ - [MattermostAddChannelMemberRequest](doc//MattermostAddChannelMemberRequest.md)
+ - [MattermostAddGroupMembersRequest](doc//MattermostAddGroupMembersRequest.md)
+ - [MattermostAddOn](doc//MattermostAddOn.md)
+ - [MattermostAddTeamMemberRequest](doc//MattermostAddTeamMemberRequest.md)
+ - [MattermostAddress](doc//MattermostAddress.md)
+ - [MattermostAppError](doc//MattermostAppError.md)
+ - [MattermostAttachDeviceIdRequest](doc//MattermostAttachDeviceIdRequest.md)
+ - [MattermostAudit](doc//MattermostAudit.md)
+ - [MattermostAutocompleteSuggestion](doc//MattermostAutocompleteSuggestion.md)
+ - [MattermostBoardsLimits](doc//MattermostBoardsLimits.md)
+ - [MattermostBot](doc//MattermostBot.md)
+ - [MattermostChannel](doc//MattermostChannel.md)
+ - [MattermostChannelData](doc//MattermostChannelData.md)
+ - [MattermostChannelMember](doc//MattermostChannelMember.md)
+ - [MattermostChannelMemberCountByGroup](doc//MattermostChannelMemberCountByGroup.md)
+ - [MattermostChannelMemberWithTeamData](doc//MattermostChannelMemberWithTeamData.md)
+ - [MattermostChannelMemberWithTeamDataAllOf](doc//MattermostChannelMemberWithTeamDataAllOf.md)
+ - [MattermostChannelModeratedRole](doc//MattermostChannelModeratedRole.md)
+ - [MattermostChannelModeratedRoles](doc//MattermostChannelModeratedRoles.md)
+ - [MattermostChannelModeratedRolesPatch](doc//MattermostChannelModeratedRolesPatch.md)
+ - [MattermostChannelModeration](doc//MattermostChannelModeration.md)
+ - [MattermostChannelModerationPatch](doc//MattermostChannelModerationPatch.md)
+ - [MattermostChannelNotifyProps](doc//MattermostChannelNotifyProps.md)
+ - [MattermostChannelStats](doc//MattermostChannelStats.md)
+ - [MattermostChannelUnread](doc//MattermostChannelUnread.md)
+ - [MattermostChannelUnreadAt](doc//MattermostChannelUnreadAt.md)
+ - [MattermostChannelWithTeamData](doc//MattermostChannelWithTeamData.md)
+ - [MattermostChannelWithTeamDataAllOf](doc//MattermostChannelWithTeamDataAllOf.md)
+ - [MattermostCheckUserMfa200Response](doc//MattermostCheckUserMfa200Response.md)
+ - [MattermostCheckUserMfaRequest](doc//MattermostCheckUserMfaRequest.md)
+ - [MattermostCloudCustomer](doc//MattermostCloudCustomer.md)
+ - [MattermostClusterInfo](doc//MattermostClusterInfo.md)
+ - [MattermostCommand](doc//MattermostCommand.md)
+ - [MattermostCommandResponse](doc//MattermostCommandResponse.md)
+ - [MattermostCompliance](doc//MattermostCompliance.md)
+ - [MattermostConfig](doc//MattermostConfig.md)
+ - [MattermostConfigAnalyticsSettings](doc//MattermostConfigAnalyticsSettings.md)
+ - [MattermostConfigClusterSettings](doc//MattermostConfigClusterSettings.md)
+ - [MattermostConfigComplianceSettings](doc//MattermostConfigComplianceSettings.md)
+ - [MattermostConfigEmailSettings](doc//MattermostConfigEmailSettings.md)
+ - [MattermostConfigFileSettings](doc//MattermostConfigFileSettings.md)
+ - [MattermostConfigGitLabSettings](doc//MattermostConfigGitLabSettings.md)
+ - [MattermostConfigLdapSettings](doc//MattermostConfigLdapSettings.md)
+ - [MattermostConfigLocalizationSettings](doc//MattermostConfigLocalizationSettings.md)
+ - [MattermostConfigLogSettings](doc//MattermostConfigLogSettings.md)
+ - [MattermostConfigMetricsSettings](doc//MattermostConfigMetricsSettings.md)
+ - [MattermostConfigNativeAppSettings](doc//MattermostConfigNativeAppSettings.md)
+ - [MattermostConfigPasswordSettings](doc//MattermostConfigPasswordSettings.md)
+ - [MattermostConfigPrivacySettings](doc//MattermostConfigPrivacySettings.md)
+ - [MattermostConfigRateLimitSettings](doc//MattermostConfigRateLimitSettings.md)
+ - [MattermostConfigSamlSettings](doc//MattermostConfigSamlSettings.md)
+ - [MattermostConfigServiceSettings](doc//MattermostConfigServiceSettings.md)
+ - [MattermostConfigSqlSettings](doc//MattermostConfigSqlSettings.md)
+ - [MattermostConfigSupportSettings](doc//MattermostConfigSupportSettings.md)
+ - [MattermostConfigTeamSettings](doc//MattermostConfigTeamSettings.md)
+ - [MattermostConvertBotToUserRequest](doc//MattermostConvertBotToUserRequest.md)
+ - [MattermostCreateBotRequest](doc//MattermostCreateBotRequest.md)
+ - [MattermostCreateChannelRequest](doc//MattermostCreateChannelRequest.md)
+ - [MattermostCreateCommandRequest](doc//MattermostCreateCommandRequest.md)
+ - [MattermostCreateGroupRequest](doc//MattermostCreateGroupRequest.md)
+ - [MattermostCreateGroupRequestGroup](doc//MattermostCreateGroupRequestGroup.md)
+ - [MattermostCreateIncomingWebhookRequest](doc//MattermostCreateIncomingWebhookRequest.md)
+ - [MattermostCreateJobRequest](doc//MattermostCreateJobRequest.md)
+ - [MattermostCreateOAuthAppRequest](doc//MattermostCreateOAuthAppRequest.md)
+ - [MattermostCreateOutgoingWebhookRequest](doc//MattermostCreateOutgoingWebhookRequest.md)
+ - [MattermostCreatePostEphemeralRequest](doc//MattermostCreatePostEphemeralRequest.md)
+ - [MattermostCreatePostEphemeralRequestPost](doc//MattermostCreatePostEphemeralRequestPost.md)
+ - [MattermostCreatePostRequest](doc//MattermostCreatePostRequest.md)
+ - [MattermostCreateSchemeRequest](doc//MattermostCreateSchemeRequest.md)
+ - [MattermostCreateTeamRequest](doc//MattermostCreateTeamRequest.md)
+ - [MattermostCreateUploadRequest](doc//MattermostCreateUploadRequest.md)
+ - [MattermostCreateUserAccessTokenRequest](doc//MattermostCreateUserAccessTokenRequest.md)
+ - [MattermostCreateUserRequest](doc//MattermostCreateUserRequest.md)
+ - [MattermostDataRetentionPolicy](doc//MattermostDataRetentionPolicy.md)
+ - [MattermostDataRetentionPolicyAllOf](doc//MattermostDataRetentionPolicyAllOf.md)
+ - [MattermostDataRetentionPolicyCreate](doc//MattermostDataRetentionPolicyCreate.md)
+ - [MattermostDataRetentionPolicyForChannel](doc//MattermostDataRetentionPolicyForChannel.md)
+ - [MattermostDataRetentionPolicyForTeam](doc//MattermostDataRetentionPolicyForTeam.md)
+ - [MattermostDataRetentionPolicyWithTeamAndChannelCounts](doc//MattermostDataRetentionPolicyWithTeamAndChannelCounts.md)
+ - [MattermostDataRetentionPolicyWithTeamAndChannelCountsAllOf](doc//MattermostDataRetentionPolicyWithTeamAndChannelCountsAllOf.md)
+ - [MattermostDataRetentionPolicyWithTeamAndChannelIds](doc//MattermostDataRetentionPolicyWithTeamAndChannelIds.md)
+ - [MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf](doc//MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf.md)
+ - [MattermostDataRetentionPolicyWithoutId](doc//MattermostDataRetentionPolicyWithoutId.md)
+ - [MattermostDeleteGroupMembersRequest](doc//MattermostDeleteGroupMembersRequest.md)
+ - [MattermostDisableUserAccessTokenRequest](doc//MattermostDisableUserAccessTokenRequest.md)
+ - [MattermostEmoji](doc//MattermostEmoji.md)
+ - [MattermostEnableUserAccessTokenRequest](doc//MattermostEnableUserAccessTokenRequest.md)
+ - [MattermostEnvironmentConfig](doc//MattermostEnvironmentConfig.md)
+ - [MattermostEnvironmentConfigAnalyticsSettings](doc//MattermostEnvironmentConfigAnalyticsSettings.md)
+ - [MattermostEnvironmentConfigClusterSettings](doc//MattermostEnvironmentConfigClusterSettings.md)
+ - [MattermostEnvironmentConfigComplianceSettings](doc//MattermostEnvironmentConfigComplianceSettings.md)
+ - [MattermostEnvironmentConfigEmailSettings](doc//MattermostEnvironmentConfigEmailSettings.md)
+ - [MattermostEnvironmentConfigFileSettings](doc//MattermostEnvironmentConfigFileSettings.md)
+ - [MattermostEnvironmentConfigGitLabSettings](doc//MattermostEnvironmentConfigGitLabSettings.md)
+ - [MattermostEnvironmentConfigLdapSettings](doc//MattermostEnvironmentConfigLdapSettings.md)
+ - [MattermostEnvironmentConfigLocalizationSettings](doc//MattermostEnvironmentConfigLocalizationSettings.md)
+ - [MattermostEnvironmentConfigLogSettings](doc//MattermostEnvironmentConfigLogSettings.md)
+ - [MattermostEnvironmentConfigMetricsSettings](doc//MattermostEnvironmentConfigMetricsSettings.md)
+ - [MattermostEnvironmentConfigNativeAppSettings](doc//MattermostEnvironmentConfigNativeAppSettings.md)
+ - [MattermostEnvironmentConfigPasswordSettings](doc//MattermostEnvironmentConfigPasswordSettings.md)
+ - [MattermostEnvironmentConfigRateLimitSettings](doc//MattermostEnvironmentConfigRateLimitSettings.md)
+ - [MattermostEnvironmentConfigSamlSettings](doc//MattermostEnvironmentConfigSamlSettings.md)
+ - [MattermostEnvironmentConfigServiceSettings](doc//MattermostEnvironmentConfigServiceSettings.md)
+ - [MattermostEnvironmentConfigSqlSettings](doc//MattermostEnvironmentConfigSqlSettings.md)
+ - [MattermostEnvironmentConfigSupportSettings](doc//MattermostEnvironmentConfigSupportSettings.md)
+ - [MattermostEnvironmentConfigTeamSettings](doc//MattermostEnvironmentConfigTeamSettings.md)
+ - [MattermostExecuteCommandRequest](doc//MattermostExecuteCommandRequest.md)
+ - [MattermostFileInfo](doc//MattermostFileInfo.md)
+ - [MattermostFileInfoList](doc//MattermostFileInfoList.md)
+ - [MattermostFilesLimits](doc//MattermostFilesLimits.md)
+ - [MattermostGenerateMfaSecret200Response](doc//MattermostGenerateMfaSecret200Response.md)
+ - [MattermostGetDataRetentionPoliciesCount200Response](doc//MattermostGetDataRetentionPoliciesCount200Response.md)
+ - [MattermostGetFileLink200Response](doc//MattermostGetFileLink200Response.md)
+ - [MattermostGetGroupStats200Response](doc//MattermostGetGroupStats200Response.md)
+ - [MattermostGetGroupUsers200Response](doc//MattermostGetGroupUsers200Response.md)
+ - [MattermostGetPlugins200Response](doc//MattermostGetPlugins200Response.md)
+ - [MattermostGetRedirectLocation200Response](doc//MattermostGetRedirectLocation200Response.md)
+ - [MattermostGetSamlMetadataFromIdpRequest](doc//MattermostGetSamlMetadataFromIdpRequest.md)
+ - [MattermostGetTeamInviteInfo200Response](doc//MattermostGetTeamInviteInfo200Response.md)
+ - [MattermostGetUsersByGroupChannelIds200Response](doc//MattermostGetUsersByGroupChannelIds200Response.md)
+ - [MattermostGlobalDataRetentionPolicy](doc//MattermostGlobalDataRetentionPolicy.md)
+ - [MattermostGroup](doc//MattermostGroup.md)
+ - [MattermostGroupSyncableChannel](doc//MattermostGroupSyncableChannel.md)
+ - [MattermostGroupSyncableChannels](doc//MattermostGroupSyncableChannels.md)
+ - [MattermostGroupSyncableTeam](doc//MattermostGroupSyncableTeam.md)
+ - [MattermostGroupSyncableTeams](doc//MattermostGroupSyncableTeams.md)
+ - [MattermostGroupWithSchemeAdmin](doc//MattermostGroupWithSchemeAdmin.md)
+ - [MattermostImportTeam200Response](doc//MattermostImportTeam200Response.md)
+ - [MattermostIncomingWebhook](doc//MattermostIncomingWebhook.md)
+ - [MattermostInstallMarketplacePluginRequest](doc//MattermostInstallMarketplacePluginRequest.md)
+ - [MattermostIntegrationsLimits](doc//MattermostIntegrationsLimits.md)
+ - [MattermostIntegrityCheckResult](doc//MattermostIntegrityCheckResult.md)
+ - [MattermostInviteGuestsToTeamRequest](doc//MattermostInviteGuestsToTeamRequest.md)
+ - [MattermostInvoice](doc//MattermostInvoice.md)
+ - [MattermostInvoiceLineItem](doc//MattermostInvoiceLineItem.md)
+ - [MattermostJob](doc//MattermostJob.md)
+ - [MattermostLDAPGroup](doc//MattermostLDAPGroup.md)
+ - [MattermostLDAPGroupsPaged](doc//MattermostLDAPGroupsPaged.md)
+ - [MattermostLicenseRenewalLink](doc//MattermostLicenseRenewalLink.md)
+ - [MattermostLoginByCwsTokenRequest](doc//MattermostLoginByCwsTokenRequest.md)
+ - [MattermostLoginRequest](doc//MattermostLoginRequest.md)
+ - [MattermostMarketplacePlugin](doc//MattermostMarketplacePlugin.md)
+ - [MattermostMessagesLimits](doc//MattermostMessagesLimits.md)
+ - [MattermostMigrateAuthToLdapRequest](doc//MattermostMigrateAuthToLdapRequest.md)
+ - [MattermostMigrateAuthToSamlRequest](doc//MattermostMigrateAuthToSamlRequest.md)
+ - [MattermostMigrateIdLdapRequest](doc//MattermostMigrateIdLdapRequest.md)
+ - [MattermostMoveChannelRequest](doc//MattermostMoveChannelRequest.md)
+ - [MattermostMoveCommandRequest](doc//MattermostMoveCommandRequest.md)
+ - [MattermostNotice](doc//MattermostNotice.md)
+ - [MattermostOAuthApp](doc//MattermostOAuthApp.md)
+ - [MattermostOpenGraph](doc//MattermostOpenGraph.md)
+ - [MattermostOpenGraphArticle](doc//MattermostOpenGraphArticle.md)
+ - [MattermostOpenGraphArticleAuthorsInner](doc//MattermostOpenGraphArticleAuthorsInner.md)
+ - [MattermostOpenGraphAudiosInner](doc//MattermostOpenGraphAudiosInner.md)
+ - [MattermostOpenGraphBook](doc//MattermostOpenGraphBook.md)
+ - [MattermostOpenGraphImagesInner](doc//MattermostOpenGraphImagesInner.md)
+ - [MattermostOpenGraphRequest](doc//MattermostOpenGraphRequest.md)
+ - [MattermostOpenGraphVideosInner](doc//MattermostOpenGraphVideosInner.md)
+ - [MattermostOpenInteractiveDialogRequest](doc//MattermostOpenInteractiveDialogRequest.md)
+ - [MattermostOpenInteractiveDialogRequestDialog](doc//MattermostOpenInteractiveDialogRequestDialog.md)
+ - [MattermostOrderedSidebarCategories](doc//MattermostOrderedSidebarCategories.md)
+ - [MattermostOrphanedRecord](doc//MattermostOrphanedRecord.md)
+ - [MattermostOutgoingWebhook](doc//MattermostOutgoingWebhook.md)
+ - [MattermostPatchChannelRequest](doc//MattermostPatchChannelRequest.md)
+ - [MattermostPatchGroupRequest](doc//MattermostPatchGroupRequest.md)
+ - [MattermostPatchGroupSyncableForTeamRequest](doc//MattermostPatchGroupSyncableForTeamRequest.md)
+ - [MattermostPatchPostRequest](doc//MattermostPatchPostRequest.md)
+ - [MattermostPatchRoleRequest](doc//MattermostPatchRoleRequest.md)
+ - [MattermostPatchSchemeRequest](doc//MattermostPatchSchemeRequest.md)
+ - [MattermostPatchTeamRequest](doc//MattermostPatchTeamRequest.md)
+ - [MattermostPatchUserRequest](doc//MattermostPatchUserRequest.md)
+ - [MattermostPaymentMethod](doc//MattermostPaymentMethod.md)
+ - [MattermostPaymentSetupIntent](doc//MattermostPaymentSetupIntent.md)
+ - [MattermostPluginManifest](doc//MattermostPluginManifest.md)
+ - [MattermostPluginManifestBackend](doc//MattermostPluginManifestBackend.md)
+ - [MattermostPluginManifestServer](doc//MattermostPluginManifestServer.md)
+ - [MattermostPluginManifestServerExecutables](doc//MattermostPluginManifestServerExecutables.md)
+ - [MattermostPluginManifestWebapp](doc//MattermostPluginManifestWebapp.md)
+ - [MattermostPluginStatus](doc//MattermostPluginStatus.md)
+ - [MattermostPost](doc//MattermostPost.md)
+ - [MattermostPostList](doc//MattermostPostList.md)
+ - [MattermostPostListWithSearchMatches](doc//MattermostPostListWithSearchMatches.md)
+ - [MattermostPostLogRequest](doc//MattermostPostLogRequest.md)
+ - [MattermostPostMetadata](doc//MattermostPostMetadata.md)
+ - [MattermostPostMetadataEmbedsInner](doc//MattermostPostMetadataEmbedsInner.md)
+ - [MattermostPostMetadataImagesInner](doc//MattermostPostMetadataImagesInner.md)
+ - [MattermostPostsUsage](doc//MattermostPostsUsage.md)
+ - [MattermostPreference](doc//MattermostPreference.md)
+ - [MattermostProduct](doc//MattermostProduct.md)
+ - [MattermostProductLimits](doc//MattermostProductLimits.md)
+ - [MattermostPublishUserTypingRequest](doc//MattermostPublishUserTypingRequest.md)
+ - [MattermostPushNotification](doc//MattermostPushNotification.md)
+ - [MattermostReaction](doc//MattermostReaction.md)
+ - [MattermostRegenCommandToken200Response](doc//MattermostRegenCommandToken200Response.md)
+ - [MattermostRegisterTermsOfServiceActionRequest](doc//MattermostRegisterTermsOfServiceActionRequest.md)
+ - [MattermostRelationalIntegrityCheckData](doc//MattermostRelationalIntegrityCheckData.md)
+ - [MattermostRemoteClusterInfo](doc//MattermostRemoteClusterInfo.md)
+ - [MattermostRemoveRecentCustomStatusRequest](doc//MattermostRemoveRecentCustomStatusRequest.md)
+ - [MattermostRequestTrialLicenseRequest](doc//MattermostRequestTrialLicenseRequest.md)
+ - [MattermostResetPasswordRequest](doc//MattermostResetPasswordRequest.md)
+ - [MattermostResetSamlAuthDataToEmail200Response](doc//MattermostResetSamlAuthDataToEmail200Response.md)
+ - [MattermostResetSamlAuthDataToEmailRequest](doc//MattermostResetSamlAuthDataToEmailRequest.md)
+ - [MattermostRetentionPolicyForChannelList](doc//MattermostRetentionPolicyForChannelList.md)
+ - [MattermostRetentionPolicyForTeamList](doc//MattermostRetentionPolicyForTeamList.md)
+ - [MattermostRevokeSessionRequest](doc//MattermostRevokeSessionRequest.md)
+ - [MattermostRevokeUserAccessTokenRequest](doc//MattermostRevokeUserAccessTokenRequest.md)
+ - [MattermostRole](doc//MattermostRole.md)
+ - [MattermostSamlCertificateStatus](doc//MattermostSamlCertificateStatus.md)
+ - [MattermostScheme](doc//MattermostScheme.md)
+ - [MattermostSearchAllChannels200Response](doc//MattermostSearchAllChannels200Response.md)
+ - [MattermostSearchAllChannelsRequest](doc//MattermostSearchAllChannelsRequest.md)
+ - [MattermostSearchArchivedChannelsRequest](doc//MattermostSearchArchivedChannelsRequest.md)
+ - [MattermostSearchChannelsForRetentionPolicyRequest](doc//MattermostSearchChannelsForRetentionPolicyRequest.md)
+ - [MattermostSearchChannelsRequest](doc//MattermostSearchChannelsRequest.md)
+ - [MattermostSearchEmojiRequest](doc//MattermostSearchEmojiRequest.md)
+ - [MattermostSearchGroupChannelsRequest](doc//MattermostSearchGroupChannelsRequest.md)
+ - [MattermostSearchPostsRequest](doc//MattermostSearchPostsRequest.md)
+ - [MattermostSearchTeams200Response](doc//MattermostSearchTeams200Response.md)
+ - [MattermostSearchTeamsForRetentionPolicyRequest](doc//MattermostSearchTeamsForRetentionPolicyRequest.md)
+ - [MattermostSearchTeamsRequest](doc//MattermostSearchTeamsRequest.md)
+ - [MattermostSearchUserAccessTokensRequest](doc//MattermostSearchUserAccessTokensRequest.md)
+ - [MattermostSearchUsersRequest](doc//MattermostSearchUsersRequest.md)
+ - [MattermostSendPasswordResetEmailRequest](doc//MattermostSendPasswordResetEmailRequest.md)
+ - [MattermostSendVerificationEmailRequest](doc//MattermostSendVerificationEmailRequest.md)
+ - [MattermostSendWarnMetricAckRequest](doc//MattermostSendWarnMetricAckRequest.md)
+ - [MattermostServerBusy](doc//MattermostServerBusy.md)
+ - [MattermostSession](doc//MattermostSession.md)
+ - [MattermostSharedChannel](doc//MattermostSharedChannel.md)
+ - [MattermostSidebarCategory](doc//MattermostSidebarCategory.md)
+ - [MattermostSidebarCategoryWithChannels](doc//MattermostSidebarCategoryWithChannels.md)
+ - [MattermostSlackAttachment](doc//MattermostSlackAttachment.md)
+ - [MattermostSlackAttachmentField](doc//MattermostSlackAttachmentField.md)
+ - [MattermostStatus](doc//MattermostStatus.md)
+ - [MattermostStatusOK](doc//MattermostStatusOK.md)
+ - [MattermostSubmitInteractiveDialogRequest](doc//MattermostSubmitInteractiveDialogRequest.md)
+ - [MattermostSubscription](doc//MattermostSubscription.md)
+ - [MattermostSubscriptionStats](doc//MattermostSubscriptionStats.md)
+ - [MattermostSwitchAccountType200Response](doc//MattermostSwitchAccountType200Response.md)
+ - [MattermostSwitchAccountTypeRequest](doc//MattermostSwitchAccountTypeRequest.md)
+ - [MattermostSystem](doc//MattermostSystem.md)
+ - [MattermostSystemStatusResponse](doc//MattermostSystemStatusResponse.md)
+ - [MattermostTeam](doc//MattermostTeam.md)
+ - [MattermostTeamExists](doc//MattermostTeamExists.md)
+ - [MattermostTeamMap](doc//MattermostTeamMap.md)
+ - [MattermostTeamMember](doc//MattermostTeamMember.md)
+ - [MattermostTeamStats](doc//MattermostTeamStats.md)
+ - [MattermostTeamUnread](doc//MattermostTeamUnread.md)
+ - [MattermostTeamsLimits](doc//MattermostTeamsLimits.md)
+ - [MattermostTermsOfService](doc//MattermostTermsOfService.md)
+ - [MattermostTestSiteURLRequest](doc//MattermostTestSiteURLRequest.md)
+ - [MattermostTimezone](doc//MattermostTimezone.md)
+ - [MattermostTopChannel](doc//MattermostTopChannel.md)
+ - [MattermostTopChannelList](doc//MattermostTopChannelList.md)
+ - [MattermostTopReaction](doc//MattermostTopReaction.md)
+ - [MattermostTopReactionList](doc//MattermostTopReactionList.md)
+ - [MattermostUpdateChannelPrivacyRequest](doc//MattermostUpdateChannelPrivacyRequest.md)
+ - [MattermostUpdateChannelRequest](doc//MattermostUpdateChannelRequest.md)
+ - [MattermostUpdateCloudCustomerRequest](doc//MattermostUpdateCloudCustomerRequest.md)
+ - [MattermostUpdateIncomingWebhookRequest](doc//MattermostUpdateIncomingWebhookRequest.md)
+ - [MattermostUpdateOAuthAppRequest](doc//MattermostUpdateOAuthAppRequest.md)
+ - [MattermostUpdateOutgoingWebhookRequest](doc//MattermostUpdateOutgoingWebhookRequest.md)
+ - [MattermostUpdatePostRequest](doc//MattermostUpdatePostRequest.md)
+ - [MattermostUpdateTeamMemberSchemeRolesRequest](doc//MattermostUpdateTeamMemberSchemeRolesRequest.md)
+ - [MattermostUpdateTeamPrivacyRequest](doc//MattermostUpdateTeamPrivacyRequest.md)
+ - [MattermostUpdateTeamRequest](doc//MattermostUpdateTeamRequest.md)
+ - [MattermostUpdateTeamSchemeRequest](doc//MattermostUpdateTeamSchemeRequest.md)
+ - [MattermostUpdateUserActiveRequest](doc//MattermostUpdateUserActiveRequest.md)
+ - [MattermostUpdateUserCustomStatusRequest](doc//MattermostUpdateUserCustomStatusRequest.md)
+ - [MattermostUpdateUserMfaRequest](doc//MattermostUpdateUserMfaRequest.md)
+ - [MattermostUpdateUserPasswordRequest](doc//MattermostUpdateUserPasswordRequest.md)
+ - [MattermostUpdateUserRequest](doc//MattermostUpdateUserRequest.md)
+ - [MattermostUpdateUserRolesRequest](doc//MattermostUpdateUserRolesRequest.md)
+ - [MattermostUpdateUserStatusRequest](doc//MattermostUpdateUserStatusRequest.md)
+ - [MattermostUpgradeToEnterpriseStatus200Response](doc//MattermostUpgradeToEnterpriseStatus200Response.md)
+ - [MattermostUploadFile201Response](doc//MattermostUploadFile201Response.md)
+ - [MattermostUploadSession](doc//MattermostUploadSession.md)
+ - [MattermostUser](doc//MattermostUser.md)
+ - [MattermostUserAccessToken](doc//MattermostUserAccessToken.md)
+ - [MattermostUserAccessTokenSanitized](doc//MattermostUserAccessTokenSanitized.md)
+ - [MattermostUserAuthData](doc//MattermostUserAuthData.md)
+ - [MattermostUserAutocomplete](doc//MattermostUserAutocomplete.md)
+ - [MattermostUserAutocompleteInChannel](doc//MattermostUserAutocompleteInChannel.md)
+ - [MattermostUserAutocompleteInTeam](doc//MattermostUserAutocompleteInTeam.md)
+ - [MattermostUserNotifyProps](doc//MattermostUserNotifyProps.md)
+ - [MattermostUserTermsOfService](doc//MattermostUserTermsOfService.md)
+ - [MattermostUserThread](doc//MattermostUserThread.md)
+ - [MattermostUserThreads](doc//MattermostUserThreads.md)
+ - [MattermostUsersStats](doc//MattermostUsersStats.md)
+ - [MattermostVerifyUserEmailRequest](doc//MattermostVerifyUserEmailRequest.md)
+ - [MattermostViewChannel200Response](doc//MattermostViewChannel200Response.md)
+ - [MattermostViewChannelRequest](doc//MattermostViewChannelRequest.md)
 
 
 ## Documentation For Authorization

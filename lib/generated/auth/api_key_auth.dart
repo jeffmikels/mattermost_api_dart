@@ -20,12 +20,12 @@ class ApiKeyAuth implements Authentication {
   String apiKey = '';
 
   @override
-  void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MattermostQueryParam> queryParams, Map<String, String> headerParams) {
     final paramValue = apiKeyPrefix.isEmpty ? apiKey : '$apiKeyPrefix $apiKey';
 
     if (paramValue.isNotEmpty) {
       if (location == 'query') {
-        queryParams.add(QueryParam(paramName, paramValue));
+        queryParams.add(MattermostQueryParam(paramName, paramValue));
       } else if (location == 'header') {
         headerParams[paramName] = paramValue;
       } else if (location == 'cookie') {
