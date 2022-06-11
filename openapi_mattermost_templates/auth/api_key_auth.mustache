@@ -1,7 +1,7 @@
 {{>header}}
 {{>part_of}}
-class ApiKeyAuth implements Authentication {
-  ApiKeyAuth(this.location, this.paramName);
+class {{{modelNamePrefix}}}ApiKeyAuth{{{modelNameSuffix}}} implements {{{modelNamePrefix}}}Authentication{{{modelNameSuffix}}} {
+  {{{modelNamePrefix}}}ApiKeyAuth{{{modelNameSuffix}}}(this.location, this.paramName);
 
   final String location;
   final String paramName;

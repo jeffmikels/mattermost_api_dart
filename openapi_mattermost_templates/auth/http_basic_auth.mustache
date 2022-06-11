@@ -1,7 +1,7 @@
 {{>header}}
 {{>part_of}}
-class HttpBasicAuth implements Authentication {
-  HttpBasicAuth({this.username = '', this.password = ''});
+class {{{modelNamePrefix}}}HttpBasicAuth{{{modelNameSuffix}}} implements {{{modelNamePrefix}}}Authentication{{{modelNameSuffix}}} {
+  {{{modelNamePrefix}}}HttpBasicAuth{{{modelNameSuffix}}}({this.username = '', this.password = ''});
 
   String username;
   String password;

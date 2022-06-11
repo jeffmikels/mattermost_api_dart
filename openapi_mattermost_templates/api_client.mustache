@@ -18,7 +18,7 @@ class {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePre
   }
 
   final _defaultHeaderMap = <String, String>{};
-  final Authentication? authentication;
+  final {{{modelNamePrefix}}}Authentication{{{modelNameSuffix}}}? authentication;
 
   void addDefaultHeader(String key, String value) {
      _defaultHeaderMap[key] = value;

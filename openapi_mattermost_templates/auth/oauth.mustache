@@ -1,7 +1,7 @@
 {{>header}}
 {{>part_of}}
-class OAuth implements Authentication {
-  OAuth({this.accessToken = ''});
+class {{{modelNamePrefix}}}OAuth{{{modelNameSuffix}}} implements {{{modelNamePrefix}}}Authentication{{{modelNameSuffix}}} {
+  {{{modelNamePrefix}}}OAuth{{{modelNameSuffix}}}({this.accessToken = ''});
 
   String accessToken;
 

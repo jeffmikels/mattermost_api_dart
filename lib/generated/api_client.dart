@@ -28,7 +28,7 @@ class MattermostApiClient {
   }
 
   final _defaultHeaderMap = <String, String>{};
-  final Authentication? authentication;
+  final MattermostAuthentication? authentication;
 
   void addDefaultHeader(String key, String value) {
      _defaultHeaderMap[key] = value;

@@ -46,11 +46,15 @@ with open(apifn, 'r') as apifile:
   addedparts = False
 
   for line in orig.split('\n'):
-    # ignore the second ldap
+    # ignore the second ldap file
     if 'ldap_api.dart' in line:
       if usedldap:
         continue
       usedldap = True
+
+    # ignore the incorrect ldap api getter
+    if 'get lDAP' in line:
+      continue
 
     towrite.append(line)
 

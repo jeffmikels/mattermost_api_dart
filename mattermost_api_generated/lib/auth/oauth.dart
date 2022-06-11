@@ -10,8 +10,8 @@
 
 part of mattermost.api;
 
-class OAuth implements Authentication {
-  OAuth({this.accessToken = ''});
+class MattermostOAuth implements MattermostAuthentication {
+  MattermostOAuth({this.accessToken = ''});
 
   String accessToken;
 

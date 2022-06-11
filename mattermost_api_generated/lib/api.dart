@@ -371,4 +371,97 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
+/// also add individual apis as getters on the primary default api client
+extension MattermostApiClientExtension on  MattermostApiClient {
+	
+	MattermostAuthenticationApi get authentication => MattermostAuthenticationApi(this);
+	
+	MattermostBleveApi get bleve => MattermostBleveApi(this);
+	
+	MattermostBotsApi get bots => MattermostBotsApi(this);
+	
+	MattermostBrandApi get brand => MattermostBrandApi(this);
+	
+	MattermostChannelsApi get channels => MattermostChannelsApi(this);
+	
+	MattermostCloudApi get cloud => MattermostCloudApi(this);
+	
+	MattermostClusterApi get cluster => MattermostClusterApi(this);
+	
+	MattermostCommandsApi get commands => MattermostCommandsApi(this);
+	
+	MattermostComplianceApi get compliance => MattermostComplianceApi(this);
+	
+	MattermostDataRetentionApi get dataRetention => MattermostDataRetentionApi(this);
+	
+	MattermostElasticsearchApi get elasticsearch => MattermostElasticsearchApi(this);
+	
+	MattermostEmojiApi get emoji => MattermostEmojiApi(this);
+	
+	MattermostExportsApi get exports => MattermostExportsApi(this);
+	
+	MattermostFilesApi get files => MattermostFilesApi(this);
+	
+	MattermostGroupsApi get groups => MattermostGroupsApi(this);
+	
+	MattermostImportsApi get imports => MattermostImportsApi(this);
+	
+	MattermostInsightsApi get insights => MattermostInsightsApi(this);
+	
+	MattermostIntegrationActionsApi get integrationActions => MattermostIntegrationActionsApi(this);
+	
+	MattermostJobsApi get jobs => MattermostJobsApi(this);
+	
+	
+	MattermostLdapApi get ldap => MattermostLdapApi(this);
+	
+	MattermostMigrateApi get migrate => MattermostMigrateApi(this);
+	
+	MattermostOAuthApi get oAuth => MattermostOAuthApi(this);
+	
+	MattermostOpenGraphApi get openGraph => MattermostOpenGraphApi(this);
+	
+	MattermostPermissionsApi get permissions => MattermostPermissionsApi(this);
+	
+	MattermostPluginsApi get plugins => MattermostPluginsApi(this);
+	
+	MattermostPostsApi get posts => MattermostPostsApi(this);
+	
+	MattermostPreferencesApi get preferences => MattermostPreferencesApi(this);
+	
+	MattermostReactionsApi get reactions => MattermostReactionsApi(this);
+	
+	MattermostRolesApi get roles => MattermostRolesApi(this);
+	
+	MattermostRootApi get root => MattermostRootApi(this);
+	
+	MattermostSAMLApi get sAML => MattermostSAMLApi(this);
+	
+	MattermostSchemesApi get schemes => MattermostSchemesApi(this);
+	
+	MattermostSearchApi get search => MattermostSearchApi(this);
+	
+	MattermostSharedChannelsApi get sharedChannels => MattermostSharedChannelsApi(this);
+	
+	MattermostStatusApi get status => MattermostStatusApi(this);
+	
+	MattermostSystemApi get system => MattermostSystemApi(this);
+	
+	MattermostTeamsApi get teams => MattermostTeamsApi(this);
+	
+	MattermostTermsOfServiceApi get termsOfService => MattermostTermsOfServiceApi(this);
+	
+	MattermostThreadsApi get threads => MattermostThreadsApi(this);
+	
+	MattermostUploadsApi get uploads => MattermostUploadsApi(this);
+	
+	MattermostUsageApi get usage => MattermostUsageApi(this);
+	
+	MattermostUsersApi get users => MattermostUsersApi(this);
+	
+	MattermostWebhooksApi get webhooks => MattermostWebhooksApi(this);
+	
+}
+
+
 MattermostApiClient defaultMattermostApiClient = MattermostApiClient();

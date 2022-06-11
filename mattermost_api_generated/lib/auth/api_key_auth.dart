@@ -10,8 +10,8 @@
 
 part of mattermost.api;
 
-class ApiKeyAuth implements Authentication {
-  ApiKeyAuth(this.location, this.paramName);
+class MattermostApiKeyAuth implements MattermostAuthentication {
+  MattermostApiKeyAuth(this.location, this.paramName);
 
   final String location;
   final String paramName;
