@@ -94,7 +94,7 @@ class MattermostFileInfoList {
         order: json[r'order'] is List
             ? (json[r'order'] as List).cast<String>()
             : const [],
-        fileInfos: MattermostFileInfo.mapFromJson(json[r'file_infos']) ?? const {},
+        fileInfos: MattermostFileInfo.mapFromJson(json[r'file_infos'] ?? const {}),
         nextFileId: mapValueOfType<String>(json, r'next_file_id'),
         prevFileId: mapValueOfType<String>(json, r'prev_file_id'),
       );

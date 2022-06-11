@@ -10,8 +10,8 @@
 
 part of mattermost.api;
 
-class MattermostHttpBasicAuth implements MattermostAuthentication {
-  MattermostHttpBasicAuth({this.username = '', this.password = ''});
+class MattermostHttpBasicAuthentication implements MattermostAuthentication {
+  MattermostHttpBasicAuthentication({this.username = '', this.password = ''});
 
   String username;
   String password;

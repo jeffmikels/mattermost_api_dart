@@ -71,7 +71,7 @@ class MattermostPostListWithSearchMatches {
         order: json[r'order'] is List
             ? (json[r'order'] as List).cast<String>()
             : const [],
-        posts: MattermostPost.mapFromJson(json[r'posts']) ?? const {},
+        posts: MattermostPost.mapFromJson(json[r'posts'] ?? const {}),
         matches: json[r'matches'] == null
           ? const {}
             : mapCastOfType<String, List<String>>(json, r'matches')!,

@@ -12,13 +12,19 @@ part of mattermost.api;
 
 typedef MattermostHttpBearerAuthProvider = String Function();
 
-class MattermostHttpBearerAuth implements MattermostAuthentication {
-  MattermostHttpBearerAuth();
+class MattermostHttpBearerAuthentication implements MattermostAuthentication {
+
+  /// Constucts [HttpBearerAuthentication] from an optional [accessToken] which will be included in request headers
+  /// using the `Authorization: Bearer [token]` method.
+  MattermostHttpBearerAuthentication([dynamic accessToken]) {
+    this.accessToken = accessToken;
+  }
 
   dynamic _accessToken;
 
   dynamic get accessToken => _accessToken;
 
+  /// may be a String or a Function that returns a string.
   set accessToken(dynamic accessToken) {
     if (accessToken is! String && accessToken is! MattermostHttpBearerAuthProvider) {
       throw ArgumentError('accessToken value must be either a String or a String Function().');

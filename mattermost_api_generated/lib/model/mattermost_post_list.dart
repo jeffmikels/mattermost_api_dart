@@ -109,7 +109,7 @@ class MattermostPostList {
         order: json[r'order'] is List
             ? (json[r'order'] as List).cast<String>()
             : const [],
-        posts: MattermostPost.mapFromJson(json[r'posts']) ?? const {},
+        posts: MattermostPost.mapFromJson(json[r'posts'] ?? const {}),
         nextPostId: mapValueOfType<String>(json, r'next_post_id'),
         prevPostId: mapValueOfType<String>(json, r'prev_post_id'),
         hasNext: mapValueOfType<bool>(json, r'has_next'),
