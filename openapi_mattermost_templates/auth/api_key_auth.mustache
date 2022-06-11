@@ -1,0 +1,30 @@
+{{>header}}
+{{>part_of}}
+class ApiKeyAuth implements Authentication {
+  ApiKeyAuth(this.location, this.paramName);
+
+  final String location;
+  final String paramName;
+
+  String apiKeyPrefix = '';
+  String apiKey = '';
+
+  @override
+  void applyToParams(List<{{{modelNamePrefix}}}QueryParam{{{modelNameSuffix}}}> queryParams, Map<String, String> headerParams) {
+    final paramValue = apiKeyPrefix.isEmpty ? apiKey : '$apiKeyPrefix $apiKey';
+
+    if (paramValue.isNotEmpty) {
+      if (location == 'query') {
+        queryParams.add({{{modelNamePrefix}}}QueryParam{{{modelNameSuffix}}}(paramName, paramValue));
+      } else if (location == 'header') {
+        headerParams[paramName] = paramValue;
+      } else if (location == 'cookie') {
+        headerParams.update(
+          'Cookie',
+          (existingCookie) => '$existingCookie; $paramName=$paramValue',
+          ifAbsent: () => '$paramName=$paramValue',
+        );
+      }
+    }
+  }
+}
