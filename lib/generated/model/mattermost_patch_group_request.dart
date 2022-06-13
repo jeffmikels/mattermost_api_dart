@@ -43,17 +43,19 @@ class MattermostPatchGroupRequest {
   String? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchGroupRequest &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPatchGroupRequest &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'MattermostPatchGroupRequest[name=$name, displayName=$displayName, description=$description]';
@@ -99,7 +101,10 @@ class MattermostPatchGroupRequest {
     return null;
   }
 
-  static List<MattermostPatchGroupRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchGroupRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchGroupRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +132,18 @@ class MattermostPatchGroupRequest {
   }
 
   // maps a json object with a list of MattermostPatchGroupRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchGroupRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchGroupRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchGroupRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchGroupRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchGroupRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +153,5 @@ class MattermostPatchGroupRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -89,30 +89,33 @@ class MattermostMarketplacePlugin {
   String? installedVersion;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMarketplacePlugin &&
-     other.homepageUrl == homepageUrl &&
-     other.iconData == iconData &&
-     other.downloadUrl == downloadUrl &&
-     other.releaseNotesUrl == releaseNotesUrl &&
-     other.labels == labels &&
-     other.signature == signature &&
-     other.manifest == manifest &&
-     other.installedVersion == installedVersion;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostMarketplacePlugin &&
+          other.homepageUrl == homepageUrl &&
+          other.iconData == iconData &&
+          other.downloadUrl == downloadUrl &&
+          other.releaseNotesUrl == releaseNotesUrl &&
+          other.labels == labels &&
+          other.signature == signature &&
+          other.manifest == manifest &&
+          other.installedVersion == installedVersion;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (homepageUrl == null ? 0 : homepageUrl!.hashCode) +
-    (iconData == null ? 0 : iconData!.hashCode) +
-    (downloadUrl == null ? 0 : downloadUrl!.hashCode) +
-    (releaseNotesUrl == null ? 0 : releaseNotesUrl!.hashCode) +
-    (labels.hashCode) +
-    (signature == null ? 0 : signature!.hashCode) +
-    (manifest == null ? 0 : manifest!.hashCode) +
-    (installedVersion == null ? 0 : installedVersion!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (homepageUrl == null ? 0 : homepageUrl!.hashCode) +
+      (iconData == null ? 0 : iconData!.hashCode) +
+      (downloadUrl == null ? 0 : downloadUrl!.hashCode) +
+      (releaseNotesUrl == null ? 0 : releaseNotesUrl!.hashCode) +
+      (labels.hashCode) +
+      (signature == null ? 0 : signature!.hashCode) +
+      (manifest == null ? 0 : manifest!.hashCode) +
+      (installedVersion == null ? 0 : installedVersion!.hashCode);
 
   @override
-  String toString() => 'MattermostMarketplacePlugin[homepageUrl=$homepageUrl, iconData=$iconData, downloadUrl=$downloadUrl, releaseNotesUrl=$releaseNotesUrl, labels=$labels, signature=$signature, manifest=$manifest, installedVersion=$installedVersion]';
+  String toString() =>
+      'MattermostMarketplacePlugin[homepageUrl=$homepageUrl, iconData=$iconData, downloadUrl=$downloadUrl, releaseNotesUrl=$releaseNotesUrl, labels=$labels, signature=$signature, manifest=$manifest, installedVersion=$installedVersion]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -128,7 +131,7 @@ class MattermostMarketplacePlugin {
     if (releaseNotesUrl != null) {
       _json[r'release_notes_url'] = releaseNotesUrl;
     }
-      _json[r'labels'] = labels;
+    _json[r'labels'] = labels;
     if (signature != null) {
       _json[r'signature'] = signature;
     }
@@ -164,9 +167,7 @@ class MattermostMarketplacePlugin {
         iconData: mapValueOfType<String>(json, r'icon_data'),
         downloadUrl: mapValueOfType<String>(json, r'download_url'),
         releaseNotesUrl: mapValueOfType<String>(json, r'release_notes_url'),
-        labels: json[r'labels'] is List
-            ? (json[r'labels'] as List).cast<String>()
-            : const [],
+        labels: json[r'labels'] is List ? (json[r'labels'] as List).cast<String>() : const [],
         signature: mapValueOfType<String>(json, r'signature'),
         manifest: MattermostPluginManifest.fromJson(json[r'manifest']),
         installedVersion: mapValueOfType<String>(json, r'installed_version'),
@@ -175,7 +176,10 @@ class MattermostMarketplacePlugin {
     return null;
   }
 
-  static List<MattermostMarketplacePlugin>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMarketplacePlugin>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMarketplacePlugin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -203,12 +207,18 @@ class MattermostMarketplacePlugin {
   }
 
   // maps a json object with a list of MattermostMarketplacePlugin-objects as value to a dart map
-  static Map<String, List<MattermostMarketplacePlugin>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMarketplacePlugin>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMarketplacePlugin>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMarketplacePlugin.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMarketplacePlugin.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -218,7 +228,5 @@ class MattermostMarketplacePlugin {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

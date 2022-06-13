@@ -71,26 +71,29 @@ class MattermostLoginRequest {
   String? password;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostLoginRequest &&
-     other.id == id &&
-     other.loginId == loginId &&
-     other.token == token &&
-     other.deviceId == deviceId &&
-     other.ldapOnly == ldapOnly &&
-     other.password == password;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostLoginRequest &&
+          other.id == id &&
+          other.loginId == loginId &&
+          other.token == token &&
+          other.deviceId == deviceId &&
+          other.ldapOnly == ldapOnly &&
+          other.password == password;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (loginId == null ? 0 : loginId!.hashCode) +
-    (token == null ? 0 : token!.hashCode) +
-    (deviceId == null ? 0 : deviceId!.hashCode) +
-    (ldapOnly == null ? 0 : ldapOnly!.hashCode) +
-    (password == null ? 0 : password!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (loginId == null ? 0 : loginId!.hashCode) +
+      (token == null ? 0 : token!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (ldapOnly == null ? 0 : ldapOnly!.hashCode) +
+      (password == null ? 0 : password!.hashCode);
 
   @override
-  String toString() => 'MattermostLoginRequest[id=$id, loginId=$loginId, token=$token, deviceId=$deviceId, ldapOnly=$ldapOnly, password=$password]';
+  String toString() =>
+      'MattermostLoginRequest[id=$id, loginId=$loginId, token=$token, deviceId=$deviceId, ldapOnly=$ldapOnly, password=$password]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -145,7 +148,10 @@ class MattermostLoginRequest {
     return null;
   }
 
-  static List<MattermostLoginRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostLoginRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostLoginRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -173,12 +179,18 @@ class MattermostLoginRequest {
   }
 
   // maps a json object with a list of MattermostLoginRequest-objects as value to a dart map
-  static Map<String, List<MattermostLoginRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostLoginRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostLoginRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostLoginRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostLoginRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -188,7 +200,5 @@ class MattermostLoginRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

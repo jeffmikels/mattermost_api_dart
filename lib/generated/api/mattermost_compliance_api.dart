@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostComplianceApi {
   MattermostComplianceApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostComplianceApi {
 
   /// Create report
   ///
-  /// Create and save a compliance report. ##### Permissions Must have `manage_system` permission. 
+  /// Create and save a compliance report. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> createComplianceReportWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostComplianceApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -48,7 +46,7 @@ class MattermostComplianceApi {
 
   /// Create report
   ///
-  /// Create and save a compliance report. ##### Permissions Must have `manage_system` permission. 
+  /// Create and save a compliance report. ##### Permissions Must have `manage_system` permission.
   Future<MattermostCompliance?> createComplianceReport() async {
     final response = await createComplianceReportWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,15 +56,17 @@ class MattermostComplianceApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCompliance',) as MattermostCompliance;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCompliance',
+      ) as MattermostCompliance;
     }
     return null;
   }
 
   /// Download a report
   ///
-  /// Download the full contents of a report as a file. ##### Permissions Must have `manage_system` permission. 
+  /// Download the full contents of a report as a file. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -74,10 +74,11 @@ class MattermostComplianceApi {
   ///
   /// * [String] reportId (required):
   ///   Compliance report GUID
-  Future<Response> downloadComplianceReportWithHttpInfo(String reportId,) async {
+  Future<Response> downloadComplianceReportWithHttpInfo(
+    String reportId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/compliance/reports/{report_id}/download'
-      .replaceAll('{report_id}', reportId);
+    final path = r'/compliance/reports/{report_id}/download'.replaceAll('{report_id}', reportId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -87,7 +88,6 @@ class MattermostComplianceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -102,14 +102,18 @@ class MattermostComplianceApi {
 
   /// Download a report
   ///
-  /// Download the full contents of a report as a file. ##### Permissions Must have `manage_system` permission. 
+  /// Download the full contents of a report as a file. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] reportId (required):
   ///   Compliance report GUID
-  Future<void> downloadComplianceReport(String reportId,) async {
-    final response = await downloadComplianceReportWithHttpInfo(reportId,);
+  Future<void> downloadComplianceReport(
+    String reportId,
+  ) async {
+    final response = await downloadComplianceReportWithHttpInfo(
+      reportId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -117,7 +121,7 @@ class MattermostComplianceApi {
 
   /// Get a report
   ///
-  /// Get a compliance reports previously created. ##### Permissions Must have `manage_system` permission. 
+  /// Get a compliance reports previously created. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -125,10 +129,11 @@ class MattermostComplianceApi {
   ///
   /// * [String] reportId (required):
   ///   Compliance report GUID
-  Future<Response> getComplianceReportWithHttpInfo(String reportId,) async {
+  Future<Response> getComplianceReportWithHttpInfo(
+    String reportId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/compliance/reports/{report_id}'
-      .replaceAll('{report_id}', reportId);
+    final path = r'/compliance/reports/{report_id}'.replaceAll('{report_id}', reportId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -138,7 +143,6 @@ class MattermostComplianceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -153,14 +157,18 @@ class MattermostComplianceApi {
 
   /// Get a report
   ///
-  /// Get a compliance reports previously created. ##### Permissions Must have `manage_system` permission. 
+  /// Get a compliance reports previously created. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] reportId (required):
   ///   Compliance report GUID
-  Future<MattermostCompliance?> getComplianceReport(String reportId,) async {
-    final response = await getComplianceReportWithHttpInfo(reportId,);
+  Future<MattermostCompliance?> getComplianceReport(
+    String reportId,
+  ) async {
+    final response = await getComplianceReportWithHttpInfo(
+      reportId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,15 +176,17 @@ class MattermostComplianceApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCompliance',) as MattermostCompliance;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCompliance',
+      ) as MattermostCompliance;
     }
     return null;
   }
 
   /// Get reports
   ///
-  /// Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -187,7 +197,10 @@ class MattermostComplianceApi {
   ///
   /// * [int] perPage:
   ///   The number of reports per page.
-  Future<Response> getComplianceReportsWithHttpInfo({ int? page, int? perPage, }) async {
+  Future<Response> getComplianceReportsWithHttpInfo({
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/compliance/reports';
 
@@ -207,7 +220,6 @@ class MattermostComplianceApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -221,7 +233,7 @@ class MattermostComplianceApi {
 
   /// Get reports
   ///
-  /// Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -230,8 +242,14 @@ class MattermostComplianceApi {
   ///
   /// * [int] perPage:
   ///   The number of reports per page.
-  Future<List<MattermostCompliance>?> getComplianceReports({ int? page, int? perPage, }) async {
-    final response = await getComplianceReportsWithHttpInfo( page: page, perPage: perPage, );
+  Future<List<MattermostCompliance>?> getComplianceReports({
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getComplianceReportsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -241,9 +259,8 @@ class MattermostComplianceApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostCompliance>') as List)
-        .cast<MattermostCompliance>()
-        .toList();
-
+          .cast<MattermostCompliance>()
+          .toList();
     }
     return null;
   }

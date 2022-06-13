@@ -26,13 +26,13 @@ class MattermostSendWarnMetricAckRequest {
   bool? forceAck;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSendWarnMetricAckRequest &&
-     other.forceAck == forceAck;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostSendWarnMetricAckRequest && other.forceAck == forceAck;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (forceAck == null ? 0 : forceAck!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (forceAck == null ? 0 : forceAck!.hashCode);
 
   @override
   String toString() => 'MattermostSendWarnMetricAckRequest[forceAck=$forceAck]';
@@ -57,8 +57,10 @@ class MattermostSendWarnMetricAckRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSendWarnMetricAckRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSendWarnMetricAckRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostSendWarnMetricAckRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostSendWarnMetricAckRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +72,10 @@ class MattermostSendWarnMetricAckRequest {
     return null;
   }
 
-  static List<MattermostSendWarnMetricAckRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSendWarnMetricAckRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSendWarnMetricAckRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +103,18 @@ class MattermostSendWarnMetricAckRequest {
   }
 
   // maps a json object with a list of MattermostSendWarnMetricAckRequest-objects as value to a dart map
-  static Map<String, List<MattermostSendWarnMetricAckRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSendWarnMetricAckRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSendWarnMetricAckRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSendWarnMetricAckRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSendWarnMetricAckRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +124,5 @@ class MattermostSendWarnMetricAckRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

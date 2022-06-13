@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostClusterApi {
   MattermostClusterApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostClusterApi {
 
   /// Get cluster status
   ///
-  /// Get a set of information for each node in the cluster, useful for checking the status and health of each node. ##### Permissions Must have `manage_system` permission. 
+  /// Get a set of information for each node in the cluster, useful for checking the status and health of each node. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getClusterStatusWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostClusterApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -48,7 +46,7 @@ class MattermostClusterApi {
 
   /// Get cluster status
   ///
-  /// Get a set of information for each node in the cluster, useful for checking the status and health of each node. ##### Permissions Must have `manage_system` permission. 
+  /// Get a set of information for each node in the cluster, useful for checking the status and health of each node. ##### Permissions Must have `manage_system` permission.
   Future<List<MattermostClusterInfo>?> getClusterStatus() async {
     final response = await getClusterStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -60,9 +58,8 @@ class MattermostClusterApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostClusterInfo>') as List)
-        .cast<MattermostClusterInfo>()
-        .toList();
-
+          .cast<MattermostClusterInfo>()
+          .toList();
     }
     return null;
   }

@@ -26,13 +26,13 @@ class MattermostDataRetentionPolicyAllOf {
   String? id;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDataRetentionPolicyAllOf &&
-     other.id == id;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostDataRetentionPolicyAllOf && other.id == id;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode);
 
   @override
   String toString() => 'MattermostDataRetentionPolicyAllOf[id=$id]';
@@ -57,8 +57,10 @@ class MattermostDataRetentionPolicyAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDataRetentionPolicyAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDataRetentionPolicyAllOf[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostDataRetentionPolicyAllOf[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostDataRetentionPolicyAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +72,10 @@ class MattermostDataRetentionPolicyAllOf {
     return null;
   }
 
-  static List<MattermostDataRetentionPolicyAllOf>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDataRetentionPolicyAllOf>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDataRetentionPolicyAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +103,18 @@ class MattermostDataRetentionPolicyAllOf {
   }
 
   // maps a json object with a list of MattermostDataRetentionPolicyAllOf-objects as value to a dart map
-  static Map<String, List<MattermostDataRetentionPolicyAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDataRetentionPolicyAllOf>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDataRetentionPolicyAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDataRetentionPolicyAllOf.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDataRetentionPolicyAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +124,5 @@ class MattermostDataRetentionPolicyAllOf {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

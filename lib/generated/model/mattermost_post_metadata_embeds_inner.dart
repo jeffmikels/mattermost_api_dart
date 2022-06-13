@@ -30,7 +30,7 @@ class MattermostPostMetadataEmbedsInner {
   ///
   String? url;
 
-  /// Any additional information about the embedded content. Only used at this time to store OpenGraph metadata. This field will be null for non-OpenGraph embeds. 
+  /// Any additional information about the embedded content. Only used at this time to store OpenGraph metadata. This field will be null for non-OpenGraph embeds.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -40,17 +40,14 @@ class MattermostPostMetadataEmbedsInner {
   Map? data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostMetadataEmbedsInner &&
-     other.type == type &&
-     other.url == url &&
-     other.data == data;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPostMetadataEmbedsInner && other.type == type && other.url == url && other.data == data;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (url == null ? 0 : url!.hashCode) +
-    (data == null ? 0 : data!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type == null ? 0 : type!.hashCode) + (url == null ? 0 : url!.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
   String toString() => 'MattermostPostMetadataEmbedsInner[type=$type, url=$url, data=$data]';
@@ -96,7 +93,10 @@ class MattermostPostMetadataEmbedsInner {
     return null;
   }
 
-  static List<MattermostPostMetadataEmbedsInner>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostMetadataEmbedsInner>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostMetadataEmbedsInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -124,12 +124,18 @@ class MattermostPostMetadataEmbedsInner {
   }
 
   // maps a json object with a list of MattermostPostMetadataEmbedsInner-objects as value to a dart map
-  static Map<String, List<MattermostPostMetadataEmbedsInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostMetadataEmbedsInner>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostMetadataEmbedsInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostMetadataEmbedsInner.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostMetadataEmbedsInner.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -139,8 +145,7 @@ class MattermostPostMetadataEmbedsInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// The type of content that is embedded in this point.
@@ -169,9 +174,13 @@ class MattermostPostMetadataEmbedsInnerTypeEnum {
     link,
   ];
 
-  static MattermostPostMetadataEmbedsInnerTypeEnum? fromJson(dynamic value) => MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer().decode(value);
+  static MattermostPostMetadataEmbedsInnerTypeEnum? fromJson(dynamic value) =>
+      MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer().decode(value);
 
-  static List<MattermostPostMetadataEmbedsInnerTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostMetadataEmbedsInnerTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostMetadataEmbedsInnerTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -188,7 +197,8 @@ class MattermostPostMetadataEmbedsInnerTypeEnum {
 /// Transformation class that can [encode] an instance of [MattermostPostMetadataEmbedsInnerTypeEnum] to String,
 /// and [decode] dynamic data back to [MattermostPostMetadataEmbedsInnerTypeEnum].
 class MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer {
-  factory MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer() => _instance ??= const MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
+  factory MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer() =>
+      _instance ??= const MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
 
   const MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
 
@@ -205,10 +215,14 @@ class MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer {
   MattermostPostMetadataEmbedsInnerTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'image': return MattermostPostMetadataEmbedsInnerTypeEnum.image;
-        case r'message_attachment': return MattermostPostMetadataEmbedsInnerTypeEnum.messageAttachment;
-        case r'opengraph': return MattermostPostMetadataEmbedsInnerTypeEnum.opengraph;
-        case r'link': return MattermostPostMetadataEmbedsInnerTypeEnum.link;
+        case r'image':
+          return MattermostPostMetadataEmbedsInnerTypeEnum.image;
+        case r'message_attachment':
+          return MattermostPostMetadataEmbedsInnerTypeEnum.messageAttachment;
+        case r'opengraph':
+          return MattermostPostMetadataEmbedsInnerTypeEnum.opengraph;
+        case r'link':
+          return MattermostPostMetadataEmbedsInnerTypeEnum.link;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -221,5 +235,3 @@ class MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer {
   /// Singleton [MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer] instance.
   static MattermostPostMetadataEmbedsInnerTypeEnumTypeTransformer? _instance;
 }
-
-

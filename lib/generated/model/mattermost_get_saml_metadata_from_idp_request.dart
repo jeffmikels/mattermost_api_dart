@@ -26,13 +26,14 @@ class MattermostGetSamlMetadataFromIdpRequest {
   String? samlMetadataUrl;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGetSamlMetadataFromIdpRequest &&
-     other.samlMetadataUrl == samlMetadataUrl;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGetSamlMetadataFromIdpRequest && other.samlMetadataUrl == samlMetadataUrl;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (samlMetadataUrl == null ? 0 : samlMetadataUrl!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (samlMetadataUrl == null ? 0 : samlMetadataUrl!.hashCode);
 
   @override
   String toString() => 'MattermostGetSamlMetadataFromIdpRequest[samlMetadataUrl=$samlMetadataUrl]';
@@ -57,8 +58,10 @@ class MattermostGetSamlMetadataFromIdpRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostGetSamlMetadataFromIdpRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostGetSamlMetadataFromIdpRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostGetSamlMetadataFromIdpRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostGetSamlMetadataFromIdpRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +73,10 @@ class MattermostGetSamlMetadataFromIdpRequest {
     return null;
   }
 
-  static List<MattermostGetSamlMetadataFromIdpRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGetSamlMetadataFromIdpRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGetSamlMetadataFromIdpRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +104,18 @@ class MattermostGetSamlMetadataFromIdpRequest {
   }
 
   // maps a json object with a list of MattermostGetSamlMetadataFromIdpRequest-objects as value to a dart map
-  static Map<String, List<MattermostGetSamlMetadataFromIdpRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGetSamlMetadataFromIdpRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGetSamlMetadataFromIdpRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGetSamlMetadataFromIdpRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGetSamlMetadataFromIdpRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +125,5 @@ class MattermostGetSamlMetadataFromIdpRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

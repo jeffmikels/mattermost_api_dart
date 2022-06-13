@@ -106,34 +106,37 @@ class MattermostConvertBotToUserRequest {
   MattermostUserNotifyProps? notifyProps;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConvertBotToUserRequest &&
-     other.email == email &&
-     other.username == username &&
-     other.password == password &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.nickname == nickname &&
-     other.locale == locale &&
-     other.position == position &&
-     other.props == props &&
-     other.notifyProps == notifyProps;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConvertBotToUserRequest &&
+          other.email == email &&
+          other.username == username &&
+          other.password == password &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.nickname == nickname &&
+          other.locale == locale &&
+          other.position == position &&
+          other.props == props &&
+          other.notifyProps == notifyProps;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email == null ? 0 : email!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (password == null ? 0 : password!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (nickname == null ? 0 : nickname!.hashCode) +
-    (locale == null ? 0 : locale!.hashCode) +
-    (position == null ? 0 : position!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email == null ? 0 : email!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (password == null ? 0 : password!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (nickname == null ? 0 : nickname!.hashCode) +
+      (locale == null ? 0 : locale!.hashCode) +
+      (position == null ? 0 : position!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode);
 
   @override
-  String toString() => 'MattermostConvertBotToUserRequest[email=$email, username=$username, password=$password, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
+  String toString() =>
+      'MattermostConvertBotToUserRequest[email=$email, username=$username, password=$password, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -204,7 +207,10 @@ class MattermostConvertBotToUserRequest {
     return null;
   }
 
-  static List<MattermostConvertBotToUserRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConvertBotToUserRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConvertBotToUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -232,12 +238,18 @@ class MattermostConvertBotToUserRequest {
   }
 
   // maps a json object with a list of MattermostConvertBotToUserRequest-objects as value to a dart map
-  static Map<String, List<MattermostConvertBotToUserRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConvertBotToUserRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConvertBotToUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConvertBotToUserRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConvertBotToUserRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -247,7 +259,5 @@ class MattermostConvertBotToUserRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

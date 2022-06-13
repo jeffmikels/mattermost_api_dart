@@ -26,13 +26,13 @@ class MattermostSearchTeamsForRetentionPolicyRequest {
   String? term;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchTeamsForRetentionPolicyRequest &&
-     other.term == term;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostSearchTeamsForRetentionPolicyRequest && other.term == term;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term == null ? 0 : term!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term == null ? 0 : term!.hashCode);
 
   @override
   String toString() => 'MattermostSearchTeamsForRetentionPolicyRequest[term=$term]';
@@ -57,8 +57,10 @@ class MattermostSearchTeamsForRetentionPolicyRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSearchTeamsForRetentionPolicyRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSearchTeamsForRetentionPolicyRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostSearchTeamsForRetentionPolicyRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostSearchTeamsForRetentionPolicyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +72,10 @@ class MattermostSearchTeamsForRetentionPolicyRequest {
     return null;
   }
 
-  static List<MattermostSearchTeamsForRetentionPolicyRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchTeamsForRetentionPolicyRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchTeamsForRetentionPolicyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +103,18 @@ class MattermostSearchTeamsForRetentionPolicyRequest {
   }
 
   // maps a json object with a list of MattermostSearchTeamsForRetentionPolicyRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchTeamsForRetentionPolicyRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchTeamsForRetentionPolicyRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchTeamsForRetentionPolicyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchTeamsForRetentionPolicyRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchTeamsForRetentionPolicyRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +124,5 @@ class MattermostSearchTeamsForRetentionPolicyRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

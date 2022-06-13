@@ -80,28 +80,31 @@ class MattermostPluginStatus {
   MattermostPluginStatusStateEnum? state;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPluginStatus &&
-     other.pluginId == pluginId &&
-     other.name == name &&
-     other.description == description &&
-     other.version == version &&
-     other.clusterId == clusterId &&
-     other.pluginPath == pluginPath &&
-     other.state == state;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPluginStatus &&
+          other.pluginId == pluginId &&
+          other.name == name &&
+          other.description == description &&
+          other.version == version &&
+          other.clusterId == clusterId &&
+          other.pluginPath == pluginPath &&
+          other.state == state;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (pluginId == null ? 0 : pluginId!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (clusterId == null ? 0 : clusterId!.hashCode) +
-    (pluginPath == null ? 0 : pluginPath!.hashCode) +
-    (state == null ? 0 : state!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (pluginId == null ? 0 : pluginId!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (clusterId == null ? 0 : clusterId!.hashCode) +
+      (pluginPath == null ? 0 : pluginPath!.hashCode) +
+      (state == null ? 0 : state!.hashCode);
 
   @override
-  String toString() => 'MattermostPluginStatus[pluginId=$pluginId, name=$name, description=$description, version=$version, clusterId=$clusterId, pluginPath=$pluginPath, state=$state]';
+  String toString() =>
+      'MattermostPluginStatus[pluginId=$pluginId, name=$name, description=$description, version=$version, clusterId=$clusterId, pluginPath=$pluginPath, state=$state]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -160,7 +163,10 @@ class MattermostPluginStatus {
     return null;
   }
 
-  static List<MattermostPluginStatus>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginStatus>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -188,12 +194,18 @@ class MattermostPluginStatus {
   }
 
   // maps a json object with a list of MattermostPluginStatus-objects as value to a dart map
-  static Map<String, List<MattermostPluginStatus>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPluginStatus>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPluginStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPluginStatus.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPluginStatus.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -203,8 +215,7 @@ class MattermostPluginStatus {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// State of the plugin
@@ -237,9 +248,13 @@ class MattermostPluginStatusStateEnum {
     stopping,
   ];
 
-  static MattermostPluginStatusStateEnum? fromJson(dynamic value) => MattermostPluginStatusStateEnumTypeTransformer().decode(value);
+  static MattermostPluginStatusStateEnum? fromJson(dynamic value) =>
+      MattermostPluginStatusStateEnumTypeTransformer().decode(value);
 
-  static List<MattermostPluginStatusStateEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginStatusStateEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginStatusStateEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -256,7 +271,8 @@ class MattermostPluginStatusStateEnum {
 /// Transformation class that can [encode] an instance of [MattermostPluginStatusStateEnum] to String,
 /// and [decode] dynamic data back to [MattermostPluginStatusStateEnum].
 class MattermostPluginStatusStateEnumTypeTransformer {
-  factory MattermostPluginStatusStateEnumTypeTransformer() => _instance ??= const MattermostPluginStatusStateEnumTypeTransformer._();
+  factory MattermostPluginStatusStateEnumTypeTransformer() =>
+      _instance ??= const MattermostPluginStatusStateEnumTypeTransformer._();
 
   const MattermostPluginStatusStateEnumTypeTransformer._();
 
@@ -273,12 +289,18 @@ class MattermostPluginStatusStateEnumTypeTransformer {
   MattermostPluginStatusStateEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'NotRunning': return MattermostPluginStatusStateEnum.notRunning;
-        case r'Starting': return MattermostPluginStatusStateEnum.starting;
-        case r'Running': return MattermostPluginStatusStateEnum.running;
-        case r'FailedToStart': return MattermostPluginStatusStateEnum.failedToStart;
-        case r'FailedToStayRunning': return MattermostPluginStatusStateEnum.failedToStayRunning;
-        case r'Stopping': return MattermostPluginStatusStateEnum.stopping;
+        case r'NotRunning':
+          return MattermostPluginStatusStateEnum.notRunning;
+        case r'Starting':
+          return MattermostPluginStatusStateEnum.starting;
+        case r'Running':
+          return MattermostPluginStatusStateEnum.running;
+        case r'FailedToStart':
+          return MattermostPluginStatusStateEnum.failedToStart;
+        case r'FailedToStayRunning':
+          return MattermostPluginStatusStateEnum.failedToStayRunning;
+        case r'Stopping':
+          return MattermostPluginStatusStateEnum.stopping;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -291,5 +313,3 @@ class MattermostPluginStatusStateEnumTypeTransformer {
   /// Singleton [MattermostPluginStatusStateEnumTypeTransformer] instance.
   static MattermostPluginStatusStateEnumTypeTransformer? _instance;
 }
-
-

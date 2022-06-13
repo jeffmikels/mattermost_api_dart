@@ -32,29 +32,29 @@ class MattermostCreateGroupRequestGroup {
   bool allowReference;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateGroupRequestGroup &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.source_ == source_ &&
-     other.allowReference == allowReference;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateGroupRequestGroup &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.source_ == source_ &&
+          other.allowReference == allowReference;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (displayName.hashCode) +
-    (source_.hashCode) +
-    (allowReference.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) + (displayName.hashCode) + (source_.hashCode) + (allowReference.hashCode);
 
   @override
-  String toString() => 'MattermostCreateGroupRequestGroup[name=$name, displayName=$displayName, source_=$source_, allowReference=$allowReference]';
+  String toString() =>
+      'MattermostCreateGroupRequestGroup[name=$name, displayName=$displayName, source_=$source_, allowReference=$allowReference]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'name'] = name;
-      _json[r'display_name'] = displayName;
-      _json[r'source'] = source_;
-      _json[r'allow_reference'] = allowReference;
+    _json[r'name'] = name;
+    _json[r'display_name'] = displayName;
+    _json[r'source'] = source_;
+    _json[r'allow_reference'] = allowReference;
     return _json;
   }
 
@@ -86,7 +86,10 @@ class MattermostCreateGroupRequestGroup {
     return null;
   }
 
-  static List<MattermostCreateGroupRequestGroup>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateGroupRequestGroup>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateGroupRequestGroup>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +117,18 @@ class MattermostCreateGroupRequestGroup {
   }
 
   // maps a json object with a list of MattermostCreateGroupRequestGroup-objects as value to a dart map
-  static Map<String, List<MattermostCreateGroupRequestGroup>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateGroupRequestGroup>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateGroupRequestGroup>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateGroupRequestGroup.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateGroupRequestGroup.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -136,4 +145,3 @@ class MattermostCreateGroupRequestGroup {
     'allow_reference',
   };
 }
-

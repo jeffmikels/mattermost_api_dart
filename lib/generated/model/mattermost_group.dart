@@ -106,34 +106,37 @@ class MattermostGroup {
   bool? hasSyncables;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGroup &&
-     other.id == id &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.source_ == source_ &&
-     other.remoteId == remoteId &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.hasSyncables == hasSyncables;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGroup &&
+          other.id == id &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.source_ == source_ &&
+          other.remoteId == remoteId &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.hasSyncables == hasSyncables;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (source_ == null ? 0 : source_!.hashCode) +
-    (remoteId == null ? 0 : remoteId!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (hasSyncables == null ? 0 : hasSyncables!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (source_ == null ? 0 : source_!.hashCode) +
+      (remoteId == null ? 0 : remoteId!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (hasSyncables == null ? 0 : hasSyncables!.hashCode);
 
   @override
-  String toString() => 'MattermostGroup[id=$id, name=$name, displayName=$displayName, description=$description, source_=$source_, remoteId=$remoteId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, hasSyncables=$hasSyncables]';
+  String toString() =>
+      'MattermostGroup[id=$id, name=$name, displayName=$displayName, description=$description, source_=$source_, remoteId=$remoteId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, hasSyncables=$hasSyncables]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -204,7 +207,10 @@ class MattermostGroup {
     return null;
   }
 
-  static List<MattermostGroup>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGroup>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGroup>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -232,12 +238,18 @@ class MattermostGroup {
   }
 
   // maps a json object with a list of MattermostGroup-objects as value to a dart map
-  static Map<String, List<MattermostGroup>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGroup>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGroup>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGroup.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGroup.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -247,7 +259,5 @@ class MattermostGroup {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

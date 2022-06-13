@@ -79,28 +79,31 @@ class MattermostEnvironmentConfigSqlSettings {
   bool? atRestEncryptKey;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigSqlSettings &&
-     other.driverName == driverName &&
-     other.dataSource == dataSource &&
-     other.dataSourceReplicas == dataSourceReplicas &&
-     other.maxIdleConns == maxIdleConns &&
-     other.maxOpenConns == maxOpenConns &&
-     other.trace == trace &&
-     other.atRestEncryptKey == atRestEncryptKey;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigSqlSettings &&
+          other.driverName == driverName &&
+          other.dataSource == dataSource &&
+          other.dataSourceReplicas == dataSourceReplicas &&
+          other.maxIdleConns == maxIdleConns &&
+          other.maxOpenConns == maxOpenConns &&
+          other.trace == trace &&
+          other.atRestEncryptKey == atRestEncryptKey;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (driverName == null ? 0 : driverName!.hashCode) +
-    (dataSource == null ? 0 : dataSource!.hashCode) +
-    (dataSourceReplicas == null ? 0 : dataSourceReplicas!.hashCode) +
-    (maxIdleConns == null ? 0 : maxIdleConns!.hashCode) +
-    (maxOpenConns == null ? 0 : maxOpenConns!.hashCode) +
-    (trace == null ? 0 : trace!.hashCode) +
-    (atRestEncryptKey == null ? 0 : atRestEncryptKey!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (driverName == null ? 0 : driverName!.hashCode) +
+      (dataSource == null ? 0 : dataSource!.hashCode) +
+      (dataSourceReplicas == null ? 0 : dataSourceReplicas!.hashCode) +
+      (maxIdleConns == null ? 0 : maxIdleConns!.hashCode) +
+      (maxOpenConns == null ? 0 : maxOpenConns!.hashCode) +
+      (trace == null ? 0 : trace!.hashCode) +
+      (atRestEncryptKey == null ? 0 : atRestEncryptKey!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigSqlSettings[driverName=$driverName, dataSource=$dataSource, dataSourceReplicas=$dataSourceReplicas, maxIdleConns=$maxIdleConns, maxOpenConns=$maxOpenConns, trace=$trace, atRestEncryptKey=$atRestEncryptKey]';
+  String toString() =>
+      'MattermostEnvironmentConfigSqlSettings[driverName=$driverName, dataSource=$dataSource, dataSourceReplicas=$dataSourceReplicas, maxIdleConns=$maxIdleConns, maxOpenConns=$maxOpenConns, trace=$trace, atRestEncryptKey=$atRestEncryptKey]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -140,8 +143,10 @@ class MattermostEnvironmentConfigSqlSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigSqlSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigSqlSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigSqlSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigSqlSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -159,7 +164,10 @@ class MattermostEnvironmentConfigSqlSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigSqlSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigSqlSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigSqlSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -187,12 +195,18 @@ class MattermostEnvironmentConfigSqlSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigSqlSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigSqlSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigSqlSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigSqlSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigSqlSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigSqlSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -202,7 +216,5 @@ class MattermostEnvironmentConfigSqlSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

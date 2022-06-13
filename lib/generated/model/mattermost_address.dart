@@ -70,26 +70,29 @@ class MattermostAddress {
   String? state;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAddress &&
-     other.city == city &&
-     other.country == country &&
-     other.line1 == line1 &&
-     other.line2 == line2 &&
-     other.postalCode == postalCode &&
-     other.state == state;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostAddress &&
+          other.city == city &&
+          other.country == country &&
+          other.line1 == line1 &&
+          other.line2 == line2 &&
+          other.postalCode == postalCode &&
+          other.state == state;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (city == null ? 0 : city!.hashCode) +
-    (country == null ? 0 : country!.hashCode) +
-    (line1 == null ? 0 : line1!.hashCode) +
-    (line2 == null ? 0 : line2!.hashCode) +
-    (postalCode == null ? 0 : postalCode!.hashCode) +
-    (state == null ? 0 : state!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (city == null ? 0 : city!.hashCode) +
+      (country == null ? 0 : country!.hashCode) +
+      (line1 == null ? 0 : line1!.hashCode) +
+      (line2 == null ? 0 : line2!.hashCode) +
+      (postalCode == null ? 0 : postalCode!.hashCode) +
+      (state == null ? 0 : state!.hashCode);
 
   @override
-  String toString() => 'MattermostAddress[city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state]';
+  String toString() =>
+      'MattermostAddress[city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class MattermostAddress {
     return null;
   }
 
-  static List<MattermostAddress>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAddress>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAddress>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class MattermostAddress {
   }
 
   // maps a json object with a list of MattermostAddress-objects as value to a dart map
-  static Map<String, List<MattermostAddress>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAddress>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAddress>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAddress.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAddress.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class MattermostAddress {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

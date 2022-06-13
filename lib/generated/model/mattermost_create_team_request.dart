@@ -28,26 +28,26 @@ class MattermostCreateTeamRequest {
   String type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateTeamRequest &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateTeamRequest &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (displayName.hashCode) +
-    (type.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) + (displayName.hashCode) + (type.hashCode);
 
   @override
   String toString() => 'MattermostCreateTeamRequest[name=$name, displayName=$displayName, type=$type]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'name'] = name;
-      _json[r'display_name'] = displayName;
-      _json[r'type'] = type;
+    _json[r'name'] = name;
+    _json[r'display_name'] = displayName;
+    _json[r'type'] = type;
     return _json;
   }
 
@@ -78,7 +78,10 @@ class MattermostCreateTeamRequest {
     return null;
   }
 
-  static List<MattermostCreateTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateTeamRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +109,18 @@ class MattermostCreateTeamRequest {
   }
 
   // maps a json object with a list of MattermostCreateTeamRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateTeamRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateTeamRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateTeamRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,4 +136,3 @@ class MattermostCreateTeamRequest {
     'type',
   };
 }
-

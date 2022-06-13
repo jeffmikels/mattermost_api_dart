@@ -43,17 +43,19 @@ class MattermostTeamUnread {
   int? mentionCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamUnread &&
-     other.teamId == teamId &&
-     other.msgCount == msgCount &&
-     other.mentionCount == mentionCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostTeamUnread &&
+          other.teamId == teamId &&
+          other.msgCount == msgCount &&
+          other.mentionCount == mentionCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (msgCount == null ? 0 : msgCount!.hashCode) +
-    (mentionCount == null ? 0 : mentionCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (msgCount == null ? 0 : msgCount!.hashCode) +
+      (mentionCount == null ? 0 : mentionCount!.hashCode);
 
   @override
   String toString() => 'MattermostTeamUnread[teamId=$teamId, msgCount=$msgCount, mentionCount=$mentionCount]';
@@ -99,7 +101,10 @@ class MattermostTeamUnread {
     return null;
   }
 
-  static List<MattermostTeamUnread>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTeamUnread>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTeamUnread>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +132,18 @@ class MattermostTeamUnread {
   }
 
   // maps a json object with a list of MattermostTeamUnread-objects as value to a dart map
-  static Map<String, List<MattermostTeamUnread>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTeamUnread>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTeamUnread>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTeamUnread.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTeamUnread.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +153,5 @@ class MattermostTeamUnread {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

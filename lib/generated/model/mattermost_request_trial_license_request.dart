@@ -20,20 +20,20 @@ class MattermostRequestTrialLicenseRequest {
   int users;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRequestTrialLicenseRequest &&
-     other.users == users;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostRequestTrialLicenseRequest && other.users == users;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (users.hashCode);
+      // ignore: unnecessary_parenthesis
+      (users.hashCode);
 
   @override
   String toString() => 'MattermostRequestTrialLicenseRequest[users=$users]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'users'] = users;
+    _json[r'users'] = users;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostRequestTrialLicenseRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostRequestTrialLicenseRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostRequestTrialLicenseRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostRequestTrialLicenseRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostRequestTrialLicenseRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostRequestTrialLicenseRequest {
     return null;
   }
 
-  static List<MattermostRequestTrialLicenseRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRequestTrialLicenseRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRequestTrialLicenseRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostRequestTrialLicenseRequest {
   }
 
   // maps a json object with a list of MattermostRequestTrialLicenseRequest-objects as value to a dart map
-  static Map<String, List<MattermostRequestTrialLicenseRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRequestTrialLicenseRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRequestTrialLicenseRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRequestTrialLicenseRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRequestTrialLicenseRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostRequestTrialLicenseRequest {
     'users',
   };
 }
-

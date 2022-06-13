@@ -28,26 +28,26 @@ class MattermostCreateUploadRequest {
   int fileSize;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateUploadRequest &&
-     other.channelId == channelId &&
-     other.filename == filename &&
-     other.fileSize == fileSize;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateUploadRequest &&
+          other.channelId == channelId &&
+          other.filename == filename &&
+          other.fileSize == fileSize;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (filename.hashCode) +
-    (fileSize.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) + (filename.hashCode) + (fileSize.hashCode);
 
   @override
   String toString() => 'MattermostCreateUploadRequest[channelId=$channelId, filename=$filename, fileSize=$fileSize]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
-      _json[r'filename'] = filename;
-      _json[r'file_size'] = fileSize;
+    _json[r'channel_id'] = channelId;
+    _json[r'filename'] = filename;
+    _json[r'file_size'] = fileSize;
     return _json;
   }
 
@@ -78,7 +78,10 @@ class MattermostCreateUploadRequest {
     return null;
   }
 
-  static List<MattermostCreateUploadRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateUploadRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateUploadRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +109,18 @@ class MattermostCreateUploadRequest {
   }
 
   // maps a json object with a list of MattermostCreateUploadRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateUploadRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateUploadRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateUploadRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateUploadRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateUploadRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,4 +136,3 @@ class MattermostCreateUploadRequest {
     'file_size',
   };
 }
-

@@ -26,13 +26,13 @@ class MattermostRegenCommandToken200Response {
   String? token;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRegenCommandToken200Response &&
-     other.token == token;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostRegenCommandToken200Response && other.token == token;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (token == null ? 0 : token!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (token == null ? 0 : token!.hashCode);
 
   @override
   String toString() => 'MattermostRegenCommandToken200Response[token=$token]';
@@ -57,8 +57,10 @@ class MattermostRegenCommandToken200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostRegenCommandToken200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostRegenCommandToken200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostRegenCommandToken200Response[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostRegenCommandToken200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +72,10 @@ class MattermostRegenCommandToken200Response {
     return null;
   }
 
-  static List<MattermostRegenCommandToken200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRegenCommandToken200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRegenCommandToken200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +103,18 @@ class MattermostRegenCommandToken200Response {
   }
 
   // maps a json object with a list of MattermostRegenCommandToken200Response-objects as value to a dart map
-  static Map<String, List<MattermostRegenCommandToken200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRegenCommandToken200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRegenCommandToken200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRegenCommandToken200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRegenCommandToken200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +124,5 @@ class MattermostRegenCommandToken200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

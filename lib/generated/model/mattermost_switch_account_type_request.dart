@@ -64,31 +64,34 @@ class MattermostSwitchAccountTypeRequest {
   String? ldapId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSwitchAccountTypeRequest &&
-     other.currentService == currentService &&
-     other.newService == newService &&
-     other.email == email &&
-     other.password == password &&
-     other.mfaCode == mfaCode &&
-     other.ldapId == ldapId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSwitchAccountTypeRequest &&
+          other.currentService == currentService &&
+          other.newService == newService &&
+          other.email == email &&
+          other.password == password &&
+          other.mfaCode == mfaCode &&
+          other.ldapId == ldapId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (currentService.hashCode) +
-    (newService.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (password == null ? 0 : password!.hashCode) +
-    (mfaCode == null ? 0 : mfaCode!.hashCode) +
-    (ldapId == null ? 0 : ldapId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (currentService.hashCode) +
+      (newService.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (password == null ? 0 : password!.hashCode) +
+      (mfaCode == null ? 0 : mfaCode!.hashCode) +
+      (ldapId == null ? 0 : ldapId!.hashCode);
 
   @override
-  String toString() => 'MattermostSwitchAccountTypeRequest[currentService=$currentService, newService=$newService, email=$email, password=$password, mfaCode=$mfaCode, ldapId=$ldapId]';
+  String toString() =>
+      'MattermostSwitchAccountTypeRequest[currentService=$currentService, newService=$newService, email=$email, password=$password, mfaCode=$mfaCode, ldapId=$ldapId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'current_service'] = currentService;
-      _json[r'new_service'] = newService;
+    _json[r'current_service'] = currentService;
+    _json[r'new_service'] = newService;
     if (email != null) {
       _json[r'email'] = email;
     }
@@ -116,8 +119,10 @@ class MattermostSwitchAccountTypeRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSwitchAccountTypeRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSwitchAccountTypeRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostSwitchAccountTypeRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostSwitchAccountTypeRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -134,7 +139,10 @@ class MattermostSwitchAccountTypeRequest {
     return null;
   }
 
-  static List<MattermostSwitchAccountTypeRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSwitchAccountTypeRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSwitchAccountTypeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -162,12 +170,18 @@ class MattermostSwitchAccountTypeRequest {
   }
 
   // maps a json object with a list of MattermostSwitchAccountTypeRequest-objects as value to a dart map
-  static Map<String, List<MattermostSwitchAccountTypeRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSwitchAccountTypeRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSwitchAccountTypeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSwitchAccountTypeRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSwitchAccountTypeRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -182,4 +196,3 @@ class MattermostSwitchAccountTypeRequest {
     'new_service',
   };
 }
-

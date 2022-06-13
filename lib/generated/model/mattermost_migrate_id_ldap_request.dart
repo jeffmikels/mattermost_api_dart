@@ -20,20 +20,20 @@ class MattermostMigrateIdLdapRequest {
   String toAttribute;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMigrateIdLdapRequest &&
-     other.toAttribute == toAttribute;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostMigrateIdLdapRequest && other.toAttribute == toAttribute;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (toAttribute.hashCode);
+      // ignore: unnecessary_parenthesis
+      (toAttribute.hashCode);
 
   @override
   String toString() => 'MattermostMigrateIdLdapRequest[toAttribute=$toAttribute]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'toAttribute'] = toAttribute;
+    _json[r'toAttribute'] = toAttribute;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostMigrateIdLdapRequest {
     return null;
   }
 
-  static List<MattermostMigrateIdLdapRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMigrateIdLdapRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMigrateIdLdapRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostMigrateIdLdapRequest {
   }
 
   // maps a json object with a list of MattermostMigrateIdLdapRequest-objects as value to a dart map
-  static Map<String, List<MattermostMigrateIdLdapRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMigrateIdLdapRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMigrateIdLdapRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMigrateIdLdapRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMigrateIdLdapRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostMigrateIdLdapRequest {
     'toAttribute',
   };
 }
-

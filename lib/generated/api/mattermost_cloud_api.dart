@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostCloudApi {
   MattermostCloudApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,14 +17,16 @@ class MattermostCloudApi {
 
   /// Completes the payment setup intent
   ///
-  /// Confirms the payment setup intent initiated when posting to `/cloud/payment`. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Confirms the payment setup intent initiated when posting to `/cloud/payment`. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] stripeSetupIntentId:
-  Future<Response> confirmCustomerPaymentWithHttpInfo({ String? stripeSetupIntentId, }) async {
+  Future<Response> confirmCustomerPaymentWithHttpInfo({
+    String? stripeSetupIntentId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/cloud/payment/confirm';
 
@@ -61,13 +62,17 @@ class MattermostCloudApi {
 
   /// Completes the payment setup intent
   ///
-  /// Confirms the payment setup intent initiated when posting to `/cloud/payment`. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Confirms the payment setup intent initiated when posting to `/cloud/payment`. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Parameters:
   ///
   /// * [String] stripeSetupIntentId:
-  Future<void> confirmCustomerPayment({ String? stripeSetupIntentId, }) async {
-    final response = await confirmCustomerPaymentWithHttpInfo( stripeSetupIntentId: stripeSetupIntentId, );
+  Future<void> confirmCustomerPayment({
+    String? stripeSetupIntentId,
+  }) async {
+    final response = await confirmCustomerPaymentWithHttpInfo(
+      stripeSetupIntentId: stripeSetupIntentId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -75,7 +80,7 @@ class MattermostCloudApi {
 
   /// Create a customer setup payment intent
   ///
-  /// Creates a customer setup payment intent for the given Mattermost cloud installation.  ##### Permissions  Must have `manage_system` permission and be licensed for Cloud.  __Minimum server version__: 5.28 __Note:__: This is intended for internal use and is subject to change. 
+  /// Creates a customer setup payment intent for the given Mattermost cloud installation.  ##### Permissions  Must have `manage_system` permission and be licensed for Cloud.  __Minimum server version__: 5.28 __Note:__: This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> createCustomerPaymentWithHttpInfo() async {
@@ -91,7 +96,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -105,7 +109,7 @@ class MattermostCloudApi {
 
   /// Create a customer setup payment intent
   ///
-  /// Creates a customer setup payment intent for the given Mattermost cloud installation.  ##### Permissions  Must have `manage_system` permission and be licensed for Cloud.  __Minimum server version__: 5.28 __Note:__: This is intended for internal use and is subject to change. 
+  /// Creates a customer setup payment intent for the given Mattermost cloud installation.  ##### Permissions  Must have `manage_system` permission and be licensed for Cloud.  __Minimum server version__: 5.28 __Note:__: This is intended for internal use and is subject to change.
   Future<MattermostPaymentSetupIntent?> createCustomerPayment() async {
     final response = await createCustomerPaymentWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -115,15 +119,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPaymentSetupIntent',) as MattermostPaymentSetupIntent;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPaymentSetupIntent',
+      ) as MattermostPaymentSetupIntent;
     }
     return null;
   }
 
   /// Get cloud customer
   ///
-  /// Retrieves the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCloudCustomerWithHttpInfo() async {
@@ -139,7 +145,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -153,7 +158,7 @@ class MattermostCloudApi {
 
   /// Get cloud customer
   ///
-  /// Retrieves the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   Future<MattermostCloudCustomer?> getCloudCustomer() async {
     final response = await getCloudCustomerWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -163,15 +168,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCloudCustomer',) as MattermostCloudCustomer;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCloudCustomer',
+      ) as MattermostCloudCustomer;
     }
     return null;
   }
 
   /// Get cloud workspace limits
   ///
-  /// Retrieve any cloud workspace limits applicable to this instance. ##### Permissions Must be authenticated and be licensed for Cloud. __Minimum server version__: 7.0 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieve any cloud workspace limits applicable to this instance. ##### Permissions Must be authenticated and be licensed for Cloud. __Minimum server version__: 7.0 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCloudLimitsWithHttpInfo() async {
@@ -187,7 +194,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -201,7 +207,7 @@ class MattermostCloudApi {
 
   /// Get cloud workspace limits
   ///
-  /// Retrieve any cloud workspace limits applicable to this instance. ##### Permissions Must be authenticated and be licensed for Cloud. __Minimum server version__: 7.0 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieve any cloud workspace limits applicable to this instance. ##### Permissions Must be authenticated and be licensed for Cloud. __Minimum server version__: 7.0 __Note:__ This is intended for internal use and is subject to change.
   Future<MattermostProductLimits?> getCloudLimits() async {
     final response = await getCloudLimitsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -211,15 +217,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostProductLimits',) as MattermostProductLimits;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostProductLimits',
+      ) as MattermostProductLimits;
     }
     return null;
   }
 
   /// Get cloud products
   ///
-  /// Retrieve a list of all products that are offered for Mattermost Cloud. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieve a list of all products that are offered for Mattermost Cloud. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCloudProductsWithHttpInfo() async {
@@ -235,7 +243,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -249,7 +256,7 @@ class MattermostCloudApi {
 
   /// Get cloud products
   ///
-  /// Retrieve a list of all products that are offered for Mattermost Cloud. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieve a list of all products that are offered for Mattermost Cloud. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   Future<List<MattermostProduct>?> getCloudProducts() async {
     final response = await getCloudProductsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -261,16 +268,15 @@ class MattermostCloudApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostProduct>') as List)
-        .cast<MattermostProduct>()
-        .toList();
-
+          .cast<MattermostProduct>()
+          .toList();
     }
     return null;
   }
 
   /// Get cloud invoice PDF
   ///
-  /// Retrieves the PDF for the invoice passed as parameter ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the PDF for the invoice passed as parameter ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -278,10 +284,11 @@ class MattermostCloudApi {
   ///
   /// * [String] invoiceId (required):
   ///   Invoice ID
-  Future<Response> getInvoiceForSubscriptionAsPdfWithHttpInfo(String invoiceId,) async {
+  Future<Response> getInvoiceForSubscriptionAsPdfWithHttpInfo(
+    String invoiceId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/cloud/subscription/invoices/{invoice_id}/pdf'
-      .replaceAll('{invoice_id}', invoiceId);
+    final path = r'/cloud/subscription/invoices/{invoice_id}/pdf'.replaceAll('{invoice_id}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -291,7 +298,6 @@ class MattermostCloudApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -306,14 +312,18 @@ class MattermostCloudApi {
 
   /// Get cloud invoice PDF
   ///
-  /// Retrieves the PDF for the invoice passed as parameter ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the PDF for the invoice passed as parameter ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
   ///   Invoice ID
-  Future<void> getInvoiceForSubscriptionAsPdf(String invoiceId,) async {
-    final response = await getInvoiceForSubscriptionAsPdfWithHttpInfo(invoiceId,);
+  Future<void> getInvoiceForSubscriptionAsPdf(
+    String invoiceId,
+  ) async {
+    final response = await getInvoiceForSubscriptionAsPdfWithHttpInfo(
+      invoiceId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -321,7 +331,7 @@ class MattermostCloudApi {
 
   /// Get cloud subscription invoices
   ///
-  /// Retrieves the invoices for the subscription bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the invoices for the subscription bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getInvoicesForSubscriptionWithHttpInfo() async {
@@ -337,7 +347,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -351,7 +360,7 @@ class MattermostCloudApi {
 
   /// Get cloud subscription invoices
   ///
-  /// Retrieves the invoices for the subscription bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the invoices for the subscription bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   Future<List<MattermostInvoice>?> getInvoicesForSubscription() async {
     final response = await getInvoicesForSubscriptionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -363,16 +372,15 @@ class MattermostCloudApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostInvoice>') as List)
-        .cast<MattermostInvoice>()
-        .toList();
-
+          .cast<MattermostInvoice>()
+          .toList();
     }
     return null;
   }
 
   /// Get cloud subscription
   ///
-  /// Retrieves the subscription information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the subscription information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSubscriptionWithHttpInfo() async {
@@ -388,7 +396,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -402,7 +409,7 @@ class MattermostCloudApi {
 
   /// Get cloud subscription
   ///
-  /// Retrieves the subscription information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
+  /// Retrieves the subscription information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change.
   Future<MattermostSubscription?> getSubscription() async {
     final response = await getSubscriptionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -412,15 +419,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSubscription',) as MattermostSubscription;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSubscription',
+      ) as MattermostSubscription;
     }
     return null;
   }
 
   /// GET endpoint for cloud subscription stats
   ///
-  /// An endpoint that returns stats about a user's subscription. For example remaining seats on a free tier ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that returns stats about a user's subscription. For example remaining seats on a free tier ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSubscriptionStatsWithHttpInfo() async {
@@ -436,7 +445,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -450,7 +458,7 @@ class MattermostCloudApi {
 
   /// GET endpoint for cloud subscription stats
   ///
-  /// An endpoint that returns stats about a user's subscription. For example remaining seats on a free tier ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that returns stats about a user's subscription. For example remaining seats on a free tier ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   Future<MattermostSubscriptionStats?> getSubscriptionStats() async {
     final response = await getSubscriptionStatsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -460,15 +468,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSubscriptionStats',) as MattermostSubscriptionStats;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSubscriptionStats',
+      ) as MattermostSubscriptionStats;
     }
     return null;
   }
 
   /// POST endpoint for CWS Webhooks
   ///
-  /// An endpoint for processing webhooks from the Customer Portal ##### Permissions This endpoint should only be accessed by CWS, in a Mattermost Cloud instance __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint for processing webhooks from the Customer Portal ##### Permissions This endpoint should only be accessed by CWS, in a Mattermost Cloud instance __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> postEndpointForCwsWebhooksWithHttpInfo() async {
@@ -484,7 +494,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -498,7 +507,7 @@ class MattermostCloudApi {
 
   /// POST endpoint for CWS Webhooks
   ///
-  /// An endpoint for processing webhooks from the Customer Portal ##### Permissions This endpoint should only be accessed by CWS, in a Mattermost Cloud instance __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint for processing webhooks from the Customer Portal ##### Permissions This endpoint should only be accessed by CWS, in a Mattermost Cloud instance __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change.
   Future<void> postEndpointForCwsWebhooks() async {
     final response = await postEndpointForCwsWebhooksWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -508,7 +517,7 @@ class MattermostCloudApi {
 
   /// POST endpoint for triggering sending emails to admin with request to upgrade workspace
   ///
-  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to invite more users ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to invite more users ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> sendAdminUpgradeRequestEmailWithHttpInfo() async {
@@ -524,7 +533,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -538,7 +546,7 @@ class MattermostCloudApi {
 
   /// POST endpoint for triggering sending emails to admin with request to upgrade workspace
   ///
-  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to invite more users ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to invite more users ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   Future<void> sendAdminUpgradeRequestEmail() async {
     final response = await sendAdminUpgradeRequestEmailWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -548,7 +556,7 @@ class MattermostCloudApi {
 
   /// POST endpoint for triggering sending emails to admin with request to upgrade workspace
   ///
-  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to join the workspace ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to join the workspace ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> sendAdminUpgradeRequestEmailOnJoinWithHttpInfo() async {
@@ -564,7 +572,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -578,7 +585,7 @@ class MattermostCloudApi {
 
   /// POST endpoint for triggering sending emails to admin with request to upgrade workspace
   ///
-  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to join the workspace ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
+  /// An endpoint that triggers sending emails to all sys admins to request them to upgrade the workspace when a user tries to join the workspace ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change.
   Future<void> sendAdminUpgradeRequestEmailOnJoin() async {
     final response = await sendAdminUpgradeRequestEmailOnJoinWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -588,7 +595,7 @@ class MattermostCloudApi {
 
   /// Update cloud customer
   ///
-  /// Updates the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change. 
+  /// Updates the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -596,7 +603,9 @@ class MattermostCloudApi {
   ///
   /// * [MattermostUpdateCloudCustomerRequest] mattermostUpdateCloudCustomerRequest (required):
   ///   Customer patch including information to update
-  Future<Response> updateCloudCustomerWithHttpInfo(MattermostUpdateCloudCustomerRequest mattermostUpdateCloudCustomerRequest,) async {
+  Future<Response> updateCloudCustomerWithHttpInfo(
+    MattermostUpdateCloudCustomerRequest mattermostUpdateCloudCustomerRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/cloud/customer';
 
@@ -609,7 +618,6 @@ class MattermostCloudApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -623,14 +631,18 @@ class MattermostCloudApi {
 
   /// Update cloud customer
   ///
-  /// Updates the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change. 
+  /// Updates the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Parameters:
   ///
   /// * [MattermostUpdateCloudCustomerRequest] mattermostUpdateCloudCustomerRequest (required):
   ///   Customer patch including information to update
-  Future<MattermostCloudCustomer?> updateCloudCustomer(MattermostUpdateCloudCustomerRequest mattermostUpdateCloudCustomerRequest,) async {
-    final response = await updateCloudCustomerWithHttpInfo(mattermostUpdateCloudCustomerRequest,);
+  Future<MattermostCloudCustomer?> updateCloudCustomer(
+    MattermostUpdateCloudCustomerRequest mattermostUpdateCloudCustomerRequest,
+  ) async {
+    final response = await updateCloudCustomerWithHttpInfo(
+      mattermostUpdateCloudCustomerRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -638,15 +650,17 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCloudCustomer',) as MattermostCloudCustomer;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCloudCustomer',
+      ) as MattermostCloudCustomer;
     }
     return null;
   }
 
   /// Update cloud customer address
   ///
-  /// Updates the company address for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change. 
+  /// Updates the company address for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -654,7 +668,9 @@ class MattermostCloudApi {
   ///
   /// * [MattermostAddress] mattermostAddress (required):
   ///   Company address information to update
-  Future<Response> updateCloudCustomerAddressWithHttpInfo(MattermostAddress mattermostAddress,) async {
+  Future<Response> updateCloudCustomerAddressWithHttpInfo(
+    MattermostAddress mattermostAddress,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/cloud/customer/address';
 
@@ -666,7 +682,6 @@ class MattermostCloudApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -681,14 +696,18 @@ class MattermostCloudApi {
 
   /// Update cloud customer address
   ///
-  /// Updates the company address for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change. 
+  /// Updates the company address for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.29 __Note:__ This is intended for internal use and is subject to change.
   ///
   /// Parameters:
   ///
   /// * [MattermostAddress] mattermostAddress (required):
   ///   Company address information to update
-  Future<MattermostCloudCustomer?> updateCloudCustomerAddress(MattermostAddress mattermostAddress,) async {
-    final response = await updateCloudCustomerAddressWithHttpInfo(mattermostAddress,);
+  Future<MattermostCloudCustomer?> updateCloudCustomerAddress(
+    MattermostAddress mattermostAddress,
+  ) async {
+    final response = await updateCloudCustomerAddressWithHttpInfo(
+      mattermostAddress,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -696,8 +715,10 @@ class MattermostCloudApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCloudCustomer',) as MattermostCloudCustomer;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCloudCustomer',
+      ) as MattermostCloudCustomer;
     }
     return null;
   }

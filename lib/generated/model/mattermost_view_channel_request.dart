@@ -30,22 +30,21 @@ class MattermostViewChannelRequest {
   String? prevChannelId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostViewChannelRequest &&
-     other.channelId == channelId &&
-     other.prevChannelId == prevChannelId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostViewChannelRequest && other.channelId == channelId && other.prevChannelId == prevChannelId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (prevChannelId == null ? 0 : prevChannelId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) + (prevChannelId == null ? 0 : prevChannelId!.hashCode);
 
   @override
   String toString() => 'MattermostViewChannelRequest[channelId=$channelId, prevChannelId=$prevChannelId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
+    _json[r'channel_id'] = channelId;
     if (prevChannelId != null) {
       _json[r'prev_channel_id'] = prevChannelId;
     }
@@ -78,7 +77,10 @@ class MattermostViewChannelRequest {
     return null;
   }
 
-  static List<MattermostViewChannelRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostViewChannelRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostViewChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +108,18 @@ class MattermostViewChannelRequest {
   }
 
   // maps a json object with a list of MattermostViewChannelRequest-objects as value to a dart map
-  static Map<String, List<MattermostViewChannelRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostViewChannelRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostViewChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostViewChannelRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostViewChannelRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +133,3 @@ class MattermostViewChannelRequest {
     'channel_id',
   };
 }
-

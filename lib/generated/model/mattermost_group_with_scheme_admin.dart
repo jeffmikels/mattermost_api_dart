@@ -34,15 +34,14 @@ class MattermostGroupWithSchemeAdmin {
   bool? schemeAdmin;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGroupWithSchemeAdmin &&
-     other.group == group &&
-     other.schemeAdmin == schemeAdmin;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGroupWithSchemeAdmin && other.group == group && other.schemeAdmin == schemeAdmin;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (group == null ? 0 : group!.hashCode) +
-    (schemeAdmin == null ? 0 : schemeAdmin!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (group == null ? 0 : group!.hashCode) + (schemeAdmin == null ? 0 : schemeAdmin!.hashCode);
 
   @override
   String toString() => 'MattermostGroupWithSchemeAdmin[group=$group, schemeAdmin=$schemeAdmin]';
@@ -84,7 +83,10 @@ class MattermostGroupWithSchemeAdmin {
     return null;
   }
 
-  static List<MattermostGroupWithSchemeAdmin>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGroupWithSchemeAdmin>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGroupWithSchemeAdmin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostGroupWithSchemeAdmin {
   }
 
   // maps a json object with a list of MattermostGroupWithSchemeAdmin-objects as value to a dart map
-  static Map<String, List<MattermostGroupWithSchemeAdmin>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGroupWithSchemeAdmin>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGroupWithSchemeAdmin>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGroupWithSchemeAdmin.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGroupWithSchemeAdmin.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostGroupWithSchemeAdmin {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

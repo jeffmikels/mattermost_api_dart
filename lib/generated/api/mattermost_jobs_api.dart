@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostJobsApi {
   MattermostJobsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostJobsApi {
 
   /// Cancel a job.
   ///
-  /// Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,10 +25,11 @@ class MattermostJobsApi {
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<Response> cancelJobWithHttpInfo(String jobId,) async {
+  Future<Response> cancelJobWithHttpInfo(
+    String jobId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/jobs/{job_id}/cancel'
-      .replaceAll('{job_id}', jobId);
+    final path = r'/jobs/{job_id}/cancel'.replaceAll('{job_id}', jobId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -39,7 +39,6 @@ class MattermostJobsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -54,14 +53,18 @@ class MattermostJobsApi {
 
   /// Cancel a job.
   ///
-  /// Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<MattermostStatusOK?> cancelJob(String jobId,) async {
-    final response = await cancelJobWithHttpInfo(jobId,);
+  Future<MattermostStatusOK?> cancelJob(
+    String jobId,
+  ) async {
+    final response = await cancelJobWithHttpInfo(
+      jobId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -69,15 +72,17 @@ class MattermostJobsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Create a new job.
   ///
-  /// Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -85,7 +90,9 @@ class MattermostJobsApi {
   ///
   /// * [MattermostCreateJobRequest] mattermostCreateJobRequest (required):
   ///   Job object to be created
-  Future<Response> createJobWithHttpInfo(MattermostCreateJobRequest mattermostCreateJobRequest,) async {
+  Future<Response> createJobWithHttpInfo(
+    MattermostCreateJobRequest mattermostCreateJobRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/jobs';
 
@@ -98,7 +105,6 @@ class MattermostJobsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -112,14 +118,18 @@ class MattermostJobsApi {
 
   /// Create a new job.
   ///
-  /// Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateJobRequest] mattermostCreateJobRequest (required):
   ///   Job object to be created
-  Future<MattermostJob?> createJob(MattermostCreateJobRequest mattermostCreateJobRequest,) async {
-    final response = await createJobWithHttpInfo(mattermostCreateJobRequest,);
+  Future<MattermostJob?> createJob(
+    MattermostCreateJobRequest mattermostCreateJobRequest,
+  ) async {
+    final response = await createJobWithHttpInfo(
+      mattermostCreateJobRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -127,15 +137,17 @@ class MattermostJobsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostJob',) as MattermostJob;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostJob',
+      ) as MattermostJob;
     }
     return null;
   }
 
   /// Download the results of a job.
   ///
-  /// Download the result of a single job. __Minimum server version: 5.28__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Download the result of a single job. __Minimum server version: 5.28__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -143,10 +155,11 @@ class MattermostJobsApi {
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<Response> downloadJobWithHttpInfo(String jobId,) async {
+  Future<Response> downloadJobWithHttpInfo(
+    String jobId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/jobs/{job_id}/download'
-      .replaceAll('{job_id}', jobId);
+    final path = r'/jobs/{job_id}/download'.replaceAll('{job_id}', jobId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -156,7 +169,6 @@ class MattermostJobsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -171,14 +183,18 @@ class MattermostJobsApi {
 
   /// Download the results of a job.
   ///
-  /// Download the result of a single job. __Minimum server version: 5.28__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Download the result of a single job. __Minimum server version: 5.28__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<void> downloadJob(String jobId,) async {
-    final response = await downloadJobWithHttpInfo(jobId,);
+  Future<void> downloadJob(
+    String jobId,
+  ) async {
+    final response = await downloadJobWithHttpInfo(
+      jobId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -186,7 +202,7 @@ class MattermostJobsApi {
 
   /// Get a job.
   ///
-  /// Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -194,10 +210,11 @@ class MattermostJobsApi {
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<Response> getJobWithHttpInfo(String jobId,) async {
+  Future<Response> getJobWithHttpInfo(
+    String jobId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/jobs/{job_id}'
-      .replaceAll('{job_id}', jobId);
+    final path = r'/jobs/{job_id}'.replaceAll('{job_id}', jobId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -207,7 +224,6 @@ class MattermostJobsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -222,14 +238,18 @@ class MattermostJobsApi {
 
   /// Get a job.
   ///
-  /// Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<MattermostJob?> getJob(String jobId,) async {
-    final response = await getJobWithHttpInfo(jobId,);
+  Future<MattermostJob?> getJob(
+    String jobId,
+  ) async {
+    final response = await getJobWithHttpInfo(
+      jobId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -237,15 +257,17 @@ class MattermostJobsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostJob',) as MattermostJob;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostJob',
+      ) as MattermostJob;
     }
     return null;
   }
 
   /// Get the jobs.
   ///
-  /// Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -256,7 +278,10 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<Response> getJobsWithHttpInfo({ int? page, int? perPage, }) async {
+  Future<Response> getJobsWithHttpInfo({
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/jobs';
 
@@ -276,7 +301,6 @@ class MattermostJobsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -290,7 +314,7 @@ class MattermostJobsApi {
 
   /// Get the jobs.
   ///
-  /// Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
@@ -299,8 +323,14 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<List<MattermostJob>?> getJobs({ int? page, int? perPage, }) async {
-    final response = await getJobsWithHttpInfo( page: page, perPage: perPage, );
+  Future<List<MattermostJob>?> getJobs({
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getJobsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,16 +340,15 @@ class MattermostJobsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostJob>') as List)
-        .cast<MattermostJob>()
-        .toList();
-
+          .cast<MattermostJob>()
+          .toList();
     }
     return null;
   }
 
   /// Get the jobs of the given type.
   ///
-  /// Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -333,10 +362,13 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<Response> getJobsByTypeWithHttpInfo(String type, { int? page, int? perPage, }) async {
+  Future<Response> getJobsByTypeWithHttpInfo(
+    String type, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/jobs/type/{type}'
-      .replaceAll('{type}', type);
+    final path = r'/jobs/type/{type}'.replaceAll('{type}', type);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -354,7 +386,6 @@ class MattermostJobsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -368,7 +399,7 @@ class MattermostJobsApi {
 
   /// Get the jobs of the given type.
   ///
-  /// Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
+  /// Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission.
   ///
   /// Parameters:
   ///
@@ -380,8 +411,16 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<List<MattermostJob>?> getJobsByType(String type, { int? page, int? perPage, }) async {
-    final response = await getJobsByTypeWithHttpInfo(type,  page: page, perPage: perPage, );
+  Future<List<MattermostJob>?> getJobsByType(
+    String type, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getJobsByTypeWithHttpInfo(
+      type,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -391,9 +430,8 @@ class MattermostJobsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostJob>') as List)
-        .cast<MattermostJob>()
-        .toList();
-
+          .cast<MattermostJob>()
+          .toList();
     }
     return null;
   }

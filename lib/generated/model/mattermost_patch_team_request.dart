@@ -61,24 +61,27 @@ class MattermostPatchTeamRequest {
   bool? allowOpenInvite;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchTeamRequest &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.companyName == companyName &&
-     other.inviteId == inviteId &&
-     other.allowOpenInvite == allowOpenInvite;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPatchTeamRequest &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.companyName == companyName &&
+          other.inviteId == inviteId &&
+          other.allowOpenInvite == allowOpenInvite;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (companyName == null ? 0 : companyName!.hashCode) +
-    (inviteId == null ? 0 : inviteId!.hashCode) +
-    (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (companyName == null ? 0 : companyName!.hashCode) +
+      (inviteId == null ? 0 : inviteId!.hashCode) +
+      (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode);
 
   @override
-  String toString() => 'MattermostPatchTeamRequest[displayName=$displayName, description=$description, companyName=$companyName, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite]';
+  String toString() =>
+      'MattermostPatchTeamRequest[displayName=$displayName, description=$description, companyName=$companyName, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -129,7 +132,10 @@ class MattermostPatchTeamRequest {
     return null;
   }
 
-  static List<MattermostPatchTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchTeamRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +163,18 @@ class MattermostPatchTeamRequest {
   }
 
   // maps a json object with a list of MattermostPatchTeamRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchTeamRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchTeamRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchTeamRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +184,5 @@ class MattermostPatchTeamRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -79,28 +79,31 @@ class MattermostEnvironmentConfigGitLabSettings {
   bool? userApiEndpoint;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigGitLabSettings &&
-     other.enable == enable &&
-     other.secret == secret &&
-     other.id == id &&
-     other.scope == scope &&
-     other.authEndpoint == authEndpoint &&
-     other.tokenEndpoint == tokenEndpoint &&
-     other.userApiEndpoint == userApiEndpoint;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigGitLabSettings &&
+          other.enable == enable &&
+          other.secret == secret &&
+          other.id == id &&
+          other.scope == scope &&
+          other.authEndpoint == authEndpoint &&
+          other.tokenEndpoint == tokenEndpoint &&
+          other.userApiEndpoint == userApiEndpoint;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (secret == null ? 0 : secret!.hashCode) +
-    (id == null ? 0 : id!.hashCode) +
-    (scope == null ? 0 : scope!.hashCode) +
-    (authEndpoint == null ? 0 : authEndpoint!.hashCode) +
-    (tokenEndpoint == null ? 0 : tokenEndpoint!.hashCode) +
-    (userApiEndpoint == null ? 0 : userApiEndpoint!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (secret == null ? 0 : secret!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
+      (scope == null ? 0 : scope!.hashCode) +
+      (authEndpoint == null ? 0 : authEndpoint!.hashCode) +
+      (tokenEndpoint == null ? 0 : tokenEndpoint!.hashCode) +
+      (userApiEndpoint == null ? 0 : userApiEndpoint!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
+  String toString() =>
+      'MattermostEnvironmentConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -140,8 +143,10 @@ class MattermostEnvironmentConfigGitLabSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigGitLabSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigGitLabSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigGitLabSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigGitLabSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -159,7 +164,10 @@ class MattermostEnvironmentConfigGitLabSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigGitLabSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigGitLabSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigGitLabSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -187,12 +195,18 @@ class MattermostEnvironmentConfigGitLabSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigGitLabSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigGitLabSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigGitLabSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigGitLabSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigGitLabSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigGitLabSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -202,7 +216,5 @@ class MattermostEnvironmentConfigGitLabSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

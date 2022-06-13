@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostSystemApi {
   MattermostSystemApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostSystemApi {
 
   /// Perform a database integrity check
   ///
-  /// Performs a database integrity check.   __Note__: This check may temporarily harm system performance.   __Minimum server version__: 5.28.0   __Local mode only__: This endpoint is only available through [local mode](https://docs.mattermost.com/administration/mmctl-cli-tool.html#local-mode). 
+  /// Performs a database integrity check.   __Note__: This check may temporarily harm system performance.   __Minimum server version__: 5.28.0   __Local mode only__: This endpoint is only available through [local mode](https://docs.mattermost.com/administration/mmctl-cli-tool.html#local-mode).
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> checkIntegrityWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -48,7 +46,7 @@ class MattermostSystemApi {
 
   /// Perform a database integrity check
   ///
-  /// Performs a database integrity check.   __Note__: This check may temporarily harm system performance.   __Minimum server version__: 5.28.0   __Local mode only__: This endpoint is only available through [local mode](https://docs.mattermost.com/administration/mmctl-cli-tool.html#local-mode). 
+  /// Performs a database integrity check.   __Note__: This check may temporarily harm system performance.   __Minimum server version__: 5.28.0   __Local mode only__: This endpoint is only available through [local mode](https://docs.mattermost.com/administration/mmctl-cli-tool.html#local-mode).
   Future<List<MattermostIntegrityCheckResult>?> checkIntegrity() async {
     final response = await checkIntegrityWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -60,16 +58,15 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostIntegrityCheckResult>') as List)
-        .cast<MattermostIntegrityCheckResult>()
-        .toList();
-
+          .cast<MattermostIntegrityCheckResult>()
+          .toList();
     }
     return null;
   }
 
   /// Clears the server busy (high load) flag
   ///
-  /// Marks the server as not having high load which re-enables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Marks the server as not having high load which re-enables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> clearServerBusyWithHttpInfo() async {
@@ -85,7 +82,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -99,7 +95,7 @@ class MattermostSystemApi {
 
   /// Clears the server busy (high load) flag
   ///
-  /// Marks the server as not having high load which re-enables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Marks the server as not having high load which re-enables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   Future<MattermostStatusOK?> clearServerBusy() async {
     final response = await clearServerBusyWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -109,15 +105,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Recycle database connections
   ///
-  /// Recycle database connections by closing and reconnecting all connections to master and read replica databases. ##### Permissions Must have `manage_system` permission. 
+  /// Recycle database connections by closing and reconnecting all connections to master and read replica databases. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> databaseRecycleWithHttpInfo() async {
@@ -133,7 +131,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -147,7 +144,7 @@ class MattermostSystemApi {
 
   /// Recycle database connections
   ///
-  /// Recycle database connections by closing and reconnecting all connections to master and read replica databases. ##### Permissions Must have `manage_system` permission. 
+  /// Recycle database connections by closing and reconnecting all connections to master and read replica databases. ##### Permissions Must have `manage_system` permission.
   Future<MattermostStatusOK?> databaseRecycle() async {
     final response = await databaseRecycleWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -157,15 +154,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance.
   ///
-  /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance. __Minimum server version: 5.32__ ##### Permissions Must have any of the system console read permissions. ##### License Requires either a E10 or E20 license. 
+  /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance. __Minimum server version: 5.32__ ##### Permissions Must have any of the system console read permissions. ##### License Requires either a E10 or E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> generateSupportPacketWithHttpInfo() async {
@@ -181,7 +180,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -195,7 +193,7 @@ class MattermostSystemApi {
 
   /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance.
   ///
-  /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance. __Minimum server version: 5.32__ ##### Permissions Must have any of the system console read permissions. ##### License Requires either a E10 or E20 license. 
+  /// Download a zip file which contains helpful and useful information for troubleshooting your mattermost instance. __Minimum server version: 5.32__ ##### Permissions Must have any of the system console read permissions. ##### License Requires either a E10 or E20 license.
   Future<void> generateSupportPacket() async {
     final response = await generateSupportPacketWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -205,7 +203,7 @@ class MattermostSystemApi {
 
   /// Get analytics
   ///
-  /// Get some analytics data about the system. This endpoint uses the old format, the `/analytics` route is reserved for the new format when it gets implemented.  The returned JSON changes based on the `name` query parameter but is always key/value pairs.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Get some analytics data about the system. This endpoint uses the old format, the `/analytics` route is reserved for the new format when it gets implemented.  The returned JSON changes based on the `name` query parameter but is always key/value pairs.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -216,7 +214,10 @@ class MattermostSystemApi {
   ///
   /// * [String] teamId:
   ///   The team ID to filter the data by
-  Future<Response> getAnalyticsOldWithHttpInfo({ String? name, String? teamId, }) async {
+  Future<Response> getAnalyticsOldWithHttpInfo({
+    String? name,
+    String? teamId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/analytics/old';
 
@@ -236,7 +237,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -250,7 +250,7 @@ class MattermostSystemApi {
 
   /// Get analytics
   ///
-  /// Get some analytics data about the system. This endpoint uses the old format, the `/analytics` route is reserved for the new format when it gets implemented.  The returned JSON changes based on the `name` query parameter but is always key/value pairs.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Get some analytics data about the system. This endpoint uses the old format, the `/analytics` route is reserved for the new format when it gets implemented.  The returned JSON changes based on the `name` query parameter but is always key/value pairs.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -259,8 +259,14 @@ class MattermostSystemApi {
   ///
   /// * [String] teamId:
   ///   The team ID to filter the data by
-  Future<void> getAnalyticsOld({ String? name, String? teamId, }) async {
-    final response = await getAnalyticsOldWithHttpInfo( name: name, teamId: teamId, );
+  Future<void> getAnalyticsOld({
+    String? name,
+    String? teamId,
+  }) async {
+    final response = await getAnalyticsOldWithHttpInfo(
+      name: name,
+      teamId: teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -268,7 +274,7 @@ class MattermostSystemApi {
 
   /// Get audits
   ///
-  /// Get a page of audits for all users on the system, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of audits for all users on the system, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -279,7 +285,10 @@ class MattermostSystemApi {
   ///
   /// * [int] perPage:
   ///   The number of audits per page.
-  Future<Response> getAuditsWithHttpInfo({ int? page, int? perPage, }) async {
+  Future<Response> getAuditsWithHttpInfo({
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/audits';
 
@@ -299,7 +308,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -313,7 +321,7 @@ class MattermostSystemApi {
 
   /// Get audits
   ///
-  /// Get a page of audits for all users on the system, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of audits for all users on the system, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -322,8 +330,14 @@ class MattermostSystemApi {
   ///
   /// * [int] perPage:
   ///   The number of audits per page.
-  Future<List<MattermostAudit>?> getAudits({ int? page, int? perPage, }) async {
-    final response = await getAuditsWithHttpInfo( page: page, perPage: perPage, );
+  Future<List<MattermostAudit>?> getAudits({
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getAuditsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -333,16 +347,15 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostAudit>') as List)
-        .cast<MattermostAudit>()
-        .toList();
-
+          .cast<MattermostAudit>()
+          .toList();
     }
     return null;
   }
 
   /// Get client configuration
   ///
-  /// Get a subset of the server configuration needed by the client. ##### Permissions No permission required. 
+  /// Get a subset of the server configuration needed by the client. ##### Permissions No permission required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -350,7 +363,9 @@ class MattermostSystemApi {
   ///
   /// * [String] format (required):
   ///   Must be `old`, other formats not implemented yet
-  Future<Response> getClientConfigWithHttpInfo(String format,) async {
+  Future<Response> getClientConfigWithHttpInfo(
+    String format,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/config/client';
 
@@ -361,10 +376,9 @@ class MattermostSystemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'format', format));
+    queryParams.addAll(_queryParams('', 'format', format));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -379,14 +393,18 @@ class MattermostSystemApi {
 
   /// Get client configuration
   ///
-  /// Get a subset of the server configuration needed by the client. ##### Permissions No permission required. 
+  /// Get a subset of the server configuration needed by the client. ##### Permissions No permission required.
   ///
   /// Parameters:
   ///
   /// * [String] format (required):
   ///   Must be `old`, other formats not implemented yet
-  Future<void> getClientConfig(String format,) async {
-    final response = await getClientConfigWithHttpInfo(format,);
+  Future<void> getClientConfig(
+    String format,
+  ) async {
+    final response = await getClientConfigWithHttpInfo(
+      format,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -394,7 +412,7 @@ class MattermostSystemApi {
 
   /// Get client license
   ///
-  /// Get a subset of the server license needed by the client. ##### Permissions No permission required but having the `manage_system` permission returns more information. 
+  /// Get a subset of the server license needed by the client. ##### Permissions No permission required but having the `manage_system` permission returns more information.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -402,7 +420,9 @@ class MattermostSystemApi {
   ///
   /// * [String] format (required):
   ///   Must be `old`, other formats not implemented yet
-  Future<Response> getClientLicenseWithHttpInfo(String format,) async {
+  Future<Response> getClientLicenseWithHttpInfo(
+    String format,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/license/client';
 
@@ -413,10 +433,9 @@ class MattermostSystemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'format', format));
+    queryParams.addAll(_queryParams('', 'format', format));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -431,14 +450,18 @@ class MattermostSystemApi {
 
   /// Get client license
   ///
-  /// Get a subset of the server license needed by the client. ##### Permissions No permission required but having the `manage_system` permission returns more information. 
+  /// Get a subset of the server license needed by the client. ##### Permissions No permission required but having the `manage_system` permission returns more information.
   ///
   /// Parameters:
   ///
   /// * [String] format (required):
   ///   Must be `old`, other formats not implemented yet
-  Future<void> getClientLicense(String format,) async {
-    final response = await getClientLicenseWithHttpInfo(format,);
+  Future<void> getClientLicense(
+    String format,
+  ) async {
+    final response = await getClientLicenseWithHttpInfo(
+      format,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -446,7 +469,7 @@ class MattermostSystemApi {
 
   /// Get configuration
   ///
-  /// Retrieve the current server configuration ##### Permissions Must have `manage_system` permission. 
+  /// Retrieve the current server configuration ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getConfigWithHttpInfo() async {
@@ -462,7 +485,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -476,7 +498,7 @@ class MattermostSystemApi {
 
   /// Get configuration
   ///
-  /// Retrieve the current server configuration ##### Permissions Must have `manage_system` permission. 
+  /// Retrieve the current server configuration ##### Permissions Must have `manage_system` permission.
   Future<MattermostConfig?> getConfig() async {
     final response = await getConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -486,15 +508,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostConfig',) as MattermostConfig;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostConfig',
+      ) as MattermostConfig;
     }
     return null;
   }
 
   /// Get configuration made through environment variables
   ///
-  /// Retrieve a json object mirroring the server configuration where fields are set to true if the corresponding config setting is set through an environment variable. Settings that haven't been set through environment variables will be missing from the object.  __Minimum server version__: 4.10  ##### Permissions Must have `manage_system` permission. 
+  /// Retrieve a json object mirroring the server configuration where fields are set to true if the corresponding config setting is set through an environment variable. Settings that haven't been set through environment variables will be missing from the object.  __Minimum server version__: 4.10  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getEnvironmentConfigWithHttpInfo() async {
@@ -510,7 +534,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -524,7 +547,7 @@ class MattermostSystemApi {
 
   /// Get configuration made through environment variables
   ///
-  /// Retrieve a json object mirroring the server configuration where fields are set to true if the corresponding config setting is set through an environment variable. Settings that haven't been set through environment variables will be missing from the object.  __Minimum server version__: 4.10  ##### Permissions Must have `manage_system` permission. 
+  /// Retrieve a json object mirroring the server configuration where fields are set to true if the corresponding config setting is set through an environment variable. Settings that haven't been set through environment variables will be missing from the object.  __Minimum server version__: 4.10  ##### Permissions Must have `manage_system` permission.
   Future<MattermostEnvironmentConfig?> getEnvironmentConfig() async {
     final response = await getEnvironmentConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -534,15 +557,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEnvironmentConfig',) as MattermostEnvironmentConfig;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostEnvironmentConfig',
+      ) as MattermostEnvironmentConfig;
     }
     return null;
   }
 
   /// Get an image by url
   ///
-  /// Fetches an image via Mattermost image proxy. __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// Fetches an image via Mattermost image proxy. __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getImageByUrlWithHttpInfo() async {
@@ -558,7 +583,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -572,7 +596,7 @@ class MattermostSystemApi {
 
   /// Get an image by url
   ///
-  /// Fetches an image via Mattermost image proxy. __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// Fetches an image via Mattermost image proxy. __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   Future<MultipartFile?> getImageByUrl() async {
     final response = await getImageByUrlWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -582,15 +606,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MultipartFile',
+      ) as MultipartFile;
     }
     return null;
   }
 
   /// Get logs
   ///
-  /// Get a page of server logs, selected with `page` and `logs_per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of server logs, selected with `page` and `logs_per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -601,7 +627,10 @@ class MattermostSystemApi {
   ///
   /// * [String] logsPerPage:
   ///   The number of logs per page. There is a maximum limit of 10000 logs per page.
-  Future<Response> getLogsWithHttpInfo({ int? page, String? logsPerPage, }) async {
+  Future<Response> getLogsWithHttpInfo({
+    int? page,
+    String? logsPerPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/logs';
 
@@ -621,7 +650,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -635,7 +663,7 @@ class MattermostSystemApi {
 
   /// Get logs
   ///
-  /// Get a page of server logs, selected with `page` and `logs_per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of server logs, selected with `page` and `logs_per_page` query parameters. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -644,8 +672,14 @@ class MattermostSystemApi {
   ///
   /// * [String] logsPerPage:
   ///   The number of logs per page. There is a maximum limit of 10000 logs per page.
-  Future<List<String>?> getLogs({ int? page, String? logsPerPage, }) async {
-    final response = await getLogsWithHttpInfo( page: page, logsPerPage: logsPerPage, );
+  Future<List<String>?> getLogs({
+    int? page,
+    String? logsPerPage,
+  }) async {
+    final response = await getLogsWithHttpInfo(
+      page: page,
+      logsPerPage: logsPerPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -654,17 +688,14 @@ class MattermostSystemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// Get notices for logged in user in specified team
   ///
-  /// Will return appropriate product notices for current user in the team specified by teamId parameter. __Minimum server version__: 5.26 ##### Permissions Must be logged in. 
+  /// Will return appropriate product notices for current user in the team specified by teamId parameter. __Minimum server version__: 5.26 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -681,10 +712,14 @@ class MattermostSystemApi {
   ///
   /// * [String] locale:
   ///   Client locale
-  Future<Response> getNoticesWithHttpInfo(String clientVersion, String client, String teamId, { String? locale, }) async {
+  Future<Response> getNoticesWithHttpInfo(
+    String clientVersion,
+    String client,
+    String teamId, {
+    String? locale,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/system/notices/{teamId}'
-      .replaceAll('{teamId}', teamId);
+    final path = r'/system/notices/{teamId}'.replaceAll('{teamId}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -693,14 +728,13 @@ class MattermostSystemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'clientVersion', clientVersion));
+    queryParams.addAll(_queryParams('', 'clientVersion', clientVersion));
     if (locale != null) {
       queryParams.addAll(_queryParams('', 'locale', locale));
     }
-      queryParams.addAll(_queryParams('', 'client', client));
+    queryParams.addAll(_queryParams('', 'client', client));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -715,7 +749,7 @@ class MattermostSystemApi {
 
   /// Get notices for logged in user in specified team
   ///
-  /// Will return appropriate product notices for current user in the team specified by teamId parameter. __Minimum server version__: 5.26 ##### Permissions Must be logged in. 
+  /// Will return appropriate product notices for current user in the team specified by teamId parameter. __Minimum server version__: 5.26 ##### Permissions Must be logged in.
   ///
   /// Parameters:
   ///
@@ -730,8 +764,18 @@ class MattermostSystemApi {
   ///
   /// * [String] locale:
   ///   Client locale
-  Future<List<MattermostNotice>?> getNotices(String clientVersion, String client, String teamId, { String? locale, }) async {
-    final response = await getNoticesWithHttpInfo(clientVersion, client, teamId,  locale: locale, );
+  Future<List<MattermostNotice>?> getNotices(
+    String clientVersion,
+    String client,
+    String teamId, {
+    String? locale,
+  }) async {
+    final response = await getNoticesWithHttpInfo(
+      clientVersion,
+      client,
+      teamId,
+      locale: locale,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -741,16 +785,15 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostNotice>') as List)
-        .cast<MattermostNotice>()
-        .toList();
-
+          .cast<MattermostNotice>()
+          .toList();
     }
     return null;
   }
 
   /// Check system health
   ///
-  /// Check if the server is up and healthy based on the configuration setting `GoRoutineHealthThreshold`. If `GoRoutineHealthThreshold` and the number of goroutines on the server exceeds that threshold the server is considered unhealthy. If `GoRoutineHealthThreshold` is not set or the number of goroutines is below the threshold the server is considered healthy. __Minimum server version__: 3.10 If a \"device_id\" is passed in the query, it will test the Push Notification Proxy in order to discover whether the device is able to receive notifications. The response will have a \"CanReceiveNotifications\" property with one of the following values: - true: It can receive notifications - false: It cannot receive notifications - unknown: There has been an unknown error, and it is not certain whether it can   receive notifications.  __Minimum server version__: 6.5 ##### Permissions None. 
+  /// Check if the server is up and healthy based on the configuration setting `GoRoutineHealthThreshold`. If `GoRoutineHealthThreshold` and the number of goroutines on the server exceeds that threshold the server is considered unhealthy. If `GoRoutineHealthThreshold` is not set or the number of goroutines is below the threshold the server is considered healthy. __Minimum server version__: 3.10 If a \"device_id\" is passed in the query, it will test the Push Notification Proxy in order to discover whether the device is able to receive notifications. The response will have a \"CanReceiveNotifications\" property with one of the following values: - true: It can receive notifications - false: It cannot receive notifications - unknown: There has been an unknown error, and it is not certain whether it can   receive notifications.  __Minimum server version__: 6.5 ##### Permissions None.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -761,7 +804,10 @@ class MattermostSystemApi {
   ///
   /// * [String] deviceId:
   ///   Check whether this device id can receive push notifications
-  Future<Response> getPingWithHttpInfo({ bool? getServerStatus, String? deviceId, }) async {
+  Future<Response> getPingWithHttpInfo({
+    bool? getServerStatus,
+    String? deviceId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/system/ping';
 
@@ -781,7 +827,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -795,7 +840,7 @@ class MattermostSystemApi {
 
   /// Check system health
   ///
-  /// Check if the server is up and healthy based on the configuration setting `GoRoutineHealthThreshold`. If `GoRoutineHealthThreshold` and the number of goroutines on the server exceeds that threshold the server is considered unhealthy. If `GoRoutineHealthThreshold` is not set or the number of goroutines is below the threshold the server is considered healthy. __Minimum server version__: 3.10 If a \"device_id\" is passed in the query, it will test the Push Notification Proxy in order to discover whether the device is able to receive notifications. The response will have a \"CanReceiveNotifications\" property with one of the following values: - true: It can receive notifications - false: It cannot receive notifications - unknown: There has been an unknown error, and it is not certain whether it can   receive notifications.  __Minimum server version__: 6.5 ##### Permissions None. 
+  /// Check if the server is up and healthy based on the configuration setting `GoRoutineHealthThreshold`. If `GoRoutineHealthThreshold` and the number of goroutines on the server exceeds that threshold the server is considered unhealthy. If `GoRoutineHealthThreshold` is not set or the number of goroutines is below the threshold the server is considered healthy. __Minimum server version__: 3.10 If a \"device_id\" is passed in the query, it will test the Push Notification Proxy in order to discover whether the device is able to receive notifications. The response will have a \"CanReceiveNotifications\" property with one of the following values: - true: It can receive notifications - false: It cannot receive notifications - unknown: There has been an unknown error, and it is not certain whether it can   receive notifications.  __Minimum server version__: 6.5 ##### Permissions None.
   ///
   /// Parameters:
   ///
@@ -804,8 +849,14 @@ class MattermostSystemApi {
   ///
   /// * [String] deviceId:
   ///   Check whether this device id can receive push notifications
-  Future<MattermostSystemStatusResponse?> getPing({ bool? getServerStatus, String? deviceId, }) async {
-    final response = await getPingWithHttpInfo( getServerStatus: getServerStatus, deviceId: deviceId, );
+  Future<MattermostSystemStatusResponse?> getPing({
+    bool? getServerStatus,
+    String? deviceId,
+  }) async {
+    final response = await getPingWithHttpInfo(
+      getServerStatus: getServerStatus,
+      deviceId: deviceId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -813,15 +864,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSystemStatusResponse',) as MattermostSystemStatusResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSystemStatusResponse',
+      ) as MattermostSystemStatusResponse;
     }
     return null;
   }
 
   /// Get redirect location
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -829,7 +882,9 @@ class MattermostSystemApi {
   ///
   /// * [String] url (required):
   ///   Url to check
-  Future<Response> getRedirectLocationWithHttpInfo(String url,) async {
+  Future<Response> getRedirectLocationWithHttpInfo(
+    String url,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/redirect_location';
 
@@ -840,10 +895,9 @@ class MattermostSystemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'url', url));
+    queryParams.addAll(_queryParams('', 'url', url));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -858,14 +912,18 @@ class MattermostSystemApi {
 
   /// Get redirect location
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   ///
   /// Parameters:
   ///
   /// * [String] url (required):
   ///   Url to check
-  Future<MattermostGetRedirectLocation200Response?> getRedirectLocation(String url,) async {
-    final response = await getRedirectLocationWithHttpInfo(url,);
+  Future<MattermostGetRedirectLocation200Response?> getRedirectLocation(
+    String url,
+  ) async {
+    final response = await getRedirectLocationWithHttpInfo(
+      url,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -873,15 +931,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetRedirectLocation200Response',) as MattermostGetRedirectLocation200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGetRedirectLocation200Response',
+      ) as MattermostGetRedirectLocation200Response;
     }
     return null;
   }
 
   /// Get server busy expiry time.
   ///
-  /// Gets the timestamp corresponding to when the server busy flag will be automatically cleared.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Gets the timestamp corresponding to when the server busy flag will be automatically cleared.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getServerBusyExpiresWithHttpInfo() async {
@@ -897,7 +957,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -911,7 +970,7 @@ class MattermostSystemApi {
 
   /// Get server busy expiry time.
   ///
-  /// Gets the timestamp corresponding to when the server busy flag will be automatically cleared.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Gets the timestamp corresponding to when the server busy flag will be automatically cleared.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   Future<MattermostServerBusy?> getServerBusyExpires() async {
     final response = await getServerBusyExpiresWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -921,15 +980,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostServerBusy',) as MattermostServerBusy;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostServerBusy',
+      ) as MattermostServerBusy;
     }
     return null;
   }
 
   /// Retrieve a list of supported timezones
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSupportedTimezoneWithHttpInfo() async {
@@ -945,7 +1006,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -959,7 +1019,7 @@ class MattermostSystemApi {
 
   /// Retrieve a list of supported timezones
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   Future<List<String>?> getSupportedTimezone() async {
     final response = await getSupportedTimezoneWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -970,17 +1030,14 @@ class MattermostSystemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// Get the warn metrics status (enabled or disabled)
   ///
-  /// Get the status of a set of metrics (enabled or disabled) from the Systems table.  The returned JSON contains the metrics that we need to warn the admin on with regard to their status (we return the ones whose status is \"true\", which means that they are in a \"warnable\" state - e.g. a threshold has been crossed or some other condition has been fulfilled).  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Get the status of a set of metrics (enabled or disabled) from the Systems table.  The returned JSON contains the metrics that we need to warn the admin on with regard to their status (we return the ones whose status is \"true\", which means that they are in a \"warnable\" state - e.g. a threshold has been crossed or some other condition has been fulfilled).  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getWarnMetricsStatusWithHttpInfo() async {
@@ -996,7 +1053,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1010,7 +1066,7 @@ class MattermostSystemApi {
 
   /// Get the warn metrics status (enabled or disabled)
   ///
-  /// Get the status of a set of metrics (enabled or disabled) from the Systems table.  The returned JSON contains the metrics that we need to warn the admin on with regard to their status (we return the ones whose status is \"true\", which means that they are in a \"warnable\" state - e.g. a threshold has been crossed or some other condition has been fulfilled).  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Get the status of a set of metrics (enabled or disabled) from the Systems table.  The returned JSON contains the metrics that we need to warn the admin on with regard to their status (we return the ones whose status is \"true\", which means that they are in a \"warnable\" state - e.g. a threshold has been crossed or some other condition has been fulfilled).  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   Future<MattermostStatusOK?> getWarnMetricsStatus() async {
     final response = await getWarnMetricsStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1020,15 +1076,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Invalidate all the caches
   ///
-  /// Purge all the in-memory caches for the Mattermost server. This can have a temporary negative effect on performance while the caches are re-populated. ##### Permissions Must have `manage_system` permission. 
+  /// Purge all the in-memory caches for the Mattermost server. This can have a temporary negative effect on performance while the caches are re-populated. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> invalidateCachesWithHttpInfo() async {
@@ -1044,7 +1102,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1058,7 +1115,7 @@ class MattermostSystemApi {
 
   /// Invalidate all the caches
   ///
-  /// Purge all the in-memory caches for the Mattermost server. This can have a temporary negative effect on performance while the caches are re-populated. ##### Permissions Must have `manage_system` permission. 
+  /// Purge all the in-memory caches for the Mattermost server. This can have a temporary negative effect on performance while the caches are re-populated. ##### Permissions Must have `manage_system` permission.
   Future<MattermostStatusOK?> invalidateCaches() async {
     final response = await invalidateCachesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1068,15 +1125,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update notices as 'viewed'
   ///
-  /// Will mark the specified notices as 'viewed' by the logged in user. __Minimum server version__: 5.26 ##### Permissions Must be logged in. 
+  /// Will mark the specified notices as 'viewed' by the logged in user. __Minimum server version__: 5.26 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1084,7 +1143,9 @@ class MattermostSystemApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of notice IDs
-  Future<Response> markNoticesViewedWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> markNoticesViewedWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/system/notices/view';
 
@@ -1097,7 +1158,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -1111,14 +1171,18 @@ class MattermostSystemApi {
 
   /// Update notices as 'viewed'
   ///
-  /// Will mark the specified notices as 'viewed' by the logged in user. __Minimum server version__: 5.26 ##### Permissions Must be logged in. 
+  /// Will mark the specified notices as 'viewed' by the logged in user. __Minimum server version__: 5.26 ##### Permissions Must be logged in.
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of notice IDs
-  Future<MattermostStatusOK?> markNoticesViewed(List<String> requestBody,) async {
-    final response = await markNoticesViewedWithHttpInfo(requestBody,);
+  Future<MattermostStatusOK?> markNoticesViewed(
+    List<String> requestBody,
+  ) async {
+    final response = await markNoticesViewedWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1126,15 +1190,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Patch configuration
   ///
-  /// Submit configuration to patch. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.20 
+  /// Submit configuration to patch. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.20
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1142,7 +1208,9 @@ class MattermostSystemApi {
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<Response> patchConfigWithHttpInfo(MattermostConfig mattermostConfig,) async {
+  Future<Response> patchConfigWithHttpInfo(
+    MattermostConfig mattermostConfig,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/config/patch';
 
@@ -1154,7 +1222,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1169,14 +1236,18 @@ class MattermostSystemApi {
 
   /// Patch configuration
   ///
-  /// Submit configuration to patch. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.20 
+  /// Submit configuration to patch. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.20
   ///
   /// Parameters:
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<MattermostConfig?> patchConfig(MattermostConfig mattermostConfig,) async {
-    final response = await patchConfigWithHttpInfo(mattermostConfig,);
+  Future<MattermostConfig?> patchConfig(
+    MattermostConfig mattermostConfig,
+  ) async {
+    final response = await patchConfigWithHttpInfo(
+      mattermostConfig,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1184,22 +1255,26 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostConfig',) as MattermostConfig;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostConfig',
+      ) as MattermostConfig;
     }
     return null;
   }
 
   /// Add log message
   ///
-  /// Add log messages to the server logs. ##### Permissions Users with `manage_system` permission can log ERROR or DEBUG messages. Logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` or just DEBUG messages when `false`. Non-logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` and cannot log when `false`. 
+  /// Add log messages to the server logs. ##### Permissions Users with `manage_system` permission can log ERROR or DEBUG messages. Logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` or just DEBUG messages when `false`. Non-logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` and cannot log when `false`.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostPostLogRequest] mattermostPostLogRequest (required):
-  Future<Response> postLogWithHttpInfo(MattermostPostLogRequest mattermostPostLogRequest,) async {
+  Future<Response> postLogWithHttpInfo(
+    MattermostPostLogRequest mattermostPostLogRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/logs';
 
@@ -1211,7 +1286,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1226,13 +1300,17 @@ class MattermostSystemApi {
 
   /// Add log message
   ///
-  /// Add log messages to the server logs. ##### Permissions Users with `manage_system` permission can log ERROR or DEBUG messages. Logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` or just DEBUG messages when `false`. Non-logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` and cannot log when `false`. 
+  /// Add log messages to the server logs. ##### Permissions Users with `manage_system` permission can log ERROR or DEBUG messages. Logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` or just DEBUG messages when `false`. Non-logged in users can log ERROR or DEBUG messages when `ServiceSettings.EnableDeveloper` is `true` and cannot log when `false`.
   ///
   /// Parameters:
   ///
   /// * [MattermostPostLogRequest] mattermostPostLogRequest (required):
-  Future<List<String>?> postLog(MattermostPostLogRequest mattermostPostLogRequest,) async {
-    final response = await postLogWithHttpInfo(mattermostPostLogRequest,);
+  Future<List<String>?> postLog(
+    MattermostPostLogRequest mattermostPostLogRequest,
+  ) async {
+    final response = await postLogWithHttpInfo(
+      mattermostPostLogRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1241,17 +1319,14 @@ class MattermostSystemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// Reload configuration
   ///
-  /// Reload the configuration file to pick up on any changes made to it. ##### Permissions Must have `manage_system` permission. 
+  /// Reload the configuration file to pick up on any changes made to it. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> reloadConfigWithHttpInfo() async {
@@ -1267,7 +1342,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1281,7 +1355,7 @@ class MattermostSystemApi {
 
   /// Reload configuration
   ///
-  /// Reload the configuration file to pick up on any changes made to it. ##### Permissions Must have `manage_system` permission. 
+  /// Reload the configuration file to pick up on any changes made to it. ##### Permissions Must have `manage_system` permission.
   Future<MattermostStatusOK?> reloadConfig() async {
     final response = await reloadConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1291,15 +1365,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Remove license file
   ///
-  /// Remove the license file from the server. This will disable all enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Remove the license file from the server. This will disable all enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> removeLicenseFileWithHttpInfo() async {
@@ -1315,7 +1391,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -1329,7 +1404,7 @@ class MattermostSystemApi {
 
   /// Remove license file
   ///
-  /// Remove the license file from the server. This will disable all enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Remove the license file from the server. This will disable all enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   Future<void> removeLicenseFile() async {
     final response = await removeLicenseFileWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1339,7 +1414,7 @@ class MattermostSystemApi {
 
   /// Request the license renewal link
   ///
-  /// Request the renewal link that would be used to start the license renewal process __Minimum server version__: 5.32 ##### Permissions Must have `sysconsole_write_about` permission. 
+  /// Request the renewal link that would be used to start the license renewal process __Minimum server version__: 5.32 ##### Permissions Must have `sysconsole_write_about` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> requestLicenseRenewalLinkWithHttpInfo() async {
@@ -1355,7 +1430,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1369,7 +1443,7 @@ class MattermostSystemApi {
 
   /// Request the license renewal link
   ///
-  /// Request the renewal link that would be used to start the license renewal process __Minimum server version__: 5.32 ##### Permissions Must have `sysconsole_write_about` permission. 
+  /// Request the renewal link that would be used to start the license renewal process __Minimum server version__: 5.32 ##### Permissions Must have `sysconsole_write_about` permission.
   Future<MattermostLicenseRenewalLink?> requestLicenseRenewalLink() async {
     final response = await requestLicenseRenewalLinkWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1379,15 +1453,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostLicenseRenewalLink',) as MattermostLicenseRenewalLink;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostLicenseRenewalLink',
+      ) as MattermostLicenseRenewalLink;
     }
     return null;
   }
 
   /// Request and install a trial license for your server
   ///
-  /// Request and install a trial license for your server __Minimum server version__: 5.25 ##### Permissions Must have `manage_system` permission. 
+  /// Request and install a trial license for your server __Minimum server version__: 5.25 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1395,7 +1471,9 @@ class MattermostSystemApi {
   ///
   /// * [MattermostRequestTrialLicenseRequest] mattermostRequestTrialLicenseRequest (required):
   ///   License request
-  Future<Response> requestTrialLicenseWithHttpInfo(MattermostRequestTrialLicenseRequest mattermostRequestTrialLicenseRequest,) async {
+  Future<Response> requestTrialLicenseWithHttpInfo(
+    MattermostRequestTrialLicenseRequest mattermostRequestTrialLicenseRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/trial-license';
 
@@ -1407,7 +1485,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1422,14 +1499,18 @@ class MattermostSystemApi {
 
   /// Request and install a trial license for your server
   ///
-  /// Request and install a trial license for your server __Minimum server version__: 5.25 ##### Permissions Must have `manage_system` permission. 
+  /// Request and install a trial license for your server __Minimum server version__: 5.25 ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostRequestTrialLicenseRequest] mattermostRequestTrialLicenseRequest (required):
   ///   License request
-  Future<void> requestTrialLicense(MattermostRequestTrialLicenseRequest mattermostRequestTrialLicenseRequest,) async {
-    final response = await requestTrialLicenseWithHttpInfo(mattermostRequestTrialLicenseRequest,);
+  Future<void> requestTrialLicense(
+    MattermostRequestTrialLicenseRequest mattermostRequestTrialLicenseRequest,
+  ) async {
+    final response = await requestTrialLicenseWithHttpInfo(
+      mattermostRequestTrialLicenseRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1437,7 +1518,7 @@ class MattermostSystemApi {
 
   /// Restart the system after an upgrade from Team Edition to Enterprise Edition
   ///
-  /// It restarts the current running mattermost instance to execute the new Enterprise binary. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It restarts the current running mattermost instance to execute the new Enterprise binary. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> restartServerWithHttpInfo() async {
@@ -1453,7 +1534,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1467,7 +1547,7 @@ class MattermostSystemApi {
 
   /// Restart the system after an upgrade from Team Edition to Enterprise Edition
   ///
-  /// It restarts the current running mattermost instance to execute the new Enterprise binary. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It restarts the current running mattermost instance to execute the new Enterprise binary. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   Future<MattermostStatusOK?> restartServer() async {
     final response = await restartServerWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1477,15 +1557,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Request trial license and acknowledge a warning of a metric status
   ///
-  /// Request a trial license and acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.28  ##### Permissions  Must have `manage_system` permission. 
+  /// Request a trial license and acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.28  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1493,10 +1575,11 @@ class MattermostSystemApi {
   ///
   /// * [String] warnMetricId (required):
   ///   Warn Metric Id.
-  Future<Response> sendTrialLicenseWarnMetricAckWithHttpInfo(String warnMetricId,) async {
+  Future<Response> sendTrialLicenseWarnMetricAckWithHttpInfo(
+    String warnMetricId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/warn_metrics/trial-license-ack/{warn_metric_id}'
-      .replaceAll('{warn_metric_id}', warnMetricId);
+    final path = r'/warn_metrics/trial-license-ack/{warn_metric_id}'.replaceAll('{warn_metric_id}', warnMetricId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1507,7 +1590,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1521,14 +1603,18 @@ class MattermostSystemApi {
 
   /// Request trial license and acknowledge a warning of a metric status
   ///
-  /// Request a trial license and acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.28  ##### Permissions  Must have `manage_system` permission. 
+  /// Request a trial license and acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.28  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] warnMetricId (required):
   ///   Warn Metric Id.
-  Future<MattermostStatusOK?> sendTrialLicenseWarnMetricAck(String warnMetricId,) async {
-    final response = await sendTrialLicenseWarnMetricAckWithHttpInfo(warnMetricId,);
+  Future<MattermostStatusOK?> sendTrialLicenseWarnMetricAck(
+    String warnMetricId,
+  ) async {
+    final response = await sendTrialLicenseWarnMetricAckWithHttpInfo(
+      warnMetricId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1536,15 +1622,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Acknowledge a warning of a metric status
   ///
-  /// Acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - attempts to send an ack email to acknowledge@mattermost.com and sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - attempts to send an ack email to acknowledge@mattermost.com and sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1555,10 +1643,12 @@ class MattermostSystemApi {
   ///
   /// * [MattermostSendWarnMetricAckRequest] mattermostSendWarnMetricAckRequest (required):
   ///   payload that contains the ack flag
-  Future<Response> sendWarnMetricAckWithHttpInfo(String warnMetricId, MattermostSendWarnMetricAckRequest mattermostSendWarnMetricAckRequest,) async {
+  Future<Response> sendWarnMetricAckWithHttpInfo(
+    String warnMetricId,
+    MattermostSendWarnMetricAckRequest mattermostSendWarnMetricAckRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/warn_metrics/ack/{warn_metric_id}'
-      .replaceAll('{warn_metric_id}', warnMetricId);
+    final path = r'/warn_metrics/ack/{warn_metric_id}'.replaceAll('{warn_metric_id}', warnMetricId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSendWarnMetricAckRequest;
@@ -1568,7 +1658,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1583,7 +1672,7 @@ class MattermostSystemApi {
 
   /// Acknowledge a warning of a metric status
   ///
-  /// Acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - attempts to send an ack email to acknowledge@mattermost.com and sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Acknowledge a warning for the warn_metric_id metric crossing a threshold (or some similar condition being fulfilled) - attempts to send an ack email to acknowledge@mattermost.com and sets the \"ack\" status for all the warn metrics in the system.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -1592,8 +1681,14 @@ class MattermostSystemApi {
   ///
   /// * [MattermostSendWarnMetricAckRequest] mattermostSendWarnMetricAckRequest (required):
   ///   payload that contains the ack flag
-  Future<MattermostStatusOK?> sendWarnMetricAck(String warnMetricId, MattermostSendWarnMetricAckRequest mattermostSendWarnMetricAckRequest,) async {
-    final response = await sendWarnMetricAckWithHttpInfo(warnMetricId, mattermostSendWarnMetricAckRequest,);
+  Future<MattermostStatusOK?> sendWarnMetricAck(
+    String warnMetricId,
+    MattermostSendWarnMetricAckRequest mattermostSendWarnMetricAckRequest,
+  ) async {
+    final response = await sendWarnMetricAckWithHttpInfo(
+      warnMetricId,
+      mattermostSendWarnMetricAckRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1601,15 +1696,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Set the server busy (high load) flag
   ///
-  /// Marks the server as currently having high load which disables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Marks the server as currently having high load which disables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1617,7 +1714,9 @@ class MattermostSystemApi {
   ///
   /// * [String] seconds:
   ///   Number of seconds until server is automatically marked as not busy.
-  Future<Response> setServerBusyWithHttpInfo({ String? seconds, }) async {
+  Future<Response> setServerBusyWithHttpInfo({
+    String? seconds,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/server_busy';
 
@@ -1634,7 +1733,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1648,14 +1746,18 @@ class MattermostSystemApi {
 
   /// Set the server busy (high load) flag
   ///
-  /// Marks the server as currently having high load which disables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission. 
+  /// Marks the server as currently having high load which disables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] seconds:
   ///   Number of seconds until server is automatically marked as not busy.
-  Future<MattermostStatusOK?> setServerBusy({ String? seconds, }) async {
-    final response = await setServerBusyWithHttpInfo( seconds: seconds, );
+  Future<MattermostStatusOK?> setServerBusy({
+    String? seconds,
+  }) async {
+    final response = await setServerBusyWithHttpInfo(
+      seconds: seconds,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1663,15 +1765,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Send a test email
   ///
-  /// Send a test email to make sure you have your email settings configured correctly. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. 
+  /// Send a test email to make sure you have your email settings configured correctly. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1679,7 +1783,9 @@ class MattermostSystemApi {
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<Response> testEmailWithHttpInfo(MattermostConfig mattermostConfig,) async {
+  Future<Response> testEmailWithHttpInfo(
+    MattermostConfig mattermostConfig,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/email/test';
 
@@ -1692,7 +1798,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1706,14 +1811,18 @@ class MattermostSystemApi {
 
   /// Send a test email
   ///
-  /// Send a test email to make sure you have your email settings configured correctly. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. 
+  /// Send a test email to make sure you have your email settings configured correctly. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<MattermostStatusOK?> testEmail(MattermostConfig mattermostConfig,) async {
-    final response = await testEmailWithHttpInfo(mattermostConfig,);
+  Future<MattermostStatusOK?> testEmail(
+    MattermostConfig mattermostConfig,
+  ) async {
+    final response = await testEmailWithHttpInfo(
+      mattermostConfig,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1721,15 +1830,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Test AWS S3 connection
   ///
-  /// Send a test to validate if can connect to AWS S3. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 4.8 
+  /// Send a test to validate if can connect to AWS S3. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 4.8
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1737,7 +1848,9 @@ class MattermostSystemApi {
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<Response> testS3ConnectionWithHttpInfo(MattermostConfig mattermostConfig,) async {
+  Future<Response> testS3ConnectionWithHttpInfo(
+    MattermostConfig mattermostConfig,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/file/s3_test';
 
@@ -1750,7 +1863,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1764,14 +1876,18 @@ class MattermostSystemApi {
 
   /// Test AWS S3 connection
   ///
-  /// Send a test to validate if can connect to AWS S3. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 4.8 
+  /// Send a test to validate if can connect to AWS S3. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 4.8
   ///
   /// Parameters:
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<MattermostStatusOK?> testS3Connection(MattermostConfig mattermostConfig,) async {
-    final response = await testS3ConnectionWithHttpInfo(mattermostConfig,);
+  Future<MattermostStatusOK?> testS3Connection(
+    MattermostConfig mattermostConfig,
+  ) async {
+    final response = await testS3ConnectionWithHttpInfo(
+      mattermostConfig,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1779,22 +1895,26 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Checks the validity of a Site URL
   ///
-  /// Sends a Ping request to the mattermost server using the specified Site URL.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Sends a Ping request to the mattermost server using the specified Site URL.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostTestSiteURLRequest] mattermostTestSiteURLRequest (required):
-  Future<Response> testSiteURLWithHttpInfo(MattermostTestSiteURLRequest mattermostTestSiteURLRequest,) async {
+  Future<Response> testSiteURLWithHttpInfo(
+    MattermostTestSiteURLRequest mattermostTestSiteURLRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/site_url/test';
 
@@ -1806,7 +1926,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1821,13 +1940,17 @@ class MattermostSystemApi {
 
   /// Checks the validity of a Site URL
   ///
-  /// Sends a Ping request to the mattermost server using the specified Site URL.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Sends a Ping request to the mattermost server using the specified Site URL.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Parameters:
   ///
   /// * [MattermostTestSiteURLRequest] mattermostTestSiteURLRequest (required):
-  Future<MattermostStatusOK?> testSiteURL(MattermostTestSiteURLRequest mattermostTestSiteURLRequest,) async {
-    final response = await testSiteURLWithHttpInfo(mattermostTestSiteURLRequest,);
+  Future<MattermostStatusOK?> testSiteURL(
+    MattermostTestSiteURLRequest mattermostTestSiteURLRequest,
+  ) async {
+    final response = await testSiteURLWithHttpInfo(
+      mattermostTestSiteURLRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1835,15 +1958,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get last trial license used
   ///
-  /// Get the last trial license used on the sevrer __Minimum server version__: 5.36 ##### Permissions Must have `manage_systems` permissions. 
+  /// Get the last trial license used on the sevrer __Minimum server version__: 5.36 ##### Permissions Must have `manage_systems` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> trialLicensePrevGetWithHttpInfo() async {
@@ -1859,7 +1984,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1873,7 +1997,7 @@ class MattermostSystemApi {
 
   /// Get last trial license used
   ///
-  /// Get the last trial license used on the sevrer __Minimum server version__: 5.36 ##### Permissions Must have `manage_systems` permissions. 
+  /// Get the last trial license used on the sevrer __Minimum server version__: 5.36 ##### Permissions Must have `manage_systems` permissions.
   Future<void> trialLicensePrevGet() async {
     final response = await trialLicensePrevGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1883,7 +2007,7 @@ class MattermostSystemApi {
 
   /// Update configuration
   ///
-  /// Submit a new configuration for the server to use. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. Note that the parameters that aren't set in the configuration that you provide will be reset to default values. Therefore, if you want to change a configuration parameter and leave the other ones unchanged, you need to get the existing configuration first, change the field that you want, then put that new configuration. ##### Permissions Must have `manage_system` permission. 
+  /// Submit a new configuration for the server to use. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. Note that the parameters that aren't set in the configuration that you provide will be reset to default values. Therefore, if you want to change a configuration parameter and leave the other ones unchanged, you need to get the existing configuration first, change the field that you want, then put that new configuration. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1891,7 +2015,9 @@ class MattermostSystemApi {
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<Response> updateConfigWithHttpInfo(MattermostConfig mattermostConfig,) async {
+  Future<Response> updateConfigWithHttpInfo(
+    MattermostConfig mattermostConfig,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/config';
 
@@ -1903,7 +2029,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1918,14 +2043,18 @@ class MattermostSystemApi {
 
   /// Update configuration
   ///
-  /// Submit a new configuration for the server to use. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. Note that the parameters that aren't set in the configuration that you provide will be reset to default values. Therefore, if you want to change a configuration parameter and leave the other ones unchanged, you need to get the existing configuration first, change the field that you want, then put that new configuration. ##### Permissions Must have `manage_system` permission. 
+  /// Submit a new configuration for the server to use. As of server version 4.8, the `PluginSettings.EnableUploads` setting cannot be modified by this endpoint. Note that the parameters that aren't set in the configuration that you provide will be reset to default values. Therefore, if you want to change a configuration parameter and leave the other ones unchanged, you need to get the existing configuration first, change the field that you want, then put that new configuration. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostConfig] mattermostConfig (required):
   ///   Mattermost configuration
-  Future<MattermostConfig?> updateConfig(MattermostConfig mattermostConfig,) async {
-    final response = await updateConfigWithHttpInfo(mattermostConfig,);
+  Future<MattermostConfig?> updateConfig(
+    MattermostConfig mattermostConfig,
+  ) async {
+    final response = await updateConfigWithHttpInfo(
+      mattermostConfig,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1933,22 +2062,26 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostConfig',) as MattermostConfig;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostConfig',
+      ) as MattermostConfig;
     }
     return null;
   }
 
   /// Stores that the Plugin Marketplace has been visited by at least an admin.
   ///
-  /// Stores the system-level status that specifies that at least an admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
+  /// Stores the system-level status that specifies that at least an admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostSystem] mattermostSystem (required):
-  Future<Response> updateMarketplaceVisitedByAdminWithHttpInfo(MattermostSystem mattermostSystem,) async {
+  Future<Response> updateMarketplaceVisitedByAdminWithHttpInfo(
+    MattermostSystem mattermostSystem,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/marketplace/first_admin_visit';
 
@@ -1960,7 +2093,6 @@ class MattermostSystemApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1975,13 +2107,17 @@ class MattermostSystemApi {
 
   /// Stores that the Plugin Marketplace has been visited by at least an admin.
   ///
-  /// Stores the system-level status that specifies that at least an admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
+  /// Stores the system-level status that specifies that at least an admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions.
   ///
   /// Parameters:
   ///
   /// * [MattermostSystem] mattermostSystem (required):
-  Future<MattermostStatusOK?> updateMarketplaceVisitedByAdmin(MattermostSystem mattermostSystem,) async {
-    final response = await updateMarketplaceVisitedByAdminWithHttpInfo(mattermostSystem,);
+  Future<MattermostStatusOK?> updateMarketplaceVisitedByAdmin(
+    MattermostSystem mattermostSystem,
+  ) async {
+    final response = await updateMarketplaceVisitedByAdminWithHttpInfo(
+      mattermostSystem,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1989,15 +2125,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Executes an inplace upgrade from Team Edition to Enterprise Edition
   ///
-  /// It downloads the Mattermost Enterprise Edition of your current version and replace your current version with it. After the upgrade you need to restart the Mattermost server. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It downloads the Mattermost Enterprise Edition of your current version and replace your current version with it. After the upgrade you need to restart the Mattermost server. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> upgradeToEnterpriseWithHttpInfo() async {
@@ -2013,7 +2151,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -2027,7 +2164,7 @@ class MattermostSystemApi {
 
   /// Executes an inplace upgrade from Team Edition to Enterprise Edition
   ///
-  /// It downloads the Mattermost Enterprise Edition of your current version and replace your current version with it. After the upgrade you need to restart the Mattermost server. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It downloads the Mattermost Enterprise Edition of your current version and replace your current version with it. After the upgrade you need to restart the Mattermost server. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   Future<MattermostPushNotification?> upgradeToEnterprise() async {
     final response = await upgradeToEnterpriseWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -2037,15 +2174,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPushNotification',) as MattermostPushNotification;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPushNotification',
+      ) as MattermostPushNotification;
     }
     return null;
   }
 
   /// Get the current status for the inplace upgrade from Team Edition to Enterprise Edition
   ///
-  /// It returns the percentage of completion of the current upgrade or the error if there is any. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It returns the percentage of completion of the current upgrade or the error if there is any. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> upgradeToEnterpriseStatusWithHttpInfo() async {
@@ -2061,7 +2200,6 @@ class MattermostSystemApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -2075,7 +2213,7 @@ class MattermostSystemApi {
 
   /// Get the current status for the inplace upgrade from Team Edition to Enterprise Edition
   ///
-  /// It returns the percentage of completion of the current upgrade or the error if there is any. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission. 
+  /// It returns the percentage of completion of the current upgrade or the error if there is any. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
   Future<MattermostUpgradeToEnterpriseStatus200Response?> upgradeToEnterpriseStatus() async {
     final response = await upgradeToEnterpriseStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -2085,15 +2223,17 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUpgradeToEnterpriseStatus200Response',) as MattermostUpgradeToEnterpriseStatus200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostUpgradeToEnterpriseStatus200Response',
+      ) as MattermostUpgradeToEnterpriseStatus200Response;
     }
     return null;
   }
 
   /// Upload license file
   ///
-  /// Upload a license to enable enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Upload a license to enable enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2101,7 +2241,9 @@ class MattermostSystemApi {
   ///
   /// * [MultipartFile] license (required):
   ///   The license to be uploaded
-  Future<Response> uploadLicenseFileWithHttpInfo(MultipartFile license,) async {
+  Future<Response> uploadLicenseFileWithHttpInfo(
+    MultipartFile license,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/license';
 
@@ -2138,14 +2280,18 @@ class MattermostSystemApi {
 
   /// Upload license file
   ///
-  /// Upload a license to enable enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission. 
+  /// Upload a license to enable enterprise features.  __Minimum server version__: 4.0  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MultipartFile] license (required):
   ///   The license to be uploaded
-  Future<MattermostStatusOK?> uploadLicenseFile(MultipartFile license,) async {
-    final response = await uploadLicenseFileWithHttpInfo(license,);
+  Future<MattermostStatusOK?> uploadLicenseFile(
+    MultipartFile license,
+  ) async {
+    final response = await uploadLicenseFileWithHttpInfo(
+      license,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2153,8 +2299,10 @@ class MattermostSystemApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

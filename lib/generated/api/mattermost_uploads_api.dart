@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostUploadsApi {
   MattermostUploadsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,14 +17,16 @@ class MattermostUploadsApi {
 
   /// Create an upload
   ///
-  /// Creates a new upload session.  __Minimum server version__: 5.28 ##### Permissions Must have `upload_file` permission. 
+  /// Creates a new upload session.  __Minimum server version__: 5.28 ##### Permissions Must have `upload_file` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateUploadRequest] mattermostCreateUploadRequest (required):
-  Future<Response> createUploadWithHttpInfo(MattermostCreateUploadRequest mattermostCreateUploadRequest,) async {
+  Future<Response> createUploadWithHttpInfo(
+    MattermostCreateUploadRequest mattermostCreateUploadRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/uploads';
 
@@ -37,7 +38,6 @@ class MattermostUploadsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -52,13 +52,17 @@ class MattermostUploadsApi {
 
   /// Create an upload
   ///
-  /// Creates a new upload session.  __Minimum server version__: 5.28 ##### Permissions Must have `upload_file` permission. 
+  /// Creates a new upload session.  __Minimum server version__: 5.28 ##### Permissions Must have `upload_file` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateUploadRequest] mattermostCreateUploadRequest (required):
-  Future<MattermostUploadSession?> createUpload(MattermostCreateUploadRequest mattermostCreateUploadRequest,) async {
-    final response = await createUploadWithHttpInfo(mattermostCreateUploadRequest,);
+  Future<MattermostUploadSession?> createUpload(
+    MattermostCreateUploadRequest mattermostCreateUploadRequest,
+  ) async {
+    final response = await createUploadWithHttpInfo(
+      mattermostCreateUploadRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,15 +70,17 @@ class MattermostUploadsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUploadSession',) as MattermostUploadSession;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostUploadSession',
+      ) as MattermostUploadSession;
     }
     return null;
   }
 
   /// Get an upload session
   ///
-  /// Gets an upload session that has been previously created.  ##### Permissions Must be logged in as the user who created the upload session. 
+  /// Gets an upload session that has been previously created.  ##### Permissions Must be logged in as the user who created the upload session.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -82,10 +88,11 @@ class MattermostUploadsApi {
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session to get.
-  Future<Response> getUploadWithHttpInfo(String uploadId,) async {
+  Future<Response> getUploadWithHttpInfo(
+    String uploadId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/uploads/{upload_id}'
-      .replaceAll('{upload_id}', uploadId);
+    final path = r'/uploads/{upload_id}'.replaceAll('{upload_id}', uploadId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -95,7 +102,6 @@ class MattermostUploadsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -110,14 +116,18 @@ class MattermostUploadsApi {
 
   /// Get an upload session
   ///
-  /// Gets an upload session that has been previously created.  ##### Permissions Must be logged in as the user who created the upload session. 
+  /// Gets an upload session that has been previously created.  ##### Permissions Must be logged in as the user who created the upload session.
   ///
   /// Parameters:
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session to get.
-  Future<void> getUpload(String uploadId,) async {
-    final response = await getUploadWithHttpInfo(uploadId,);
+  Future<void> getUpload(
+    String uploadId,
+  ) async {
+    final response = await getUploadWithHttpInfo(
+      uploadId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -125,7 +135,7 @@ class MattermostUploadsApi {
 
   /// Perform a file upload
   ///
-  /// Starts or resumes a file upload.   To resume an existing (incomplete) upload, data should be sent starting from the offset specified in the upload session object.  The request body can be in one of two formats: - Binary file content streamed in request's body - multipart/form-data  ##### Permissions Must be logged in as the user who created the upload session. 
+  /// Starts or resumes a file upload.   To resume an existing (incomplete) upload, data should be sent starting from the offset specified in the upload session object.  The request body can be in one of two formats: - Binary file content streamed in request's body - multipart/form-data  ##### Permissions Must be logged in as the user who created the upload session.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -133,10 +143,11 @@ class MattermostUploadsApi {
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session the data belongs to.
-  Future<Response> uploadDataWithHttpInfo(String uploadId,) async {
+  Future<Response> uploadDataWithHttpInfo(
+    String uploadId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/uploads/{upload_id}'
-      .replaceAll('{upload_id}', uploadId);
+    final path = r'/uploads/{upload_id}'.replaceAll('{upload_id}', uploadId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -146,7 +157,6 @@ class MattermostUploadsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/x-www-form-urlencoded'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -161,14 +171,18 @@ class MattermostUploadsApi {
 
   /// Perform a file upload
   ///
-  /// Starts or resumes a file upload.   To resume an existing (incomplete) upload, data should be sent starting from the offset specified in the upload session object.  The request body can be in one of two formats: - Binary file content streamed in request's body - multipart/form-data  ##### Permissions Must be logged in as the user who created the upload session. 
+  /// Starts or resumes a file upload.   To resume an existing (incomplete) upload, data should be sent starting from the offset specified in the upload session object.  The request body can be in one of two formats: - Binary file content streamed in request's body - multipart/form-data  ##### Permissions Must be logged in as the user who created the upload session.
   ///
   /// Parameters:
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session the data belongs to.
-  Future<MattermostFileInfo?> uploadData(String uploadId,) async {
-    final response = await uploadDataWithHttpInfo(uploadId,);
+  Future<MattermostFileInfo?> uploadData(
+    String uploadId,
+  ) async {
+    final response = await uploadDataWithHttpInfo(
+      uploadId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -176,8 +190,10 @@ class MattermostUploadsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostFileInfo',) as MattermostFileInfo;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostFileInfo',
+      ) as MattermostFileInfo;
     }
     return null;
   }

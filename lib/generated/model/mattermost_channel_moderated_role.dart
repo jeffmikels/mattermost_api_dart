@@ -34,15 +34,14 @@ class MattermostChannelModeratedRole {
   bool? enabled;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelModeratedRole &&
-     other.value == value &&
-     other.enabled == enabled;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelModeratedRole && other.value == value && other.enabled == enabled;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (value == null ? 0 : value!.hashCode) +
-    (enabled == null ? 0 : enabled!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (value == null ? 0 : value!.hashCode) + (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() => 'MattermostChannelModeratedRole[value=$value, enabled=$enabled]';
@@ -84,7 +83,10 @@ class MattermostChannelModeratedRole {
     return null;
   }
 
-  static List<MattermostChannelModeratedRole>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelModeratedRole>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelModeratedRole>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostChannelModeratedRole {
   }
 
   // maps a json object with a list of MattermostChannelModeratedRole-objects as value to a dart map
-  static Map<String, List<MattermostChannelModeratedRole>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelModeratedRole>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelModeratedRole>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelModeratedRole.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelModeratedRole.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostChannelModeratedRole {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

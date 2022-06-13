@@ -60,7 +60,7 @@ class MattermostPluginManifest {
   ///
   String? version;
 
-  /// The minimum Mattermost server version required for the plugin.  Available as server version 5.6. 
+  /// The minimum Mattermost server version required for the plugin.  Available as server version 5.6.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -103,32 +103,35 @@ class MattermostPluginManifest {
   Map? settingsSchema;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPluginManifest &&
-     other.id == id &&
-     other.name == name &&
-     other.description == description &&
-     other.version == version &&
-     other.minServerVersion == minServerVersion &&
-     other.backend == backend &&
-     other.server == server &&
-     other.webapp == webapp &&
-     other.settingsSchema == settingsSchema;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPluginManifest &&
+          other.id == id &&
+          other.name == name &&
+          other.description == description &&
+          other.version == version &&
+          other.minServerVersion == minServerVersion &&
+          other.backend == backend &&
+          other.server == server &&
+          other.webapp == webapp &&
+          other.settingsSchema == settingsSchema;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (minServerVersion == null ? 0 : minServerVersion!.hashCode) +
-    (backend == null ? 0 : backend!.hashCode) +
-    (server == null ? 0 : server!.hashCode) +
-    (webapp == null ? 0 : webapp!.hashCode) +
-    (settingsSchema == null ? 0 : settingsSchema!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (minServerVersion == null ? 0 : minServerVersion!.hashCode) +
+      (backend == null ? 0 : backend!.hashCode) +
+      (server == null ? 0 : server!.hashCode) +
+      (webapp == null ? 0 : webapp!.hashCode) +
+      (settingsSchema == null ? 0 : settingsSchema!.hashCode);
 
   @override
-  String toString() => 'MattermostPluginManifest[id=$id, name=$name, description=$description, version=$version, minServerVersion=$minServerVersion, backend=$backend, server=$server, webapp=$webapp, settingsSchema=$settingsSchema]';
+  String toString() =>
+      'MattermostPluginManifest[id=$id, name=$name, description=$description, version=$version, minServerVersion=$minServerVersion, backend=$backend, server=$server, webapp=$webapp, settingsSchema=$settingsSchema]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -195,7 +198,10 @@ class MattermostPluginManifest {
     return null;
   }
 
-  static List<MattermostPluginManifest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginManifest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginManifest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -223,12 +229,18 @@ class MattermostPluginManifest {
   }
 
   // maps a json object with a list of MattermostPluginManifest-objects as value to a dart map
-  static Map<String, List<MattermostPluginManifest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPluginManifest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPluginManifest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPluginManifest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPluginManifest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -238,7 +250,5 @@ class MattermostPluginManifest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

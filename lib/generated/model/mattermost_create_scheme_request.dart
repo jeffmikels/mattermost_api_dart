@@ -34,28 +34,28 @@ class MattermostCreateSchemeRequest {
   String scope;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateSchemeRequest &&
-     other.name == name &&
-     other.description == description &&
-     other.scope == scope;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateSchemeRequest &&
+          other.name == name &&
+          other.description == description &&
+          other.scope == scope;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (scope.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) + (description == null ? 0 : description!.hashCode) + (scope.hashCode);
 
   @override
   String toString() => 'MattermostCreateSchemeRequest[name=$name, description=$description, scope=$scope]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'name'] = name;
+    _json[r'name'] = name;
     if (description != null) {
       _json[r'description'] = description;
     }
-      _json[r'scope'] = scope;
+    _json[r'scope'] = scope;
     return _json;
   }
 
@@ -86,7 +86,10 @@ class MattermostCreateSchemeRequest {
     return null;
   }
 
-  static List<MattermostCreateSchemeRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateSchemeRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateSchemeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +117,18 @@ class MattermostCreateSchemeRequest {
   }
 
   // maps a json object with a list of MattermostCreateSchemeRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateSchemeRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateSchemeRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateSchemeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateSchemeRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateSchemeRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,4 +143,3 @@ class MattermostCreateSchemeRequest {
     'scope',
   };
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostSAMLApi {
   MattermostSAMLApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostSAMLApi {
 
   /// Remove IDP certificate
   ///
-  /// Delete the current IDP certificate being used with your SAML configuration. This will also disable SAML on your system as this certificate is required for SAML. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current IDP certificate being used with your SAML configuration. This will also disable SAML on your system as this certificate is required for SAML. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> deleteSamlIdpCertificateWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -48,7 +46,7 @@ class MattermostSAMLApi {
 
   /// Remove IDP certificate
   ///
-  /// Delete the current IDP certificate being used with your SAML configuration. This will also disable SAML on your system as this certificate is required for SAML. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current IDP certificate being used with your SAML configuration. This will also disable SAML on your system as this certificate is required for SAML. ##### Permissions Must have `sysconsole_write_authentication` permission.
   Future<MattermostStatusOK?> deleteSamlIdpCertificate() async {
     final response = await deleteSamlIdpCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,15 +56,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Remove private key
   ///
-  /// Delete the current private key being used with your SAML configuration. This will also disable encryption for SAML on your system as this key is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current private key being used with your SAML configuration. This will also disable encryption for SAML on your system as this key is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> deleteSamlPrivateCertificateWithHttpInfo() async {
@@ -82,7 +82,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -96,7 +95,7 @@ class MattermostSAMLApi {
 
   /// Remove private key
   ///
-  /// Delete the current private key being used with your SAML configuration. This will also disable encryption for SAML on your system as this key is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current private key being used with your SAML configuration. This will also disable encryption for SAML on your system as this key is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission.
   Future<MattermostStatusOK?> deleteSamlPrivateCertificate() async {
     final response = await deleteSamlPrivateCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -106,15 +105,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Remove public certificate
   ///
-  /// Delete the current public certificate being used with your SAML configuration. This will also disable encryption for SAML on your system as this certificate is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current public certificate being used with your SAML configuration. This will also disable encryption for SAML on your system as this certificate is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> deleteSamlPublicCertificateWithHttpInfo() async {
@@ -130,7 +131,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -144,7 +144,7 @@ class MattermostSAMLApi {
 
   /// Remove public certificate
   ///
-  /// Delete the current public certificate being used with your SAML configuration. This will also disable encryption for SAML on your system as this certificate is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Delete the current public certificate being used with your SAML configuration. This will also disable encryption for SAML on your system as this certificate is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission.
   Future<MattermostStatusOK?> deleteSamlPublicCertificate() async {
     final response = await deleteSamlPublicCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -154,15 +154,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get certificate status
   ///
-  /// Get the status of the uploaded certificates and keys in use by your SAML configuration. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Get the status of the uploaded certificates and keys in use by your SAML configuration. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSamlCertificateStatusWithHttpInfo() async {
@@ -178,7 +180,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -192,7 +193,7 @@ class MattermostSAMLApi {
 
   /// Get certificate status
   ///
-  /// Get the status of the uploaded certificates and keys in use by your SAML configuration. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Get the status of the uploaded certificates and keys in use by your SAML configuration. ##### Permissions Must have `sysconsole_write_authentication` permission.
   Future<MattermostSamlCertificateStatus?> getSamlCertificateStatus() async {
     final response = await getSamlCertificateStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -202,15 +203,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSamlCertificateStatus',) as MattermostSamlCertificateStatus;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSamlCertificateStatus',
+      ) as MattermostSamlCertificateStatus;
     }
     return null;
   }
 
   /// Get metadata
   ///
-  /// Get SAML metadata from the server. SAML must be configured properly. ##### Permissions No permission required. 
+  /// Get SAML metadata from the server. SAML must be configured properly. ##### Permissions No permission required.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSamlMetadataWithHttpInfo() async {
@@ -226,7 +229,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -240,7 +242,7 @@ class MattermostSAMLApi {
 
   /// Get metadata
   ///
-  /// Get SAML metadata from the server. SAML must be configured properly. ##### Permissions No permission required. 
+  /// Get SAML metadata from the server. SAML must be configured properly. ##### Permissions No permission required.
   Future<String?> getSamlMetadata() async {
     final response = await getSamlMetadataWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -250,22 +252,26 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'String',
+      ) as String;
     }
     return null;
   }
 
   /// Get metadata from Identity Provider
   ///
-  /// Get SAML metadata from the Identity Provider. SAML must be configured properly. ##### Permissions No permission required. 
+  /// Get SAML metadata from the Identity Provider. SAML must be configured properly. ##### Permissions No permission required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostGetSamlMetadataFromIdpRequest] mattermostGetSamlMetadataFromIdpRequest:
-  Future<Response> getSamlMetadataFromIdpWithHttpInfo({ MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest, }) async {
+  Future<Response> getSamlMetadataFromIdpWithHttpInfo({
+    MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/metadatafromidp';
 
@@ -278,7 +284,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -292,13 +297,17 @@ class MattermostSAMLApi {
 
   /// Get metadata from Identity Provider
   ///
-  /// Get SAML metadata from the Identity Provider. SAML must be configured properly. ##### Permissions No permission required. 
+  /// Get SAML metadata from the Identity Provider. SAML must be configured properly. ##### Permissions No permission required.
   ///
   /// Parameters:
   ///
   /// * [MattermostGetSamlMetadataFromIdpRequest] mattermostGetSamlMetadataFromIdpRequest:
-  Future<String?> getSamlMetadataFromIdp({ MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest, }) async {
-    final response = await getSamlMetadataFromIdpWithHttpInfo( mattermostGetSamlMetadataFromIdpRequest: mattermostGetSamlMetadataFromIdpRequest, );
+  Future<String?> getSamlMetadataFromIdp({
+    MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest,
+  }) async {
+    final response = await getSamlMetadataFromIdpWithHttpInfo(
+      mattermostGetSamlMetadataFromIdpRequest: mattermostGetSamlMetadataFromIdpRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -306,22 +315,26 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'String',
+      ) as String;
     }
     return null;
   }
 
   /// Migrate user accounts authentication type to SAML.
   ///
-  /// Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to SAML. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
+  /// Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to SAML. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<Response> migrateAuthToSamlWithHttpInfo({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
+  Future<Response> migrateAuthToSamlWithHttpInfo({
+    MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/saml';
 
@@ -334,7 +347,6 @@ class MattermostSAMLApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -348,13 +360,17 @@ class MattermostSAMLApi {
 
   /// Migrate user accounts authentication type to SAML.
   ///
-  /// Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to SAML. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
+  /// Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to SAML. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<void> migrateAuthToSaml({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
-    final response = await migrateAuthToSamlWithHttpInfo( mattermostMigrateAuthToSamlRequest: mattermostMigrateAuthToSamlRequest, );
+  Future<void> migrateAuthToSaml({
+    MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest,
+  }) async {
+    final response = await migrateAuthToSamlWithHttpInfo(
+      mattermostMigrateAuthToSamlRequest: mattermostMigrateAuthToSamlRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -362,14 +378,16 @@ class MattermostSAMLApi {
 
   /// Reset AuthData to Email
   ///
-  /// Reset the AuthData field of SAML users to their email. This is meant to be used when the \"id\" attribute is set to an empty value (\"\") from a previously non-empty value. __Minimum server version__: 5.35 ##### Permissions Must have `manage_system` permission. 
+  /// Reset the AuthData field of SAML users to their email. This is meant to be used when the \"id\" attribute is set to an empty value (\"\") from a previously non-empty value. __Minimum server version__: 5.35 ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostResetSamlAuthDataToEmailRequest] mattermostResetSamlAuthDataToEmailRequest:
-  Future<Response> resetSamlAuthDataToEmailWithHttpInfo({ MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest, }) async {
+  Future<Response> resetSamlAuthDataToEmailWithHttpInfo({
+    MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/reset_auth_data';
 
@@ -381,7 +399,6 @@ class MattermostSAMLApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -396,13 +413,17 @@ class MattermostSAMLApi {
 
   /// Reset AuthData to Email
   ///
-  /// Reset the AuthData field of SAML users to their email. This is meant to be used when the \"id\" attribute is set to an empty value (\"\") from a previously non-empty value. __Minimum server version__: 5.35 ##### Permissions Must have `manage_system` permission. 
+  /// Reset the AuthData field of SAML users to their email. This is meant to be used when the \"id\" attribute is set to an empty value (\"\") from a previously non-empty value. __Minimum server version__: 5.35 ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostResetSamlAuthDataToEmailRequest] mattermostResetSamlAuthDataToEmailRequest:
-  Future<MattermostResetSamlAuthDataToEmail200Response?> resetSamlAuthDataToEmail({ MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest, }) async {
-    final response = await resetSamlAuthDataToEmailWithHttpInfo( mattermostResetSamlAuthDataToEmailRequest: mattermostResetSamlAuthDataToEmailRequest, );
+  Future<MattermostResetSamlAuthDataToEmail200Response?> resetSamlAuthDataToEmail({
+    MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest,
+  }) async {
+    final response = await resetSamlAuthDataToEmailWithHttpInfo(
+      mattermostResetSamlAuthDataToEmailRequest: mattermostResetSamlAuthDataToEmailRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -410,15 +431,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostResetSamlAuthDataToEmail200Response',) as MattermostResetSamlAuthDataToEmail200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostResetSamlAuthDataToEmail200Response',
+      ) as MattermostResetSamlAuthDataToEmail200Response;
     }
     return null;
   }
 
   /// Upload IDP certificate
   ///
-  /// Upload the IDP certificate to be used with your SAML configuration. The server will pick a hard-coded filename for the IdpCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the IDP certificate to be used with your SAML configuration. The server will pick a hard-coded filename for the IdpCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -426,7 +449,9 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The IDP certificate file
-  Future<Response> uploadSamlIdpCertificateWithHttpInfo(MultipartFile certificate,) async {
+  Future<Response> uploadSamlIdpCertificateWithHttpInfo(
+    MultipartFile certificate,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/certificate/idp';
 
@@ -463,14 +488,18 @@ class MattermostSAMLApi {
 
   /// Upload IDP certificate
   ///
-  /// Upload the IDP certificate to be used with your SAML configuration. The server will pick a hard-coded filename for the IdpCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the IDP certificate to be used with your SAML configuration. The server will pick a hard-coded filename for the IdpCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Parameters:
   ///
   /// * [MultipartFile] certificate (required):
   ///   The IDP certificate file
-  Future<MattermostStatusOK?> uploadSamlIdpCertificate(MultipartFile certificate,) async {
-    final response = await uploadSamlIdpCertificateWithHttpInfo(certificate,);
+  Future<MattermostStatusOK?> uploadSamlIdpCertificate(
+    MultipartFile certificate,
+  ) async {
+    final response = await uploadSamlIdpCertificateWithHttpInfo(
+      certificate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -478,15 +507,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Upload private key
   ///
-  /// Upload the private key to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the private key to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -494,7 +525,9 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The private key file
-  Future<Response> uploadSamlPrivateCertificateWithHttpInfo(MultipartFile certificate,) async {
+  Future<Response> uploadSamlPrivateCertificateWithHttpInfo(
+    MultipartFile certificate,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/certificate/private';
 
@@ -531,14 +564,18 @@ class MattermostSAMLApi {
 
   /// Upload private key
   ///
-  /// Upload the private key to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the private key to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Parameters:
   ///
   /// * [MultipartFile] certificate (required):
   ///   The private key file
-  Future<MattermostStatusOK?> uploadSamlPrivateCertificate(MultipartFile certificate,) async {
-    final response = await uploadSamlPrivateCertificateWithHttpInfo(certificate,);
+  Future<MattermostStatusOK?> uploadSamlPrivateCertificate(
+    MultipartFile certificate,
+  ) async {
+    final response = await uploadSamlPrivateCertificateWithHttpInfo(
+      certificate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -546,15 +583,17 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Upload public certificate
   ///
-  /// Upload the public certificate to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the public certificate to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -562,7 +601,9 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The public certificate file
-  Future<Response> uploadSamlPublicCertificateWithHttpInfo(MultipartFile certificate,) async {
+  Future<Response> uploadSamlPublicCertificateWithHttpInfo(
+    MultipartFile certificate,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/certificate/public';
 
@@ -599,14 +640,18 @@ class MattermostSAMLApi {
 
   /// Upload public certificate
   ///
-  /// Upload the public certificate to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission. 
+  /// Upload the public certificate to be used for encryption with your SAML configuration. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `sysconsole_write_authentication` permission.
   ///
   /// Parameters:
   ///
   /// * [MultipartFile] certificate (required):
   ///   The public certificate file
-  Future<MattermostStatusOK?> uploadSamlPublicCertificate(MultipartFile certificate,) async {
-    final response = await uploadSamlPublicCertificateWithHttpInfo(certificate,);
+  Future<MattermostStatusOK?> uploadSamlPublicCertificate(
+    MultipartFile certificate,
+  ) async {
+    final response = await uploadSamlPublicCertificateWithHttpInfo(
+      certificate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -614,8 +659,10 @@ class MattermostSAMLApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

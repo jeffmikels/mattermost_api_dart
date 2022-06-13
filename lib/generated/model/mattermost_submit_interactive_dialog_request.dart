@@ -62,35 +62,38 @@ class MattermostSubmitInteractiveDialogRequest {
   bool? cancelled;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSubmitInteractiveDialogRequest &&
-     other.url == url &&
-     other.channelId == channelId &&
-     other.teamId == teamId &&
-     other.submission == submission &&
-     other.callbackId == callbackId &&
-     other.state == state &&
-     other.cancelled == cancelled;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSubmitInteractiveDialogRequest &&
+          other.url == url &&
+          other.channelId == channelId &&
+          other.teamId == teamId &&
+          other.submission == submission &&
+          other.callbackId == callbackId &&
+          other.state == state &&
+          other.cancelled == cancelled;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (url.hashCode) +
-    (channelId.hashCode) +
-    (teamId.hashCode) +
-    (submission.hashCode) +
-    (callbackId == null ? 0 : callbackId!.hashCode) +
-    (state == null ? 0 : state!.hashCode) +
-    (cancelled == null ? 0 : cancelled!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (url.hashCode) +
+      (channelId.hashCode) +
+      (teamId.hashCode) +
+      (submission.hashCode) +
+      (callbackId == null ? 0 : callbackId!.hashCode) +
+      (state == null ? 0 : state!.hashCode) +
+      (cancelled == null ? 0 : cancelled!.hashCode);
 
   @override
-  String toString() => 'MattermostSubmitInteractiveDialogRequest[url=$url, channelId=$channelId, teamId=$teamId, submission=$submission, callbackId=$callbackId, state=$state, cancelled=$cancelled]';
+  String toString() =>
+      'MattermostSubmitInteractiveDialogRequest[url=$url, channelId=$channelId, teamId=$teamId, submission=$submission, callbackId=$callbackId, state=$state, cancelled=$cancelled]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'url'] = url;
-      _json[r'channel_id'] = channelId;
-      _json[r'team_id'] = teamId;
-      _json[r'submission'] = submission;
+    _json[r'url'] = url;
+    _json[r'channel_id'] = channelId;
+    _json[r'team_id'] = teamId;
+    _json[r'submission'] = submission;
     if (callbackId != null) {
       _json[r'callback_id'] = callbackId;
     }
@@ -115,8 +118,10 @@ class MattermostSubmitInteractiveDialogRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSubmitInteractiveDialogRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSubmitInteractiveDialogRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostSubmitInteractiveDialogRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostSubmitInteractiveDialogRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -134,7 +139,10 @@ class MattermostSubmitInteractiveDialogRequest {
     return null;
   }
 
-  static List<MattermostSubmitInteractiveDialogRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSubmitInteractiveDialogRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSubmitInteractiveDialogRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -162,12 +170,18 @@ class MattermostSubmitInteractiveDialogRequest {
   }
 
   // maps a json object with a list of MattermostSubmitInteractiveDialogRequest-objects as value to a dart map
-  static Map<String, List<MattermostSubmitInteractiveDialogRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSubmitInteractiveDialogRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSubmitInteractiveDialogRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSubmitInteractiveDialogRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSubmitInteractiveDialogRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -184,4 +198,3 @@ class MattermostSubmitInteractiveDialogRequest {
     'submission',
   };
 }
-

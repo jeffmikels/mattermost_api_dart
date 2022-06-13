@@ -71,26 +71,29 @@ class MattermostTopChannel {
   String? messageCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTopChannel &&
-     other.id == id &&
-     other.type == type &&
-     other.displayName == displayName &&
-     other.name == name &&
-     other.teamId == teamId &&
-     other.messageCount == messageCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostTopChannel &&
+          other.id == id &&
+          other.type == type &&
+          other.displayName == displayName &&
+          other.name == name &&
+          other.teamId == teamId &&
+          other.messageCount == messageCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (messageCount == null ? 0 : messageCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (messageCount == null ? 0 : messageCount!.hashCode);
 
   @override
-  String toString() => 'MattermostTopChannel[id=$id, type=$type, displayName=$displayName, name=$name, teamId=$teamId, messageCount=$messageCount]';
+  String toString() =>
+      'MattermostTopChannel[id=$id, type=$type, displayName=$displayName, name=$name, teamId=$teamId, messageCount=$messageCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -145,7 +148,10 @@ class MattermostTopChannel {
     return null;
   }
 
-  static List<MattermostTopChannel>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTopChannel>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTopChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -173,12 +179,18 @@ class MattermostTopChannel {
   }
 
   // maps a json object with a list of MattermostTopChannel-objects as value to a dart map
-  static Map<String, List<MattermostTopChannel>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTopChannel>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTopChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTopChannel.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTopChannel.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -188,7 +200,5 @@ class MattermostTopChannel {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

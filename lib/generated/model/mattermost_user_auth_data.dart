@@ -24,23 +24,22 @@ class MattermostUserAuthData {
   String authService;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserAuthData &&
-     other.authData == authData &&
-     other.authService == authService;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserAuthData && other.authData == authData && other.authService == authService;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (authData.hashCode) +
-    (authService.hashCode);
+      // ignore: unnecessary_parenthesis
+      (authData.hashCode) + (authService.hashCode);
 
   @override
   String toString() => 'MattermostUserAuthData[authData=$authData, authService=$authService]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'auth_data'] = authData;
-      _json[r'auth_service'] = authService;
+    _json[r'auth_data'] = authData;
+    _json[r'auth_service'] = authService;
     return _json;
   }
 
@@ -70,7 +69,10 @@ class MattermostUserAuthData {
     return null;
   }
 
-  static List<MattermostUserAuthData>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserAuthData>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserAuthData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +100,18 @@ class MattermostUserAuthData {
   }
 
   // maps a json object with a list of MattermostUserAuthData-objects as value to a dart map
-  static Map<String, List<MattermostUserAuthData>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserAuthData>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserAuthData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserAuthData.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserAuthData.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,4 +126,3 @@ class MattermostUserAuthData {
     'auth_service',
   };
 }
-

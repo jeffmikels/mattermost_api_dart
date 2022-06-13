@@ -65,26 +65,29 @@ class MattermostCommandResponse {
   List<MattermostSlackAttachment> attachments;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCommandResponse &&
-     other.responseType == responseType &&
-     other.text == text &&
-     other.username == username &&
-     other.iconURL == iconURL &&
-     other.gotoLocation == gotoLocation &&
-     other.attachments == attachments;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCommandResponse &&
+          other.responseType == responseType &&
+          other.text == text &&
+          other.username == username &&
+          other.iconURL == iconURL &&
+          other.gotoLocation == gotoLocation &&
+          other.attachments == attachments;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (responseType == null ? 0 : responseType!.hashCode) +
-    (text == null ? 0 : text!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (iconURL == null ? 0 : iconURL!.hashCode) +
-    (gotoLocation == null ? 0 : gotoLocation!.hashCode) +
-    (attachments.hashCode);
+      // ignore: unnecessary_parenthesis
+      (responseType == null ? 0 : responseType!.hashCode) +
+      (text == null ? 0 : text!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (iconURL == null ? 0 : iconURL!.hashCode) +
+      (gotoLocation == null ? 0 : gotoLocation!.hashCode) +
+      (attachments.hashCode);
 
   @override
-  String toString() => 'MattermostCommandResponse[responseType=$responseType, text=$text, username=$username, iconURL=$iconURL, gotoLocation=$gotoLocation, attachments=$attachments]';
+  String toString() =>
+      'MattermostCommandResponse[responseType=$responseType, text=$text, username=$username, iconURL=$iconURL, gotoLocation=$gotoLocation, attachments=$attachments]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,7 +106,7 @@ class MattermostCommandResponse {
     if (gotoLocation != null) {
       _json[r'GotoLocation'] = gotoLocation;
     }
-      _json[r'Attachments'] = attachments;
+    _json[r'Attachments'] = attachments;
     return _json;
   }
 
@@ -137,7 +140,10 @@ class MattermostCommandResponse {
     return null;
   }
 
-  static List<MattermostCommandResponse>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCommandResponse>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCommandResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -165,12 +171,18 @@ class MattermostCommandResponse {
   }
 
   // maps a json object with a list of MattermostCommandResponse-objects as value to a dart map
-  static Map<String, List<MattermostCommandResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCommandResponse>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCommandResponse>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCommandResponse.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCommandResponse.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -180,7 +192,5 @@ class MattermostCommandResponse {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

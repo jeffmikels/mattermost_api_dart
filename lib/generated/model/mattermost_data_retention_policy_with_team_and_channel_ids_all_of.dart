@@ -24,23 +24,25 @@ class MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf {
   List<String> channelIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf &&
-     other.teamIds == teamIds &&
-     other.channelIds == channelIds;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf &&
+          other.teamIds == teamIds &&
+          other.channelIds == channelIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamIds.hashCode) +
-    (channelIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamIds.hashCode) + (channelIds.hashCode);
 
   @override
-  String toString() => 'MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[teamIds=$teamIds, channelIds=$channelIds]';
+  String toString() =>
+      'MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[teamIds=$teamIds, channelIds=$channelIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'team_ids'] = teamIds;
-      _json[r'channel_ids'] = channelIds;
+    _json[r'team_ids'] = teamIds;
+    _json[r'channel_ids'] = channelIds;
     return _json;
   }
 
@@ -56,25 +58,26 @@ class MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf(
-        teamIds: json[r'team_ids'] is List
-            ? (json[r'team_ids'] as List).cast<String>()
-            : const [],
-        channelIds: json[r'channel_ids'] is List
-            ? (json[r'channel_ids'] as List).cast<String>()
-            : const [],
+        teamIds: json[r'team_ids'] is List ? (json[r'team_ids'] as List).cast<String>() : const [],
+        channelIds: json[r'channel_ids'] is List ? (json[r'channel_ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,12 +105,18 @@ class MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf {
   }
 
   // maps a json object with a list of MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf-objects as value to a dart map
-  static Map<String, List<MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -117,7 +126,5 @@ class MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

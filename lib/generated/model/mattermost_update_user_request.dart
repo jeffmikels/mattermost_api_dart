@@ -97,42 +97,45 @@ class MattermostUpdateUserRequest {
   MattermostUserNotifyProps? notifyProps;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserRequest &&
-     other.id == id &&
-     other.email == email &&
-     other.username == username &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.nickname == nickname &&
-     other.locale == locale &&
-     other.position == position &&
-     other.timezone == timezone &&
-     other.props == props &&
-     other.notifyProps == notifyProps;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateUserRequest &&
+          other.id == id &&
+          other.email == email &&
+          other.username == username &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.nickname == nickname &&
+          other.locale == locale &&
+          other.position == position &&
+          other.timezone == timezone &&
+          other.props == props &&
+          other.notifyProps == notifyProps;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (email.hashCode) +
-    (username.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (nickname == null ? 0 : nickname!.hashCode) +
-    (locale == null ? 0 : locale!.hashCode) +
-    (position == null ? 0 : position!.hashCode) +
-    (timezone == null ? 0 : timezone!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (email.hashCode) +
+      (username.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (nickname == null ? 0 : nickname!.hashCode) +
+      (locale == null ? 0 : locale!.hashCode) +
+      (position == null ? 0 : position!.hashCode) +
+      (timezone == null ? 0 : timezone!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateUserRequest[id=$id, email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, timezone=$timezone, props=$props, notifyProps=$notifyProps]';
+  String toString() =>
+      'MattermostUpdateUserRequest[id=$id, email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, timezone=$timezone, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'id'] = id;
-      _json[r'email'] = email;
-      _json[r'username'] = username;
+    _json[r'id'] = id;
+    _json[r'email'] = email;
+    _json[r'username'] = username;
     if (firstName != null) {
       _json[r'first_name'] = firstName;
     }
@@ -195,7 +198,10 @@ class MattermostUpdateUserRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -223,12 +229,18 @@ class MattermostUpdateUserRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -244,4 +256,3 @@ class MattermostUpdateUserRequest {
     'username',
   };
 }
-

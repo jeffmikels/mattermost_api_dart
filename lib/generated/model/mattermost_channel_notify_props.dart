@@ -56,22 +56,25 @@ class MattermostChannelNotifyProps {
   String? markUnread;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelNotifyProps &&
-     other.email == email &&
-     other.push == push &&
-     other.desktop == desktop &&
-     other.markUnread == markUnread;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelNotifyProps &&
+          other.email == email &&
+          other.push == push &&
+          other.desktop == desktop &&
+          other.markUnread == markUnread;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email == null ? 0 : email!.hashCode) +
-    (push == null ? 0 : push!.hashCode) +
-    (desktop == null ? 0 : desktop!.hashCode) +
-    (markUnread == null ? 0 : markUnread!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email == null ? 0 : email!.hashCode) +
+      (push == null ? 0 : push!.hashCode) +
+      (desktop == null ? 0 : desktop!.hashCode) +
+      (markUnread == null ? 0 : markUnread!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelNotifyProps[email=$email, push=$push, desktop=$desktop, markUnread=$markUnread]';
+  String toString() =>
+      'MattermostChannelNotifyProps[email=$email, push=$push, desktop=$desktop, markUnread=$markUnread]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -118,7 +121,10 @@ class MattermostChannelNotifyProps {
     return null;
   }
 
-  static List<MattermostChannelNotifyProps>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelNotifyProps>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelNotifyProps>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +152,18 @@ class MattermostChannelNotifyProps {
   }
 
   // maps a json object with a list of MattermostChannelNotifyProps-objects as value to a dart map
-  static Map<String, List<MattermostChannelNotifyProps>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelNotifyProps>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelNotifyProps>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelNotifyProps.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelNotifyProps.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +173,5 @@ class MattermostChannelNotifyProps {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

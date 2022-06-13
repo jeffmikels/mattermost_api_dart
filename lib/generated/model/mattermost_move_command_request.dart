@@ -26,13 +26,13 @@ class MattermostMoveCommandRequest {
   String? teamId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMoveCommandRequest &&
-     other.teamId == teamId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostMoveCommandRequest && other.teamId == teamId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode);
 
   @override
   String toString() => 'MattermostMoveCommandRequest[teamId=$teamId]';
@@ -70,7 +70,10 @@ class MattermostMoveCommandRequest {
     return null;
   }
 
-  static List<MattermostMoveCommandRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMoveCommandRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMoveCommandRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +101,18 @@ class MattermostMoveCommandRequest {
   }
 
   // maps a json object with a list of MattermostMoveCommandRequest-objects as value to a dart map
-  static Map<String, List<MattermostMoveCommandRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMoveCommandRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMoveCommandRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMoveCommandRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMoveCommandRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +122,5 @@ class MattermostMoveCommandRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

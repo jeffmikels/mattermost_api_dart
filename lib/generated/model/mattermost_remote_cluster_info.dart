@@ -46,20 +46,23 @@ class MattermostRemoteClusterInfo {
   int? lastPingAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRemoteClusterInfo &&
-     other.displayName == displayName &&
-     other.createAt == createAt &&
-     other.lastPingAt == lastPingAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostRemoteClusterInfo &&
+          other.displayName == displayName &&
+          other.createAt == createAt &&
+          other.lastPingAt == lastPingAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (lastPingAt == null ? 0 : lastPingAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (lastPingAt == null ? 0 : lastPingAt!.hashCode);
 
   @override
-  String toString() => 'MattermostRemoteClusterInfo[displayName=$displayName, createAt=$createAt, lastPingAt=$lastPingAt]';
+  String toString() =>
+      'MattermostRemoteClusterInfo[displayName=$displayName, createAt=$createAt, lastPingAt=$lastPingAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,7 +105,10 @@ class MattermostRemoteClusterInfo {
     return null;
   }
 
-  static List<MattermostRemoteClusterInfo>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRemoteClusterInfo>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRemoteClusterInfo>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +136,18 @@ class MattermostRemoteClusterInfo {
   }
 
   // maps a json object with a list of MattermostRemoteClusterInfo-objects as value to a dart map
-  static Map<String, List<MattermostRemoteClusterInfo>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRemoteClusterInfo>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRemoteClusterInfo>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRemoteClusterInfo.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRemoteClusterInfo.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -145,7 +157,5 @@ class MattermostRemoteClusterInfo {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

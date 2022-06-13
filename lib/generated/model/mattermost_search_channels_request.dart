@@ -20,20 +20,20 @@ class MattermostSearchChannelsRequest {
   String term;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchChannelsRequest &&
-     other.term == term;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostSearchChannelsRequest && other.term == term;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term.hashCode);
 
   @override
   String toString() => 'MattermostSearchChannelsRequest[term=$term]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'term'] = term;
+    _json[r'term'] = term;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostSearchChannelsRequest {
     return null;
   }
 
-  static List<MattermostSearchChannelsRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchChannelsRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchChannelsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostSearchChannelsRequest {
   }
 
   // maps a json object with a list of MattermostSearchChannelsRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchChannelsRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchChannelsRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchChannelsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchChannelsRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchChannelsRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostSearchChannelsRequest {
     'term',
   };
 }
-

@@ -30,25 +30,27 @@ class MattermostUpdateUserPasswordRequest {
   String newPassword;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserPasswordRequest &&
-     other.currentPassword == currentPassword &&
-     other.newPassword == newPassword;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateUserPasswordRequest &&
+          other.currentPassword == currentPassword &&
+          other.newPassword == newPassword;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (currentPassword == null ? 0 : currentPassword!.hashCode) +
-    (newPassword.hashCode);
+      // ignore: unnecessary_parenthesis
+      (currentPassword == null ? 0 : currentPassword!.hashCode) + (newPassword.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateUserPasswordRequest[currentPassword=$currentPassword, newPassword=$newPassword]';
+  String toString() =>
+      'MattermostUpdateUserPasswordRequest[currentPassword=$currentPassword, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (currentPassword != null) {
       _json[r'current_password'] = currentPassword;
     }
-      _json[r'new_password'] = newPassword;
+    _json[r'new_password'] = newPassword;
     return _json;
   }
 
@@ -64,8 +66,10 @@ class MattermostUpdateUserPasswordRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateUserPasswordRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateUserPasswordRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostUpdateUserPasswordRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostUpdateUserPasswordRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,7 +82,10 @@ class MattermostUpdateUserPasswordRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserPasswordRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserPasswordRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserPasswordRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +113,18 @@ class MattermostUpdateUserPasswordRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserPasswordRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserPasswordRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserPasswordRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserPasswordRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserPasswordRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserPasswordRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +138,3 @@ class MattermostUpdateUserPasswordRequest {
     'new_password',
   };
 }
-

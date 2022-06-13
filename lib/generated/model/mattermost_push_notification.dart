@@ -214,58 +214,61 @@ class MattermostPushNotification {
   bool? isIdLoaded;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPushNotification &&
-     other.ackId == ackId &&
-     other.platform == platform &&
-     other.serverId == serverId &&
-     other.deviceId == deviceId &&
-     other.postId == postId &&
-     other.category == category &&
-     other.sound == sound &&
-     other.message == message &&
-     other.badge == badge &&
-     other.contAva == contAva &&
-     other.teamId == teamId &&
-     other.channelId == channelId &&
-     other.rootId == rootId &&
-     other.channelName == channelName &&
-     other.type == type &&
-     other.senderId == senderId &&
-     other.senderName == senderName &&
-     other.overrideUsername == overrideUsername &&
-     other.overrideIconUrl == overrideIconUrl &&
-     other.fromWebhook == fromWebhook &&
-     other.version == version &&
-     other.isIdLoaded == isIdLoaded;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPushNotification &&
+          other.ackId == ackId &&
+          other.platform == platform &&
+          other.serverId == serverId &&
+          other.deviceId == deviceId &&
+          other.postId == postId &&
+          other.category == category &&
+          other.sound == sound &&
+          other.message == message &&
+          other.badge == badge &&
+          other.contAva == contAva &&
+          other.teamId == teamId &&
+          other.channelId == channelId &&
+          other.rootId == rootId &&
+          other.channelName == channelName &&
+          other.type == type &&
+          other.senderId == senderId &&
+          other.senderName == senderName &&
+          other.overrideUsername == overrideUsername &&
+          other.overrideIconUrl == overrideIconUrl &&
+          other.fromWebhook == fromWebhook &&
+          other.version == version &&
+          other.isIdLoaded == isIdLoaded;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (ackId == null ? 0 : ackId!.hashCode) +
-    (platform == null ? 0 : platform!.hashCode) +
-    (serverId == null ? 0 : serverId!.hashCode) +
-    (deviceId == null ? 0 : deviceId!.hashCode) +
-    (postId == null ? 0 : postId!.hashCode) +
-    (category == null ? 0 : category!.hashCode) +
-    (sound == null ? 0 : sound!.hashCode) +
-    (message == null ? 0 : message!.hashCode) +
-    (badge == null ? 0 : badge!.hashCode) +
-    (contAva == null ? 0 : contAva!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (rootId == null ? 0 : rootId!.hashCode) +
-    (channelName == null ? 0 : channelName!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (senderId == null ? 0 : senderId!.hashCode) +
-    (senderName == null ? 0 : senderName!.hashCode) +
-    (overrideUsername == null ? 0 : overrideUsername!.hashCode) +
-    (overrideIconUrl == null ? 0 : overrideIconUrl!.hashCode) +
-    (fromWebhook == null ? 0 : fromWebhook!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (isIdLoaded == null ? 0 : isIdLoaded!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (ackId == null ? 0 : ackId!.hashCode) +
+      (platform == null ? 0 : platform!.hashCode) +
+      (serverId == null ? 0 : serverId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (postId == null ? 0 : postId!.hashCode) +
+      (category == null ? 0 : category!.hashCode) +
+      (sound == null ? 0 : sound!.hashCode) +
+      (message == null ? 0 : message!.hashCode) +
+      (badge == null ? 0 : badge!.hashCode) +
+      (contAva == null ? 0 : contAva!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (rootId == null ? 0 : rootId!.hashCode) +
+      (channelName == null ? 0 : channelName!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (senderId == null ? 0 : senderId!.hashCode) +
+      (senderName == null ? 0 : senderName!.hashCode) +
+      (overrideUsername == null ? 0 : overrideUsername!.hashCode) +
+      (overrideIconUrl == null ? 0 : overrideIconUrl!.hashCode) +
+      (fromWebhook == null ? 0 : fromWebhook!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (isIdLoaded == null ? 0 : isIdLoaded!.hashCode);
 
   @override
-  String toString() => 'MattermostPushNotification[ackId=$ackId, platform=$platform, serverId=$serverId, deviceId=$deviceId, postId=$postId, category=$category, sound=$sound, message=$message, badge=$badge, contAva=$contAva, teamId=$teamId, channelId=$channelId, rootId=$rootId, channelName=$channelName, type=$type, senderId=$senderId, senderName=$senderName, overrideUsername=$overrideUsername, overrideIconUrl=$overrideIconUrl, fromWebhook=$fromWebhook, version=$version, isIdLoaded=$isIdLoaded]';
+  String toString() =>
+      'MattermostPushNotification[ackId=$ackId, platform=$platform, serverId=$serverId, deviceId=$deviceId, postId=$postId, category=$category, sound=$sound, message=$message, badge=$badge, contAva=$contAva, teamId=$teamId, channelId=$channelId, rootId=$rootId, channelName=$channelName, type=$type, senderId=$senderId, senderName=$senderName, overrideUsername=$overrideUsername, overrideIconUrl=$overrideIconUrl, fromWebhook=$fromWebhook, version=$version, isIdLoaded=$isIdLoaded]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -365,12 +368,8 @@ class MattermostPushNotification {
         category: mapValueOfType<String>(json, r'category'),
         sound: mapValueOfType<String>(json, r'sound'),
         message: mapValueOfType<String>(json, r'message'),
-        badge: json[r'badge'] == null
-            ? null
-            : num.parse(json[r'badge'].toString()),
-        contAva: json[r'cont_ava'] == null
-            ? null
-            : num.parse(json[r'cont_ava'].toString()),
+        badge: json[r'badge'] == null ? null : num.parse(json[r'badge'].toString()),
+        contAva: json[r'cont_ava'] == null ? null : num.parse(json[r'cont_ava'].toString()),
         teamId: mapValueOfType<String>(json, r'team_id'),
         channelId: mapValueOfType<String>(json, r'channel_id'),
         rootId: mapValueOfType<String>(json, r'root_id'),
@@ -388,7 +387,10 @@ class MattermostPushNotification {
     return null;
   }
 
-  static List<MattermostPushNotification>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPushNotification>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPushNotification>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -416,12 +418,18 @@ class MattermostPushNotification {
   }
 
   // maps a json object with a list of MattermostPushNotification-objects as value to a dart map
-  static Map<String, List<MattermostPushNotification>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPushNotification>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPushNotification>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPushNotification.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPushNotification.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -431,7 +439,5 @@ class MattermostPushNotification {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

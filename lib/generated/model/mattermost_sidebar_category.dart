@@ -55,24 +55,27 @@ class MattermostSidebarCategory {
   MattermostSidebarCategoryTypeEnum? type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSidebarCategory &&
-     other.id == id &&
-     other.userId == userId &&
-     other.teamId == teamId &&
-     other.displayName == displayName &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSidebarCategory &&
+          other.id == id &&
+          other.userId == userId &&
+          other.teamId == teamId &&
+          other.displayName == displayName &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (type == null ? 0 : type!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (type == null ? 0 : type!.hashCode);
 
   @override
-  String toString() => 'MattermostSidebarCategory[id=$id, userId=$userId, teamId=$teamId, displayName=$displayName, type=$type]';
+  String toString() =>
+      'MattermostSidebarCategory[id=$id, userId=$userId, teamId=$teamId, displayName=$displayName, type=$type]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -123,7 +126,10 @@ class MattermostSidebarCategory {
     return null;
   }
 
-  static List<MattermostSidebarCategory>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSidebarCategory>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSidebarCategory>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -151,12 +157,18 @@ class MattermostSidebarCategory {
   }
 
   // maps a json object with a list of MattermostSidebarCategory-objects as value to a dart map
-  static Map<String, List<MattermostSidebarCategory>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSidebarCategory>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSidebarCategory>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSidebarCategory.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSidebarCategory.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -166,10 +178,8 @@ class MattermostSidebarCategory {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class MattermostSidebarCategoryTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -196,9 +206,13 @@ class MattermostSidebarCategoryTypeEnum {
     favorites,
   ];
 
-  static MattermostSidebarCategoryTypeEnum? fromJson(dynamic value) => MattermostSidebarCategoryTypeEnumTypeTransformer().decode(value);
+  static MattermostSidebarCategoryTypeEnum? fromJson(dynamic value) =>
+      MattermostSidebarCategoryTypeEnumTypeTransformer().decode(value);
 
-  static List<MattermostSidebarCategoryTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSidebarCategoryTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSidebarCategoryTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -215,7 +229,8 @@ class MattermostSidebarCategoryTypeEnum {
 /// Transformation class that can [encode] an instance of [MattermostSidebarCategoryTypeEnum] to String,
 /// and [decode] dynamic data back to [MattermostSidebarCategoryTypeEnum].
 class MattermostSidebarCategoryTypeEnumTypeTransformer {
-  factory MattermostSidebarCategoryTypeEnumTypeTransformer() => _instance ??= const MattermostSidebarCategoryTypeEnumTypeTransformer._();
+  factory MattermostSidebarCategoryTypeEnumTypeTransformer() =>
+      _instance ??= const MattermostSidebarCategoryTypeEnumTypeTransformer._();
 
   const MattermostSidebarCategoryTypeEnumTypeTransformer._();
 
@@ -232,10 +247,14 @@ class MattermostSidebarCategoryTypeEnumTypeTransformer {
   MattermostSidebarCategoryTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'channels': return MattermostSidebarCategoryTypeEnum.channels;
-        case r'custom': return MattermostSidebarCategoryTypeEnum.custom;
-        case r'direct_messages': return MattermostSidebarCategoryTypeEnum.directMessages;
-        case r'favorites': return MattermostSidebarCategoryTypeEnum.favorites;
+        case r'channels':
+          return MattermostSidebarCategoryTypeEnum.channels;
+        case r'custom':
+          return MattermostSidebarCategoryTypeEnum.custom;
+        case r'direct_messages':
+          return MattermostSidebarCategoryTypeEnum.directMessages;
+        case r'favorites':
+          return MattermostSidebarCategoryTypeEnum.favorites;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -248,5 +267,3 @@ class MattermostSidebarCategoryTypeEnumTypeTransformer {
   /// Singleton [MattermostSidebarCategoryTypeEnumTypeTransformer] instance.
   static MattermostSidebarCategoryTypeEnumTypeTransformer? _instance;
 }
-
-

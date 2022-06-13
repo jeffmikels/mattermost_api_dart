@@ -61,24 +61,27 @@ class MattermostOpenGraphVideosInner {
   int? height;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphVideosInner &&
-     other.url == url &&
-     other.secureUrl == secureUrl &&
-     other.type == type &&
-     other.width == width &&
-     other.height == height;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenGraphVideosInner &&
+          other.url == url &&
+          other.secureUrl == secureUrl &&
+          other.type == type &&
+          other.width == width &&
+          other.height == height;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (url == null ? 0 : url!.hashCode) +
-    (secureUrl == null ? 0 : secureUrl!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (url == null ? 0 : url!.hashCode) +
+      (secureUrl == null ? 0 : secureUrl!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode);
 
   @override
-  String toString() => 'MattermostOpenGraphVideosInner[url=$url, secureUrl=$secureUrl, type=$type, width=$width, height=$height]';
+  String toString() =>
+      'MattermostOpenGraphVideosInner[url=$url, secureUrl=$secureUrl, type=$type, width=$width, height=$height]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -129,7 +132,10 @@ class MattermostOpenGraphVideosInner {
     return null;
   }
 
-  static List<MattermostOpenGraphVideosInner>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraphVideosInner>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraphVideosInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +163,18 @@ class MattermostOpenGraphVideosInner {
   }
 
   // maps a json object with a list of MattermostOpenGraphVideosInner-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraphVideosInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraphVideosInner>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraphVideosInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraphVideosInner.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraphVideosInner.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +184,5 @@ class MattermostOpenGraphVideosInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

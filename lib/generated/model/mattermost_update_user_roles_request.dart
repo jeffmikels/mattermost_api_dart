@@ -19,20 +19,20 @@ class MattermostUpdateUserRolesRequest {
   String roles;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserRolesRequest &&
-     other.roles == roles;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUpdateUserRolesRequest && other.roles == roles;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (roles.hashCode);
+      // ignore: unnecessary_parenthesis
+      (roles.hashCode);
 
   @override
   String toString() => 'MattermostUpdateUserRolesRequest[roles=$roles]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'roles'] = roles;
+    _json[r'roles'] = roles;
     return _json;
   }
 
@@ -61,7 +61,10 @@ class MattermostUpdateUserRolesRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserRolesRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserRolesRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserRolesRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -89,12 +92,18 @@ class MattermostUpdateUserRolesRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserRolesRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserRolesRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserRolesRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserRolesRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserRolesRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserRolesRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -108,4 +117,3 @@ class MattermostUpdateUserRolesRequest {
     'roles',
   };
 }
-

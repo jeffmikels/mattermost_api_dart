@@ -70,26 +70,29 @@ class MattermostEnvironmentConfigSupportSettings {
   bool? supportEmail;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigSupportSettings &&
-     other.termsOfServiceLink == termsOfServiceLink &&
-     other.privacyPolicyLink == privacyPolicyLink &&
-     other.aboutLink == aboutLink &&
-     other.helpLink == helpLink &&
-     other.reportAProblemLink == reportAProblemLink &&
-     other.supportEmail == supportEmail;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigSupportSettings &&
+          other.termsOfServiceLink == termsOfServiceLink &&
+          other.privacyPolicyLink == privacyPolicyLink &&
+          other.aboutLink == aboutLink &&
+          other.helpLink == helpLink &&
+          other.reportAProblemLink == reportAProblemLink &&
+          other.supportEmail == supportEmail;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (termsOfServiceLink == null ? 0 : termsOfServiceLink!.hashCode) +
-    (privacyPolicyLink == null ? 0 : privacyPolicyLink!.hashCode) +
-    (aboutLink == null ? 0 : aboutLink!.hashCode) +
-    (helpLink == null ? 0 : helpLink!.hashCode) +
-    (reportAProblemLink == null ? 0 : reportAProblemLink!.hashCode) +
-    (supportEmail == null ? 0 : supportEmail!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (termsOfServiceLink == null ? 0 : termsOfServiceLink!.hashCode) +
+      (privacyPolicyLink == null ? 0 : privacyPolicyLink!.hashCode) +
+      (aboutLink == null ? 0 : aboutLink!.hashCode) +
+      (helpLink == null ? 0 : helpLink!.hashCode) +
+      (reportAProblemLink == null ? 0 : reportAProblemLink!.hashCode) +
+      (supportEmail == null ? 0 : supportEmail!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
+  String toString() =>
+      'MattermostEnvironmentConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -126,8 +129,10 @@ class MattermostEnvironmentConfigSupportSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigSupportSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigSupportSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigSupportSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigSupportSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -144,7 +149,10 @@ class MattermostEnvironmentConfigSupportSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigSupportSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigSupportSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigSupportSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +180,18 @@ class MattermostEnvironmentConfigSupportSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigSupportSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigSupportSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigSupportSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigSupportSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigSupportSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigSupportSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +201,5 @@ class MattermostEnvironmentConfigSupportSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

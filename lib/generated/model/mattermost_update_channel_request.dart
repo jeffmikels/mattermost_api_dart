@@ -60,28 +60,31 @@ class MattermostUpdateChannelRequest {
   String? header;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateChannelRequest &&
-     other.id == id &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.purpose == purpose &&
-     other.header == header;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateChannelRequest &&
+          other.id == id &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.purpose == purpose &&
+          other.header == header;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (purpose == null ? 0 : purpose!.hashCode) +
-    (header == null ? 0 : header!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (purpose == null ? 0 : purpose!.hashCode) +
+      (header == null ? 0 : header!.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateChannelRequest[id=$id, name=$name, displayName=$displayName, purpose=$purpose, header=$header]';
+  String toString() =>
+      'MattermostUpdateChannelRequest[id=$id, name=$name, displayName=$displayName, purpose=$purpose, header=$header]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'id'] = id;
+    _json[r'id'] = id;
     if (name != null) {
       _json[r'name'] = name;
     }
@@ -126,7 +129,10 @@ class MattermostUpdateChannelRequest {
     return null;
   }
 
-  static List<MattermostUpdateChannelRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateChannelRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -154,12 +160,18 @@ class MattermostUpdateChannelRequest {
   }
 
   // maps a json object with a list of MattermostUpdateChannelRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateChannelRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateChannelRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateChannelRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateChannelRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -173,4 +185,3 @@ class MattermostUpdateChannelRequest {
     'id',
   };
 }
-

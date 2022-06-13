@@ -146,40 +146,43 @@ class MattermostFileInfo {
   bool? hasPreviewImage;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostFileInfo &&
-     other.id == id &&
-     other.userId == userId &&
-     other.postId == postId &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.name == name &&
-     other.extension_ == extension_ &&
-     other.size == size &&
-     other.mimeType == mimeType &&
-     other.width == width &&
-     other.height == height &&
-     other.hasPreviewImage == hasPreviewImage;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostFileInfo &&
+          other.id == id &&
+          other.userId == userId &&
+          other.postId == postId &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.name == name &&
+          other.extension_ == extension_ &&
+          other.size == size &&
+          other.mimeType == mimeType &&
+          other.width == width &&
+          other.height == height &&
+          other.hasPreviewImage == hasPreviewImage;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (postId == null ? 0 : postId!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (extension_ == null ? 0 : extension_!.hashCode) +
-    (size == null ? 0 : size!.hashCode) +
-    (mimeType == null ? 0 : mimeType!.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode) +
-    (hasPreviewImage == null ? 0 : hasPreviewImage!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (postId == null ? 0 : postId!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (extension_ == null ? 0 : extension_!.hashCode) +
+      (size == null ? 0 : size!.hashCode) +
+      (mimeType == null ? 0 : mimeType!.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode) +
+      (hasPreviewImage == null ? 0 : hasPreviewImage!.hashCode);
 
   @override
-  String toString() => 'MattermostFileInfo[id=$id, userId=$userId, postId=$postId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, name=$name, extension_=$extension_, size=$size, mimeType=$mimeType, width=$width, height=$height, hasPreviewImage=$hasPreviewImage]';
+  String toString() =>
+      'MattermostFileInfo[id=$id, userId=$userId, postId=$postId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, name=$name, extension_=$extension_, size=$size, mimeType=$mimeType, width=$width, height=$height, hasPreviewImage=$hasPreviewImage]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -262,7 +265,10 @@ class MattermostFileInfo {
     return null;
   }
 
-  static List<MattermostFileInfo>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostFileInfo>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostFileInfo>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -290,12 +296,18 @@ class MattermostFileInfo {
   }
 
   // maps a json object with a list of MattermostFileInfo-objects as value to a dart map
-  static Map<String, List<MattermostFileInfo>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostFileInfo>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostFileInfo>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostFileInfo.listFromJson(entry.value, growable: growable,);
+        final value = MattermostFileInfo.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -305,7 +317,5 @@ class MattermostFileInfo {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -20,20 +20,19 @@ class MattermostOpenGraphRequest {
   String url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphRequest &&
-     other.url == url;
+  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphRequest && other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (url.hashCode);
+      // ignore: unnecessary_parenthesis
+      (url.hashCode);
 
   @override
   String toString() => 'MattermostOpenGraphRequest[url=$url]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'url'] = url;
+    _json[r'url'] = url;
     return _json;
   }
 
@@ -62,7 +61,10 @@ class MattermostOpenGraphRequest {
     return null;
   }
 
-  static List<MattermostOpenGraphRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraphRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraphRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +92,18 @@ class MattermostOpenGraphRequest {
   }
 
   // maps a json object with a list of MattermostOpenGraphRequest-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraphRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraphRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraphRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraphRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraphRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +117,3 @@ class MattermostOpenGraphRequest {
     'url',
   };
 }
-

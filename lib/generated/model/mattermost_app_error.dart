@@ -52,19 +52,21 @@ class MattermostAppError {
   String? requestId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAppError &&
-     other.statusCode == statusCode &&
-     other.id == id &&
-     other.message == message &&
-     other.requestId == requestId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostAppError &&
+          other.statusCode == statusCode &&
+          other.id == id &&
+          other.message == message &&
+          other.requestId == requestId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (statusCode == null ? 0 : statusCode!.hashCode) +
-    (id == null ? 0 : id!.hashCode) +
-    (message == null ? 0 : message!.hashCode) +
-    (requestId == null ? 0 : requestId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (statusCode == null ? 0 : statusCode!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
+      (message == null ? 0 : message!.hashCode) +
+      (requestId == null ? 0 : requestId!.hashCode);
 
   @override
   String toString() => 'MattermostAppError[statusCode=$statusCode, id=$id, message=$message, requestId=$requestId]';
@@ -114,7 +116,10 @@ class MattermostAppError {
     return null;
   }
 
-  static List<MattermostAppError>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAppError>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAppError>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +147,18 @@ class MattermostAppError {
   }
 
   // maps a json object with a list of MattermostAppError-objects as value to a dart map
-  static Map<String, List<MattermostAppError>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAppError>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAppError>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAppError.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAppError.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +168,5 @@ class MattermostAppError {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -21,7 +21,11 @@ class MattermostQueryParam {
 }
 
 // Ported from the Java version.
-Iterable<MattermostQueryParam> _queryParams(String collectionFormat, String name, dynamic value,) {
+Iterable<MattermostQueryParam> _queryParams(
+  String collectionFormat,
+  String name,
+  dynamic value,
+) {
   // Assertions to run in debug mode only.
   assert(name.isNotEmpty, 'Parameter cannot be an empty string.');
 
@@ -29,7 +33,9 @@ Iterable<MattermostQueryParam> _queryParams(String collectionFormat, String name
 
   if (value is List) {
     if (collectionFormat == 'multi') {
-      return value.map((dynamic v) => MattermostQueryParam(name, parameterToString(v)),);
+      return value.map(
+        (dynamic v) => MattermostQueryParam(name, parameterToString(v)),
+      );
     }
 
     // Default collection format is 'csv'.
@@ -39,7 +45,10 @@ Iterable<MattermostQueryParam> _queryParams(String collectionFormat, String name
 
     final delimiter = _delimiters[collectionFormat] ?? ',';
 
-    params.add(MattermostQueryParam(name, value.map<dynamic>(parameterToString).join(delimiter),));
+    params.add(MattermostQueryParam(
+      name,
+      value.map<dynamic>(parameterToString).join(delimiter),
+    ));
   } else if (value != null) {
     params.add(MattermostQueryParam(name, parameterToString(value)));
   }
@@ -63,8 +72,10 @@ String parameterToString(dynamic value) {
 Future<String> _decodeBodyBytes(Response response) async {
   final contentType = response.headers['content-type'];
   return contentType != null && contentType.toLowerCase().startsWith('application/json')
-    ? response.bodyBytes.isEmpty ? '' : utf8.decode(response.bodyBytes)
-    : response.body;
+      ? response.bodyBytes.isEmpty
+          ? ''
+          : utf8.decode(response.bodyBytes)
+      : response.body;
 }
 
 /// Returns a valid [T] value found at the specified Map [key], null otherwise.

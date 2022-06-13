@@ -26,13 +26,12 @@ class MattermostPostsUsage {
   num? count;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostsUsage &&
-     other.count == count;
+  bool operator ==(Object other) => identical(this, other) || other is MattermostPostsUsage && other.count == count;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (count == null ? 0 : count!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (count == null ? 0 : count!.hashCode);
 
   @override
   String toString() => 'MattermostPostsUsage[count=$count]';
@@ -64,15 +63,16 @@ class MattermostPostsUsage {
       }());
 
       return MattermostPostsUsage(
-        count: json[r'count'] == null
-            ? null
-            : num.parse(json[r'count'].toString()),
+        count: json[r'count'] == null ? null : num.parse(json[r'count'].toString()),
       );
     }
     return null;
   }
 
-  static List<MattermostPostsUsage>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostsUsage>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostsUsage>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -100,12 +100,18 @@ class MattermostPostsUsage {
   }
 
   // maps a json object with a list of MattermostPostsUsage-objects as value to a dart map
-  static Map<String, List<MattermostPostsUsage>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostsUsage>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostsUsage>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostsUsage.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostsUsage.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,7 +121,5 @@ class MattermostPostsUsage {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

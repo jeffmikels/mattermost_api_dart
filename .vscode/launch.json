@@ -14,7 +14,7 @@
 			"name": "CodeGen",
 			"type": "dart",
 			"request": "launch",
-			"program": "pro-codegen.dart"
+			"program": "mattermost-codegen.dart"
 		},
 		{
 			"name": "propresenter_api",

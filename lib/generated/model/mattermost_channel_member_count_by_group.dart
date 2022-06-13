@@ -46,20 +46,23 @@ class MattermostChannelMemberCountByGroup {
   num? channelMemberTimezonesCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelMemberCountByGroup &&
-     other.groupId == groupId &&
-     other.channelMemberCount == channelMemberCount &&
-     other.channelMemberTimezonesCount == channelMemberTimezonesCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelMemberCountByGroup &&
+          other.groupId == groupId &&
+          other.channelMemberCount == channelMemberCount &&
+          other.channelMemberTimezonesCount == channelMemberTimezonesCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (channelMemberCount == null ? 0 : channelMemberCount!.hashCode) +
-    (channelMemberTimezonesCount == null ? 0 : channelMemberTimezonesCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (groupId == null ? 0 : groupId!.hashCode) +
+      (channelMemberCount == null ? 0 : channelMemberCount!.hashCode) +
+      (channelMemberTimezonesCount == null ? 0 : channelMemberTimezonesCount!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelMemberCountByGroup[groupId=$groupId, channelMemberCount=$channelMemberCount, channelMemberTimezonesCount=$channelMemberTimezonesCount]';
+  String toString() =>
+      'MattermostChannelMemberCountByGroup[groupId=$groupId, channelMemberCount=$channelMemberCount, channelMemberTimezonesCount=$channelMemberTimezonesCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -87,17 +90,18 @@ class MattermostChannelMemberCountByGroup {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostChannelMemberCountByGroup[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostChannelMemberCountByGroup[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostChannelMemberCountByGroup[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostChannelMemberCountByGroup[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostChannelMemberCountByGroup(
         groupId: mapValueOfType<String>(json, r'group_id'),
-        channelMemberCount: json[r'channel_member_count'] == null
-            ? null
-            : num.parse(json[r'channel_member_count'].toString()),
+        channelMemberCount:
+            json[r'channel_member_count'] == null ? null : num.parse(json[r'channel_member_count'].toString()),
         channelMemberTimezonesCount: json[r'channel_member_timezones_count'] == null
             ? null
             : num.parse(json[r'channel_member_timezones_count'].toString()),
@@ -106,7 +110,10 @@ class MattermostChannelMemberCountByGroup {
     return null;
   }
 
-  static List<MattermostChannelMemberCountByGroup>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelMemberCountByGroup>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelMemberCountByGroup>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -134,12 +141,18 @@ class MattermostChannelMemberCountByGroup {
   }
 
   // maps a json object with a list of MattermostChannelMemberCountByGroup-objects as value to a dart map
-  static Map<String, List<MattermostChannelMemberCountByGroup>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelMemberCountByGroup>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelMemberCountByGroup>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelMemberCountByGroup.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelMemberCountByGroup.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -149,7 +162,5 @@ class MattermostChannelMemberCountByGroup {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

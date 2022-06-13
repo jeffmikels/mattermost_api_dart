@@ -52,22 +52,25 @@ class MattermostOpenGraphArticleAuthorsInner {
   String? gender;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphArticleAuthorsInner &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.username == username &&
-     other.gender == gender;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenGraphArticleAuthorsInner &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.username == username &&
+          other.gender == gender;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (gender == null ? 0 : gender!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (gender == null ? 0 : gender!.hashCode);
 
   @override
-  String toString() => 'MattermostOpenGraphArticleAuthorsInner[firstName=$firstName, lastName=$lastName, username=$username, gender=$gender]';
+  String toString() =>
+      'MattermostOpenGraphArticleAuthorsInner[firstName=$firstName, lastName=$lastName, username=$username, gender=$gender]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -98,8 +101,10 @@ class MattermostOpenGraphArticleAuthorsInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostOpenGraphArticleAuthorsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostOpenGraphArticleAuthorsInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostOpenGraphArticleAuthorsInner[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostOpenGraphArticleAuthorsInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -114,7 +119,10 @@ class MattermostOpenGraphArticleAuthorsInner {
     return null;
   }
 
-  static List<MattermostOpenGraphArticleAuthorsInner>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraphArticleAuthorsInner>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraphArticleAuthorsInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +150,18 @@ class MattermostOpenGraphArticleAuthorsInner {
   }
 
   // maps a json object with a list of MattermostOpenGraphArticleAuthorsInner-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraphArticleAuthorsInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraphArticleAuthorsInner>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraphArticleAuthorsInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraphArticleAuthorsInner.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraphArticleAuthorsInner.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +171,5 @@ class MattermostOpenGraphArticleAuthorsInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

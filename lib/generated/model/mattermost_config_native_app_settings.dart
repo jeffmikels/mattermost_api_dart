@@ -43,20 +43,23 @@ class MattermostConfigNativeAppSettings {
   String? iosAppDownloadLink;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigNativeAppSettings &&
-     other.appDownloadLink == appDownloadLink &&
-     other.androidAppDownloadLink == androidAppDownloadLink &&
-     other.iosAppDownloadLink == iosAppDownloadLink;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigNativeAppSettings &&
+          other.appDownloadLink == appDownloadLink &&
+          other.androidAppDownloadLink == androidAppDownloadLink &&
+          other.iosAppDownloadLink == iosAppDownloadLink;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (appDownloadLink == null ? 0 : appDownloadLink!.hashCode) +
-    (androidAppDownloadLink == null ? 0 : androidAppDownloadLink!.hashCode) +
-    (iosAppDownloadLink == null ? 0 : iosAppDownloadLink!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (appDownloadLink == null ? 0 : appDownloadLink!.hashCode) +
+      (androidAppDownloadLink == null ? 0 : androidAppDownloadLink!.hashCode) +
+      (iosAppDownloadLink == null ? 0 : iosAppDownloadLink!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
+  String toString() =>
+      'MattermostConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -99,7 +102,10 @@ class MattermostConfigNativeAppSettings {
     return null;
   }
 
-  static List<MattermostConfigNativeAppSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigNativeAppSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigNativeAppSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +133,18 @@ class MattermostConfigNativeAppSettings {
   }
 
   // maps a json object with a list of MattermostConfigNativeAppSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigNativeAppSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigNativeAppSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigNativeAppSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigNativeAppSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigNativeAppSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +154,5 @@ class MattermostConfigNativeAppSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

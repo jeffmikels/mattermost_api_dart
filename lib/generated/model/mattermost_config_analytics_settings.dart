@@ -25,13 +25,14 @@ class MattermostConfigAnalyticsSettings {
   int? maxUsersForStatistics;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigAnalyticsSettings &&
-     other.maxUsersForStatistics == maxUsersForStatistics;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigAnalyticsSettings && other.maxUsersForStatistics == maxUsersForStatistics;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (maxUsersForStatistics == null ? 0 : maxUsersForStatistics!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (maxUsersForStatistics == null ? 0 : maxUsersForStatistics!.hashCode);
 
   @override
   String toString() => 'MattermostConfigAnalyticsSettings[maxUsersForStatistics=$maxUsersForStatistics]';
@@ -69,7 +70,10 @@ class MattermostConfigAnalyticsSettings {
     return null;
   }
 
-  static List<MattermostConfigAnalyticsSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigAnalyticsSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigAnalyticsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +101,18 @@ class MattermostConfigAnalyticsSettings {
   }
 
   // maps a json object with a list of MattermostConfigAnalyticsSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigAnalyticsSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigAnalyticsSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigAnalyticsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigAnalyticsSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigAnalyticsSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +122,5 @@ class MattermostConfigAnalyticsSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

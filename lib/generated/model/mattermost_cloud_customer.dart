@@ -115,36 +115,39 @@ class MattermostCloudCustomer {
   MattermostPaymentMethod? paymentMethod;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCloudCustomer &&
-     other.id == id &&
-     other.creatorId == creatorId &&
-     other.createAt == createAt &&
-     other.email == email &&
-     other.name == name &&
-     other.numEmployees == numEmployees &&
-     other.contactFirstName == contactFirstName &&
-     other.contactLastName == contactLastName &&
-     other.billingAddress == billingAddress &&
-     other.companyAddress == companyAddress &&
-     other.paymentMethod == paymentMethod;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCloudCustomer &&
+          other.id == id &&
+          other.creatorId == creatorId &&
+          other.createAt == createAt &&
+          other.email == email &&
+          other.name == name &&
+          other.numEmployees == numEmployees &&
+          other.contactFirstName == contactFirstName &&
+          other.contactLastName == contactLastName &&
+          other.billingAddress == billingAddress &&
+          other.companyAddress == companyAddress &&
+          other.paymentMethod == paymentMethod;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (numEmployees == null ? 0 : numEmployees!.hashCode) +
-    (contactFirstName == null ? 0 : contactFirstName!.hashCode) +
-    (contactLastName == null ? 0 : contactLastName!.hashCode) +
-    (billingAddress == null ? 0 : billingAddress!.hashCode) +
-    (companyAddress == null ? 0 : companyAddress!.hashCode) +
-    (paymentMethod == null ? 0 : paymentMethod!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (numEmployees == null ? 0 : numEmployees!.hashCode) +
+      (contactFirstName == null ? 0 : contactFirstName!.hashCode) +
+      (contactLastName == null ? 0 : contactLastName!.hashCode) +
+      (billingAddress == null ? 0 : billingAddress!.hashCode) +
+      (companyAddress == null ? 0 : companyAddress!.hashCode) +
+      (paymentMethod == null ? 0 : paymentMethod!.hashCode);
 
   @override
-  String toString() => 'MattermostCloudCustomer[id=$id, creatorId=$creatorId, createAt=$createAt, email=$email, name=$name, numEmployees=$numEmployees, contactFirstName=$contactFirstName, contactLastName=$contactLastName, billingAddress=$billingAddress, companyAddress=$companyAddress, paymentMethod=$paymentMethod]';
+  String toString() =>
+      'MattermostCloudCustomer[id=$id, creatorId=$creatorId, createAt=$createAt, email=$email, name=$name, numEmployees=$numEmployees, contactFirstName=$contactFirstName, contactLastName=$contactLastName, billingAddress=$billingAddress, companyAddress=$companyAddress, paymentMethod=$paymentMethod]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -219,7 +222,10 @@ class MattermostCloudCustomer {
     return null;
   }
 
-  static List<MattermostCloudCustomer>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCloudCustomer>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCloudCustomer>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -247,12 +253,18 @@ class MattermostCloudCustomer {
   }
 
   // maps a json object with a list of MattermostCloudCustomer-objects as value to a dart map
-  static Map<String, List<MattermostCloudCustomer>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCloudCustomer>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCloudCustomer>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCloudCustomer.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCloudCustomer.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -262,7 +274,5 @@ class MattermostCloudCustomer {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

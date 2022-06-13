@@ -196,54 +196,57 @@ class MattermostConfigLdapSettings {
   String? loginFieldName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigLdapSettings &&
-     other.enable == enable &&
-     other.ldapServer == ldapServer &&
-     other.ldapPort == ldapPort &&
-     other.connectionSecurity == connectionSecurity &&
-     other.baseDN == baseDN &&
-     other.bindUsername == bindUsername &&
-     other.bindPassword == bindPassword &&
-     other.userFilter == userFilter &&
-     other.firstNameAttribute == firstNameAttribute &&
-     other.lastNameAttribute == lastNameAttribute &&
-     other.emailAttribute == emailAttribute &&
-     other.usernameAttribute == usernameAttribute &&
-     other.nicknameAttribute == nicknameAttribute &&
-     other.idAttribute == idAttribute &&
-     other.positionAttribute == positionAttribute &&
-     other.syncIntervalMinutes == syncIntervalMinutes &&
-     other.skipCertificateVerification == skipCertificateVerification &&
-     other.queryTimeout == queryTimeout &&
-     other.maxPageSize == maxPageSize &&
-     other.loginFieldName == loginFieldName;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigLdapSettings &&
+          other.enable == enable &&
+          other.ldapServer == ldapServer &&
+          other.ldapPort == ldapPort &&
+          other.connectionSecurity == connectionSecurity &&
+          other.baseDN == baseDN &&
+          other.bindUsername == bindUsername &&
+          other.bindPassword == bindPassword &&
+          other.userFilter == userFilter &&
+          other.firstNameAttribute == firstNameAttribute &&
+          other.lastNameAttribute == lastNameAttribute &&
+          other.emailAttribute == emailAttribute &&
+          other.usernameAttribute == usernameAttribute &&
+          other.nicknameAttribute == nicknameAttribute &&
+          other.idAttribute == idAttribute &&
+          other.positionAttribute == positionAttribute &&
+          other.syncIntervalMinutes == syncIntervalMinutes &&
+          other.skipCertificateVerification == skipCertificateVerification &&
+          other.queryTimeout == queryTimeout &&
+          other.maxPageSize == maxPageSize &&
+          other.loginFieldName == loginFieldName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (ldapServer == null ? 0 : ldapServer!.hashCode) +
-    (ldapPort == null ? 0 : ldapPort!.hashCode) +
-    (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
-    (baseDN == null ? 0 : baseDN!.hashCode) +
-    (bindUsername == null ? 0 : bindUsername!.hashCode) +
-    (bindPassword == null ? 0 : bindPassword!.hashCode) +
-    (userFilter == null ? 0 : userFilter!.hashCode) +
-    (firstNameAttribute == null ? 0 : firstNameAttribute!.hashCode) +
-    (lastNameAttribute == null ? 0 : lastNameAttribute!.hashCode) +
-    (emailAttribute == null ? 0 : emailAttribute!.hashCode) +
-    (usernameAttribute == null ? 0 : usernameAttribute!.hashCode) +
-    (nicknameAttribute == null ? 0 : nicknameAttribute!.hashCode) +
-    (idAttribute == null ? 0 : idAttribute!.hashCode) +
-    (positionAttribute == null ? 0 : positionAttribute!.hashCode) +
-    (syncIntervalMinutes == null ? 0 : syncIntervalMinutes!.hashCode) +
-    (skipCertificateVerification == null ? 0 : skipCertificateVerification!.hashCode) +
-    (queryTimeout == null ? 0 : queryTimeout!.hashCode) +
-    (maxPageSize == null ? 0 : maxPageSize!.hashCode) +
-    (loginFieldName == null ? 0 : loginFieldName!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (ldapServer == null ? 0 : ldapServer!.hashCode) +
+      (ldapPort == null ? 0 : ldapPort!.hashCode) +
+      (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
+      (baseDN == null ? 0 : baseDN!.hashCode) +
+      (bindUsername == null ? 0 : bindUsername!.hashCode) +
+      (bindPassword == null ? 0 : bindPassword!.hashCode) +
+      (userFilter == null ? 0 : userFilter!.hashCode) +
+      (firstNameAttribute == null ? 0 : firstNameAttribute!.hashCode) +
+      (lastNameAttribute == null ? 0 : lastNameAttribute!.hashCode) +
+      (emailAttribute == null ? 0 : emailAttribute!.hashCode) +
+      (usernameAttribute == null ? 0 : usernameAttribute!.hashCode) +
+      (nicknameAttribute == null ? 0 : nicknameAttribute!.hashCode) +
+      (idAttribute == null ? 0 : idAttribute!.hashCode) +
+      (positionAttribute == null ? 0 : positionAttribute!.hashCode) +
+      (syncIntervalMinutes == null ? 0 : syncIntervalMinutes!.hashCode) +
+      (skipCertificateVerification == null ? 0 : skipCertificateVerification!.hashCode) +
+      (queryTimeout == null ? 0 : queryTimeout!.hashCode) +
+      (maxPageSize == null ? 0 : maxPageSize!.hashCode) +
+      (loginFieldName == null ? 0 : loginFieldName!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
+  String toString() =>
+      'MattermostConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -354,7 +357,10 @@ class MattermostConfigLdapSettings {
     return null;
   }
 
-  static List<MattermostConfigLdapSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigLdapSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigLdapSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -382,12 +388,18 @@ class MattermostConfigLdapSettings {
   }
 
   // maps a json object with a list of MattermostConfigLdapSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigLdapSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigLdapSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigLdapSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigLdapSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigLdapSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -397,7 +409,5 @@ class MattermostConfigLdapSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

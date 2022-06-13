@@ -44,17 +44,16 @@ class MattermostSlackAttachmentField {
   bool? short;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSlackAttachmentField &&
-     other.title == title &&
-     other.value == value &&
-     other.short == short;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSlackAttachmentField && other.title == title && other.value == value && other.short == short;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (title == null ? 0 : title!.hashCode) +
-    (value == null ? 0 : value!.hashCode) +
-    (short == null ? 0 : short!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (title == null ? 0 : title!.hashCode) +
+      (value == null ? 0 : value!.hashCode) +
+      (short == null ? 0 : short!.hashCode);
 
   @override
   String toString() => 'MattermostSlackAttachmentField[title=$title, value=$value, short=$short]';
@@ -100,7 +99,10 @@ class MattermostSlackAttachmentField {
     return null;
   }
 
-  static List<MattermostSlackAttachmentField>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSlackAttachmentField>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSlackAttachmentField>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -128,12 +130,18 @@ class MattermostSlackAttachmentField {
   }
 
   // maps a json object with a list of MattermostSlackAttachmentField-objects as value to a dart map
-  static Map<String, List<MattermostSlackAttachmentField>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSlackAttachmentField>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSlackAttachmentField>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSlackAttachmentField.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSlackAttachmentField.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,7 +151,5 @@ class MattermostSlackAttachmentField {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

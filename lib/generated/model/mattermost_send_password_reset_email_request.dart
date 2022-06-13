@@ -20,20 +20,20 @@ class MattermostSendPasswordResetEmailRequest {
   String email;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSendPasswordResetEmailRequest &&
-     other.email == email;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostSendPasswordResetEmailRequest && other.email == email;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email.hashCode);
 
   @override
   String toString() => 'MattermostSendPasswordResetEmailRequest[email=$email]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'email'] = email;
+    _json[r'email'] = email;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostSendPasswordResetEmailRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSendPasswordResetEmailRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSendPasswordResetEmailRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostSendPasswordResetEmailRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostSendPasswordResetEmailRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostSendPasswordResetEmailRequest {
     return null;
   }
 
-  static List<MattermostSendPasswordResetEmailRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSendPasswordResetEmailRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSendPasswordResetEmailRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostSendPasswordResetEmailRequest {
   }
 
   // maps a json object with a list of MattermostSendPasswordResetEmailRequest-objects as value to a dart map
-  static Map<String, List<MattermostSendPasswordResetEmailRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSendPasswordResetEmailRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSendPasswordResetEmailRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSendPasswordResetEmailRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSendPasswordResetEmailRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostSendPasswordResetEmailRequest {
     'email',
   };
 }
-

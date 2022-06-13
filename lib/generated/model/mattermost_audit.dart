@@ -80,28 +80,31 @@ class MattermostAudit {
   String? sessionId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAudit &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.userId == userId &&
-     other.action == action &&
-     other.extraInfo == extraInfo &&
-     other.ipAddress == ipAddress &&
-     other.sessionId == sessionId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostAudit &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.userId == userId &&
+          other.action == action &&
+          other.extraInfo == extraInfo &&
+          other.ipAddress == ipAddress &&
+          other.sessionId == sessionId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (action == null ? 0 : action!.hashCode) +
-    (extraInfo == null ? 0 : extraInfo!.hashCode) +
-    (ipAddress == null ? 0 : ipAddress!.hashCode) +
-    (sessionId == null ? 0 : sessionId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (action == null ? 0 : action!.hashCode) +
+      (extraInfo == null ? 0 : extraInfo!.hashCode) +
+      (ipAddress == null ? 0 : ipAddress!.hashCode) +
+      (sessionId == null ? 0 : sessionId!.hashCode);
 
   @override
-  String toString() => 'MattermostAudit[id=$id, createAt=$createAt, userId=$userId, action=$action, extraInfo=$extraInfo, ipAddress=$ipAddress, sessionId=$sessionId]';
+  String toString() =>
+      'MattermostAudit[id=$id, createAt=$createAt, userId=$userId, action=$action, extraInfo=$extraInfo, ipAddress=$ipAddress, sessionId=$sessionId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -160,7 +163,10 @@ class MattermostAudit {
     return null;
   }
 
-  static List<MattermostAudit>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAudit>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAudit>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -188,12 +194,18 @@ class MattermostAudit {
   }
 
   // maps a json object with a list of MattermostAudit-objects as value to a dart map
-  static Map<String, List<MattermostAudit>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAudit>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAudit>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAudit.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAudit.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -203,7 +215,5 @@ class MattermostAudit {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

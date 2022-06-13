@@ -61,24 +61,27 @@ class MattermostEnvironmentConfigPasswordSettings {
   bool? symbol;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigPasswordSettings &&
-     other.minimumLength == minimumLength &&
-     other.lowercase == lowercase &&
-     other.number == number &&
-     other.uppercase == uppercase &&
-     other.symbol == symbol;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigPasswordSettings &&
+          other.minimumLength == minimumLength &&
+          other.lowercase == lowercase &&
+          other.number == number &&
+          other.uppercase == uppercase &&
+          other.symbol == symbol;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (minimumLength == null ? 0 : minimumLength!.hashCode) +
-    (lowercase == null ? 0 : lowercase!.hashCode) +
-    (number == null ? 0 : number!.hashCode) +
-    (uppercase == null ? 0 : uppercase!.hashCode) +
-    (symbol == null ? 0 : symbol!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (minimumLength == null ? 0 : minimumLength!.hashCode) +
+      (lowercase == null ? 0 : lowercase!.hashCode) +
+      (number == null ? 0 : number!.hashCode) +
+      (uppercase == null ? 0 : uppercase!.hashCode) +
+      (symbol == null ? 0 : symbol!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
+  String toString() =>
+      'MattermostEnvironmentConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -112,8 +115,10 @@ class MattermostEnvironmentConfigPasswordSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigPasswordSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigPasswordSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigPasswordSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigPasswordSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -129,7 +134,10 @@ class MattermostEnvironmentConfigPasswordSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigPasswordSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigPasswordSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigPasswordSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +165,18 @@ class MattermostEnvironmentConfigPasswordSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigPasswordSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigPasswordSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigPasswordSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigPasswordSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigPasswordSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigPasswordSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +186,5 @@ class MattermostEnvironmentConfigPasswordSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

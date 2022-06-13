@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostPostsApi {
   MattermostPostsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostPostsApi {
 
   /// Create a post
   ///
-  /// Create a new post in a channel. To create the post as a comment on another post, provide `root_id`. ##### Permissions Must have `create_post` permission for the channel the post is being created in. 
+  /// Create a new post in a channel. To create the post as a comment on another post, provide `root_id`. ##### Permissions Must have `create_post` permission for the channel the post is being created in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -29,7 +28,10 @@ class MattermostPostsApi {
   ///
   /// * [bool] setOnline:
   ///   Whether to set the user status as online or not.
-  Future<Response> createPostWithHttpInfo(MattermostCreatePostRequest mattermostCreatePostRequest, { bool? setOnline, }) async {
+  Future<Response> createPostWithHttpInfo(
+    MattermostCreatePostRequest mattermostCreatePostRequest, {
+    bool? setOnline,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/posts';
 
@@ -46,7 +48,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -60,7 +61,7 @@ class MattermostPostsApi {
 
   /// Create a post
   ///
-  /// Create a new post in a channel. To create the post as a comment on another post, provide `root_id`. ##### Permissions Must have `create_post` permission for the channel the post is being created in. 
+  /// Create a new post in a channel. To create the post as a comment on another post, provide `root_id`. ##### Permissions Must have `create_post` permission for the channel the post is being created in.
   ///
   /// Parameters:
   ///
@@ -69,8 +70,14 @@ class MattermostPostsApi {
   ///
   /// * [bool] setOnline:
   ///   Whether to set the user status as online or not.
-  Future<MattermostPost?> createPost(MattermostCreatePostRequest mattermostCreatePostRequest, { bool? setOnline, }) async {
-    final response = await createPostWithHttpInfo(mattermostCreatePostRequest,  setOnline: setOnline, );
+  Future<MattermostPost?> createPost(
+    MattermostCreatePostRequest mattermostCreatePostRequest, {
+    bool? setOnline,
+  }) async {
+    final response = await createPostWithHttpInfo(
+      mattermostCreatePostRequest,
+      setOnline: setOnline,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -78,15 +85,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPost',) as MattermostPost;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPost',
+      ) as MattermostPost;
     }
     return null;
   }
 
   /// Create a ephemeral post
   ///
-  /// Create a new ephemeral post in a channel. ##### Permissions Must have `create_post_ephemeral` permission (currently only given to system admin) 
+  /// Create a new ephemeral post in a channel. ##### Permissions Must have `create_post_ephemeral` permission (currently only given to system admin)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -94,7 +103,9 @@ class MattermostPostsApi {
   ///
   /// * [MattermostCreatePostEphemeralRequest] mattermostCreatePostEphemeralRequest (required):
   ///   Ephemeral Post object to send
-  Future<Response> createPostEphemeralWithHttpInfo(MattermostCreatePostEphemeralRequest mattermostCreatePostEphemeralRequest,) async {
+  Future<Response> createPostEphemeralWithHttpInfo(
+    MattermostCreatePostEphemeralRequest mattermostCreatePostEphemeralRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/ephemeral';
 
@@ -106,7 +117,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -121,14 +131,18 @@ class MattermostPostsApi {
 
   /// Create a ephemeral post
   ///
-  /// Create a new ephemeral post in a channel. ##### Permissions Must have `create_post_ephemeral` permission (currently only given to system admin) 
+  /// Create a new ephemeral post in a channel. ##### Permissions Must have `create_post_ephemeral` permission (currently only given to system admin)
   ///
   /// Parameters:
   ///
   /// * [MattermostCreatePostEphemeralRequest] mattermostCreatePostEphemeralRequest (required):
   ///   Ephemeral Post object to send
-  Future<MattermostPost?> createPostEphemeral(MattermostCreatePostEphemeralRequest mattermostCreatePostEphemeralRequest,) async {
-    final response = await createPostEphemeralWithHttpInfo(mattermostCreatePostEphemeralRequest,);
+  Future<MattermostPost?> createPostEphemeral(
+    MattermostCreatePostEphemeralRequest mattermostCreatePostEphemeralRequest,
+  ) async {
+    final response = await createPostEphemeralWithHttpInfo(
+      mattermostCreatePostEphemeralRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -136,15 +150,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPost',) as MattermostPost;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPost',
+      ) as MattermostPost;
     }
     return null;
   }
 
   /// Delete a post
   ///
-  /// Soft deletes a post, by marking the post as deleted in the database. Soft deleted posts will not be returned in post queries. ##### Permissions Must be logged in as the user or have `delete_others_posts` permission. 
+  /// Soft deletes a post, by marking the post as deleted in the database. Soft deleted posts will not be returned in post queries. ##### Permissions Must be logged in as the user or have `delete_others_posts` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -152,10 +168,11 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   ID of the post to delete
-  Future<Response> deletePostWithHttpInfo(String postId,) async {
+  Future<Response> deletePostWithHttpInfo(
+    String postId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -165,7 +182,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -180,14 +196,18 @@ class MattermostPostsApi {
 
   /// Delete a post
   ///
-  /// Soft deletes a post, by marking the post as deleted in the database. Soft deleted posts will not be returned in post queries. ##### Permissions Must be logged in as the user or have `delete_others_posts` permission. 
+  /// Soft deletes a post, by marking the post as deleted in the database. Soft deleted posts will not be returned in post queries. ##### Permissions Must be logged in as the user or have `delete_others_posts` permission.
   ///
   /// Parameters:
   ///
   /// * [String] postId (required):
   ///   ID of the post to delete
-  Future<MattermostStatusOK?> deletePost(String postId,) async {
-    final response = await deletePostWithHttpInfo(postId,);
+  Future<MattermostStatusOK?> deletePost(
+    String postId,
+  ) async {
+    final response = await deletePostWithHttpInfo(
+      postId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -195,15 +215,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Perform a post action
   ///
-  /// Perform a post action, which allows users to interact with integrations through posts. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Perform a post action, which allows users to interact with integrations through posts. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -214,11 +236,13 @@ class MattermostPostsApi {
   ///
   /// * [String] actionId (required):
   ///   Action GUID
-  Future<Response> doPostActionWithHttpInfo(String postId, String actionId,) async {
+  Future<Response> doPostActionWithHttpInfo(
+    String postId,
+    String actionId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/actions/{action_id}'
-      .replaceAll('{post_id}', postId)
-      .replaceAll('{action_id}', actionId);
+    final path =
+        r'/posts/{post_id}/actions/{action_id}'.replaceAll('{post_id}', postId).replaceAll('{action_id}', actionId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -228,7 +252,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -243,7 +266,7 @@ class MattermostPostsApi {
 
   /// Perform a post action
   ///
-  /// Perform a post action, which allows users to interact with integrations through posts. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Perform a post action, which allows users to interact with integrations through posts. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Parameters:
   ///
@@ -252,8 +275,14 @@ class MattermostPostsApi {
   ///
   /// * [String] actionId (required):
   ///   Action GUID
-  Future<MattermostStatusOK?> doPostAction(String postId, String actionId,) async {
-    final response = await doPostActionWithHttpInfo(postId, actionId,);
+  Future<MattermostStatusOK?> doPostAction(
+    String postId,
+    String actionId,
+  ) async {
+    final response = await doPostActionWithHttpInfo(
+      postId,
+      actionId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -261,15 +290,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get file info for post
   ///
-  /// Gets a list of file information objects for the files attached to a post. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Gets a list of file information objects for the files attached to a post. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -280,10 +311,12 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<Response> getFileInfosForPostWithHttpInfo(String postId, { bool? includeDeleted, }) async {
+  Future<Response> getFileInfosForPostWithHttpInfo(
+    String postId, {
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/files/info'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/files/info'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -298,7 +331,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -312,7 +344,7 @@ class MattermostPostsApi {
 
   /// Get file info for post
   ///
-  /// Gets a list of file information objects for the files attached to a post. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Gets a list of file information objects for the files attached to a post. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Parameters:
   ///
@@ -321,8 +353,14 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<List<MattermostFileInfo>?> getFileInfosForPost(String postId, { bool? includeDeleted, }) async {
-    final response = await getFileInfosForPostWithHttpInfo(postId,  includeDeleted: includeDeleted, );
+  Future<List<MattermostFileInfo>?> getFileInfosForPost(
+    String postId, {
+    bool? includeDeleted,
+  }) async {
+    final response = await getFileInfosForPostWithHttpInfo(
+      postId,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -332,16 +370,15 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostFileInfo>') as List)
-        .cast<MattermostFileInfo>()
-        .toList();
-
+          .cast<MattermostFileInfo>()
+          .toList();
     }
     return null;
   }
 
   /// Get a list of flagged posts
   ///
-  /// Get a page of flagged posts of a user provided user id string. Selects from a channel, team, or all flagged posts by a user. Will only return posts from channels in which the user is member. ##### Permissions Must be user or have `manage_system` permission. 
+  /// Get a page of flagged posts of a user provided user id string. Selects from a channel, team, or all flagged posts by a user. Will only return posts from channels in which the user is member. ##### Permissions Must be user or have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -361,10 +398,15 @@ class MattermostPostsApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page
-  Future<Response> getFlaggedPostsForUserWithHttpInfo(String userId, { String? teamId, String? channelId, int? page, int? perPage, }) async {
+  Future<Response> getFlaggedPostsForUserWithHttpInfo(
+    String userId, {
+    String? teamId,
+    String? channelId,
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/posts/flagged'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/posts/flagged'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -388,7 +430,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -402,7 +443,7 @@ class MattermostPostsApi {
 
   /// Get a list of flagged posts
   ///
-  /// Get a page of flagged posts of a user provided user id string. Selects from a channel, team, or all flagged posts by a user. Will only return posts from channels in which the user is member. ##### Permissions Must be user or have `manage_system` permission. 
+  /// Get a page of flagged posts of a user provided user id string. Selects from a channel, team, or all flagged posts by a user. Will only return posts from channels in which the user is member. ##### Permissions Must be user or have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -420,8 +461,20 @@ class MattermostPostsApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page
-  Future<List<MattermostPostList>?> getFlaggedPostsForUser(String userId, { String? teamId, String? channelId, int? page, int? perPage, }) async {
-    final response = await getFlaggedPostsForUserWithHttpInfo(userId,  teamId: teamId, channelId: channelId, page: page, perPage: perPage, );
+  Future<List<MattermostPostList>?> getFlaggedPostsForUser(
+    String userId, {
+    String? teamId,
+    String? channelId,
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getFlaggedPostsForUserWithHttpInfo(
+      userId,
+      teamId: teamId,
+      channelId: channelId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -431,16 +484,15 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPostList>') as List)
-        .cast<MattermostPostList>()
-        .toList();
-
+          .cast<MattermostPostList>()
+          .toList();
     }
     return null;
   }
 
   /// Get a post
   ///
-  /// Get a single post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Get a single post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -451,10 +503,12 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<Response> getPostWithHttpInfo(String postId, { bool? includeDeleted, }) async {
+  Future<Response> getPostWithHttpInfo(
+    String postId, {
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -469,7 +523,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -483,7 +536,7 @@ class MattermostPostsApi {
 
   /// Get a post
   ///
-  /// Get a single post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Get a single post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Parameters:
   ///
@@ -492,8 +545,14 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<MattermostPost?> getPost(String postId, { bool? includeDeleted, }) async {
-    final response = await getPostWithHttpInfo(postId,  includeDeleted: includeDeleted, );
+  Future<MattermostPost?> getPost(
+    String postId, {
+    bool? includeDeleted,
+  }) async {
+    final response = await getPostWithHttpInfo(
+      postId,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -501,15 +560,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPost',) as MattermostPost;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPost',
+      ) as MattermostPost;
     }
     return null;
   }
 
   /// Get a thread
   ///
-  /// Get a post and the rest of the posts in the same thread. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Get a post and the rest of the posts in the same thread. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -538,10 +599,18 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<Response> getPostThreadWithHttpInfo(String postId, { int? perPage, String? fromPost, int? fromCreateAt, String? direction, bool? skipFetchThreads, bool? collapsedThreads, bool? collapsedThreadsExtended, }) async {
+  Future<Response> getPostThreadWithHttpInfo(
+    String postId, {
+    int? perPage,
+    String? fromPost,
+    int? fromCreateAt,
+    String? direction,
+    bool? skipFetchThreads,
+    bool? collapsedThreads,
+    bool? collapsedThreadsExtended,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/thread'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/thread'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -574,7 +643,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -588,7 +656,7 @@ class MattermostPostsApi {
 
   /// Get a thread
   ///
-  /// Get a post and the rest of the posts in the same thread. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Get a post and the rest of the posts in the same thread. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Parameters:
   ///
@@ -615,8 +683,26 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<MattermostPostList?> getPostThread(String postId, { int? perPage, String? fromPost, int? fromCreateAt, String? direction, bool? skipFetchThreads, bool? collapsedThreads, bool? collapsedThreadsExtended, }) async {
-    final response = await getPostThreadWithHttpInfo(postId,  perPage: perPage, fromPost: fromPost, fromCreateAt: fromCreateAt, direction: direction, skipFetchThreads: skipFetchThreads, collapsedThreads: collapsedThreads, collapsedThreadsExtended: collapsedThreadsExtended, );
+  Future<MattermostPostList?> getPostThread(
+    String postId, {
+    int? perPage,
+    String? fromPost,
+    int? fromCreateAt,
+    String? direction,
+    bool? skipFetchThreads,
+    bool? collapsedThreads,
+    bool? collapsedThreadsExtended,
+  }) async {
+    final response = await getPostThreadWithHttpInfo(
+      postId,
+      perPage: perPage,
+      fromPost: fromPost,
+      fromCreateAt: fromCreateAt,
+      direction: direction,
+      skipFetchThreads: skipFetchThreads,
+      collapsedThreads: collapsedThreads,
+      collapsedThreadsExtended: collapsedThreadsExtended,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -624,15 +710,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostList',) as MattermostPostList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostList',
+      ) as MattermostPostList;
     }
     return null;
   }
 
   /// Get posts around oldest unread
   ///
-  /// Get the oldest unread post in the channel for the given user as well as the posts around it. The returned list is sorted in descending order (most recent post first). ##### Permissions Must be logged in as the user or have `edit_other_users` permission, and must have `read_channel` permission for the channel. __Minimum server version__: 5.14 
+  /// Get the oldest unread post in the channel for the given user as well as the posts around it. The returned list is sorted in descending order (most recent post first). ##### Permissions Must be logged in as the user or have `edit_other_users` permission, and must have `read_channel` permission for the channel. __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -658,11 +746,19 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<Response> getPostsAroundLastUnreadWithHttpInfo(String userId, String channelId, { int? limitBefore, int? limitAfter, bool? skipFetchThreads, bool? collapsedThreads, bool? collapsedThreadsExtended, }) async {
+  Future<Response> getPostsAroundLastUnreadWithHttpInfo(
+    String userId,
+    String channelId, {
+    int? limitBefore,
+    int? limitAfter,
+    bool? skipFetchThreads,
+    bool? collapsedThreads,
+    bool? collapsedThreadsExtended,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/channels/{channel_id}/posts/unread'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -689,7 +785,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -703,7 +798,7 @@ class MattermostPostsApi {
 
   /// Get posts around oldest unread
   ///
-  /// Get the oldest unread post in the channel for the given user as well as the posts around it. The returned list is sorted in descending order (most recent post first). ##### Permissions Must be logged in as the user or have `edit_other_users` permission, and must have `read_channel` permission for the channel. __Minimum server version__: 5.14 
+  /// Get the oldest unread post in the channel for the given user as well as the posts around it. The returned list is sorted in descending order (most recent post first). ##### Permissions Must be logged in as the user or have `edit_other_users` permission, and must have `read_channel` permission for the channel. __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
@@ -727,8 +822,24 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<MattermostPostList?> getPostsAroundLastUnread(String userId, String channelId, { int? limitBefore, int? limitAfter, bool? skipFetchThreads, bool? collapsedThreads, bool? collapsedThreadsExtended, }) async {
-    final response = await getPostsAroundLastUnreadWithHttpInfo(userId, channelId,  limitBefore: limitBefore, limitAfter: limitAfter, skipFetchThreads: skipFetchThreads, collapsedThreads: collapsedThreads, collapsedThreadsExtended: collapsedThreadsExtended, );
+  Future<MattermostPostList?> getPostsAroundLastUnread(
+    String userId,
+    String channelId, {
+    int? limitBefore,
+    int? limitAfter,
+    bool? skipFetchThreads,
+    bool? collapsedThreads,
+    bool? collapsedThreadsExtended,
+  }) async {
+    final response = await getPostsAroundLastUnreadWithHttpInfo(
+      userId,
+      channelId,
+      limitBefore: limitBefore,
+      limitAfter: limitAfter,
+      skipFetchThreads: skipFetchThreads,
+      collapsedThreads: collapsedThreads,
+      collapsedThreadsExtended: collapsedThreadsExtended,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -736,15 +847,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostList',) as MattermostPostList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostList',
+      ) as MattermostPostList;
     }
     return null;
   }
 
   /// Get posts by a list of ids
   ///
-  /// Fetch a list of posts based on the provided postIDs ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Fetch a list of posts based on the provided postIDs ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -752,7 +865,9 @@ class MattermostPostsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of post ids
-  Future<Response> getPostsByIdsWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> getPostsByIdsWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/ids';
 
@@ -764,7 +879,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -779,14 +893,18 @@ class MattermostPostsApi {
 
   /// Get posts by a list of ids
   ///
-  /// Fetch a list of posts based on the provided postIDs ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. 
+  /// Fetch a list of posts based on the provided postIDs ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team.
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   List of post ids
-  Future<List<MattermostPost>?> getPostsByIds(List<String> requestBody,) async {
-    final response = await getPostsByIdsWithHttpInfo(requestBody,);
+  Future<List<MattermostPost>?> getPostsByIds(
+    List<String> requestBody,
+  ) async {
+    final response = await getPostsByIdsWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -796,16 +914,15 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPost>') as List)
-        .cast<MattermostPost>()
-        .toList();
-
+          .cast<MattermostPost>()
+          .toList();
     }
     return null;
   }
 
   /// Get posts for a channel
   ///
-  /// Get a page of posts in a channel. Use the query parameters to modify the behaviour of this endpoint. The parameter `since` must not be used with any of `before`, `after`, `page`, and `per_page` parameters. If `since` is used, it will always return all posts modified since that time, ordered by their create time limited till 1000. A caveat with this parameter is that there is no guarantee that the returned posts will be consecutive. It is left to the clients to maintain state and fill any missing holes in the post order. ##### Permissions Must have `read_channel` permission for the channel. 
+  /// Get a page of posts in a channel. Use the query parameters to modify the behaviour of this endpoint. The parameter `since` must not be used with any of `before`, `after`, `page`, and `per_page` parameters. If `since` is used, it will always return all posts modified since that time, ordered by their create time limited till 1000. A caveat with this parameter is that there is no guarantee that the returned posts will be consecutive. It is left to the clients to maintain state and fill any missing holes in the post order. ##### Permissions Must have `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -828,10 +945,16 @@ class MattermostPostsApi {
   ///
   /// * [String] after:
   ///   A post id to select the posts that came after this one
-  Future<Response> getPostsForChannelWithHttpInfo(String channelId, { int? page, int? perPage, int? since, String? before, String? after, }) async {
+  Future<Response> getPostsForChannelWithHttpInfo(
+    String channelId, {
+    int? page,
+    int? perPage,
+    int? since,
+    String? before,
+    String? after,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/posts'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/posts'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -858,7 +981,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -872,7 +994,7 @@ class MattermostPostsApi {
 
   /// Get posts for a channel
   ///
-  /// Get a page of posts in a channel. Use the query parameters to modify the behaviour of this endpoint. The parameter `since` must not be used with any of `before`, `after`, `page`, and `per_page` parameters. If `since` is used, it will always return all posts modified since that time, ordered by their create time limited till 1000. A caveat with this parameter is that there is no guarantee that the returned posts will be consecutive. It is left to the clients to maintain state and fill any missing holes in the post order. ##### Permissions Must have `read_channel` permission for the channel. 
+  /// Get a page of posts in a channel. Use the query parameters to modify the behaviour of this endpoint. The parameter `since` must not be used with any of `before`, `after`, `page`, and `per_page` parameters. If `since` is used, it will always return all posts modified since that time, ordered by their create time limited till 1000. A caveat with this parameter is that there is no guarantee that the returned posts will be consecutive. It is left to the clients to maintain state and fill any missing holes in the post order. ##### Permissions Must have `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -893,8 +1015,22 @@ class MattermostPostsApi {
   ///
   /// * [String] after:
   ///   A post id to select the posts that came after this one
-  Future<MattermostPostList?> getPostsForChannel(String channelId, { int? page, int? perPage, int? since, String? before, String? after, }) async {
-    final response = await getPostsForChannelWithHttpInfo(channelId,  page: page, perPage: perPage, since: since, before: before, after: after, );
+  Future<MattermostPostList?> getPostsForChannel(
+    String channelId, {
+    int? page,
+    int? perPage,
+    int? since,
+    String? before,
+    String? after,
+  }) async {
+    final response = await getPostsForChannelWithHttpInfo(
+      channelId,
+      page: page,
+      perPage: perPage,
+      since: since,
+      before: before,
+      after: after,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -902,15 +1038,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostList',) as MattermostPostList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostList',
+      ) as MattermostPostList;
     }
     return null;
   }
 
   /// Patch a post
   ///
-  /// Partially update a post by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have the `edit_post` permission. 
+  /// Partially update a post by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have the `edit_post` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -921,10 +1059,12 @@ class MattermostPostsApi {
   ///
   /// * [MattermostPatchPostRequest] mattermostPatchPostRequest (required):
   ///   Post object that is to be updated
-  Future<Response> patchPostWithHttpInfo(String postId, MattermostPatchPostRequest mattermostPatchPostRequest,) async {
+  Future<Response> patchPostWithHttpInfo(
+    String postId,
+    MattermostPatchPostRequest mattermostPatchPostRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/patch'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/patch'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchPostRequest;
@@ -935,7 +1075,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -949,7 +1088,7 @@ class MattermostPostsApi {
 
   /// Patch a post
   ///
-  /// Partially update a post by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have the `edit_post` permission. 
+  /// Partially update a post by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have the `edit_post` permission.
   ///
   /// Parameters:
   ///
@@ -958,8 +1097,14 @@ class MattermostPostsApi {
   ///
   /// * [MattermostPatchPostRequest] mattermostPatchPostRequest (required):
   ///   Post object that is to be updated
-  Future<MattermostPost?> patchPost(String postId, MattermostPatchPostRequest mattermostPatchPostRequest,) async {
-    final response = await patchPostWithHttpInfo(postId, mattermostPatchPostRequest,);
+  Future<MattermostPost?> patchPost(
+    String postId,
+    MattermostPatchPostRequest mattermostPatchPostRequest,
+  ) async {
+    final response = await patchPostWithHttpInfo(
+      postId,
+      mattermostPatchPostRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -967,15 +1112,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPost',) as MattermostPost;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPost',
+      ) as MattermostPost;
     }
     return null;
   }
 
   /// Pin a post to the channel
   ///
-  /// Pin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Pin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -983,10 +1130,11 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<Response> pinPostWithHttpInfo(String postId,) async {
+  Future<Response> pinPostWithHttpInfo(
+    String postId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/pin'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/pin'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -996,7 +1144,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1011,14 +1158,18 @@ class MattermostPostsApi {
 
   /// Pin a post to the channel
   ///
-  /// Pin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Pin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Parameters:
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MattermostStatusOK?> pinPost(String postId,) async {
-    final response = await pinPostWithHttpInfo(postId,);
+  Future<MattermostStatusOK?> pinPost(
+    String postId,
+  ) async {
+    final response = await pinPostWithHttpInfo(
+      postId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1026,15 +1177,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Search for team posts
   ///
-  /// Search posts in the team and from the provided terms string. ##### Permissions Must be authenticated and have the `view_team` permission. 
+  /// Search posts in the team and from the provided terms string. ##### Permissions Must be authenticated and have the `view_team` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1045,10 +1198,12 @@ class MattermostPostsApi {
   ///
   /// * [MattermostSearchPostsRequest] mattermostSearchPostsRequest (required):
   ///   The search terms and logic to use in the search.
-  Future<Response> searchPostsWithHttpInfo(String teamId, MattermostSearchPostsRequest mattermostSearchPostsRequest,) async {
+  Future<Response> searchPostsWithHttpInfo(
+    String teamId,
+    MattermostSearchPostsRequest mattermostSearchPostsRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/posts/search'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/posts/search'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSearchPostsRequest;
@@ -1059,7 +1214,6 @@ class MattermostPostsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1073,7 +1227,7 @@ class MattermostPostsApi {
 
   /// Search for team posts
   ///
-  /// Search posts in the team and from the provided terms string. ##### Permissions Must be authenticated and have the `view_team` permission. 
+  /// Search posts in the team and from the provided terms string. ##### Permissions Must be authenticated and have the `view_team` permission.
   ///
   /// Parameters:
   ///
@@ -1082,8 +1236,14 @@ class MattermostPostsApi {
   ///
   /// * [MattermostSearchPostsRequest] mattermostSearchPostsRequest (required):
   ///   The search terms and logic to use in the search.
-  Future<MattermostPostListWithSearchMatches?> searchPosts(String teamId, MattermostSearchPostsRequest mattermostSearchPostsRequest,) async {
-    final response = await searchPostsWithHttpInfo(teamId, mattermostSearchPostsRequest,);
+  Future<MattermostPostListWithSearchMatches?> searchPosts(
+    String teamId,
+    MattermostSearchPostsRequest mattermostSearchPostsRequest,
+  ) async {
+    final response = await searchPostsWithHttpInfo(
+      teamId,
+      mattermostSearchPostsRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1091,15 +1251,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostListWithSearchMatches',) as MattermostPostListWithSearchMatches;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostListWithSearchMatches',
+      ) as MattermostPostListWithSearchMatches;
     }
     return null;
   }
 
   /// Mark as unread from a post.
   ///
-  /// Mark a channel as being unread from a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. Must have `edit_other_users` permission if the user is not the one marking the post for himself.  __Minimum server version__: 5.18 
+  /// Mark a channel as being unread from a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. Must have `edit_other_users` permission if the user is not the one marking the post for himself.  __Minimum server version__: 5.18
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1110,11 +1272,13 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<Response> setPostUnreadWithHttpInfo(String userId, String postId,) async {
+  Future<Response> setPostUnreadWithHttpInfo(
+    String userId,
+    String postId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/posts/{post_id}/set_unread'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{post_id}', postId);
+    final path =
+        r'/users/{user_id}/posts/{post_id}/set_unread'.replaceAll('{user_id}', userId).replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1124,7 +1288,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1139,7 +1302,7 @@ class MattermostPostsApi {
 
   /// Mark as unread from a post.
   ///
-  /// Mark a channel as being unread from a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. Must have `edit_other_users` permission if the user is not the one marking the post for himself.  __Minimum server version__: 5.18 
+  /// Mark a channel as being unread from a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in or if the channel is public, have the `read_public_channels` permission for the team. Must have `edit_other_users` permission if the user is not the one marking the post for himself.  __Minimum server version__: 5.18
   ///
   /// Parameters:
   ///
@@ -1148,8 +1311,14 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MattermostChannelUnreadAt?> setPostUnread(String userId, String postId,) async {
-    final response = await setPostUnreadWithHttpInfo(userId, postId,);
+  Future<MattermostChannelUnreadAt?> setPostUnread(
+    String userId,
+    String postId,
+  ) async {
+    final response = await setPostUnreadWithHttpInfo(
+      userId,
+      postId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1157,15 +1326,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannelUnreadAt',) as MattermostChannelUnreadAt;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannelUnreadAt',
+      ) as MattermostChannelUnreadAt;
     }
     return null;
   }
 
   /// Unpin a post to the channel
   ///
-  /// Unpin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Unpin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1173,10 +1344,11 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<Response> unpinPostWithHttpInfo(String postId,) async {
+  Future<Response> unpinPostWithHttpInfo(
+    String postId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/unpin'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/unpin'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1186,7 +1358,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1201,14 +1372,18 @@ class MattermostPostsApi {
 
   /// Unpin a post to the channel
   ///
-  /// Unpin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in. 
+  /// Unpin a post to a channel it is in based from the provided post id string. ##### Permissions Must be authenticated and have the `read_channel` permission to the channel the post is in.
   ///
   /// Parameters:
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MattermostStatusOK?> unpinPost(String postId,) async {
-    final response = await unpinPostWithHttpInfo(postId,);
+  Future<MattermostStatusOK?> unpinPost(
+    String postId,
+  ) async {
+    final response = await unpinPostWithHttpInfo(
+      postId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1216,15 +1391,17 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update a post
   ///
-  /// Update a post. Only the fields listed below are updatable, omitted fields will be treated as blank. ##### Permissions Must have `edit_post` permission for the channel the post is in. 
+  /// Update a post. Only the fields listed below are updatable, omitted fields will be treated as blank. ##### Permissions Must have `edit_post` permission for the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1235,10 +1412,12 @@ class MattermostPostsApi {
   ///
   /// * [MattermostUpdatePostRequest] mattermostUpdatePostRequest (required):
   ///   Post object that is to be updated
-  Future<Response> updatePostWithHttpInfo(String postId, MattermostUpdatePostRequest mattermostUpdatePostRequest,) async {
+  Future<Response> updatePostWithHttpInfo(
+    String postId,
+    MattermostUpdatePostRequest mattermostUpdatePostRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdatePostRequest;
@@ -1248,7 +1427,6 @@ class MattermostPostsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1263,7 +1441,7 @@ class MattermostPostsApi {
 
   /// Update a post
   ///
-  /// Update a post. Only the fields listed below are updatable, omitted fields will be treated as blank. ##### Permissions Must have `edit_post` permission for the channel the post is in. 
+  /// Update a post. Only the fields listed below are updatable, omitted fields will be treated as blank. ##### Permissions Must have `edit_post` permission for the channel the post is in.
   ///
   /// Parameters:
   ///
@@ -1272,8 +1450,14 @@ class MattermostPostsApi {
   ///
   /// * [MattermostUpdatePostRequest] mattermostUpdatePostRequest (required):
   ///   Post object that is to be updated
-  Future<MattermostPost?> updatePost(String postId, MattermostUpdatePostRequest mattermostUpdatePostRequest,) async {
-    final response = await updatePostWithHttpInfo(postId, mattermostUpdatePostRequest,);
+  Future<MattermostPost?> updatePost(
+    String postId,
+    MattermostUpdatePostRequest mattermostUpdatePostRequest,
+  ) async {
+    final response = await updatePostWithHttpInfo(
+      postId,
+      mattermostUpdatePostRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1281,8 +1465,10 @@ class MattermostPostsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPost',) as MattermostPost;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPost',
+      ) as MattermostPost;
     }
     return null;
   }

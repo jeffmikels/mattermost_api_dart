@@ -20,20 +20,20 @@ class MattermostCheckUserMfaRequest {
   String loginId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCheckUserMfaRequest &&
-     other.loginId == loginId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostCheckUserMfaRequest && other.loginId == loginId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (loginId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (loginId.hashCode);
 
   @override
   String toString() => 'MattermostCheckUserMfaRequest[loginId=$loginId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'login_id'] = loginId;
+    _json[r'login_id'] = loginId;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostCheckUserMfaRequest {
     return null;
   }
 
-  static List<MattermostCheckUserMfaRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCheckUserMfaRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCheckUserMfaRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostCheckUserMfaRequest {
   }
 
   // maps a json object with a list of MattermostCheckUserMfaRequest-objects as value to a dart map
-  static Map<String, List<MattermostCheckUserMfaRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCheckUserMfaRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCheckUserMfaRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCheckUserMfaRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCheckUserMfaRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostCheckUserMfaRequest {
     'login_id',
   };
 }
-

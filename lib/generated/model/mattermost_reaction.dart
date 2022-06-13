@@ -56,19 +56,21 @@ class MattermostReaction {
   int? createAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostReaction &&
-     other.userId == userId &&
-     other.postId == postId &&
-     other.emojiName == emojiName &&
-     other.createAt == createAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostReaction &&
+          other.userId == userId &&
+          other.postId == postId &&
+          other.emojiName == emojiName &&
+          other.createAt == createAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId == null ? 0 : userId!.hashCode) +
-    (postId == null ? 0 : postId!.hashCode) +
-    (emojiName == null ? 0 : emojiName!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId == null ? 0 : userId!.hashCode) +
+      (postId == null ? 0 : postId!.hashCode) +
+      (emojiName == null ? 0 : emojiName!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode);
 
   @override
   String toString() => 'MattermostReaction[userId=$userId, postId=$postId, emojiName=$emojiName, createAt=$createAt]';
@@ -118,7 +120,10 @@ class MattermostReaction {
     return null;
   }
 
-  static List<MattermostReaction>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostReaction>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostReaction>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +151,18 @@ class MattermostReaction {
   }
 
   // maps a json object with a list of MattermostReaction-objects as value to a dart map
-  static Map<String, List<MattermostReaction>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostReaction>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostReaction>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostReaction.listFromJson(entry.value, growable: growable,);
+        final value = MattermostReaction.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +172,5 @@ class MattermostReaction {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -60,24 +60,27 @@ class MattermostRelationalIntegrityCheckData {
   List<MattermostOrphanedRecord> records;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRelationalIntegrityCheckData &&
-     other.parentName == parentName &&
-     other.childName == childName &&
-     other.parentIdAttr == parentIdAttr &&
-     other.childIdAttr == childIdAttr &&
-     other.records == records;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostRelationalIntegrityCheckData &&
+          other.parentName == parentName &&
+          other.childName == childName &&
+          other.parentIdAttr == parentIdAttr &&
+          other.childIdAttr == childIdAttr &&
+          other.records == records;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (parentName == null ? 0 : parentName!.hashCode) +
-    (childName == null ? 0 : childName!.hashCode) +
-    (parentIdAttr == null ? 0 : parentIdAttr!.hashCode) +
-    (childIdAttr == null ? 0 : childIdAttr!.hashCode) +
-    (records.hashCode);
+      // ignore: unnecessary_parenthesis
+      (parentName == null ? 0 : parentName!.hashCode) +
+      (childName == null ? 0 : childName!.hashCode) +
+      (parentIdAttr == null ? 0 : parentIdAttr!.hashCode) +
+      (childIdAttr == null ? 0 : childIdAttr!.hashCode) +
+      (records.hashCode);
 
   @override
-  String toString() => 'MattermostRelationalIntegrityCheckData[parentName=$parentName, childName=$childName, parentIdAttr=$parentIdAttr, childIdAttr=$childIdAttr, records=$records]';
+  String toString() =>
+      'MattermostRelationalIntegrityCheckData[parentName=$parentName, childName=$childName, parentIdAttr=$parentIdAttr, childIdAttr=$childIdAttr, records=$records]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -93,7 +96,7 @@ class MattermostRelationalIntegrityCheckData {
     if (childIdAttr != null) {
       _json[r'child_id_attr'] = childIdAttr;
     }
-      _json[r'records'] = records;
+    _json[r'records'] = records;
     return _json;
   }
 
@@ -109,8 +112,10 @@ class MattermostRelationalIntegrityCheckData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostRelationalIntegrityCheckData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostRelationalIntegrityCheckData[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostRelationalIntegrityCheckData[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostRelationalIntegrityCheckData[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -126,7 +131,10 @@ class MattermostRelationalIntegrityCheckData {
     return null;
   }
 
-  static List<MattermostRelationalIntegrityCheckData>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRelationalIntegrityCheckData>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRelationalIntegrityCheckData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -154,12 +162,18 @@ class MattermostRelationalIntegrityCheckData {
   }
 
   // maps a json object with a list of MattermostRelationalIntegrityCheckData-objects as value to a dart map
-  static Map<String, List<MattermostRelationalIntegrityCheckData>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRelationalIntegrityCheckData>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRelationalIntegrityCheckData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRelationalIntegrityCheckData.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRelationalIntegrityCheckData.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -169,7 +183,5 @@ class MattermostRelationalIntegrityCheckData {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

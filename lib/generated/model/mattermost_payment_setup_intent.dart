@@ -34,15 +34,14 @@ class MattermostPaymentSetupIntent {
   String? clientSecret;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPaymentSetupIntent &&
-     other.id == id &&
-     other.clientSecret == clientSecret;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPaymentSetupIntent && other.id == id && other.clientSecret == clientSecret;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (clientSecret == null ? 0 : clientSecret!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) + (clientSecret == null ? 0 : clientSecret!.hashCode);
 
   @override
   String toString() => 'MattermostPaymentSetupIntent[id=$id, clientSecret=$clientSecret]';
@@ -84,7 +83,10 @@ class MattermostPaymentSetupIntent {
     return null;
   }
 
-  static List<MattermostPaymentSetupIntent>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPaymentSetupIntent>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPaymentSetupIntent>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostPaymentSetupIntent {
   }
 
   // maps a json object with a list of MattermostPaymentSetupIntent-objects as value to a dart map
-  static Map<String, List<MattermostPaymentSetupIntent>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPaymentSetupIntent>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPaymentSetupIntent>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPaymentSetupIntent.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPaymentSetupIntent.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostPaymentSetupIntent {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

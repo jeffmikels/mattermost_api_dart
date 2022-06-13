@@ -70,26 +70,29 @@ class MattermostEnvironmentConfigRateLimitSettings {
   bool? varyByHeader;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigRateLimitSettings &&
-     other.enable == enable &&
-     other.perSec == perSec &&
-     other.maxBurst == maxBurst &&
-     other.memoryStoreSize == memoryStoreSize &&
-     other.varyByRemoteAddr == varyByRemoteAddr &&
-     other.varyByHeader == varyByHeader;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigRateLimitSettings &&
+          other.enable == enable &&
+          other.perSec == perSec &&
+          other.maxBurst == maxBurst &&
+          other.memoryStoreSize == memoryStoreSize &&
+          other.varyByRemoteAddr == varyByRemoteAddr &&
+          other.varyByHeader == varyByHeader;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (perSec == null ? 0 : perSec!.hashCode) +
-    (maxBurst == null ? 0 : maxBurst!.hashCode) +
-    (memoryStoreSize == null ? 0 : memoryStoreSize!.hashCode) +
-    (varyByRemoteAddr == null ? 0 : varyByRemoteAddr!.hashCode) +
-    (varyByHeader == null ? 0 : varyByHeader!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (perSec == null ? 0 : perSec!.hashCode) +
+      (maxBurst == null ? 0 : maxBurst!.hashCode) +
+      (memoryStoreSize == null ? 0 : memoryStoreSize!.hashCode) +
+      (varyByRemoteAddr == null ? 0 : varyByRemoteAddr!.hashCode) +
+      (varyByHeader == null ? 0 : varyByHeader!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
+  String toString() =>
+      'MattermostEnvironmentConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -126,8 +129,10 @@ class MattermostEnvironmentConfigRateLimitSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigRateLimitSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigRateLimitSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigRateLimitSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigRateLimitSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -144,7 +149,10 @@ class MattermostEnvironmentConfigRateLimitSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigRateLimitSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigRateLimitSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigRateLimitSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +180,18 @@ class MattermostEnvironmentConfigRateLimitSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigRateLimitSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigRateLimitSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigRateLimitSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigRateLimitSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigRateLimitSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigRateLimitSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +201,5 @@ class MattermostEnvironmentConfigRateLimitSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

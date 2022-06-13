@@ -76,26 +76,29 @@ class MattermostEmoji {
   int? deleteAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEmoji &&
-     other.id == id &&
-     other.creatorId == creatorId &&
-     other.name == name &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEmoji &&
+          other.id == id &&
+          other.creatorId == creatorId &&
+          other.name == name &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode);
 
   @override
-  String toString() => 'MattermostEmoji[id=$id, creatorId=$creatorId, name=$name, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt]';
+  String toString() =>
+      'MattermostEmoji[id=$id, creatorId=$creatorId, name=$name, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -150,7 +153,10 @@ class MattermostEmoji {
     return null;
   }
 
-  static List<MattermostEmoji>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEmoji>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEmoji>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -178,12 +184,18 @@ class MattermostEmoji {
   }
 
   // maps a json object with a list of MattermostEmoji-objects as value to a dart map
-  static Map<String, List<MattermostEmoji>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEmoji>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEmoji>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEmoji.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEmoji.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -193,7 +205,5 @@ class MattermostEmoji {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

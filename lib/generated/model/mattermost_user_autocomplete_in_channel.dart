@@ -24,23 +24,24 @@ class MattermostUserAutocompleteInChannel {
   List<MattermostUser> outOfChannel;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserAutocompleteInChannel &&
-     other.inChannel == inChannel &&
-     other.outOfChannel == outOfChannel;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserAutocompleteInChannel &&
+          other.inChannel == inChannel &&
+          other.outOfChannel == outOfChannel;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (inChannel.hashCode) +
-    (outOfChannel.hashCode);
+      // ignore: unnecessary_parenthesis
+      (inChannel.hashCode) + (outOfChannel.hashCode);
 
   @override
   String toString() => 'MattermostUserAutocompleteInChannel[inChannel=$inChannel, outOfChannel=$outOfChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'in_channel'] = inChannel;
-      _json[r'out_of_channel'] = outOfChannel;
+    _json[r'in_channel'] = inChannel;
+    _json[r'out_of_channel'] = outOfChannel;
     return _json;
   }
 
@@ -56,8 +57,10 @@ class MattermostUserAutocompleteInChannel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUserAutocompleteInChannel[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUserAutocompleteInChannel[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostUserAutocompleteInChannel[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostUserAutocompleteInChannel[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +73,10 @@ class MattermostUserAutocompleteInChannel {
     return null;
   }
 
-  static List<MattermostUserAutocompleteInChannel>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserAutocompleteInChannel>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserAutocompleteInChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +104,18 @@ class MattermostUserAutocompleteInChannel {
   }
 
   // maps a json object with a list of MattermostUserAutocompleteInChannel-objects as value to a dart map
-  static Map<String, List<MattermostUserAutocompleteInChannel>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserAutocompleteInChannel>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserAutocompleteInChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserAutocompleteInChannel.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserAutocompleteInChannel.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +125,5 @@ class MattermostUserAutocompleteInChannel {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -120,36 +120,39 @@ class MattermostChannelMemberWithTeamData {
   int? teamUpdateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelMemberWithTeamData &&
-     other.channelId == channelId &&
-     other.userId == userId &&
-     other.roles == roles &&
-     other.lastViewedAt == lastViewedAt &&
-     other.msgCount == msgCount &&
-     other.mentionCount == mentionCount &&
-     other.notifyProps == notifyProps &&
-     other.lastUpdateAt == lastUpdateAt &&
-     other.teamDisplayName == teamDisplayName &&
-     other.teamName == teamName &&
-     other.teamUpdateAt == teamUpdateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelMemberWithTeamData &&
+          other.channelId == channelId &&
+          other.userId == userId &&
+          other.roles == roles &&
+          other.lastViewedAt == lastViewedAt &&
+          other.msgCount == msgCount &&
+          other.mentionCount == mentionCount &&
+          other.notifyProps == notifyProps &&
+          other.lastUpdateAt == lastUpdateAt &&
+          other.teamDisplayName == teamDisplayName &&
+          other.teamName == teamName &&
+          other.teamUpdateAt == teamUpdateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (roles == null ? 0 : roles!.hashCode) +
-    (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
-    (msgCount == null ? 0 : msgCount!.hashCode) +
-    (mentionCount == null ? 0 : mentionCount!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode) +
-    (lastUpdateAt == null ? 0 : lastUpdateAt!.hashCode) +
-    (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
-    (teamName == null ? 0 : teamName!.hashCode) +
-    (teamUpdateAt == null ? 0 : teamUpdateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (roles == null ? 0 : roles!.hashCode) +
+      (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
+      (msgCount == null ? 0 : msgCount!.hashCode) +
+      (mentionCount == null ? 0 : mentionCount!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode) +
+      (lastUpdateAt == null ? 0 : lastUpdateAt!.hashCode) +
+      (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
+      (teamName == null ? 0 : teamName!.hashCode) +
+      (teamUpdateAt == null ? 0 : teamUpdateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelMemberWithTeamData[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt, teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
+  String toString() =>
+      'MattermostChannelMemberWithTeamData[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt, teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -201,8 +204,10 @@ class MattermostChannelMemberWithTeamData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostChannelMemberWithTeamData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostChannelMemberWithTeamData[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostChannelMemberWithTeamData[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostChannelMemberWithTeamData[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -224,7 +229,10 @@ class MattermostChannelMemberWithTeamData {
     return null;
   }
 
-  static List<MattermostChannelMemberWithTeamData>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelMemberWithTeamData>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelMemberWithTeamData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -252,12 +260,18 @@ class MattermostChannelMemberWithTeamData {
   }
 
   // maps a json object with a list of MattermostChannelMemberWithTeamData-objects as value to a dart map
-  static Map<String, List<MattermostChannelMemberWithTeamData>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelMemberWithTeamData>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelMemberWithTeamData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelMemberWithTeamData.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelMemberWithTeamData.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -267,7 +281,5 @@ class MattermostChannelMemberWithTeamData {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

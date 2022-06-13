@@ -28,22 +28,23 @@ class MattermostGetGroupUsers200Response {
   int? totalMemberCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGetGroupUsers200Response &&
-     other.members == members &&
-     other.totalMemberCount == totalMemberCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGetGroupUsers200Response &&
+          other.members == members &&
+          other.totalMemberCount == totalMemberCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (members.hashCode) +
-    (totalMemberCount == null ? 0 : totalMemberCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (members.hashCode) + (totalMemberCount == null ? 0 : totalMemberCount!.hashCode);
 
   @override
   String toString() => 'MattermostGetGroupUsers200Response[members=$members, totalMemberCount=$totalMemberCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'members'] = members;
+    _json[r'members'] = members;
     if (totalMemberCount != null) {
       _json[r'total_member_count'] = totalMemberCount;
     }
@@ -62,8 +63,10 @@ class MattermostGetGroupUsers200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostGetGroupUsers200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostGetGroupUsers200Response[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostGetGroupUsers200Response[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostGetGroupUsers200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -76,7 +79,10 @@ class MattermostGetGroupUsers200Response {
     return null;
   }
 
-  static List<MattermostGetGroupUsers200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGetGroupUsers200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGetGroupUsers200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,12 +110,18 @@ class MattermostGetGroupUsers200Response {
   }
 
   // maps a json object with a list of MattermostGetGroupUsers200Response-objects as value to a dart map
-  static Map<String, List<MattermostGetGroupUsers200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGetGroupUsers200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGetGroupUsers200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGetGroupUsers200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGetGroupUsers200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -119,7 +131,5 @@ class MattermostGetGroupUsers200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

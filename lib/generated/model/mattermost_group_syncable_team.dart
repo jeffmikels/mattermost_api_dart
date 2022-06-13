@@ -70,26 +70,29 @@ class MattermostGroupSyncableTeam {
   int? updateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGroupSyncableTeam &&
-     other.teamId == teamId &&
-     other.groupId == groupId &&
-     other.autoAdd == autoAdd &&
-     other.createAt == createAt &&
-     other.deleteAt == deleteAt &&
-     other.updateAt == updateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGroupSyncableTeam &&
+          other.teamId == teamId &&
+          other.groupId == groupId &&
+          other.autoAdd == autoAdd &&
+          other.createAt == createAt &&
+          other.deleteAt == deleteAt &&
+          other.updateAt == updateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (autoAdd == null ? 0 : autoAdd!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (groupId == null ? 0 : groupId!.hashCode) +
+      (autoAdd == null ? 0 : autoAdd!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostGroupSyncableTeam[teamId=$teamId, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
+  String toString() =>
+      'MattermostGroupSyncableTeam[teamId=$teamId, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class MattermostGroupSyncableTeam {
     return null;
   }
 
-  static List<MattermostGroupSyncableTeam>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGroupSyncableTeam>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGroupSyncableTeam>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class MattermostGroupSyncableTeam {
   }
 
   // maps a json object with a list of MattermostGroupSyncableTeam-objects as value to a dart map
-  static Map<String, List<MattermostGroupSyncableTeam>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGroupSyncableTeam>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGroupSyncableTeam>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGroupSyncableTeam.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGroupSyncableTeam.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class MattermostGroupSyncableTeam {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

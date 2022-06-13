@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostOpenGraphApi {
   MattermostOpenGraphApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,14 +17,16 @@ class MattermostOpenGraphApi {
 
   /// Get open graph metadata for url
   ///
-  /// Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get some generic metadata about a URL. Used for creating link previews.  __Minimum server version__: 3.10  ##### Permissions No permission required but must be logged in. 
+  /// Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get some generic metadata about a URL. Used for creating link previews.  __Minimum server version__: 3.10  ##### Permissions No permission required but must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostOpenGraphRequest] mattermostOpenGraphRequest (required):
-  Future<Response> openGraphWithHttpInfo(MattermostOpenGraphRequest mattermostOpenGraphRequest,) async {
+  Future<Response> openGraphWithHttpInfo(
+    MattermostOpenGraphRequest mattermostOpenGraphRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/opengraph';
 
@@ -37,7 +38,6 @@ class MattermostOpenGraphApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -52,13 +52,17 @@ class MattermostOpenGraphApi {
 
   /// Get open graph metadata for url
   ///
-  /// Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get some generic metadata about a URL. Used for creating link previews.  __Minimum server version__: 3.10  ##### Permissions No permission required but must be logged in. 
+  /// Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get some generic metadata about a URL. Used for creating link previews.  __Minimum server version__: 3.10  ##### Permissions No permission required but must be logged in.
   ///
   /// Parameters:
   ///
   /// * [MattermostOpenGraphRequest] mattermostOpenGraphRequest (required):
-  Future<MattermostOpenGraph?> openGraph(MattermostOpenGraphRequest mattermostOpenGraphRequest,) async {
-    final response = await openGraphWithHttpInfo(mattermostOpenGraphRequest,);
+  Future<MattermostOpenGraph?> openGraph(
+    MattermostOpenGraphRequest mattermostOpenGraphRequest,
+  ) async {
+    final response = await openGraphWithHttpInfo(
+      mattermostOpenGraphRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,8 +70,10 @@ class MattermostOpenGraphApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOpenGraph',) as MattermostOpenGraph;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOpenGraph',
+      ) as MattermostOpenGraph;
     }
     return null;
   }

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostGroupsApi {
   MattermostGroupsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostGroupsApi {
 
   /// Adds members to a custom group
   ///
-  /// Adds members to a custom group.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
+  /// Adds members to a custom group.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -28,10 +27,12 @@ class MattermostGroupsApi {
   ///   The ID of the group.
   ///
   /// * [MattermostAddGroupMembersRequest] mattermostAddGroupMembersRequest (required):
-  Future<Response> addGroupMembersWithHttpInfo(String groupId, MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,) async {
+  Future<Response> addGroupMembersWithHttpInfo(
+    String groupId,
+    MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/members'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/members'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostAddGroupMembersRequest;
@@ -41,7 +42,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -56,7 +56,7 @@ class MattermostGroupsApi {
 
   /// Adds members to a custom group
   ///
-  /// Adds members to a custom group.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
+  /// Adds members to a custom group.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Parameters:
   ///
@@ -64,8 +64,14 @@ class MattermostGroupsApi {
   ///   The ID of the group.
   ///
   /// * [MattermostAddGroupMembersRequest] mattermostAddGroupMembersRequest (required):
-  Future<MattermostStatusOK?> addGroupMembers(String groupId, MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,) async {
-    final response = await addGroupMembersWithHttpInfo(groupId, mattermostAddGroupMembersRequest,);
+  Future<MattermostStatusOK?> addGroupMembers(
+    String groupId,
+    MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,
+  ) async {
+    final response = await addGroupMembersWithHttpInfo(
+      groupId,
+      mattermostAddGroupMembersRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -73,15 +79,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Create a custom group
   ///
-  /// Create a `custom` type group.  #### Permission Must have `create_custom_group` permission.  __Minimum server version__: 6.3 
+  /// Create a `custom` type group.  #### Permission Must have `create_custom_group` permission.  __Minimum server version__: 6.3
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -89,7 +97,9 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostCreateGroupRequest] mattermostCreateGroupRequest (required):
   ///   Group object and initial members.
-  Future<Response> createGroupWithHttpInfo(MattermostCreateGroupRequest mattermostCreateGroupRequest,) async {
+  Future<Response> createGroupWithHttpInfo(
+    MattermostCreateGroupRequest mattermostCreateGroupRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/groups';
 
@@ -102,7 +112,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -116,14 +125,18 @@ class MattermostGroupsApi {
 
   /// Create a custom group
   ///
-  /// Create a `custom` type group.  #### Permission Must have `create_custom_group` permission.  __Minimum server version__: 6.3 
+  /// Create a `custom` type group.  #### Permission Must have `create_custom_group` permission.  __Minimum server version__: 6.3
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateGroupRequest] mattermostCreateGroupRequest (required):
   ///   Group object and initial members.
-  Future<void> createGroup(MattermostCreateGroupRequest mattermostCreateGroupRequest,) async {
-    final response = await createGroupWithHttpInfo(mattermostCreateGroupRequest,);
+  Future<void> createGroup(
+    MattermostCreateGroupRequest mattermostCreateGroupRequest,
+  ) async {
+    final response = await createGroupWithHttpInfo(
+      mattermostCreateGroupRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -131,7 +144,7 @@ class MattermostGroupsApi {
 
   /// Deletes a custom group
   ///
-  /// Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` permission for the given group.  __Minimum server version__: 6.3 
+  /// Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -139,10 +152,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   The ID of the group.
-  Future<Response> deleteGroupWithHttpInfo(String groupId,) async {
+  Future<Response> deleteGroupWithHttpInfo(
+    String groupId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -152,7 +166,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -167,14 +180,18 @@ class MattermostGroupsApi {
 
   /// Deletes a custom group
   ///
-  /// Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` permission for the given group.  __Minimum server version__: 6.3 
+  /// Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Parameters:
   ///
   /// * [String] groupId (required):
   ///   The ID of the group.
-  Future<MattermostStatusOK?> deleteGroup(String groupId,) async {
-    final response = await deleteGroupWithHttpInfo(groupId,);
+  Future<MattermostStatusOK?> deleteGroup(
+    String groupId,
+  ) async {
+    final response = await deleteGroupWithHttpInfo(
+      groupId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -182,15 +199,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Removes members from a custom group
   ///
-  /// Soft deletes a custom group members.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
+  /// Soft deletes a custom group members.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -200,10 +219,12 @@ class MattermostGroupsApi {
   ///   The ID of the group to delete.
   ///
   /// * [MattermostDeleteGroupMembersRequest] mattermostDeleteGroupMembersRequest (required):
-  Future<Response> deleteGroupMembersWithHttpInfo(String groupId, MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,) async {
+  Future<Response> deleteGroupMembersWithHttpInfo(
+    String groupId,
+    MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/members'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/members'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostDeleteGroupMembersRequest;
@@ -214,7 +235,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -228,7 +248,7 @@ class MattermostGroupsApi {
 
   /// Removes members from a custom group
   ///
-  /// Soft deletes a custom group members.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
+  /// Soft deletes a custom group members.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3
   ///
   /// Parameters:
   ///
@@ -236,8 +256,14 @@ class MattermostGroupsApi {
   ///   The ID of the group to delete.
   ///
   /// * [MattermostDeleteGroupMembersRequest] mattermostDeleteGroupMembersRequest (required):
-  Future<MattermostStatusOK?> deleteGroupMembers(String groupId, MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,) async {
-    final response = await deleteGroupMembersWithHttpInfo(groupId, mattermostDeleteGroupMembersRequest,);
+  Future<MattermostStatusOK?> deleteGroupMembers(
+    String groupId,
+    MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,
+  ) async {
+    final response = await deleteGroupMembersWithHttpInfo(
+      groupId,
+      mattermostDeleteGroupMembersRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,15 +271,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get a group
   ///
-  /// Get group from the provided group id string  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get group from the provided group id string  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -261,10 +289,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<Response> getGroupWithHttpInfo(String groupId,) async {
+  Future<Response> getGroupWithHttpInfo(
+    String groupId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -274,7 +303,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -289,14 +317,18 @@ class MattermostGroupsApi {
 
   /// Get a group
   ///
-  /// Get group from the provided group id string  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get group from the provided group id string  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<MattermostGroup?> getGroup(String groupId,) async {
-    final response = await getGroupWithHttpInfo(groupId,);
+  Future<MattermostGroup?> getGroup(
+    String groupId,
+  ) async {
+    final response = await getGroupWithHttpInfo(
+      groupId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -304,15 +336,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroup',) as MattermostGroup;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroup',
+      ) as MattermostGroup;
     }
     return null;
   }
 
   /// Get group stats
   ///
-  /// Retrieve the stats of a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.26 
+  /// Retrieve the stats of a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.26
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -320,10 +354,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<Response> getGroupStatsWithHttpInfo(String groupId,) async {
+  Future<Response> getGroupStatsWithHttpInfo(
+    String groupId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/stats'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/stats'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -333,7 +368,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -348,14 +382,18 @@ class MattermostGroupsApi {
 
   /// Get group stats
   ///
-  /// Retrieve the stats of a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.26 
+  /// Retrieve the stats of a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.26
   ///
   /// Parameters:
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<MattermostGetGroupStats200Response?> getGroupStats(String groupId,) async {
-    final response = await getGroupStatsWithHttpInfo(groupId,);
+  Future<MattermostGetGroupStats200Response?> getGroupStats(
+    String groupId,
+  ) async {
+    final response = await getGroupStatsWithHttpInfo(
+      groupId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -363,15 +401,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetGroupStats200Response',) as MattermostGetGroupStats200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGetGroupStats200Response',
+      ) as MattermostGetGroupStats200Response;
     }
     return null;
   }
 
   /// Get GroupSyncable from channel ID
   ///
-  /// Get the GroupSyncable object with group_id and channel_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get the GroupSyncable object with group_id and channel_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -382,11 +422,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getGroupSyncableForChannelIdWithHttpInfo(String groupId, String channelId,) async {
+  Future<Response> getGroupSyncableForChannelIdWithHttpInfo(
+    String groupId,
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/channels/{channel_id}'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{group_id}', groupId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -396,7 +439,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -411,7 +453,7 @@ class MattermostGroupsApi {
 
   /// Get GroupSyncable from channel ID
   ///
-  /// Get the GroupSyncable object with group_id and channel_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get the GroupSyncable object with group_id and channel_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -420,8 +462,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostGroupSyncableChannel?> getGroupSyncableForChannelId(String groupId, String channelId,) async {
-    final response = await getGroupSyncableForChannelIdWithHttpInfo(groupId, channelId,);
+  Future<MattermostGroupSyncableChannel?> getGroupSyncableForChannelId(
+    String groupId,
+    String channelId,
+  ) async {
+    final response = await getGroupSyncableForChannelIdWithHttpInfo(
+      groupId,
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -429,15 +477,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableChannel',
+      ) as MattermostGroupSyncableChannel;
     }
     return null;
   }
 
   /// Get GroupSyncable from Team ID
   ///
-  /// Get the GroupSyncable object with group_id and team_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get the GroupSyncable object with group_id and team_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -448,11 +498,13 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<Response> getGroupSyncableForTeamIdWithHttpInfo(String groupId, String teamId,) async {
+  Future<Response> getGroupSyncableForTeamIdWithHttpInfo(
+    String groupId,
+    String teamId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/teams/{team_id}'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{team_id}', teamId);
+    final path =
+        r'/groups/{group_id}/teams/{team_id}'.replaceAll('{group_id}', groupId).replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -462,7 +514,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -477,7 +528,7 @@ class MattermostGroupsApi {
 
   /// Get GroupSyncable from Team ID
   ///
-  /// Get the GroupSyncable object with group_id and team_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Get the GroupSyncable object with group_id and team_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -486,8 +537,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostGroupSyncableTeam?> getGroupSyncableForTeamId(String groupId, String teamId,) async {
-    final response = await getGroupSyncableForTeamIdWithHttpInfo(groupId, teamId,);
+  Future<MattermostGroupSyncableTeam?> getGroupSyncableForTeamId(
+    String groupId,
+    String teamId,
+  ) async {
+    final response = await getGroupSyncableForTeamIdWithHttpInfo(
+      groupId,
+      teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -495,15 +552,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableTeam',
+      ) as MattermostGroupSyncableTeam;
     }
     return null;
   }
 
   /// Get group channels
   ///
-  /// Retrieve the list of channels associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of channels associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -511,10 +570,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<Response> getGroupSyncablesChannelsWithHttpInfo(String groupId,) async {
+  Future<Response> getGroupSyncablesChannelsWithHttpInfo(
+    String groupId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/channels'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/channels'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -524,7 +584,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -539,14 +598,18 @@ class MattermostGroupsApi {
 
   /// Get group channels
   ///
-  /// Retrieve the list of channels associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of channels associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<List<MattermostGroupSyncableChannels>?> getGroupSyncablesChannels(String groupId,) async {
-    final response = await getGroupSyncablesChannelsWithHttpInfo(groupId,);
+  Future<List<MattermostGroupSyncableChannels>?> getGroupSyncablesChannels(
+    String groupId,
+  ) async {
+    final response = await getGroupSyncablesChannelsWithHttpInfo(
+      groupId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -556,16 +619,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroupSyncableChannels>') as List)
-        .cast<MattermostGroupSyncableChannels>()
-        .toList();
-
+          .cast<MattermostGroupSyncableChannels>()
+          .toList();
     }
     return null;
   }
 
   /// Get group teams
   ///
-  /// Retrieve the list of teams associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of teams associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -573,10 +635,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<Response> getGroupSyncablesTeamsWithHttpInfo(String groupId,) async {
+  Future<Response> getGroupSyncablesTeamsWithHttpInfo(
+    String groupId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/teams'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/teams'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -586,7 +649,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -601,14 +663,18 @@ class MattermostGroupsApi {
 
   /// Get group teams
   ///
-  /// Retrieve the list of teams associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of teams associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<List<MattermostGroupSyncableTeams>?> getGroupSyncablesTeams(String groupId,) async {
-    final response = await getGroupSyncablesTeamsWithHttpInfo(groupId,);
+  Future<List<MattermostGroupSyncableTeams>?> getGroupSyncablesTeams(
+    String groupId,
+  ) async {
+    final response = await getGroupSyncablesTeamsWithHttpInfo(
+      groupId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -618,16 +684,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroupSyncableTeams>') as List)
-        .cast<MattermostGroupSyncableTeams>()
-        .toList();
-
+          .cast<MattermostGroupSyncableTeams>()
+          .toList();
     }
     return null;
   }
 
   /// Get group users
   ///
-  /// Retrieve the list of users associated with a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of users associated with a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -641,10 +706,13 @@ class MattermostGroupsApi {
   ///
   /// * [int] perPage:
   ///   The number of groups per page.
-  Future<Response> getGroupUsersWithHttpInfo(String groupId, { int? page, int? perPage, }) async {
+  Future<Response> getGroupUsersWithHttpInfo(
+    String groupId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/members'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/members'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -662,7 +730,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -676,7 +743,7 @@ class MattermostGroupsApi {
 
   /// Get group users
   ///
-  /// Retrieve the list of users associated with a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of users associated with a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -688,8 +755,16 @@ class MattermostGroupsApi {
   ///
   /// * [int] perPage:
   ///   The number of groups per page.
-  Future<MattermostGetGroupUsers200Response?> getGroupUsers(String groupId, { int? page, int? perPage, }) async {
-    final response = await getGroupUsersWithHttpInfo(groupId,  page: page, perPage: perPage, );
+  Future<MattermostGetGroupUsers200Response?> getGroupUsers(
+    String groupId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getGroupUsersWithHttpInfo(
+      groupId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -697,15 +772,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetGroupUsers200Response',) as MattermostGetGroupUsers200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGetGroupUsers200Response',
+      ) as MattermostGetGroupUsers200Response;
     }
     return null;
   }
 
   /// Get groups
   ///
-  /// Retrieve a list of all groups not associated to a particular channel or team.  `not_associated_to_team` **OR** `not_associated_to_channel` is required.  If you use `not_associated_to_team`, you must be a team admin for that particular team (permission to manage that team).  If you use `not_associated_to_channel`, you must be a channel admin for that particular channel (permission to manage that channel).  __Minimum server version__: 5.11 
+  /// Retrieve a list of all groups not associated to a particular channel or team.  `not_associated_to_team` **OR** `not_associated_to_channel` is required.  If you use `not_associated_to_team`, you must be a team admin for that particular team (permission to manage that team).  If you use `not_associated_to_channel`, you must be a channel admin for that particular channel (permission to manage that channel).  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -730,11 +807,20 @@ class MattermostGroupsApi {
   ///   Boolean which adds the `member_count` attribute to each group JSON object
   ///
   /// * [int] since:
-  ///   Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24 
+  ///   Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<Response> getGroupsWithHttpInfo(String notAssociatedToTeam, String notAssociatedToChannel, { int? page, int? perPage, String? q, bool? includeMemberCount, int? since, bool? filterAllowReference, }) async {
+  Future<Response> getGroupsWithHttpInfo(
+    String notAssociatedToTeam,
+    String notAssociatedToChannel, {
+    int? page,
+    int? perPage,
+    String? q,
+    bool? includeMemberCount,
+    int? since,
+    bool? filterAllowReference,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/groups';
 
@@ -757,8 +843,8 @@ class MattermostGroupsApi {
     if (includeMemberCount != null) {
       queryParams.addAll(_queryParams('', 'include_member_count', includeMemberCount));
     }
-      queryParams.addAll(_queryParams('', 'not_associated_to_team', notAssociatedToTeam));
-      queryParams.addAll(_queryParams('', 'not_associated_to_channel', notAssociatedToChannel));
+    queryParams.addAll(_queryParams('', 'not_associated_to_team', notAssociatedToTeam));
+    queryParams.addAll(_queryParams('', 'not_associated_to_channel', notAssociatedToChannel));
     if (since != null) {
       queryParams.addAll(_queryParams('', 'since', since));
     }
@@ -767,7 +853,6 @@ class MattermostGroupsApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -782,7 +867,7 @@ class MattermostGroupsApi {
 
   /// Get groups
   ///
-  /// Retrieve a list of all groups not associated to a particular channel or team.  `not_associated_to_team` **OR** `not_associated_to_channel` is required.  If you use `not_associated_to_team`, you must be a team admin for that particular team (permission to manage that team).  If you use `not_associated_to_channel`, you must be a channel admin for that particular channel (permission to manage that channel).  __Minimum server version__: 5.11 
+  /// Retrieve a list of all groups not associated to a particular channel or team.  `not_associated_to_team` **OR** `not_associated_to_channel` is required.  If you use `not_associated_to_team`, you must be a team admin for that particular team (permission to manage that team).  If you use `not_associated_to_channel`, you must be a channel admin for that particular channel (permission to manage that channel).  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -805,12 +890,30 @@ class MattermostGroupsApi {
   ///   Boolean which adds the `member_count` attribute to each group JSON object
   ///
   /// * [int] since:
-  ///   Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24 
+  ///   Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroups(String notAssociatedToTeam, String notAssociatedToChannel, { int? page, int? perPage, String? q, bool? includeMemberCount, int? since, bool? filterAllowReference, }) async {
-    final response = await getGroupsWithHttpInfo(notAssociatedToTeam, notAssociatedToChannel,  page: page, perPage: perPage, q: q, includeMemberCount: includeMemberCount, since: since, filterAllowReference: filterAllowReference, );
+  Future<List<MattermostGroup>?> getGroups(
+    String notAssociatedToTeam,
+    String notAssociatedToChannel, {
+    int? page,
+    int? perPage,
+    String? q,
+    bool? includeMemberCount,
+    int? since,
+    bool? filterAllowReference,
+  }) async {
+    final response = await getGroupsWithHttpInfo(
+      notAssociatedToTeam,
+      notAssociatedToChannel,
+      page: page,
+      perPage: perPage,
+      q: q,
+      includeMemberCount: includeMemberCount,
+      since: since,
+      filterAllowReference: filterAllowReference,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -820,16 +923,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
-        .toList();
-
+          .cast<MattermostGroup>()
+          .toList();
     }
     return null;
   }
 
   /// Get team groups by channels
   ///
-  /// Retrieve the set of groups associated with the channels in the given team grouped by channel.  ##### Permissions Must have `manage_system` permission or can access only for current user  __Minimum server version__: 5.11 
+  /// Retrieve the set of groups associated with the channels in the given team grouped by channel.  ##### Permissions Must have `manage_system` permission or can access only for current user  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -849,10 +951,15 @@ class MattermostGroupsApi {
   ///
   /// * [bool] paginate:
   ///   Boolean to determine whether the pagination should be applied or not
-  Future<Response> getGroupsAssociatedToChannelsByTeamWithHttpInfo(String teamId, { int? page, int? perPage, bool? filterAllowReference, bool? paginate, }) async {
+  Future<Response> getGroupsAssociatedToChannelsByTeamWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+    bool? paginate,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/groups_by_channels'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/groups_by_channels'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -876,7 +983,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -890,7 +996,7 @@ class MattermostGroupsApi {
 
   /// Get team groups by channels
   ///
-  /// Retrieve the set of groups associated with the channels in the given team grouped by channel.  ##### Permissions Must have `manage_system` permission or can access only for current user  __Minimum server version__: 5.11 
+  /// Retrieve the set of groups associated with the channels in the given team grouped by channel.  ##### Permissions Must have `manage_system` permission or can access only for current user  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -908,8 +1014,20 @@ class MattermostGroupsApi {
   ///
   /// * [bool] paginate:
   ///   Boolean to determine whether the pagination should be applied or not
-  Future<List<Map<String, List<MattermostGroupWithSchemeAdmin>>>?> getGroupsAssociatedToChannelsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, bool? paginate, }) async {
-    final response = await getGroupsAssociatedToChannelsByTeamWithHttpInfo(teamId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, paginate: paginate, );
+  Future<List<Map<String, List<MattermostGroupWithSchemeAdmin>>>?> getGroupsAssociatedToChannelsByTeam(
+    String teamId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+    bool? paginate,
+  }) async {
+    final response = await getGroupsAssociatedToChannelsByTeamWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+      filterAllowReference: filterAllowReference,
+      paginate: paginate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -918,17 +1036,17 @@ class MattermostGroupsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Map<String, List<MattermostGroupWithSchemeAdmin>>>') as List)
-        .cast<Map<String, List<MattermostGroupWithSchemeAdmin>>>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Map<String, List<MattermostGroupWithSchemeAdmin>>>')
+              as List)
+          .cast<Map<String, List<MattermostGroupWithSchemeAdmin>>>()
+          .toList();
     }
     return null;
   }
 
   /// Get channel groups
   ///
-  /// Retrieve the list of groups associated with a given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of groups associated with a given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -945,10 +1063,14 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<Response> getGroupsByChannelWithHttpInfo(String channelId, { int? page, int? perPage, bool? filterAllowReference, }) async {
+  Future<Response> getGroupsByChannelWithHttpInfo(
+    String channelId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/groups'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/groups'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -969,7 +1091,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -983,7 +1104,7 @@ class MattermostGroupsApi {
 
   /// Get channel groups
   ///
-  /// Retrieve the list of groups associated with a given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Retrieve the list of groups associated with a given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -998,8 +1119,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroupsByChannel(String channelId, { int? page, int? perPage, bool? filterAllowReference, }) async {
-    final response = await getGroupsByChannelWithHttpInfo(channelId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, );
+  Future<List<MattermostGroup>?> getGroupsByChannel(
+    String channelId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+  }) async {
+    final response = await getGroupsByChannelWithHttpInfo(
+      channelId,
+      page: page,
+      perPage: perPage,
+      filterAllowReference: filterAllowReference,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1009,16 +1140,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
-        .toList();
-
+          .cast<MattermostGroup>()
+          .toList();
     }
     return null;
   }
 
   /// Get team groups
   ///
-  /// Retrieve the list of groups associated with a given team.  __Minimum server version__: 5.11 
+  /// Retrieve the list of groups associated with a given team.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1035,10 +1165,14 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters in the group entries with the `allow_reference` attribute set.
-  Future<Response> getGroupsByTeamWithHttpInfo(String teamId, { int? page, int? perPage, bool? filterAllowReference, }) async {
+  Future<Response> getGroupsByTeamWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/groups'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/groups'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1059,7 +1193,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1073,7 +1206,7 @@ class MattermostGroupsApi {
 
   /// Get team groups
   ///
-  /// Retrieve the list of groups associated with a given team.  __Minimum server version__: 5.11 
+  /// Retrieve the list of groups associated with a given team.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1088,8 +1221,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters in the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroupsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, }) async {
-    final response = await getGroupsByTeamWithHttpInfo(teamId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, );
+  Future<List<MattermostGroup>?> getGroupsByTeam(
+    String teamId, {
+    int? page,
+    int? perPage,
+    bool? filterAllowReference,
+  }) async {
+    final response = await getGroupsByTeamWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+      filterAllowReference: filterAllowReference,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1099,16 +1242,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
-        .toList();
-
+          .cast<MattermostGroup>()
+          .toList();
     }
     return null;
   }
 
   /// Get groups for a userId
   ///
-  /// Retrieve the list of groups associated to the user  __Minimum server version__: 5.24 
+  /// Retrieve the list of groups associated to the user  __Minimum server version__: 5.24
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1116,10 +1258,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> getGroupsByUserIdWithHttpInfo(String userId,) async {
+  Future<Response> getGroupsByUserIdWithHttpInfo(
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/groups'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/groups'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1129,7 +1272,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1144,14 +1286,18 @@ class MattermostGroupsApi {
 
   /// Get groups for a userId
   ///
-  /// Retrieve the list of groups associated to the user  __Minimum server version__: 5.24 
+  /// Retrieve the list of groups associated to the user  __Minimum server version__: 5.24
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostGroup>?> getGroupsByUserId(String userId,) async {
-    final response = await getGroupsByUserIdWithHttpInfo(userId,);
+  Future<List<MattermostGroup>?> getGroupsByUserId(
+    String userId,
+  ) async {
+    final response = await getGroupsByUserIdWithHttpInfo(
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1161,16 +1307,15 @@ class MattermostGroupsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
-        .toList();
-
+          .cast<MattermostGroup>()
+          .toList();
     }
     return null;
   }
 
   /// Link a channel to a group
   ///
-  /// Link a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
+  /// Link a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1181,11 +1326,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> linkGroupSyncableForChannelWithHttpInfo(String groupId, String channelId,) async {
+  Future<Response> linkGroupSyncableForChannelWithHttpInfo(
+    String groupId,
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/channels/{channel_id}/link'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{group_id}', groupId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1195,7 +1343,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1210,7 +1357,7 @@ class MattermostGroupsApi {
 
   /// Link a channel to a group
   ///
-  /// Link a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
+  /// Link a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1219,8 +1366,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostGroupSyncableChannel?> linkGroupSyncableForChannel(String groupId, String channelId,) async {
-    final response = await linkGroupSyncableForChannelWithHttpInfo(groupId, channelId,);
+  Future<MattermostGroupSyncableChannel?> linkGroupSyncableForChannel(
+    String groupId,
+    String channelId,
+  ) async {
+    final response = await linkGroupSyncableForChannelWithHttpInfo(
+      groupId,
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1228,15 +1381,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableChannel',
+      ) as MattermostGroupSyncableChannel;
     }
     return null;
   }
 
   /// Link a team to a group
   ///
-  /// Link a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
+  /// Link a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1247,11 +1402,13 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<Response> linkGroupSyncableForTeamWithHttpInfo(String groupId, String teamId,) async {
+  Future<Response> linkGroupSyncableForTeamWithHttpInfo(
+    String groupId,
+    String teamId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/teams/{team_id}/link'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{team_id}', teamId);
+    final path =
+        r'/groups/{group_id}/teams/{team_id}/link'.replaceAll('{group_id}', groupId).replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1261,7 +1418,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1276,7 +1432,7 @@ class MattermostGroupsApi {
 
   /// Link a team to a group
   ///
-  /// Link a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
+  /// Link a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1285,8 +1441,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostGroupSyncableTeam?> linkGroupSyncableForTeam(String groupId, String teamId,) async {
-    final response = await linkGroupSyncableForTeamWithHttpInfo(groupId, teamId,);
+  Future<MattermostGroupSyncableTeam?> linkGroupSyncableForTeam(
+    String groupId,
+    String teamId,
+  ) async {
+    final response = await linkGroupSyncableForTeamWithHttpInfo(
+      groupId,
+      teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1294,15 +1456,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableTeam',
+      ) as MattermostGroupSyncableTeam;
     }
     return null;
   }
 
   /// Patch a group
   ///
-  /// Partially update a group by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a group by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1313,10 +1477,12 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupRequest] mattermostPatchGroupRequest (required):
   ///   Group object that is to be updated
-  Future<Response> patchGroupWithHttpInfo(String groupId, MattermostPatchGroupRequest mattermostPatchGroupRequest,) async {
+  Future<Response> patchGroupWithHttpInfo(
+    String groupId,
+    MattermostPatchGroupRequest mattermostPatchGroupRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/patch'
-      .replaceAll('{group_id}', groupId);
+    final path = r'/groups/{group_id}/patch'.replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchGroupRequest;
@@ -1327,7 +1493,6 @@ class MattermostGroupsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -1341,7 +1506,7 @@ class MattermostGroupsApi {
 
   /// Patch a group
   ///
-  /// Partially update a group by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a group by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1350,8 +1515,14 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupRequest] mattermostPatchGroupRequest (required):
   ///   Group object that is to be updated
-  Future<MattermostGroup?> patchGroup(String groupId, MattermostPatchGroupRequest mattermostPatchGroupRequest,) async {
-    final response = await patchGroupWithHttpInfo(groupId, mattermostPatchGroupRequest,);
+  Future<MattermostGroup?> patchGroup(
+    String groupId,
+    MattermostPatchGroupRequest mattermostPatchGroupRequest,
+  ) async {
+    final response = await patchGroupWithHttpInfo(
+      groupId,
+      mattermostPatchGroupRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1359,15 +1530,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroup',) as MattermostGroup;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroup',
+      ) as MattermostGroup;
     }
     return null;
   }
 
   /// Patch a GroupSyncable associated to Channel
   ///
-  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1381,11 +1554,15 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<Response> patchGroupSyncableForChannelWithHttpInfo(String groupId, String channelId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
+  Future<Response> patchGroupSyncableForChannelWithHttpInfo(
+    String groupId,
+    String channelId,
+    MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/channels/{channel_id}/patch'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{group_id}', groupId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchGroupSyncableForTeamRequest;
@@ -1395,7 +1572,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1410,7 +1586,7 @@ class MattermostGroupsApi {
 
   /// Patch a GroupSyncable associated to Channel
   ///
-  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1422,8 +1598,16 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<MattermostGroupSyncableChannel?> patchGroupSyncableForChannel(String groupId, String channelId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
-    final response = await patchGroupSyncableForChannelWithHttpInfo(groupId, channelId, mattermostPatchGroupSyncableForTeamRequest,);
+  Future<MattermostGroupSyncableChannel?> patchGroupSyncableForChannel(
+    String groupId,
+    String channelId,
+    MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,
+  ) async {
+    final response = await patchGroupSyncableForChannelWithHttpInfo(
+      groupId,
+      channelId,
+      mattermostPatchGroupSyncableForTeamRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1431,15 +1615,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableChannel',
+      ) as MattermostGroupSyncableChannel;
     }
     return null;
   }
 
   /// Patch a GroupSyncable associated to Team
   ///
-  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1453,11 +1639,14 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<Response> patchGroupSyncableForTeamWithHttpInfo(String groupId, String teamId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
+  Future<Response> patchGroupSyncableForTeamWithHttpInfo(
+    String groupId,
+    String teamId,
+    MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/teams/{team_id}/patch'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{team_id}', teamId);
+    final path =
+        r'/groups/{group_id}/teams/{team_id}/patch'.replaceAll('{group_id}', groupId).replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchGroupSyncableForTeamRequest;
@@ -1467,7 +1656,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1482,7 +1670,7 @@ class MattermostGroupsApi {
 
   /// Patch a GroupSyncable associated to Team
   ///
-  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
+  /// Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1494,8 +1682,16 @@ class MattermostGroupsApi {
   ///
   /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<MattermostGroupSyncableTeam?> patchGroupSyncableForTeam(String groupId, String teamId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
-    final response = await patchGroupSyncableForTeamWithHttpInfo(groupId, teamId, mattermostPatchGroupSyncableForTeamRequest,);
+  Future<MattermostGroupSyncableTeam?> patchGroupSyncableForTeam(
+    String groupId,
+    String teamId,
+    MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,
+  ) async {
+    final response = await patchGroupSyncableForTeamWithHttpInfo(
+      groupId,
+      teamId,
+      mattermostPatchGroupSyncableForTeamRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1503,15 +1699,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGroupSyncableTeam',
+      ) as MattermostGroupSyncableTeam;
     }
     return null;
   }
 
   /// Delete a link from a channel to a group
   ///
-  /// Delete a link from a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
+  /// Delete a link from a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1522,11 +1720,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> unlinkGroupSyncableForChannelWithHttpInfo(String groupId, String channelId,) async {
+  Future<Response> unlinkGroupSyncableForChannelWithHttpInfo(
+    String groupId,
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/channels/{channel_id}/link'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{group_id}', groupId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1536,7 +1737,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1551,7 +1751,7 @@ class MattermostGroupsApi {
 
   /// Delete a link from a channel to a group
   ///
-  /// Delete a link from a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
+  /// Delete a link from a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1560,8 +1760,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostStatusOK?> unlinkGroupSyncableForChannel(String groupId, String channelId,) async {
-    final response = await unlinkGroupSyncableForChannelWithHttpInfo(groupId, channelId,);
+  Future<MattermostStatusOK?> unlinkGroupSyncableForChannel(
+    String groupId,
+    String channelId,
+  ) async {
+    final response = await unlinkGroupSyncableForChannelWithHttpInfo(
+      groupId,
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1569,15 +1775,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Delete a link from a team to a group
   ///
-  /// Delete a link from a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
+  /// Delete a link from a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1588,11 +1796,13 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<Response> unlinkGroupSyncableForTeamWithHttpInfo(String groupId, String teamId,) async {
+  Future<Response> unlinkGroupSyncableForTeamWithHttpInfo(
+    String groupId,
+    String teamId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/groups/{group_id}/teams/{team_id}/link'
-      .replaceAll('{group_id}', groupId)
-      .replaceAll('{team_id}', teamId);
+    final path =
+        r'/groups/{group_id}/teams/{team_id}/link'.replaceAll('{group_id}', groupId).replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1602,7 +1812,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1617,7 +1826,7 @@ class MattermostGroupsApi {
 
   /// Delete a link from a team to a group
   ///
-  /// Delete a link from a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
+  /// Delete a link from a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -1626,8 +1835,14 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostStatusOK?> unlinkGroupSyncableForTeam(String groupId, String teamId,) async {
-    final response = await unlinkGroupSyncableForTeamWithHttpInfo(groupId, teamId,);
+  Future<MattermostStatusOK?> unlinkGroupSyncableForTeam(
+    String groupId,
+    String teamId,
+  ) async {
+    final response = await unlinkGroupSyncableForTeamWithHttpInfo(
+      groupId,
+      teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1635,15 +1850,17 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Delete a link for LDAP group
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1651,10 +1868,11 @@ class MattermostGroupsApi {
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<Response> unlinkLdapGroupWithHttpInfo(String remoteId,) async {
+  Future<Response> unlinkLdapGroupWithHttpInfo(
+    String remoteId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/ldap/groups/{remote_id}/link'
-      .replaceAll('{remote_id}', remoteId);
+    final path = r'/ldap/groups/{remote_id}/link'.replaceAll('{remote_id}', remoteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1664,7 +1882,6 @@ class MattermostGroupsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1679,14 +1896,18 @@ class MattermostGroupsApi {
 
   /// Delete a link for LDAP group
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<MattermostStatusOK?> unlinkLdapGroup(String remoteId,) async {
-    final response = await unlinkLdapGroupWithHttpInfo(remoteId,);
+  Future<MattermostStatusOK?> unlinkLdapGroup(
+    String remoteId,
+  ) async {
+    final response = await unlinkLdapGroupWithHttpInfo(
+      remoteId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1694,8 +1915,10 @@ class MattermostGroupsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

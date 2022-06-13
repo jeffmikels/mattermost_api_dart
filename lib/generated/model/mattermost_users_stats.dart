@@ -25,13 +25,13 @@ class MattermostUsersStats {
   int? totalUsersCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUsersStats &&
-     other.totalUsersCount == totalUsersCount;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUsersStats && other.totalUsersCount == totalUsersCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (totalUsersCount == null ? 0 : totalUsersCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (totalUsersCount == null ? 0 : totalUsersCount!.hashCode);
 
   @override
   String toString() => 'MattermostUsersStats[totalUsersCount=$totalUsersCount]';
@@ -69,7 +69,10 @@ class MattermostUsersStats {
     return null;
   }
 
-  static List<MattermostUsersStats>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUsersStats>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUsersStats>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +100,18 @@ class MattermostUsersStats {
   }
 
   // maps a json object with a list of MattermostUsersStats-objects as value to a dart map
-  static Map<String, List<MattermostUsersStats>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUsersStats>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUsersStats>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUsersStats.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUsersStats.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +121,5 @@ class MattermostUsersStats {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -36,15 +36,13 @@ class MattermostServerBusy {
   int? expires;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostServerBusy &&
-     other.busy == busy &&
-     other.expires == expires;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostServerBusy && other.busy == busy && other.expires == expires;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (busy == null ? 0 : busy!.hashCode) +
-    (expires == null ? 0 : expires!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (busy == null ? 0 : busy!.hashCode) + (expires == null ? 0 : expires!.hashCode);
 
   @override
   String toString() => 'MattermostServerBusy[busy=$busy, expires=$expires]';
@@ -86,7 +84,10 @@ class MattermostServerBusy {
     return null;
   }
 
-  static List<MattermostServerBusy>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostServerBusy>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostServerBusy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +115,18 @@ class MattermostServerBusy {
   }
 
   // maps a json object with a list of MattermostServerBusy-objects as value to a dart map
-  static Map<String, List<MattermostServerBusy>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostServerBusy>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostServerBusy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostServerBusy.listFromJson(entry.value, growable: growable,);
+        final value = MattermostServerBusy.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +136,5 @@ class MattermostServerBusy {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -37,38 +37,41 @@ class MattermostUpdateTeamRequest {
   String allowOpenInvite;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateTeamRequest &&
-     other.id == id &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.companyName == companyName &&
-     other.allowedDomains == allowedDomains &&
-     other.inviteId == inviteId &&
-     other.allowOpenInvite == allowOpenInvite;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateTeamRequest &&
+          other.id == id &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.companyName == companyName &&
+          other.allowedDomains == allowedDomains &&
+          other.inviteId == inviteId &&
+          other.allowOpenInvite == allowOpenInvite;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (displayName.hashCode) +
-    (description.hashCode) +
-    (companyName.hashCode) +
-    (allowedDomains.hashCode) +
-    (inviteId.hashCode) +
-    (allowOpenInvite.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (displayName.hashCode) +
+      (description.hashCode) +
+      (companyName.hashCode) +
+      (allowedDomains.hashCode) +
+      (inviteId.hashCode) +
+      (allowOpenInvite.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateTeamRequest[id=$id, displayName=$displayName, description=$description, companyName=$companyName, allowedDomains=$allowedDomains, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite]';
+  String toString() =>
+      'MattermostUpdateTeamRequest[id=$id, displayName=$displayName, description=$description, companyName=$companyName, allowedDomains=$allowedDomains, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'id'] = id;
-      _json[r'display_name'] = displayName;
-      _json[r'description'] = description;
-      _json[r'company_name'] = companyName;
-      _json[r'allowed_domains'] = allowedDomains;
-      _json[r'invite_id'] = inviteId;
-      _json[r'allow_open_invite'] = allowOpenInvite;
+    _json[r'id'] = id;
+    _json[r'display_name'] = displayName;
+    _json[r'description'] = description;
+    _json[r'company_name'] = companyName;
+    _json[r'allowed_domains'] = allowedDomains;
+    _json[r'invite_id'] = inviteId;
+    _json[r'allow_open_invite'] = allowOpenInvite;
     return _json;
   }
 
@@ -103,7 +106,10 @@ class MattermostUpdateTeamRequest {
     return null;
   }
 
-  static List<MattermostUpdateTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateTeamRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -131,12 +137,18 @@ class MattermostUpdateTeamRequest {
   }
 
   // maps a json object with a list of MattermostUpdateTeamRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateTeamRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateTeamRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateTeamRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -156,4 +168,3 @@ class MattermostUpdateTeamRequest {
     'allow_open_invite',
   };
 }
-

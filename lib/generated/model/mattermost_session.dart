@@ -112,36 +112,39 @@ class MattermostSession {
   String? userId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSession &&
-     other.createAt == createAt &&
-     other.deviceId == deviceId &&
-     other.expiresAt == expiresAt &&
-     other.id == id &&
-     other.isOauth == isOauth &&
-     other.lastActivityAt == lastActivityAt &&
-     other.props == props &&
-     other.roles == roles &&
-     other.teamMembers == teamMembers &&
-     other.token == token &&
-     other.userId == userId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSession &&
+          other.createAt == createAt &&
+          other.deviceId == deviceId &&
+          other.expiresAt == expiresAt &&
+          other.id == id &&
+          other.isOauth == isOauth &&
+          other.lastActivityAt == lastActivityAt &&
+          other.props == props &&
+          other.roles == roles &&
+          other.teamMembers == teamMembers &&
+          other.token == token &&
+          other.userId == userId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (deviceId == null ? 0 : deviceId!.hashCode) +
-    (expiresAt == null ? 0 : expiresAt!.hashCode) +
-    (id == null ? 0 : id!.hashCode) +
-    (isOauth == null ? 0 : isOauth!.hashCode) +
-    (lastActivityAt == null ? 0 : lastActivityAt!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (roles == null ? 0 : roles!.hashCode) +
-    (teamMembers.hashCode) +
-    (token == null ? 0 : token!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (expiresAt == null ? 0 : expiresAt!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
+      (isOauth == null ? 0 : isOauth!.hashCode) +
+      (lastActivityAt == null ? 0 : lastActivityAt!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (roles == null ? 0 : roles!.hashCode) +
+      (teamMembers.hashCode) +
+      (token == null ? 0 : token!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode);
 
   @override
-  String toString() => 'MattermostSession[createAt=$createAt, deviceId=$deviceId, expiresAt=$expiresAt, id=$id, isOauth=$isOauth, lastActivityAt=$lastActivityAt, props=$props, roles=$roles, teamMembers=$teamMembers, token=$token, userId=$userId]';
+  String toString() =>
+      'MattermostSession[createAt=$createAt, deviceId=$deviceId, expiresAt=$expiresAt, id=$id, isOauth=$isOauth, lastActivityAt=$lastActivityAt, props=$props, roles=$roles, teamMembers=$teamMembers, token=$token, userId=$userId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -169,7 +172,7 @@ class MattermostSession {
     if (roles != null) {
       _json[r'roles'] = roles;
     }
-      _json[r'team_members'] = teamMembers;
+    _json[r'team_members'] = teamMembers;
     if (token != null) {
       _json[r'token'] = token;
     }
@@ -214,7 +217,10 @@ class MattermostSession {
     return null;
   }
 
-  static List<MattermostSession>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSession>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSession>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -242,12 +248,18 @@ class MattermostSession {
   }
 
   // maps a json object with a list of MattermostSession-objects as value to a dart map
-  static Map<String, List<MattermostSession>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSession>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSession>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSession.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSession.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -257,7 +269,5 @@ class MattermostSession {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

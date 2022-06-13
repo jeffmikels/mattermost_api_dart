@@ -30,22 +30,21 @@ class MattermostSearchTeams200Response {
   num? totalCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchTeams200Response &&
-     other.teams == teams &&
-     other.totalCount == totalCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchTeams200Response && other.teams == teams && other.totalCount == totalCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teams.hashCode) +
-    (totalCount == null ? 0 : totalCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teams.hashCode) + (totalCount == null ? 0 : totalCount!.hashCode);
 
   @override
   String toString() => 'MattermostSearchTeams200Response[teams=$teams, totalCount=$totalCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'teams'] = teams;
+    _json[r'teams'] = teams;
     if (totalCount != null) {
       _json[r'total_count'] = totalCount;
     }
@@ -72,15 +71,16 @@ class MattermostSearchTeams200Response {
 
       return MattermostSearchTeams200Response(
         teams: MattermostTeam.listFromJson(json[r'teams']) ?? const [],
-        totalCount: json[r'total_count'] == null
-            ? null
-            : num.parse(json[r'total_count'].toString()),
+        totalCount: json[r'total_count'] == null ? null : num.parse(json[r'total_count'].toString()),
       );
     }
     return null;
   }
 
-  static List<MattermostSearchTeams200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchTeams200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchTeams200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,12 +108,18 @@ class MattermostSearchTeams200Response {
   }
 
   // maps a json object with a list of MattermostSearchTeams200Response-objects as value to a dart map
-  static Map<String, List<MattermostSearchTeams200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchTeams200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchTeams200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchTeams200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchTeams200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,7 +129,5 @@ class MattermostSearchTeams200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

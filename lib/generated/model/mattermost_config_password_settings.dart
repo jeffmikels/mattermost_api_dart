@@ -61,24 +61,27 @@ class MattermostConfigPasswordSettings {
   bool? symbol;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigPasswordSettings &&
-     other.minimumLength == minimumLength &&
-     other.lowercase == lowercase &&
-     other.number == number &&
-     other.uppercase == uppercase &&
-     other.symbol == symbol;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigPasswordSettings &&
+          other.minimumLength == minimumLength &&
+          other.lowercase == lowercase &&
+          other.number == number &&
+          other.uppercase == uppercase &&
+          other.symbol == symbol;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (minimumLength == null ? 0 : minimumLength!.hashCode) +
-    (lowercase == null ? 0 : lowercase!.hashCode) +
-    (number == null ? 0 : number!.hashCode) +
-    (uppercase == null ? 0 : uppercase!.hashCode) +
-    (symbol == null ? 0 : symbol!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (minimumLength == null ? 0 : minimumLength!.hashCode) +
+      (lowercase == null ? 0 : lowercase!.hashCode) +
+      (number == null ? 0 : number!.hashCode) +
+      (uppercase == null ? 0 : uppercase!.hashCode) +
+      (symbol == null ? 0 : symbol!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
+  String toString() =>
+      'MattermostConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -129,7 +132,10 @@ class MattermostConfigPasswordSettings {
     return null;
   }
 
-  static List<MattermostConfigPasswordSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigPasswordSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigPasswordSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +163,18 @@ class MattermostConfigPasswordSettings {
   }
 
   // maps a json object with a list of MattermostConfigPasswordSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigPasswordSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigPasswordSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigPasswordSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigPasswordSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigPasswordSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +184,5 @@ class MattermostConfigPasswordSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

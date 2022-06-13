@@ -26,26 +26,26 @@ class MattermostPostListWithSearchMatches {
   Map<String, List<String>> matches;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostListWithSearchMatches &&
-     other.order == order &&
-     other.posts == posts &&
-     other.matches == matches;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPostListWithSearchMatches &&
+          other.order == order &&
+          other.posts == posts &&
+          other.matches == matches;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (order.hashCode) +
-    (posts.hashCode) +
-    (matches.hashCode);
+      // ignore: unnecessary_parenthesis
+      (order.hashCode) + (posts.hashCode) + (matches.hashCode);
 
   @override
   String toString() => 'MattermostPostListWithSearchMatches[order=$order, posts=$posts, matches=$matches]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'order'] = order;
-      _json[r'posts'] = posts;
-      _json[r'matches'] = matches;
+    _json[r'order'] = order;
+    _json[r'posts'] = posts;
+    _json[r'matches'] = matches;
     return _json;
   }
 
@@ -61,26 +61,27 @@ class MattermostPostListWithSearchMatches {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostPostListWithSearchMatches[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostPostListWithSearchMatches[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostPostListWithSearchMatches[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostPostListWithSearchMatches[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostPostListWithSearchMatches(
-        order: json[r'order'] is List
-            ? (json[r'order'] as List).cast<String>()
-            : const [],
+        order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
         posts: MattermostPost.mapFromJson(json[r'posts'] ?? const {}),
-        matches: json[r'matches'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'matches')!,
+        matches: json[r'matches'] == null ? const {} : mapCastOfType<String, List<String>>(json, r'matches')!,
       );
     }
     return null;
   }
 
-  static List<MattermostPostListWithSearchMatches>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostListWithSearchMatches>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostListWithSearchMatches>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,12 +109,18 @@ class MattermostPostListWithSearchMatches {
   }
 
   // maps a json object with a list of MattermostPostListWithSearchMatches-objects as value to a dart map
-  static Map<String, List<MattermostPostListWithSearchMatches>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostListWithSearchMatches>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostListWithSearchMatches>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostListWithSearchMatches.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostListWithSearchMatches.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,7 +130,5 @@ class MattermostPostListWithSearchMatches {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostUsageApi {
   MattermostUsageApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostUsageApi {
 
   /// Get current usage of posts
   ///
-  /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0 
+  /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getPostsUsageWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostUsageApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -48,7 +46,7 @@ class MattermostUsageApi {
 
   /// Get current usage of posts
   ///
-  /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0 
+  /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0
   Future<MattermostPostsUsage?> getPostsUsage() async {
     final response = await getPostsUsageWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,8 +56,10 @@ class MattermostUsageApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostsUsage',) as MattermostPostsUsage;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostsUsage',
+      ) as MattermostPostsUsage;
     }
     return null;
   }

@@ -79,28 +79,31 @@ class MattermostEnvironmentConfigLogSettings {
   bool? enableDiagnostics;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigLogSettings &&
-     other.enableConsole == enableConsole &&
-     other.consoleLevel == consoleLevel &&
-     other.enableFile == enableFile &&
-     other.fileLevel == fileLevel &&
-     other.fileLocation == fileLocation &&
-     other.enableWebhookDebugging == enableWebhookDebugging &&
-     other.enableDiagnostics == enableDiagnostics;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigLogSettings &&
+          other.enableConsole == enableConsole &&
+          other.consoleLevel == consoleLevel &&
+          other.enableFile == enableFile &&
+          other.fileLevel == fileLevel &&
+          other.fileLocation == fileLocation &&
+          other.enableWebhookDebugging == enableWebhookDebugging &&
+          other.enableDiagnostics == enableDiagnostics;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enableConsole == null ? 0 : enableConsole!.hashCode) +
-    (consoleLevel == null ? 0 : consoleLevel!.hashCode) +
-    (enableFile == null ? 0 : enableFile!.hashCode) +
-    (fileLevel == null ? 0 : fileLevel!.hashCode) +
-    (fileLocation == null ? 0 : fileLocation!.hashCode) +
-    (enableWebhookDebugging == null ? 0 : enableWebhookDebugging!.hashCode) +
-    (enableDiagnostics == null ? 0 : enableDiagnostics!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enableConsole == null ? 0 : enableConsole!.hashCode) +
+      (consoleLevel == null ? 0 : consoleLevel!.hashCode) +
+      (enableFile == null ? 0 : enableFile!.hashCode) +
+      (fileLevel == null ? 0 : fileLevel!.hashCode) +
+      (fileLocation == null ? 0 : fileLocation!.hashCode) +
+      (enableWebhookDebugging == null ? 0 : enableWebhookDebugging!.hashCode) +
+      (enableDiagnostics == null ? 0 : enableDiagnostics!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
+  String toString() =>
+      'MattermostEnvironmentConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -140,8 +143,10 @@ class MattermostEnvironmentConfigLogSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigLogSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigLogSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigLogSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigLogSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -159,7 +164,10 @@ class MattermostEnvironmentConfigLogSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigLogSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigLogSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigLogSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -187,12 +195,18 @@ class MattermostEnvironmentConfigLogSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigLogSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigLogSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigLogSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigLogSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigLogSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigLogSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -202,7 +216,5 @@ class MattermostEnvironmentConfigLogSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

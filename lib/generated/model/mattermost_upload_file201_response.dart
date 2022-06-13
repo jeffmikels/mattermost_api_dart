@@ -24,23 +24,22 @@ class MattermostUploadFile201Response {
   List<String> clientIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUploadFile201Response &&
-     other.fileInfos == fileInfos &&
-     other.clientIds == clientIds;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUploadFile201Response && other.fileInfos == fileInfos && other.clientIds == clientIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (fileInfos.hashCode) +
-    (clientIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (fileInfos.hashCode) + (clientIds.hashCode);
 
   @override
   String toString() => 'MattermostUploadFile201Response[fileInfos=$fileInfos, clientIds=$clientIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'file_infos'] = fileInfos;
-      _json[r'client_ids'] = clientIds;
+    _json[r'file_infos'] = fileInfos;
+    _json[r'client_ids'] = clientIds;
     return _json;
   }
 
@@ -64,15 +63,16 @@ class MattermostUploadFile201Response {
 
       return MattermostUploadFile201Response(
         fileInfos: MattermostFileInfo.listFromJson(json[r'file_infos']) ?? const [],
-        clientIds: json[r'client_ids'] is List
-            ? (json[r'client_ids'] as List).cast<String>()
-            : const [],
+        clientIds: json[r'client_ids'] is List ? (json[r'client_ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostUploadFile201Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUploadFile201Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUploadFile201Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -100,12 +100,18 @@ class MattermostUploadFile201Response {
   }
 
   // maps a json object with a list of MattermostUploadFile201Response-objects as value to a dart map
-  static Map<String, List<MattermostUploadFile201Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUploadFile201Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUploadFile201Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUploadFile201Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUploadFile201Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,7 +121,5 @@ class MattermostUploadFile201Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

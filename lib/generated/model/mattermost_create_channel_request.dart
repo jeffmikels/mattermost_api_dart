@@ -52,39 +52,42 @@ class MattermostCreateChannelRequest {
   String type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateChannelRequest &&
-     other.teamId == teamId &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.purpose == purpose &&
-     other.header == header &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateChannelRequest &&
+          other.teamId == teamId &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.purpose == purpose &&
+          other.header == header &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId.hashCode) +
-    (name.hashCode) +
-    (displayName.hashCode) +
-    (purpose == null ? 0 : purpose!.hashCode) +
-    (header == null ? 0 : header!.hashCode) +
-    (type.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId.hashCode) +
+      (name.hashCode) +
+      (displayName.hashCode) +
+      (purpose == null ? 0 : purpose!.hashCode) +
+      (header == null ? 0 : header!.hashCode) +
+      (type.hashCode);
 
   @override
-  String toString() => 'MattermostCreateChannelRequest[teamId=$teamId, name=$name, displayName=$displayName, purpose=$purpose, header=$header, type=$type]';
+  String toString() =>
+      'MattermostCreateChannelRequest[teamId=$teamId, name=$name, displayName=$displayName, purpose=$purpose, header=$header, type=$type]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'team_id'] = teamId;
-      _json[r'name'] = name;
-      _json[r'display_name'] = displayName;
+    _json[r'team_id'] = teamId;
+    _json[r'name'] = name;
+    _json[r'display_name'] = displayName;
     if (purpose != null) {
       _json[r'purpose'] = purpose;
     }
     if (header != null) {
       _json[r'header'] = header;
     }
-      _json[r'type'] = type;
+    _json[r'type'] = type;
     return _json;
   }
 
@@ -118,7 +121,10 @@ class MattermostCreateChannelRequest {
     return null;
   }
 
-  static List<MattermostCreateChannelRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateChannelRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +152,18 @@ class MattermostCreateChannelRequest {
   }
 
   // maps a json object with a list of MattermostCreateChannelRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateChannelRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateChannelRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateChannelRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateChannelRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,4 +180,3 @@ class MattermostCreateChannelRequest {
     'type',
   };
 }
-

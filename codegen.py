@@ -5,6 +5,10 @@
 import subprocess
 import os
 
+OUTPUT = 'mattermost_api_generated'
+INPUT = 'mattermost-swagger.json'
+CONFIG = 'openapi_config.yaml'
+
 
 class Replacement:
   def __init__(self, fn, search, replace):
@@ -13,13 +17,22 @@ class Replacement:
     self.replace = replace
 
 
-OUTPUT = '../mattermost_api_test'
-OUTPUT = 'mattermost_api_generated'
-INPUT = 'mattermost-swagger.json'
-CONFIG = 'openapi_config.yaml'
+def dogen(use_local=True, post_process=False):
+  args = ['generate', '-i', INPUT, '-g', 'dart', '-c', CONFIG, '-o', OUTPUT]
 
-GENERATOR = 'openapi-generator'
-GENERATOR = 'java -jar /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar'
+  if post_process:
+    os.environ['DART_POST_PROCESS_FILE'] = 'dart format'
+    args.append('--enable-post-process-file')
+
+  if use_local:
+    cmd = ['java', '-jar', '/Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar']
+  else:
+    cmd = ['openapi-generator']
+
+  cmd.extend(args)
+  res = subprocess.run(cmd, capture_output=False)
+  return res
+
 
 print('removing previously generated files')
 os.system(f'rm -rf mattermost_api_generated/*')
@@ -27,13 +40,7 @@ os.system(f'rm -rf lib/generated/*')
 os.system(f'rm -rf test/generated/*')
 os.system(f'rm -rf doc/generated/*')
 
-
-# we used to need --skip-validate-spec
-# res = subprocess.run(['openapi-generator', 'generate', '-i', INPUT,
-#                      '-g', 'dart', '-c', CONFIG, '-o', OUTPUT])
-res = subprocess.run(['java', '-jar', '/Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar',
-                     'generate', '-i', INPUT, '-g', 'dart', '-c', CONFIG, '-o', OUTPUT])
-
+dogen()
 towrite = []
 apifn = os.path.join(OUTPUT, 'lib', 'api.dart')
 print()
@@ -109,6 +116,8 @@ replacements = [
         '''elements: Map.listFromJson(json[r'elements'])!,''',
         '''elements: json[r'elements'] ?? const [],'''
     ),
+
+
 ]
 
 for rep in replacements:
@@ -130,3 +139,5 @@ os.system(f'rsync -av "{doc}/" doc/generated/')
 
 readme = os.path.join(OUTPUT, 'README.md')
 os.system(f'cp "{readme}" GENERATED_README.md')
+
+os.system(f'dart format --line-length 120 lib/generated/')

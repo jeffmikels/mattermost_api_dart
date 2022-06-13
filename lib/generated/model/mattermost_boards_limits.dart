@@ -22,15 +22,13 @@ class MattermostBoardsLimits {
   int? views;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostBoardsLimits &&
-     other.cards == cards &&
-     other.views == views;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostBoardsLimits && other.cards == cards && other.views == views;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cards == null ? 0 : cards!.hashCode) +
-    (views == null ? 0 : views!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cards == null ? 0 : cards!.hashCode) + (views == null ? 0 : views!.hashCode);
 
   @override
   String toString() => 'MattermostBoardsLimits[cards=$cards, views=$views]';
@@ -72,7 +70,10 @@ class MattermostBoardsLimits {
     return null;
   }
 
-  static List<MattermostBoardsLimits>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostBoardsLimits>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostBoardsLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -100,12 +101,18 @@ class MattermostBoardsLimits {
   }
 
   // maps a json object with a list of MattermostBoardsLimits-objects as value to a dart map
-  static Map<String, List<MattermostBoardsLimits>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostBoardsLimits>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostBoardsLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostBoardsLimits.listFromJson(entry.value, growable: growable,);
+        final value = MattermostBoardsLimits.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,7 +122,5 @@ class MattermostBoardsLimits {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

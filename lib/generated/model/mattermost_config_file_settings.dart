@@ -178,50 +178,53 @@ class MattermostConfigFileSettings {
   bool? amazonS3SSL;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigFileSettings &&
-     other.maxFileSize == maxFileSize &&
-     other.driverName == driverName &&
-     other.directory == directory &&
-     other.enablePublicLink == enablePublicLink &&
-     other.publicLinkSalt == publicLinkSalt &&
-     other.thumbnailWidth == thumbnailWidth &&
-     other.thumbnailHeight == thumbnailHeight &&
-     other.previewWidth == previewWidth &&
-     other.previewHeight == previewHeight &&
-     other.profileWidth == profileWidth &&
-     other.profileHeight == profileHeight &&
-     other.initialFont == initialFont &&
-     other.amazonS3AccessKeyId == amazonS3AccessKeyId &&
-     other.amazonS3SecretAccessKey == amazonS3SecretAccessKey &&
-     other.amazonS3Bucket == amazonS3Bucket &&
-     other.amazonS3Region == amazonS3Region &&
-     other.amazonS3Endpoint == amazonS3Endpoint &&
-     other.amazonS3SSL == amazonS3SSL;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigFileSettings &&
+          other.maxFileSize == maxFileSize &&
+          other.driverName == driverName &&
+          other.directory == directory &&
+          other.enablePublicLink == enablePublicLink &&
+          other.publicLinkSalt == publicLinkSalt &&
+          other.thumbnailWidth == thumbnailWidth &&
+          other.thumbnailHeight == thumbnailHeight &&
+          other.previewWidth == previewWidth &&
+          other.previewHeight == previewHeight &&
+          other.profileWidth == profileWidth &&
+          other.profileHeight == profileHeight &&
+          other.initialFont == initialFont &&
+          other.amazonS3AccessKeyId == amazonS3AccessKeyId &&
+          other.amazonS3SecretAccessKey == amazonS3SecretAccessKey &&
+          other.amazonS3Bucket == amazonS3Bucket &&
+          other.amazonS3Region == amazonS3Region &&
+          other.amazonS3Endpoint == amazonS3Endpoint &&
+          other.amazonS3SSL == amazonS3SSL;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (maxFileSize == null ? 0 : maxFileSize!.hashCode) +
-    (driverName == null ? 0 : driverName!.hashCode) +
-    (directory == null ? 0 : directory!.hashCode) +
-    (enablePublicLink == null ? 0 : enablePublicLink!.hashCode) +
-    (publicLinkSalt == null ? 0 : publicLinkSalt!.hashCode) +
-    (thumbnailWidth == null ? 0 : thumbnailWidth!.hashCode) +
-    (thumbnailHeight == null ? 0 : thumbnailHeight!.hashCode) +
-    (previewWidth == null ? 0 : previewWidth!.hashCode) +
-    (previewHeight == null ? 0 : previewHeight!.hashCode) +
-    (profileWidth == null ? 0 : profileWidth!.hashCode) +
-    (profileHeight == null ? 0 : profileHeight!.hashCode) +
-    (initialFont == null ? 0 : initialFont!.hashCode) +
-    (amazonS3AccessKeyId == null ? 0 : amazonS3AccessKeyId!.hashCode) +
-    (amazonS3SecretAccessKey == null ? 0 : amazonS3SecretAccessKey!.hashCode) +
-    (amazonS3Bucket == null ? 0 : amazonS3Bucket!.hashCode) +
-    (amazonS3Region == null ? 0 : amazonS3Region!.hashCode) +
-    (amazonS3Endpoint == null ? 0 : amazonS3Endpoint!.hashCode) +
-    (amazonS3SSL == null ? 0 : amazonS3SSL!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (maxFileSize == null ? 0 : maxFileSize!.hashCode) +
+      (driverName == null ? 0 : driverName!.hashCode) +
+      (directory == null ? 0 : directory!.hashCode) +
+      (enablePublicLink == null ? 0 : enablePublicLink!.hashCode) +
+      (publicLinkSalt == null ? 0 : publicLinkSalt!.hashCode) +
+      (thumbnailWidth == null ? 0 : thumbnailWidth!.hashCode) +
+      (thumbnailHeight == null ? 0 : thumbnailHeight!.hashCode) +
+      (previewWidth == null ? 0 : previewWidth!.hashCode) +
+      (previewHeight == null ? 0 : previewHeight!.hashCode) +
+      (profileWidth == null ? 0 : profileWidth!.hashCode) +
+      (profileHeight == null ? 0 : profileHeight!.hashCode) +
+      (initialFont == null ? 0 : initialFont!.hashCode) +
+      (amazonS3AccessKeyId == null ? 0 : amazonS3AccessKeyId!.hashCode) +
+      (amazonS3SecretAccessKey == null ? 0 : amazonS3SecretAccessKey!.hashCode) +
+      (amazonS3Bucket == null ? 0 : amazonS3Bucket!.hashCode) +
+      (amazonS3Region == null ? 0 : amazonS3Region!.hashCode) +
+      (amazonS3Endpoint == null ? 0 : amazonS3Endpoint!.hashCode) +
+      (amazonS3SSL == null ? 0 : amazonS3SSL!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
+  String toString() =>
+      'MattermostConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -324,7 +327,10 @@ class MattermostConfigFileSettings {
     return null;
   }
 
-  static List<MattermostConfigFileSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigFileSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigFileSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -352,12 +358,18 @@ class MattermostConfigFileSettings {
   }
 
   // maps a json object with a list of MattermostConfigFileSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigFileSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigFileSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigFileSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigFileSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigFileSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -367,7 +379,5 @@ class MattermostConfigFileSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

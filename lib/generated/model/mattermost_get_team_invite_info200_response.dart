@@ -52,22 +52,25 @@ class MattermostGetTeamInviteInfo200Response {
   String? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGetTeamInviteInfo200Response &&
-     other.id == id &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGetTeamInviteInfo200Response &&
+          other.id == id &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
-  String toString() => 'MattermostGetTeamInviteInfo200Response[id=$id, name=$name, displayName=$displayName, description=$description]';
+  String toString() =>
+      'MattermostGetTeamInviteInfo200Response[id=$id, name=$name, displayName=$displayName, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -98,8 +101,10 @@ class MattermostGetTeamInviteInfo200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostGetTeamInviteInfo200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostGetTeamInviteInfo200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostGetTeamInviteInfo200Response[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostGetTeamInviteInfo200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -114,7 +119,10 @@ class MattermostGetTeamInviteInfo200Response {
     return null;
   }
 
-  static List<MattermostGetTeamInviteInfo200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGetTeamInviteInfo200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGetTeamInviteInfo200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +150,18 @@ class MattermostGetTeamInviteInfo200Response {
   }
 
   // maps a json object with a list of MattermostGetTeamInviteInfo200Response-objects as value to a dart map
-  static Map<String, List<MattermostGetTeamInviteInfo200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGetTeamInviteInfo200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGetTeamInviteInfo200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGetTeamInviteInfo200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGetTeamInviteInfo200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +171,5 @@ class MattermostGetTeamInviteInfo200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

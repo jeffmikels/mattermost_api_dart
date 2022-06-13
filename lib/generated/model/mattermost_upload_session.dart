@@ -90,30 +90,33 @@ class MattermostUploadSession {
   int? fileOffset;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUploadSession &&
-     other.id == id &&
-     other.type == type &&
-     other.createAt == createAt &&
-     other.userId == userId &&
-     other.channelId == channelId &&
-     other.filename == filename &&
-     other.fileSize == fileSize &&
-     other.fileOffset == fileOffset;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUploadSession &&
+          other.id == id &&
+          other.type == type &&
+          other.createAt == createAt &&
+          other.userId == userId &&
+          other.channelId == channelId &&
+          other.filename == filename &&
+          other.fileSize == fileSize &&
+          other.fileOffset == fileOffset;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (filename == null ? 0 : filename!.hashCode) +
-    (fileSize == null ? 0 : fileSize!.hashCode) +
-    (fileOffset == null ? 0 : fileOffset!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (filename == null ? 0 : filename!.hashCode) +
+      (fileSize == null ? 0 : fileSize!.hashCode) +
+      (fileOffset == null ? 0 : fileOffset!.hashCode);
 
   @override
-  String toString() => 'MattermostUploadSession[id=$id, type=$type, createAt=$createAt, userId=$userId, channelId=$channelId, filename=$filename, fileSize=$fileSize, fileOffset=$fileOffset]';
+  String toString() =>
+      'MattermostUploadSession[id=$id, type=$type, createAt=$createAt, userId=$userId, channelId=$channelId, filename=$filename, fileSize=$fileSize, fileOffset=$fileOffset]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -176,7 +179,10 @@ class MattermostUploadSession {
     return null;
   }
 
-  static List<MattermostUploadSession>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUploadSession>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUploadSession>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -204,12 +210,18 @@ class MattermostUploadSession {
   }
 
   // maps a json object with a list of MattermostUploadSession-objects as value to a dart map
-  static Map<String, List<MattermostUploadSession>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUploadSession>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUploadSession>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUploadSession.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUploadSession.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -219,8 +231,7 @@ class MattermostUploadSession {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// The type of the upload.
@@ -245,9 +256,13 @@ class MattermostUploadSessionTypeEnum {
     import_,
   ];
 
-  static MattermostUploadSessionTypeEnum? fromJson(dynamic value) => MattermostUploadSessionTypeEnumTypeTransformer().decode(value);
+  static MattermostUploadSessionTypeEnum? fromJson(dynamic value) =>
+      MattermostUploadSessionTypeEnumTypeTransformer().decode(value);
 
-  static List<MattermostUploadSessionTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUploadSessionTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUploadSessionTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -264,7 +279,8 @@ class MattermostUploadSessionTypeEnum {
 /// Transformation class that can [encode] an instance of [MattermostUploadSessionTypeEnum] to String,
 /// and [decode] dynamic data back to [MattermostUploadSessionTypeEnum].
 class MattermostUploadSessionTypeEnumTypeTransformer {
-  factory MattermostUploadSessionTypeEnumTypeTransformer() => _instance ??= const MattermostUploadSessionTypeEnumTypeTransformer._();
+  factory MattermostUploadSessionTypeEnumTypeTransformer() =>
+      _instance ??= const MattermostUploadSessionTypeEnumTypeTransformer._();
 
   const MattermostUploadSessionTypeEnumTypeTransformer._();
 
@@ -281,8 +297,10 @@ class MattermostUploadSessionTypeEnumTypeTransformer {
   MattermostUploadSessionTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'attachment': return MattermostUploadSessionTypeEnum.attachment;
-        case r'import': return MattermostUploadSessionTypeEnum.import_;
+        case r'attachment':
+          return MattermostUploadSessionTypeEnum.attachment;
+        case r'import':
+          return MattermostUploadSessionTypeEnum.import_;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -295,5 +313,3 @@ class MattermostUploadSessionTypeEnumTypeTransformer {
   /// Singleton [MattermostUploadSessionTypeEnumTypeTransformer] instance.
   static MattermostUploadSessionTypeEnumTypeTransformer? _instance;
 }
-
-

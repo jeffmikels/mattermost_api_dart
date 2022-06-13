@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostSearchApi {
   MattermostSearchApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostSearchApi {
 
   /// Search files in a team
   ///
-  /// Search for files in a team based on file name, extention and file content (if file content extraction is enabled and supported for the files). __Minimum server version__: 5.34 ##### Permissions Must be authenticated and have the `view_team` permission. 
+  /// Search for files in a team based on file name, extention and file content (if file content extraction is enabled and supported for the files). __Minimum server version__: 5.34 ##### Permissions Must be authenticated and have the `view_team` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -44,10 +43,17 @@ class MattermostSearchApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page. (Only works with Elasticsearch)
-  Future<Response> searchFilesWithHttpInfo(String teamId, String terms, bool isOrSearch, { int? timeZoneOffset, bool? includeDeletedChannels, int? page, int? perPage, }) async {
+  Future<Response> searchFilesWithHttpInfo(
+    String teamId,
+    String terms,
+    bool isOrSearch, {
+    int? timeZoneOffset,
+    bool? includeDeletedChannels,
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/files/search'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/files/search'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -101,7 +107,7 @@ class MattermostSearchApi {
 
   /// Search files in a team
   ///
-  /// Search for files in a team based on file name, extention and file content (if file content extraction is enabled and supported for the files). __Minimum server version__: 5.34 ##### Permissions Must be authenticated and have the `view_team` permission. 
+  /// Search for files in a team based on file name, extention and file content (if file content extraction is enabled and supported for the files). __Minimum server version__: 5.34 ##### Permissions Must be authenticated and have the `view_team` permission.
   ///
   /// Parameters:
   ///
@@ -125,8 +131,24 @@ class MattermostSearchApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page. (Only works with Elasticsearch)
-  Future<MattermostFileInfoList?> searchFiles(String teamId, String terms, bool isOrSearch, { int? timeZoneOffset, bool? includeDeletedChannels, int? page, int? perPage, }) async {
-    final response = await searchFilesWithHttpInfo(teamId, terms, isOrSearch,  timeZoneOffset: timeZoneOffset, includeDeletedChannels: includeDeletedChannels, page: page, perPage: perPage, );
+  Future<MattermostFileInfoList?> searchFiles(
+    String teamId,
+    String terms,
+    bool isOrSearch, {
+    int? timeZoneOffset,
+    bool? includeDeletedChannels,
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await searchFilesWithHttpInfo(
+      teamId,
+      terms,
+      isOrSearch,
+      timeZoneOffset: timeZoneOffset,
+      includeDeletedChannels: includeDeletedChannels,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -134,8 +156,10 @@ class MattermostSearchApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostFileInfoList',) as MattermostFileInfoList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostFileInfoList',
+      ) as MattermostFileInfoList;
     }
     return null;
   }

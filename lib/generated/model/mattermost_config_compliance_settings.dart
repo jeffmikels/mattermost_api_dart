@@ -43,20 +43,23 @@ class MattermostConfigComplianceSettings {
   bool? enableDaily;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigComplianceSettings &&
-     other.enable == enable &&
-     other.directory == directory &&
-     other.enableDaily == enableDaily;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigComplianceSettings &&
+          other.enable == enable &&
+          other.directory == directory &&
+          other.enableDaily == enableDaily;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (directory == null ? 0 : directory!.hashCode) +
-    (enableDaily == null ? 0 : enableDaily!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (directory == null ? 0 : directory!.hashCode) +
+      (enableDaily == null ? 0 : enableDaily!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigComplianceSettings[enable=$enable, directory=$directory, enableDaily=$enableDaily]';
+  String toString() =>
+      'MattermostConfigComplianceSettings[enable=$enable, directory=$directory, enableDaily=$enableDaily]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostConfigComplianceSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostConfigComplianceSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostConfigComplianceSettings[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostConfigComplianceSettings[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostConfigComplianceSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostConfigComplianceSettings {
     return null;
   }
 
-  static List<MattermostConfigComplianceSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigComplianceSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigComplianceSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostConfigComplianceSettings {
   }
 
   // maps a json object with a list of MattermostConfigComplianceSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigComplianceSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigComplianceSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigComplianceSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigComplianceSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigComplianceSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostConfigComplianceSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

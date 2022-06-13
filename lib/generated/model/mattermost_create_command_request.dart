@@ -32,29 +32,28 @@ class MattermostCreateCommandRequest {
   String url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateCommandRequest &&
-     other.teamId == teamId &&
-     other.method == method &&
-     other.trigger == trigger &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateCommandRequest &&
+          other.teamId == teamId &&
+          other.method == method &&
+          other.trigger == trigger &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId.hashCode) +
-    (method.hashCode) +
-    (trigger.hashCode) +
-    (url.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId.hashCode) + (method.hashCode) + (trigger.hashCode) + (url.hashCode);
 
   @override
   String toString() => 'MattermostCreateCommandRequest[teamId=$teamId, method=$method, trigger=$trigger, url=$url]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'team_id'] = teamId;
-      _json[r'method'] = method;
-      _json[r'trigger'] = trigger;
-      _json[r'url'] = url;
+    _json[r'team_id'] = teamId;
+    _json[r'method'] = method;
+    _json[r'trigger'] = trigger;
+    _json[r'url'] = url;
     return _json;
   }
 
@@ -86,7 +85,10 @@ class MattermostCreateCommandRequest {
     return null;
   }
 
-  static List<MattermostCreateCommandRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateCommandRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateCommandRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +116,18 @@ class MattermostCreateCommandRequest {
   }
 
   // maps a json object with a list of MattermostCreateCommandRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateCommandRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateCommandRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateCommandRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateCommandRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateCommandRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -136,4 +144,3 @@ class MattermostCreateCommandRequest {
     'url',
   };
 }
-

@@ -90,30 +90,33 @@ class MattermostChannelMember {
   int? lastUpdateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelMember &&
-     other.channelId == channelId &&
-     other.userId == userId &&
-     other.roles == roles &&
-     other.lastViewedAt == lastViewedAt &&
-     other.msgCount == msgCount &&
-     other.mentionCount == mentionCount &&
-     other.notifyProps == notifyProps &&
-     other.lastUpdateAt == lastUpdateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelMember &&
+          other.channelId == channelId &&
+          other.userId == userId &&
+          other.roles == roles &&
+          other.lastViewedAt == lastViewedAt &&
+          other.msgCount == msgCount &&
+          other.mentionCount == mentionCount &&
+          other.notifyProps == notifyProps &&
+          other.lastUpdateAt == lastUpdateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (roles == null ? 0 : roles!.hashCode) +
-    (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
-    (msgCount == null ? 0 : msgCount!.hashCode) +
-    (mentionCount == null ? 0 : mentionCount!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode) +
-    (lastUpdateAt == null ? 0 : lastUpdateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (roles == null ? 0 : roles!.hashCode) +
+      (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
+      (msgCount == null ? 0 : msgCount!.hashCode) +
+      (mentionCount == null ? 0 : mentionCount!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode) +
+      (lastUpdateAt == null ? 0 : lastUpdateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelMember[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt]';
+  String toString() =>
+      'MattermostChannelMember[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -176,7 +179,10 @@ class MattermostChannelMember {
     return null;
   }
 
-  static List<MattermostChannelMember>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelMember>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelMember>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -204,12 +210,18 @@ class MattermostChannelMember {
   }
 
   // maps a json object with a list of MattermostChannelMember-objects as value to a dart map
-  static Map<String, List<MattermostChannelMember>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelMember>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelMember>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelMember.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelMember.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -219,7 +231,5 @@ class MattermostChannelMember {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

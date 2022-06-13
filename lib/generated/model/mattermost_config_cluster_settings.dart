@@ -37,20 +37,23 @@ class MattermostConfigClusterSettings {
   List<String> interNodeUrls;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigClusterSettings &&
-     other.enable == enable &&
-     other.interNodeListenAddress == interNodeListenAddress &&
-     other.interNodeUrls == interNodeUrls;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigClusterSettings &&
+          other.enable == enable &&
+          other.interNodeListenAddress == interNodeListenAddress &&
+          other.interNodeUrls == interNodeUrls;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (interNodeListenAddress == null ? 0 : interNodeListenAddress!.hashCode) +
-    (interNodeUrls.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (interNodeListenAddress == null ? 0 : interNodeListenAddress!.hashCode) +
+      (interNodeUrls.hashCode);
 
   @override
-  String toString() => 'MattermostConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
+  String toString() =>
+      'MattermostConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -60,7 +63,7 @@ class MattermostConfigClusterSettings {
     if (interNodeListenAddress != null) {
       _json[r'InterNodeListenAddress'] = interNodeListenAddress;
     }
-      _json[r'InterNodeUrls'] = interNodeUrls;
+    _json[r'InterNodeUrls'] = interNodeUrls;
     return _json;
   }
 
@@ -85,15 +88,16 @@ class MattermostConfigClusterSettings {
       return MattermostConfigClusterSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         interNodeListenAddress: mapValueOfType<String>(json, r'InterNodeListenAddress'),
-        interNodeUrls: json[r'InterNodeUrls'] is List
-            ? (json[r'InterNodeUrls'] as List).cast<String>()
-            : const [],
+        interNodeUrls: json[r'InterNodeUrls'] is List ? (json[r'InterNodeUrls'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostConfigClusterSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigClusterSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigClusterSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -121,12 +125,18 @@ class MattermostConfigClusterSettings {
   }
 
   // maps a json object with a list of MattermostConfigClusterSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigClusterSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigClusterSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigClusterSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigClusterSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigClusterSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -136,7 +146,5 @@ class MattermostConfigClusterSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

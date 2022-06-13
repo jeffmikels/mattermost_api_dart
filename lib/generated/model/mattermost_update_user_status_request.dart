@@ -34,25 +34,25 @@ class MattermostUpdateUserStatusRequest {
   int? dndEndTime;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserStatusRequest &&
-     other.userId == userId &&
-     other.status == status &&
-     other.dndEndTime == dndEndTime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateUserStatusRequest &&
+          other.userId == userId &&
+          other.status == status &&
+          other.dndEndTime == dndEndTime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId.hashCode) +
-    (status.hashCode) +
-    (dndEndTime == null ? 0 : dndEndTime!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId.hashCode) + (status.hashCode) + (dndEndTime == null ? 0 : dndEndTime!.hashCode);
 
   @override
   String toString() => 'MattermostUpdateUserStatusRequest[userId=$userId, status=$status, dndEndTime=$dndEndTime]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'user_id'] = userId;
-      _json[r'status'] = status;
+    _json[r'user_id'] = userId;
+    _json[r'status'] = status;
     if (dndEndTime != null) {
       _json[r'dnd_end_time'] = dndEndTime;
     }
@@ -86,7 +86,10 @@ class MattermostUpdateUserStatusRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserStatusRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserStatusRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserStatusRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +117,18 @@ class MattermostUpdateUserStatusRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserStatusRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserStatusRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserStatusRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserStatusRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserStatusRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserStatusRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,4 +143,3 @@ class MattermostUpdateUserStatusRequest {
     'status',
   };
 }
-

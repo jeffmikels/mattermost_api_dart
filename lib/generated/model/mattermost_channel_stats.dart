@@ -34,15 +34,14 @@ class MattermostChannelStats {
   int? memberCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelStats &&
-     other.channelId == channelId &&
-     other.memberCount == memberCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelStats && other.channelId == channelId && other.memberCount == memberCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (memberCount == null ? 0 : memberCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId == null ? 0 : channelId!.hashCode) + (memberCount == null ? 0 : memberCount!.hashCode);
 
   @override
   String toString() => 'MattermostChannelStats[channelId=$channelId, memberCount=$memberCount]';
@@ -84,7 +83,10 @@ class MattermostChannelStats {
     return null;
   }
 
-  static List<MattermostChannelStats>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelStats>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelStats>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostChannelStats {
   }
 
   // maps a json object with a list of MattermostChannelStats-objects as value to a dart map
-  static Map<String, List<MattermostChannelStats>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelStats>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelStats>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelStats.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelStats.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostChannelStats {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

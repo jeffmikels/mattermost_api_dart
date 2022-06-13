@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostRolesApi {
   MattermostRolesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostRolesApi {
 
   /// Get a list of all the roles
   ///
-  /// ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33 
+  /// ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getAllRolesWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostRolesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -48,7 +46,7 @@ class MattermostRolesApi {
 
   /// Get a list of all the roles
   ///
-  /// ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33 
+  /// ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33
   Future<List<MattermostRole>?> getAllRoles() async {
     final response = await getAllRolesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -60,16 +58,15 @@ class MattermostRolesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostRole>') as List)
-        .cast<MattermostRole>()
-        .toList();
-
+          .cast<MattermostRole>()
+          .toList();
     }
     return null;
   }
 
   /// Get a role
   ///
-  /// Get a role from the provided role id.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a role from the provided role id.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -77,10 +74,11 @@ class MattermostRolesApi {
   ///
   /// * [String] roleId (required):
   ///   Role GUID
-  Future<Response> getRoleWithHttpInfo(String roleId,) async {
+  Future<Response> getRoleWithHttpInfo(
+    String roleId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/roles/{role_id}'
-      .replaceAll('{role_id}', roleId);
+    final path = r'/roles/{role_id}'.replaceAll('{role_id}', roleId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -90,7 +88,6 @@ class MattermostRolesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -105,14 +102,18 @@ class MattermostRolesApi {
 
   /// Get a role
   ///
-  /// Get a role from the provided role id.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a role from the provided role id.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Parameters:
   ///
   /// * [String] roleId (required):
   ///   Role GUID
-  Future<MattermostRole?> getRole(String roleId,) async {
-    final response = await getRoleWithHttpInfo(roleId,);
+  Future<MattermostRole?> getRole(
+    String roleId,
+  ) async {
+    final response = await getRoleWithHttpInfo(
+      roleId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -120,15 +121,17 @@ class MattermostRolesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRole',) as MattermostRole;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRole',
+      ) as MattermostRole;
     }
     return null;
   }
 
   /// Get a role
   ///
-  /// Get a role from the provided role name.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a role from the provided role name.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -136,10 +139,11 @@ class MattermostRolesApi {
   ///
   /// * [String] roleName (required):
   ///   Role Name
-  Future<Response> getRoleByNameWithHttpInfo(String roleName,) async {
+  Future<Response> getRoleByNameWithHttpInfo(
+    String roleName,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/roles/name/{role_name}'
-      .replaceAll('{role_name}', roleName);
+    final path = r'/roles/name/{role_name}'.replaceAll('{role_name}', roleName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -149,7 +153,6 @@ class MattermostRolesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -164,14 +167,18 @@ class MattermostRolesApi {
 
   /// Get a role
   ///
-  /// Get a role from the provided role name.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a role from the provided role name.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Parameters:
   ///
   /// * [String] roleName (required):
   ///   Role Name
-  Future<MattermostRole?> getRoleByName(String roleName,) async {
-    final response = await getRoleByNameWithHttpInfo(roleName,);
+  Future<MattermostRole?> getRoleByName(
+    String roleName,
+  ) async {
+    final response = await getRoleByNameWithHttpInfo(
+      roleName,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -179,15 +186,17 @@ class MattermostRolesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRole',) as MattermostRole;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRole',
+      ) as MattermostRole;
     }
     return null;
   }
 
   /// Get a list of roles by name
   ///
-  /// Get a list of roles from their names.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a list of roles from their names.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -195,7 +204,9 @@ class MattermostRolesApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of role names
-  Future<Response> getRolesByNamesWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> getRolesByNamesWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/roles/names';
 
@@ -207,7 +218,6 @@ class MattermostRolesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -222,14 +232,18 @@ class MattermostRolesApi {
 
   /// Get a list of roles by name
   ///
-  /// Get a list of roles from their names.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
+  /// Get a list of roles from their names.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   List of role names
-  Future<List<MattermostRole>?> getRolesByNames(List<String> requestBody,) async {
-    final response = await getRolesByNamesWithHttpInfo(requestBody,);
+  Future<List<MattermostRole>?> getRolesByNames(
+    List<String> requestBody,
+  ) async {
+    final response = await getRolesByNamesWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -239,16 +253,15 @@ class MattermostRolesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostRole>') as List)
-        .cast<MattermostRole>()
-        .toList();
-
+          .cast<MattermostRole>()
+          .toList();
     }
     return null;
   }
 
   /// Patch a role
   ///
-  /// Partially update a role by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 4.9 
+  /// Partially update a role by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 4.9
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -259,10 +272,12 @@ class MattermostRolesApi {
   ///
   /// * [MattermostPatchRoleRequest] mattermostPatchRoleRequest (required):
   ///   Role object to be updated
-  Future<Response> patchRoleWithHttpInfo(String roleId, MattermostPatchRoleRequest mattermostPatchRoleRequest,) async {
+  Future<Response> patchRoleWithHttpInfo(
+    String roleId,
+    MattermostPatchRoleRequest mattermostPatchRoleRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/roles/{role_id}/patch'
-      .replaceAll('{role_id}', roleId);
+    final path = r'/roles/{role_id}/patch'.replaceAll('{role_id}', roleId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchRoleRequest;
@@ -272,7 +287,6 @@ class MattermostRolesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -287,7 +301,7 @@ class MattermostRolesApi {
 
   /// Patch a role
   ///
-  /// Partially update a role by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 4.9 
+  /// Partially update a role by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 4.9
   ///
   /// Parameters:
   ///
@@ -296,8 +310,14 @@ class MattermostRolesApi {
   ///
   /// * [MattermostPatchRoleRequest] mattermostPatchRoleRequest (required):
   ///   Role object to be updated
-  Future<MattermostRole?> patchRole(String roleId, MattermostPatchRoleRequest mattermostPatchRoleRequest,) async {
-    final response = await patchRoleWithHttpInfo(roleId, mattermostPatchRoleRequest,);
+  Future<MattermostRole?> patchRole(
+    String roleId,
+    MattermostPatchRoleRequest mattermostPatchRoleRequest,
+  ) async {
+    final response = await patchRoleWithHttpInfo(
+      roleId,
+      mattermostPatchRoleRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -305,8 +325,10 @@ class MattermostRolesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRole',) as MattermostRole;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRole',
+      ) as MattermostRole;
     }
     return null;
   }

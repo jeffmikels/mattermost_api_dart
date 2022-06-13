@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostExportsApi {
   MattermostExportsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostExportsApi {
 
   /// Delete an export file
   ///
-  /// Deletes an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions. 
+  /// Deletes an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,10 +25,11 @@ class MattermostExportsApi {
   ///
   /// * [String] exportName (required):
   ///   The name of the export file to delete
-  Future<Response> deleteExportWithHttpInfo(String exportName,) async {
+  Future<Response> deleteExportWithHttpInfo(
+    String exportName,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/exports/{export_name}'
-      .replaceAll('{export_name}', exportName);
+    final path = r'/exports/{export_name}'.replaceAll('{export_name}', exportName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -39,7 +39,6 @@ class MattermostExportsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -54,14 +53,18 @@ class MattermostExportsApi {
 
   /// Delete an export file
   ///
-  /// Deletes an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions. 
+  /// Deletes an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions.
   ///
   /// Parameters:
   ///
   /// * [String] exportName (required):
   ///   The name of the export file to delete
-  Future<void> deleteExport(String exportName,) async {
-    final response = await deleteExportWithHttpInfo(exportName,);
+  Future<void> deleteExport(
+    String exportName,
+  ) async {
+    final response = await deleteExportWithHttpInfo(
+      exportName,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -69,7 +72,7 @@ class MattermostExportsApi {
 
   /// Download an export file
   ///
-  /// Downloads an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions. 
+  /// Downloads an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -77,10 +80,11 @@ class MattermostExportsApi {
   ///
   /// * [String] exportName (required):
   ///   The name of the export file to download
-  Future<Response> downloadExportWithHttpInfo(String exportName,) async {
+  Future<Response> downloadExportWithHttpInfo(
+    String exportName,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/exports/{export_name}'
-      .replaceAll('{export_name}', exportName);
+    final path = r'/exports/{export_name}'.replaceAll('{export_name}', exportName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -90,7 +94,6 @@ class MattermostExportsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -105,14 +108,18 @@ class MattermostExportsApi {
 
   /// Download an export file
   ///
-  /// Downloads an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions. 
+  /// Downloads an export file.   __Minimum server version__: 5.33  ##### Permissions  Must have `manage_system` permissions.
   ///
   /// Parameters:
   ///
   /// * [String] exportName (required):
   ///   The name of the export file to download
-  Future<void> downloadExport(String exportName,) async {
-    final response = await downloadExportWithHttpInfo(exportName,);
+  Future<void> downloadExport(
+    String exportName,
+  ) async {
+    final response = await downloadExportWithHttpInfo(
+      exportName,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -120,7 +127,7 @@ class MattermostExportsApi {
 
   /// List export files
   ///
-  /// Lists all available export files. __Minimum server version__: 5.33 ##### Permissions Must have `manage_system` permissions. 
+  /// Lists all available export files. __Minimum server version__: 5.33 ##### Permissions Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> listExportsWithHttpInfo() async {
@@ -136,7 +143,6 @@ class MattermostExportsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -150,7 +156,7 @@ class MattermostExportsApi {
 
   /// List export files
   ///
-  /// Lists all available export files. __Minimum server version__: 5.33 ##### Permissions Must have `manage_system` permissions. 
+  /// Lists all available export files. __Minimum server version__: 5.33 ##### Permissions Must have `manage_system` permissions.
   Future<void> listExports() async {
     final response = await listExportsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostWebhooksApi {
   MattermostWebhooksApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostWebhooksApi {
 
   /// Create an incoming webhook
   ///
-  /// Create an incoming webhook for a channel. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_incoming_webhooks` for the team the webhook is in if the user is different than the requester. 
+  /// Create an incoming webhook for a channel. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_incoming_webhooks` for the team the webhook is in if the user is different than the requester.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,7 +25,9 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostCreateIncomingWebhookRequest] mattermostCreateIncomingWebhookRequest (required):
   ///   Incoming webhook to be created
-  Future<Response> createIncomingWebhookWithHttpInfo(MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest,) async {
+  Future<Response> createIncomingWebhookWithHttpInfo(
+    MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/incoming';
 
@@ -39,7 +40,6 @@ class MattermostWebhooksApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -53,14 +53,18 @@ class MattermostWebhooksApi {
 
   /// Create an incoming webhook
   ///
-  /// Create an incoming webhook for a channel. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_incoming_webhooks` for the team the webhook is in if the user is different than the requester. 
+  /// Create an incoming webhook for a channel. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_incoming_webhooks` for the team the webhook is in if the user is different than the requester.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateIncomingWebhookRequest] mattermostCreateIncomingWebhookRequest (required):
   ///   Incoming webhook to be created
-  Future<MattermostIncomingWebhook?> createIncomingWebhook(MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest,) async {
-    final response = await createIncomingWebhookWithHttpInfo(mattermostCreateIncomingWebhookRequest,);
+  Future<MattermostIncomingWebhook?> createIncomingWebhook(
+    MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest,
+  ) async {
+    final response = await createIncomingWebhookWithHttpInfo(
+      mattermostCreateIncomingWebhookRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -68,15 +72,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostIncomingWebhook',) as MattermostIncomingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostIncomingWebhook',
+      ) as MattermostIncomingWebhook;
     }
     return null;
   }
 
   /// Create an outgoing webhook
   ///
-  /// Create an outgoing webhook for a team. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_outgoing_webhooks` for the team the webhook is in if the user is different than the requester. 
+  /// Create an outgoing webhook for a team. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_outgoing_webhooks` for the team the webhook is in if the user is different than the requester.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -84,7 +90,9 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostCreateOutgoingWebhookRequest] mattermostCreateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be created
-  Future<Response> createOutgoingWebhookWithHttpInfo(MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest,) async {
+  Future<Response> createOutgoingWebhookWithHttpInfo(
+    MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/outgoing';
 
@@ -96,7 +104,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -111,14 +118,18 @@ class MattermostWebhooksApi {
 
   /// Create an outgoing webhook
   ///
-  /// Create an outgoing webhook for a team. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_outgoing_webhooks` for the team the webhook is in if the user is different than the requester. 
+  /// Create an outgoing webhook for a team. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_outgoing_webhooks` for the team the webhook is in if the user is different than the requester.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateOutgoingWebhookRequest] mattermostCreateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be created
-  Future<MattermostOutgoingWebhook?> createOutgoingWebhook(MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest,) async {
-    final response = await createOutgoingWebhookWithHttpInfo(mattermostCreateOutgoingWebhookRequest,);
+  Future<MattermostOutgoingWebhook?> createOutgoingWebhook(
+    MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest,
+  ) async {
+    final response = await createOutgoingWebhookWithHttpInfo(
+      mattermostCreateOutgoingWebhookRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -126,15 +137,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOutgoingWebhook',) as MattermostOutgoingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOutgoingWebhook',
+      ) as MattermostOutgoingWebhook;
     }
     return null;
   }
 
   /// Delete an incoming webhook
   ///
-  /// Delete an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Delete an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -142,10 +155,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Incoming webhook GUID
-  Future<Response> deleteIncomingWebhookWithHttpInfo(String hookId,) async {
+  Future<Response> deleteIncomingWebhookWithHttpInfo(
+    String hookId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/incoming/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/incoming/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -155,7 +169,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -170,14 +183,18 @@ class MattermostWebhooksApi {
 
   /// Delete an incoming webhook
   ///
-  /// Delete an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Delete an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] hookId (required):
   ///   Incoming webhook GUID
-  Future<MattermostStatusOK?> deleteIncomingWebhook(String hookId,) async {
-    final response = await deleteIncomingWebhookWithHttpInfo(hookId,);
+  Future<MattermostStatusOK?> deleteIncomingWebhook(
+    String hookId,
+  ) async {
+    final response = await deleteIncomingWebhookWithHttpInfo(
+      hookId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -185,15 +202,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Delete an outgoing webhook
   ///
-  /// Delete an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Delete an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -201,10 +220,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<Response> deleteOutgoingWebhookWithHttpInfo(String hookId,) async {
+  Future<Response> deleteOutgoingWebhookWithHttpInfo(
+    String hookId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/outgoing/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/outgoing/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -214,7 +234,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -229,14 +248,18 @@ class MattermostWebhooksApi {
 
   /// Delete an outgoing webhook
   ///
-  /// Delete an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Delete an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MattermostStatusOK?> deleteOutgoingWebhook(String hookId,) async {
-    final response = await deleteOutgoingWebhookWithHttpInfo(hookId,);
+  Future<MattermostStatusOK?> deleteOutgoingWebhook(
+    String hookId,
+  ) async {
+    final response = await deleteOutgoingWebhookWithHttpInfo(
+      hookId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -244,15 +267,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get an incoming webhook
   ///
-  /// Get an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Get an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -260,10 +285,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Incoming Webhook GUID
-  Future<Response> getIncomingWebhookWithHttpInfo(String hookId,) async {
+  Future<Response> getIncomingWebhookWithHttpInfo(
+    String hookId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/incoming/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/incoming/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -273,7 +299,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -288,14 +313,18 @@ class MattermostWebhooksApi {
 
   /// Get an incoming webhook
   ///
-  /// Get an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Get an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] hookId (required):
   ///   Incoming Webhook GUID
-  Future<MattermostIncomingWebhook?> getIncomingWebhook(String hookId,) async {
-    final response = await getIncomingWebhookWithHttpInfo(hookId,);
+  Future<MattermostIncomingWebhook?> getIncomingWebhook(
+    String hookId,
+  ) async {
+    final response = await getIncomingWebhookWithHttpInfo(
+      hookId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -303,15 +332,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostIncomingWebhook',) as MattermostIncomingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostIncomingWebhook',
+      ) as MattermostIncomingWebhook;
     }
     return null;
   }
 
   /// List incoming webhooks
   ///
-  /// Get a page of a list of incoming webhooks. Optionally filter for a specific team using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team. 
+  /// Get a page of a list of incoming webhooks. Optionally filter for a specific team using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -325,7 +356,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] teamId:
   ///   The ID of the team to get hooks for.
-  Future<Response> getIncomingWebhooksWithHttpInfo({ int? page, int? perPage, String? teamId, }) async {
+  Future<Response> getIncomingWebhooksWithHttpInfo({
+    int? page,
+    int? perPage,
+    String? teamId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/incoming';
 
@@ -348,7 +383,6 @@ class MattermostWebhooksApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -362,7 +396,7 @@ class MattermostWebhooksApi {
 
   /// List incoming webhooks
   ///
-  /// Get a page of a list of incoming webhooks. Optionally filter for a specific team using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team. 
+  /// Get a page of a list of incoming webhooks. Optionally filter for a specific team using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team.
   ///
   /// Parameters:
   ///
@@ -374,8 +408,16 @@ class MattermostWebhooksApi {
   ///
   /// * [String] teamId:
   ///   The ID of the team to get hooks for.
-  Future<List<MattermostIncomingWebhook>?> getIncomingWebhooks({ int? page, int? perPage, String? teamId, }) async {
-    final response = await getIncomingWebhooksWithHttpInfo( page: page, perPage: perPage, teamId: teamId, );
+  Future<List<MattermostIncomingWebhook>?> getIncomingWebhooks({
+    int? page,
+    int? perPage,
+    String? teamId,
+  }) async {
+    final response = await getIncomingWebhooksWithHttpInfo(
+      page: page,
+      perPage: perPage,
+      teamId: teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -385,16 +427,15 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostIncomingWebhook>') as List)
-        .cast<MattermostIncomingWebhook>()
-        .toList();
-
+          .cast<MattermostIncomingWebhook>()
+          .toList();
     }
     return null;
   }
 
   /// Get an outgoing webhook
   ///
-  /// Get an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Get an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -402,10 +443,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<Response> getOutgoingWebhookWithHttpInfo(String hookId,) async {
+  Future<Response> getOutgoingWebhookWithHttpInfo(
+    String hookId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/outgoing/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/outgoing/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -415,7 +457,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -430,14 +471,18 @@ class MattermostWebhooksApi {
 
   /// Get an outgoing webhook
   ///
-  /// Get an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Get an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MattermostOutgoingWebhook?> getOutgoingWebhook(String hookId,) async {
-    final response = await getOutgoingWebhookWithHttpInfo(hookId,);
+  Future<MattermostOutgoingWebhook?> getOutgoingWebhook(
+    String hookId,
+  ) async {
+    final response = await getOutgoingWebhookWithHttpInfo(
+      hookId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -445,15 +490,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOutgoingWebhook',) as MattermostOutgoingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOutgoingWebhook',
+      ) as MattermostOutgoingWebhook;
     }
     return null;
   }
 
   /// List outgoing webhooks
   ///
-  /// Get a page of a list of outgoing webhooks. Optionally filter for a specific team or channel using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team/channel. 
+  /// Get a page of a list of outgoing webhooks. Optionally filter for a specific team or channel using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team/channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -470,7 +517,12 @@ class MattermostWebhooksApi {
   ///
   /// * [String] channelId:
   ///   The ID of the channel to get hooks for.
-  Future<Response> getOutgoingWebhooksWithHttpInfo({ int? page, int? perPage, String? teamId, String? channelId, }) async {
+  Future<Response> getOutgoingWebhooksWithHttpInfo({
+    int? page,
+    int? perPage,
+    String? teamId,
+    String? channelId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/outgoing';
 
@@ -496,7 +548,6 @@ class MattermostWebhooksApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -510,7 +561,7 @@ class MattermostWebhooksApi {
 
   /// List outgoing webhooks
   ///
-  /// Get a page of a list of outgoing webhooks. Optionally filter for a specific team or channel using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team/channel. 
+  /// Get a page of a list of outgoing webhooks. Optionally filter for a specific team or channel using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team/channel.
   ///
   /// Parameters:
   ///
@@ -525,8 +576,18 @@ class MattermostWebhooksApi {
   ///
   /// * [String] channelId:
   ///   The ID of the channel to get hooks for.
-  Future<List<MattermostOutgoingWebhook>?> getOutgoingWebhooks({ int? page, int? perPage, String? teamId, String? channelId, }) async {
-    final response = await getOutgoingWebhooksWithHttpInfo( page: page, perPage: perPage, teamId: teamId, channelId: channelId, );
+  Future<List<MattermostOutgoingWebhook>?> getOutgoingWebhooks({
+    int? page,
+    int? perPage,
+    String? teamId,
+    String? channelId,
+  }) async {
+    final response = await getOutgoingWebhooksWithHttpInfo(
+      page: page,
+      perPage: perPage,
+      teamId: teamId,
+      channelId: channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -536,16 +597,15 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOutgoingWebhook>') as List)
-        .cast<MattermostOutgoingWebhook>()
-        .toList();
-
+          .cast<MattermostOutgoingWebhook>()
+          .toList();
     }
     return null;
   }
 
   /// Regenerate the token for the outgoing webhook.
   ///
-  /// Regenerate the token for the outgoing webhook. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Regenerate the token for the outgoing webhook. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -553,10 +613,11 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<Response> regenOutgoingHookTokenWithHttpInfo(String hookId,) async {
+  Future<Response> regenOutgoingHookTokenWithHttpInfo(
+    String hookId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/outgoing/{hook_id}/regen_token'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/outgoing/{hook_id}/regen_token'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -566,7 +627,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -581,14 +641,18 @@ class MattermostWebhooksApi {
 
   /// Regenerate the token for the outgoing webhook.
   ///
-  /// Regenerate the token for the outgoing webhook. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Regenerate the token for the outgoing webhook. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MattermostStatusOK?> regenOutgoingHookToken(String hookId,) async {
-    final response = await regenOutgoingHookTokenWithHttpInfo(hookId,);
+  Future<MattermostStatusOK?> regenOutgoingHookToken(
+    String hookId,
+  ) async {
+    final response = await regenOutgoingHookTokenWithHttpInfo(
+      hookId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -596,15 +660,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update an incoming webhook
   ///
-  /// Update an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Update an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -615,10 +681,12 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostUpdateIncomingWebhookRequest] mattermostUpdateIncomingWebhookRequest (required):
   ///   Incoming webhook to be updated
-  Future<Response> updateIncomingWebhookWithHttpInfo(String hookId, MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest,) async {
+  Future<Response> updateIncomingWebhookWithHttpInfo(
+    String hookId,
+    MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/incoming/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/incoming/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateIncomingWebhookRequest;
@@ -629,7 +697,6 @@ class MattermostWebhooksApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -643,7 +710,7 @@ class MattermostWebhooksApi {
 
   /// Update an incoming webhook
   ///
-  /// Update an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Update an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
@@ -652,8 +719,14 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostUpdateIncomingWebhookRequest] mattermostUpdateIncomingWebhookRequest (required):
   ///   Incoming webhook to be updated
-  Future<MattermostIncomingWebhook?> updateIncomingWebhook(String hookId, MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest,) async {
-    final response = await updateIncomingWebhookWithHttpInfo(hookId, mattermostUpdateIncomingWebhookRequest,);
+  Future<MattermostIncomingWebhook?> updateIncomingWebhook(
+    String hookId,
+    MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest,
+  ) async {
+    final response = await updateIncomingWebhookWithHttpInfo(
+      hookId,
+      mattermostUpdateIncomingWebhookRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -661,15 +734,17 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostIncomingWebhook',) as MattermostIncomingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostIncomingWebhook',
+      ) as MattermostIncomingWebhook;
     }
     return null;
   }
 
   /// Update an outgoing webhook
   ///
-  /// Update an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Update an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -680,10 +755,12 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostUpdateOutgoingWebhookRequest] mattermostUpdateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be updated
-  Future<Response> updateOutgoingWebhookWithHttpInfo(String hookId, MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest,) async {
+  Future<Response> updateOutgoingWebhookWithHttpInfo(
+    String hookId,
+    MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/hooks/outgoing/{hook_id}'
-      .replaceAll('{hook_id}', hookId);
+    final path = r'/hooks/outgoing/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateOutgoingWebhookRequest;
@@ -693,7 +770,6 @@ class MattermostWebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -708,7 +784,7 @@ class MattermostWebhooksApi {
 
   /// Update an outgoing webhook
   ///
-  /// Update an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
+  /// Update an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel.
   ///
   /// Parameters:
   ///
@@ -717,8 +793,14 @@ class MattermostWebhooksApi {
   ///
   /// * [MattermostUpdateOutgoingWebhookRequest] mattermostUpdateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be updated
-  Future<MattermostOutgoingWebhook?> updateOutgoingWebhook(String hookId, MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest,) async {
-    final response = await updateOutgoingWebhookWithHttpInfo(hookId, mattermostUpdateOutgoingWebhookRequest,);
+  Future<MattermostOutgoingWebhook?> updateOutgoingWebhook(
+    String hookId,
+    MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest,
+  ) async {
+    final response = await updateOutgoingWebhookWithHttpInfo(
+      hookId,
+      mattermostUpdateOutgoingWebhookRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -726,8 +808,10 @@ class MattermostWebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOutgoingWebhook',) as MattermostOutgoingWebhook;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOutgoingWebhook',
+      ) as MattermostOutgoingWebhook;
     }
     return null;
   }

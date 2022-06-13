@@ -26,7 +26,7 @@ class MattermostDataRetentionPolicyWithoutId {
   ///
   String? displayName;
 
-  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted). 
+  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted).
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -36,15 +36,16 @@ class MattermostDataRetentionPolicyWithoutId {
   int? postDuration;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDataRetentionPolicyWithoutId &&
-     other.displayName == displayName &&
-     other.postDuration == postDuration;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostDataRetentionPolicyWithoutId &&
+          other.displayName == displayName &&
+          other.postDuration == postDuration;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (postDuration == null ? 0 : postDuration!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (displayName == null ? 0 : displayName!.hashCode) + (postDuration == null ? 0 : postDuration!.hashCode);
 
   @override
   String toString() => 'MattermostDataRetentionPolicyWithoutId[displayName=$displayName, postDuration=$postDuration]';
@@ -72,8 +73,10 @@ class MattermostDataRetentionPolicyWithoutId {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDataRetentionPolicyWithoutId[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDataRetentionPolicyWithoutId[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostDataRetentionPolicyWithoutId[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostDataRetentionPolicyWithoutId[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +89,10 @@ class MattermostDataRetentionPolicyWithoutId {
     return null;
   }
 
-  static List<MattermostDataRetentionPolicyWithoutId>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDataRetentionPolicyWithoutId>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDataRetentionPolicyWithoutId>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +120,18 @@ class MattermostDataRetentionPolicyWithoutId {
   }
 
   // maps a json object with a list of MattermostDataRetentionPolicyWithoutId-objects as value to a dart map
-  static Map<String, List<MattermostDataRetentionPolicyWithoutId>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDataRetentionPolicyWithoutId>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDataRetentionPolicyWithoutId>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDataRetentionPolicyWithoutId.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDataRetentionPolicyWithoutId.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +141,5 @@ class MattermostDataRetentionPolicyWithoutId {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

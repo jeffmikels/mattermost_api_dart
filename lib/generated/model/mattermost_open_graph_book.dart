@@ -40,19 +40,21 @@ class MattermostOpenGraphBook {
   List<MattermostOpenGraphArticleAuthorsInner> authors;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphBook &&
-     other.isbn == isbn &&
-     other.releaseDate == releaseDate &&
-     other.tags == tags &&
-     other.authors == authors;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenGraphBook &&
+          other.isbn == isbn &&
+          other.releaseDate == releaseDate &&
+          other.tags == tags &&
+          other.authors == authors;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (isbn == null ? 0 : isbn!.hashCode) +
-    (releaseDate == null ? 0 : releaseDate!.hashCode) +
-    (tags.hashCode) +
-    (authors.hashCode);
+      // ignore: unnecessary_parenthesis
+      (isbn == null ? 0 : isbn!.hashCode) +
+      (releaseDate == null ? 0 : releaseDate!.hashCode) +
+      (tags.hashCode) +
+      (authors.hashCode);
 
   @override
   String toString() => 'MattermostOpenGraphBook[isbn=$isbn, releaseDate=$releaseDate, tags=$tags, authors=$authors]';
@@ -65,8 +67,8 @@ class MattermostOpenGraphBook {
     if (releaseDate != null) {
       _json[r'release_date'] = releaseDate;
     }
-      _json[r'tags'] = tags;
-      _json[r'authors'] = authors;
+    _json[r'tags'] = tags;
+    _json[r'authors'] = authors;
     return _json;
   }
 
@@ -91,16 +93,17 @@ class MattermostOpenGraphBook {
       return MattermostOpenGraphBook(
         isbn: mapValueOfType<String>(json, r'isbn'),
         releaseDate: mapValueOfType<String>(json, r'release_date'),
-        tags: json[r'tags'] is List
-            ? (json[r'tags'] as List).cast<String>()
-            : const [],
+        tags: json[r'tags'] is List ? (json[r'tags'] as List).cast<String>() : const [],
         authors: MattermostOpenGraphArticleAuthorsInner.listFromJson(json[r'authors']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MattermostOpenGraphBook>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraphBook>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraphBook>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -128,12 +131,18 @@ class MattermostOpenGraphBook {
   }
 
   // maps a json object with a list of MattermostOpenGraphBook-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraphBook>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraphBook>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraphBook>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraphBook.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraphBook.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,7 +152,5 @@ class MattermostOpenGraphBook {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -43,20 +43,23 @@ class MattermostPluginManifestServerExecutables {
   String? windowsAmd64;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPluginManifestServerExecutables &&
-     other.linuxAmd64 == linuxAmd64 &&
-     other.darwinAmd64 == darwinAmd64 &&
-     other.windowsAmd64 == windowsAmd64;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPluginManifestServerExecutables &&
+          other.linuxAmd64 == linuxAmd64 &&
+          other.darwinAmd64 == darwinAmd64 &&
+          other.windowsAmd64 == windowsAmd64;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (linuxAmd64 == null ? 0 : linuxAmd64!.hashCode) +
-    (darwinAmd64 == null ? 0 : darwinAmd64!.hashCode) +
-    (windowsAmd64 == null ? 0 : windowsAmd64!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (linuxAmd64 == null ? 0 : linuxAmd64!.hashCode) +
+      (darwinAmd64 == null ? 0 : darwinAmd64!.hashCode) +
+      (windowsAmd64 == null ? 0 : windowsAmd64!.hashCode);
 
   @override
-  String toString() => 'MattermostPluginManifestServerExecutables[linuxAmd64=$linuxAmd64, darwinAmd64=$darwinAmd64, windowsAmd64=$windowsAmd64]';
+  String toString() =>
+      'MattermostPluginManifestServerExecutables[linuxAmd64=$linuxAmd64, darwinAmd64=$darwinAmd64, windowsAmd64=$windowsAmd64]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostPluginManifestServerExecutables {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostPluginManifestServerExecutables[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostPluginManifestServerExecutables[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostPluginManifestServerExecutables[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostPluginManifestServerExecutables[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostPluginManifestServerExecutables {
     return null;
   }
 
-  static List<MattermostPluginManifestServerExecutables>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginManifestServerExecutables>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginManifestServerExecutables>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostPluginManifestServerExecutables {
   }
 
   // maps a json object with a list of MattermostPluginManifestServerExecutables-objects as value to a dart map
-  static Map<String, List<MattermostPluginManifestServerExecutables>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPluginManifestServerExecutables>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPluginManifestServerExecutables>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPluginManifestServerExecutables.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPluginManifestServerExecutables.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostPluginManifestServerExecutables {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

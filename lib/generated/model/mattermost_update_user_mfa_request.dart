@@ -30,22 +30,21 @@ class MattermostUpdateUserMfaRequest {
   String? code;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserMfaRequest &&
-     other.activate == activate &&
-     other.code == code;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateUserMfaRequest && other.activate == activate && other.code == code;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (activate.hashCode) +
-    (code == null ? 0 : code!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (activate.hashCode) + (code == null ? 0 : code!.hashCode);
 
   @override
   String toString() => 'MattermostUpdateUserMfaRequest[activate=$activate, code=$code]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'activate'] = activate;
+    _json[r'activate'] = activate;
     if (code != null) {
       _json[r'code'] = code;
     }
@@ -78,7 +77,10 @@ class MattermostUpdateUserMfaRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserMfaRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserMfaRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserMfaRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +108,18 @@ class MattermostUpdateUserMfaRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserMfaRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserMfaRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserMfaRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserMfaRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserMfaRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserMfaRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +133,3 @@ class MattermostUpdateUserMfaRequest {
     'activate',
   };
 }
-

@@ -115,36 +115,39 @@ class MattermostCompliance {
   String? emails;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCompliance &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.userId == userId &&
-     other.status == status &&
-     other.count == count &&
-     other.desc == desc &&
-     other.type == type &&
-     other.startAt == startAt &&
-     other.endAt == endAt &&
-     other.keywords == keywords &&
-     other.emails == emails;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCompliance &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.userId == userId &&
+          other.status == status &&
+          other.count == count &&
+          other.desc == desc &&
+          other.type == type &&
+          other.startAt == startAt &&
+          other.endAt == endAt &&
+          other.keywords == keywords &&
+          other.emails == emails;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (count == null ? 0 : count!.hashCode) +
-    (desc == null ? 0 : desc!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (startAt == null ? 0 : startAt!.hashCode) +
-    (endAt == null ? 0 : endAt!.hashCode) +
-    (keywords == null ? 0 : keywords!.hashCode) +
-    (emails == null ? 0 : emails!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (count == null ? 0 : count!.hashCode) +
+      (desc == null ? 0 : desc!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (startAt == null ? 0 : startAt!.hashCode) +
+      (endAt == null ? 0 : endAt!.hashCode) +
+      (keywords == null ? 0 : keywords!.hashCode) +
+      (emails == null ? 0 : emails!.hashCode);
 
   @override
-  String toString() => 'MattermostCompliance[id=$id, createAt=$createAt, userId=$userId, status=$status, count=$count, desc=$desc, type=$type, startAt=$startAt, endAt=$endAt, keywords=$keywords, emails=$emails]';
+  String toString() =>
+      'MattermostCompliance[id=$id, createAt=$createAt, userId=$userId, status=$status, count=$count, desc=$desc, type=$type, startAt=$startAt, endAt=$endAt, keywords=$keywords, emails=$emails]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -219,7 +222,10 @@ class MattermostCompliance {
     return null;
   }
 
-  static List<MattermostCompliance>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCompliance>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCompliance>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -247,12 +253,18 @@ class MattermostCompliance {
   }
 
   // maps a json object with a list of MattermostCompliance-objects as value to a dart map
-  static Map<String, List<MattermostCompliance>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCompliance>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCompliance>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCompliance.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCompliance.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -262,7 +274,5 @@ class MattermostCompliance {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

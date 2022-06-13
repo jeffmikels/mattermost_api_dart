@@ -137,40 +137,43 @@ class MattermostTeam {
   String? policyId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTeam &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.displayName == displayName &&
-     other.name == name &&
-     other.description == description &&
-     other.email == email &&
-     other.type == type &&
-     other.allowedDomains == allowedDomains &&
-     other.inviteId == inviteId &&
-     other.allowOpenInvite == allowOpenInvite &&
-     other.policyId == policyId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostTeam &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.displayName == displayName &&
+          other.name == name &&
+          other.description == description &&
+          other.email == email &&
+          other.type == type &&
+          other.allowedDomains == allowedDomains &&
+          other.inviteId == inviteId &&
+          other.allowOpenInvite == allowOpenInvite &&
+          other.policyId == policyId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (allowedDomains == null ? 0 : allowedDomains!.hashCode) +
-    (inviteId == null ? 0 : inviteId!.hashCode) +
-    (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode) +
-    (policyId == null ? 0 : policyId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (allowedDomains == null ? 0 : allowedDomains!.hashCode) +
+      (inviteId == null ? 0 : inviteId!.hashCode) +
+      (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode) +
+      (policyId == null ? 0 : policyId!.hashCode);
 
   @override
-  String toString() => 'MattermostTeam[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, displayName=$displayName, name=$name, description=$description, email=$email, type=$type, allowedDomains=$allowedDomains, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite, policyId=$policyId]';
+  String toString() =>
+      'MattermostTeam[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, displayName=$displayName, name=$name, description=$description, email=$email, type=$type, allowedDomains=$allowedDomains, inviteId=$inviteId, allowOpenInvite=$allowOpenInvite, policyId=$policyId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -253,7 +256,10 @@ class MattermostTeam {
     return null;
   }
 
-  static List<MattermostTeam>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTeam>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTeam>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -281,12 +287,18 @@ class MattermostTeam {
   }
 
   // maps a json object with a list of MattermostTeam-objects as value to a dart map
-  static Map<String, List<MattermostTeam>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTeam>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTeam>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTeam.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTeam.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -296,7 +308,5 @@ class MattermostTeam {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -46,20 +46,23 @@ class MattermostSamlCertificateStatus {
   bool? privateKeyFile;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSamlCertificateStatus &&
-     other.idpCertificateFile == idpCertificateFile &&
-     other.publicCertificateFile == publicCertificateFile &&
-     other.privateKeyFile == privateKeyFile;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSamlCertificateStatus &&
+          other.idpCertificateFile == idpCertificateFile &&
+          other.publicCertificateFile == publicCertificateFile &&
+          other.privateKeyFile == privateKeyFile;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (idpCertificateFile == null ? 0 : idpCertificateFile!.hashCode) +
-    (publicCertificateFile == null ? 0 : publicCertificateFile!.hashCode) +
-    (privateKeyFile == null ? 0 : privateKeyFile!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (idpCertificateFile == null ? 0 : idpCertificateFile!.hashCode) +
+      (publicCertificateFile == null ? 0 : publicCertificateFile!.hashCode) +
+      (privateKeyFile == null ? 0 : privateKeyFile!.hashCode);
 
   @override
-  String toString() => 'MattermostSamlCertificateStatus[idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile]';
+  String toString() =>
+      'MattermostSamlCertificateStatus[idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,7 +105,10 @@ class MattermostSamlCertificateStatus {
     return null;
   }
 
-  static List<MattermostSamlCertificateStatus>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSamlCertificateStatus>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSamlCertificateStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +136,18 @@ class MattermostSamlCertificateStatus {
   }
 
   // maps a json object with a list of MattermostSamlCertificateStatus-objects as value to a dart map
-  static Map<String, List<MattermostSamlCertificateStatus>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSamlCertificateStatus>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSamlCertificateStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSamlCertificateStatus.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSamlCertificateStatus.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -145,7 +157,5 @@ class MattermostSamlCertificateStatus {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

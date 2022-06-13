@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostBrandApi {
   MattermostBrandApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostBrandApi {
 
   /// Delete current brand image
   ///
-  /// Deletes the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions Must have `manage_system` permission. __Minimum server version: 5.6__ 
+  /// Deletes the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions Must have `manage_system` permission. __Minimum server version: 5.6__
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> deleteBrandImageWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostBrandApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -48,7 +46,7 @@ class MattermostBrandApi {
 
   /// Delete current brand image
   ///
-  /// Deletes the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions Must have `manage_system` permission. __Minimum server version: 5.6__ 
+  /// Deletes the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions Must have `manage_system` permission. __Minimum server version: 5.6__
   Future<MattermostStatusOK?> deleteBrandImage() async {
     final response = await deleteBrandImageWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,15 +56,17 @@ class MattermostBrandApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get brand image
   ///
-  /// Get the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions No permission required. 
+  /// Get the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions No permission required.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getBrandImageWithHttpInfo() async {
@@ -82,7 +82,6 @@ class MattermostBrandApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -96,7 +95,7 @@ class MattermostBrandApi {
 
   /// Get brand image
   ///
-  /// Get the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions No permission required. 
+  /// Get the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions No permission required.
   Future<String?> getBrandImage() async {
     final response = await getBrandImageWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -106,15 +105,17 @@ class MattermostBrandApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'String',
+      ) as String;
     }
     return null;
   }
 
   /// Upload brand image
   ///
-  /// Uploads a brand image. ##### Permissions Must have `manage_system` permission. 
+  /// Uploads a brand image. ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -122,7 +123,9 @@ class MattermostBrandApi {
   ///
   /// * [MultipartFile] image (required):
   ///   The image to be uploaded
-  Future<Response> uploadBrandImageWithHttpInfo(MultipartFile image,) async {
+  Future<Response> uploadBrandImageWithHttpInfo(
+    MultipartFile image,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/brand/image';
 
@@ -159,14 +162,18 @@ class MattermostBrandApi {
 
   /// Upload brand image
   ///
-  /// Uploads a brand image. ##### Permissions Must have `manage_system` permission. 
+  /// Uploads a brand image. ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [MultipartFile] image (required):
   ///   The image to be uploaded
-  Future<MattermostStatusOK?> uploadBrandImage(MultipartFile image,) async {
-    final response = await uploadBrandImageWithHttpInfo(image,);
+  Future<MattermostStatusOK?> uploadBrandImage(
+    MultipartFile image,
+  ) async {
+    final response = await uploadBrandImageWithHttpInfo(
+      image,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -174,8 +181,10 @@ class MattermostBrandApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

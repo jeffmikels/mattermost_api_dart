@@ -155,46 +155,49 @@ class MattermostSlackAttachment {
   String? timestamp;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSlackAttachment &&
-     other.id == id &&
-     other.fallback == fallback &&
-     other.color == color &&
-     other.pretext == pretext &&
-     other.authorName == authorName &&
-     other.authorLink == authorLink &&
-     other.authorIcon == authorIcon &&
-     other.title == title &&
-     other.titleLink == titleLink &&
-     other.text == text &&
-     other.fields == fields &&
-     other.imageURL == imageURL &&
-     other.thumbURL == thumbURL &&
-     other.footer == footer &&
-     other.footerIcon == footerIcon &&
-     other.timestamp == timestamp;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSlackAttachment &&
+          other.id == id &&
+          other.fallback == fallback &&
+          other.color == color &&
+          other.pretext == pretext &&
+          other.authorName == authorName &&
+          other.authorLink == authorLink &&
+          other.authorIcon == authorIcon &&
+          other.title == title &&
+          other.titleLink == titleLink &&
+          other.text == text &&
+          other.fields == fields &&
+          other.imageURL == imageURL &&
+          other.thumbURL == thumbURL &&
+          other.footer == footer &&
+          other.footerIcon == footerIcon &&
+          other.timestamp == timestamp;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (fallback == null ? 0 : fallback!.hashCode) +
-    (color == null ? 0 : color!.hashCode) +
-    (pretext == null ? 0 : pretext!.hashCode) +
-    (authorName == null ? 0 : authorName!.hashCode) +
-    (authorLink == null ? 0 : authorLink!.hashCode) +
-    (authorIcon == null ? 0 : authorIcon!.hashCode) +
-    (title == null ? 0 : title!.hashCode) +
-    (titleLink == null ? 0 : titleLink!.hashCode) +
-    (text == null ? 0 : text!.hashCode) +
-    (fields.hashCode) +
-    (imageURL == null ? 0 : imageURL!.hashCode) +
-    (thumbURL == null ? 0 : thumbURL!.hashCode) +
-    (footer == null ? 0 : footer!.hashCode) +
-    (footerIcon == null ? 0 : footerIcon!.hashCode) +
-    (timestamp == null ? 0 : timestamp!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (fallback == null ? 0 : fallback!.hashCode) +
+      (color == null ? 0 : color!.hashCode) +
+      (pretext == null ? 0 : pretext!.hashCode) +
+      (authorName == null ? 0 : authorName!.hashCode) +
+      (authorLink == null ? 0 : authorLink!.hashCode) +
+      (authorIcon == null ? 0 : authorIcon!.hashCode) +
+      (title == null ? 0 : title!.hashCode) +
+      (titleLink == null ? 0 : titleLink!.hashCode) +
+      (text == null ? 0 : text!.hashCode) +
+      (fields.hashCode) +
+      (imageURL == null ? 0 : imageURL!.hashCode) +
+      (thumbURL == null ? 0 : thumbURL!.hashCode) +
+      (footer == null ? 0 : footer!.hashCode) +
+      (footerIcon == null ? 0 : footerIcon!.hashCode) +
+      (timestamp == null ? 0 : timestamp!.hashCode);
 
   @override
-  String toString() => 'MattermostSlackAttachment[id=$id, fallback=$fallback, color=$color, pretext=$pretext, authorName=$authorName, authorLink=$authorLink, authorIcon=$authorIcon, title=$title, titleLink=$titleLink, text=$text, fields=$fields, imageURL=$imageURL, thumbURL=$thumbURL, footer=$footer, footerIcon=$footerIcon, timestamp=$timestamp]';
+  String toString() =>
+      'MattermostSlackAttachment[id=$id, fallback=$fallback, color=$color, pretext=$pretext, authorName=$authorName, authorLink=$authorLink, authorIcon=$authorIcon, title=$title, titleLink=$titleLink, text=$text, fields=$fields, imageURL=$imageURL, thumbURL=$thumbURL, footer=$footer, footerIcon=$footerIcon, timestamp=$timestamp]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -228,7 +231,7 @@ class MattermostSlackAttachment {
     if (text != null) {
       _json[r'Text'] = text;
     }
-      _json[r'Fields'] = fields;
+    _json[r'Fields'] = fields;
     if (imageURL != null) {
       _json[r'ImageURL'] = imageURL;
     }
@@ -287,7 +290,10 @@ class MattermostSlackAttachment {
     return null;
   }
 
-  static List<MattermostSlackAttachment>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSlackAttachment>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSlackAttachment>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -315,12 +321,18 @@ class MattermostSlackAttachment {
   }
 
   // maps a json object with a list of MattermostSlackAttachment-objects as value to a dart map
-  static Map<String, List<MattermostSlackAttachment>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSlackAttachment>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSlackAttachment>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSlackAttachment.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSlackAttachment.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -330,7 +342,5 @@ class MattermostSlackAttachment {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

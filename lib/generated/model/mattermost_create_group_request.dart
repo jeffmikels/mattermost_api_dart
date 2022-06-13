@@ -23,23 +23,22 @@ class MattermostCreateGroupRequest {
   List<int> userIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateGroupRequest &&
-     other.group == group &&
-     other.userIds == userIds;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateGroupRequest && other.group == group && other.userIds == userIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (group.hashCode) +
-    (userIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (group.hashCode) + (userIds.hashCode);
 
   @override
   String toString() => 'MattermostCreateGroupRequest[group=$group, userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'group'] = group;
-      _json[r'user_ids'] = userIds;
+    _json[r'group'] = group;
+    _json[r'user_ids'] = userIds;
     return _json;
   }
 
@@ -63,15 +62,16 @@ class MattermostCreateGroupRequest {
 
       return MattermostCreateGroupRequest(
         group: MattermostCreateGroupRequestGroup.fromJson(json[r'group'])!,
-        userIds: json[r'user_ids'] is List
-            ? (json[r'user_ids'] as List).cast<int>()
-            : const [],
+        userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<int>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostCreateGroupRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateGroupRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateGroupRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +99,18 @@ class MattermostCreateGroupRequest {
   }
 
   // maps a json object with a list of MattermostCreateGroupRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateGroupRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateGroupRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateGroupRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateGroupRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateGroupRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -119,4 +125,3 @@ class MattermostCreateGroupRequest {
     'user_ids',
   };
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostLdapApi {
   MattermostLdapApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostLdapApi {
 
   /// Returns a list of LDAP groups
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -32,7 +31,11 @@ class MattermostLdapApi {
   ///
   /// * [int] perPage:
   ///   The number of users per page. There is a maximum limit of 200 users per page.
-  Future<Response> getLdapGroupsWithHttpInfo({ String? q, int? page, int? perPage, }) async {
+  Future<Response> getLdapGroupsWithHttpInfo({
+    String? q,
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/ldap/groups';
 
@@ -55,7 +58,6 @@ class MattermostLdapApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -69,7 +71,7 @@ class MattermostLdapApi {
 
   /// Returns a list of LDAP groups
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
@@ -81,8 +83,16 @@ class MattermostLdapApi {
   ///
   /// * [int] perPage:
   ///   The number of users per page. There is a maximum limit of 200 users per page.
-  Future<List<MattermostLDAPGroupsPaged>?> getLdapGroups({ String? q, int? page, int? perPage, }) async {
-    final response = await getLdapGroupsWithHttpInfo( q: q, page: page, perPage: perPage, );
+  Future<List<MattermostLDAPGroupsPaged>?> getLdapGroups({
+    String? q,
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getLdapGroupsWithHttpInfo(
+      q: q,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -92,16 +102,15 @@ class MattermostLdapApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostLDAPGroupsPaged>') as List)
-        .cast<MattermostLDAPGroupsPaged>()
-        .toList();
-
+          .cast<MattermostLDAPGroupsPaged>()
+          .toList();
     }
     return null;
   }
 
   /// Link a LDAP group
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -109,10 +118,11 @@ class MattermostLdapApi {
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<Response> linkLdapGroupWithHttpInfo(String remoteId,) async {
+  Future<Response> linkLdapGroupWithHttpInfo(
+    String remoteId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/ldap/groups/{remote_id}/link'
-      .replaceAll('{remote_id}', remoteId);
+    final path = r'/ldap/groups/{remote_id}/link'.replaceAll('{remote_id}', remoteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -122,7 +132,6 @@ class MattermostLdapApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -137,14 +146,18 @@ class MattermostLdapApi {
 
   /// Link a LDAP group
   ///
-  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+  /// ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11
   ///
   /// Parameters:
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<MattermostStatusOK?> linkLdapGroup(String remoteId,) async {
-    final response = await linkLdapGroupWithHttpInfo(remoteId,);
+  Future<MattermostStatusOK?> linkLdapGroup(
+    String remoteId,
+  ) async {
+    final response = await linkLdapGroupWithHttpInfo(
+      remoteId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -152,8 +165,10 @@ class MattermostLdapApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

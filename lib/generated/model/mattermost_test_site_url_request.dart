@@ -20,20 +20,20 @@ class MattermostTestSiteURLRequest {
   String siteUrl;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTestSiteURLRequest &&
-     other.siteUrl == siteUrl;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostTestSiteURLRequest && other.siteUrl == siteUrl;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (siteUrl.hashCode);
+      // ignore: unnecessary_parenthesis
+      (siteUrl.hashCode);
 
   @override
   String toString() => 'MattermostTestSiteURLRequest[siteUrl=$siteUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'site_url'] = siteUrl;
+    _json[r'site_url'] = siteUrl;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostTestSiteURLRequest {
     return null;
   }
 
-  static List<MattermostTestSiteURLRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTestSiteURLRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTestSiteURLRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostTestSiteURLRequest {
   }
 
   // maps a json object with a list of MattermostTestSiteURLRequest-objects as value to a dart map
-  static Map<String, List<MattermostTestSiteURLRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTestSiteURLRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTestSiteURLRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTestSiteURLRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTestSiteURLRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostTestSiteURLRequest {
     'site_url',
   };
 }
-

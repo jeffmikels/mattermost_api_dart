@@ -19,20 +19,20 @@ class MattermostUpdateUserActiveRequest {
   bool active;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateUserActiveRequest &&
-     other.active == active;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUpdateUserActiveRequest && other.active == active;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (active.hashCode);
+      // ignore: unnecessary_parenthesis
+      (active.hashCode);
 
   @override
   String toString() => 'MattermostUpdateUserActiveRequest[active=$active]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'active'] = active;
+    _json[r'active'] = active;
     return _json;
   }
 
@@ -61,7 +61,10 @@ class MattermostUpdateUserActiveRequest {
     return null;
   }
 
-  static List<MattermostUpdateUserActiveRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateUserActiveRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateUserActiveRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -89,12 +92,18 @@ class MattermostUpdateUserActiveRequest {
   }
 
   // maps a json object with a list of MattermostUpdateUserActiveRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateUserActiveRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateUserActiveRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateUserActiveRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateUserActiveRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateUserActiveRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -108,4 +117,3 @@ class MattermostUpdateUserActiveRequest {
     'active',
   };
 }
-

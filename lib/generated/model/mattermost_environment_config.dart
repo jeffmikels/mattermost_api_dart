@@ -205,56 +205,59 @@ class MattermostEnvironmentConfig {
   MattermostEnvironmentConfigAnalyticsSettings? analyticsSettings;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfig &&
-     other.serviceSettings == serviceSettings &&
-     other.teamSettings == teamSettings &&
-     other.sqlSettings == sqlSettings &&
-     other.logSettings == logSettings &&
-     other.passwordSettings == passwordSettings &&
-     other.fileSettings == fileSettings &&
-     other.emailSettings == emailSettings &&
-     other.rateLimitSettings == rateLimitSettings &&
-     other.privacySettings == privacySettings &&
-     other.supportSettings == supportSettings &&
-     other.gitLabSettings == gitLabSettings &&
-     other.googleSettings == googleSettings &&
-     other.office365Settings == office365Settings &&
-     other.ldapSettings == ldapSettings &&
-     other.complianceSettings == complianceSettings &&
-     other.localizationSettings == localizationSettings &&
-     other.samlSettings == samlSettings &&
-     other.nativeAppSettings == nativeAppSettings &&
-     other.clusterSettings == clusterSettings &&
-     other.metricsSettings == metricsSettings &&
-     other.analyticsSettings == analyticsSettings;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfig &&
+          other.serviceSettings == serviceSettings &&
+          other.teamSettings == teamSettings &&
+          other.sqlSettings == sqlSettings &&
+          other.logSettings == logSettings &&
+          other.passwordSettings == passwordSettings &&
+          other.fileSettings == fileSettings &&
+          other.emailSettings == emailSettings &&
+          other.rateLimitSettings == rateLimitSettings &&
+          other.privacySettings == privacySettings &&
+          other.supportSettings == supportSettings &&
+          other.gitLabSettings == gitLabSettings &&
+          other.googleSettings == googleSettings &&
+          other.office365Settings == office365Settings &&
+          other.ldapSettings == ldapSettings &&
+          other.complianceSettings == complianceSettings &&
+          other.localizationSettings == localizationSettings &&
+          other.samlSettings == samlSettings &&
+          other.nativeAppSettings == nativeAppSettings &&
+          other.clusterSettings == clusterSettings &&
+          other.metricsSettings == metricsSettings &&
+          other.analyticsSettings == analyticsSettings;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (serviceSettings == null ? 0 : serviceSettings!.hashCode) +
-    (teamSettings == null ? 0 : teamSettings!.hashCode) +
-    (sqlSettings == null ? 0 : sqlSettings!.hashCode) +
-    (logSettings == null ? 0 : logSettings!.hashCode) +
-    (passwordSettings == null ? 0 : passwordSettings!.hashCode) +
-    (fileSettings == null ? 0 : fileSettings!.hashCode) +
-    (emailSettings == null ? 0 : emailSettings!.hashCode) +
-    (rateLimitSettings == null ? 0 : rateLimitSettings!.hashCode) +
-    (privacySettings == null ? 0 : privacySettings!.hashCode) +
-    (supportSettings == null ? 0 : supportSettings!.hashCode) +
-    (gitLabSettings == null ? 0 : gitLabSettings!.hashCode) +
-    (googleSettings == null ? 0 : googleSettings!.hashCode) +
-    (office365Settings == null ? 0 : office365Settings!.hashCode) +
-    (ldapSettings == null ? 0 : ldapSettings!.hashCode) +
-    (complianceSettings == null ? 0 : complianceSettings!.hashCode) +
-    (localizationSettings == null ? 0 : localizationSettings!.hashCode) +
-    (samlSettings == null ? 0 : samlSettings!.hashCode) +
-    (nativeAppSettings == null ? 0 : nativeAppSettings!.hashCode) +
-    (clusterSettings == null ? 0 : clusterSettings!.hashCode) +
-    (metricsSettings == null ? 0 : metricsSettings!.hashCode) +
-    (analyticsSettings == null ? 0 : analyticsSettings!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (serviceSettings == null ? 0 : serviceSettings!.hashCode) +
+      (teamSettings == null ? 0 : teamSettings!.hashCode) +
+      (sqlSettings == null ? 0 : sqlSettings!.hashCode) +
+      (logSettings == null ? 0 : logSettings!.hashCode) +
+      (passwordSettings == null ? 0 : passwordSettings!.hashCode) +
+      (fileSettings == null ? 0 : fileSettings!.hashCode) +
+      (emailSettings == null ? 0 : emailSettings!.hashCode) +
+      (rateLimitSettings == null ? 0 : rateLimitSettings!.hashCode) +
+      (privacySettings == null ? 0 : privacySettings!.hashCode) +
+      (supportSettings == null ? 0 : supportSettings!.hashCode) +
+      (gitLabSettings == null ? 0 : gitLabSettings!.hashCode) +
+      (googleSettings == null ? 0 : googleSettings!.hashCode) +
+      (office365Settings == null ? 0 : office365Settings!.hashCode) +
+      (ldapSettings == null ? 0 : ldapSettings!.hashCode) +
+      (complianceSettings == null ? 0 : complianceSettings!.hashCode) +
+      (localizationSettings == null ? 0 : localizationSettings!.hashCode) +
+      (samlSettings == null ? 0 : samlSettings!.hashCode) +
+      (nativeAppSettings == null ? 0 : nativeAppSettings!.hashCode) +
+      (clusterSettings == null ? 0 : clusterSettings!.hashCode) +
+      (metricsSettings == null ? 0 : metricsSettings!.hashCode) +
+      (analyticsSettings == null ? 0 : analyticsSettings!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
+  String toString() =>
+      'MattermostEnvironmentConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -369,7 +372,10 @@ class MattermostEnvironmentConfig {
     return null;
   }
 
-  static List<MattermostEnvironmentConfig>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfig>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfig>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -397,12 +403,18 @@ class MattermostEnvironmentConfig {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfig-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfig>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfig>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfig>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfig.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfig.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -412,7 +424,5 @@ class MattermostEnvironmentConfig {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

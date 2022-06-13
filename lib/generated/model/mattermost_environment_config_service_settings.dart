@@ -340,86 +340,89 @@ class MattermostEnvironmentConfigServiceSettings {
   bool? restrictCustomEmojiCreation;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigServiceSettings &&
-     other.siteURL == siteURL &&
-     other.listenAddress == listenAddress &&
-     other.connectionSecurity == connectionSecurity &&
-     other.tLSCertFile == tLSCertFile &&
-     other.tLSKeyFile == tLSKeyFile &&
-     other.useLetsEncrypt == useLetsEncrypt &&
-     other.letsEncryptCertificateCacheFile == letsEncryptCertificateCacheFile &&
-     other.forward80To443 == forward80To443 &&
-     other.readTimeout == readTimeout &&
-     other.writeTimeout == writeTimeout &&
-     other.maximumLoginAttempts == maximumLoginAttempts &&
-     other.segmentDeveloperKey == segmentDeveloperKey &&
-     other.googleDeveloperKey == googleDeveloperKey &&
-     other.enableOAuthServiceProvider == enableOAuthServiceProvider &&
-     other.enableIncomingWebhooks == enableIncomingWebhooks &&
-     other.enableOutgoingWebhooks == enableOutgoingWebhooks &&
-     other.enableCommands == enableCommands &&
-     other.enableOnlyAdminIntegrations == enableOnlyAdminIntegrations &&
-     other.enablePostUsernameOverride == enablePostUsernameOverride &&
-     other.enablePostIconOverride == enablePostIconOverride &&
-     other.enableTesting == enableTesting &&
-     other.enableDeveloper == enableDeveloper &&
-     other.enableSecurityFixAlert == enableSecurityFixAlert &&
-     other.enableInsecureOutgoingConnections == enableInsecureOutgoingConnections &&
-     other.enableMultifactorAuthentication == enableMultifactorAuthentication &&
-     other.enforceMultifactorAuthentication == enforceMultifactorAuthentication &&
-     other.allowCorsFrom == allowCorsFrom &&
-     other.sessionLengthWebInDays == sessionLengthWebInDays &&
-     other.sessionLengthMobileInDays == sessionLengthMobileInDays &&
-     other.sessionLengthSSOInDays == sessionLengthSSOInDays &&
-     other.sessionCacheInMinutes == sessionCacheInMinutes &&
-     other.websocketSecurePort == websocketSecurePort &&
-     other.websocketPort == websocketPort &&
-     other.webserverMode == webserverMode &&
-     other.enableCustomEmoji == enableCustomEmoji &&
-     other.restrictCustomEmojiCreation == restrictCustomEmojiCreation;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigServiceSettings &&
+          other.siteURL == siteURL &&
+          other.listenAddress == listenAddress &&
+          other.connectionSecurity == connectionSecurity &&
+          other.tLSCertFile == tLSCertFile &&
+          other.tLSKeyFile == tLSKeyFile &&
+          other.useLetsEncrypt == useLetsEncrypt &&
+          other.letsEncryptCertificateCacheFile == letsEncryptCertificateCacheFile &&
+          other.forward80To443 == forward80To443 &&
+          other.readTimeout == readTimeout &&
+          other.writeTimeout == writeTimeout &&
+          other.maximumLoginAttempts == maximumLoginAttempts &&
+          other.segmentDeveloperKey == segmentDeveloperKey &&
+          other.googleDeveloperKey == googleDeveloperKey &&
+          other.enableOAuthServiceProvider == enableOAuthServiceProvider &&
+          other.enableIncomingWebhooks == enableIncomingWebhooks &&
+          other.enableOutgoingWebhooks == enableOutgoingWebhooks &&
+          other.enableCommands == enableCommands &&
+          other.enableOnlyAdminIntegrations == enableOnlyAdminIntegrations &&
+          other.enablePostUsernameOverride == enablePostUsernameOverride &&
+          other.enablePostIconOverride == enablePostIconOverride &&
+          other.enableTesting == enableTesting &&
+          other.enableDeveloper == enableDeveloper &&
+          other.enableSecurityFixAlert == enableSecurityFixAlert &&
+          other.enableInsecureOutgoingConnections == enableInsecureOutgoingConnections &&
+          other.enableMultifactorAuthentication == enableMultifactorAuthentication &&
+          other.enforceMultifactorAuthentication == enforceMultifactorAuthentication &&
+          other.allowCorsFrom == allowCorsFrom &&
+          other.sessionLengthWebInDays == sessionLengthWebInDays &&
+          other.sessionLengthMobileInDays == sessionLengthMobileInDays &&
+          other.sessionLengthSSOInDays == sessionLengthSSOInDays &&
+          other.sessionCacheInMinutes == sessionCacheInMinutes &&
+          other.websocketSecurePort == websocketSecurePort &&
+          other.websocketPort == websocketPort &&
+          other.webserverMode == webserverMode &&
+          other.enableCustomEmoji == enableCustomEmoji &&
+          other.restrictCustomEmojiCreation == restrictCustomEmojiCreation;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (siteURL == null ? 0 : siteURL!.hashCode) +
-    (listenAddress == null ? 0 : listenAddress!.hashCode) +
-    (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
-    (tLSCertFile == null ? 0 : tLSCertFile!.hashCode) +
-    (tLSKeyFile == null ? 0 : tLSKeyFile!.hashCode) +
-    (useLetsEncrypt == null ? 0 : useLetsEncrypt!.hashCode) +
-    (letsEncryptCertificateCacheFile == null ? 0 : letsEncryptCertificateCacheFile!.hashCode) +
-    (forward80To443 == null ? 0 : forward80To443!.hashCode) +
-    (readTimeout == null ? 0 : readTimeout!.hashCode) +
-    (writeTimeout == null ? 0 : writeTimeout!.hashCode) +
-    (maximumLoginAttempts == null ? 0 : maximumLoginAttempts!.hashCode) +
-    (segmentDeveloperKey == null ? 0 : segmentDeveloperKey!.hashCode) +
-    (googleDeveloperKey == null ? 0 : googleDeveloperKey!.hashCode) +
-    (enableOAuthServiceProvider == null ? 0 : enableOAuthServiceProvider!.hashCode) +
-    (enableIncomingWebhooks == null ? 0 : enableIncomingWebhooks!.hashCode) +
-    (enableOutgoingWebhooks == null ? 0 : enableOutgoingWebhooks!.hashCode) +
-    (enableCommands == null ? 0 : enableCommands!.hashCode) +
-    (enableOnlyAdminIntegrations == null ? 0 : enableOnlyAdminIntegrations!.hashCode) +
-    (enablePostUsernameOverride == null ? 0 : enablePostUsernameOverride!.hashCode) +
-    (enablePostIconOverride == null ? 0 : enablePostIconOverride!.hashCode) +
-    (enableTesting == null ? 0 : enableTesting!.hashCode) +
-    (enableDeveloper == null ? 0 : enableDeveloper!.hashCode) +
-    (enableSecurityFixAlert == null ? 0 : enableSecurityFixAlert!.hashCode) +
-    (enableInsecureOutgoingConnections == null ? 0 : enableInsecureOutgoingConnections!.hashCode) +
-    (enableMultifactorAuthentication == null ? 0 : enableMultifactorAuthentication!.hashCode) +
-    (enforceMultifactorAuthentication == null ? 0 : enforceMultifactorAuthentication!.hashCode) +
-    (allowCorsFrom == null ? 0 : allowCorsFrom!.hashCode) +
-    (sessionLengthWebInDays == null ? 0 : sessionLengthWebInDays!.hashCode) +
-    (sessionLengthMobileInDays == null ? 0 : sessionLengthMobileInDays!.hashCode) +
-    (sessionLengthSSOInDays == null ? 0 : sessionLengthSSOInDays!.hashCode) +
-    (sessionCacheInMinutes == null ? 0 : sessionCacheInMinutes!.hashCode) +
-    (websocketSecurePort == null ? 0 : websocketSecurePort!.hashCode) +
-    (websocketPort == null ? 0 : websocketPort!.hashCode) +
-    (webserverMode == null ? 0 : webserverMode!.hashCode) +
-    (enableCustomEmoji == null ? 0 : enableCustomEmoji!.hashCode) +
-    (restrictCustomEmojiCreation == null ? 0 : restrictCustomEmojiCreation!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (siteURL == null ? 0 : siteURL!.hashCode) +
+      (listenAddress == null ? 0 : listenAddress!.hashCode) +
+      (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
+      (tLSCertFile == null ? 0 : tLSCertFile!.hashCode) +
+      (tLSKeyFile == null ? 0 : tLSKeyFile!.hashCode) +
+      (useLetsEncrypt == null ? 0 : useLetsEncrypt!.hashCode) +
+      (letsEncryptCertificateCacheFile == null ? 0 : letsEncryptCertificateCacheFile!.hashCode) +
+      (forward80To443 == null ? 0 : forward80To443!.hashCode) +
+      (readTimeout == null ? 0 : readTimeout!.hashCode) +
+      (writeTimeout == null ? 0 : writeTimeout!.hashCode) +
+      (maximumLoginAttempts == null ? 0 : maximumLoginAttempts!.hashCode) +
+      (segmentDeveloperKey == null ? 0 : segmentDeveloperKey!.hashCode) +
+      (googleDeveloperKey == null ? 0 : googleDeveloperKey!.hashCode) +
+      (enableOAuthServiceProvider == null ? 0 : enableOAuthServiceProvider!.hashCode) +
+      (enableIncomingWebhooks == null ? 0 : enableIncomingWebhooks!.hashCode) +
+      (enableOutgoingWebhooks == null ? 0 : enableOutgoingWebhooks!.hashCode) +
+      (enableCommands == null ? 0 : enableCommands!.hashCode) +
+      (enableOnlyAdminIntegrations == null ? 0 : enableOnlyAdminIntegrations!.hashCode) +
+      (enablePostUsernameOverride == null ? 0 : enablePostUsernameOverride!.hashCode) +
+      (enablePostIconOverride == null ? 0 : enablePostIconOverride!.hashCode) +
+      (enableTesting == null ? 0 : enableTesting!.hashCode) +
+      (enableDeveloper == null ? 0 : enableDeveloper!.hashCode) +
+      (enableSecurityFixAlert == null ? 0 : enableSecurityFixAlert!.hashCode) +
+      (enableInsecureOutgoingConnections == null ? 0 : enableInsecureOutgoingConnections!.hashCode) +
+      (enableMultifactorAuthentication == null ? 0 : enableMultifactorAuthentication!.hashCode) +
+      (enforceMultifactorAuthentication == null ? 0 : enforceMultifactorAuthentication!.hashCode) +
+      (allowCorsFrom == null ? 0 : allowCorsFrom!.hashCode) +
+      (sessionLengthWebInDays == null ? 0 : sessionLengthWebInDays!.hashCode) +
+      (sessionLengthMobileInDays == null ? 0 : sessionLengthMobileInDays!.hashCode) +
+      (sessionLengthSSOInDays == null ? 0 : sessionLengthSSOInDays!.hashCode) +
+      (sessionCacheInMinutes == null ? 0 : sessionCacheInMinutes!.hashCode) +
+      (websocketSecurePort == null ? 0 : websocketSecurePort!.hashCode) +
+      (websocketPort == null ? 0 : websocketPort!.hashCode) +
+      (webserverMode == null ? 0 : webserverMode!.hashCode) +
+      (enableCustomEmoji == null ? 0 : enableCustomEmoji!.hashCode) +
+      (restrictCustomEmojiCreation == null ? 0 : restrictCustomEmojiCreation!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
+  String toString() =>
+      'MattermostEnvironmentConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -546,8 +549,10 @@ class MattermostEnvironmentConfigServiceSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigServiceSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigServiceSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigServiceSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigServiceSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -594,7 +599,10 @@ class MattermostEnvironmentConfigServiceSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigServiceSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigServiceSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigServiceSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -622,12 +630,18 @@ class MattermostEnvironmentConfigServiceSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigServiceSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigServiceSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigServiceSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigServiceSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigServiceSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigServiceSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -637,7 +651,5 @@ class MattermostEnvironmentConfigServiceSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

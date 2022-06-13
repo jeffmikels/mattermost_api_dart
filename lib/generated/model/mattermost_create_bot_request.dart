@@ -37,24 +37,27 @@ class MattermostCreateBotRequest {
   String? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateBotRequest &&
-     other.username == username &&
-     other.displayName == displayName &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateBotRequest &&
+          other.username == username &&
+          other.displayName == displayName &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (username.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (username.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
-  String toString() => 'MattermostCreateBotRequest[username=$username, displayName=$displayName, description=$description]';
+  String toString() =>
+      'MattermostCreateBotRequest[username=$username, displayName=$displayName, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'username'] = username;
+    _json[r'username'] = username;
     if (displayName != null) {
       _json[r'display_name'] = displayName;
     }
@@ -91,7 +94,10 @@ class MattermostCreateBotRequest {
     return null;
   }
 
-  static List<MattermostCreateBotRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateBotRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateBotRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -119,12 +125,18 @@ class MattermostCreateBotRequest {
   }
 
   // maps a json object with a list of MattermostCreateBotRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateBotRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateBotRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateBotRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateBotRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateBotRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -138,4 +150,3 @@ class MattermostCreateBotRequest {
     'username',
   };
 }
-

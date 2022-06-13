@@ -20,20 +20,20 @@ class MattermostInstallMarketplacePluginRequest {
   String id;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostInstallMarketplacePluginRequest &&
-     other.id == id;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostInstallMarketplacePluginRequest && other.id == id;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode);
 
   @override
   String toString() => 'MattermostInstallMarketplacePluginRequest[id=$id]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'id'] = id;
+    _json[r'id'] = id;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostInstallMarketplacePluginRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostInstallMarketplacePluginRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostInstallMarketplacePluginRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostInstallMarketplacePluginRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostInstallMarketplacePluginRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostInstallMarketplacePluginRequest {
     return null;
   }
 
-  static List<MattermostInstallMarketplacePluginRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostInstallMarketplacePluginRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostInstallMarketplacePluginRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostInstallMarketplacePluginRequest {
   }
 
   // maps a json object with a list of MattermostInstallMarketplacePluginRequest-objects as value to a dart map
-  static Map<String, List<MattermostInstallMarketplacePluginRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostInstallMarketplacePluginRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostInstallMarketplacePluginRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostInstallMarketplacePluginRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostInstallMarketplacePluginRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostInstallMarketplacePluginRequest {
     'id',
   };
 }
-

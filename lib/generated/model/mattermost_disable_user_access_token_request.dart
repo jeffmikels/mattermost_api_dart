@@ -20,20 +20,20 @@ class MattermostDisableUserAccessTokenRequest {
   String tokenId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDisableUserAccessTokenRequest &&
-     other.tokenId == tokenId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostDisableUserAccessTokenRequest && other.tokenId == tokenId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (tokenId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (tokenId.hashCode);
 
   @override
   String toString() => 'MattermostDisableUserAccessTokenRequest[tokenId=$tokenId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'token_id'] = tokenId;
+    _json[r'token_id'] = tokenId;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostDisableUserAccessTokenRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDisableUserAccessTokenRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDisableUserAccessTokenRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostDisableUserAccessTokenRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostDisableUserAccessTokenRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostDisableUserAccessTokenRequest {
     return null;
   }
 
-  static List<MattermostDisableUserAccessTokenRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDisableUserAccessTokenRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDisableUserAccessTokenRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostDisableUserAccessTokenRequest {
   }
 
   // maps a json object with a list of MattermostDisableUserAccessTokenRequest-objects as value to a dart map
-  static Map<String, List<MattermostDisableUserAccessTokenRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDisableUserAccessTokenRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDisableUserAccessTokenRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDisableUserAccessTokenRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDisableUserAccessTokenRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostDisableUserAccessTokenRequest {
     'token_id',
   };
 }
-

@@ -30,22 +30,20 @@ class MattermostCreateJobRequest {
   Map? data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateJobRequest &&
-     other.type == type &&
-     other.data == data;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostCreateJobRequest && other.type == type && other.data == data;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type.hashCode) +
-    (data == null ? 0 : data!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
   String toString() => 'MattermostCreateJobRequest[type=$type, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'type'] = type;
+    _json[r'type'] = type;
     if (data != null) {
       _json[r'data'] = data;
     }
@@ -78,7 +76,10 @@ class MattermostCreateJobRequest {
     return null;
   }
 
-  static List<MattermostCreateJobRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateJobRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateJobRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +107,18 @@ class MattermostCreateJobRequest {
   }
 
   // maps a json object with a list of MattermostCreateJobRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateJobRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateJobRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateJobRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateJobRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateJobRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +132,3 @@ class MattermostCreateJobRequest {
     'type',
   };
 }
-

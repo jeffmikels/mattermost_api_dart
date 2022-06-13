@@ -56,22 +56,25 @@ class MattermostUserAccessTokenSanitized {
   bool? isActive;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserAccessTokenSanitized &&
-     other.id == id &&
-     other.userId == userId &&
-     other.description == description &&
-     other.isActive == isActive;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserAccessTokenSanitized &&
+          other.id == id &&
+          other.userId == userId &&
+          other.description == description &&
+          other.isActive == isActive;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (isActive == null ? 0 : isActive!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (isActive == null ? 0 : isActive!.hashCode);
 
   @override
-  String toString() => 'MattermostUserAccessTokenSanitized[id=$id, userId=$userId, description=$description, isActive=$isActive]';
+  String toString() =>
+      'MattermostUserAccessTokenSanitized[id=$id, userId=$userId, description=$description, isActive=$isActive]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,8 +105,10 @@ class MattermostUserAccessTokenSanitized {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUserAccessTokenSanitized[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUserAccessTokenSanitized[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostUserAccessTokenSanitized[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostUserAccessTokenSanitized[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -118,7 +123,10 @@ class MattermostUserAccessTokenSanitized {
     return null;
   }
 
-  static List<MattermostUserAccessTokenSanitized>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserAccessTokenSanitized>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserAccessTokenSanitized>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +154,18 @@ class MattermostUserAccessTokenSanitized {
   }
 
   // maps a json object with a list of MattermostUserAccessTokenSanitized-objects as value to a dart map
-  static Map<String, List<MattermostUserAccessTokenSanitized>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserAccessTokenSanitized>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserAccessTokenSanitized>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserAccessTokenSanitized.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserAccessTokenSanitized.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +175,5 @@ class MattermostUserAccessTokenSanitized {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

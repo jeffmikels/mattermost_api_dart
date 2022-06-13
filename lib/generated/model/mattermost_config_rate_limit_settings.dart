@@ -70,26 +70,29 @@ class MattermostConfigRateLimitSettings {
   String? varyByHeader;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigRateLimitSettings &&
-     other.enable == enable &&
-     other.perSec == perSec &&
-     other.maxBurst == maxBurst &&
-     other.memoryStoreSize == memoryStoreSize &&
-     other.varyByRemoteAddr == varyByRemoteAddr &&
-     other.varyByHeader == varyByHeader;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigRateLimitSettings &&
+          other.enable == enable &&
+          other.perSec == perSec &&
+          other.maxBurst == maxBurst &&
+          other.memoryStoreSize == memoryStoreSize &&
+          other.varyByRemoteAddr == varyByRemoteAddr &&
+          other.varyByHeader == varyByHeader;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (perSec == null ? 0 : perSec!.hashCode) +
-    (maxBurst == null ? 0 : maxBurst!.hashCode) +
-    (memoryStoreSize == null ? 0 : memoryStoreSize!.hashCode) +
-    (varyByRemoteAddr == null ? 0 : varyByRemoteAddr!.hashCode) +
-    (varyByHeader == null ? 0 : varyByHeader!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (perSec == null ? 0 : perSec!.hashCode) +
+      (maxBurst == null ? 0 : maxBurst!.hashCode) +
+      (memoryStoreSize == null ? 0 : memoryStoreSize!.hashCode) +
+      (varyByRemoteAddr == null ? 0 : varyByRemoteAddr!.hashCode) +
+      (varyByHeader == null ? 0 : varyByHeader!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
+  String toString() =>
+      'MattermostConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class MattermostConfigRateLimitSettings {
     return null;
   }
 
-  static List<MattermostConfigRateLimitSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigRateLimitSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigRateLimitSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class MattermostConfigRateLimitSettings {
   }
 
   // maps a json object with a list of MattermostConfigRateLimitSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigRateLimitSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigRateLimitSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigRateLimitSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigRateLimitSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigRateLimitSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class MattermostConfigRateLimitSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

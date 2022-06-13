@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostReactionsApi {
   MattermostReactionsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostReactionsApi {
 
   /// Remove a reaction from a post
   ///
-  /// Deletes a reaction made by a user from the given post. ##### Permissions Must be user or have `manage_system` permission. 
+  /// Deletes a reaction made by a user from the given post. ##### Permissions Must be user or have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -32,12 +31,16 @@ class MattermostReactionsApi {
   ///
   /// * [String] emojiName (required):
   ///   emoji name
-  Future<Response> deleteReactionWithHttpInfo(String userId, String postId, String emojiName,) async {
+  Future<Response> deleteReactionWithHttpInfo(
+    String userId,
+    String postId,
+    String emojiName,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/posts/{post_id}/reactions/{emoji_name}'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{post_id}', postId)
-      .replaceAll('{emoji_name}', emojiName);
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{post_id}', postId)
+        .replaceAll('{emoji_name}', emojiName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -47,7 +50,6 @@ class MattermostReactionsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -62,7 +64,7 @@ class MattermostReactionsApi {
 
   /// Remove a reaction from a post
   ///
-  /// Deletes a reaction made by a user from the given post. ##### Permissions Must be user or have `manage_system` permission. 
+  /// Deletes a reaction made by a user from the given post. ##### Permissions Must be user or have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -74,8 +76,16 @@ class MattermostReactionsApi {
   ///
   /// * [String] emojiName (required):
   ///   emoji name
-  Future<MattermostStatusOK?> deleteReaction(String userId, String postId, String emojiName,) async {
-    final response = await deleteReactionWithHttpInfo(userId, postId, emojiName,);
+  Future<MattermostStatusOK?> deleteReaction(
+    String userId,
+    String postId,
+    String emojiName,
+  ) async {
+    final response = await deleteReactionWithHttpInfo(
+      userId,
+      postId,
+      emojiName,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,15 +93,17 @@ class MattermostReactionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Bulk get the reaction for posts
   ///
-  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.  __Minimum server version__: 5.8 
+  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.  __Minimum server version__: 5.8
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -99,7 +111,9 @@ class MattermostReactionsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of post IDs
-  Future<Response> getBulkReactionsWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> getBulkReactionsWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/ids/reactions';
 
@@ -111,7 +125,6 @@ class MattermostReactionsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -126,14 +139,18 @@ class MattermostReactionsApi {
 
   /// Bulk get the reaction for posts
   ///
-  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.  __Minimum server version__: 5.8 
+  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.  __Minimum server version__: 5.8
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of post IDs
-  Future<Map<String, List<MattermostReaction>>?> getBulkReactions(List<String> requestBody,) async {
-    final response = await getBulkReactionsWithHttpInfo(requestBody,);
+  Future<Map<String, List<MattermostReaction>>?> getBulkReactions(
+    List<String> requestBody,
+  ) async {
+    final response = await getBulkReactionsWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,15 +158,16 @@ class MattermostReactionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, List<MattermostReaction>>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, List<MattermostReaction>>'),);
-
+      return Map<String, List<MattermostReaction>>.from(
+        await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, List<MattermostReaction>>'),
+      );
     }
     return null;
   }
 
   /// Get a list of reactions to a post
   ///
-  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -157,10 +175,11 @@ class MattermostReactionsApi {
   ///
   /// * [String] postId (required):
   ///   ID of a post
-  Future<Response> getReactionsWithHttpInfo(String postId,) async {
+  Future<Response> getReactionsWithHttpInfo(
+    String postId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/posts/{post_id}/reactions'
-      .replaceAll('{post_id}', postId);
+    final path = r'/posts/{post_id}/reactions'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -170,7 +189,6 @@ class MattermostReactionsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -185,14 +203,18 @@ class MattermostReactionsApi {
 
   /// Get a list of reactions to a post
   ///
-  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Parameters:
   ///
   /// * [String] postId (required):
   ///   ID of a post
-  Future<List<MattermostReaction>?> getReactions(String postId,) async {
-    final response = await getReactionsWithHttpInfo(postId,);
+  Future<List<MattermostReaction>?> getReactions(
+    String postId,
+  ) async {
+    final response = await getReactionsWithHttpInfo(
+      postId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -202,16 +224,15 @@ class MattermostReactionsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostReaction>') as List)
-        .cast<MattermostReaction>()
-        .toList();
-
+          .cast<MattermostReaction>()
+          .toList();
     }
     return null;
   }
 
   /// Create a reaction
   ///
-  /// Create a reaction. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Create a reaction. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -219,7 +240,9 @@ class MattermostReactionsApi {
   ///
   /// * [MattermostReaction] mattermostReaction (required):
   ///   The user's reaction with its post_id, user_id, and emoji_name fields set
-  Future<Response> saveReactionWithHttpInfo(MattermostReaction mattermostReaction,) async {
+  Future<Response> saveReactionWithHttpInfo(
+    MattermostReaction mattermostReaction,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/reactions';
 
@@ -231,7 +254,6 @@ class MattermostReactionsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -246,14 +268,18 @@ class MattermostReactionsApi {
 
   /// Create a reaction
   ///
-  /// Create a reaction. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
+  /// Create a reaction. ##### Permissions Must have `read_channel` permission for the channel the post is in.
   ///
   /// Parameters:
   ///
   /// * [MattermostReaction] mattermostReaction (required):
   ///   The user's reaction with its post_id, user_id, and emoji_name fields set
-  Future<MattermostReaction?> saveReaction(MattermostReaction mattermostReaction,) async {
-    final response = await saveReactionWithHttpInfo(mattermostReaction,);
+  Future<MattermostReaction?> saveReaction(
+    MattermostReaction mattermostReaction,
+  ) async {
+    final response = await saveReactionWithHttpInfo(
+      mattermostReaction,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -261,8 +287,10 @@ class MattermostReactionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostReaction',) as MattermostReaction;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostReaction',
+      ) as MattermostReaction;
     }
     return null;
   }

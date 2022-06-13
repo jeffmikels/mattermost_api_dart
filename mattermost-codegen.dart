@@ -21,24 +21,32 @@ Map<String, dynamic> pathRefs = {};
 /// ========================
 /// HELPER FUNCTIONS
 /// ========================
-
 extension ListStrings on List {
   /// convert every element of this list to a string
   List<String> coerceStrings() => map((e) => e.toString()).toList();
 }
 
-extension PrefixStrings on String {
+extension StringMethods on String {
   /// prefix every line of this string with a string separated by the [sep] variable
   String prefixLines(String prefix, {String sep = '\n'}) => split(sep).map((e) => '$prefix$e').join(sep);
 
-  /// convert snake case to camel case
-  String snakeToCamelCase() => replaceAllMapped(RegExp(r'_(\w)'), (match) {
+  /// convert snake case to camel case (eg. `thisIsCamelCase` )
+  String snakeToCamelCase() => this.toLowerCase().replaceAllMapped(RegExp(r'_(\w)'), (match) {
         return match.group(1)!.toUpperCase();
       });
+
+  /// convert snake case to pascal case (eg. `ThisIsPascalCase` )
+  String snakeToPascal() => snakeToCamelCase().capitalize();
+
+  /// capitalize the first letter of this string, leaving the rest unchanged
+  String capitalize() => this.length < 2 ? this.toUpperCase() : this.substring(0).toUpperCase() + this.substring(1);
 }
 
 var prettyJson = JsonEncoder.withIndent('  ').convert;
 
+/// ========================
+/// OPENAPI FUNCTIONS
+/// ========================
 List<String> parseRef(String refString) {
   List<String> jsonKeys = [];
   var refParts = refString.replaceFirst('#/', '').split('/');
@@ -50,13 +58,13 @@ List<String> parseRef(String refString) {
 }
 
 bool isRef(obj) {
-  return obj is Map && obj.length == 1 && obj['\$ref'] != null;
+  return obj is Map && obj.length == 1 && obj[r'$ref'] != null;
 }
 
 dynamic deRef(obj) {
   String? refPath;
   if (obj is String) refPath = obj;
-  if (isRef(obj)) refPath = obj['\$ref'];
+  if (isRef(obj)) refPath = obj[r'$ref'];
   if (refPath == null) return obj;
 
   var parts = parseRef(refPath);
@@ -79,11 +87,10 @@ dynamic deRef(obj) {
   return current;
 }
 
-/// TODO: see `clearGroupCreate`, handle requestBody/schema/properties
-/// TODO: or see `timerSet`, handle requestBody/schema/oneOf
 class EndpointSchema {
   bool get isOneOf => oneOf.isNotEmpty;
 
+  /// openApiType
   String type = ''; // string, array, object, number, integer, boolean
 
   // sometimes `string` data might represent a `binary` object
@@ -104,14 +111,20 @@ class EndpointSchema {
 
   EndpointSchema.fromMap(Map<String, dynamic> data) {
     data = deRef(data);
-    if (data['type'] == null && data['oneOf'] != null) {
-      Set oneOfTypes = {};
-      for (var item in data['oneOf']) {
-        var e = EndpointSchema.fromMap(item);
-        oneOf.add(e);
-        oneOfTypes.add(e.type);
+    if (data['type'] == null) {
+      if (data['oneOf'] != null) {
+        Set oneOfTypes = {};
+        for (var item in data['oneOf']) {
+          var e = EndpointSchema.fromMap(item);
+          oneOf.add(e);
+          oneOfTypes.add(e.type);
+        }
+        if (oneOfTypes.length == 1) type = oneOfTypes.first;
+      } else if (data['allOf'] != null) {
+        for (var ref in data['allOf'] as List) {
+          var s = EndpointSchema.fromMap(ref);
+        }
       }
-      if (oneOfTypes.length == 1) type = oneOfTypes.first;
     } else {
       type = data['type'];
       defaultValue = data['default'];
@@ -123,6 +136,14 @@ class EndpointSchema {
         exampleJson = JsonEncoder.withIndent('  ').convert(data['example']);
       }
     }
+  }
+
+  merge(EndpointSchema other) {
+    required.addAll(other.required);
+    options.addAll(other.options);
+    var e = json.decode(exampleJson);
+    e.addAll(json.decode(other.exampleJson));
+    exampleJson = prettyJson(e);
   }
 
   toJson() {
@@ -169,7 +190,7 @@ class EndpointParam {
     location = data['in'];
     required = data['required'] == true;
     name = data['name'];
-    description = data['description'];
+    description = data['description'] ?? '';
     schema = EndpointSchema.fromMap(data['schema']);
 
     var singleExample = data['example'];
@@ -266,23 +287,32 @@ class EndpointVerb {
   List<EndpointResponse> responses = [];
   EndpointRequestBody? requestBody;
 
-  EndpointVerb.fromMap(this.method, Map<String, dynamic> data) {
-    data = deRef(data);
-    summary = data['summary'] ?? '';
-    description = data['description'] ?? '';
-    id = data['operationId']!;
-    tags.addAll((data['tags'] as List).coerceStrings());
-    for (var param in data['parameters'] ?? []) {
+  EndpointVerb.fromMap(this.method, Map<String, dynamic> pathData) {
+    print('\n\n');
+    print(pathData);
+    var methodData = pathData[method]!;
+    methodData = deRef(methodData);
+
+    // print(data);
+    summary = methodData['summary'] ?? '';
+    description = methodData['description'] ?? '';
+
+    // generate an id if there is no operationId field
+    id = methodData['operationId'] ??
+        (method + '_' + (pathData['path'] as String).replaceAll('/', '_').replaceAll('-', '_')).snakeToPascal();
+
+    tags.addAll((methodData['tags'] as List).coerceStrings());
+    for (var param in methodData['parameters'] ?? []) {
       params.add(EndpointParam.fromMap(param));
     }
-    for (var code in ((data['responses'] ?? {}) as Map).keys) {
-      var response = data['responses'][code];
+    for (var code in ((methodData['responses'] ?? {}) as Map).keys) {
+      var response = methodData['responses'][code];
       var realCode = int.tryParse(code) ?? 0;
       if (realCode == 404) continue;
       responses.add(EndpointResponse.fromMap(realCode, response));
     }
-    if (data['requestBody'] != null) {
-      requestBody = EndpointRequestBody.fromMap(data['requestBody']);
+    if (methodData['requestBody'] != null) {
+      requestBody = EndpointRequestBody.fromMap(methodData['requestBody']);
     }
   }
 }
@@ -293,12 +323,12 @@ class Endpoint {
   Map<String, EndpointParam> params = {};
 
   Endpoint.fromPath(this.pathspec, Map<String, dynamic> data) {
-    if (pathspec.contains('/status/update')) {
-      print('break here');
-    }
+    // preserve the path for inner methods
+    data['path'] = pathspec;
+
     // handle verbs
     var methods = data.keys.where((key) => ['get', 'post', 'patch', 'put', 'delete'].contains(key));
-    verbs = methods.map((method) => EndpointVerb.fromMap(method, data[method])).toList();
+    verbs = methods.map((method) => EndpointVerb.fromMap(method, data)).toList();
 
     // handle root params
     for (var param in data['parameters'] ?? []) {
@@ -327,58 +357,17 @@ class Spec {
 }
 
 String getDartTypeFromSchemaType(String type) {
-  String argType = '';
-  switch (type) {
-    case 'array':
-      argType = 'List';
-      break;
-    case 'boolean':
-      argType = 'bool';
-      break;
-    case 'object':
-      argType = 'Map';
-      break;
-    case 'number':
-      argType = 'double';
-      break;
-    case 'integer':
-      argType = 'int';
-      break;
-    case 'string':
-    default:
-      argType = 'String';
-      break;
-  }
-  return argType;
-}
+  var typeMap = {
+    'array': 'List',
+    'boolean': 'bool',
+    'object': 'Map',
+    'number': 'double',
+    'integer': 'int',
+    'string': 'String'
+  };
 
-// String getDartDefaultValueFromSchema(EndpointSchema schema) {
-//   String argDef = '';
-//   if (schema.defaultValue != null) {
-//     switch (schema.type) {
-//       case 'array':
-//         argDef = 'List';
-//         break;
-//       case 'boolean':
-//         argDef = 'bool';
-//         break;
-//       case 'object':
-//         argDef = 'Map';
-//         break;
-//       case 'number':
-//         argDef = 'double';
-//         break;
-//       case 'integer':
-//         argDef = 'int';
-//         break;
-//       case 'string':
-//       default:
-//         argDef = 'String';
-//         break;
-//     }
-//   }
-//   return argDef;
-// }
+  return typeMap[type] ?? 'String';
+}
 
 String schemaToComment(EndpointSchema schema) {
   return prettyJson(schema);
@@ -425,8 +414,6 @@ String pathToFunctions(Endpoint path) {
     String argVar = param.name.snakeToCamelCase();
     String argType = '';
 
-    /// types can be string, boolean, array, object, number, integer
-    /// `number` types for ProPresenter usually mean 0-1
     argType = getDartTypeFromSchemaType(param.schema.type);
 
     // is this param describing a query variable or a path variable?
@@ -475,8 +462,6 @@ ${param.description}${param.examples.isNotEmpty ? '\n' : ''}''');
       String argVar = param.name.snakeToCamelCase();
       String argType = '';
 
-      /// types can be string, boolean, array, object, number, integer
-      /// `number` types for ProPresenter usually mean 0-1
       argType = getDartTypeFromSchemaType(param.schema.type);
 
       if (param.location == 'query') {
@@ -632,9 +617,9 @@ Future<Stream<Map<String, dynamic>>?> ${funcName}Stream($funcArgs) async {
   return output.join('\n');
 }
 
-String codeGen(Spec apiSpec) {
+String codeGen(Spec apiSpec, {String apiPrefix = '', String modelPrefix = ''}) {
   /// the logic of the code generator is to create a single function
-  /// for every "path" action on ProPresenter...
+  /// for every "path" action on the spec
   ///
   /// endpoints with path params should take them as function arguments
   /// endpoints with multiple verbs should yield multiple functions
@@ -656,11 +641,11 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'helpers.dart';
 
-mixin ProApiGeneratedWrapper {
+mixin ${apiPrefix.capitalize()}ApiGeneratedWrapper {
   String get host;
   int get port;
 
-  // ProApiGeneratedWrapper(this.host, this.port);
+  // ApiGeneratedWrapper(this.host, this.port);
 
   Uri _makeUri(String path, {Map<String, dynamic>? params}) {
     return Uri.http('\$host:\$port', path, params);
@@ -732,7 +717,7 @@ mixin ProApiGeneratedWrapper {
 
     // if successful, create a stream of Json Objects
     if (res.statusCode > 199 && res.statusCode < 300) {
-      /// propresenter might close this connection prematurely.
+      /// the server might close this connection prematurely.
       /// we want to catch it.
       try {
         var sc = StreamController<Map<String, dynamic>>();

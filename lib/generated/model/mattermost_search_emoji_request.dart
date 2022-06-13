@@ -30,22 +30,21 @@ class MattermostSearchEmojiRequest {
   String? prefixOnly;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchEmojiRequest &&
-     other.term == term &&
-     other.prefixOnly == prefixOnly;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchEmojiRequest && other.term == term && other.prefixOnly == prefixOnly;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term.hashCode) +
-    (prefixOnly == null ? 0 : prefixOnly!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term.hashCode) + (prefixOnly == null ? 0 : prefixOnly!.hashCode);
 
   @override
   String toString() => 'MattermostSearchEmojiRequest[term=$term, prefixOnly=$prefixOnly]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'term'] = term;
+    _json[r'term'] = term;
     if (prefixOnly != null) {
       _json[r'prefix_only'] = prefixOnly;
     }
@@ -78,7 +77,10 @@ class MattermostSearchEmojiRequest {
     return null;
   }
 
-  static List<MattermostSearchEmojiRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchEmojiRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchEmojiRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +108,18 @@ class MattermostSearchEmojiRequest {
   }
 
   // maps a json object with a list of MattermostSearchEmojiRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchEmojiRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchEmojiRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchEmojiRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchEmojiRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchEmojiRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +133,3 @@ class MattermostSearchEmojiRequest {
     'term',
   };
 }
-

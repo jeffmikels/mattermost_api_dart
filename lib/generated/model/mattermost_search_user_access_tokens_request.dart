@@ -20,20 +20,20 @@ class MattermostSearchUserAccessTokensRequest {
   String term;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchUserAccessTokensRequest &&
-     other.term == term;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostSearchUserAccessTokensRequest && other.term == term;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term.hashCode);
 
   @override
   String toString() => 'MattermostSearchUserAccessTokensRequest[term=$term]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'term'] = term;
+    _json[r'term'] = term;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostSearchUserAccessTokensRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSearchUserAccessTokensRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSearchUserAccessTokensRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostSearchUserAccessTokensRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostSearchUserAccessTokensRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostSearchUserAccessTokensRequest {
     return null;
   }
 
-  static List<MattermostSearchUserAccessTokensRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchUserAccessTokensRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchUserAccessTokensRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostSearchUserAccessTokensRequest {
   }
 
   // maps a json object with a list of MattermostSearchUserAccessTokensRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchUserAccessTokensRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchUserAccessTokensRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchUserAccessTokensRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchUserAccessTokensRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchUserAccessTokensRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostSearchUserAccessTokensRequest {
     'term',
   };
 }
-

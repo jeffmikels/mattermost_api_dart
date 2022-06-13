@@ -25,13 +25,13 @@ class MattermostImportTeam200Response {
   String? results;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostImportTeam200Response &&
-     other.results == results;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostImportTeam200Response && other.results == results;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (results == null ? 0 : results!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (results == null ? 0 : results!.hashCode);
 
   @override
   String toString() => 'MattermostImportTeam200Response[results=$results]';
@@ -69,7 +69,10 @@ class MattermostImportTeam200Response {
     return null;
   }
 
-  static List<MattermostImportTeam200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostImportTeam200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostImportTeam200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +100,18 @@ class MattermostImportTeam200Response {
   }
 
   // maps a json object with a list of MattermostImportTeam200Response-objects as value to a dart map
-  static Map<String, List<MattermostImportTeam200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostImportTeam200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostImportTeam200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostImportTeam200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostImportTeam200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +121,5 @@ class MattermostImportTeam200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

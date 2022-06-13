@@ -42,27 +42,30 @@ class MattermostFileInfoList {
   String? prevFileId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostFileInfoList &&
-     other.order == order &&
-     other.fileInfos == fileInfos &&
-     other.nextFileId == nextFileId &&
-     other.prevFileId == prevFileId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostFileInfoList &&
+          other.order == order &&
+          other.fileInfos == fileInfos &&
+          other.nextFileId == nextFileId &&
+          other.prevFileId == prevFileId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (order.hashCode) +
-    (fileInfos.hashCode) +
-    (nextFileId == null ? 0 : nextFileId!.hashCode) +
-    (prevFileId == null ? 0 : prevFileId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (order.hashCode) +
+      (fileInfos.hashCode) +
+      (nextFileId == null ? 0 : nextFileId!.hashCode) +
+      (prevFileId == null ? 0 : prevFileId!.hashCode);
 
   @override
-  String toString() => 'MattermostFileInfoList[order=$order, fileInfos=$fileInfos, nextFileId=$nextFileId, prevFileId=$prevFileId]';
+  String toString() =>
+      'MattermostFileInfoList[order=$order, fileInfos=$fileInfos, nextFileId=$nextFileId, prevFileId=$prevFileId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'order'] = order;
-      _json[r'file_infos'] = fileInfos;
+    _json[r'order'] = order;
+    _json[r'file_infos'] = fileInfos;
     if (nextFileId != null) {
       _json[r'next_file_id'] = nextFileId;
     }
@@ -91,9 +94,7 @@ class MattermostFileInfoList {
       }());
 
       return MattermostFileInfoList(
-        order: json[r'order'] is List
-            ? (json[r'order'] as List).cast<String>()
-            : const [],
+        order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
         fileInfos: MattermostFileInfo.mapFromJson(json[r'file_infos'] ?? const {}),
         nextFileId: mapValueOfType<String>(json, r'next_file_id'),
         prevFileId: mapValueOfType<String>(json, r'prev_file_id'),
@@ -102,7 +103,10 @@ class MattermostFileInfoList {
     return null;
   }
 
-  static List<MattermostFileInfoList>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostFileInfoList>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostFileInfoList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +134,18 @@ class MattermostFileInfoList {
   }
 
   // maps a json object with a list of MattermostFileInfoList-objects as value to a dart map
-  static Map<String, List<MattermostFileInfoList>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostFileInfoList>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostFileInfoList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostFileInfoList.listFromJson(entry.value, growable: growable,);
+        final value = MattermostFileInfoList.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -145,7 +155,5 @@ class MattermostFileInfoList {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

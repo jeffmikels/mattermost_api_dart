@@ -76,36 +76,39 @@ class MattermostCreateOutgoingWebhookRequest {
   String contentType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateOutgoingWebhookRequest &&
-     other.teamId == teamId &&
-     other.channelId == channelId &&
-     other.creatorId == creatorId &&
-     other.description == description &&
-     other.displayName == displayName &&
-     other.triggerWords == triggerWords &&
-     other.triggerWhen == triggerWhen &&
-     other.callbackUrls == callbackUrls &&
-     other.contentType == contentType;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateOutgoingWebhookRequest &&
+          other.teamId == teamId &&
+          other.channelId == channelId &&
+          other.creatorId == creatorId &&
+          other.description == description &&
+          other.displayName == displayName &&
+          other.triggerWords == triggerWords &&
+          other.triggerWhen == triggerWhen &&
+          other.callbackUrls == callbackUrls &&
+          other.contentType == contentType;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (displayName.hashCode) +
-    (triggerWords.hashCode) +
-    (triggerWhen == null ? 0 : triggerWhen!.hashCode) +
-    (callbackUrls.hashCode) +
-    (contentType.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (displayName.hashCode) +
+      (triggerWords.hashCode) +
+      (triggerWhen == null ? 0 : triggerWhen!.hashCode) +
+      (callbackUrls.hashCode) +
+      (contentType.hashCode);
 
   @override
-  String toString() => 'MattermostCreateOutgoingWebhookRequest[teamId=$teamId, channelId=$channelId, creatorId=$creatorId, description=$description, displayName=$displayName, triggerWords=$triggerWords, triggerWhen=$triggerWhen, callbackUrls=$callbackUrls, contentType=$contentType]';
+  String toString() =>
+      'MattermostCreateOutgoingWebhookRequest[teamId=$teamId, channelId=$channelId, creatorId=$creatorId, description=$description, displayName=$displayName, triggerWords=$triggerWords, triggerWhen=$triggerWhen, callbackUrls=$callbackUrls, contentType=$contentType]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'team_id'] = teamId;
+    _json[r'team_id'] = teamId;
     if (channelId != null) {
       _json[r'channel_id'] = channelId;
     }
@@ -115,13 +118,13 @@ class MattermostCreateOutgoingWebhookRequest {
     if (description != null) {
       _json[r'description'] = description;
     }
-      _json[r'display_name'] = displayName;
-      _json[r'trigger_words'] = triggerWords;
+    _json[r'display_name'] = displayName;
+    _json[r'trigger_words'] = triggerWords;
     if (triggerWhen != null) {
       _json[r'trigger_when'] = triggerWhen;
     }
-      _json[r'callback_urls'] = callbackUrls;
-      _json[r'content_type'] = contentType;
+    _json[r'callback_urls'] = callbackUrls;
+    _json[r'content_type'] = contentType;
     return _json;
   }
 
@@ -137,8 +140,10 @@ class MattermostCreateOutgoingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostCreateOutgoingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostCreateOutgoingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostCreateOutgoingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostCreateOutgoingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -149,20 +154,19 @@ class MattermostCreateOutgoingWebhookRequest {
         creatorId: mapValueOfType<String>(json, r'creator_id'),
         description: mapValueOfType<String>(json, r'description'),
         displayName: mapValueOfType<String>(json, r'display_name')!,
-        triggerWords: json[r'trigger_words'] is List
-            ? (json[r'trigger_words'] as List).cast<String>()
-            : const [],
+        triggerWords: json[r'trigger_words'] is List ? (json[r'trigger_words'] as List).cast<String>() : const [],
         triggerWhen: mapValueOfType<int>(json, r'trigger_when'),
-        callbackUrls: json[r'callback_urls'] is List
-            ? (json[r'callback_urls'] as List).cast<String>()
-            : const [],
+        callbackUrls: json[r'callback_urls'] is List ? (json[r'callback_urls'] as List).cast<String>() : const [],
         contentType: mapValueOfType<String>(json, r'content_type') ?? 'application/x-www-form-urlencoded',
       );
     }
     return null;
   }
 
-  static List<MattermostCreateOutgoingWebhookRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateOutgoingWebhookRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateOutgoingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -190,12 +194,18 @@ class MattermostCreateOutgoingWebhookRequest {
   }
 
   // maps a json object with a list of MattermostCreateOutgoingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateOutgoingWebhookRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateOutgoingWebhookRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateOutgoingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateOutgoingWebhookRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateOutgoingWebhookRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -212,4 +222,3 @@ class MattermostCreateOutgoingWebhookRequest {
     'callback_urls',
   };
 }
-

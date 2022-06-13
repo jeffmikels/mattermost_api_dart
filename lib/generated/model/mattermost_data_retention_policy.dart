@@ -27,7 +27,7 @@ class MattermostDataRetentionPolicy {
   ///
   String? displayName;
 
-  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted). 
+  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted).
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -46,17 +46,19 @@ class MattermostDataRetentionPolicy {
   String? id;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDataRetentionPolicy &&
-     other.displayName == displayName &&
-     other.postDuration == postDuration &&
-     other.id == id;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostDataRetentionPolicy &&
+          other.displayName == displayName &&
+          other.postDuration == postDuration &&
+          other.id == id;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (postDuration == null ? 0 : postDuration!.hashCode) +
-    (id == null ? 0 : id!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (postDuration == null ? 0 : postDuration!.hashCode) +
+      (id == null ? 0 : id!.hashCode);
 
   @override
   String toString() => 'MattermostDataRetentionPolicy[displayName=$displayName, postDuration=$postDuration, id=$id]';
@@ -102,7 +104,10 @@ class MattermostDataRetentionPolicy {
     return null;
   }
 
-  static List<MattermostDataRetentionPolicy>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDataRetentionPolicy>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDataRetentionPolicy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +135,18 @@ class MattermostDataRetentionPolicy {
   }
 
   // maps a json object with a list of MattermostDataRetentionPolicy-objects as value to a dart map
-  static Map<String, List<MattermostDataRetentionPolicy>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDataRetentionPolicy>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDataRetentionPolicy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDataRetentionPolicy.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDataRetentionPolicy.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -145,7 +156,5 @@ class MattermostDataRetentionPolicy {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

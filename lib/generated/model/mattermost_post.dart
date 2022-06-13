@@ -157,46 +157,49 @@ class MattermostPost {
   MattermostPostMetadata? metadata;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPost &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.editAt == editAt &&
-     other.userId == userId &&
-     other.channelId == channelId &&
-     other.rootId == rootId &&
-     other.originalId == originalId &&
-     other.message == message &&
-     other.type == type &&
-     other.props == props &&
-     other.hashtag == hashtag &&
-     other.fileIds == fileIds &&
-     other.pendingPostId == pendingPostId &&
-     other.metadata == metadata;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPost &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.editAt == editAt &&
+          other.userId == userId &&
+          other.channelId == channelId &&
+          other.rootId == rootId &&
+          other.originalId == originalId &&
+          other.message == message &&
+          other.type == type &&
+          other.props == props &&
+          other.hashtag == hashtag &&
+          other.fileIds == fileIds &&
+          other.pendingPostId == pendingPostId &&
+          other.metadata == metadata;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (editAt == null ? 0 : editAt!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (rootId == null ? 0 : rootId!.hashCode) +
-    (originalId == null ? 0 : originalId!.hashCode) +
-    (message == null ? 0 : message!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (hashtag == null ? 0 : hashtag!.hashCode) +
-    (fileIds.hashCode) +
-    (pendingPostId == null ? 0 : pendingPostId!.hashCode) +
-    (metadata == null ? 0 : metadata!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (editAt == null ? 0 : editAt!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (rootId == null ? 0 : rootId!.hashCode) +
+      (originalId == null ? 0 : originalId!.hashCode) +
+      (message == null ? 0 : message!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (hashtag == null ? 0 : hashtag!.hashCode) +
+      (fileIds.hashCode) +
+      (pendingPostId == null ? 0 : pendingPostId!.hashCode) +
+      (metadata == null ? 0 : metadata!.hashCode);
 
   @override
-  String toString() => 'MattermostPost[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, editAt=$editAt, userId=$userId, channelId=$channelId, rootId=$rootId, originalId=$originalId, message=$message, type=$type, props=$props, hashtag=$hashtag, fileIds=$fileIds, pendingPostId=$pendingPostId, metadata=$metadata]';
+  String toString() =>
+      'MattermostPost[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, editAt=$editAt, userId=$userId, channelId=$channelId, rootId=$rootId, originalId=$originalId, message=$message, type=$type, props=$props, hashtag=$hashtag, fileIds=$fileIds, pendingPostId=$pendingPostId, metadata=$metadata]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -239,7 +242,7 @@ class MattermostPost {
     if (hashtag != null) {
       _json[r'hashtag'] = hashtag;
     }
-      _json[r'file_ids'] = fileIds;
+    _json[r'file_ids'] = fileIds;
     if (pendingPostId != null) {
       _json[r'pending_post_id'] = pendingPostId;
     }
@@ -281,9 +284,7 @@ class MattermostPost {
         type: mapValueOfType<String>(json, r'type'),
         props: mapValueOfType<Map>(json, r'props'),
         hashtag: mapValueOfType<String>(json, r'hashtag'),
-        fileIds: json[r'file_ids'] is List
-            ? (json[r'file_ids'] as List).cast<String>()
-            : const [],
+        fileIds: json[r'file_ids'] is List ? (json[r'file_ids'] as List).cast<String>() : const [],
         pendingPostId: mapValueOfType<String>(json, r'pending_post_id'),
         metadata: MattermostPostMetadata.fromJson(json[r'metadata']),
       );
@@ -291,7 +292,10 @@ class MattermostPost {
     return null;
   }
 
-  static List<MattermostPost>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPost>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPost>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -319,12 +323,18 @@ class MattermostPost {
   }
 
   // maps a json object with a list of MattermostPost-objects as value to a dart map
-  static Map<String, List<MattermostPost>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPost>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPost>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPost.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPost.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -334,7 +344,5 @@ class MattermostPost {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostPluginsApi {
   MattermostPluginsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,17 +17,18 @@ class MattermostPluginsApi {
 
   /// Disable plugin
   ///
-  /// Disable a previously enabled plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Disable a previously enabled plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<Response> disablePluginWithHttpInfo(String pluginId,) async {
+  Future<Response> disablePluginWithHttpInfo(
+    String pluginId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/plugins/{plugin_id}/disable'
-      .replaceAll('{plugin_id}', pluginId);
+    final path = r'/plugins/{plugin_id}/disable'.replaceAll('{plugin_id}', pluginId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -38,7 +38,6 @@ class MattermostPluginsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,13 +52,17 @@ class MattermostPluginsApi {
 
   /// Disable plugin
   ///
-  /// Disable a previously enabled plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Disable a previously enabled plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> disablePlugin(String pluginId,) async {
-    final response = await disablePluginWithHttpInfo(pluginId,);
+  Future<MattermostStatusOK?> disablePlugin(
+    String pluginId,
+  ) async {
+    final response = await disablePluginWithHttpInfo(
+      pluginId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -67,25 +70,28 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Enable plugin
   ///
-  /// Enable a previously uploaded plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Enable a previously uploaded plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<Response> enablePluginWithHttpInfo(String pluginId,) async {
+  Future<Response> enablePluginWithHttpInfo(
+    String pluginId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/plugins/{plugin_id}/enable'
-      .replaceAll('{plugin_id}', pluginId);
+    final path = r'/plugins/{plugin_id}/enable'.replaceAll('{plugin_id}', pluginId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -95,7 +101,6 @@ class MattermostPluginsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -110,13 +115,17 @@ class MattermostPluginsApi {
 
   /// Enable plugin
   ///
-  /// Enable a previously uploaded plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Enable a previously uploaded plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> enablePlugin(String pluginId,) async {
-    final response = await enablePluginWithHttpInfo(pluginId,);
+  Future<MattermostStatusOK?> enablePlugin(
+    String pluginId,
+  ) async {
+    final response = await enablePluginWithHttpInfo(
+      pluginId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -124,15 +133,17 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Gets all the marketplace plugins
   ///
-  /// Gets all plugins from the marketplace server, merging data from locally installed plugins as well as prepackaged plugins shipped with the server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Gets all plugins from the marketplace server, merging data from locally installed plugins as well as prepackaged plugins shipped with the server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -152,7 +163,13 @@ class MattermostPluginsApi {
   ///
   /// * [bool] localOnly:
   ///   Set true to only retrieve local plugins.
-  Future<Response> getMarketplacePluginsWithHttpInfo({ int? page, int? perPage, String? filter, String? serverVersion, bool? localOnly, }) async {
+  Future<Response> getMarketplacePluginsWithHttpInfo({
+    int? page,
+    int? perPage,
+    String? filter,
+    String? serverVersion,
+    bool? localOnly,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/marketplace';
 
@@ -181,7 +198,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -195,7 +211,7 @@ class MattermostPluginsApi {
 
   /// Gets all the marketplace plugins
   ///
-  /// Gets all plugins from the marketplace server, merging data from locally installed plugins as well as prepackaged plugins shipped with the server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Gets all plugins from the marketplace server, merging data from locally installed plugins as well as prepackaged plugins shipped with the server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Parameters:
   ///
@@ -213,8 +229,20 @@ class MattermostPluginsApi {
   ///
   /// * [bool] localOnly:
   ///   Set true to only retrieve local plugins.
-  Future<List<MattermostMarketplacePlugin>?> getMarketplacePlugins({ int? page, int? perPage, String? filter, String? serverVersion, bool? localOnly, }) async {
-    final response = await getMarketplacePluginsWithHttpInfo( page: page, perPage: perPage, filter: filter, serverVersion: serverVersion, localOnly: localOnly, );
+  Future<List<MattermostMarketplacePlugin>?> getMarketplacePlugins({
+    int? page,
+    int? perPage,
+    String? filter,
+    String? serverVersion,
+    bool? localOnly,
+  }) async {
+    final response = await getMarketplacePluginsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      serverVersion: serverVersion,
+      localOnly: localOnly,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -224,16 +252,15 @@ class MattermostPluginsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostMarketplacePlugin>') as List)
-        .cast<MattermostMarketplacePlugin>()
-        .toList();
-
+          .cast<MattermostMarketplacePlugin>()
+          .toList();
     }
     return null;
   }
 
   /// Get if the Plugin Marketplace has been visited by at least an admin.
   ///
-  /// Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
+  /// Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getMarketplaceVisitedByAdminWithHttpInfo() async {
@@ -249,7 +276,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -263,7 +289,7 @@ class MattermostPluginsApi {
 
   /// Get if the Plugin Marketplace has been visited by at least an admin.
   ///
-  /// Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
+  /// Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions.
   Future<MattermostSystem?> getMarketplaceVisitedByAdmin() async {
     final response = await getMarketplaceVisitedByAdminWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -273,15 +299,17 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSystem',) as MattermostSystem;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSystem',
+      ) as MattermostSystem;
     }
     return null;
   }
 
   /// Get plugins status
   ///
-  /// Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
+  /// Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getPluginStatusesWithHttpInfo() async {
@@ -297,7 +325,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -311,7 +338,7 @@ class MattermostPluginsApi {
 
   /// Get plugins status
   ///
-  /// Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
+  /// Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4
   Future<List<MattermostPluginStatus>?> getPluginStatuses() async {
     final response = await getPluginStatusesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -323,16 +350,15 @@ class MattermostPluginsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPluginStatus>') as List)
-        .cast<MattermostPluginStatus>()
-        .toList();
-
+          .cast<MattermostPluginStatus>()
+          .toList();
     }
     return null;
   }
 
   /// Get plugins
   ///
-  /// Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getPluginsWithHttpInfo() async {
@@ -348,7 +374,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -362,7 +387,7 @@ class MattermostPluginsApi {
 
   /// Get plugins
   ///
-  /// Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   Future<MattermostGetPlugins200Response?> getPlugins() async {
     final response = await getPluginsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -372,15 +397,17 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetPlugins200Response',) as MattermostGetPlugins200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGetPlugins200Response',
+      ) as MattermostGetPlugins200Response;
     }
     return null;
   }
 
   /// Get webapp plugins
   ///
-  /// Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
+  /// Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getWebappPluginsWithHttpInfo() async {
@@ -396,7 +423,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -410,7 +436,7 @@ class MattermostPluginsApi {
 
   /// Get webapp plugins
   ///
-  /// Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
+  /// Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4
   Future<List<MattermostPluginManifestWebapp>?> getWebappPlugins() async {
     final response = await getWebappPluginsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -422,16 +448,15 @@ class MattermostPluginsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPluginManifestWebapp>') as List)
-        .cast<MattermostPluginManifestWebapp>()
-        .toList();
-
+          .cast<MattermostPluginManifestWebapp>()
+          .toList();
     }
     return null;
   }
 
   /// Installs a marketplace plugin
   ///
-  /// Installs a plugin listed in the marketplace server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Installs a plugin listed in the marketplace server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -439,7 +464,9 @@ class MattermostPluginsApi {
   ///
   /// * [MattermostInstallMarketplacePluginRequest] mattermostInstallMarketplacePluginRequest (required):
   ///   The metadata identifying the plugin to install.
-  Future<Response> installMarketplacePluginWithHttpInfo(MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,) async {
+  Future<Response> installMarketplacePluginWithHttpInfo(
+    MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/marketplace';
 
@@ -452,7 +479,6 @@ class MattermostPluginsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -466,14 +492,18 @@ class MattermostPluginsApi {
 
   /// Installs a marketplace plugin
   ///
-  /// Installs a plugin listed in the marketplace server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
+  /// Installs a plugin listed in the marketplace server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16
   ///
   /// Parameters:
   ///
   /// * [MattermostInstallMarketplacePluginRequest] mattermostInstallMarketplacePluginRequest (required):
   ///   The metadata identifying the plugin to install.
-  Future<MattermostPluginManifest?> installMarketplacePlugin(MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,) async {
-    final response = await installMarketplacePluginWithHttpInfo(mattermostInstallMarketplacePluginRequest,);
+  Future<MattermostPluginManifest?> installMarketplacePlugin(
+    MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,
+  ) async {
+    final response = await installMarketplacePluginWithHttpInfo(
+      mattermostInstallMarketplacePluginRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -481,15 +511,17 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPluginManifest',) as MattermostPluginManifest;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPluginManifest',
+      ) as MattermostPluginManifest;
     }
     return null;
   }
 
   /// Install plugin from url
   ///
-  /// Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
+  /// Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -500,7 +532,10 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<Response> installPluginFromUrlWithHttpInfo(String pluginDownloadUrl, { String? force, }) async {
+  Future<Response> installPluginFromUrlWithHttpInfo(
+    String pluginDownloadUrl, {
+    String? force,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/install_from_url';
 
@@ -511,13 +546,12 @@ class MattermostPluginsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'plugin_download_url', pluginDownloadUrl));
+    queryParams.addAll(_queryParams('', 'plugin_download_url', pluginDownloadUrl));
     if (force != null) {
       queryParams.addAll(_queryParams('', 'force', force));
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -532,7 +566,7 @@ class MattermostPluginsApi {
 
   /// Install plugin from url
   ///
-  /// Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
+  /// Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
@@ -541,8 +575,14 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<MattermostStatusOK?> installPluginFromUrl(String pluginDownloadUrl, { String? force, }) async {
-    final response = await installPluginFromUrlWithHttpInfo(pluginDownloadUrl,  force: force, );
+  Future<MattermostStatusOK?> installPluginFromUrl(
+    String pluginDownloadUrl, {
+    String? force,
+  }) async {
+    final response = await installPluginFromUrlWithHttpInfo(
+      pluginDownloadUrl,
+      force: force,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -550,25 +590,28 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Remove plugin
   ///
-  /// Remove the plugin with the provided ID from the server. All plugin files are deleted. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Remove the plugin with the provided ID from the server. All plugin files are deleted. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<Response> removePluginWithHttpInfo(String pluginId,) async {
+  Future<Response> removePluginWithHttpInfo(
+    String pluginId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/plugins/{plugin_id}'
-      .replaceAll('{plugin_id}', pluginId);
+    final path = r'/plugins/{plugin_id}'.replaceAll('{plugin_id}', pluginId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -578,7 +621,6 @@ class MattermostPluginsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -593,13 +635,17 @@ class MattermostPluginsApi {
 
   /// Remove plugin
   ///
-  /// Remove the plugin with the provided ID from the server. All plugin files are deleted. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Remove the plugin with the provided ID from the server. All plugin files are deleted. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> removePlugin(String pluginId,) async {
-    final response = await removePluginWithHttpInfo(pluginId,);
+  Future<MattermostStatusOK?> removePlugin(
+    String pluginId,
+  ) async {
+    final response = await removePluginWithHttpInfo(
+      pluginId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -607,15 +653,17 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Upload plugin
   ///
-  /// Upload a plugin that is contained within a compressed .tar.gz file. Plugins and plugin uploads must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Upload a plugin that is contained within a compressed .tar.gz file. Plugins and plugin uploads must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -626,7 +674,10 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<Response> uploadPluginWithHttpInfo(MultipartFile plugin, { String? force, }) async {
+  Future<Response> uploadPluginWithHttpInfo(
+    MultipartFile plugin, {
+    String? force,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins';
 
@@ -667,7 +718,7 @@ class MattermostPluginsApi {
 
   /// Upload plugin
   ///
-  /// Upload a plugin that is contained within a compressed .tar.gz file. Plugins and plugin uploads must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
+  /// Upload a plugin that is contained within a compressed .tar.gz file. Plugins and plugin uploads must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4
   ///
   /// Parameters:
   ///
@@ -676,8 +727,14 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<MattermostStatusOK?> uploadPlugin(MultipartFile plugin, { String? force, }) async {
-    final response = await uploadPluginWithHttpInfo(plugin,  force: force, );
+  Future<MattermostStatusOK?> uploadPlugin(
+    MultipartFile plugin, {
+    String? force,
+  }) async {
+    final response = await uploadPluginWithHttpInfo(
+      plugin,
+      force: force,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -685,8 +742,10 @@ class MattermostPluginsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

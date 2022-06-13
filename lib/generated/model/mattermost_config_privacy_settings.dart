@@ -34,18 +34,20 @@ class MattermostConfigPrivacySettings {
   bool? showFullName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigPrivacySettings &&
-     other.showEmailAddress == showEmailAddress &&
-     other.showFullName == showFullName;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigPrivacySettings &&
+          other.showEmailAddress == showEmailAddress &&
+          other.showFullName == showFullName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (showEmailAddress == null ? 0 : showEmailAddress!.hashCode) +
-    (showFullName == null ? 0 : showFullName!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (showEmailAddress == null ? 0 : showEmailAddress!.hashCode) + (showFullName == null ? 0 : showFullName!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigPrivacySettings[showEmailAddress=$showEmailAddress, showFullName=$showFullName]';
+  String toString() =>
+      'MattermostConfigPrivacySettings[showEmailAddress=$showEmailAddress, showFullName=$showFullName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,7 +86,10 @@ class MattermostConfigPrivacySettings {
     return null;
   }
 
-  static List<MattermostConfigPrivacySettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigPrivacySettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigPrivacySettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +117,18 @@ class MattermostConfigPrivacySettings {
   }
 
   // maps a json object with a list of MattermostConfigPrivacySettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigPrivacySettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigPrivacySettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigPrivacySettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigPrivacySettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigPrivacySettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +138,5 @@ class MattermostConfigPrivacySettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

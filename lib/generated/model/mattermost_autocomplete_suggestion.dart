@@ -66,24 +66,27 @@ class MattermostAutocompleteSuggestion {
   String? iconData;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAutocompleteSuggestion &&
-     other.complete == complete &&
-     other.suggestion == suggestion &&
-     other.hint == hint &&
-     other.description == description &&
-     other.iconData == iconData;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostAutocompleteSuggestion &&
+          other.complete == complete &&
+          other.suggestion == suggestion &&
+          other.hint == hint &&
+          other.description == description &&
+          other.iconData == iconData;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (complete == null ? 0 : complete!.hashCode) +
-    (suggestion == null ? 0 : suggestion!.hashCode) +
-    (hint == null ? 0 : hint!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (iconData == null ? 0 : iconData!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (complete == null ? 0 : complete!.hashCode) +
+      (suggestion == null ? 0 : suggestion!.hashCode) +
+      (hint == null ? 0 : hint!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (iconData == null ? 0 : iconData!.hashCode);
 
   @override
-  String toString() => 'MattermostAutocompleteSuggestion[complete=$complete, suggestion=$suggestion, hint=$hint, description=$description, iconData=$iconData]';
+  String toString() =>
+      'MattermostAutocompleteSuggestion[complete=$complete, suggestion=$suggestion, hint=$hint, description=$description, iconData=$iconData]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -134,7 +137,10 @@ class MattermostAutocompleteSuggestion {
     return null;
   }
 
-  static List<MattermostAutocompleteSuggestion>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAutocompleteSuggestion>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAutocompleteSuggestion>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -162,12 +168,18 @@ class MattermostAutocompleteSuggestion {
   }
 
   // maps a json object with a list of MattermostAutocompleteSuggestion-objects as value to a dart map
-  static Map<String, List<MattermostAutocompleteSuggestion>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAutocompleteSuggestion>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAutocompleteSuggestion>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAutocompleteSuggestion.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAutocompleteSuggestion.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,7 +189,5 @@ class MattermostAutocompleteSuggestion {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

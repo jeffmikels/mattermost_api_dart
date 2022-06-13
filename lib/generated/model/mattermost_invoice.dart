@@ -100,34 +100,37 @@ class MattermostInvoice {
   List<MattermostInvoiceLineItem> item;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostInvoice &&
-     other.id == id &&
-     other.number == number &&
-     other.createAt == createAt &&
-     other.total == total &&
-     other.tax == tax &&
-     other.status == status &&
-     other.periodStart == periodStart &&
-     other.periodEnd == periodEnd &&
-     other.subscriptionId == subscriptionId &&
-     other.item == item;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostInvoice &&
+          other.id == id &&
+          other.number == number &&
+          other.createAt == createAt &&
+          other.total == total &&
+          other.tax == tax &&
+          other.status == status &&
+          other.periodStart == periodStart &&
+          other.periodEnd == periodEnd &&
+          other.subscriptionId == subscriptionId &&
+          other.item == item;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (number == null ? 0 : number!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (total == null ? 0 : total!.hashCode) +
-    (tax == null ? 0 : tax!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (periodStart == null ? 0 : periodStart!.hashCode) +
-    (periodEnd == null ? 0 : periodEnd!.hashCode) +
-    (subscriptionId == null ? 0 : subscriptionId!.hashCode) +
-    (item.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (number == null ? 0 : number!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (total == null ? 0 : total!.hashCode) +
+      (tax == null ? 0 : tax!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (periodStart == null ? 0 : periodStart!.hashCode) +
+      (periodEnd == null ? 0 : periodEnd!.hashCode) +
+      (subscriptionId == null ? 0 : subscriptionId!.hashCode) +
+      (item.hashCode);
 
   @override
-  String toString() => 'MattermostInvoice[id=$id, number=$number, createAt=$createAt, total=$total, tax=$tax, status=$status, periodStart=$periodStart, periodEnd=$periodEnd, subscriptionId=$subscriptionId, item=$item]';
+  String toString() =>
+      'MattermostInvoice[id=$id, number=$number, createAt=$createAt, total=$total, tax=$tax, status=$status, periodStart=$periodStart, periodEnd=$periodEnd, subscriptionId=$subscriptionId, item=$item]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -158,7 +161,7 @@ class MattermostInvoice {
     if (subscriptionId != null) {
       _json[r'subscription_id'] = subscriptionId;
     }
-      _json[r'item'] = item;
+    _json[r'item'] = item;
     return _json;
   }
 
@@ -196,7 +199,10 @@ class MattermostInvoice {
     return null;
   }
 
-  static List<MattermostInvoice>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostInvoice>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostInvoice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -224,12 +230,18 @@ class MattermostInvoice {
   }
 
   // maps a json object with a list of MattermostInvoice-objects as value to a dart map
-  static Map<String, List<MattermostInvoice>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostInvoice>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostInvoice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostInvoice.listFromJson(entry.value, growable: growable,);
+        final value = MattermostInvoice.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -239,7 +251,5 @@ class MattermostInvoice {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

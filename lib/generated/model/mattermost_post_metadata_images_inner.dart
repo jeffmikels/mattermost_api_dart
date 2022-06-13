@@ -34,15 +34,14 @@ class MattermostPostMetadataImagesInner {
   int? width;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostMetadataImagesInner &&
-     other.height == height &&
-     other.width == width;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPostMetadataImagesInner && other.height == height && other.width == width;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (height == null ? 0 : height!.hashCode) +
-    (width == null ? 0 : width!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (height == null ? 0 : height!.hashCode) + (width == null ? 0 : width!.hashCode);
 
   @override
   String toString() => 'MattermostPostMetadataImagesInner[height=$height, width=$width]';
@@ -84,7 +83,10 @@ class MattermostPostMetadataImagesInner {
     return null;
   }
 
-  static List<MattermostPostMetadataImagesInner>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostMetadataImagesInner>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostMetadataImagesInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostPostMetadataImagesInner {
   }
 
   // maps a json object with a list of MattermostPostMetadataImagesInner-objects as value to a dart map
-  static Map<String, List<MattermostPostMetadataImagesInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostMetadataImagesInner>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostMetadataImagesInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostMetadataImagesInner.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostMetadataImagesInner.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostPostMetadataImagesInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

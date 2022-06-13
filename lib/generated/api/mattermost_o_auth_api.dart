@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostOAuthApi {
   MattermostOAuthApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostOAuthApi {
 
   /// Register OAuth app
   ///
-  /// Register an OAuth 2.0 client application with Mattermost as the service provider. ##### Permissions Must have `manage_oauth` permission. 
+  /// Register an OAuth 2.0 client application with Mattermost as the service provider. ##### Permissions Must have `manage_oauth` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,7 +25,9 @@ class MattermostOAuthApi {
   ///
   /// * [MattermostCreateOAuthAppRequest] mattermostCreateOAuthAppRequest (required):
   ///   OAuth application to register
-  Future<Response> createOAuthAppWithHttpInfo(MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,) async {
+  Future<Response> createOAuthAppWithHttpInfo(
+    MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/oauth/apps';
 
@@ -38,7 +39,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,14 +53,18 @@ class MattermostOAuthApi {
 
   /// Register OAuth app
   ///
-  /// Register an OAuth 2.0 client application with Mattermost as the service provider. ##### Permissions Must have `manage_oauth` permission. 
+  /// Register an OAuth 2.0 client application with Mattermost as the service provider. ##### Permissions Must have `manage_oauth` permission.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateOAuthAppRequest] mattermostCreateOAuthAppRequest (required):
   ///   OAuth application to register
-  Future<MattermostOAuthApp?> createOAuthApp(MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,) async {
-    final response = await createOAuthAppWithHttpInfo(mattermostCreateOAuthAppRequest,);
+  Future<MattermostOAuthApp?> createOAuthApp(
+    MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,
+  ) async {
+    final response = await createOAuthAppWithHttpInfo(
+      mattermostCreateOAuthAppRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -68,15 +72,17 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOAuthApp',
+      ) as MattermostOAuthApp;
     }
     return null;
   }
 
   /// Delete an OAuth app
   ///
-  /// Delete and unregister an OAuth 2.0 client application  ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Delete and unregister an OAuth 2.0 client application  ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -84,10 +90,11 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<Response> deleteOAuthAppWithHttpInfo(String appId,) async {
+  Future<Response> deleteOAuthAppWithHttpInfo(
+    String appId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/oauth/apps/{app_id}'
-      .replaceAll('{app_id}', appId);
+    final path = r'/oauth/apps/{app_id}'.replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -97,7 +104,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -112,14 +118,18 @@ class MattermostOAuthApi {
 
   /// Delete an OAuth app
   ///
-  /// Delete and unregister an OAuth 2.0 client application  ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Delete and unregister an OAuth 2.0 client application  ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Parameters:
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostStatusOK?> deleteOAuthApp(String appId,) async {
-    final response = await deleteOAuthAppWithHttpInfo(appId,);
+  Future<MattermostStatusOK?> deleteOAuthApp(
+    String appId,
+  ) async {
+    final response = await deleteOAuthAppWithHttpInfo(
+      appId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -127,15 +137,17 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get authorized OAuth apps
   ///
-  /// Get a page of OAuth 2.0 client applications authorized to access a user's account. ##### Permissions Must be authenticated as the user or have `edit_other_users` permission. 
+  /// Get a page of OAuth 2.0 client applications authorized to access a user's account. ##### Permissions Must be authenticated as the user or have `edit_other_users` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -149,10 +161,13 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<Response> getAuthorizedOAuthAppsForUserWithHttpInfo(String userId, { int? page, int? perPage, }) async {
+  Future<Response> getAuthorizedOAuthAppsForUserWithHttpInfo(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/oauth/apps/authorized'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/oauth/apps/authorized'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -170,7 +185,6 @@ class MattermostOAuthApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -184,7 +198,7 @@ class MattermostOAuthApi {
 
   /// Get authorized OAuth apps
   ///
-  /// Get a page of OAuth 2.0 client applications authorized to access a user's account. ##### Permissions Must be authenticated as the user or have `edit_other_users` permission. 
+  /// Get a page of OAuth 2.0 client applications authorized to access a user's account. ##### Permissions Must be authenticated as the user or have `edit_other_users` permission.
   ///
   /// Parameters:
   ///
@@ -196,8 +210,16 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<List<MattermostOAuthApp>?> getAuthorizedOAuthAppsForUser(String userId, { int? page, int? perPage, }) async {
-    final response = await getAuthorizedOAuthAppsForUserWithHttpInfo(userId,  page: page, perPage: perPage, );
+  Future<List<MattermostOAuthApp>?> getAuthorizedOAuthAppsForUser(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getAuthorizedOAuthAppsForUserWithHttpInfo(
+      userId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -207,16 +229,15 @@ class MattermostOAuthApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOAuthApp>') as List)
-        .cast<MattermostOAuthApp>()
-        .toList();
-
+          .cast<MattermostOAuthApp>()
+          .toList();
     }
     return null;
   }
 
   /// Get an OAuth app
   ///
-  /// Get an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Get an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -224,10 +245,11 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<Response> getOAuthAppWithHttpInfo(String appId,) async {
+  Future<Response> getOAuthAppWithHttpInfo(
+    String appId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/oauth/apps/{app_id}'
-      .replaceAll('{app_id}', appId);
+    final path = r'/oauth/apps/{app_id}'.replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -237,7 +259,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -252,14 +273,18 @@ class MattermostOAuthApi {
 
   /// Get an OAuth app
   ///
-  /// Get an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Get an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Parameters:
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> getOAuthApp(String appId,) async {
-    final response = await getOAuthAppWithHttpInfo(appId,);
+  Future<MattermostOAuthApp?> getOAuthApp(
+    String appId,
+  ) async {
+    final response = await getOAuthAppWithHttpInfo(
+      appId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -267,15 +292,17 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOAuthApp',
+      ) as MattermostOAuthApp;
     }
     return null;
   }
 
   /// Get info on an OAuth app
   ///
-  /// Get public information about an OAuth 2.0 client application registered with Mattermost. The application's client secret will be blanked out. ##### Permissions Must be authenticated. 
+  /// Get public information about an OAuth 2.0 client application registered with Mattermost. The application's client secret will be blanked out. ##### Permissions Must be authenticated.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -283,10 +310,11 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<Response> getOAuthAppInfoWithHttpInfo(String appId,) async {
+  Future<Response> getOAuthAppInfoWithHttpInfo(
+    String appId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/oauth/apps/{app_id}/info'
-      .replaceAll('{app_id}', appId);
+    final path = r'/oauth/apps/{app_id}/info'.replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -296,7 +324,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -311,14 +338,18 @@ class MattermostOAuthApi {
 
   /// Get info on an OAuth app
   ///
-  /// Get public information about an OAuth 2.0 client application registered with Mattermost. The application's client secret will be blanked out. ##### Permissions Must be authenticated. 
+  /// Get public information about an OAuth 2.0 client application registered with Mattermost. The application's client secret will be blanked out. ##### Permissions Must be authenticated.
   ///
   /// Parameters:
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> getOAuthAppInfo(String appId,) async {
-    final response = await getOAuthAppInfoWithHttpInfo(appId,);
+  Future<MattermostOAuthApp?> getOAuthAppInfo(
+    String appId,
+  ) async {
+    final response = await getOAuthAppInfoWithHttpInfo(
+      appId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -326,15 +357,17 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOAuthApp',
+      ) as MattermostOAuthApp;
     }
     return null;
   }
 
   /// Get OAuth apps
   ///
-  /// Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Permissions With `manage_oauth` permission, the apps registered by the logged in user are returned. With `manage_system_wide_oauth` permission, all apps regardless of creator are returned. 
+  /// Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Permissions With `manage_oauth` permission, the apps registered by the logged in user are returned. With `manage_system_wide_oauth` permission, all apps regardless of creator are returned.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -345,7 +378,10 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<Response> getOAuthAppsWithHttpInfo({ int? page, int? perPage, }) async {
+  Future<Response> getOAuthAppsWithHttpInfo({
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/oauth/apps';
 
@@ -365,7 +401,6 @@ class MattermostOAuthApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -379,7 +414,7 @@ class MattermostOAuthApi {
 
   /// Get OAuth apps
   ///
-  /// Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Permissions With `manage_oauth` permission, the apps registered by the logged in user are returned. With `manage_system_wide_oauth` permission, all apps regardless of creator are returned. 
+  /// Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Permissions With `manage_oauth` permission, the apps registered by the logged in user are returned. With `manage_system_wide_oauth` permission, all apps regardless of creator are returned.
   ///
   /// Parameters:
   ///
@@ -388,8 +423,14 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<List<MattermostOAuthApp>?> getOAuthApps({ int? page, int? perPage, }) async {
-    final response = await getOAuthAppsWithHttpInfo( page: page, perPage: perPage, );
+  Future<List<MattermostOAuthApp>?> getOAuthApps({
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getOAuthAppsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -399,16 +440,15 @@ class MattermostOAuthApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOAuthApp>') as List)
-        .cast<MattermostOAuthApp>()
-        .toList();
-
+          .cast<MattermostOAuthApp>()
+          .toList();
     }
     return null;
   }
 
   /// Regenerate OAuth app secret
   ///
-  /// Regenerate the client secret for an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Regenerate the client secret for an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -416,10 +456,11 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<Response> regenerateOAuthAppSecretWithHttpInfo(String appId,) async {
+  Future<Response> regenerateOAuthAppSecretWithHttpInfo(
+    String appId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/oauth/apps/{app_id}/regen_secret'
-      .replaceAll('{app_id}', appId);
+    final path = r'/oauth/apps/{app_id}/regen_secret'.replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -429,7 +470,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -444,14 +484,18 @@ class MattermostOAuthApi {
 
   /// Regenerate OAuth app secret
   ///
-  /// Regenerate the client secret for an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Regenerate the client secret for an OAuth 2.0 client application registered with Mattermost. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Parameters:
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> regenerateOAuthAppSecret(String appId,) async {
-    final response = await regenerateOAuthAppSecretWithHttpInfo(appId,);
+  Future<MattermostOAuthApp?> regenerateOAuthAppSecret(
+    String appId,
+  ) async {
+    final response = await regenerateOAuthAppSecretWithHttpInfo(
+      appId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -459,15 +503,17 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOAuthApp',
+      ) as MattermostOAuthApp;
     }
     return null;
   }
 
   /// Update an OAuth app
   ///
-  /// Update an OAuth 2.0 client application based on OAuth struct. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Update an OAuth 2.0 client application based on OAuth struct. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -478,10 +524,12 @@ class MattermostOAuthApi {
   ///
   /// * [MattermostUpdateOAuthAppRequest] mattermostUpdateOAuthAppRequest (required):
   ///   OAuth application to update
-  Future<Response> updateOAuthAppWithHttpInfo(String appId, MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,) async {
+  Future<Response> updateOAuthAppWithHttpInfo(
+    String appId,
+    MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/oauth/apps/{app_id}'
-      .replaceAll('{app_id}', appId);
+    final path = r'/oauth/apps/{app_id}'.replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateOAuthAppRequest;
@@ -491,7 +539,6 @@ class MattermostOAuthApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -506,7 +553,7 @@ class MattermostOAuthApi {
 
   /// Update an OAuth app
   ///
-  /// Update an OAuth 2.0 client application based on OAuth struct. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required. 
+  /// Update an OAuth 2.0 client application based on OAuth struct. ##### Permissions If app creator, must have `mange_oauth` permission otherwise `manage_system_wide_oauth` permission is required.
   ///
   /// Parameters:
   ///
@@ -515,8 +562,14 @@ class MattermostOAuthApi {
   ///
   /// * [MattermostUpdateOAuthAppRequest] mattermostUpdateOAuthAppRequest (required):
   ///   OAuth application to update
-  Future<MattermostOAuthApp?> updateOAuthApp(String appId, MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,) async {
-    final response = await updateOAuthAppWithHttpInfo(appId, mattermostUpdateOAuthAppRequest,);
+  Future<MattermostOAuthApp?> updateOAuthApp(
+    String appId,
+    MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,
+  ) async {
+    final response = await updateOAuthAppWithHttpInfo(
+      appId,
+      mattermostUpdateOAuthAppRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -524,8 +577,10 @@ class MattermostOAuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostOAuthApp',
+      ) as MattermostOAuthApp;
     }
     return null;
   }

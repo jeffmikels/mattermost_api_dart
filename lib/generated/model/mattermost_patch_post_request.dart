@@ -60,24 +60,27 @@ class MattermostPatchPostRequest {
   String? props;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchPostRequest &&
-     other.isPinned == isPinned &&
-     other.message == message &&
-     other.fileIds == fileIds &&
-     other.hasReactions == hasReactions &&
-     other.props == props;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPatchPostRequest &&
+          other.isPinned == isPinned &&
+          other.message == message &&
+          other.fileIds == fileIds &&
+          other.hasReactions == hasReactions &&
+          other.props == props;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (isPinned == null ? 0 : isPinned!.hashCode) +
-    (message == null ? 0 : message!.hashCode) +
-    (fileIds.hashCode) +
-    (hasReactions == null ? 0 : hasReactions!.hashCode) +
-    (props == null ? 0 : props!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (isPinned == null ? 0 : isPinned!.hashCode) +
+      (message == null ? 0 : message!.hashCode) +
+      (fileIds.hashCode) +
+      (hasReactions == null ? 0 : hasReactions!.hashCode) +
+      (props == null ? 0 : props!.hashCode);
 
   @override
-  String toString() => 'MattermostPatchPostRequest[isPinned=$isPinned, message=$message, fileIds=$fileIds, hasReactions=$hasReactions, props=$props]';
+  String toString() =>
+      'MattermostPatchPostRequest[isPinned=$isPinned, message=$message, fileIds=$fileIds, hasReactions=$hasReactions, props=$props]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -87,7 +90,7 @@ class MattermostPatchPostRequest {
     if (message != null) {
       _json[r'message'] = message;
     }
-      _json[r'file_ids'] = fileIds;
+    _json[r'file_ids'] = fileIds;
     if (hasReactions != null) {
       _json[r'has_reactions'] = hasReactions;
     }
@@ -118,9 +121,7 @@ class MattermostPatchPostRequest {
       return MattermostPatchPostRequest(
         isPinned: mapValueOfType<bool>(json, r'is_pinned'),
         message: mapValueOfType<String>(json, r'message'),
-        fileIds: json[r'file_ids'] is List
-            ? (json[r'file_ids'] as List).cast<String>()
-            : const [],
+        fileIds: json[r'file_ids'] is List ? (json[r'file_ids'] as List).cast<String>() : const [],
         hasReactions: mapValueOfType<bool>(json, r'has_reactions'),
         props: mapValueOfType<String>(json, r'props'),
       );
@@ -128,7 +129,10 @@ class MattermostPatchPostRequest {
     return null;
   }
 
-  static List<MattermostPatchPostRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchPostRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchPostRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -156,12 +160,18 @@ class MattermostPatchPostRequest {
   }
 
   // maps a json object with a list of MattermostPatchPostRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchPostRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchPostRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchPostRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchPostRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchPostRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -171,7 +181,5 @@ class MattermostPatchPostRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -64,26 +64,29 @@ class MattermostInvoiceLineItem {
   List<String> metadata;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostInvoiceLineItem &&
-     other.priceId == priceId &&
-     other.total == total &&
-     other.quantity == quantity &&
-     other.pricePerUnit == pricePerUnit &&
-     other.description == description &&
-     other.metadata == metadata;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostInvoiceLineItem &&
+          other.priceId == priceId &&
+          other.total == total &&
+          other.quantity == quantity &&
+          other.pricePerUnit == pricePerUnit &&
+          other.description == description &&
+          other.metadata == metadata;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (priceId == null ? 0 : priceId!.hashCode) +
-    (total == null ? 0 : total!.hashCode) +
-    (quantity == null ? 0 : quantity!.hashCode) +
-    (pricePerUnit == null ? 0 : pricePerUnit!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (metadata.hashCode);
+      // ignore: unnecessary_parenthesis
+      (priceId == null ? 0 : priceId!.hashCode) +
+      (total == null ? 0 : total!.hashCode) +
+      (quantity == null ? 0 : quantity!.hashCode) +
+      (pricePerUnit == null ? 0 : pricePerUnit!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (metadata.hashCode);
 
   @override
-  String toString() => 'MattermostInvoiceLineItem[priceId=$priceId, total=$total, quantity=$quantity, pricePerUnit=$pricePerUnit, description=$description, metadata=$metadata]';
+  String toString() =>
+      'MattermostInvoiceLineItem[priceId=$priceId, total=$total, quantity=$quantity, pricePerUnit=$pricePerUnit, description=$description, metadata=$metadata]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,7 +105,7 @@ class MattermostInvoiceLineItem {
     if (description != null) {
       _json[r'description'] = description;
     }
-      _json[r'metadata'] = metadata;
+    _json[r'metadata'] = metadata;
     return _json;
   }
 
@@ -130,15 +133,16 @@ class MattermostInvoiceLineItem {
         quantity: mapValueOfType<int>(json, r'quantity'),
         pricePerUnit: mapValueOfType<int>(json, r'price_per_unit'),
         description: mapValueOfType<String>(json, r'description'),
-        metadata: json[r'metadata'] is List
-            ? (json[r'metadata'] as List).cast<String>()
-            : const [],
+        metadata: json[r'metadata'] is List ? (json[r'metadata'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostInvoiceLineItem>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostInvoiceLineItem>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostInvoiceLineItem>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -166,12 +170,18 @@ class MattermostInvoiceLineItem {
   }
 
   // maps a json object with a list of MattermostInvoiceLineItem-objects as value to a dart map
-  static Map<String, List<MattermostInvoiceLineItem>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostInvoiceLineItem>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostInvoiceLineItem>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostInvoiceLineItem.listFromJson(entry.value, growable: growable,);
+        final value = MattermostInvoiceLineItem.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -181,7 +191,5 @@ class MattermostInvoiceLineItem {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostImportsApi {
   MattermostImportsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostImportsApi {
 
   /// List import files
   ///
-  /// Lists all available import files.  __Minimum server version__: 5.31 ##### Permissions Must have `manage_system` permissions. 
+  /// Lists all available import files.  __Minimum server version__: 5.31 ##### Permissions Must have `manage_system` permissions.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> listImportsWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostImportsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -48,7 +46,7 @@ class MattermostImportsApi {
 
   /// List import files
   ///
-  /// Lists all available import files.  __Minimum server version__: 5.31 ##### Permissions Must have `manage_system` permissions. 
+  /// Lists all available import files.  __Minimum server version__: 5.31 ##### Permissions Must have `manage_system` permissions.
   Future<void> listImports() async {
     final response = await listImportsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

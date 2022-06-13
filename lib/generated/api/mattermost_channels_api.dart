@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostChannelsApi {
   MattermostChannelsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -28,10 +27,12 @@ class MattermostChannelsApi {
   ///   The channel ID
   ///
   /// * [MattermostAddChannelMemberRequest] mattermostAddChannelMemberRequest (required):
-  Future<Response> addChannelMemberWithHttpInfo(String channelId, MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest,) async {
+  Future<Response> addChannelMemberWithHttpInfo(
+    String channelId,
+    MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/members'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/members'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostAddChannelMemberRequest;
@@ -41,7 +42,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -64,8 +64,14 @@ class MattermostChannelsApi {
   ///   The channel ID
   ///
   /// * [MattermostAddChannelMemberRequest] mattermostAddChannelMemberRequest (required):
-  Future<MattermostChannelMember?> addChannelMember(String channelId, MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest,) async {
-    final response = await addChannelMemberWithHttpInfo(channelId, mattermostAddChannelMemberRequest,);
+  Future<MattermostChannelMember?> addChannelMember(
+    String channelId,
+    MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest,
+  ) async {
+    final response = await addChannelMemberWithHttpInfo(
+      channelId,
+      mattermostAddChannelMemberRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -73,15 +79,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannelMember',) as MattermostChannelMember;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannelMember',
+      ) as MattermostChannelMember;
     }
     return null;
   }
 
   /// Autocomplete channels
   ///
-  /// Autocomplete public channels on a team based on the search term provided in the request URL.  __Minimum server version__: 4.7  ##### Permissions Must have the `list_team_channels` permission. 
+  /// Autocomplete public channels on a team based on the search term provided in the request URL.  __Minimum server version__: 4.7  ##### Permissions Must have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -92,10 +100,12 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<Response> autocompleteChannelsForTeamWithHttpInfo(String teamId, String name,) async {
+  Future<Response> autocompleteChannelsForTeamWithHttpInfo(
+    String teamId,
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/autocomplete'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/autocomplete'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -104,10 +114,9 @@ class MattermostChannelsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'name', name));
+    queryParams.addAll(_queryParams('', 'name', name));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -122,7 +131,7 @@ class MattermostChannelsApi {
 
   /// Autocomplete channels
   ///
-  /// Autocomplete public channels on a team based on the search term provided in the request URL.  __Minimum server version__: 4.7  ##### Permissions Must have the `list_team_channels` permission. 
+  /// Autocomplete public channels on a team based on the search term provided in the request URL.  __Minimum server version__: 4.7  ##### Permissions Must have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -131,8 +140,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<List<MattermostChannel>?> autocompleteChannelsForTeam(String teamId, String name,) async {
-    final response = await autocompleteChannelsForTeamWithHttpInfo(teamId, name,);
+  Future<List<MattermostChannel>?> autocompleteChannelsForTeam(
+    String teamId,
+    String name,
+  ) async {
+    final response = await autocompleteChannelsForTeamWithHttpInfo(
+      teamId,
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -142,16 +157,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Autocomplete channels for search
   ///
-  /// Autocomplete your channels on a team based on the search term provided in the request URL.  __Minimum server version__: 5.4  ##### Permissions Must have the `list_team_channels` permission. 
+  /// Autocomplete your channels on a team based on the search term provided in the request URL.  __Minimum server version__: 5.4  ##### Permissions Must have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -162,10 +176,12 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<Response> autocompleteChannelsForTeamForSearchWithHttpInfo(String teamId, String name,) async {
+  Future<Response> autocompleteChannelsForTeamForSearchWithHttpInfo(
+    String teamId,
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/search_autocomplete'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/search_autocomplete'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -174,10 +190,9 @@ class MattermostChannelsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'name', name));
+    queryParams.addAll(_queryParams('', 'name', name));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -192,7 +207,7 @@ class MattermostChannelsApi {
 
   /// Autocomplete channels for search
   ///
-  /// Autocomplete your channels on a team based on the search term provided in the request URL.  __Minimum server version__: 5.4  ##### Permissions Must have the `list_team_channels` permission. 
+  /// Autocomplete your channels on a team based on the search term provided in the request URL.  __Minimum server version__: 5.4  ##### Permissions Must have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -201,8 +216,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<List<MattermostChannel>?> autocompleteChannelsForTeamForSearch(String teamId, String name,) async {
-    final response = await autocompleteChannelsForTeamForSearchWithHttpInfo(teamId, name,);
+  Future<List<MattermostChannel>?> autocompleteChannelsForTeamForSearch(
+    String teamId,
+    String name,
+  ) async {
+    final response = await autocompleteChannelsForTeamForSearchWithHttpInfo(
+      teamId,
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -212,16 +233,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Channel members minus group members.
   ///
-  /// Get the set of users who are members of the channel minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
+  /// Get the set of users who are members of the channel minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -238,10 +258,14 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of users per page.
-  Future<Response> channelMembersMinusGroupMembersWithHttpInfo(String channelId, String groupIds, { int? page, int? perPage, }) async {
+  Future<Response> channelMembersMinusGroupMembersWithHttpInfo(
+    String channelId,
+    String groupIds, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/members_minus_group_members'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/members_minus_group_members'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -250,7 +274,7 @@ class MattermostChannelsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'group_ids', groupIds));
+    queryParams.addAll(_queryParams('', 'group_ids', groupIds));
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
     }
@@ -260,7 +284,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -274,7 +297,7 @@ class MattermostChannelsApi {
 
   /// Channel members minus group members.
   ///
-  /// Get the set of users who are members of the channel minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
+  /// Get the set of users who are members of the channel minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
@@ -289,8 +312,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of users per page.
-  Future<void> channelMembersMinusGroupMembers(String channelId, String groupIds, { int? page, int? perPage, }) async {
-    final response = await channelMembersMinusGroupMembersWithHttpInfo(channelId, groupIds,  page: page, perPage: perPage, );
+  Future<void> channelMembersMinusGroupMembers(
+    String channelId,
+    String groupIds, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await channelMembersMinusGroupMembersWithHttpInfo(
+      channelId,
+      groupIds,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -298,7 +331,7 @@ class MattermostChannelsApi {
 
   /// Create a channel
   ///
-  /// Create a new channel. ##### Permissions If creating a public channel, `create_public_channel` permission is required. If creating a private channel, `create_private_channel` permission is required. 
+  /// Create a new channel. ##### Permissions If creating a public channel, `create_public_channel` permission is required. If creating a private channel, `create_private_channel` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -306,7 +339,9 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostCreateChannelRequest] mattermostCreateChannelRequest (required):
   ///   Channel object to be created
-  Future<Response> createChannelWithHttpInfo(MattermostCreateChannelRequest mattermostCreateChannelRequest,) async {
+  Future<Response> createChannelWithHttpInfo(
+    MattermostCreateChannelRequest mattermostCreateChannelRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels';
 
@@ -319,7 +354,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -333,14 +367,18 @@ class MattermostChannelsApi {
 
   /// Create a channel
   ///
-  /// Create a new channel. ##### Permissions If creating a public channel, `create_public_channel` permission is required. If creating a private channel, `create_private_channel` permission is required. 
+  /// Create a new channel. ##### Permissions If creating a public channel, `create_public_channel` permission is required. If creating a private channel, `create_private_channel` permission is required.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateChannelRequest] mattermostCreateChannelRequest (required):
   ///   Channel object to be created
-  Future<MattermostChannel?> createChannel(MattermostCreateChannelRequest mattermostCreateChannelRequest,) async {
-    final response = await createChannelWithHttpInfo(mattermostCreateChannelRequest,);
+  Future<MattermostChannel?> createChannel(
+    MattermostCreateChannelRequest mattermostCreateChannelRequest,
+  ) async {
+    final response = await createChannelWithHttpInfo(
+      mattermostCreateChannelRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -348,15 +386,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Create a direct message channel
   ///
-  /// Create a new direct message channel between two users. ##### Permissions Must be one of the two users and have `create_direct_channel` permission. Having the `manage_system` permission voids the previous requirements. 
+  /// Create a new direct message channel between two users. ##### Permissions Must be one of the two users and have `create_direct_channel` permission. Having the `manage_system` permission voids the previous requirements.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -364,7 +404,9 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   The two user ids to be in the direct message
-  Future<Response> createDirectChannelWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> createDirectChannelWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/direct';
 
@@ -377,7 +419,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -391,14 +432,18 @@ class MattermostChannelsApi {
 
   /// Create a direct message channel
   ///
-  /// Create a new direct message channel between two users. ##### Permissions Must be one of the two users and have `create_direct_channel` permission. Having the `manage_system` permission voids the previous requirements. 
+  /// Create a new direct message channel between two users. ##### Permissions Must be one of the two users and have `create_direct_channel` permission. Having the `manage_system` permission voids the previous requirements.
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   The two user ids to be in the direct message
-  Future<MattermostChannel?> createDirectChannel(List<String> requestBody,) async {
-    final response = await createDirectChannelWithHttpInfo(requestBody,);
+  Future<MattermostChannel?> createDirectChannel(
+    List<String> requestBody,
+  ) async {
+    final response = await createDirectChannelWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -406,15 +451,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Create a group message channel
   ///
-  /// Create a new group message channel to group of users. If the logged in user's id is not included in the list, it will be appended to the end. ##### Permissions Must have `create_group_channel` permission. 
+  /// Create a new group message channel to group of users. If the logged in user's id is not included in the list, it will be appended to the end. ##### Permissions Must have `create_group_channel` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -422,7 +469,9 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   User ids to be in the group message channel
-  Future<Response> createGroupChannelWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> createGroupChannelWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/group';
 
@@ -435,7 +484,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -449,14 +497,18 @@ class MattermostChannelsApi {
 
   /// Create a group message channel
   ///
-  /// Create a new group message channel to group of users. If the logged in user's id is not included in the list, it will be appended to the end. ##### Permissions Must have `create_group_channel` permission. 
+  /// Create a new group message channel to group of users. If the logged in user's id is not included in the list, it will be appended to the end. ##### Permissions Must have `create_group_channel` permission.
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   User ids to be in the group message channel
-  Future<MattermostChannel?> createGroupChannel(List<String> requestBody,) async {
-    final response = await createGroupChannelWithHttpInfo(requestBody,);
+  Future<MattermostChannel?> createGroupChannel(
+    List<String> requestBody,
+  ) async {
+    final response = await createGroupChannelWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -464,15 +516,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Create user's sidebar category
   ///
-  /// Create a custom sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Create a custom sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -485,11 +539,15 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [MattermostSidebarCategory] mattermostSidebarCategory (required):
-  Future<Response> createSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, MattermostSidebarCategory mattermostSidebarCategory,) async {
+  Future<Response> createSidebarCategoryForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    MattermostSidebarCategory mattermostSidebarCategory,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSidebarCategory;
@@ -499,7 +557,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -514,7 +571,7 @@ class MattermostChannelsApi {
 
   /// Create user's sidebar category
   ///
-  /// Create a custom sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Create a custom sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -525,8 +582,16 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [MattermostSidebarCategory] mattermostSidebarCategory (required):
-  Future<MattermostSidebarCategory?> createSidebarCategoryForTeamForUser(String teamId, String userId, MattermostSidebarCategory mattermostSidebarCategory,) async {
-    final response = await createSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, mattermostSidebarCategory,);
+  Future<MattermostSidebarCategory?> createSidebarCategoryForTeamForUser(
+    String teamId,
+    String userId,
+    MattermostSidebarCategory mattermostSidebarCategory,
+  ) async {
+    final response = await createSidebarCategoryForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      mattermostSidebarCategory,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -534,15 +599,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSidebarCategory',) as MattermostSidebarCategory;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSidebarCategory',
+      ) as MattermostSidebarCategory;
     }
     return null;
   }
 
   /// Delete a channel
   ///
-  /// Archives a channel. This will set the `deleteAt` to the current timestamp in the database. Soft deleted channels may not be accessible in the user interface. They can be viewed and unarchived in the **System Console > User Management > Channels** based on your license. Direct and group message channels cannot be deleted.  As of server version 5.28, optionally use the `permanent=true` query parameter to permanently delete the channel for compliance reasons. To use this feature `ServiceSettings.EnableAPIChannelDeletion` must be set to `true` in the server's configuration.  If you permanently delete a channel this action is not recoverable outside of a database backup.  ##### Permissions `delete_public_channel` permission if the channel is public, `delete_private_channel` permission if the channel is private, or have `manage_system` permission. 
+  /// Archives a channel. This will set the `deleteAt` to the current timestamp in the database. Soft deleted channels may not be accessible in the user interface. They can be viewed and unarchived in the **System Console > User Management > Channels** based on your license. Direct and group message channels cannot be deleted.  As of server version 5.28, optionally use the `permanent=true` query parameter to permanently delete the channel for compliance reasons. To use this feature `ServiceSettings.EnableAPIChannelDeletion` must be set to `true` in the server's configuration.  If you permanently delete a channel this action is not recoverable outside of a database backup.  ##### Permissions `delete_public_channel` permission if the channel is public, `delete_private_channel` permission if the channel is private, or have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -550,10 +617,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> deleteChannelWithHttpInfo(String channelId,) async {
+  Future<Response> deleteChannelWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -563,7 +631,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -578,14 +645,18 @@ class MattermostChannelsApi {
 
   /// Delete a channel
   ///
-  /// Archives a channel. This will set the `deleteAt` to the current timestamp in the database. Soft deleted channels may not be accessible in the user interface. They can be viewed and unarchived in the **System Console > User Management > Channels** based on your license. Direct and group message channels cannot be deleted.  As of server version 5.28, optionally use the `permanent=true` query parameter to permanently delete the channel for compliance reasons. To use this feature `ServiceSettings.EnableAPIChannelDeletion` must be set to `true` in the server's configuration.  If you permanently delete a channel this action is not recoverable outside of a database backup.  ##### Permissions `delete_public_channel` permission if the channel is public, `delete_private_channel` permission if the channel is private, or have `manage_system` permission. 
+  /// Archives a channel. This will set the `deleteAt` to the current timestamp in the database. Soft deleted channels may not be accessible in the user interface. They can be viewed and unarchived in the **System Console > User Management > Channels** based on your license. Direct and group message channels cannot be deleted.  As of server version 5.28, optionally use the `permanent=true` query parameter to permanently delete the channel for compliance reasons. To use this feature `ServiceSettings.EnableAPIChannelDeletion` must be set to `true` in the server's configuration.  If you permanently delete a channel this action is not recoverable outside of a database backup.  ##### Permissions `delete_public_channel` permission if the channel is public, `delete_private_channel` permission if the channel is private, or have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostStatusOK?> deleteChannel(String channelId,) async {
-    final response = await deleteChannelWithHttpInfo(channelId,);
+  Future<MattermostStatusOK?> deleteChannel(
+    String channelId,
+  ) async {
+    final response = await deleteChannelWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -593,15 +664,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get a list of all channels
   ///
-  /// ##### Permissions `manage_system` 
+  /// ##### Permissions `manage_system`
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -621,11 +694,19 @@ class MattermostChannelsApi {
   ///   Include channels that have been archived. This correlates to the `DeleteAt` flag being set in the database.
   ///
   /// * [bool] includeTotalCount:
-  ///   Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.      
+  ///   Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.
   ///
   /// * [bool] excludePolicyConstrained:
   ///   If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
-  Future<Response> getAllChannelsWithHttpInfo({ String? notAssociatedToGroup, int? page, int? perPage, bool? excludeDefaultChannels, bool? includeDeleted, bool? includeTotalCount, bool? excludePolicyConstrained, }) async {
+  Future<Response> getAllChannelsWithHttpInfo({
+    String? notAssociatedToGroup,
+    int? page,
+    int? perPage,
+    bool? excludeDefaultChannels,
+    bool? includeDeleted,
+    bool? includeTotalCount,
+    bool? excludePolicyConstrained,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/channels';
 
@@ -660,7 +741,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -674,7 +754,7 @@ class MattermostChannelsApi {
 
   /// Get a list of all channels
   ///
-  /// ##### Permissions `manage_system` 
+  /// ##### Permissions `manage_system`
   ///
   /// Parameters:
   ///
@@ -692,12 +772,28 @@ class MattermostChannelsApi {
   ///   Include channels that have been archived. This correlates to the `DeleteAt` flag being set in the database.
   ///
   /// * [bool] includeTotalCount:
-  ///   Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.      
+  ///   Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.
   ///
   /// * [bool] excludePolicyConstrained:
   ///   If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
-  Future<List<MattermostChannelWithTeamData>?> getAllChannels({ String? notAssociatedToGroup, int? page, int? perPage, bool? excludeDefaultChannels, bool? includeDeleted, bool? includeTotalCount, bool? excludePolicyConstrained, }) async {
-    final response = await getAllChannelsWithHttpInfo( notAssociatedToGroup: notAssociatedToGroup, page: page, perPage: perPage, excludeDefaultChannels: excludeDefaultChannels, includeDeleted: includeDeleted, includeTotalCount: includeTotalCount, excludePolicyConstrained: excludePolicyConstrained, );
+  Future<List<MattermostChannelWithTeamData>?> getAllChannels({
+    String? notAssociatedToGroup,
+    int? page,
+    int? perPage,
+    bool? excludeDefaultChannels,
+    bool? includeDeleted,
+    bool? includeTotalCount,
+    bool? excludePolicyConstrained,
+  }) async {
+    final response = await getAllChannelsWithHttpInfo(
+      notAssociatedToGroup: notAssociatedToGroup,
+      page: page,
+      perPage: perPage,
+      excludeDefaultChannels: excludeDefaultChannels,
+      includeDeleted: includeDeleted,
+      includeTotalCount: includeTotalCount,
+      excludePolicyConstrained: excludePolicyConstrained,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -707,16 +803,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelWithTeamData>') as List)
-        .cast<MattermostChannelWithTeamData>()
-        .toList();
-
+          .cast<MattermostChannelWithTeamData>()
+          .toList();
     }
     return null;
   }
 
   /// Get a channel
   ///
-  /// Get channel from the provided channel id string. ##### Permissions `read_channel` permission for the channel. 
+  /// Get channel from the provided channel id string. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -724,10 +819,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getChannelWithHttpInfo(String channelId,) async {
+  Future<Response> getChannelWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -737,7 +833,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -752,14 +847,18 @@ class MattermostChannelsApi {
 
   /// Get a channel
   ///
-  /// Get channel from the provided channel id string. ##### Permissions `read_channel` permission for the channel. 
+  /// Get channel from the provided channel id string. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostChannel?> getChannel(String channelId,) async {
-    final response = await getChannelWithHttpInfo(channelId,);
+  Future<MattermostChannel?> getChannel(
+    String channelId,
+  ) async {
+    final response = await getChannelWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -767,15 +866,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Get a channel by name
   ///
-  /// Gets channel from the provided team id and channel name strings. ##### Permissions `read_channel` permission for the channel. 
+  /// Gets channel from the provided team id and channel name strings. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -789,11 +890,15 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<Response> getChannelByNameWithHttpInfo(String teamId, String channelName, { bool? includeDeleted, }) async {
+  Future<Response> getChannelByNameWithHttpInfo(
+    String teamId,
+    String channelName, {
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/teams/{team_id}/channels/name/{channel_name}'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{channel_name}', channelName);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{channel_name}', channelName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -807,7 +912,6 @@ class MattermostChannelsApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -822,7 +926,7 @@ class MattermostChannelsApi {
 
   /// Get a channel by name
   ///
-  /// Gets channel from the provided team id and channel name strings. ##### Permissions `read_channel` permission for the channel. 
+  /// Gets channel from the provided team id and channel name strings. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -834,8 +938,16 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<MattermostChannel?> getChannelByName(String teamId, String channelName, { bool? includeDeleted, }) async {
-    final response = await getChannelByNameWithHttpInfo(teamId, channelName,  includeDeleted: includeDeleted, );
+  Future<MattermostChannel?> getChannelByName(
+    String teamId,
+    String channelName, {
+    bool? includeDeleted,
+  }) async {
+    final response = await getChannelByNameWithHttpInfo(
+      teamId,
+      channelName,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -843,15 +955,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Get a channel by name and team name
   ///
-  /// Gets a channel from the provided team name and channel name strings. ##### Permissions `read_channel` permission for the channel. 
+  /// Gets a channel from the provided team name and channel name strings. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -865,11 +979,15 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<Response> getChannelByNameForTeamNameWithHttpInfo(String teamName, String channelName, { bool? includeDeleted, }) async {
+  Future<Response> getChannelByNameForTeamNameWithHttpInfo(
+    String teamName,
+    String channelName, {
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/teams/name/{team_name}/channels/name/{channel_name}'
-      .replaceAll('{team_name}', teamName)
-      .replaceAll('{channel_name}', channelName);
+        .replaceAll('{team_name}', teamName)
+        .replaceAll('{channel_name}', channelName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -884,7 +1002,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -898,7 +1015,7 @@ class MattermostChannelsApi {
 
   /// Get a channel by name and team name
   ///
-  /// Gets a channel from the provided team name and channel name strings. ##### Permissions `read_channel` permission for the channel. 
+  /// Gets a channel from the provided team name and channel name strings. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -910,8 +1027,16 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<MattermostChannel?> getChannelByNameForTeamName(String teamName, String channelName, { bool? includeDeleted, }) async {
-    final response = await getChannelByNameForTeamNameWithHttpInfo(teamName, channelName,  includeDeleted: includeDeleted, );
+  Future<MattermostChannel?> getChannelByNameForTeamName(
+    String teamName,
+    String channelName, {
+    bool? includeDeleted,
+  }) async {
+    final response = await getChannelByNameForTeamNameWithHttpInfo(
+      teamName,
+      channelName,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -919,15 +1044,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Get channel member
   ///
-  /// Get a channel member. ##### Permissions `read_channel` permission for the channel. 
+  /// Get a channel member. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -938,11 +1065,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> getChannelMemberWithHttpInfo(String channelId, String userId,) async {
+  Future<Response> getChannelMemberWithHttpInfo(
+    String channelId,
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{channel_id}', channelId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -952,7 +1082,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -967,7 +1096,7 @@ class MattermostChannelsApi {
 
   /// Get channel member
   ///
-  /// Get a channel member. ##### Permissions `read_channel` permission for the channel. 
+  /// Get a channel member. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -976,8 +1105,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostChannelMember?> getChannelMember(String channelId, String userId,) async {
-    final response = await getChannelMemberWithHttpInfo(channelId, userId,);
+  Future<MattermostChannelMember?> getChannelMember(
+    String channelId,
+    String userId,
+  ) async {
+    final response = await getChannelMemberWithHttpInfo(
+      channelId,
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -985,15 +1120,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannelMember',) as MattermostChannelMember;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannelMember',
+      ) as MattermostChannelMember;
     }
     return null;
   }
 
   /// Channel members counts for each group that has atleast one member in the channel
   ///
-  /// Returns a set of ChannelMemberCountByGroup objects which contain a `group_id`, `channel_member_count` and a `channel_member_timezones_count`. ##### Permissions Must have `read_channel` permission for the given channel. __Minimum server version__: 5.24 
+  /// Returns a set of ChannelMemberCountByGroup objects which contain a `group_id`, `channel_member_count` and a `channel_member_timezones_count`. ##### Permissions Must have `read_channel` permission for the given channel. __Minimum server version__: 5.24
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1004,10 +1141,12 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeTimezones:
   ///   Defines if member timezone counts should be returned or not
-  Future<Response> getChannelMemberCountsByGroupWithHttpInfo(String channelId, { bool? includeTimezones, }) async {
+  Future<Response> getChannelMemberCountsByGroupWithHttpInfo(
+    String channelId, {
+    bool? includeTimezones,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/member_counts_by_group'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/member_counts_by_group'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1022,7 +1161,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1036,7 +1174,7 @@ class MattermostChannelsApi {
 
   /// Channel members counts for each group that has atleast one member in the channel
   ///
-  /// Returns a set of ChannelMemberCountByGroup objects which contain a `group_id`, `channel_member_count` and a `channel_member_timezones_count`. ##### Permissions Must have `read_channel` permission for the given channel. __Minimum server version__: 5.24 
+  /// Returns a set of ChannelMemberCountByGroup objects which contain a `group_id`, `channel_member_count` and a `channel_member_timezones_count`. ##### Permissions Must have `read_channel` permission for the given channel. __Minimum server version__: 5.24
   ///
   /// Parameters:
   ///
@@ -1045,8 +1183,14 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeTimezones:
   ///   Defines if member timezone counts should be returned or not
-  Future<void> getChannelMemberCountsByGroup(String channelId, { bool? includeTimezones, }) async {
-    final response = await getChannelMemberCountsByGroupWithHttpInfo(channelId,  includeTimezones: includeTimezones, );
+  Future<void> getChannelMemberCountsByGroup(
+    String channelId, {
+    bool? includeTimezones,
+  }) async {
+    final response = await getChannelMemberCountsByGroupWithHttpInfo(
+      channelId,
+      includeTimezones: includeTimezones,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1054,7 +1198,7 @@ class MattermostChannelsApi {
 
   /// Get channel members
   ///
-  /// Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel. 
+  /// Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1068,10 +1212,13 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of members per page. There is a maximum limit of 200 members.
-  Future<Response> getChannelMembersWithHttpInfo(String channelId, { int? page, int? perPage, }) async {
+  Future<Response> getChannelMembersWithHttpInfo(
+    String channelId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/members'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/members'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1089,7 +1236,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1103,7 +1249,7 @@ class MattermostChannelsApi {
 
   /// Get channel members
   ///
-  /// Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel. 
+  /// Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -1115,8 +1261,16 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of members per page. There is a maximum limit of 200 members.
-  Future<List<MattermostChannelMember>?> getChannelMembers(String channelId, { int? page, int? perPage, }) async {
-    final response = await getChannelMembersWithHttpInfo(channelId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannelMember>?> getChannelMembers(
+    String channelId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getChannelMembersWithHttpInfo(
+      channelId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1126,16 +1280,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelMember>') as List)
-        .cast<MattermostChannelMember>()
-        .toList();
-
+          .cast<MattermostChannelMember>()
+          .toList();
     }
     return null;
   }
 
   /// Get channel members by ids
   ///
-  /// Get a list of channel members based on the provided user ids. ##### Permissions Must have the `read_channel` permission. 
+  /// Get a list of channel members based on the provided user ids. ##### Permissions Must have the `read_channel` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1146,10 +1299,12 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids
-  Future<Response> getChannelMembersByIdsWithHttpInfo(String channelId, List<String> requestBody,) async {
+  Future<Response> getChannelMembersByIdsWithHttpInfo(
+    String channelId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/members/ids'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/members/ids'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1159,7 +1314,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1174,7 +1328,7 @@ class MattermostChannelsApi {
 
   /// Get channel members by ids
   ///
-  /// Get a list of channel members based on the provided user ids. ##### Permissions Must have the `read_channel` permission. 
+  /// Get a list of channel members based on the provided user ids. ##### Permissions Must have the `read_channel` permission.
   ///
   /// Parameters:
   ///
@@ -1183,8 +1337,14 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids
-  Future<List<MattermostChannelMember>?> getChannelMembersByIds(String channelId, List<String> requestBody,) async {
-    final response = await getChannelMembersByIdsWithHttpInfo(channelId, requestBody,);
+  Future<List<MattermostChannelMember>?> getChannelMembersByIds(
+    String channelId,
+    List<String> requestBody,
+  ) async {
+    final response = await getChannelMembersByIdsWithHttpInfo(
+      channelId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1194,16 +1354,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelMember>') as List)
-        .cast<MattermostChannelMember>()
-        .toList();
-
+          .cast<MattermostChannelMember>()
+          .toList();
     }
     return null;
   }
 
   /// Get channel memberships and roles for a user
   ///
-  /// Get all channel memberships and associated membership roles (i.e. `channel_user`, `channel_admin`) for a user on a specific team. ##### Permissions Logged in as the user and `view_team` permission for the team. Having `manage_system` permission voids the previous requirements. 
+  /// Get all channel memberships and associated membership roles (i.e. `channel_user`, `channel_admin`) for a user on a specific team. ##### Permissions Logged in as the user and `view_team` permission for the team. Having `manage_system` permission voids the previous requirements.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1214,11 +1373,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<Response> getChannelMembersForUserWithHttpInfo(String userId, String teamId,) async {
+  Future<Response> getChannelMembersForUserWithHttpInfo(
+    String userId,
+    String teamId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/members'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{team_id}', teamId);
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1228,7 +1390,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1243,7 +1404,7 @@ class MattermostChannelsApi {
 
   /// Get channel memberships and roles for a user
   ///
-  /// Get all channel memberships and associated membership roles (i.e. `channel_user`, `channel_admin`) for a user on a specific team. ##### Permissions Logged in as the user and `view_team` permission for the team. Having `manage_system` permission voids the previous requirements. 
+  /// Get all channel memberships and associated membership roles (i.e. `channel_user`, `channel_admin`) for a user on a specific team. ##### Permissions Logged in as the user and `view_team` permission for the team. Having `manage_system` permission voids the previous requirements.
   ///
   /// Parameters:
   ///
@@ -1252,8 +1413,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<List<MattermostChannelMember>?> getChannelMembersForUser(String userId, String teamId,) async {
-    final response = await getChannelMembersForUserWithHttpInfo(userId, teamId,);
+  Future<List<MattermostChannelMember>?> getChannelMembersForUser(
+    String userId,
+    String teamId,
+  ) async {
+    final response = await getChannelMembersForUserWithHttpInfo(
+      userId,
+      teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1263,16 +1430,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelMember>') as List)
-        .cast<MattermostChannelMember>()
-        .toList();
-
+          .cast<MattermostChannelMember>()
+          .toList();
     }
     return null;
   }
 
   /// Get timezones in a channel
   ///
-  /// Get a list of timezones for the users who are in this channel.  __Minimum server version__: 5.6  ##### Permissions Must have the `read_channel` permission. 
+  /// Get a list of timezones for the users who are in this channel.  __Minimum server version__: 5.6  ##### Permissions Must have the `read_channel` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1280,10 +1446,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getChannelMembersTimezonesWithHttpInfo(String channelId,) async {
+  Future<Response> getChannelMembersTimezonesWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/timezones'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/timezones'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1293,7 +1460,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1308,14 +1474,18 @@ class MattermostChannelsApi {
 
   /// Get timezones in a channel
   ///
-  /// Get a list of timezones for the users who are in this channel.  __Minimum server version__: 5.6  ##### Permissions Must have the `read_channel` permission. 
+  /// Get a list of timezones for the users who are in this channel.  __Minimum server version__: 5.6  ##### Permissions Must have the `read_channel` permission.
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<List<String>?> getChannelMembersTimezones(String channelId,) async {
-    final response = await getChannelMembersTimezonesWithHttpInfo(channelId,);
+  Future<List<String>?> getChannelMembersTimezones(
+    String channelId,
+  ) async {
+    final response = await getChannelMembersTimezonesWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1324,17 +1494,14 @@ class MattermostChannelsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// Get information about channel's moderation.
   ///
-  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
+  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1342,10 +1509,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getChannelModerationsWithHttpInfo(String channelId,) async {
+  Future<Response> getChannelModerationsWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/moderations'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/moderations'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1355,7 +1523,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1370,14 +1537,18 @@ class MattermostChannelsApi {
 
   /// Get information about channel's moderation.
   ///
-  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
+  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<List<MattermostChannelModeration>?> getChannelModerations(String channelId,) async {
-    final response = await getChannelModerationsWithHttpInfo(channelId,);
+  Future<List<MattermostChannelModeration>?> getChannelModerations(
+    String channelId,
+  ) async {
+    final response = await getChannelModerationsWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1387,16 +1558,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelModeration>') as List)
-        .cast<MattermostChannelModeration>()
-        .toList();
-
+          .cast<MattermostChannelModeration>()
+          .toList();
     }
     return null;
   }
 
   /// Get channel statistics
   ///
-  /// Get statistics for a channel. ##### Permissions Must have the `read_channel` permission. 
+  /// Get statistics for a channel. ##### Permissions Must have the `read_channel` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1404,10 +1574,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getChannelStatsWithHttpInfo(String channelId,) async {
+  Future<Response> getChannelStatsWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/stats'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/stats'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1417,7 +1588,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1432,14 +1602,18 @@ class MattermostChannelsApi {
 
   /// Get channel statistics
   ///
-  /// Get statistics for a channel. ##### Permissions Must have the `read_channel` permission. 
+  /// Get statistics for a channel. ##### Permissions Must have the `read_channel` permission.
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostChannelStats?> getChannelStats(String channelId,) async {
-    final response = await getChannelStatsWithHttpInfo(channelId,);
+  Future<MattermostChannelStats?> getChannelStats(
+    String channelId,
+  ) async {
+    final response = await getChannelStatsWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1447,15 +1621,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannelStats',) as MattermostChannelStats;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannelStats',
+      ) as MattermostChannelStats;
     }
     return null;
   }
 
   /// Get unread messages
   ///
-  /// Get the total unread messages and mentions for a channel for a user. ##### Permissions Must be logged in as user and have the `read_channel` permission, or have `edit_other_usrs` permission. 
+  /// Get the total unread messages and mentions for a channel for a user. ##### Permissions Must be logged in as user and have the `read_channel` permission, or have `edit_other_usrs` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1466,11 +1642,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getChannelUnreadWithHttpInfo(String userId, String channelId,) async {
+  Future<Response> getChannelUnreadWithHttpInfo(
+    String userId,
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/channels/{channel_id}/unread'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{channel_id}', channelId);
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1480,7 +1659,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1495,7 +1673,7 @@ class MattermostChannelsApi {
 
   /// Get unread messages
   ///
-  /// Get the total unread messages and mentions for a channel for a user. ##### Permissions Must be logged in as user and have the `read_channel` permission, or have `edit_other_usrs` permission. 
+  /// Get the total unread messages and mentions for a channel for a user. ##### Permissions Must be logged in as user and have the `read_channel` permission, or have `edit_other_usrs` permission.
   ///
   /// Parameters:
   ///
@@ -1504,8 +1682,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostChannelUnread?> getChannelUnread(String userId, String channelId,) async {
-    final response = await getChannelUnreadWithHttpInfo(userId, channelId,);
+  Future<MattermostChannelUnread?> getChannelUnread(
+    String userId,
+    String channelId,
+  ) async {
+    final response = await getChannelUnreadWithHttpInfo(
+      userId,
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1513,15 +1697,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannelUnread',) as MattermostChannelUnread;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannelUnread',
+      ) as MattermostChannelUnread;
     }
     return null;
   }
 
   /// Get channels for user
   ///
-  /// Get all the channels on a team for a user. ##### Permissions Logged in as the user, or have `edit_other_users` permission, and `view_team` permission for the team. 
+  /// Get all the channels on a team for a user. ##### Permissions Logged in as the user, or have `edit_other_users` permission, and `view_team` permission for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1538,11 +1724,15 @@ class MattermostChannelsApi {
   ///
   /// * [int] lastDeleteAt:
   ///   Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
-  Future<Response> getChannelsForTeamForUserWithHttpInfo(String userId, String teamId, { bool? includeDeleted, int? lastDeleteAt, }) async {
+  Future<Response> getChannelsForTeamForUserWithHttpInfo(
+    String userId,
+    String teamId, {
+    bool? includeDeleted,
+    int? lastDeleteAt,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/teams/{team_id}/channels'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{team_id}', teamId);
+    final path =
+        r'/users/{user_id}/teams/{team_id}/channels'.replaceAll('{user_id}', userId).replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1560,7 +1750,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1574,7 +1763,7 @@ class MattermostChannelsApi {
 
   /// Get channels for user
   ///
-  /// Get all the channels on a team for a user. ##### Permissions Logged in as the user, or have `edit_other_users` permission, and `view_team` permission for the team. 
+  /// Get all the channels on a team for a user. ##### Permissions Logged in as the user, or have `edit_other_users` permission, and `view_team` permission for the team.
   ///
   /// Parameters:
   ///
@@ -1589,8 +1778,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] lastDeleteAt:
   ///   Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
-  Future<List<MattermostChannel>?> getChannelsForTeamForUser(String userId, String teamId, { bool? includeDeleted, int? lastDeleteAt, }) async {
-    final response = await getChannelsForTeamForUserWithHttpInfo(userId, teamId,  includeDeleted: includeDeleted, lastDeleteAt: lastDeleteAt, );
+  Future<List<MattermostChannel>?> getChannelsForTeamForUser(
+    String userId,
+    String teamId, {
+    bool? includeDeleted,
+    int? lastDeleteAt,
+  }) async {
+    final response = await getChannelsForTeamForUserWithHttpInfo(
+      userId,
+      teamId,
+      includeDeleted: includeDeleted,
+      lastDeleteAt: lastDeleteAt,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1600,16 +1799,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get all channels from all teams
   ///
-  /// Get all channels from all teams that a user is a member of.  __Minimum server version__: 6.1  ##### Permissions  Logged in as the user, or have `edit_other_users` permission. 
+  /// Get all channels from all teams that a user is a member of.  __Minimum server version__: 6.1  ##### Permissions  Logged in as the user, or have `edit_other_users` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1623,10 +1821,13 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not
-  Future<Response> getChannelsForUserWithHttpInfo(String userId, { int? lastDeleteAt, bool? includeDeleted, }) async {
+  Future<Response> getChannelsForUserWithHttpInfo(
+    String userId, {
+    int? lastDeleteAt,
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/channels'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/channels'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1644,7 +1845,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1658,7 +1858,7 @@ class MattermostChannelsApi {
 
   /// Get all channels from all teams
   ///
-  /// Get all channels from all teams that a user is a member of.  __Minimum server version__: 6.1  ##### Permissions  Logged in as the user, or have `edit_other_users` permission. 
+  /// Get all channels from all teams that a user is a member of.  __Minimum server version__: 6.1  ##### Permissions  Logged in as the user, or have `edit_other_users` permission.
   ///
   /// Parameters:
   ///
@@ -1670,8 +1870,16 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not
-  Future<List<MattermostChannel>?> getChannelsForUser(String userId, { int? lastDeleteAt, bool? includeDeleted, }) async {
-    final response = await getChannelsForUserWithHttpInfo(userId,  lastDeleteAt: lastDeleteAt, includeDeleted: includeDeleted, );
+  Future<List<MattermostChannel>?> getChannelsForUser(
+    String userId, {
+    int? lastDeleteAt,
+    bool? includeDeleted,
+  }) async {
+    final response = await getChannelsForUserWithHttpInfo(
+      userId,
+      lastDeleteAt: lastDeleteAt,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1681,16 +1889,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get deleted channels
   ///
-  /// Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10 
+  /// Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1704,10 +1911,13 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<Response> getDeletedChannelsForTeamWithHttpInfo(String teamId, { int? page, int? perPage, }) async {
+  Future<Response> getDeletedChannelsForTeamWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/deleted'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/deleted'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1725,7 +1935,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1739,7 +1948,7 @@ class MattermostChannelsApi {
 
   /// Get deleted channels
   ///
-  /// Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10 
+  /// Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10
   ///
   /// Parameters:
   ///
@@ -1751,8 +1960,16 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<List<MattermostChannel>?> getDeletedChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
-    final response = await getDeletedChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannel>?> getDeletedChannelsForTeam(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getDeletedChannelsForTeamWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1762,9 +1979,8 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
@@ -1779,10 +1995,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> getPinnedPostsWithHttpInfo(String channelId,) async {
+  Future<Response> getPinnedPostsWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/pinned'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/pinned'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1792,7 +2009,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1813,8 +2029,12 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostPostList?> getPinnedPosts(String channelId,) async {
-    final response = await getPinnedPostsWithHttpInfo(channelId,);
+  Future<MattermostPostList?> getPinnedPosts(
+    String channelId,
+  ) async {
+    final response = await getPinnedPostsWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1822,15 +2042,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostList',) as MattermostPostList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPostList',
+      ) as MattermostPostList;
     }
     return null;
   }
 
   /// Get private channels
   ///
-  /// Get a page of private channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of private channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1844,10 +2066,13 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of private channels per page.
-  Future<Response> getPrivateChannelsForTeamWithHttpInfo(String teamId, { int? page, int? perPage, }) async {
+  Future<Response> getPrivateChannelsForTeamWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/private'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/private'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1865,7 +2090,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -1879,7 +2103,7 @@ class MattermostChannelsApi {
 
   /// Get private channels
   ///
-  /// Get a page of private channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Get a page of private channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -1891,8 +2115,16 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of private channels per page.
-  Future<List<MattermostChannel>?> getPrivateChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
-    final response = await getPrivateChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannel>?> getPrivateChannelsForTeam(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getPrivateChannelsForTeamWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1902,16 +2134,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get a list of channels by ids
   ///
-  /// Get a list of public channels on a team by id. ##### Permissions `view_team` for the team the channels are on. 
+  /// Get a list of public channels on a team by id. ##### Permissions `view_team` for the team the channels are on.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1922,10 +2153,12 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of channel ids
-  Future<Response> getPublicChannelsByIdsForTeamWithHttpInfo(String teamId, List<String> requestBody,) async {
+  Future<Response> getPublicChannelsByIdsForTeamWithHttpInfo(
+    String teamId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/ids'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/ids'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1935,7 +2168,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1950,7 +2182,7 @@ class MattermostChannelsApi {
 
   /// Get a list of channels by ids
   ///
-  /// Get a list of public channels on a team by id. ##### Permissions `view_team` for the team the channels are on. 
+  /// Get a list of public channels on a team by id. ##### Permissions `view_team` for the team the channels are on.
   ///
   /// Parameters:
   ///
@@ -1959,8 +2191,14 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of channel ids
-  Future<List<MattermostChannel>?> getPublicChannelsByIdsForTeam(String teamId, List<String> requestBody,) async {
-    final response = await getPublicChannelsByIdsForTeamWithHttpInfo(teamId, requestBody,);
+  Future<List<MattermostChannel>?> getPublicChannelsByIdsForTeam(
+    String teamId,
+    List<String> requestBody,
+  ) async {
+    final response = await getPublicChannelsByIdsForTeamWithHttpInfo(
+      teamId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1970,16 +2208,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get public channels
   ///
-  /// Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1993,10 +2230,13 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<Response> getPublicChannelsForTeamWithHttpInfo(String teamId, { int? page, int? perPage, }) async {
+  Future<Response> getPublicChannelsForTeamWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2014,7 +2254,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -2028,7 +2267,7 @@ class MattermostChannelsApi {
 
   /// Get public channels
   ///
-  /// Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -2040,8 +2279,16 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<List<MattermostChannel>?> getPublicChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
-    final response = await getPublicChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannel>?> getPublicChannelsForTeam(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getPublicChannelsForTeamWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2051,16 +2298,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get user's sidebar categories
   ///
-  /// Get a list of sidebar categories that will appear in the user's sidebar on the given team, including a list of channel IDs in each category. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Get a list of sidebar categories that will appear in the user's sidebar on the given team, including a list of channel IDs in each category. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2071,11 +2317,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> getSidebarCategoriesForTeamForUserWithHttpInfo(String teamId, String userId,) async {
+  Future<Response> getSidebarCategoriesForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2085,7 +2334,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2100,7 +2348,7 @@ class MattermostChannelsApi {
 
   /// Get user's sidebar categories
   ///
-  /// Get a list of sidebar categories that will appear in the user's sidebar on the given team, including a list of channel IDs in each category. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Get a list of sidebar categories that will appear in the user's sidebar on the given team, including a list of channel IDs in each category. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -2109,8 +2357,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostOrderedSidebarCategories>?> getSidebarCategoriesForTeamForUser(String teamId, String userId,) async {
-    final response = await getSidebarCategoriesForTeamForUserWithHttpInfo(teamId, userId,);
+  Future<List<MattermostOrderedSidebarCategories>?> getSidebarCategoriesForTeamForUser(
+    String teamId,
+    String userId,
+  ) async {
+    final response = await getSidebarCategoriesForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2120,16 +2374,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOrderedSidebarCategories>') as List)
-        .cast<MattermostOrderedSidebarCategories>()
-        .toList();
-
+          .cast<MattermostOrderedSidebarCategories>()
+          .toList();
     }
     return null;
   }
 
   /// Get sidebar category
   ///
-  /// Returns a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Returns a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2143,12 +2396,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<Response> getSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, String categoryId,) async {
+  Future<Response> getSidebarCategoryForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    String categoryId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/{category_id}'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{category_id}', categoryId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{category_id}', categoryId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2158,7 +2415,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2173,7 +2429,7 @@ class MattermostChannelsApi {
 
   /// Get sidebar category
   ///
-  /// Returns a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Returns a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -2185,8 +2441,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<MattermostSidebarCategory?> getSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
-    final response = await getSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId,);
+  Future<MattermostSidebarCategory?> getSidebarCategoryForTeamForUser(
+    String teamId,
+    String userId,
+    String categoryId,
+  ) async {
+    final response = await getSidebarCategoryForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      categoryId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2194,15 +2458,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSidebarCategory',) as MattermostSidebarCategory;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSidebarCategory',
+      ) as MattermostSidebarCategory;
     }
     return null;
   }
 
   /// Get user's sidebar category order
   ///
-  /// Returns the order of the sidebar categories for a user on the given team as an array of IDs. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Returns the order of the sidebar categories for a user on the given team as an array of IDs. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2213,11 +2479,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> getSidebarCategoryOrderForTeamForUserWithHttpInfo(String teamId, String userId,) async {
+  Future<Response> getSidebarCategoryOrderForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/order'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2227,7 +2496,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2242,7 +2510,7 @@ class MattermostChannelsApi {
 
   /// Get user's sidebar category order
   ///
-  /// Returns the order of the sidebar categories for a user on the given team as an array of IDs. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Returns the order of the sidebar categories for a user on the given team as an array of IDs. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -2251,8 +2519,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<String>?> getSidebarCategoryOrderForTeamForUser(String teamId, String userId,) async {
-    final response = await getSidebarCategoryOrderForTeamForUserWithHttpInfo(teamId, userId,);
+  Future<List<String>?> getSidebarCategoryOrderForTeamForUser(
+    String teamId,
+    String userId,
+  ) async {
+    final response = await getSidebarCategoryOrderForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2261,17 +2535,14 @@ class MattermostChannelsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// Move a channel
   ///
-  /// Move a channel to another team.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Move a channel to another team.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2281,10 +2552,12 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostMoveChannelRequest] mattermostMoveChannelRequest (required):
-  Future<Response> moveChannelWithHttpInfo(String channelId, MattermostMoveChannelRequest mattermostMoveChannelRequest,) async {
+  Future<Response> moveChannelWithHttpInfo(
+    String channelId,
+    MattermostMoveChannelRequest mattermostMoveChannelRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/move'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/move'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostMoveChannelRequest;
@@ -2295,7 +2568,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -2309,7 +2581,7 @@ class MattermostChannelsApi {
 
   /// Move a channel
   ///
-  /// Move a channel to another team.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
+  /// Move a channel to another team.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -2317,8 +2589,14 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostMoveChannelRequest] mattermostMoveChannelRequest (required):
-  Future<MattermostChannel?> moveChannel(String channelId, MattermostMoveChannelRequest mattermostMoveChannelRequest,) async {
-    final response = await moveChannelWithHttpInfo(channelId, mattermostMoveChannelRequest,);
+  Future<MattermostChannel?> moveChannel(
+    String channelId,
+    MattermostMoveChannelRequest mattermostMoveChannelRequest,
+  ) async {
+    final response = await moveChannelWithHttpInfo(
+      channelId,
+      mattermostMoveChannelRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2326,15 +2604,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Patch a channel
   ///
-  /// Partially update a channel by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
+  /// Partially update a channel by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2345,10 +2625,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostPatchChannelRequest] mattermostPatchChannelRequest (required):
   ///   Channel object to be updated
-  Future<Response> patchChannelWithHttpInfo(String channelId, MattermostPatchChannelRequest mattermostPatchChannelRequest,) async {
+  Future<Response> patchChannelWithHttpInfo(
+    String channelId,
+    MattermostPatchChannelRequest mattermostPatchChannelRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/patch'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/patch'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchChannelRequest;
@@ -2359,7 +2641,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -2373,7 +2654,7 @@ class MattermostChannelsApi {
 
   /// Patch a channel
   ///
-  /// Partially update a channel by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
+  /// Partially update a channel by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required.
   ///
   /// Parameters:
   ///
@@ -2382,8 +2663,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostPatchChannelRequest] mattermostPatchChannelRequest (required):
   ///   Channel object to be updated
-  Future<MattermostChannel?> patchChannel(String channelId, MattermostPatchChannelRequest mattermostPatchChannelRequest,) async {
-    final response = await patchChannelWithHttpInfo(channelId, mattermostPatchChannelRequest,);
+  Future<MattermostChannel?> patchChannel(
+    String channelId,
+    MattermostPatchChannelRequest mattermostPatchChannelRequest,
+  ) async {
+    final response = await patchChannelWithHttpInfo(
+      channelId,
+      mattermostPatchChannelRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2391,15 +2678,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Update a channel's moderation settings.
   ///
-  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
+  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2409,10 +2698,12 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostChannelModerationPatch] mattermostChannelModerationPatch (required):
-  Future<Response> patchChannelModerationsWithHttpInfo(String channelId, MattermostChannelModerationPatch mattermostChannelModerationPatch,) async {
+  Future<Response> patchChannelModerationsWithHttpInfo(
+    String channelId,
+    MattermostChannelModerationPatch mattermostChannelModerationPatch,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/moderations/patch'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/moderations/patch'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostChannelModerationPatch;
@@ -2422,7 +2713,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2437,7 +2727,7 @@ class MattermostChannelsApi {
 
   /// Update a channel's moderation settings.
   ///
-  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
+  /// ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22
   ///
   /// Parameters:
   ///
@@ -2445,8 +2735,14 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostChannelModerationPatch] mattermostChannelModerationPatch (required):
-  Future<List<MattermostChannelModeration>?> patchChannelModerations(String channelId, MattermostChannelModerationPatch mattermostChannelModerationPatch,) async {
-    final response = await patchChannelModerationsWithHttpInfo(channelId, mattermostChannelModerationPatch,);
+  Future<List<MattermostChannelModeration>?> patchChannelModerations(
+    String channelId,
+    MattermostChannelModerationPatch mattermostChannelModerationPatch,
+  ) async {
+    final response = await patchChannelModerationsWithHttpInfo(
+      channelId,
+      mattermostChannelModerationPatch,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2456,16 +2752,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelModeration>') as List)
-        .cast<MattermostChannelModeration>()
-        .toList();
-
+          .cast<MattermostChannelModeration>()
+          .toList();
     }
     return null;
   }
 
   /// Delete sidebar category
   ///
-  /// Deletes a single sidebar category for the user on the given team. Only custom categories can be deleted. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Deletes a single sidebar category for the user on the given team. Only custom categories can be deleted. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2479,12 +2774,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<Response> removeSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, String categoryId,) async {
+  Future<Response> removeSidebarCategoryForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    String categoryId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/{category_id}'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{category_id}', categoryId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{category_id}', categoryId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2494,7 +2793,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2509,7 +2807,7 @@ class MattermostChannelsApi {
 
   /// Delete sidebar category
   ///
-  /// Deletes a single sidebar category for the user on the given team. Only custom categories can be deleted. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Deletes a single sidebar category for the user on the given team. Only custom categories can be deleted. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -2521,8 +2819,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<MattermostSidebarCategory?> removeSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
-    final response = await removeSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId,);
+  Future<MattermostSidebarCategory?> removeSidebarCategoryForTeamForUser(
+    String teamId,
+    String userId,
+    String categoryId,
+  ) async {
+    final response = await removeSidebarCategoryForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      categoryId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2530,15 +2836,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSidebarCategory',) as MattermostSidebarCategory;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSidebarCategory',
+      ) as MattermostSidebarCategory;
     }
     return null;
   }
 
   /// Remove user from channel
   ///
-  /// Delete a channel member, effectively removing them from a channel.  In server version 5.3 and later, channel members can only be deleted from public or private channels. ##### Permissions `manage_public_channel_members` permission if the channel is public. `manage_private_channel_members` permission if the channel is private. 
+  /// Delete a channel member, effectively removing them from a channel.  In server version 5.3 and later, channel members can only be deleted from public or private channels. ##### Permissions `manage_public_channel_members` permission if the channel is public. `manage_private_channel_members` permission if the channel is private.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2549,11 +2857,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> removeUserFromChannelWithHttpInfo(String channelId, String userId,) async {
+  Future<Response> removeUserFromChannelWithHttpInfo(
+    String channelId,
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{channel_id}', channelId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2563,7 +2874,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2578,7 +2888,7 @@ class MattermostChannelsApi {
 
   /// Remove user from channel
   ///
-  /// Delete a channel member, effectively removing them from a channel.  In server version 5.3 and later, channel members can only be deleted from public or private channels. ##### Permissions `manage_public_channel_members` permission if the channel is public. `manage_private_channel_members` permission if the channel is private. 
+  /// Delete a channel member, effectively removing them from a channel.  In server version 5.3 and later, channel members can only be deleted from public or private channels. ##### Permissions `manage_public_channel_members` permission if the channel is public. `manage_private_channel_members` permission if the channel is private.
   ///
   /// Parameters:
   ///
@@ -2587,8 +2897,14 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> removeUserFromChannel(String channelId, String userId,) async {
-    final response = await removeUserFromChannelWithHttpInfo(channelId, userId,);
+  Future<MattermostStatusOK?> removeUserFromChannel(
+    String channelId,
+    String userId,
+  ) async {
+    final response = await removeUserFromChannelWithHttpInfo(
+      channelId,
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2596,15 +2912,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Restore a channel
   ///
-  /// Restore channel from the provided channel id string.  __Minimum server version__: 3.10  ##### Permissions `manage_team` permission for the team of the channel. 
+  /// Restore channel from the provided channel id string.  __Minimum server version__: 3.10  ##### Permissions `manage_team` permission for the team of the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2612,10 +2930,11 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<Response> restoreChannelWithHttpInfo(String channelId,) async {
+  Future<Response> restoreChannelWithHttpInfo(
+    String channelId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/restore'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/restore'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2625,7 +2944,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2640,14 +2958,18 @@ class MattermostChannelsApi {
 
   /// Restore a channel
   ///
-  /// Restore channel from the provided channel id string.  __Minimum server version__: 3.10  ##### Permissions `manage_team` permission for the team of the channel. 
+  /// Restore channel from the provided channel id string.  __Minimum server version__: 3.10  ##### Permissions `manage_team` permission for the team of the channel.
   ///
   /// Parameters:
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostChannel?> restoreChannel(String channelId,) async {
-    final response = await restoreChannelWithHttpInfo(channelId,);
+  Future<MattermostChannel?> restoreChannel(
+    String channelId,
+  ) async {
+    final response = await restoreChannelWithHttpInfo(
+      channelId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2655,15 +2977,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Search all private and open type channels across all teams
   ///
-  /// Returns all private and open type channels where 'term' matches on the name, display name, or purpose of the channel.  Configured 'default' channels (ex Town Square and Off-Topic) can be excluded from the results with the `exclude_default_channels` boolean parameter.  Channels that are associated (via GroupChannel records) to a given group can be excluded from the results with the `not_associated_to_group` parameter and a group id string. 
+  /// Returns all private and open type channels where 'term' matches on the name, display name, or purpose of the channel.  Configured 'default' channels (ex Town Square and Off-Topic) can be excluded from the results with the `exclude_default_channels` boolean parameter.  Channels that are associated (via GroupChannel records) to a given group can be excluded from the results with the `not_associated_to_group` parameter and a group id string.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2673,8 +2997,11 @@ class MattermostChannelsApi {
   ///   The search terms and logic to use in the search.
   ///
   /// * [bool] systemConsole:
-  ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
-  Future<Response> searchAllChannelsWithHttpInfo(MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest, { bool? systemConsole, }) async {
+  ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user.
+  Future<Response> searchAllChannelsWithHttpInfo(
+    MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest, {
+    bool? systemConsole,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/search';
 
@@ -2691,7 +3018,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -2705,7 +3031,7 @@ class MattermostChannelsApi {
 
   /// Search all private and open type channels across all teams
   ///
-  /// Returns all private and open type channels where 'term' matches on the name, display name, or purpose of the channel.  Configured 'default' channels (ex Town Square and Off-Topic) can be excluded from the results with the `exclude_default_channels` boolean parameter.  Channels that are associated (via GroupChannel records) to a given group can be excluded from the results with the `not_associated_to_group` parameter and a group id string. 
+  /// Returns all private and open type channels where 'term' matches on the name, display name, or purpose of the channel.  Configured 'default' channels (ex Town Square and Off-Topic) can be excluded from the results with the `exclude_default_channels` boolean parameter.  Channels that are associated (via GroupChannel records) to a given group can be excluded from the results with the `not_associated_to_group` parameter and a group id string.
   ///
   /// Parameters:
   ///
@@ -2713,9 +3039,15 @@ class MattermostChannelsApi {
   ///   The search terms and logic to use in the search.
   ///
   /// * [bool] systemConsole:
-  ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
-  Future<MattermostSearchAllChannels200Response?> searchAllChannels(MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest, { bool? systemConsole, }) async {
-    final response = await searchAllChannelsWithHttpInfo(mattermostSearchAllChannelsRequest,  systemConsole: systemConsole, );
+  ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user.
+  Future<MattermostSearchAllChannels200Response?> searchAllChannels(
+    MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest, {
+    bool? systemConsole,
+  }) async {
+    final response = await searchAllChannelsWithHttpInfo(
+      mattermostSearchAllChannelsRequest,
+      systemConsole: systemConsole,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2723,15 +3055,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSearchAllChannels200Response',) as MattermostSearchAllChannels200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSearchAllChannels200Response',
+      ) as MattermostSearchAllChannels200Response;
     }
     return null;
   }
 
   /// Search archived channels
   ///
-  /// Search archived channels on a team based on the search term provided in the request body.  __Minimum server version__: 5.18  ##### Permissions Must have the `list_team_channels` permission.  In server version 5.18 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
+  /// Search archived channels on a team based on the search term provided in the request body.  __Minimum server version__: 5.18  ##### Permissions Must have the `list_team_channels` permission.  In server version 5.18 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2742,10 +3076,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostSearchArchivedChannelsRequest] mattermostSearchArchivedChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchArchivedChannelsWithHttpInfo(String teamId, MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest,) async {
+  Future<Response> searchArchivedChannelsWithHttpInfo(
+    String teamId,
+    MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/search_archived'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/search_archived'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSearchArchivedChannelsRequest;
@@ -2756,7 +3092,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -2770,7 +3105,7 @@ class MattermostChannelsApi {
 
   /// Search archived channels
   ///
-  /// Search archived channels on a team based on the search term provided in the request body.  __Minimum server version__: 5.18  ##### Permissions Must have the `list_team_channels` permission.  In server version 5.18 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
+  /// Search archived channels on a team based on the search term provided in the request body.  __Minimum server version__: 5.18  ##### Permissions Must have the `list_team_channels` permission.  In server version 5.18 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of.
   ///
   /// Parameters:
   ///
@@ -2779,8 +3114,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostSearchArchivedChannelsRequest] mattermostSearchArchivedChannelsRequest (required):
   ///   Search criteria
-  Future<List<MattermostChannel>?> searchArchivedChannels(String teamId, MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest,) async {
-    final response = await searchArchivedChannelsWithHttpInfo(teamId, mattermostSearchArchivedChannelsRequest,);
+  Future<List<MattermostChannel>?> searchArchivedChannels(
+    String teamId,
+    MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest,
+  ) async {
+    final response = await searchArchivedChannelsWithHttpInfo(
+      teamId,
+      mattermostSearchArchivedChannelsRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2790,16 +3131,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Search channels
   ///
-  /// Search public channels on a team based on the search term provided in the request body. ##### Permissions Must have the `list_team_channels` permission.  In server version 5.16 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
+  /// Search public channels on a team based on the search term provided in the request body. ##### Permissions Must have the `list_team_channels` permission.  In server version 5.16 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2810,10 +3150,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostSearchChannelsRequest] mattermostSearchChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchChannelsWithHttpInfo(String teamId, MattermostSearchChannelsRequest mattermostSearchChannelsRequest,) async {
+  Future<Response> searchChannelsWithHttpInfo(
+    String teamId,
+    MattermostSearchChannelsRequest mattermostSearchChannelsRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/channels/search'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/channels/search'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSearchChannelsRequest;
@@ -2823,7 +3165,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2838,7 +3179,7 @@ class MattermostChannelsApi {
 
   /// Search channels
   ///
-  /// Search public channels on a team based on the search term provided in the request body. ##### Permissions Must have the `list_team_channels` permission.  In server version 5.16 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
+  /// Search public channels on a team based on the search term provided in the request body. ##### Permissions Must have the `list_team_channels` permission.  In server version 5.16 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of.
   ///
   /// Parameters:
   ///
@@ -2847,8 +3188,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostSearchChannelsRequest] mattermostSearchChannelsRequest (required):
   ///   Search criteria
-  Future<List<MattermostChannel>?> searchChannels(String teamId, MattermostSearchChannelsRequest mattermostSearchChannelsRequest,) async {
-    final response = await searchChannelsWithHttpInfo(teamId, mattermostSearchChannelsRequest,);
+  Future<List<MattermostChannel>?> searchChannels(
+    String teamId,
+    MattermostSearchChannelsRequest mattermostSearchChannelsRequest,
+  ) async {
+    final response = await searchChannelsWithHttpInfo(
+      teamId,
+      mattermostSearchChannelsRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2858,16 +3205,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Search Group Channels
   ///
-  /// Get a list of group channels for a user which members' usernames match the search term.  __Minimum server version__: 5.14 
+  /// Get a list of group channels for a user which members' usernames match the search term.  __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2875,7 +3221,9 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostSearchGroupChannelsRequest] mattermostSearchGroupChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchGroupChannelsWithHttpInfo(MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest,) async {
+  Future<Response> searchGroupChannelsWithHttpInfo(
+    MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/group/search';
 
@@ -2888,7 +3236,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -2902,14 +3249,18 @@ class MattermostChannelsApi {
 
   /// Search Group Channels
   ///
-  /// Get a list of group channels for a user which members' usernames match the search term.  __Minimum server version__: 5.14 
+  /// Get a list of group channels for a user which members' usernames match the search term.  __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
   /// * [MattermostSearchGroupChannelsRequest] mattermostSearchGroupChannelsRequest (required):
   ///   Search criteria
-  Future<List<MattermostChannel>?> searchGroupChannels(MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest,) async {
-    final response = await searchGroupChannelsWithHttpInfo(mattermostSearchGroupChannelsRequest,);
+  Future<List<MattermostChannel>?> searchGroupChannels(
+    MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest,
+  ) async {
+    final response = await searchGroupChannelsWithHttpInfo(
+      mattermostSearchGroupChannelsRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2919,16 +3270,15 @@ class MattermostChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Update a channel
   ///
-  /// Update a channel. The fields that can be updated are listed as parameters. Omitted fields will be treated as blanks. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
+  /// Update a channel. The fields that can be updated are listed as parameters. Omitted fields will be treated as blanks. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2939,10 +3289,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateChannelRequest] mattermostUpdateChannelRequest (required):
   ///   Channel object to be updated
-  Future<Response> updateChannelWithHttpInfo(String channelId, MattermostUpdateChannelRequest mattermostUpdateChannelRequest,) async {
+  Future<Response> updateChannelWithHttpInfo(
+    String channelId,
+    MattermostUpdateChannelRequest mattermostUpdateChannelRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateChannelRequest;
@@ -2953,7 +3305,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -2967,7 +3318,7 @@ class MattermostChannelsApi {
 
   /// Update a channel
   ///
-  /// Update a channel. The fields that can be updated are listed as parameters. Omitted fields will be treated as blanks. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
+  /// Update a channel. The fields that can be updated are listed as parameters. Omitted fields will be treated as blanks. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required.
   ///
   /// Parameters:
   ///
@@ -2976,8 +3327,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateChannelRequest] mattermostUpdateChannelRequest (required):
   ///   Channel object to be updated
-  Future<MattermostChannel?> updateChannel(String channelId, MattermostUpdateChannelRequest mattermostUpdateChannelRequest,) async {
-    final response = await updateChannelWithHttpInfo(channelId, mattermostUpdateChannelRequest,);
+  Future<MattermostChannel?> updateChannel(
+    String channelId,
+    MattermostUpdateChannelRequest mattermostUpdateChannelRequest,
+  ) async {
+    final response = await updateChannelWithHttpInfo(
+      channelId,
+      mattermostUpdateChannelRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2985,15 +3342,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Update the scheme-derived roles of a channel member.
   ///
-  /// Update a channel member's scheme_admin/scheme_user properties. Typically this should either be `scheme_admin=false, scheme_user=true` for ordinary channel member, or `scheme_admin=true, scheme_user=true` for a channel admin. __Minimum server version__: 5.0 ##### Permissions Must be authenticated and have the `manage_channel_roles` permission. 
+  /// Update a channel member's scheme_admin/scheme_user properties. Typically this should either be `scheme_admin=false, scheme_user=true` for ordinary channel member, or `scheme_admin=true, scheme_user=true` for a channel admin. __Minimum server version__: 5.0 ##### Permissions Must be authenticated and have the `manage_channel_roles` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3007,11 +3366,15 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateTeamMemberSchemeRolesRequest] mattermostUpdateTeamMemberSchemeRolesRequest (required):
   ///   Scheme properties.
-  Future<Response> updateChannelMemberSchemeRolesWithHttpInfo(String channelId, String userId, MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest,) async {
+  Future<Response> updateChannelMemberSchemeRolesWithHttpInfo(
+    String channelId,
+    String userId,
+    MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/schemeRoles'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{channel_id}', channelId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateTeamMemberSchemeRolesRequest;
@@ -3022,7 +3385,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3036,7 +3398,7 @@ class MattermostChannelsApi {
 
   /// Update the scheme-derived roles of a channel member.
   ///
-  /// Update a channel member's scheme_admin/scheme_user properties. Typically this should either be `scheme_admin=false, scheme_user=true` for ordinary channel member, or `scheme_admin=true, scheme_user=true` for a channel admin. __Minimum server version__: 5.0 ##### Permissions Must be authenticated and have the `manage_channel_roles` permission. 
+  /// Update a channel member's scheme_admin/scheme_user properties. Typically this should either be `scheme_admin=false, scheme_user=true` for ordinary channel member, or `scheme_admin=true, scheme_user=true` for a channel admin. __Minimum server version__: 5.0 ##### Permissions Must be authenticated and have the `manage_channel_roles` permission.
   ///
   /// Parameters:
   ///
@@ -3048,8 +3410,16 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateTeamMemberSchemeRolesRequest] mattermostUpdateTeamMemberSchemeRolesRequest (required):
   ///   Scheme properties.
-  Future<MattermostStatusOK?> updateChannelMemberSchemeRoles(String channelId, String userId, MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest,) async {
-    final response = await updateChannelMemberSchemeRolesWithHttpInfo(channelId, userId, mattermostUpdateTeamMemberSchemeRolesRequest,);
+  Future<MattermostStatusOK?> updateChannelMemberSchemeRoles(
+    String channelId,
+    String userId,
+    MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest,
+  ) async {
+    final response = await updateChannelMemberSchemeRolesWithHttpInfo(
+      channelId,
+      userId,
+      mattermostUpdateTeamMemberSchemeRolesRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3057,15 +3427,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update channel notifications
   ///
-  /// Update a user's notification properties for a channel. Only the provided fields are updated. ##### Permissions Must be logged in as the user or have `edit_other_users` permission. 
+  /// Update a user's notification properties for a channel. Only the provided fields are updated. ##### Permissions Must be logged in as the user or have `edit_other_users` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3078,11 +3450,15 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [MattermostChannelNotifyProps] mattermostChannelNotifyProps (required):
-  Future<Response> updateChannelNotifyPropsWithHttpInfo(String channelId, String userId, MattermostChannelNotifyProps mattermostChannelNotifyProps,) async {
+  Future<Response> updateChannelNotifyPropsWithHttpInfo(
+    String channelId,
+    String userId,
+    MattermostChannelNotifyProps mattermostChannelNotifyProps,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/notify_props'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{channel_id}', channelId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostChannelNotifyProps;
@@ -3093,7 +3469,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3107,7 +3482,7 @@ class MattermostChannelsApi {
 
   /// Update channel notifications
   ///
-  /// Update a user's notification properties for a channel. Only the provided fields are updated. ##### Permissions Must be logged in as the user or have `edit_other_users` permission. 
+  /// Update a user's notification properties for a channel. Only the provided fields are updated. ##### Permissions Must be logged in as the user or have `edit_other_users` permission.
   ///
   /// Parameters:
   ///
@@ -3118,8 +3493,16 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [MattermostChannelNotifyProps] mattermostChannelNotifyProps (required):
-  Future<MattermostStatusOK?> updateChannelNotifyProps(String channelId, String userId, MattermostChannelNotifyProps mattermostChannelNotifyProps,) async {
-    final response = await updateChannelNotifyPropsWithHttpInfo(channelId, userId, mattermostChannelNotifyProps,);
+  Future<MattermostStatusOK?> updateChannelNotifyProps(
+    String channelId,
+    String userId,
+    MattermostChannelNotifyProps mattermostChannelNotifyProps,
+  ) async {
+    final response = await updateChannelNotifyPropsWithHttpInfo(
+      channelId,
+      userId,
+      mattermostChannelNotifyProps,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3127,15 +3510,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update channel's privacy
   ///
-  /// Updates channel's privacy allowing changing a channel from Public to Private and back.  __Minimum server version__: 5.16  ##### Permissions `manage_team` permission for the channels team on version < 5.28. `convert_public_channel_to_private` permission for the channel if updating privacy to 'P' on version >= 5.28. `convert_private_channel_to_public` permission for the channel if updating privacy to 'O' on version >= 5.28. 
+  /// Updates channel's privacy allowing changing a channel from Public to Private and back.  __Minimum server version__: 5.16  ##### Permissions `manage_team` permission for the channels team on version < 5.28. `convert_public_channel_to_private` permission for the channel if updating privacy to 'P' on version >= 5.28. `convert_private_channel_to_public` permission for the channel if updating privacy to 'O' on version >= 5.28.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3145,10 +3530,12 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostUpdateChannelPrivacyRequest] mattermostUpdateChannelPrivacyRequest (required):
-  Future<Response> updateChannelPrivacyWithHttpInfo(String channelId, MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest,) async {
+  Future<Response> updateChannelPrivacyWithHttpInfo(
+    String channelId,
+    MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/privacy'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/privacy'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateChannelPrivacyRequest;
@@ -3159,7 +3546,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3173,7 +3559,7 @@ class MattermostChannelsApi {
 
   /// Update channel's privacy
   ///
-  /// Updates channel's privacy allowing changing a channel from Public to Private and back.  __Minimum server version__: 5.16  ##### Permissions `manage_team` permission for the channels team on version < 5.28. `convert_public_channel_to_private` permission for the channel if updating privacy to 'P' on version >= 5.28. `convert_private_channel_to_public` permission for the channel if updating privacy to 'O' on version >= 5.28. 
+  /// Updates channel's privacy allowing changing a channel from Public to Private and back.  __Minimum server version__: 5.16  ##### Permissions `manage_team` permission for the channels team on version < 5.28. `convert_public_channel_to_private` permission for the channel if updating privacy to 'P' on version >= 5.28. `convert_private_channel_to_public` permission for the channel if updating privacy to 'O' on version >= 5.28.
   ///
   /// Parameters:
   ///
@@ -3181,8 +3567,14 @@ class MattermostChannelsApi {
   ///   Channel GUID
   ///
   /// * [MattermostUpdateChannelPrivacyRequest] mattermostUpdateChannelPrivacyRequest (required):
-  Future<MattermostChannel?> updateChannelPrivacy(String channelId, MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest,) async {
-    final response = await updateChannelPrivacyWithHttpInfo(channelId, mattermostUpdateChannelPrivacyRequest,);
+  Future<MattermostChannel?> updateChannelPrivacy(
+    String channelId,
+    MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest,
+  ) async {
+    final response = await updateChannelPrivacyWithHttpInfo(
+      channelId,
+      mattermostUpdateChannelPrivacyRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3190,15 +3582,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostChannel',) as MattermostChannel;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostChannel',
+      ) as MattermostChannel;
     }
     return null;
   }
 
   /// Update channel roles
   ///
-  /// Update a user's roles for a channel. ##### Permissions Must have `manage_channel_roles` permission for the channel. 
+  /// Update a user's roles for a channel. ##### Permissions Must have `manage_channel_roles` permission for the channel.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3212,11 +3606,15 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateUserRolesRequest] mattermostUpdateUserRolesRequest (required):
   ///   Space-delimited channel roles to assign to the user
-  Future<Response> updateChannelRolesWithHttpInfo(String channelId, String userId, MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,) async {
+  Future<Response> updateChannelRolesWithHttpInfo(
+    String channelId,
+    String userId,
+    MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/roles'
-      .replaceAll('{channel_id}', channelId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{channel_id}', channelId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateUserRolesRequest;
@@ -3227,7 +3625,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3241,7 +3638,7 @@ class MattermostChannelsApi {
 
   /// Update channel roles
   ///
-  /// Update a user's roles for a channel. ##### Permissions Must have `manage_channel_roles` permission for the channel. 
+  /// Update a user's roles for a channel. ##### Permissions Must have `manage_channel_roles` permission for the channel.
   ///
   /// Parameters:
   ///
@@ -3253,8 +3650,16 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateUserRolesRequest] mattermostUpdateUserRolesRequest (required):
   ///   Space-delimited channel roles to assign to the user
-  Future<MattermostStatusOK?> updateChannelRoles(String channelId, String userId, MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,) async {
-    final response = await updateChannelRolesWithHttpInfo(channelId, userId, mattermostUpdateUserRolesRequest,);
+  Future<MattermostStatusOK?> updateChannelRoles(
+    String channelId,
+    String userId,
+    MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,
+  ) async {
+    final response = await updateChannelRolesWithHttpInfo(
+      channelId,
+      userId,
+      mattermostUpdateUserRolesRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3262,15 +3667,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Set a channel's scheme
   ///
-  /// Set a channel's scheme, more specifically sets the scheme_id value of a channel record.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.10 
+  /// Set a channel's scheme, more specifically sets the scheme_id value of a channel record.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3281,10 +3688,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateTeamSchemeRequest] mattermostUpdateTeamSchemeRequest (required):
   ///   Scheme GUID
-  Future<Response> updateChannelSchemeWithHttpInfo(String channelId, MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest,) async {
+  Future<Response> updateChannelSchemeWithHttpInfo(
+    String channelId,
+    MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/{channel_id}/scheme'
-      .replaceAll('{channel_id}', channelId);
+    final path = r'/channels/{channel_id}/scheme'.replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateTeamSchemeRequest;
@@ -3295,7 +3704,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3309,7 +3717,7 @@ class MattermostChannelsApi {
 
   /// Set a channel's scheme
   ///
-  /// Set a channel's scheme, more specifically sets the scheme_id value of a channel record.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.10 
+  /// Set a channel's scheme, more specifically sets the scheme_id value of a channel record.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.10
   ///
   /// Parameters:
   ///
@@ -3318,8 +3726,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostUpdateTeamSchemeRequest] mattermostUpdateTeamSchemeRequest (required):
   ///   Scheme GUID
-  Future<MattermostStatusOK?> updateChannelScheme(String channelId, MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest,) async {
-    final response = await updateChannelSchemeWithHttpInfo(channelId, mattermostUpdateTeamSchemeRequest,);
+  Future<MattermostStatusOK?> updateChannelScheme(
+    String channelId,
+    MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest,
+  ) async {
+    final response = await updateChannelSchemeWithHttpInfo(
+      channelId,
+      mattermostUpdateTeamSchemeRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3327,15 +3741,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Update user's sidebar categories
   ///
-  /// Update any number of sidebar categories for the user on the given team. This can be used to reorder the channels in these categories. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Update any number of sidebar categories for the user on the given team. This can be used to reorder the channels in these categories. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3348,11 +3764,15 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [List<MattermostSidebarCategory>] mattermostSidebarCategory (required):
-  Future<Response> updateSidebarCategoriesForTeamForUserWithHttpInfo(String teamId, String userId, List<MattermostSidebarCategory> mattermostSidebarCategory,) async {
+  Future<Response> updateSidebarCategoriesForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    List<MattermostSidebarCategory> mattermostSidebarCategory,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSidebarCategory;
@@ -3362,7 +3782,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3377,7 +3796,7 @@ class MattermostChannelsApi {
 
   /// Update user's sidebar categories
   ///
-  /// Update any number of sidebar categories for the user on the given team. This can be used to reorder the channels in these categories. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Update any number of sidebar categories for the user on the given team. This can be used to reorder the channels in these categories. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -3388,8 +3807,16 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [List<MattermostSidebarCategory>] mattermostSidebarCategory (required):
-  Future<MattermostSidebarCategory?> updateSidebarCategoriesForTeamForUser(String teamId, String userId, List<MattermostSidebarCategory> mattermostSidebarCategory,) async {
-    final response = await updateSidebarCategoriesForTeamForUserWithHttpInfo(teamId, userId, mattermostSidebarCategory,);
+  Future<MattermostSidebarCategory?> updateSidebarCategoriesForTeamForUser(
+    String teamId,
+    String userId,
+    List<MattermostSidebarCategory> mattermostSidebarCategory,
+  ) async {
+    final response = await updateSidebarCategoriesForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      mattermostSidebarCategory,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3397,15 +3824,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSidebarCategory',) as MattermostSidebarCategory;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSidebarCategory',
+      ) as MattermostSidebarCategory;
     }
     return null;
   }
 
   /// Update sidebar category
   ///
-  /// Updates a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Updates a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3421,12 +3850,17 @@ class MattermostChannelsApi {
   ///   Category GUID
   ///
   /// * [MattermostSidebarCategory] mattermostSidebarCategory (required):
-  Future<Response> updateSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, String categoryId, MattermostSidebarCategory mattermostSidebarCategory,) async {
+  Future<Response> updateSidebarCategoryForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    String categoryId,
+    MattermostSidebarCategory mattermostSidebarCategory,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/{category_id}'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{category_id}', categoryId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId)
+        .replaceAll('{category_id}', categoryId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSidebarCategory;
@@ -3436,7 +3870,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3451,7 +3884,7 @@ class MattermostChannelsApi {
 
   /// Update sidebar category
   ///
-  /// Updates a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Updates a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -3465,8 +3898,18 @@ class MattermostChannelsApi {
   ///   Category GUID
   ///
   /// * [MattermostSidebarCategory] mattermostSidebarCategory (required):
-  Future<MattermostSidebarCategory?> updateSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId, MattermostSidebarCategory mattermostSidebarCategory,) async {
-    final response = await updateSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId, mattermostSidebarCategory,);
+  Future<MattermostSidebarCategory?> updateSidebarCategoryForTeamForUser(
+    String teamId,
+    String userId,
+    String categoryId,
+    MattermostSidebarCategory mattermostSidebarCategory,
+  ) async {
+    final response = await updateSidebarCategoryForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      categoryId,
+      mattermostSidebarCategory,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3474,15 +3917,17 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSidebarCategory',) as MattermostSidebarCategory;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostSidebarCategory',
+      ) as MattermostSidebarCategory;
     }
     return null;
   }
 
   /// Update user's sidebar category order
   ///
-  /// Updates the order of the sidebar categories for a user on the given team. The provided array must include the IDs of all categories on the team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Updates the order of the sidebar categories for a user on the given team. The provided array must include the IDs of all categories on the team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3495,11 +3940,15 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> updateSidebarCategoryOrderForTeamForUserWithHttpInfo(String teamId, String userId, List<String> requestBody,) async {
+  Future<Response> updateSidebarCategoryOrderForTeamForUserWithHttpInfo(
+    String teamId,
+    String userId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/order'
-      .replaceAll('{team_id}', teamId)
-      .replaceAll('{user_id}', userId);
+        .replaceAll('{team_id}', teamId)
+        .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -3510,7 +3959,6 @@ class MattermostChannelsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -3524,7 +3972,7 @@ class MattermostChannelsApi {
 
   /// Update user's sidebar category order
   ///
-  /// Updates the order of the sidebar categories for a user on the given team. The provided array must include the IDs of all categories on the team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
+  /// Updates the order of the sidebar categories for a user on the given team. The provided array must include the IDs of all categories on the team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission.
   ///
   /// Parameters:
   ///
@@ -3535,8 +3983,16 @@ class MattermostChannelsApi {
   ///   User GUID
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<String>?> updateSidebarCategoryOrderForTeamForUser(String teamId, String userId, List<String> requestBody,) async {
-    final response = await updateSidebarCategoryOrderForTeamForUserWithHttpInfo(teamId, userId, requestBody,);
+  Future<List<String>?> updateSidebarCategoryOrderForTeamForUser(
+    String teamId,
+    String userId,
+    List<String> requestBody,
+  ) async {
+    final response = await updateSidebarCategoryOrderForTeamForUserWithHttpInfo(
+      teamId,
+      userId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3545,17 +4001,14 @@ class MattermostChannelsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }
 
   /// View channel
   ///
-  /// Perform all the actions involved in viewing a channel. This includes marking channels as read, clearing push notifications, and updating the active channel. ##### Permissions Must be logged in as user or have `edit_other_users` permission.  __Response only includes `last_viewed_at_times` in Mattermost server 4.3 and newer.__ 
+  /// Perform all the actions involved in viewing a channel. This includes marking channels as read, clearing push notifications, and updating the active channel. ##### Permissions Must be logged in as user or have `edit_other_users` permission.  __Response only includes `last_viewed_at_times` in Mattermost server 4.3 and newer.__
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -3566,10 +4019,12 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostViewChannelRequest] mattermostViewChannelRequest (required):
   ///   Paremeters affecting how and which channels to view
-  Future<Response> viewChannelWithHttpInfo(String userId, MattermostViewChannelRequest mattermostViewChannelRequest,) async {
+  Future<Response> viewChannelWithHttpInfo(
+    String userId,
+    MattermostViewChannelRequest mattermostViewChannelRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/channels/members/{user_id}/view'
-      .replaceAll('{user_id}', userId);
+    final path = r'/channels/members/{user_id}/view'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostViewChannelRequest;
@@ -3579,7 +4034,6 @@ class MattermostChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3594,7 +4048,7 @@ class MattermostChannelsApi {
 
   /// View channel
   ///
-  /// Perform all the actions involved in viewing a channel. This includes marking channels as read, clearing push notifications, and updating the active channel. ##### Permissions Must be logged in as user or have `edit_other_users` permission.  __Response only includes `last_viewed_at_times` in Mattermost server 4.3 and newer.__ 
+  /// Perform all the actions involved in viewing a channel. This includes marking channels as read, clearing push notifications, and updating the active channel. ##### Permissions Must be logged in as user or have `edit_other_users` permission.  __Response only includes `last_viewed_at_times` in Mattermost server 4.3 and newer.__
   ///
   /// Parameters:
   ///
@@ -3603,8 +4057,14 @@ class MattermostChannelsApi {
   ///
   /// * [MattermostViewChannelRequest] mattermostViewChannelRequest (required):
   ///   Paremeters affecting how and which channels to view
-  Future<MattermostViewChannel200Response?> viewChannel(String userId, MattermostViewChannelRequest mattermostViewChannelRequest,) async {
-    final response = await viewChannelWithHttpInfo(userId, mattermostViewChannelRequest,);
+  Future<MattermostViewChannel200Response?> viewChannel(
+    String userId,
+    MattermostViewChannelRequest mattermostViewChannelRequest,
+  ) async {
+    final response = await viewChannelWithHttpInfo(
+      userId,
+      mattermostViewChannelRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3612,8 +4072,10 @@ class MattermostChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostViewChannel200Response',) as MattermostViewChannel200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostViewChannel200Response',
+      ) as MattermostViewChannel200Response;
     }
     return null;
   }

@@ -58,35 +58,38 @@ class MattermostUpdateIncomingWebhookRequest {
   String? iconUrl;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateIncomingWebhookRequest &&
-     other.hookId == hookId &&
-     other.channelId == channelId &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.username == username &&
-     other.iconUrl == iconUrl;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateIncomingWebhookRequest &&
+          other.hookId == hookId &&
+          other.channelId == channelId &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.username == username &&
+          other.iconUrl == iconUrl;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (hookId == null ? 0 : hookId!.hashCode) +
-    (channelId.hashCode) +
-    (displayName.hashCode) +
-    (description.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (iconUrl == null ? 0 : iconUrl!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (hookId == null ? 0 : hookId!.hashCode) +
+      (channelId.hashCode) +
+      (displayName.hashCode) +
+      (description.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (iconUrl == null ? 0 : iconUrl!.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateIncomingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
+  String toString() =>
+      'MattermostUpdateIncomingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (hookId != null) {
       _json[r'hook_id'] = hookId;
     }
-      _json[r'channel_id'] = channelId;
-      _json[r'display_name'] = displayName;
-      _json[r'description'] = description;
+    _json[r'channel_id'] = channelId;
+    _json[r'display_name'] = displayName;
+    _json[r'description'] = description;
     if (username != null) {
       _json[r'username'] = username;
     }
@@ -108,8 +111,10 @@ class MattermostUpdateIncomingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateIncomingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateIncomingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostUpdateIncomingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostUpdateIncomingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -126,7 +131,10 @@ class MattermostUpdateIncomingWebhookRequest {
     return null;
   }
 
-  static List<MattermostUpdateIncomingWebhookRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateIncomingWebhookRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateIncomingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -154,12 +162,18 @@ class MattermostUpdateIncomingWebhookRequest {
   }
 
   // maps a json object with a list of MattermostUpdateIncomingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateIncomingWebhookRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateIncomingWebhookRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateIncomingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateIncomingWebhookRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateIncomingWebhookRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -175,4 +189,3 @@ class MattermostUpdateIncomingWebhookRequest {
     'description',
   };
 }
-

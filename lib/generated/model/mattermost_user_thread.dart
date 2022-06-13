@@ -69,26 +69,29 @@ class MattermostUserThread {
   MattermostPost? post;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserThread &&
-     other.id == id &&
-     other.replyCount == replyCount &&
-     other.lastReplyAt == lastReplyAt &&
-     other.lastViewedAt == lastViewedAt &&
-     other.participants == participants &&
-     other.post == post;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserThread &&
+          other.id == id &&
+          other.replyCount == replyCount &&
+          other.lastReplyAt == lastReplyAt &&
+          other.lastViewedAt == lastViewedAt &&
+          other.participants == participants &&
+          other.post == post;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (replyCount == null ? 0 : replyCount!.hashCode) +
-    (lastReplyAt == null ? 0 : lastReplyAt!.hashCode) +
-    (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
-    (participants.hashCode) +
-    (post == null ? 0 : post!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (replyCount == null ? 0 : replyCount!.hashCode) +
+      (lastReplyAt == null ? 0 : lastReplyAt!.hashCode) +
+      (lastViewedAt == null ? 0 : lastViewedAt!.hashCode) +
+      (participants.hashCode) +
+      (post == null ? 0 : post!.hashCode);
 
   @override
-  String toString() => 'MattermostUserThread[id=$id, replyCount=$replyCount, lastReplyAt=$lastReplyAt, lastViewedAt=$lastViewedAt, participants=$participants, post=$post]';
+  String toString() =>
+      'MattermostUserThread[id=$id, replyCount=$replyCount, lastReplyAt=$lastReplyAt, lastViewedAt=$lastViewedAt, participants=$participants, post=$post]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -104,7 +107,7 @@ class MattermostUserThread {
     if (lastViewedAt != null) {
       _json[r'last_viewed_at'] = lastViewedAt;
     }
-      _json[r'participants'] = participants;
+    _json[r'participants'] = participants;
     if (post != null) {
       _json[r'post'] = post;
     }
@@ -141,7 +144,10 @@ class MattermostUserThread {
     return null;
   }
 
-  static List<MattermostUserThread>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserThread>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserThread>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -169,12 +175,18 @@ class MattermostUserThread {
   }
 
   // maps a json object with a list of MattermostUserThread-objects as value to a dart map
-  static Map<String, List<MattermostUserThread>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserThread>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserThread>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserThread.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserThread.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -184,7 +196,5 @@ class MattermostUserThread {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

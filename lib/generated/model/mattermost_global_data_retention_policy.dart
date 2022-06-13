@@ -56,22 +56,25 @@ class MattermostGlobalDataRetentionPolicy {
   int? fileRetentionCutoff;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGlobalDataRetentionPolicy &&
-     other.messageDeletionEnabled == messageDeletionEnabled &&
-     other.fileDeletionEnabled == fileDeletionEnabled &&
-     other.messageRetentionCutoff == messageRetentionCutoff &&
-     other.fileRetentionCutoff == fileRetentionCutoff;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGlobalDataRetentionPolicy &&
+          other.messageDeletionEnabled == messageDeletionEnabled &&
+          other.fileDeletionEnabled == fileDeletionEnabled &&
+          other.messageRetentionCutoff == messageRetentionCutoff &&
+          other.fileRetentionCutoff == fileRetentionCutoff;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (messageDeletionEnabled == null ? 0 : messageDeletionEnabled!.hashCode) +
-    (fileDeletionEnabled == null ? 0 : fileDeletionEnabled!.hashCode) +
-    (messageRetentionCutoff == null ? 0 : messageRetentionCutoff!.hashCode) +
-    (fileRetentionCutoff == null ? 0 : fileRetentionCutoff!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (messageDeletionEnabled == null ? 0 : messageDeletionEnabled!.hashCode) +
+      (fileDeletionEnabled == null ? 0 : fileDeletionEnabled!.hashCode) +
+      (messageRetentionCutoff == null ? 0 : messageRetentionCutoff!.hashCode) +
+      (fileRetentionCutoff == null ? 0 : fileRetentionCutoff!.hashCode);
 
   @override
-  String toString() => 'MattermostGlobalDataRetentionPolicy[messageDeletionEnabled=$messageDeletionEnabled, fileDeletionEnabled=$fileDeletionEnabled, messageRetentionCutoff=$messageRetentionCutoff, fileRetentionCutoff=$fileRetentionCutoff]';
+  String toString() =>
+      'MattermostGlobalDataRetentionPolicy[messageDeletionEnabled=$messageDeletionEnabled, fileDeletionEnabled=$fileDeletionEnabled, messageRetentionCutoff=$messageRetentionCutoff, fileRetentionCutoff=$fileRetentionCutoff]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,8 +105,10 @@ class MattermostGlobalDataRetentionPolicy {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostGlobalDataRetentionPolicy[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostGlobalDataRetentionPolicy[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostGlobalDataRetentionPolicy[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostGlobalDataRetentionPolicy[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -118,7 +123,10 @@ class MattermostGlobalDataRetentionPolicy {
     return null;
   }
 
-  static List<MattermostGlobalDataRetentionPolicy>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGlobalDataRetentionPolicy>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGlobalDataRetentionPolicy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +154,18 @@ class MattermostGlobalDataRetentionPolicy {
   }
 
   // maps a json object with a list of MattermostGlobalDataRetentionPolicy-objects as value to a dart map
-  static Map<String, List<MattermostGlobalDataRetentionPolicy>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGlobalDataRetentionPolicy>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGlobalDataRetentionPolicy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGlobalDataRetentionPolicy.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGlobalDataRetentionPolicy.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +175,5 @@ class MattermostGlobalDataRetentionPolicy {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

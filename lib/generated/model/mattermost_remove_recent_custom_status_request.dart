@@ -32,29 +32,29 @@ class MattermostRemoveRecentCustomStatusRequest {
   String expiresAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRemoveRecentCustomStatusRequest &&
-     other.emoji == emoji &&
-     other.text == text &&
-     other.duration == duration &&
-     other.expiresAt == expiresAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostRemoveRecentCustomStatusRequest &&
+          other.emoji == emoji &&
+          other.text == text &&
+          other.duration == duration &&
+          other.expiresAt == expiresAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (emoji.hashCode) +
-    (text.hashCode) +
-    (duration.hashCode) +
-    (expiresAt.hashCode);
+      // ignore: unnecessary_parenthesis
+      (emoji.hashCode) + (text.hashCode) + (duration.hashCode) + (expiresAt.hashCode);
 
   @override
-  String toString() => 'MattermostRemoveRecentCustomStatusRequest[emoji=$emoji, text=$text, duration=$duration, expiresAt=$expiresAt]';
+  String toString() =>
+      'MattermostRemoveRecentCustomStatusRequest[emoji=$emoji, text=$text, duration=$duration, expiresAt=$expiresAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'emoji'] = emoji;
-      _json[r'text'] = text;
-      _json[r'duration'] = duration;
-      _json[r'expires_at'] = expiresAt;
+    _json[r'emoji'] = emoji;
+    _json[r'text'] = text;
+    _json[r'duration'] = duration;
+    _json[r'expires_at'] = expiresAt;
     return _json;
   }
 
@@ -70,8 +70,10 @@ class MattermostRemoveRecentCustomStatusRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostRemoveRecentCustomStatusRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostRemoveRecentCustomStatusRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostRemoveRecentCustomStatusRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostRemoveRecentCustomStatusRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +88,10 @@ class MattermostRemoveRecentCustomStatusRequest {
     return null;
   }
 
-  static List<MattermostRemoveRecentCustomStatusRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRemoveRecentCustomStatusRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRemoveRecentCustomStatusRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +119,18 @@ class MattermostRemoveRecentCustomStatusRequest {
   }
 
   // maps a json object with a list of MattermostRemoveRecentCustomStatusRequest-objects as value to a dart map
-  static Map<String, List<MattermostRemoveRecentCustomStatusRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRemoveRecentCustomStatusRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRemoveRecentCustomStatusRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRemoveRecentCustomStatusRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRemoveRecentCustomStatusRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -136,4 +147,3 @@ class MattermostRemoveRecentCustomStatusRequest {
     'expires_at',
   };
 }
-

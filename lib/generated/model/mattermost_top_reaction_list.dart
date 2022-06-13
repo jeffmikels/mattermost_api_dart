@@ -30,15 +30,13 @@ class MattermostTopReactionList {
   List<MattermostTopReaction> items;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTopReactionList &&
-     other.hasNext == hasNext &&
-     other.items == items;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostTopReactionList && other.hasNext == hasNext && other.items == items;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (hasNext == null ? 0 : hasNext!.hashCode) +
-    (items.hashCode);
+      // ignore: unnecessary_parenthesis
+      (hasNext == null ? 0 : hasNext!.hashCode) + (items.hashCode);
 
   @override
   String toString() => 'MattermostTopReactionList[hasNext=$hasNext, items=$items]';
@@ -48,7 +46,7 @@ class MattermostTopReactionList {
     if (hasNext != null) {
       _json[r'has_next'] = hasNext;
     }
-      _json[r'items'] = items;
+    _json[r'items'] = items;
     return _json;
   }
 
@@ -78,7 +76,10 @@ class MattermostTopReactionList {
     return null;
   }
 
-  static List<MattermostTopReactionList>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTopReactionList>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTopReactionList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +107,18 @@ class MattermostTopReactionList {
   }
 
   // maps a json object with a list of MattermostTopReactionList-objects as value to a dart map
-  static Map<String, List<MattermostTopReactionList>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTopReactionList>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTopReactionList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTopReactionList.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTopReactionList.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -121,7 +128,5 @@ class MattermostTopReactionList {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

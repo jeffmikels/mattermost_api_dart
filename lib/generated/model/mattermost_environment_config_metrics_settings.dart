@@ -43,20 +43,23 @@ class MattermostEnvironmentConfigMetricsSettings {
   bool? listenAddress;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigMetricsSettings &&
-     other.enable == enable &&
-     other.blockProfileRate == blockProfileRate &&
-     other.listenAddress == listenAddress;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigMetricsSettings &&
+          other.enable == enable &&
+          other.blockProfileRate == blockProfileRate &&
+          other.listenAddress == listenAddress;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (blockProfileRate == null ? 0 : blockProfileRate!.hashCode) +
-    (listenAddress == null ? 0 : listenAddress!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (blockProfileRate == null ? 0 : blockProfileRate!.hashCode) +
+      (listenAddress == null ? 0 : listenAddress!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
+  String toString() =>
+      'MattermostEnvironmentConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostEnvironmentConfigMetricsSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigMetricsSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigMetricsSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigMetricsSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigMetricsSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostEnvironmentConfigMetricsSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigMetricsSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigMetricsSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigMetricsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostEnvironmentConfigMetricsSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigMetricsSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigMetricsSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigMetricsSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigMetricsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigMetricsSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigMetricsSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostEnvironmentConfigMetricsSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

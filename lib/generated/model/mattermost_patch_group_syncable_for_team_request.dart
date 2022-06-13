@@ -25,13 +25,13 @@ class MattermostPatchGroupSyncableForTeamRequest {
   bool? autoAdd;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchGroupSyncableForTeamRequest &&
-     other.autoAdd == autoAdd;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostPatchGroupSyncableForTeamRequest && other.autoAdd == autoAdd;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (autoAdd == null ? 0 : autoAdd!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (autoAdd == null ? 0 : autoAdd!.hashCode);
 
   @override
   String toString() => 'MattermostPatchGroupSyncableForTeamRequest[autoAdd=$autoAdd]';
@@ -56,8 +56,10 @@ class MattermostPatchGroupSyncableForTeamRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostPatchGroupSyncableForTeamRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostPatchGroupSyncableForTeamRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostPatchGroupSyncableForTeamRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostPatchGroupSyncableForTeamRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -69,7 +71,10 @@ class MattermostPatchGroupSyncableForTeamRequest {
     return null;
   }
 
-  static List<MattermostPatchGroupSyncableForTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchGroupSyncableForTeamRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchGroupSyncableForTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +102,18 @@ class MattermostPatchGroupSyncableForTeamRequest {
   }
 
   // maps a json object with a list of MattermostPatchGroupSyncableForTeamRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchGroupSyncableForTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchGroupSyncableForTeamRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchGroupSyncableForTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchGroupSyncableForTeamRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchGroupSyncableForTeamRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +123,5 @@ class MattermostPatchGroupSyncableForTeamRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

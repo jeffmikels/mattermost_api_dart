@@ -52,22 +52,25 @@ class MattermostStatus {
   int? lastActivityAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostStatus &&
-     other.userId == userId &&
-     other.status == status &&
-     other.manual == manual &&
-     other.lastActivityAt == lastActivityAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostStatus &&
+          other.userId == userId &&
+          other.status == status &&
+          other.manual == manual &&
+          other.lastActivityAt == lastActivityAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId == null ? 0 : userId!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (manual == null ? 0 : manual!.hashCode) +
-    (lastActivityAt == null ? 0 : lastActivityAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId == null ? 0 : userId!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (manual == null ? 0 : manual!.hashCode) +
+      (lastActivityAt == null ? 0 : lastActivityAt!.hashCode);
 
   @override
-  String toString() => 'MattermostStatus[userId=$userId, status=$status, manual=$manual, lastActivityAt=$lastActivityAt]';
+  String toString() =>
+      'MattermostStatus[userId=$userId, status=$status, manual=$manual, lastActivityAt=$lastActivityAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -114,7 +117,10 @@ class MattermostStatus {
     return null;
   }
 
-  static List<MattermostStatus>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostStatus>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +148,18 @@ class MattermostStatus {
   }
 
   // maps a json object with a list of MattermostStatus-objects as value to a dart map
-  static Map<String, List<MattermostStatus>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostStatus>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostStatus.listFromJson(entry.value, growable: growable,);
+        final value = MattermostStatus.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +169,5 @@ class MattermostStatus {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

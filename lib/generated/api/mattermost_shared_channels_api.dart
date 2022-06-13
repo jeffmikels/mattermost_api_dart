@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostSharedChannelsApi {
   MattermostSharedChannelsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostSharedChannelsApi {
 
   /// Get all shared channels for team.
   ///
-  /// Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated. 
+  /// Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -30,10 +29,13 @@ class MattermostSharedChannelsApi {
   /// * [int] page:
   ///
   /// * [int] perPage:
-  Future<Response> getAllSharedChannelsWithHttpInfo(String teamId, { int? page, int? perPage, }) async {
+  Future<Response> getAllSharedChannelsWithHttpInfo(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/sharedchannels/{team_id}'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/sharedchannels/{team_id}'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -51,7 +53,6 @@ class MattermostSharedChannelsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -65,7 +66,7 @@ class MattermostSharedChannelsApi {
 
   /// Get all shared channels for team.
   ///
-  /// Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated. 
+  /// Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated.
   ///
   /// Parameters:
   ///
@@ -75,8 +76,16 @@ class MattermostSharedChannelsApi {
   /// * [int] page:
   ///
   /// * [int] perPage:
-  Future<List<MattermostSharedChannel>?> getAllSharedChannels(String teamId, { int? page, int? perPage, }) async {
-    final response = await getAllSharedChannelsWithHttpInfo(teamId,  page: page, perPage: perPage, );
+  Future<List<MattermostSharedChannel>?> getAllSharedChannels(
+    String teamId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getAllSharedChannelsWithHttpInfo(
+      teamId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -86,16 +95,15 @@ class MattermostSharedChannelsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostSharedChannel>') as List)
-        .cast<MattermostSharedChannel>()
-        .toList();
-
+          .cast<MattermostSharedChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get remote cluster info by ID for user.
   ///
-  /// Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated and user must belong to at least one channel shared with the remote cluster. 
+  /// Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated and user must belong to at least one channel shared with the remote cluster.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -103,10 +111,11 @@ class MattermostSharedChannelsApi {
   ///
   /// * [String] remoteId (required):
   ///   Remote Cluster GUID
-  Future<Response> getRemoteClusterInfoWithHttpInfo(String remoteId,) async {
+  Future<Response> getRemoteClusterInfoWithHttpInfo(
+    String remoteId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/sharedchannels/remote_info/{remote_id}'
-      .replaceAll('{remote_id}', remoteId);
+    final path = r'/sharedchannels/remote_info/{remote_id}'.replaceAll('{remote_id}', remoteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -116,7 +125,6 @@ class MattermostSharedChannelsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -131,14 +139,18 @@ class MattermostSharedChannelsApi {
 
   /// Get remote cluster info by ID for user.
   ///
-  /// Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated and user must belong to at least one channel shared with the remote cluster. 
+  /// Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated and user must belong to at least one channel shared with the remote cluster.
   ///
   /// Parameters:
   ///
   /// * [String] remoteId (required):
   ///   Remote Cluster GUID
-  Future<MattermostRemoteClusterInfo?> getRemoteClusterInfo(String remoteId,) async {
-    final response = await getRemoteClusterInfoWithHttpInfo(remoteId,);
+  Future<MattermostRemoteClusterInfo?> getRemoteClusterInfo(
+    String remoteId,
+  ) async {
+    final response = await getRemoteClusterInfoWithHttpInfo(
+      remoteId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -146,8 +158,10 @@ class MattermostSharedChannelsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRemoteClusterInfo',) as MattermostRemoteClusterInfo;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRemoteClusterInfo',
+      ) as MattermostRemoteClusterInfo;
     }
     return null;
   }

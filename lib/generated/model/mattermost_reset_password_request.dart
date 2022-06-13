@@ -24,23 +24,22 @@ class MattermostResetPasswordRequest {
   String newPassword;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostResetPasswordRequest &&
-     other.code == code &&
-     other.newPassword == newPassword;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostResetPasswordRequest && other.code == code && other.newPassword == newPassword;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code.hashCode) +
-    (newPassword.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code.hashCode) + (newPassword.hashCode);
 
   @override
   String toString() => 'MattermostResetPasswordRequest[code=$code, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'code'] = code;
-      _json[r'new_password'] = newPassword;
+    _json[r'code'] = code;
+    _json[r'new_password'] = newPassword;
     return _json;
   }
 
@@ -70,7 +69,10 @@ class MattermostResetPasswordRequest {
     return null;
   }
 
-  static List<MattermostResetPasswordRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostResetPasswordRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostResetPasswordRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +100,18 @@ class MattermostResetPasswordRequest {
   }
 
   // maps a json object with a list of MattermostResetPasswordRequest-objects as value to a dart map
-  static Map<String, List<MattermostResetPasswordRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostResetPasswordRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostResetPasswordRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostResetPasswordRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostResetPasswordRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,4 +126,3 @@ class MattermostResetPasswordRequest {
     'new_password',
   };
 }
-

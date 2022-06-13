@@ -46,37 +46,40 @@ class MattermostSearchPostsRequest {
   int perPage;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchPostsRequest &&
-     other.terms == terms &&
-     other.isOrSearch == isOrSearch &&
-     other.timeZoneOffset == timeZoneOffset &&
-     other.includeDeletedChannels == includeDeletedChannels &&
-     other.page == page &&
-     other.perPage == perPage;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchPostsRequest &&
+          other.terms == terms &&
+          other.isOrSearch == isOrSearch &&
+          other.timeZoneOffset == timeZoneOffset &&
+          other.includeDeletedChannels == includeDeletedChannels &&
+          other.page == page &&
+          other.perPage == perPage;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (terms.hashCode) +
-    (isOrSearch.hashCode) +
-    (timeZoneOffset.hashCode) +
-    (includeDeletedChannels == null ? 0 : includeDeletedChannels!.hashCode) +
-    (page.hashCode) +
-    (perPage.hashCode);
+      // ignore: unnecessary_parenthesis
+      (terms.hashCode) +
+      (isOrSearch.hashCode) +
+      (timeZoneOffset.hashCode) +
+      (includeDeletedChannels == null ? 0 : includeDeletedChannels!.hashCode) +
+      (page.hashCode) +
+      (perPage.hashCode);
 
   @override
-  String toString() => 'MattermostSearchPostsRequest[terms=$terms, isOrSearch=$isOrSearch, timeZoneOffset=$timeZoneOffset, includeDeletedChannels=$includeDeletedChannels, page=$page, perPage=$perPage]';
+  String toString() =>
+      'MattermostSearchPostsRequest[terms=$terms, isOrSearch=$isOrSearch, timeZoneOffset=$timeZoneOffset, includeDeletedChannels=$includeDeletedChannels, page=$page, perPage=$perPage]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'terms'] = terms;
-      _json[r'is_or_search'] = isOrSearch;
-      _json[r'time_zone_offset'] = timeZoneOffset;
+    _json[r'terms'] = terms;
+    _json[r'is_or_search'] = isOrSearch;
+    _json[r'time_zone_offset'] = timeZoneOffset;
     if (includeDeletedChannels != null) {
       _json[r'include_deleted_channels'] = includeDeletedChannels;
     }
-      _json[r'page'] = page;
-      _json[r'per_page'] = perPage;
+    _json[r'page'] = page;
+    _json[r'per_page'] = perPage;
     return _json;
   }
 
@@ -110,7 +113,10 @@ class MattermostSearchPostsRequest {
     return null;
   }
 
-  static List<MattermostSearchPostsRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchPostsRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchPostsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -138,12 +144,18 @@ class MattermostSearchPostsRequest {
   }
 
   // maps a json object with a list of MattermostSearchPostsRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchPostsRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchPostsRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchPostsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchPostsRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchPostsRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -158,4 +170,3 @@ class MattermostSearchPostsRequest {
     'is_or_search',
   };
 }
-

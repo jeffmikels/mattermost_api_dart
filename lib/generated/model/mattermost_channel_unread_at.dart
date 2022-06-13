@@ -66,24 +66,27 @@ class MattermostChannelUnreadAt {
   int? lastViewedAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelUnreadAt &&
-     other.teamId == teamId &&
-     other.channelId == channelId &&
-     other.msgCount == msgCount &&
-     other.mentionCount == mentionCount &&
-     other.lastViewedAt == lastViewedAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelUnreadAt &&
+          other.teamId == teamId &&
+          other.channelId == channelId &&
+          other.msgCount == msgCount &&
+          other.mentionCount == mentionCount &&
+          other.lastViewedAt == lastViewedAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (msgCount == null ? 0 : msgCount!.hashCode) +
-    (mentionCount == null ? 0 : mentionCount!.hashCode) +
-    (lastViewedAt == null ? 0 : lastViewedAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (msgCount == null ? 0 : msgCount!.hashCode) +
+      (mentionCount == null ? 0 : mentionCount!.hashCode) +
+      (lastViewedAt == null ? 0 : lastViewedAt!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelUnreadAt[teamId=$teamId, channelId=$channelId, msgCount=$msgCount, mentionCount=$mentionCount, lastViewedAt=$lastViewedAt]';
+  String toString() =>
+      'MattermostChannelUnreadAt[teamId=$teamId, channelId=$channelId, msgCount=$msgCount, mentionCount=$mentionCount, lastViewedAt=$lastViewedAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -134,7 +137,10 @@ class MattermostChannelUnreadAt {
     return null;
   }
 
-  static List<MattermostChannelUnreadAt>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelUnreadAt>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelUnreadAt>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -162,12 +168,18 @@ class MattermostChannelUnreadAt {
   }
 
   // maps a json object with a list of MattermostChannelUnreadAt-objects as value to a dart map
-  static Map<String, List<MattermostChannelUnreadAt>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelUnreadAt>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelUnreadAt>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelUnreadAt.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelUnreadAt.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,7 +189,5 @@ class MattermostChannelUnreadAt {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

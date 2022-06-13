@@ -116,34 +116,37 @@ class MattermostSystemStatusResponse {
   String? canReceiveNotifications;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSystemStatusResponse &&
-     other.androidLatestVersion == androidLatestVersion &&
-     other.androidMinVersion == androidMinVersion &&
-     other.desktopLatestVersion == desktopLatestVersion &&
-     other.desktopMinVersion == desktopMinVersion &&
-     other.iosLatestVersion == iosLatestVersion &&
-     other.iosMinVersion == iosMinVersion &&
-     other.databaseStatus == databaseStatus &&
-     other.filestoreStatus == filestoreStatus &&
-     other.status == status &&
-     other.canReceiveNotifications == canReceiveNotifications;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSystemStatusResponse &&
+          other.androidLatestVersion == androidLatestVersion &&
+          other.androidMinVersion == androidMinVersion &&
+          other.desktopLatestVersion == desktopLatestVersion &&
+          other.desktopMinVersion == desktopMinVersion &&
+          other.iosLatestVersion == iosLatestVersion &&
+          other.iosMinVersion == iosMinVersion &&
+          other.databaseStatus == databaseStatus &&
+          other.filestoreStatus == filestoreStatus &&
+          other.status == status &&
+          other.canReceiveNotifications == canReceiveNotifications;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (androidLatestVersion == null ? 0 : androidLatestVersion!.hashCode) +
-    (androidMinVersion == null ? 0 : androidMinVersion!.hashCode) +
-    (desktopLatestVersion == null ? 0 : desktopLatestVersion!.hashCode) +
-    (desktopMinVersion == null ? 0 : desktopMinVersion!.hashCode) +
-    (iosLatestVersion == null ? 0 : iosLatestVersion!.hashCode) +
-    (iosMinVersion == null ? 0 : iosMinVersion!.hashCode) +
-    (databaseStatus == null ? 0 : databaseStatus!.hashCode) +
-    (filestoreStatus == null ? 0 : filestoreStatus!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (canReceiveNotifications == null ? 0 : canReceiveNotifications!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (androidLatestVersion == null ? 0 : androidLatestVersion!.hashCode) +
+      (androidMinVersion == null ? 0 : androidMinVersion!.hashCode) +
+      (desktopLatestVersion == null ? 0 : desktopLatestVersion!.hashCode) +
+      (desktopMinVersion == null ? 0 : desktopMinVersion!.hashCode) +
+      (iosLatestVersion == null ? 0 : iosLatestVersion!.hashCode) +
+      (iosMinVersion == null ? 0 : iosMinVersion!.hashCode) +
+      (databaseStatus == null ? 0 : databaseStatus!.hashCode) +
+      (filestoreStatus == null ? 0 : filestoreStatus!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (canReceiveNotifications == null ? 0 : canReceiveNotifications!.hashCode);
 
   @override
-  String toString() => 'MattermostSystemStatusResponse[androidLatestVersion=$androidLatestVersion, androidMinVersion=$androidMinVersion, desktopLatestVersion=$desktopLatestVersion, desktopMinVersion=$desktopMinVersion, iosLatestVersion=$iosLatestVersion, iosMinVersion=$iosMinVersion, databaseStatus=$databaseStatus, filestoreStatus=$filestoreStatus, status=$status, canReceiveNotifications=$canReceiveNotifications]';
+  String toString() =>
+      'MattermostSystemStatusResponse[androidLatestVersion=$androidLatestVersion, androidMinVersion=$androidMinVersion, desktopLatestVersion=$desktopLatestVersion, desktopMinVersion=$desktopMinVersion, iosLatestVersion=$iosLatestVersion, iosMinVersion=$iosMinVersion, databaseStatus=$databaseStatus, filestoreStatus=$filestoreStatus, status=$status, canReceiveNotifications=$canReceiveNotifications]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -214,7 +217,10 @@ class MattermostSystemStatusResponse {
     return null;
   }
 
-  static List<MattermostSystemStatusResponse>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSystemStatusResponse>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSystemStatusResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -242,12 +248,18 @@ class MattermostSystemStatusResponse {
   }
 
   // maps a json object with a list of MattermostSystemStatusResponse-objects as value to a dart map
-  static Map<String, List<MattermostSystemStatusResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSystemStatusResponse>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSystemStatusResponse>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSystemStatusResponse.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSystemStatusResponse.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -257,7 +269,5 @@ class MattermostSystemStatusResponse {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

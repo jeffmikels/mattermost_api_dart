@@ -22,23 +22,22 @@ class MattermostOrderedSidebarCategories {
   List<MattermostSidebarCategoryWithChannels> categories;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOrderedSidebarCategories &&
-     other.order == order &&
-     other.categories == categories;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOrderedSidebarCategories && other.order == order && other.categories == categories;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (order.hashCode) +
-    (categories.hashCode);
+      // ignore: unnecessary_parenthesis
+      (order.hashCode) + (categories.hashCode);
 
   @override
   String toString() => 'MattermostOrderedSidebarCategories[order=$order, categories=$categories]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'order'] = order;
-      _json[r'categories'] = categories;
+    _json[r'order'] = order;
+    _json[r'categories'] = categories;
     return _json;
   }
 
@@ -54,23 +53,26 @@ class MattermostOrderedSidebarCategories {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostOrderedSidebarCategories[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostOrderedSidebarCategories[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostOrderedSidebarCategories[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostOrderedSidebarCategories[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostOrderedSidebarCategories(
-        order: json[r'order'] is List
-            ? (json[r'order'] as List).cast<String>()
-            : const [],
+        order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
         categories: MattermostSidebarCategoryWithChannels.listFromJson(json[r'categories']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MattermostOrderedSidebarCategories>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOrderedSidebarCategories>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOrderedSidebarCategories>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +100,18 @@ class MattermostOrderedSidebarCategories {
   }
 
   // maps a json object with a list of MattermostOrderedSidebarCategories-objects as value to a dart map
-  static Map<String, List<MattermostOrderedSidebarCategories>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOrderedSidebarCategories>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOrderedSidebarCategories>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOrderedSidebarCategories.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOrderedSidebarCategories.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +121,5 @@ class MattermostOrderedSidebarCategories {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

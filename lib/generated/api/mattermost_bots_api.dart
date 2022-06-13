@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostBotsApi {
   MattermostBotsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostBotsApi {
 
   /// Assign a bot to a user
   ///
-  /// Assign a bot to a specified user. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Assign a bot to a specified user. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -29,11 +28,13 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   The user ID to assign the bot to.
-  Future<Response> assignBotWithHttpInfo(String botUserId, String userId,) async {
+  Future<Response> assignBotWithHttpInfo(
+    String botUserId,
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/assign/{user_id}'
-      .replaceAll('{bot_user_id}', botUserId)
-      .replaceAll('{user_id}', userId);
+    final path =
+        r'/bots/{bot_user_id}/assign/{user_id}'.replaceAll('{bot_user_id}', botUserId).replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -43,7 +44,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -58,7 +58,7 @@ class MattermostBotsApi {
 
   /// Assign a bot to a user
   ///
-  /// Assign a bot to a specified user. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Assign a bot to a specified user. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
@@ -67,8 +67,14 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   The user ID to assign the bot to.
-  Future<MattermostBot?> assignBot(String botUserId, String userId,) async {
-    final response = await assignBotWithHttpInfo(botUserId, userId,);
+  Future<MattermostBot?> assignBot(
+    String botUserId,
+    String userId,
+  ) async {
+    final response = await assignBotWithHttpInfo(
+      botUserId,
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -76,15 +82,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Convert a bot into a user
   ///
-  /// Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -98,10 +106,13 @@ class MattermostBotsApi {
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<Response> convertBotToUserWithHttpInfo(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
+  Future<Response> convertBotToUserWithHttpInfo(
+    String botUserId,
+    MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, {
+    bool? setSystemAdmin,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/convert_to_user'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/convert_to_user'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostConvertBotToUserRequest;
@@ -116,7 +127,6 @@ class MattermostBotsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -130,7 +140,7 @@ class MattermostBotsApi {
 
   /// Convert a bot into a user
   ///
-  /// Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
@@ -142,8 +152,16 @@ class MattermostBotsApi {
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<MattermostStatusOK?> convertBotToUser(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
-    final response = await convertBotToUserWithHttpInfo(botUserId, mattermostConvertBotToUserRequest,  setSystemAdmin: setSystemAdmin, );
+  Future<MattermostStatusOK?> convertBotToUser(
+    String botUserId,
+    MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, {
+    bool? setSystemAdmin,
+  }) async {
+    final response = await convertBotToUserWithHttpInfo(
+      botUserId,
+      mattermostConvertBotToUserRequest,
+      setSystemAdmin: setSystemAdmin,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -151,15 +169,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Convert a user into a bot
   ///
-  /// Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -167,10 +187,11 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<Response> convertUserToBotWithHttpInfo(String userId,) async {
+  Future<Response> convertUserToBotWithHttpInfo(
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/convert_to_bot'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/convert_to_bot'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -180,7 +201,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -195,14 +215,18 @@ class MattermostBotsApi {
 
   /// Convert a user into a bot
   ///
-  /// Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
+  /// Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission.
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> convertUserToBot(String userId,) async {
-    final response = await convertUserToBotWithHttpInfo(userId,);
+  Future<MattermostStatusOK?> convertUserToBot(
+    String userId,
+  ) async {
+    final response = await convertUserToBotWithHttpInfo(
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -210,15 +234,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Create a bot
   ///
-  /// Create a new bot account on the system. Username is required. ##### Permissions Must have `create_bot` permission. __Minimum server version__: 5.10 
+  /// Create a new bot account on the system. Username is required. ##### Permissions Must have `create_bot` permission. __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -226,7 +252,9 @@ class MattermostBotsApi {
   ///
   /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
   ///   Bot to be created
-  Future<Response> createBotWithHttpInfo(MattermostCreateBotRequest mattermostCreateBotRequest,) async {
+  Future<Response> createBotWithHttpInfo(
+    MattermostCreateBotRequest mattermostCreateBotRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/bots';
 
@@ -239,7 +267,6 @@ class MattermostBotsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -253,14 +280,18 @@ class MattermostBotsApi {
 
   /// Create a bot
   ///
-  /// Create a new bot account on the system. Username is required. ##### Permissions Must have `create_bot` permission. __Minimum server version__: 5.10 
+  /// Create a new bot account on the system. Username is required. ##### Permissions Must have `create_bot` permission. __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
   ///   Bot to be created
-  Future<MattermostBot?> createBot(MattermostCreateBotRequest mattermostCreateBotRequest,) async {
-    final response = await createBotWithHttpInfo(mattermostCreateBotRequest,);
+  Future<MattermostBot?> createBot(
+    MattermostCreateBotRequest mattermostCreateBotRequest,
+  ) async {
+    final response = await createBotWithHttpInfo(
+      mattermostCreateBotRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -268,15 +299,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Delete bot's LHS icon image
   ///
-  /// Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
+  /// Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -284,10 +317,11 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<Response> deleteBotIconImageWithHttpInfo(String botUserId,) async {
+  Future<Response> deleteBotIconImageWithHttpInfo(
+    String botUserId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/icon'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/icon'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -297,7 +331,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -312,14 +345,18 @@ class MattermostBotsApi {
 
   /// Delete bot's LHS icon image
   ///
-  /// Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
+  /// Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostStatusOK?> deleteBotIconImage(String botUserId,) async {
-    final response = await deleteBotIconImageWithHttpInfo(botUserId,);
+  Future<MattermostStatusOK?> deleteBotIconImage(
+    String botUserId,
+  ) async {
+    final response = await deleteBotIconImageWithHttpInfo(
+      botUserId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -327,15 +364,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Disable a bot
   ///
-  /// Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -343,10 +382,11 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<Response> disableBotWithHttpInfo(String botUserId,) async {
+  Future<Response> disableBotWithHttpInfo(
+    String botUserId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/disable'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/disable'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -356,7 +396,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -371,14 +410,18 @@ class MattermostBotsApi {
 
   /// Disable a bot
   ///
-  /// Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostBot?> disableBot(String botUserId,) async {
-    final response = await disableBotWithHttpInfo(botUserId,);
+  Future<MattermostBot?> disableBot(
+    String botUserId,
+  ) async {
+    final response = await disableBotWithHttpInfo(
+      botUserId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -386,15 +429,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Enable a bot
   ///
-  /// Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -402,10 +447,11 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<Response> enableBotWithHttpInfo(String botUserId,) async {
+  Future<Response> enableBotWithHttpInfo(
+    String botUserId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/enable'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/enable'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -415,7 +461,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -430,14 +475,18 @@ class MattermostBotsApi {
 
   /// Enable a bot
   ///
-  /// Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostBot?> enableBot(String botUserId,) async {
-    final response = await enableBotWithHttpInfo(botUserId,);
+  Future<MattermostBot?> enableBot(
+    String botUserId,
+  ) async {
+    final response = await enableBotWithHttpInfo(
+      botUserId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -445,15 +494,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Get a bot
   ///
-  /// Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
+  /// Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -464,10 +515,12 @@ class MattermostBotsApi {
   ///
   /// * [bool] includeDeleted:
   ///   If deleted bots should be returned.
-  Future<Response> getBotWithHttpInfo(String botUserId, { bool? includeDeleted, }) async {
+  Future<Response> getBotWithHttpInfo(
+    String botUserId, {
+    bool? includeDeleted,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -482,7 +535,6 @@ class MattermostBotsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -496,7 +548,7 @@ class MattermostBotsApi {
 
   /// Get a bot
   ///
-  /// Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
+  /// Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
@@ -505,8 +557,14 @@ class MattermostBotsApi {
   ///
   /// * [bool] includeDeleted:
   ///   If deleted bots should be returned.
-  Future<MattermostBot?> getBot(String botUserId, { bool? includeDeleted, }) async {
-    final response = await getBotWithHttpInfo(botUserId,  includeDeleted: includeDeleted, );
+  Future<MattermostBot?> getBot(
+    String botUserId, {
+    bool? includeDeleted,
+  }) async {
+    final response = await getBotWithHttpInfo(
+      botUserId,
+      includeDeleted: includeDeleted,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -514,15 +572,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Get bot's LHS icon
   ///
-  /// Get a bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must be logged in. __Minimum server version__: 5.14 
+  /// Get a bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must be logged in. __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -530,10 +590,11 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<Response> getBotIconImageWithHttpInfo(String botUserId,) async {
+  Future<Response> getBotIconImageWithHttpInfo(
+    String botUserId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/icon'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/icon'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -543,7 +604,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -558,14 +618,18 @@ class MattermostBotsApi {
 
   /// Get bot's LHS icon
   ///
-  /// Get a bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must be logged in. __Minimum server version__: 5.14 
+  /// Get a bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must be logged in. __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<void> getBotIconImage(String botUserId,) async {
-    final response = await getBotIconImageWithHttpInfo(botUserId,);
+  Future<void> getBotIconImage(
+    String botUserId,
+  ) async {
+    final response = await getBotIconImageWithHttpInfo(
+      botUserId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -573,7 +637,7 @@ class MattermostBotsApi {
 
   /// Get bots
   ///
-  /// Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
+  /// Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -590,7 +654,12 @@ class MattermostBotsApi {
   ///
   /// * [bool] onlyOrphaned:
   ///   When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
-  Future<Response> getBotsWithHttpInfo({ int? page, int? perPage, bool? includeDeleted, bool? onlyOrphaned, }) async {
+  Future<Response> getBotsWithHttpInfo({
+    int? page,
+    int? perPage,
+    bool? includeDeleted,
+    bool? onlyOrphaned,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/bots';
 
@@ -616,7 +685,6 @@ class MattermostBotsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -630,7 +698,7 @@ class MattermostBotsApi {
 
   /// Get bots
   ///
-  /// Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
+  /// Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
@@ -645,8 +713,18 @@ class MattermostBotsApi {
   ///
   /// * [bool] onlyOrphaned:
   ///   When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
-  Future<List<MattermostBot>?> getBots({ int? page, int? perPage, bool? includeDeleted, bool? onlyOrphaned, }) async {
-    final response = await getBotsWithHttpInfo( page: page, perPage: perPage, includeDeleted: includeDeleted, onlyOrphaned: onlyOrphaned, );
+  Future<List<MattermostBot>?> getBots({
+    int? page,
+    int? perPage,
+    bool? includeDeleted,
+    bool? onlyOrphaned,
+  }) async {
+    final response = await getBotsWithHttpInfo(
+      page: page,
+      perPage: perPage,
+      includeDeleted: includeDeleted,
+      onlyOrphaned: onlyOrphaned,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -656,16 +734,15 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostBot>') as List)
-        .cast<MattermostBot>()
-        .toList();
-
+          .cast<MattermostBot>()
+          .toList();
     }
     return null;
   }
 
   /// Patch a bot
   ///
-  /// Partially update a bot by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Partially update a bot by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -676,10 +753,12 @@ class MattermostBotsApi {
   ///
   /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
   ///   Bot to be created
-  Future<Response> patchBotWithHttpInfo(String botUserId, MattermostCreateBotRequest mattermostCreateBotRequest,) async {
+  Future<Response> patchBotWithHttpInfo(
+    String botUserId,
+    MattermostCreateBotRequest mattermostCreateBotRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostCreateBotRequest;
@@ -689,7 +768,6 @@ class MattermostBotsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -704,7 +782,7 @@ class MattermostBotsApi {
 
   /// Patch a bot
   ///
-  /// Partially update a bot by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
+  /// Partially update a bot by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10
   ///
   /// Parameters:
   ///
@@ -713,8 +791,14 @@ class MattermostBotsApi {
   ///
   /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
   ///   Bot to be created
-  Future<MattermostBot?> patchBot(String botUserId, MattermostCreateBotRequest mattermostCreateBotRequest,) async {
-    final response = await patchBotWithHttpInfo(botUserId, mattermostCreateBotRequest,);
+  Future<MattermostBot?> patchBot(
+    String botUserId,
+    MattermostCreateBotRequest mattermostCreateBotRequest,
+  ) async {
+    final response = await patchBotWithHttpInfo(
+      botUserId,
+      mattermostCreateBotRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -722,15 +806,17 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostBot',
+      ) as MattermostBot;
     }
     return null;
   }
 
   /// Set bot's LHS icon image
   ///
-  /// Set a bot's LHS icon image based on bot_user_id string parameter. Icon image must be SVG format, all other formats are rejected. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
+  /// Set a bot's LHS icon image based on bot_user_id string parameter. Icon image must be SVG format, all other formats are rejected. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -741,10 +827,12 @@ class MattermostBotsApi {
   ///
   /// * [MultipartFile] image (required):
   ///   SVG icon image to be uploaded
-  Future<Response> setBotIconImageWithHttpInfo(String botUserId, MultipartFile image,) async {
+  Future<Response> setBotIconImageWithHttpInfo(
+    String botUserId,
+    MultipartFile image,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/bots/{bot_user_id}/icon'
-      .replaceAll('{bot_user_id}', botUserId);
+    final path = r'/bots/{bot_user_id}/icon'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -779,7 +867,7 @@ class MattermostBotsApi {
 
   /// Set bot's LHS icon image
   ///
-  /// Set a bot's LHS icon image based on bot_user_id string parameter. Icon image must be SVG format, all other formats are rejected. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
+  /// Set a bot's LHS icon image based on bot_user_id string parameter. Icon image must be SVG format, all other formats are rejected. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14
   ///
   /// Parameters:
   ///
@@ -788,8 +876,14 @@ class MattermostBotsApi {
   ///
   /// * [MultipartFile] image (required):
   ///   SVG icon image to be uploaded
-  Future<MattermostStatusOK?> setBotIconImage(String botUserId, MultipartFile image,) async {
-    final response = await setBotIconImageWithHttpInfo(botUserId, image,);
+  Future<MattermostStatusOK?> setBotIconImage(
+    String botUserId,
+    MultipartFile image,
+  ) async {
+    final response = await setBotIconImageWithHttpInfo(
+      botUserId,
+      image,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -797,8 +891,10 @@ class MattermostBotsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

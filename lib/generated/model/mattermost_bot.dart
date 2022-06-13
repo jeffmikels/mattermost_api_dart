@@ -93,30 +93,33 @@ class MattermostBot {
   String? ownerId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostBot &&
-     other.userId == userId &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.username == username &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.ownerId == ownerId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostBot &&
+          other.userId == userId &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.username == username &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.ownerId == ownerId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId == null ? 0 : userId!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (ownerId == null ? 0 : ownerId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId == null ? 0 : userId!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (ownerId == null ? 0 : ownerId!.hashCode);
 
   @override
-  String toString() => 'MattermostBot[userId=$userId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, displayName=$displayName, description=$description, ownerId=$ownerId]';
+  String toString() =>
+      'MattermostBot[userId=$userId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, displayName=$displayName, description=$description, ownerId=$ownerId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -179,7 +182,10 @@ class MattermostBot {
     return null;
   }
 
-  static List<MattermostBot>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostBot>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostBot>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -207,12 +213,18 @@ class MattermostBot {
   }
 
   // maps a json object with a list of MattermostBot-objects as value to a dart map
-  static Map<String, List<MattermostBot>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostBot>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostBot>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostBot.listFromJson(entry.value, growable: growable,);
+        final value = MattermostBot.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -222,7 +234,5 @@ class MattermostBot {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

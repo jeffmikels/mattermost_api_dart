@@ -48,7 +48,7 @@ class MattermostSearchTeamsRequest {
   ///
   String? perPage;
 
-  /// Filters results to teams where `allow_open_invite` is set to true or false, excludes group constrained channels if this filter option is passed. If this filter option is not passed then the query will remain unchanged. __Minimum server version__: 5.28 
+  /// Filters results to teams where `allow_open_invite` is set to true or false, excludes group constrained channels if this filter option is passed. If this filter option is not passed then the query will remain unchanged. __Minimum server version__: 5.28
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -57,7 +57,7 @@ class MattermostSearchTeamsRequest {
   ///
   bool? allowOpenInvite;
 
-  /// Filters results to teams where `group_constrained` is set to true or false, returns the union of results when used with `allow_open_invite` If the filter option is not passed then the query will remain unchanged. __Minimum server version__: 5.28 
+  /// Filters results to teams where `group_constrained` is set to true or false, returns the union of results when used with `allow_open_invite` If the filter option is not passed then the query will remain unchanged. __Minimum server version__: 5.28
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -66,30 +66,33 @@ class MattermostSearchTeamsRequest {
   ///
   bool? groupConstrained;
 
-  /// If set to true, only teams which do not have a granular retention policy assigned to them will be returned. The `sysconsole_read_compliance_data_retention` permission is required to use this parameter. __Minimum server version__: 5.35 
+  /// If set to true, only teams which do not have a granular retention policy assigned to them will be returned. The `sysconsole_read_compliance_data_retention` permission is required to use this parameter. __Minimum server version__: 5.35
   bool excludePolicyConstrained;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchTeamsRequest &&
-     other.term == term &&
-     other.page == page &&
-     other.perPage == perPage &&
-     other.allowOpenInvite == allowOpenInvite &&
-     other.groupConstrained == groupConstrained &&
-     other.excludePolicyConstrained == excludePolicyConstrained;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchTeamsRequest &&
+          other.term == term &&
+          other.page == page &&
+          other.perPage == perPage &&
+          other.allowOpenInvite == allowOpenInvite &&
+          other.groupConstrained == groupConstrained &&
+          other.excludePolicyConstrained == excludePolicyConstrained;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term == null ? 0 : term!.hashCode) +
-    (page == null ? 0 : page!.hashCode) +
-    (perPage == null ? 0 : perPage!.hashCode) +
-    (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode) +
-    (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
-    (excludePolicyConstrained.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term == null ? 0 : term!.hashCode) +
+      (page == null ? 0 : page!.hashCode) +
+      (perPage == null ? 0 : perPage!.hashCode) +
+      (allowOpenInvite == null ? 0 : allowOpenInvite!.hashCode) +
+      (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
+      (excludePolicyConstrained.hashCode);
 
   @override
-  String toString() => 'MattermostSearchTeamsRequest[term=$term, page=$page, perPage=$perPage, allowOpenInvite=$allowOpenInvite, groupConstrained=$groupConstrained, excludePolicyConstrained=$excludePolicyConstrained]';
+  String toString() =>
+      'MattermostSearchTeamsRequest[term=$term, page=$page, perPage=$perPage, allowOpenInvite=$allowOpenInvite, groupConstrained=$groupConstrained, excludePolicyConstrained=$excludePolicyConstrained]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -108,7 +111,7 @@ class MattermostSearchTeamsRequest {
     if (groupConstrained != null) {
       _json[r'group_constrained'] = groupConstrained;
     }
-      _json[r'exclude_policy_constrained'] = excludePolicyConstrained;
+    _json[r'exclude_policy_constrained'] = excludePolicyConstrained;
     return _json;
   }
 
@@ -142,7 +145,10 @@ class MattermostSearchTeamsRequest {
     return null;
   }
 
-  static List<MattermostSearchTeamsRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchTeamsRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchTeamsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -170,12 +176,18 @@ class MattermostSearchTeamsRequest {
   }
 
   // maps a json object with a list of MattermostSearchTeamsRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchTeamsRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchTeamsRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchTeamsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchTeamsRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchTeamsRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -185,7 +197,5 @@ class MattermostSearchTeamsRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

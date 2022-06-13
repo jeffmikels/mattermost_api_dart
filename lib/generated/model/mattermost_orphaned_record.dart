@@ -36,15 +36,14 @@ class MattermostOrphanedRecord {
   String? childId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOrphanedRecord &&
-     other.parentId == parentId &&
-     other.childId == childId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOrphanedRecord && other.parentId == parentId && other.childId == childId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (parentId == null ? 0 : parentId!.hashCode) +
-    (childId == null ? 0 : childId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (parentId == null ? 0 : parentId!.hashCode) + (childId == null ? 0 : childId!.hashCode);
 
   @override
   String toString() => 'MattermostOrphanedRecord[parentId=$parentId, childId=$childId]';
@@ -86,7 +85,10 @@ class MattermostOrphanedRecord {
     return null;
   }
 
-  static List<MattermostOrphanedRecord>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOrphanedRecord>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOrphanedRecord>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +116,18 @@ class MattermostOrphanedRecord {
   }
 
   // maps a json object with a list of MattermostOrphanedRecord-objects as value to a dart map
-  static Map<String, List<MattermostOrphanedRecord>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOrphanedRecord>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOrphanedRecord>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOrphanedRecord.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOrphanedRecord.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +137,5 @@ class MattermostOrphanedRecord {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -34,15 +34,14 @@ class MattermostSubscriptionStats {
   String? isPaidTier;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSubscriptionStats &&
-     other.remainingSeats == remainingSeats &&
-     other.isPaidTier == isPaidTier;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSubscriptionStats && other.remainingSeats == remainingSeats && other.isPaidTier == isPaidTier;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (remainingSeats == null ? 0 : remainingSeats!.hashCode) +
-    (isPaidTier == null ? 0 : isPaidTier!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (remainingSeats == null ? 0 : remainingSeats!.hashCode) + (isPaidTier == null ? 0 : isPaidTier!.hashCode);
 
   @override
   String toString() => 'MattermostSubscriptionStats[remainingSeats=$remainingSeats, isPaidTier=$isPaidTier]';
@@ -84,7 +83,10 @@ class MattermostSubscriptionStats {
     return null;
   }
 
-  static List<MattermostSubscriptionStats>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSubscriptionStats>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSubscriptionStats>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostSubscriptionStats {
   }
 
   // maps a json object with a list of MattermostSubscriptionStats-objects as value to a dart map
-  static Map<String, List<MattermostSubscriptionStats>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSubscriptionStats>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSubscriptionStats>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSubscriptionStats.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSubscriptionStats.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostSubscriptionStats {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

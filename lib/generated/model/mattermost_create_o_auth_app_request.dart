@@ -52,36 +52,39 @@ class MattermostCreateOAuthAppRequest {
   bool? isTrusted;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateOAuthAppRequest &&
-     other.name == name &&
-     other.description == description &&
-     other.iconUrl == iconUrl &&
-     other.callbackUrls == callbackUrls &&
-     other.homepage == homepage &&
-     other.isTrusted == isTrusted;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateOAuthAppRequest &&
+          other.name == name &&
+          other.description == description &&
+          other.iconUrl == iconUrl &&
+          other.callbackUrls == callbackUrls &&
+          other.homepage == homepage &&
+          other.isTrusted == isTrusted;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (description.hashCode) +
-    (iconUrl == null ? 0 : iconUrl!.hashCode) +
-    (callbackUrls.hashCode) +
-    (homepage.hashCode) +
-    (isTrusted == null ? 0 : isTrusted!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) +
+      (description.hashCode) +
+      (iconUrl == null ? 0 : iconUrl!.hashCode) +
+      (callbackUrls.hashCode) +
+      (homepage.hashCode) +
+      (isTrusted == null ? 0 : isTrusted!.hashCode);
 
   @override
-  String toString() => 'MattermostCreateOAuthAppRequest[name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
+  String toString() =>
+      'MattermostCreateOAuthAppRequest[name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'name'] = name;
-      _json[r'description'] = description;
+    _json[r'name'] = name;
+    _json[r'description'] = description;
     if (iconUrl != null) {
       _json[r'icon_url'] = iconUrl;
     }
-      _json[r'callback_urls'] = callbackUrls;
-      _json[r'homepage'] = homepage;
+    _json[r'callback_urls'] = callbackUrls;
+    _json[r'homepage'] = homepage;
     if (isTrusted != null) {
       _json[r'is_trusted'] = isTrusted;
     }
@@ -110,9 +113,7 @@ class MattermostCreateOAuthAppRequest {
         name: mapValueOfType<String>(json, r'name')!,
         description: mapValueOfType<String>(json, r'description')!,
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
-        callbackUrls: json[r'callback_urls'] is List
-            ? (json[r'callback_urls'] as List).cast<String>()
-            : const [],
+        callbackUrls: json[r'callback_urls'] is List ? (json[r'callback_urls'] as List).cast<String>() : const [],
         homepage: mapValueOfType<String>(json, r'homepage')!,
         isTrusted: mapValueOfType<bool>(json, r'is_trusted'),
       );
@@ -120,7 +121,10 @@ class MattermostCreateOAuthAppRequest {
     return null;
   }
 
-  static List<MattermostCreateOAuthAppRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateOAuthAppRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateOAuthAppRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -148,12 +152,18 @@ class MattermostCreateOAuthAppRequest {
   }
 
   // maps a json object with a list of MattermostCreateOAuthAppRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateOAuthAppRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateOAuthAppRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateOAuthAppRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateOAuthAppRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateOAuthAppRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -170,4 +180,3 @@ class MattermostCreateOAuthAppRequest {
     'homepage',
   };
 }
-

@@ -13,7 +13,6 @@ part of mattermost.api;
 typedef MattermostHttpBearerAuthProvider = String Function();
 
 class MattermostHttpBearerAuthentication implements MattermostAuthentication {
-
   /// Constucts [HttpBearerAuthentication] from an optional [accessToken] which will be included in request headers
   /// using the `Authorization: Bearer [token]` method.
   MattermostHttpBearerAuthentication([dynamic accessToken]) {

@@ -61,24 +61,27 @@ class MattermostProductLimits {
   MattermostTeamsLimits? teams;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostProductLimits &&
-     other.boards == boards &&
-     other.files == files &&
-     other.integrations == integrations &&
-     other.messages == messages &&
-     other.teams == teams;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostProductLimits &&
+          other.boards == boards &&
+          other.files == files &&
+          other.integrations == integrations &&
+          other.messages == messages &&
+          other.teams == teams;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (boards == null ? 0 : boards!.hashCode) +
-    (files == null ? 0 : files!.hashCode) +
-    (integrations == null ? 0 : integrations!.hashCode) +
-    (messages == null ? 0 : messages!.hashCode) +
-    (teams == null ? 0 : teams!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (boards == null ? 0 : boards!.hashCode) +
+      (files == null ? 0 : files!.hashCode) +
+      (integrations == null ? 0 : integrations!.hashCode) +
+      (messages == null ? 0 : messages!.hashCode) +
+      (teams == null ? 0 : teams!.hashCode);
 
   @override
-  String toString() => 'MattermostProductLimits[boards=$boards, files=$files, integrations=$integrations, messages=$messages, teams=$teams]';
+  String toString() =>
+      'MattermostProductLimits[boards=$boards, files=$files, integrations=$integrations, messages=$messages, teams=$teams]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -129,7 +132,10 @@ class MattermostProductLimits {
     return null;
   }
 
-  static List<MattermostProductLimits>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostProductLimits>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostProductLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +163,18 @@ class MattermostProductLimits {
   }
 
   // maps a json object with a list of MattermostProductLimits-objects as value to a dart map
-  static Map<String, List<MattermostProductLimits>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostProductLimits>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostProductLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostProductLimits.listFromJson(entry.value, growable: growable,);
+        final value = MattermostProductLimits.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +184,5 @@ class MattermostProductLimits {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

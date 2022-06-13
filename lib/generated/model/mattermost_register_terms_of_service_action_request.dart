@@ -24,23 +24,25 @@ class MattermostRegisterTermsOfServiceActionRequest {
   String accepted;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRegisterTermsOfServiceActionRequest &&
-     other.serviceTermsId == serviceTermsId &&
-     other.accepted == accepted;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostRegisterTermsOfServiceActionRequest &&
+          other.serviceTermsId == serviceTermsId &&
+          other.accepted == accepted;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (serviceTermsId.hashCode) +
-    (accepted.hashCode);
+      // ignore: unnecessary_parenthesis
+      (serviceTermsId.hashCode) + (accepted.hashCode);
 
   @override
-  String toString() => 'MattermostRegisterTermsOfServiceActionRequest[serviceTermsId=$serviceTermsId, accepted=$accepted]';
+  String toString() =>
+      'MattermostRegisterTermsOfServiceActionRequest[serviceTermsId=$serviceTermsId, accepted=$accepted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'serviceTermsId'] = serviceTermsId;
-      _json[r'accepted'] = accepted;
+    _json[r'serviceTermsId'] = serviceTermsId;
+    _json[r'accepted'] = accepted;
     return _json;
   }
 
@@ -56,8 +58,10 @@ class MattermostRegisterTermsOfServiceActionRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostRegisterTermsOfServiceActionRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostRegisterTermsOfServiceActionRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostRegisterTermsOfServiceActionRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostRegisterTermsOfServiceActionRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +74,10 @@ class MattermostRegisterTermsOfServiceActionRequest {
     return null;
   }
 
-  static List<MattermostRegisterTermsOfServiceActionRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRegisterTermsOfServiceActionRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRegisterTermsOfServiceActionRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +105,18 @@ class MattermostRegisterTermsOfServiceActionRequest {
   }
 
   // maps a json object with a list of MattermostRegisterTermsOfServiceActionRequest-objects as value to a dart map
-  static Map<String, List<MattermostRegisterTermsOfServiceActionRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRegisterTermsOfServiceActionRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRegisterTermsOfServiceActionRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRegisterTermsOfServiceActionRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRegisterTermsOfServiceActionRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,4 +131,3 @@ class MattermostRegisterTermsOfServiceActionRequest {
     'accepted',
   };
 }
-

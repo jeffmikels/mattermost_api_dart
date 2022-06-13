@@ -23,23 +23,22 @@ class MattermostCreatePostEphemeralRequest {
   MattermostCreatePostEphemeralRequestPost post;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreatePostEphemeralRequest &&
-     other.userId == userId &&
-     other.post == post;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreatePostEphemeralRequest && other.userId == userId && other.post == post;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId.hashCode) +
-    (post.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId.hashCode) + (post.hashCode);
 
   @override
   String toString() => 'MattermostCreatePostEphemeralRequest[userId=$userId, post=$post]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'user_id'] = userId;
-      _json[r'post'] = post;
+    _json[r'user_id'] = userId;
+    _json[r'post'] = post;
     return _json;
   }
 
@@ -55,8 +54,10 @@ class MattermostCreatePostEphemeralRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostCreatePostEphemeralRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostCreatePostEphemeralRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostCreatePostEphemeralRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostCreatePostEphemeralRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -69,7 +70,10 @@ class MattermostCreatePostEphemeralRequest {
     return null;
   }
 
-  static List<MattermostCreatePostEphemeralRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreatePostEphemeralRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreatePostEphemeralRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +101,18 @@ class MattermostCreatePostEphemeralRequest {
   }
 
   // maps a json object with a list of MattermostCreatePostEphemeralRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreatePostEphemeralRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreatePostEphemeralRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreatePostEphemeralRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreatePostEphemeralRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreatePostEphemeralRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -117,4 +127,3 @@ class MattermostCreatePostEphemeralRequest {
     'post',
   };
 }
-

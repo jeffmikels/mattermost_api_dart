@@ -56,22 +56,25 @@ class MattermostPatchChannelRequest {
   String? header;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchChannelRequest &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.purpose == purpose &&
-     other.header == header;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPatchChannelRequest &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.purpose == purpose &&
+          other.header == header;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (purpose == null ? 0 : purpose!.hashCode) +
-    (header == null ? 0 : header!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (purpose == null ? 0 : purpose!.hashCode) +
+      (header == null ? 0 : header!.hashCode);
 
   @override
-  String toString() => 'MattermostPatchChannelRequest[name=$name, displayName=$displayName, purpose=$purpose, header=$header]';
+  String toString() =>
+      'MattermostPatchChannelRequest[name=$name, displayName=$displayName, purpose=$purpose, header=$header]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -118,7 +121,10 @@ class MattermostPatchChannelRequest {
     return null;
   }
 
-  static List<MattermostPatchChannelRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchChannelRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +152,18 @@ class MattermostPatchChannelRequest {
   }
 
   // maps a json object with a list of MattermostPatchChannelRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchChannelRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchChannelRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchChannelRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchChannelRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +173,5 @@ class MattermostPatchChannelRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

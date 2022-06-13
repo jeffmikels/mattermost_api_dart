@@ -70,26 +70,29 @@ class MattermostRole {
   bool? schemeManaged;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRole &&
-     other.id == id &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.permissions == permissions &&
-     other.schemeManaged == schemeManaged;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostRole &&
+          other.id == id &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.permissions == permissions &&
+          other.schemeManaged == schemeManaged;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (permissions.hashCode) +
-    (schemeManaged == null ? 0 : schemeManaged!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (permissions.hashCode) +
+      (schemeManaged == null ? 0 : schemeManaged!.hashCode);
 
   @override
-  String toString() => 'MattermostRole[id=$id, name=$name, displayName=$displayName, description=$description, permissions=$permissions, schemeManaged=$schemeManaged]';
+  String toString() =>
+      'MattermostRole[id=$id, name=$name, displayName=$displayName, description=$description, permissions=$permissions, schemeManaged=$schemeManaged]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -105,7 +108,7 @@ class MattermostRole {
     if (description != null) {
       _json[r'description'] = description;
     }
-      _json[r'permissions'] = permissions;
+    _json[r'permissions'] = permissions;
     if (schemeManaged != null) {
       _json[r'scheme_managed'] = schemeManaged;
     }
@@ -135,16 +138,17 @@ class MattermostRole {
         name: mapValueOfType<String>(json, r'name'),
         displayName: mapValueOfType<String>(json, r'display_name'),
         description: mapValueOfType<String>(json, r'description'),
-        permissions: json[r'permissions'] is List
-            ? (json[r'permissions'] as List).cast<String>()
-            : const [],
+        permissions: json[r'permissions'] is List ? (json[r'permissions'] as List).cast<String>() : const [],
         schemeManaged: mapValueOfType<bool>(json, r'scheme_managed'),
       );
     }
     return null;
   }
 
-  static List<MattermostRole>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRole>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRole>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +176,18 @@ class MattermostRole {
   }
 
   // maps a json object with a list of MattermostRole-objects as value to a dart map
-  static Map<String, List<MattermostRole>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRole>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRole>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRole.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRole.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +197,5 @@ class MattermostRole {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

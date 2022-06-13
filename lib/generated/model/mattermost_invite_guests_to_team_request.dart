@@ -34,25 +34,25 @@ class MattermostInviteGuestsToTeamRequest {
   String? message;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostInviteGuestsToTeamRequest &&
-     other.emails == emails &&
-     other.channels == channels &&
-     other.message == message;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostInviteGuestsToTeamRequest &&
+          other.emails == emails &&
+          other.channels == channels &&
+          other.message == message;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (emails.hashCode) +
-    (channels.hashCode) +
-    (message == null ? 0 : message!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (emails.hashCode) + (channels.hashCode) + (message == null ? 0 : message!.hashCode);
 
   @override
   String toString() => 'MattermostInviteGuestsToTeamRequest[emails=$emails, channels=$channels, message=$message]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'emails'] = emails;
-      _json[r'channels'] = channels;
+    _json[r'emails'] = emails;
+    _json[r'channels'] = channels;
     if (message != null) {
       _json[r'message'] = message;
     }
@@ -71,26 +71,27 @@ class MattermostInviteGuestsToTeamRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostInviteGuestsToTeamRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostInviteGuestsToTeamRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostInviteGuestsToTeamRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostInviteGuestsToTeamRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostInviteGuestsToTeamRequest(
-        emails: json[r'emails'] is List
-            ? (json[r'emails'] as List).cast<String>()
-            : const [],
-        channels: json[r'channels'] is List
-            ? (json[r'channels'] as List).cast<String>()
-            : const [],
+        emails: json[r'emails'] is List ? (json[r'emails'] as List).cast<String>() : const [],
+        channels: json[r'channels'] is List ? (json[r'channels'] as List).cast<String>() : const [],
         message: mapValueOfType<String>(json, r'message'),
       );
     }
     return null;
   }
 
-  static List<MattermostInviteGuestsToTeamRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostInviteGuestsToTeamRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostInviteGuestsToTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -118,12 +119,18 @@ class MattermostInviteGuestsToTeamRequest {
   }
 
   // maps a json object with a list of MattermostInviteGuestsToTeamRequest-objects as value to a dart map
-  static Map<String, List<MattermostInviteGuestsToTeamRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostInviteGuestsToTeamRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostInviteGuestsToTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostInviteGuestsToTeamRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostInviteGuestsToTeamRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -138,4 +145,3 @@ class MattermostInviteGuestsToTeamRequest {
     'channels',
   };
 }
-

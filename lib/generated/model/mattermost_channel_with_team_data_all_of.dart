@@ -56,22 +56,25 @@ class MattermostChannelWithTeamDataAllOf {
   String? policyId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannelWithTeamDataAllOf &&
-     other.teamDisplayName == teamDisplayName &&
-     other.teamName == teamName &&
-     other.teamUpdateAt == teamUpdateAt &&
-     other.policyId == policyId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannelWithTeamDataAllOf &&
+          other.teamDisplayName == teamDisplayName &&
+          other.teamName == teamName &&
+          other.teamUpdateAt == teamUpdateAt &&
+          other.policyId == policyId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
-    (teamName == null ? 0 : teamName!.hashCode) +
-    (teamUpdateAt == null ? 0 : teamUpdateAt!.hashCode) +
-    (policyId == null ? 0 : policyId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
+      (teamName == null ? 0 : teamName!.hashCode) +
+      (teamUpdateAt == null ? 0 : teamUpdateAt!.hashCode) +
+      (policyId == null ? 0 : policyId!.hashCode);
 
   @override
-  String toString() => 'MattermostChannelWithTeamDataAllOf[teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt, policyId=$policyId]';
+  String toString() =>
+      'MattermostChannelWithTeamDataAllOf[teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt, policyId=$policyId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,8 +105,10 @@ class MattermostChannelWithTeamDataAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostChannelWithTeamDataAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostChannelWithTeamDataAllOf[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostChannelWithTeamDataAllOf[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostChannelWithTeamDataAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -118,7 +123,10 @@ class MattermostChannelWithTeamDataAllOf {
     return null;
   }
 
-  static List<MattermostChannelWithTeamDataAllOf>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannelWithTeamDataAllOf>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannelWithTeamDataAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +154,18 @@ class MattermostChannelWithTeamDataAllOf {
   }
 
   // maps a json object with a list of MattermostChannelWithTeamDataAllOf-objects as value to a dart map
-  static Map<String, List<MattermostChannelWithTeamDataAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannelWithTeamDataAllOf>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannelWithTeamDataAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannelWithTeamDataAllOf.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannelWithTeamDataAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +175,5 @@ class MattermostChannelWithTeamDataAllOf {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

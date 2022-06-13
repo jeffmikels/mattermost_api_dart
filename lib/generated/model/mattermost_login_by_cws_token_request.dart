@@ -34,15 +34,14 @@ class MattermostLoginByCwsTokenRequest {
   String? cwsToken;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostLoginByCwsTokenRequest &&
-     other.loginId == loginId &&
-     other.cwsToken == cwsToken;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostLoginByCwsTokenRequest && other.loginId == loginId && other.cwsToken == cwsToken;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (loginId == null ? 0 : loginId!.hashCode) +
-    (cwsToken == null ? 0 : cwsToken!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (loginId == null ? 0 : loginId!.hashCode) + (cwsToken == null ? 0 : cwsToken!.hashCode);
 
   @override
   String toString() => 'MattermostLoginByCwsTokenRequest[loginId=$loginId, cwsToken=$cwsToken]';
@@ -84,7 +83,10 @@ class MattermostLoginByCwsTokenRequest {
     return null;
   }
 
-  static List<MattermostLoginByCwsTokenRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostLoginByCwsTokenRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostLoginByCwsTokenRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +114,18 @@ class MattermostLoginByCwsTokenRequest {
   }
 
   // maps a json object with a list of MattermostLoginByCwsTokenRequest-objects as value to a dart map
-  static Map<String, List<MattermostLoginByCwsTokenRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostLoginByCwsTokenRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostLoginByCwsTokenRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostLoginByCwsTokenRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostLoginByCwsTokenRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +135,5 @@ class MattermostLoginByCwsTokenRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

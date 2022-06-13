@@ -30,15 +30,13 @@ class MattermostUserThreads {
   List<MattermostUserThread> threads;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserThreads &&
-     other.total == total &&
-     other.threads == threads;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUserThreads && other.total == total && other.threads == threads;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (total == null ? 0 : total!.hashCode) +
-    (threads.hashCode);
+      // ignore: unnecessary_parenthesis
+      (total == null ? 0 : total!.hashCode) + (threads.hashCode);
 
   @override
   String toString() => 'MattermostUserThreads[total=$total, threads=$threads]';
@@ -48,7 +46,7 @@ class MattermostUserThreads {
     if (total != null) {
       _json[r'total'] = total;
     }
-      _json[r'threads'] = threads;
+    _json[r'threads'] = threads;
     return _json;
   }
 
@@ -78,7 +76,10 @@ class MattermostUserThreads {
     return null;
   }
 
-  static List<MattermostUserThreads>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserThreads>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserThreads>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +107,18 @@ class MattermostUserThreads {
   }
 
   // maps a json object with a list of MattermostUserThreads-objects as value to a dart map
-  static Map<String, List<MattermostUserThreads>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserThreads>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserThreads>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserThreads.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserThreads.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -121,7 +128,5 @@ class MattermostUserThreads {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

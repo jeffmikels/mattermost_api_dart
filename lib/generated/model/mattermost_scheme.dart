@@ -126,36 +126,39 @@ class MattermostScheme {
   String? defaultChannelUserRole;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostScheme &&
-     other.id == id &&
-     other.name == name &&
-     other.description == description &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.scope == scope &&
-     other.defaultTeamAdminRole == defaultTeamAdminRole &&
-     other.defaultTeamUserRole == defaultTeamUserRole &&
-     other.defaultChannelAdminRole == defaultChannelAdminRole &&
-     other.defaultChannelUserRole == defaultChannelUserRole;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostScheme &&
+          other.id == id &&
+          other.name == name &&
+          other.description == description &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.scope == scope &&
+          other.defaultTeamAdminRole == defaultTeamAdminRole &&
+          other.defaultTeamUserRole == defaultTeamUserRole &&
+          other.defaultChannelAdminRole == defaultChannelAdminRole &&
+          other.defaultChannelUserRole == defaultChannelUserRole;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (scope == null ? 0 : scope!.hashCode) +
-    (defaultTeamAdminRole == null ? 0 : defaultTeamAdminRole!.hashCode) +
-    (defaultTeamUserRole == null ? 0 : defaultTeamUserRole!.hashCode) +
-    (defaultChannelAdminRole == null ? 0 : defaultChannelAdminRole!.hashCode) +
-    (defaultChannelUserRole == null ? 0 : defaultChannelUserRole!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (scope == null ? 0 : scope!.hashCode) +
+      (defaultTeamAdminRole == null ? 0 : defaultTeamAdminRole!.hashCode) +
+      (defaultTeamUserRole == null ? 0 : defaultTeamUserRole!.hashCode) +
+      (defaultChannelAdminRole == null ? 0 : defaultChannelAdminRole!.hashCode) +
+      (defaultChannelUserRole == null ? 0 : defaultChannelUserRole!.hashCode);
 
   @override
-  String toString() => 'MattermostScheme[id=$id, name=$name, description=$description, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, scope=$scope, defaultTeamAdminRole=$defaultTeamAdminRole, defaultTeamUserRole=$defaultTeamUserRole, defaultChannelAdminRole=$defaultChannelAdminRole, defaultChannelUserRole=$defaultChannelUserRole]';
+  String toString() =>
+      'MattermostScheme[id=$id, name=$name, description=$description, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, scope=$scope, defaultTeamAdminRole=$defaultTeamAdminRole, defaultTeamUserRole=$defaultTeamUserRole, defaultChannelAdminRole=$defaultChannelAdminRole, defaultChannelUserRole=$defaultChannelUserRole]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -230,7 +233,10 @@ class MattermostScheme {
     return null;
   }
 
-  static List<MattermostScheme>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostScheme>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostScheme>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -258,12 +264,18 @@ class MattermostScheme {
   }
 
   // maps a json object with a list of MattermostScheme-objects as value to a dart map
-  static Map<String, List<MattermostScheme>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostScheme>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostScheme>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostScheme.listFromJson(entry.value, growable: growable,);
+        final value = MattermostScheme.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -273,7 +285,5 @@ class MattermostScheme {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

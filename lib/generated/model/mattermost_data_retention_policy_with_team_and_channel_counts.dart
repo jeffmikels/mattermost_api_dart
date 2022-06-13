@@ -29,7 +29,7 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
   ///
   String? displayName;
 
-  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted). 
+  /// The number of days a message will be retained before being deleted by this policy. If this value is less than 0, the policy has infinite retention (i.e. messages are never deleted).
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -66,24 +66,27 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
   int? channelCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDataRetentionPolicyWithTeamAndChannelCounts &&
-     other.displayName == displayName &&
-     other.postDuration == postDuration &&
-     other.id == id &&
-     other.teamCount == teamCount &&
-     other.channelCount == channelCount;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostDataRetentionPolicyWithTeamAndChannelCounts &&
+          other.displayName == displayName &&
+          other.postDuration == postDuration &&
+          other.id == id &&
+          other.teamCount == teamCount &&
+          other.channelCount == channelCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (postDuration == null ? 0 : postDuration!.hashCode) +
-    (id == null ? 0 : id!.hashCode) +
-    (teamCount == null ? 0 : teamCount!.hashCode) +
-    (channelCount == null ? 0 : channelCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (postDuration == null ? 0 : postDuration!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
+      (teamCount == null ? 0 : teamCount!.hashCode) +
+      (channelCount == null ? 0 : channelCount!.hashCode);
 
   @override
-  String toString() => 'MattermostDataRetentionPolicyWithTeamAndChannelCounts[displayName=$displayName, postDuration=$postDuration, id=$id, teamCount=$teamCount, channelCount=$channelCount]';
+  String toString() =>
+      'MattermostDataRetentionPolicyWithTeamAndChannelCounts[displayName=$displayName, postDuration=$postDuration, id=$id, teamCount=$teamCount, channelCount=$channelCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,8 +120,10 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDataRetentionPolicyWithTeamAndChannelCounts[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDataRetentionPolicyWithTeamAndChannelCounts[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostDataRetentionPolicyWithTeamAndChannelCounts[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostDataRetentionPolicyWithTeamAndChannelCounts[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -134,7 +139,10 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
     return null;
   }
 
-  static List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDataRetentionPolicyWithTeamAndChannelCounts>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -162,12 +170,18 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
   }
 
   // maps a json object with a list of MattermostDataRetentionPolicyWithTeamAndChannelCounts-objects as value to a dart map
-  static Map<String, List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDataRetentionPolicyWithTeamAndChannelCounts.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDataRetentionPolicyWithTeamAndChannelCounts.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,7 +191,5 @@ class MattermostDataRetentionPolicyWithTeamAndChannelCounts {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

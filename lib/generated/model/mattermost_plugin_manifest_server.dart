@@ -35,15 +35,14 @@ class MattermostPluginManifestServer {
   String? executable;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPluginManifestServer &&
-     other.executables == executables &&
-     other.executable == executable;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPluginManifestServer && other.executables == executables && other.executable == executable;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (executables == null ? 0 : executables!.hashCode) +
-    (executable == null ? 0 : executable!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (executables == null ? 0 : executables!.hashCode) + (executable == null ? 0 : executable!.hashCode);
 
   @override
   String toString() => 'MattermostPluginManifestServer[executables=$executables, executable=$executable]';
@@ -85,7 +84,10 @@ class MattermostPluginManifestServer {
     return null;
   }
 
-  static List<MattermostPluginManifestServer>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginManifestServer>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginManifestServer>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class MattermostPluginManifestServer {
   }
 
   // maps a json object with a list of MattermostPluginManifestServer-objects as value to a dart map
-  static Map<String, List<MattermostPluginManifestServer>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPluginManifestServer>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPluginManifestServer>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPluginManifestServer.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPluginManifestServer.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class MattermostPluginManifestServer {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

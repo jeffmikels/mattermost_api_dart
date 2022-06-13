@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostDataRetentionApi {
   MattermostDataRetentionApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostDataRetentionApi {
 
   /// Add channels to a granular data retention policy
   ///
-  /// Adds channels to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Adds channels to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -28,10 +27,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> addChannelsToRetentionPolicyWithHttpInfo(String policyId, List<String> requestBody,) async {
+  Future<Response> addChannelsToRetentionPolicyWithHttpInfo(
+    String policyId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/channels'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/channels'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -41,7 +42,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -56,7 +56,7 @@ class MattermostDataRetentionApi {
 
   /// Add channels to a granular data retention policy
   ///
-  /// Adds channels to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Adds channels to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -64,8 +64,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> addChannelsToRetentionPolicy(String policyId, List<String> requestBody,) async {
-    final response = await addChannelsToRetentionPolicyWithHttpInfo(policyId, requestBody,);
+  Future<MattermostStatusOK?> addChannelsToRetentionPolicy(
+    String policyId,
+    List<String> requestBody,
+  ) async {
+    final response = await addChannelsToRetentionPolicyWithHttpInfo(
+      policyId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -73,15 +79,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Add teams to a granular data retention policy
   ///
-  /// Adds teams to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Adds teams to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -91,10 +99,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> addTeamsToRetentionPolicyWithHttpInfo(String policyId, List<String> requestBody,) async {
+  Future<Response> addTeamsToRetentionPolicyWithHttpInfo(
+    String policyId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/teams'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/teams'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -104,7 +114,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -119,7 +128,7 @@ class MattermostDataRetentionApi {
 
   /// Add teams to a granular data retention policy
   ///
-  /// Adds teams to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Adds teams to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -127,8 +136,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> addTeamsToRetentionPolicy(String policyId, List<String> requestBody,) async {
-    final response = await addTeamsToRetentionPolicyWithHttpInfo(policyId, requestBody,);
+  Future<MattermostStatusOK?> addTeamsToRetentionPolicy(
+    String policyId,
+    List<String> requestBody,
+  ) async {
+    final response = await addTeamsToRetentionPolicyWithHttpInfo(
+      policyId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -136,22 +151,26 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Create a new granular data retention policy
   ///
-  /// Creates a new granular data retention policy with the specified display name and post duration.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Creates a new granular data retention policy with the specified display name and post duration.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MattermostDataRetentionPolicyCreate] mattermostDataRetentionPolicyCreate (required):
-  Future<Response> createDataRetentionPolicyWithHttpInfo(MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,) async {
+  Future<Response> createDataRetentionPolicyWithHttpInfo(
+    MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies';
 
@@ -164,7 +183,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -178,13 +196,17 @@ class MattermostDataRetentionApi {
 
   /// Create a new granular data retention policy
   ///
-  /// Creates a new granular data retention policy with the specified display name and post duration.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Creates a new granular data retention policy with the specified display name and post duration.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
   /// * [MattermostDataRetentionPolicyCreate] mattermostDataRetentionPolicyCreate (required):
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> createDataRetentionPolicy(MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,) async {
-    final response = await createDataRetentionPolicyWithHttpInfo(mattermostDataRetentionPolicyCreate,);
+  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> createDataRetentionPolicy(
+    MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,
+  ) async {
+    final response = await createDataRetentionPolicyWithHttpInfo(
+      mattermostDataRetentionPolicyCreate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -192,15 +214,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostDataRetentionPolicyWithTeamAndChannelCounts',) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
 
   /// Delete a granular data retention policy
   ///
-  /// Deletes a granular data retention policy.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Deletes a granular data retention policy.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -208,10 +232,11 @@ class MattermostDataRetentionApi {
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<Response> deleteDataRetentionPolicyWithHttpInfo(String policyId,) async {
+  Future<Response> deleteDataRetentionPolicyWithHttpInfo(
+    String policyId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -221,7 +246,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -236,14 +260,18 @@ class MattermostDataRetentionApi {
 
   /// Delete a granular data retention policy
   ///
-  /// Deletes a granular data retention policy.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Deletes a granular data retention policy.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<MattermostStatusOK?> deleteDataRetentionPolicy(String policyId,) async {
-    final response = await deleteDataRetentionPolicyWithHttpInfo(policyId,);
+  Future<MattermostStatusOK?> deleteDataRetentionPolicy(
+    String policyId,
+  ) async {
+    final response = await deleteDataRetentionPolicyWithHttpInfo(
+      policyId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -251,15 +279,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get the policies which are applied to a user's channels
   ///
-  /// Gets the policies which are applied to the all of the channels to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
+  /// Gets the policies which are applied to the all of the channels to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -273,10 +303,13 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<Response> getChannelPoliciesForUserWithHttpInfo(String userId, { int? page, int? perPage, }) async {
+  Future<Response> getChannelPoliciesForUserWithHttpInfo(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/data_retention/channel_policies'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/data_retention/channel_policies'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -294,7 +327,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -308,7 +340,7 @@ class MattermostDataRetentionApi {
 
   /// Get the policies which are applied to a user's channels
   ///
-  /// Gets the policies which are applied to the all of the channels to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
+  /// Gets the policies which are applied to the all of the channels to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -320,8 +352,16 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<MattermostRetentionPolicyForChannelList?> getChannelPoliciesForUser(String userId, { int? page, int? perPage, }) async {
-    final response = await getChannelPoliciesForUserWithHttpInfo(userId,  page: page, perPage: perPage, );
+  Future<MattermostRetentionPolicyForChannelList?> getChannelPoliciesForUser(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getChannelPoliciesForUserWithHttpInfo(
+      userId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -329,15 +369,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRetentionPolicyForChannelList',) as MattermostRetentionPolicyForChannelList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRetentionPolicyForChannelList',
+      ) as MattermostRetentionPolicyForChannelList;
     }
     return null;
   }
 
   /// Get the channels for a granular data retention policy
   ///
-  /// Gets the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -351,10 +393,13 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page. There is a maximum limit of 200 per page.
-  Future<Response> getChannelsForRetentionPolicyWithHttpInfo(String policyId, { int? page, int? perPage, }) async {
+  Future<Response> getChannelsForRetentionPolicyWithHttpInfo(
+    String policyId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/channels'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/channels'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -372,7 +417,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -386,7 +430,7 @@ class MattermostDataRetentionApi {
 
   /// Get the channels for a granular data retention policy
   ///
-  /// Gets the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -398,8 +442,16 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostChannelWithTeamData>?> getChannelsForRetentionPolicy(String policyId, { int? page, int? perPage, }) async {
-    final response = await getChannelsForRetentionPolicyWithHttpInfo(policyId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannelWithTeamData>?> getChannelsForRetentionPolicy(
+    String policyId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getChannelsForRetentionPolicyWithHttpInfo(
+      policyId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -409,16 +461,15 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelWithTeamData>') as List)
-        .cast<MattermostChannelWithTeamData>()
-        .toList();
-
+          .cast<MattermostChannelWithTeamData>()
+          .toList();
     }
     return null;
   }
 
   /// Get the granular data retention policies
   ///
-  /// Gets details about the granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets details about the granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -429,7 +480,10 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<Response> getDataRetentionPoliciesWithHttpInfo({ int? page, int? perPage, }) async {
+  Future<Response> getDataRetentionPoliciesWithHttpInfo({
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies';
 
@@ -449,7 +503,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -463,7 +516,7 @@ class MattermostDataRetentionApi {
 
   /// Get the granular data retention policies
   ///
-  /// Gets details about the granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets details about the granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -472,8 +525,14 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>?> getDataRetentionPolicies({ int? page, int? perPage, }) async {
-    final response = await getDataRetentionPoliciesWithHttpInfo( page: page, perPage: perPage, );
+  Future<List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>?> getDataRetentionPolicies({
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getDataRetentionPoliciesWithHttpInfo(
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -482,17 +541,17 @@ class MattermostDataRetentionApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>') as List)
-        .cast<MattermostDataRetentionPolicyWithTeamAndChannelCounts>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(
+              responseBody, 'List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>') as List)
+          .cast<MattermostDataRetentionPolicyWithTeamAndChannelCounts>()
+          .toList();
     }
     return null;
   }
 
   /// Get the number of granular data retention policies
   ///
-  /// Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getDataRetentionPoliciesCountWithHttpInfo() async {
@@ -508,7 +567,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -522,7 +580,7 @@ class MattermostDataRetentionApi {
 
   /// Get the number of granular data retention policies
   ///
-  /// Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   Future<MattermostGetDataRetentionPoliciesCount200Response?> getDataRetentionPoliciesCount() async {
     final response = await getDataRetentionPoliciesCountWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -532,15 +590,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetDataRetentionPoliciesCount200Response',) as MattermostGetDataRetentionPoliciesCount200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGetDataRetentionPoliciesCount200Response',
+      ) as MattermostGetDataRetentionPoliciesCount200Response;
     }
     return null;
   }
 
   /// Get the global data retention policy
   ///
-  /// Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license. 
+  /// Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getDataRetentionPolicyWithHttpInfo() async {
@@ -556,7 +616,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -570,7 +629,7 @@ class MattermostDataRetentionApi {
 
   /// Get the global data retention policy
   ///
-  /// Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license. 
+  /// Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license.
   Future<MattermostGlobalDataRetentionPolicy?> getDataRetentionPolicy() async {
     final response = await getDataRetentionPolicyWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -580,15 +639,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGlobalDataRetentionPolicy',) as MattermostGlobalDataRetentionPolicy;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostGlobalDataRetentionPolicy',
+      ) as MattermostGlobalDataRetentionPolicy;
     }
     return null;
   }
 
   /// Get a granular data retention policy
   ///
-  /// Gets details about a granular data retention policies by ID.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets details about a granular data retention policies by ID.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -596,10 +657,11 @@ class MattermostDataRetentionApi {
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<Response> getDataRetentionPolicyByIDWithHttpInfo(String policyId,) async {
+  Future<Response> getDataRetentionPolicyByIDWithHttpInfo(
+    String policyId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -609,7 +671,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -624,14 +685,18 @@ class MattermostDataRetentionApi {
 
   /// Get a granular data retention policy
   ///
-  /// Gets details about a granular data retention policies by ID.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets details about a granular data retention policies by ID.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> getDataRetentionPolicyByID(String policyId,) async {
-    final response = await getDataRetentionPolicyByIDWithHttpInfo(policyId,);
+  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> getDataRetentionPolicyByID(
+    String policyId,
+  ) async {
+    final response = await getDataRetentionPolicyByIDWithHttpInfo(
+      policyId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -639,15 +704,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostDataRetentionPolicyWithTeamAndChannelCounts',) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
 
   /// Get the policies which are applied to a user's teams
   ///
-  /// Gets the policies which are applied to the all of the teams to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
+  /// Gets the policies which are applied to the all of the teams to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -661,10 +728,13 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<Response> getTeamPoliciesForUserWithHttpInfo(String userId, { int? page, int? perPage, }) async {
+  Future<Response> getTeamPoliciesForUserWithHttpInfo(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/data_retention/team_policies'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/data_retention/team_policies'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -682,7 +752,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -696,7 +765,7 @@ class MattermostDataRetentionApi {
 
   /// Get the policies which are applied to a user's teams
   ///
-  /// Gets the policies which are applied to the all of the teams to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
+  /// Gets the policies which are applied to the all of the teams to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -708,8 +777,16 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<MattermostRetentionPolicyForTeamList?> getTeamPoliciesForUser(String userId, { int? page, int? perPage, }) async {
-    final response = await getTeamPoliciesForUserWithHttpInfo(userId,  page: page, perPage: perPage, );
+  Future<MattermostRetentionPolicyForTeamList?> getTeamPoliciesForUser(
+    String userId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getTeamPoliciesForUserWithHttpInfo(
+      userId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -717,15 +794,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRetentionPolicyForTeamList',) as MattermostRetentionPolicyForTeamList;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRetentionPolicyForTeamList',
+      ) as MattermostRetentionPolicyForTeamList;
     }
     return null;
   }
 
   /// Get the teams for a granular data retention policy
   ///
-  /// Gets the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -739,10 +818,13 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page. There is a maximum limit of 200 per page.
-  Future<Response> getTeamsForRetentionPolicyWithHttpInfo(String policyId, { int? page, int? perPage, }) async {
+  Future<Response> getTeamsForRetentionPolicyWithHttpInfo(
+    String policyId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/teams'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/teams'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -760,7 +842,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -774,7 +855,7 @@ class MattermostDataRetentionApi {
 
   /// Get the teams for a granular data retention policy
   ///
-  /// Gets the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Gets the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -786,8 +867,16 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostTeam>?> getTeamsForRetentionPolicy(String policyId, { int? page, int? perPage, }) async {
-    final response = await getTeamsForRetentionPolicyWithHttpInfo(policyId,  page: page, perPage: perPage, );
+  Future<List<MattermostTeam>?> getTeamsForRetentionPolicy(
+    String policyId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getTeamsForRetentionPolicyWithHttpInfo(
+      policyId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -797,16 +886,15 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostTeam>') as List)
-        .cast<MattermostTeam>()
-        .toList();
-
+          .cast<MattermostTeam>()
+          .toList();
     }
     return null;
   }
 
   /// Patch a granular data retention policy
   ///
-  /// Patches (i.e. replaces the fields of) a granular data retention policy. If any fields are omitted, they will not be changed.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Patches (i.e. replaces the fields of) a granular data retention policy. If any fields are omitted, they will not be changed.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -816,10 +904,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostDataRetentionPolicyWithTeamAndChannelIds] mattermostDataRetentionPolicyWithTeamAndChannelIds (required):
-  Future<Response> patchDataRetentionPolicyWithHttpInfo(String policyId, MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,) async {
+  Future<Response> patchDataRetentionPolicyWithHttpInfo(
+    String policyId,
+    MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostDataRetentionPolicyWithTeamAndChannelIds;
@@ -829,7 +919,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -844,7 +933,7 @@ class MattermostDataRetentionApi {
 
   /// Patch a granular data retention policy
   ///
-  /// Patches (i.e. replaces the fields of) a granular data retention policy. If any fields are omitted, they will not be changed.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Patches (i.e. replaces the fields of) a granular data retention policy. If any fields are omitted, they will not be changed.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -852,8 +941,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostDataRetentionPolicyWithTeamAndChannelIds] mattermostDataRetentionPolicyWithTeamAndChannelIds (required):
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> patchDataRetentionPolicy(String policyId, MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,) async {
-    final response = await patchDataRetentionPolicyWithHttpInfo(policyId, mattermostDataRetentionPolicyWithTeamAndChannelIds,);
+  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> patchDataRetentionPolicy(
+    String policyId,
+    MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,
+  ) async {
+    final response = await patchDataRetentionPolicyWithHttpInfo(
+      policyId,
+      mattermostDataRetentionPolicyWithTeamAndChannelIds,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -861,15 +956,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostDataRetentionPolicyWithTeamAndChannelCounts',) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
 
   /// Delete channels from a granular data retention policy
   ///
-  /// Delete channels from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Delete channels from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -879,10 +976,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> removeChannelsFromRetentionPolicyWithHttpInfo(String policyId, List<String> requestBody,) async {
+  Future<Response> removeChannelsFromRetentionPolicyWithHttpInfo(
+    String policyId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/channels'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/channels'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -892,7 +991,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -907,7 +1005,7 @@ class MattermostDataRetentionApi {
 
   /// Delete channels from a granular data retention policy
   ///
-  /// Delete channels from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Delete channels from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -915,8 +1013,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> removeChannelsFromRetentionPolicy(String policyId, List<String> requestBody,) async {
-    final response = await removeChannelsFromRetentionPolicyWithHttpInfo(policyId, requestBody,);
+  Future<MattermostStatusOK?> removeChannelsFromRetentionPolicy(
+    String policyId,
+    List<String> requestBody,
+  ) async {
+    final response = await removeChannelsFromRetentionPolicyWithHttpInfo(
+      policyId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -924,15 +1028,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Delete teams from a granular data retention policy
   ///
-  /// Delete teams from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Delete teams from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -942,10 +1048,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> removeTeamsFromRetentionPolicyWithHttpInfo(String policyId, List<String> requestBody,) async {
+  Future<Response> removeTeamsFromRetentionPolicyWithHttpInfo(
+    String policyId,
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/teams'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/teams'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -955,7 +1063,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -970,7 +1077,7 @@ class MattermostDataRetentionApi {
 
   /// Delete teams from a granular data retention policy
   ///
-  /// Delete teams from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Delete teams from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -978,8 +1085,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> removeTeamsFromRetentionPolicy(String policyId, List<String> requestBody,) async {
-    final response = await removeTeamsFromRetentionPolicyWithHttpInfo(policyId, requestBody,);
+  Future<MattermostStatusOK?> removeTeamsFromRetentionPolicy(
+    String policyId,
+    List<String> requestBody,
+  ) async {
+    final response = await removeTeamsFromRetentionPolicyWithHttpInfo(
+      policyId,
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -987,15 +1100,17 @@ class MattermostDataRetentionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Search for the channels in a granular data retention policy
   ///
-  /// Searches for the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Searches for the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1005,10 +1120,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostSearchChannelsForRetentionPolicyRequest] mattermostSearchChannelsForRetentionPolicyRequest (required):
-  Future<Response> searchChannelsForRetentionPolicyWithHttpInfo(String policyId, MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,) async {
+  Future<Response> searchChannelsForRetentionPolicyWithHttpInfo(
+    String policyId,
+    MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/channels/search'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/channels/search'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSearchChannelsForRetentionPolicyRequest;
@@ -1019,7 +1136,6 @@ class MattermostDataRetentionApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -1033,7 +1149,7 @@ class MattermostDataRetentionApi {
 
   /// Search for the channels in a granular data retention policy
   ///
-  /// Searches for the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Searches for the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -1041,8 +1157,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostSearchChannelsForRetentionPolicyRequest] mattermostSearchChannelsForRetentionPolicyRequest (required):
-  Future<List<MattermostChannelWithTeamData>?> searchChannelsForRetentionPolicy(String policyId, MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,) async {
-    final response = await searchChannelsForRetentionPolicyWithHttpInfo(policyId, mattermostSearchChannelsForRetentionPolicyRequest,);
+  Future<List<MattermostChannelWithTeamData>?> searchChannelsForRetentionPolicy(
+    String policyId,
+    MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,
+  ) async {
+    final response = await searchChannelsForRetentionPolicyWithHttpInfo(
+      policyId,
+      mattermostSearchChannelsForRetentionPolicyRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1052,16 +1174,15 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelWithTeamData>') as List)
-        .cast<MattermostChannelWithTeamData>()
-        .toList();
-
+          .cast<MattermostChannelWithTeamData>()
+          .toList();
     }
     return null;
   }
 
   /// Search for the teams in a granular data retention policy
   ///
-  /// Searches for the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Searches for the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1071,10 +1192,12 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostSearchTeamsForRetentionPolicyRequest] mattermostSearchTeamsForRetentionPolicyRequest (required):
-  Future<Response> searchTeamsForRetentionPolicyWithHttpInfo(String policyId, MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,) async {
+  Future<Response> searchTeamsForRetentionPolicyWithHttpInfo(
+    String policyId,
+    MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/data_retention/policies/{policy_id}/teams/search'
-      .replaceAll('{policy_id}', policyId);
+    final path = r'/data_retention/policies/{policy_id}/teams/search'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostSearchTeamsForRetentionPolicyRequest;
@@ -1084,7 +1207,6 @@ class MattermostDataRetentionApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1099,7 +1221,7 @@ class MattermostDataRetentionApi {
 
   /// Search for the teams in a granular data retention policy
   ///
-  /// Searches for the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
+  /// Searches for the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
   ///
   /// Parameters:
   ///
@@ -1107,8 +1229,14 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [MattermostSearchTeamsForRetentionPolicyRequest] mattermostSearchTeamsForRetentionPolicyRequest (required):
-  Future<List<MattermostTeam>?> searchTeamsForRetentionPolicy(String policyId, MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,) async {
-    final response = await searchTeamsForRetentionPolicyWithHttpInfo(policyId, mattermostSearchTeamsForRetentionPolicyRequest,);
+  Future<List<MattermostTeam>?> searchTeamsForRetentionPolicy(
+    String policyId,
+    MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,
+  ) async {
+    final response = await searchTeamsForRetentionPolicyWithHttpInfo(
+      policyId,
+      mattermostSearchTeamsForRetentionPolicyRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1118,9 +1246,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostTeam>') as List)
-        .cast<MattermostTeam>()
-        .toList();
-
+          .cast<MattermostTeam>()
+          .toList();
     }
     return null;
   }

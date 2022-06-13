@@ -106,41 +106,44 @@ class MattermostCreateUserRequest {
   MattermostUserNotifyProps? notifyProps;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateUserRequest &&
-     other.email == email &&
-     other.username == username &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.nickname == nickname &&
-     other.authData == authData &&
-     other.authService == authService &&
-     other.password == password &&
-     other.locale == locale &&
-     other.props == props &&
-     other.notifyProps == notifyProps;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateUserRequest &&
+          other.email == email &&
+          other.username == username &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.nickname == nickname &&
+          other.authData == authData &&
+          other.authService == authService &&
+          other.password == password &&
+          other.locale == locale &&
+          other.props == props &&
+          other.notifyProps == notifyProps;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email.hashCode) +
-    (username.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (nickname == null ? 0 : nickname!.hashCode) +
-    (authData == null ? 0 : authData!.hashCode) +
-    (authService == null ? 0 : authService!.hashCode) +
-    (password == null ? 0 : password!.hashCode) +
-    (locale == null ? 0 : locale!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email.hashCode) +
+      (username.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (nickname == null ? 0 : nickname!.hashCode) +
+      (authData == null ? 0 : authData!.hashCode) +
+      (authService == null ? 0 : authService!.hashCode) +
+      (password == null ? 0 : password!.hashCode) +
+      (locale == null ? 0 : locale!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode);
 
   @override
-  String toString() => 'MattermostCreateUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, authData=$authData, authService=$authService, password=$password, locale=$locale, props=$props, notifyProps=$notifyProps]';
+  String toString() =>
+      'MattermostCreateUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, authData=$authData, authService=$authService, password=$password, locale=$locale, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'email'] = email;
-      _json[r'username'] = username;
+    _json[r'email'] = email;
+    _json[r'username'] = username;
     if (firstName != null) {
       _json[r'first_name'] = firstName;
     }
@@ -206,7 +209,10 @@ class MattermostCreateUserRequest {
     return null;
   }
 
-  static List<MattermostCreateUserRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateUserRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -234,12 +240,18 @@ class MattermostCreateUserRequest {
   }
 
   // maps a json object with a list of MattermostCreateUserRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateUserRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateUserRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateUserRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateUserRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -254,4 +266,3 @@ class MattermostCreateUserRequest {
     'username',
   };
 }
-

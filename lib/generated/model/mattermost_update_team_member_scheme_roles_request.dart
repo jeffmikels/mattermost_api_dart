@@ -22,23 +22,24 @@ class MattermostUpdateTeamMemberSchemeRolesRequest {
   bool schemeUser;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateTeamMemberSchemeRolesRequest &&
-     other.schemeAdmin == schemeAdmin &&
-     other.schemeUser == schemeUser;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateTeamMemberSchemeRolesRequest &&
+          other.schemeAdmin == schemeAdmin &&
+          other.schemeUser == schemeUser;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (schemeAdmin.hashCode) +
-    (schemeUser.hashCode);
+      // ignore: unnecessary_parenthesis
+      (schemeAdmin.hashCode) + (schemeUser.hashCode);
 
   @override
   String toString() => 'MattermostUpdateTeamMemberSchemeRolesRequest[schemeAdmin=$schemeAdmin, schemeUser=$schemeUser]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'scheme_admin'] = schemeAdmin;
-      _json[r'scheme_user'] = schemeUser;
+    _json[r'scheme_admin'] = schemeAdmin;
+    _json[r'scheme_user'] = schemeUser;
     return _json;
   }
 
@@ -54,8 +55,10 @@ class MattermostUpdateTeamMemberSchemeRolesRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateTeamMemberSchemeRolesRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateTeamMemberSchemeRolesRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostUpdateTeamMemberSchemeRolesRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostUpdateTeamMemberSchemeRolesRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -68,7 +71,10 @@ class MattermostUpdateTeamMemberSchemeRolesRequest {
     return null;
   }
 
-  static List<MattermostUpdateTeamMemberSchemeRolesRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateTeamMemberSchemeRolesRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateTeamMemberSchemeRolesRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,12 +102,18 @@ class MattermostUpdateTeamMemberSchemeRolesRequest {
   }
 
   // maps a json object with a list of MattermostUpdateTeamMemberSchemeRolesRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateTeamMemberSchemeRolesRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateTeamMemberSchemeRolesRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateTeamMemberSchemeRolesRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateTeamMemberSchemeRolesRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateTeamMemberSchemeRolesRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -116,4 +128,3 @@ class MattermostUpdateTeamMemberSchemeRolesRequest {
     'scheme_user',
   };
 }
-

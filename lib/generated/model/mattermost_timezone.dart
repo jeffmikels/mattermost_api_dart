@@ -46,20 +46,23 @@ class MattermostTimezone {
   String? automaticTimezone;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTimezone &&
-     other.useAutomaticTimezone == useAutomaticTimezone &&
-     other.manualTimezone == manualTimezone &&
-     other.automaticTimezone == automaticTimezone;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostTimezone &&
+          other.useAutomaticTimezone == useAutomaticTimezone &&
+          other.manualTimezone == manualTimezone &&
+          other.automaticTimezone == automaticTimezone;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (useAutomaticTimezone == null ? 0 : useAutomaticTimezone!.hashCode) +
-    (manualTimezone == null ? 0 : manualTimezone!.hashCode) +
-    (automaticTimezone == null ? 0 : automaticTimezone!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (useAutomaticTimezone == null ? 0 : useAutomaticTimezone!.hashCode) +
+      (manualTimezone == null ? 0 : manualTimezone!.hashCode) +
+      (automaticTimezone == null ? 0 : automaticTimezone!.hashCode);
 
   @override
-  String toString() => 'MattermostTimezone[useAutomaticTimezone=$useAutomaticTimezone, manualTimezone=$manualTimezone, automaticTimezone=$automaticTimezone]';
+  String toString() =>
+      'MattermostTimezone[useAutomaticTimezone=$useAutomaticTimezone, manualTimezone=$manualTimezone, automaticTimezone=$automaticTimezone]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -102,7 +105,10 @@ class MattermostTimezone {
     return null;
   }
 
-  static List<MattermostTimezone>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTimezone>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTimezone>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +136,18 @@ class MattermostTimezone {
   }
 
   // maps a json object with a list of MattermostTimezone-objects as value to a dart map
-  static Map<String, List<MattermostTimezone>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTimezone>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTimezone>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTimezone.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTimezone.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -145,7 +157,5 @@ class MattermostTimezone {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

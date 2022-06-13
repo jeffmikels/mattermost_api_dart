@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostRootApi {
   MattermostRootApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostRootApi {
 
   /// Acknowledge receiving of a notification
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> acknowledgeNotificationWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostRootApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -48,7 +46,7 @@ class MattermostRootApi {
 
   /// Acknowledge receiving of a notification
   ///
-  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
+  /// __Minimum server version__: 3.10 ##### Permissions Must be logged in.
   Future<MattermostPushNotification?> acknowledgeNotification() async {
     final response = await acknowledgeNotificationWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,8 +56,10 @@ class MattermostRootApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPushNotification',) as MattermostPushNotification;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostPushNotification',
+      ) as MattermostPushNotification;
     }
     return null;
   }

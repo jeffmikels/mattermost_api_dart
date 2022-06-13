@@ -36,15 +36,14 @@ class MattermostPatchSchemeRequest {
   String? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPatchSchemeRequest &&
-     other.name == name &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPatchSchemeRequest && other.name == name && other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name == null ? 0 : name!.hashCode) + (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'MattermostPatchSchemeRequest[name=$name, description=$description]';
@@ -86,7 +85,10 @@ class MattermostPatchSchemeRequest {
     return null;
   }
 
-  static List<MattermostPatchSchemeRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPatchSchemeRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPatchSchemeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +116,18 @@ class MattermostPatchSchemeRequest {
   }
 
   // maps a json object with a list of MattermostPatchSchemeRequest-objects as value to a dart map
-  static Map<String, List<MattermostPatchSchemeRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPatchSchemeRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPatchSchemeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPatchSchemeRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPatchSchemeRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +137,5 @@ class MattermostPatchSchemeRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -86,28 +86,31 @@ class MattermostIncomingWebhook {
   String? displayName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostIncomingWebhook &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.channelId == channelId &&
-     other.description == description &&
-     other.displayName == displayName;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostIncomingWebhook &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.channelId == channelId &&
+          other.description == description &&
+          other.displayName == displayName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (channelId == null ? 0 : channelId!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (channelId == null ? 0 : channelId!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode);
 
   @override
-  String toString() => 'MattermostIncomingWebhook[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, channelId=$channelId, description=$description, displayName=$displayName]';
+  String toString() =>
+      'MattermostIncomingWebhook[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, channelId=$channelId, description=$description, displayName=$displayName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -166,7 +169,10 @@ class MattermostIncomingWebhook {
     return null;
   }
 
-  static List<MattermostIncomingWebhook>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostIncomingWebhook>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostIncomingWebhook>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -194,12 +200,18 @@ class MattermostIncomingWebhook {
   }
 
   // maps a json object with a list of MattermostIncomingWebhook-objects as value to a dart map
-  static Map<String, List<MattermostIncomingWebhook>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostIncomingWebhook>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostIncomingWebhook>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostIncomingWebhook.listFromJson(entry.value, growable: growable,);
+        final value = MattermostIncomingWebhook.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,7 +221,5 @@ class MattermostIncomingWebhook {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

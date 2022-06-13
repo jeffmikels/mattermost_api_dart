@@ -43,20 +43,23 @@ class MattermostEnvironmentConfigNativeAppSettings {
   bool? iosAppDownloadLink;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigNativeAppSettings &&
-     other.appDownloadLink == appDownloadLink &&
-     other.androidAppDownloadLink == androidAppDownloadLink &&
-     other.iosAppDownloadLink == iosAppDownloadLink;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigNativeAppSettings &&
+          other.appDownloadLink == appDownloadLink &&
+          other.androidAppDownloadLink == androidAppDownloadLink &&
+          other.iosAppDownloadLink == iosAppDownloadLink;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (appDownloadLink == null ? 0 : appDownloadLink!.hashCode) +
-    (androidAppDownloadLink == null ? 0 : androidAppDownloadLink!.hashCode) +
-    (iosAppDownloadLink == null ? 0 : iosAppDownloadLink!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (appDownloadLink == null ? 0 : appDownloadLink!.hashCode) +
+      (androidAppDownloadLink == null ? 0 : androidAppDownloadLink!.hashCode) +
+      (iosAppDownloadLink == null ? 0 : iosAppDownloadLink!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
+  String toString() =>
+      'MattermostEnvironmentConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostEnvironmentConfigNativeAppSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigNativeAppSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigNativeAppSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigNativeAppSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigNativeAppSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostEnvironmentConfigNativeAppSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigNativeAppSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigNativeAppSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigNativeAppSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostEnvironmentConfigNativeAppSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigNativeAppSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigNativeAppSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigNativeAppSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigNativeAppSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigNativeAppSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigNativeAppSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostEnvironmentConfigNativeAppSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

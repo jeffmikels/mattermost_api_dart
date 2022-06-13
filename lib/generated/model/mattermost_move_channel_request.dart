@@ -29,22 +29,20 @@ class MattermostMoveChannelRequest {
   bool? force;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMoveChannelRequest &&
-     other.teamId == teamId &&
-     other.force == force;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostMoveChannelRequest && other.teamId == teamId && other.force == force;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId.hashCode) +
-    (force == null ? 0 : force!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId.hashCode) + (force == null ? 0 : force!.hashCode);
 
   @override
   String toString() => 'MattermostMoveChannelRequest[teamId=$teamId, force=$force]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'team_id'] = teamId;
+    _json[r'team_id'] = teamId;
     if (force != null) {
       _json[r'force'] = force;
     }
@@ -77,7 +75,10 @@ class MattermostMoveChannelRequest {
     return null;
   }
 
-  static List<MattermostMoveChannelRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMoveChannelRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMoveChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +106,18 @@ class MattermostMoveChannelRequest {
   }
 
   // maps a json object with a list of MattermostMoveChannelRequest-objects as value to a dart map
-  static Map<String, List<MattermostMoveChannelRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMoveChannelRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMoveChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMoveChannelRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMoveChannelRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,4 +131,3 @@ class MattermostMoveChannelRequest {
     'team_id',
   };
 }
-

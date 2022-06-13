@@ -86,28 +86,31 @@ class MattermostClusterInfo {
   bool? isAlive;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostClusterInfo &&
-     other.id == id &&
-     other.version == version &&
-     other.configHash == configHash &&
-     other.internodeUrl == internodeUrl &&
-     other.hostname == hostname &&
-     other.lastPing == lastPing &&
-     other.isAlive == isAlive;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostClusterInfo &&
+          other.id == id &&
+          other.version == version &&
+          other.configHash == configHash &&
+          other.internodeUrl == internodeUrl &&
+          other.hostname == hostname &&
+          other.lastPing == lastPing &&
+          other.isAlive == isAlive;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (configHash == null ? 0 : configHash!.hashCode) +
-    (internodeUrl == null ? 0 : internodeUrl!.hashCode) +
-    (hostname == null ? 0 : hostname!.hashCode) +
-    (lastPing == null ? 0 : lastPing!.hashCode) +
-    (isAlive == null ? 0 : isAlive!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (configHash == null ? 0 : configHash!.hashCode) +
+      (internodeUrl == null ? 0 : internodeUrl!.hashCode) +
+      (hostname == null ? 0 : hostname!.hashCode) +
+      (lastPing == null ? 0 : lastPing!.hashCode) +
+      (isAlive == null ? 0 : isAlive!.hashCode);
 
   @override
-  String toString() => 'MattermostClusterInfo[id=$id, version=$version, configHash=$configHash, internodeUrl=$internodeUrl, hostname=$hostname, lastPing=$lastPing, isAlive=$isAlive]';
+  String toString() =>
+      'MattermostClusterInfo[id=$id, version=$version, configHash=$configHash, internodeUrl=$internodeUrl, hostname=$hostname, lastPing=$lastPing, isAlive=$isAlive]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -166,7 +169,10 @@ class MattermostClusterInfo {
     return null;
   }
 
-  static List<MattermostClusterInfo>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostClusterInfo>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostClusterInfo>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -194,12 +200,18 @@ class MattermostClusterInfo {
   }
 
   // maps a json object with a list of MattermostClusterInfo-objects as value to a dart map
-  static Map<String, List<MattermostClusterInfo>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostClusterInfo>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostClusterInfo>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostClusterInfo.listFromJson(entry.value, growable: growable,);
+        final value = MattermostClusterInfo.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,7 +221,5 @@ class MattermostClusterInfo {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

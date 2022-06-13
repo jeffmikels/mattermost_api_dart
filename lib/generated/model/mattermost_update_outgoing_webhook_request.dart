@@ -38,31 +38,31 @@ class MattermostUpdateOutgoingWebhookRequest {
   String description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateOutgoingWebhookRequest &&
-     other.hookId == hookId &&
-     other.channelId == channelId &&
-     other.displayName == displayName &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateOutgoingWebhookRequest &&
+          other.hookId == hookId &&
+          other.channelId == channelId &&
+          other.displayName == displayName &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (hookId == null ? 0 : hookId!.hashCode) +
-    (channelId.hashCode) +
-    (displayName.hashCode) +
-    (description.hashCode);
+      // ignore: unnecessary_parenthesis
+      (hookId == null ? 0 : hookId!.hashCode) + (channelId.hashCode) + (displayName.hashCode) + (description.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateOutgoingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description]';
+  String toString() =>
+      'MattermostUpdateOutgoingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (hookId != null) {
       _json[r'hook_id'] = hookId;
     }
-      _json[r'channel_id'] = channelId;
-      _json[r'display_name'] = displayName;
-      _json[r'description'] = description;
+    _json[r'channel_id'] = channelId;
+    _json[r'display_name'] = displayName;
+    _json[r'description'] = description;
     return _json;
   }
 
@@ -78,8 +78,10 @@ class MattermostUpdateOutgoingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateOutgoingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateOutgoingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostUpdateOutgoingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostUpdateOutgoingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -94,7 +96,10 @@ class MattermostUpdateOutgoingWebhookRequest {
     return null;
   }
 
-  static List<MattermostUpdateOutgoingWebhookRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateOutgoingWebhookRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateOutgoingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -122,12 +127,18 @@ class MattermostUpdateOutgoingWebhookRequest {
   }
 
   // maps a json object with a list of MattermostUpdateOutgoingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateOutgoingWebhookRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateOutgoingWebhookRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateOutgoingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateOutgoingWebhookRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateOutgoingWebhookRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,4 +154,3 @@ class MattermostUpdateOutgoingWebhookRequest {
     'description',
   };
 }
-

@@ -20,20 +20,20 @@ class MattermostRevokeSessionRequest {
   String sessionId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostRevokeSessionRequest &&
-     other.sessionId == sessionId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostRevokeSessionRequest && other.sessionId == sessionId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (sessionId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (sessionId.hashCode);
 
   @override
   String toString() => 'MattermostRevokeSessionRequest[sessionId=$sessionId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'session_id'] = sessionId;
+    _json[r'session_id'] = sessionId;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostRevokeSessionRequest {
     return null;
   }
 
-  static List<MattermostRevokeSessionRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostRevokeSessionRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostRevokeSessionRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostRevokeSessionRequest {
   }
 
   // maps a json object with a list of MattermostRevokeSessionRequest-objects as value to a dart map
-  static Map<String, List<MattermostRevokeSessionRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostRevokeSessionRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostRevokeSessionRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostRevokeSessionRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostRevokeSessionRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostRevokeSessionRequest {
     'session_id',
   };
 }
-

@@ -35,15 +35,13 @@ class MattermostIntegrityCheckResult {
   String? err;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostIntegrityCheckResult &&
-     other.data == data &&
-     other.err == err;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostIntegrityCheckResult && other.data == data && other.err == err;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (data == null ? 0 : data!.hashCode) +
-    (err == null ? 0 : err!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (data == null ? 0 : data!.hashCode) + (err == null ? 0 : err!.hashCode);
 
   @override
   String toString() => 'MattermostIntegrityCheckResult[data=$data, err=$err]';
@@ -85,7 +83,10 @@ class MattermostIntegrityCheckResult {
     return null;
   }
 
-  static List<MattermostIntegrityCheckResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostIntegrityCheckResult>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostIntegrityCheckResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +114,18 @@ class MattermostIntegrityCheckResult {
   }
 
   // maps a json object with a list of MattermostIntegrityCheckResult-objects as value to a dart map
-  static Map<String, List<MattermostIntegrityCheckResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostIntegrityCheckResult>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostIntegrityCheckResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostIntegrityCheckResult.listFromJson(entry.value, growable: growable,);
+        final value = MattermostIntegrityCheckResult.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +135,5 @@ class MattermostIntegrityCheckResult {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

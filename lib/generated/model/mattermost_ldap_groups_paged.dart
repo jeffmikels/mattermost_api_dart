@@ -29,15 +29,13 @@ class MattermostLDAPGroupsPaged {
   List<MattermostLDAPGroup> groups;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostLDAPGroupsPaged &&
-     other.count == count &&
-     other.groups == groups;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostLDAPGroupsPaged && other.count == count && other.groups == groups;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (count == null ? 0 : count!.hashCode) +
-    (groups.hashCode);
+      // ignore: unnecessary_parenthesis
+      (count == null ? 0 : count!.hashCode) + (groups.hashCode);
 
   @override
   String toString() => 'MattermostLDAPGroupsPaged[count=$count, groups=$groups]';
@@ -47,7 +45,7 @@ class MattermostLDAPGroupsPaged {
     if (count != null) {
       _json[r'count'] = count;
     }
-      _json[r'groups'] = groups;
+    _json[r'groups'] = groups;
     return _json;
   }
 
@@ -70,16 +68,17 @@ class MattermostLDAPGroupsPaged {
       }());
 
       return MattermostLDAPGroupsPaged(
-        count: json[r'count'] == null
-            ? null
-            : num.parse(json[r'count'].toString()),
+        count: json[r'count'] == null ? null : num.parse(json[r'count'].toString()),
         groups: MattermostLDAPGroup.listFromJson(json[r'groups']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MattermostLDAPGroupsPaged>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostLDAPGroupsPaged>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostLDAPGroupsPaged>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -107,12 +106,18 @@ class MattermostLDAPGroupsPaged {
   }
 
   // maps a json object with a list of MattermostLDAPGroupsPaged-objects as value to a dart map
-  static Map<String, List<MattermostLDAPGroupsPaged>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostLDAPGroupsPaged>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostLDAPGroupsPaged>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostLDAPGroupsPaged.listFromJson(entry.value, growable: growable,);
+        final value = MattermostLDAPGroupsPaged.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -122,7 +127,5 @@ class MattermostLDAPGroupsPaged {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -118,42 +118,45 @@ class MattermostOpenGraph {
   MattermostOpenGraphArticleAuthorsInner? profile;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraph &&
-     other.type == type &&
-     other.url == url &&
-     other.title == title &&
-     other.description == description &&
-     other.determiner == determiner &&
-     other.siteName == siteName &&
-     other.locale == locale &&
-     other.localesAlternate == localesAlternate &&
-     other.images == images &&
-     other.videos == videos &&
-     other.audios == audios &&
-     other.article == article &&
-     other.book == book &&
-     other.profile == profile;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenGraph &&
+          other.type == type &&
+          other.url == url &&
+          other.title == title &&
+          other.description == description &&
+          other.determiner == determiner &&
+          other.siteName == siteName &&
+          other.locale == locale &&
+          other.localesAlternate == localesAlternate &&
+          other.images == images &&
+          other.videos == videos &&
+          other.audios == audios &&
+          other.article == article &&
+          other.book == book &&
+          other.profile == profile;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (url == null ? 0 : url!.hashCode) +
-    (title == null ? 0 : title!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (determiner == null ? 0 : determiner!.hashCode) +
-    (siteName == null ? 0 : siteName!.hashCode) +
-    (locale == null ? 0 : locale!.hashCode) +
-    (localesAlternate.hashCode) +
-    (images.hashCode) +
-    (videos.hashCode) +
-    (audios.hashCode) +
-    (article == null ? 0 : article!.hashCode) +
-    (book == null ? 0 : book!.hashCode) +
-    (profile == null ? 0 : profile!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type == null ? 0 : type!.hashCode) +
+      (url == null ? 0 : url!.hashCode) +
+      (title == null ? 0 : title!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (determiner == null ? 0 : determiner!.hashCode) +
+      (siteName == null ? 0 : siteName!.hashCode) +
+      (locale == null ? 0 : locale!.hashCode) +
+      (localesAlternate.hashCode) +
+      (images.hashCode) +
+      (videos.hashCode) +
+      (audios.hashCode) +
+      (article == null ? 0 : article!.hashCode) +
+      (book == null ? 0 : book!.hashCode) +
+      (profile == null ? 0 : profile!.hashCode);
 
   @override
-  String toString() => 'MattermostOpenGraph[type=$type, url=$url, title=$title, description=$description, determiner=$determiner, siteName=$siteName, locale=$locale, localesAlternate=$localesAlternate, images=$images, videos=$videos, audios=$audios, article=$article, book=$book, profile=$profile]';
+  String toString() =>
+      'MattermostOpenGraph[type=$type, url=$url, title=$title, description=$description, determiner=$determiner, siteName=$siteName, locale=$locale, localesAlternate=$localesAlternate, images=$images, videos=$videos, audios=$audios, article=$article, book=$book, profile=$profile]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -178,10 +181,10 @@ class MattermostOpenGraph {
     if (locale != null) {
       _json[r'locale'] = locale;
     }
-      _json[r'locales_alternate'] = localesAlternate;
-      _json[r'images'] = images;
-      _json[r'videos'] = videos;
-      _json[r'audios'] = audios;
+    _json[r'locales_alternate'] = localesAlternate;
+    _json[r'images'] = images;
+    _json[r'videos'] = videos;
+    _json[r'audios'] = audios;
     if (article != null) {
       _json[r'article'] = article;
     }
@@ -220,9 +223,8 @@ class MattermostOpenGraph {
         determiner: mapValueOfType<String>(json, r'determiner'),
         siteName: mapValueOfType<String>(json, r'site_name'),
         locale: mapValueOfType<String>(json, r'locale'),
-        localesAlternate: json[r'locales_alternate'] is List
-            ? (json[r'locales_alternate'] as List).cast<String>()
-            : const [],
+        localesAlternate:
+            json[r'locales_alternate'] is List ? (json[r'locales_alternate'] as List).cast<String>() : const [],
         images: MattermostOpenGraphImagesInner.listFromJson(json[r'images']) ?? const [],
         videos: MattermostOpenGraphVideosInner.listFromJson(json[r'videos']) ?? const [],
         audios: MattermostOpenGraphAudiosInner.listFromJson(json[r'audios']) ?? const [],
@@ -234,7 +236,10 @@ class MattermostOpenGraph {
     return null;
   }
 
-  static List<MattermostOpenGraph>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraph>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraph>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -262,12 +267,18 @@ class MattermostOpenGraph {
   }
 
   // maps a json object with a list of MattermostOpenGraph-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraph>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraph>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraph>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraph.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraph.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -277,7 +288,5 @@ class MattermostOpenGraph {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

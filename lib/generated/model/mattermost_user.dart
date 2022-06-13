@@ -219,58 +219,61 @@ class MattermostUser {
   int? termsOfServiceCreateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUser &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.username == username &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.nickname == nickname &&
-     other.email == email &&
-     other.emailVerified == emailVerified &&
-     other.authService == authService &&
-     other.roles == roles &&
-     other.locale == locale &&
-     other.notifyProps == notifyProps &&
-     other.props == props &&
-     other.lastPasswordUpdate == lastPasswordUpdate &&
-     other.lastPictureUpdate == lastPictureUpdate &&
-     other.failedAttempts == failedAttempts &&
-     other.mfaActive == mfaActive &&
-     other.timezone == timezone &&
-     other.termsOfServiceId == termsOfServiceId &&
-     other.termsOfServiceCreateAt == termsOfServiceCreateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUser &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.username == username &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.nickname == nickname &&
+          other.email == email &&
+          other.emailVerified == emailVerified &&
+          other.authService == authService &&
+          other.roles == roles &&
+          other.locale == locale &&
+          other.notifyProps == notifyProps &&
+          other.props == props &&
+          other.lastPasswordUpdate == lastPasswordUpdate &&
+          other.lastPictureUpdate == lastPictureUpdate &&
+          other.failedAttempts == failedAttempts &&
+          other.mfaActive == mfaActive &&
+          other.timezone == timezone &&
+          other.termsOfServiceId == termsOfServiceId &&
+          other.termsOfServiceCreateAt == termsOfServiceCreateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (nickname == null ? 0 : nickname!.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (emailVerified == null ? 0 : emailVerified!.hashCode) +
-    (authService == null ? 0 : authService!.hashCode) +
-    (roles == null ? 0 : roles!.hashCode) +
-    (locale == null ? 0 : locale!.hashCode) +
-    (notifyProps == null ? 0 : notifyProps!.hashCode) +
-    (props == null ? 0 : props!.hashCode) +
-    (lastPasswordUpdate == null ? 0 : lastPasswordUpdate!.hashCode) +
-    (lastPictureUpdate == null ? 0 : lastPictureUpdate!.hashCode) +
-    (failedAttempts == null ? 0 : failedAttempts!.hashCode) +
-    (mfaActive == null ? 0 : mfaActive!.hashCode) +
-    (timezone == null ? 0 : timezone!.hashCode) +
-    (termsOfServiceId == null ? 0 : termsOfServiceId!.hashCode) +
-    (termsOfServiceCreateAt == null ? 0 : termsOfServiceCreateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (nickname == null ? 0 : nickname!.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (emailVerified == null ? 0 : emailVerified!.hashCode) +
+      (authService == null ? 0 : authService!.hashCode) +
+      (roles == null ? 0 : roles!.hashCode) +
+      (locale == null ? 0 : locale!.hashCode) +
+      (notifyProps == null ? 0 : notifyProps!.hashCode) +
+      (props == null ? 0 : props!.hashCode) +
+      (lastPasswordUpdate == null ? 0 : lastPasswordUpdate!.hashCode) +
+      (lastPictureUpdate == null ? 0 : lastPictureUpdate!.hashCode) +
+      (failedAttempts == null ? 0 : failedAttempts!.hashCode) +
+      (mfaActive == null ? 0 : mfaActive!.hashCode) +
+      (timezone == null ? 0 : timezone!.hashCode) +
+      (termsOfServiceId == null ? 0 : termsOfServiceId!.hashCode) +
+      (termsOfServiceCreateAt == null ? 0 : termsOfServiceCreateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostUser[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, email=$email, emailVerified=$emailVerified, authService=$authService, roles=$roles, locale=$locale, notifyProps=$notifyProps, props=$props, lastPasswordUpdate=$lastPasswordUpdate, lastPictureUpdate=$lastPictureUpdate, failedAttempts=$failedAttempts, mfaActive=$mfaActive, timezone=$timezone, termsOfServiceId=$termsOfServiceId, termsOfServiceCreateAt=$termsOfServiceCreateAt]';
+  String toString() =>
+      'MattermostUser[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, email=$email, emailVerified=$emailVerified, authService=$authService, roles=$roles, locale=$locale, notifyProps=$notifyProps, props=$props, lastPasswordUpdate=$lastPasswordUpdate, lastPictureUpdate=$lastPictureUpdate, failedAttempts=$failedAttempts, mfaActive=$mfaActive, timezone=$timezone, termsOfServiceId=$termsOfServiceId, termsOfServiceCreateAt=$termsOfServiceCreateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -389,7 +392,10 @@ class MattermostUser {
     return null;
   }
 
-  static List<MattermostUser>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUser>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUser>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -417,12 +423,18 @@ class MattermostUser {
   }
 
   // maps a json object with a list of MattermostUser-objects as value to a dart map
-  static Map<String, List<MattermostUser>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUser>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUser>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUser.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUser.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -432,7 +444,5 @@ class MattermostUser {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -28,26 +28,27 @@ class MattermostResetSamlAuthDataToEmailRequest {
   List<String> userIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostResetSamlAuthDataToEmailRequest &&
-     other.includeDeleted == includeDeleted &&
-     other.dryRun == dryRun &&
-     other.userIds == userIds;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostResetSamlAuthDataToEmailRequest &&
+          other.includeDeleted == includeDeleted &&
+          other.dryRun == dryRun &&
+          other.userIds == userIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (includeDeleted.hashCode) +
-    (dryRun.hashCode) +
-    (userIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (includeDeleted.hashCode) + (dryRun.hashCode) + (userIds.hashCode);
 
   @override
-  String toString() => 'MattermostResetSamlAuthDataToEmailRequest[includeDeleted=$includeDeleted, dryRun=$dryRun, userIds=$userIds]';
+  String toString() =>
+      'MattermostResetSamlAuthDataToEmailRequest[includeDeleted=$includeDeleted, dryRun=$dryRun, userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'include_deleted'] = includeDeleted;
-      _json[r'dry_run'] = dryRun;
-      _json[r'user_ids'] = userIds;
+    _json[r'include_deleted'] = includeDeleted;
+    _json[r'dry_run'] = dryRun;
+    _json[r'user_ids'] = userIds;
     return _json;
   }
 
@@ -63,8 +64,10 @@ class MattermostResetSamlAuthDataToEmailRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostResetSamlAuthDataToEmailRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostResetSamlAuthDataToEmailRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostResetSamlAuthDataToEmailRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostResetSamlAuthDataToEmailRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -72,15 +75,16 @@ class MattermostResetSamlAuthDataToEmailRequest {
       return MattermostResetSamlAuthDataToEmailRequest(
         includeDeleted: mapValueOfType<bool>(json, r'include_deleted') ?? false,
         dryRun: mapValueOfType<bool>(json, r'dry_run') ?? false,
-        userIds: json[r'user_ids'] is List
-            ? (json[r'user_ids'] as List).cast<String>()
-            : const [],
+        userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostResetSamlAuthDataToEmailRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostResetSamlAuthDataToEmailRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostResetSamlAuthDataToEmailRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,12 +112,18 @@ class MattermostResetSamlAuthDataToEmailRequest {
   }
 
   // maps a json object with a list of MattermostResetSamlAuthDataToEmailRequest-objects as value to a dart map
-  static Map<String, List<MattermostResetSamlAuthDataToEmailRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostResetSamlAuthDataToEmailRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostResetSamlAuthDataToEmailRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostResetSamlAuthDataToEmailRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostResetSamlAuthDataToEmailRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,7 +133,5 @@ class MattermostResetSamlAuthDataToEmailRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

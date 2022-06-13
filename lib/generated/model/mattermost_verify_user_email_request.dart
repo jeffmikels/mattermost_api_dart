@@ -20,20 +20,20 @@ class MattermostVerifyUserEmailRequest {
   String token;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostVerifyUserEmailRequest &&
-     other.token == token;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostVerifyUserEmailRequest && other.token == token;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (token.hashCode);
+      // ignore: unnecessary_parenthesis
+      (token.hashCode);
 
   @override
   String toString() => 'MattermostVerifyUserEmailRequest[token=$token]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'token'] = token;
+    _json[r'token'] = token;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostVerifyUserEmailRequest {
     return null;
   }
 
-  static List<MattermostVerifyUserEmailRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostVerifyUserEmailRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostVerifyUserEmailRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostVerifyUserEmailRequest {
   }
 
   // maps a json object with a list of MattermostVerifyUserEmailRequest-objects as value to a dart map
-  static Map<String, List<MattermostVerifyUserEmailRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostVerifyUserEmailRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostVerifyUserEmailRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostVerifyUserEmailRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostVerifyUserEmailRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostVerifyUserEmailRequest {
     'token',
   };
 }
-

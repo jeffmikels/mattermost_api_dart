@@ -133,38 +133,41 @@ class MattermostSharedChannel {
   String? remoteId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSharedChannel &&
-     other.id == id &&
-     other.teamId == teamId &&
-     other.home == home &&
-     other.readonly == readonly &&
-     other.name == name &&
-     other.displayName == displayName &&
-     other.purpose == purpose &&
-     other.header == header &&
-     other.creatorId == creatorId &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.remoteId == remoteId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSharedChannel &&
+          other.id == id &&
+          other.teamId == teamId &&
+          other.home == home &&
+          other.readonly == readonly &&
+          other.name == name &&
+          other.displayName == displayName &&
+          other.purpose == purpose &&
+          other.header == header &&
+          other.creatorId == creatorId &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.remoteId == remoteId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (home == null ? 0 : home!.hashCode) +
-    (readonly == null ? 0 : readonly!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (purpose == null ? 0 : purpose!.hashCode) +
-    (header == null ? 0 : header!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (remoteId == null ? 0 : remoteId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (home == null ? 0 : home!.hashCode) +
+      (readonly == null ? 0 : readonly!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (purpose == null ? 0 : purpose!.hashCode) +
+      (header == null ? 0 : header!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (remoteId == null ? 0 : remoteId!.hashCode);
 
   @override
-  String toString() => 'MattermostSharedChannel[id=$id, teamId=$teamId, home=$home, readonly=$readonly, name=$name, displayName=$displayName, purpose=$purpose, header=$header, creatorId=$creatorId, createAt=$createAt, updateAt=$updateAt, remoteId=$remoteId]';
+  String toString() =>
+      'MattermostSharedChannel[id=$id, teamId=$teamId, home=$home, readonly=$readonly, name=$name, displayName=$displayName, purpose=$purpose, header=$header, creatorId=$creatorId, createAt=$createAt, updateAt=$updateAt, remoteId=$remoteId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -243,7 +246,10 @@ class MattermostSharedChannel {
     return null;
   }
 
-  static List<MattermostSharedChannel>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSharedChannel>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSharedChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -271,12 +277,18 @@ class MattermostSharedChannel {
   }
 
   // maps a json object with a list of MattermostSharedChannel-objects as value to a dart map
-  static Map<String, List<MattermostSharedChannel>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSharedChannel>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSharedChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSharedChannel.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSharedChannel.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -286,7 +298,5 @@ class MattermostSharedChannel {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

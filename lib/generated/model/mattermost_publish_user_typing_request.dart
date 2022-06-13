@@ -30,22 +30,21 @@ class MattermostPublishUserTypingRequest {
   String? parentId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPublishUserTypingRequest &&
-     other.channelId == channelId &&
-     other.parentId == parentId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPublishUserTypingRequest && other.channelId == channelId && other.parentId == parentId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (parentId == null ? 0 : parentId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) + (parentId == null ? 0 : parentId!.hashCode);
 
   @override
   String toString() => 'MattermostPublishUserTypingRequest[channelId=$channelId, parentId=$parentId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
+    _json[r'channel_id'] = channelId;
     if (parentId != null) {
       _json[r'parent_id'] = parentId;
     }
@@ -64,8 +63,10 @@ class MattermostPublishUserTypingRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostPublishUserTypingRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostPublishUserTypingRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostPublishUserTypingRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostPublishUserTypingRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,7 +79,10 @@ class MattermostPublishUserTypingRequest {
     return null;
   }
 
-  static List<MattermostPublishUserTypingRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPublishUserTypingRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPublishUserTypingRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +110,18 @@ class MattermostPublishUserTypingRequest {
   }
 
   // maps a json object with a list of MattermostPublishUserTypingRequest-objects as value to a dart map
-  static Map<String, List<MattermostPublishUserTypingRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPublishUserTypingRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPublishUserTypingRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPublishUserTypingRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPublishUserTypingRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -125,4 +135,3 @@ class MattermostPublishUserTypingRequest {
     'channel_id',
   };
 }
-

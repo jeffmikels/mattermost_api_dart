@@ -20,20 +20,20 @@ class MattermostUpdateTeamPrivacyRequest {
   String privacy;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateTeamPrivacyRequest &&
-     other.privacy == privacy;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUpdateTeamPrivacyRequest && other.privacy == privacy;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (privacy.hashCode);
+      // ignore: unnecessary_parenthesis
+      (privacy.hashCode);
 
   @override
   String toString() => 'MattermostUpdateTeamPrivacyRequest[privacy=$privacy]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'privacy'] = privacy;
+    _json[r'privacy'] = privacy;
     return _json;
   }
 
@@ -49,8 +49,10 @@ class MattermostUpdateTeamPrivacyRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateTeamPrivacyRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateTeamPrivacyRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostUpdateTeamPrivacyRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostUpdateTeamPrivacyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +64,10 @@ class MattermostUpdateTeamPrivacyRequest {
     return null;
   }
 
-  static List<MattermostUpdateTeamPrivacyRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateTeamPrivacyRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateTeamPrivacyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +95,18 @@ class MattermostUpdateTeamPrivacyRequest {
   }
 
   // maps a json object with a list of MattermostUpdateTeamPrivacyRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateTeamPrivacyRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateTeamPrivacyRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateTeamPrivacyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateTeamPrivacyRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateTeamPrivacyRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +120,3 @@ class MattermostUpdateTeamPrivacyRequest {
     'privacy',
   };
 }
-

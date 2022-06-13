@@ -56,19 +56,21 @@ class MattermostUserAccessToken {
   String? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserAccessToken &&
-     other.id == id &&
-     other.token == token &&
-     other.userId == userId &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserAccessToken &&
+          other.id == id &&
+          other.token == token &&
+          other.userId == userId &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (token == null ? 0 : token!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (token == null ? 0 : token!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'MattermostUserAccessToken[id=$id, token=$token, userId=$userId, description=$description]';
@@ -118,7 +120,10 @@ class MattermostUserAccessToken {
     return null;
   }
 
-  static List<MattermostUserAccessToken>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserAccessToken>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserAccessToken>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +151,18 @@ class MattermostUserAccessToken {
   }
 
   // maps a json object with a list of MattermostUserAccessToken-objects as value to a dart map
-  static Map<String, List<MattermostUserAccessToken>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserAccessToken>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserAccessToken>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserAccessToken.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserAccessToken.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +172,5 @@ class MattermostUserAccessToken {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

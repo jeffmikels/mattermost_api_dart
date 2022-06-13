@@ -48,10 +48,10 @@ class MattermostSearchAllChannelsRequest {
   ///
   bool? excludeDefaultChannels;
 
-  /// Filters results to channels belonging to the given team ids  __Minimum server version__: 5.26 
+  /// Filters results to channels belonging to the given team ids  __Minimum server version__: 5.26
   List<String> teamIds;
 
-  /// Filters results to only return channels constrained to a group  __Minimum server version__: 5.26 
+  /// Filters results to only return channels constrained to a group  __Minimum server version__: 5.26
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -60,7 +60,7 @@ class MattermostSearchAllChannelsRequest {
   ///
   bool? groupConstrained;
 
-  /// Filters results to exclude channels constrained to a group  __Minimum server version__: 5.26 
+  /// Filters results to exclude channels constrained to a group  __Minimum server version__: 5.26
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -69,7 +69,7 @@ class MattermostSearchAllChannelsRequest {
   ///
   bool? excludeGroupConstrained;
 
-  /// Filters results to only return Public / Open channels, can be used in conjunction with `private` to return both `public` and `private` channels  __Minimum server version__: 5.26 
+  /// Filters results to only return Public / Open channels, can be used in conjunction with `private` to return both `public` and `private` channels  __Minimum server version__: 5.26
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -78,7 +78,7 @@ class MattermostSearchAllChannelsRequest {
   ///
   bool? public;
 
-  /// Filters results to only return Private channels, can be used in conjunction with `public` to return both `private` and `public` channels  __Minimum server version__: 5.26 
+  /// Filters results to only return Private channels, can be used in conjunction with `public` to return both `private` and `public` channels  __Minimum server version__: 5.26
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -87,7 +87,7 @@ class MattermostSearchAllChannelsRequest {
   ///
   bool? private;
 
-  /// Filters results to only return deleted / archived channels  __Minimum server version__: 5.26 
+  /// Filters results to only return deleted / archived channels  __Minimum server version__: 5.26
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -114,53 +114,56 @@ class MattermostSearchAllChannelsRequest {
   ///
   String? perPage;
 
-  /// If set to true, only channels which do not have a granular retention policy assigned to them will be returned. The `sysconsole_read_compliance_data_retention` permission is required to use this parameter. __Minimum server version__: 5.35 
+  /// If set to true, only channels which do not have a granular retention policy assigned to them will be returned. The `sysconsole_read_compliance_data_retention` permission is required to use this parameter. __Minimum server version__: 5.35
   bool excludePolicyConstrained;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchAllChannelsRequest &&
-     other.term == term &&
-     other.notAssociatedToGroup == notAssociatedToGroup &&
-     other.excludeDefaultChannels == excludeDefaultChannels &&
-     other.teamIds == teamIds &&
-     other.groupConstrained == groupConstrained &&
-     other.excludeGroupConstrained == excludeGroupConstrained &&
-     other.public == public &&
-     other.private == private &&
-     other.deleted == deleted &&
-     other.page == page &&
-     other.perPage == perPage &&
-     other.excludePolicyConstrained == excludePolicyConstrained;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchAllChannelsRequest &&
+          other.term == term &&
+          other.notAssociatedToGroup == notAssociatedToGroup &&
+          other.excludeDefaultChannels == excludeDefaultChannels &&
+          other.teamIds == teamIds &&
+          other.groupConstrained == groupConstrained &&
+          other.excludeGroupConstrained == excludeGroupConstrained &&
+          other.public == public &&
+          other.private == private &&
+          other.deleted == deleted &&
+          other.page == page &&
+          other.perPage == perPage &&
+          other.excludePolicyConstrained == excludePolicyConstrained;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term.hashCode) +
-    (notAssociatedToGroup == null ? 0 : notAssociatedToGroup!.hashCode) +
-    (excludeDefaultChannels == null ? 0 : excludeDefaultChannels!.hashCode) +
-    (teamIds.hashCode) +
-    (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
-    (excludeGroupConstrained == null ? 0 : excludeGroupConstrained!.hashCode) +
-    (public == null ? 0 : public!.hashCode) +
-    (private == null ? 0 : private!.hashCode) +
-    (deleted == null ? 0 : deleted!.hashCode) +
-    (page == null ? 0 : page!.hashCode) +
-    (perPage == null ? 0 : perPage!.hashCode) +
-    (excludePolicyConstrained.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term.hashCode) +
+      (notAssociatedToGroup == null ? 0 : notAssociatedToGroup!.hashCode) +
+      (excludeDefaultChannels == null ? 0 : excludeDefaultChannels!.hashCode) +
+      (teamIds.hashCode) +
+      (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
+      (excludeGroupConstrained == null ? 0 : excludeGroupConstrained!.hashCode) +
+      (public == null ? 0 : public!.hashCode) +
+      (private == null ? 0 : private!.hashCode) +
+      (deleted == null ? 0 : deleted!.hashCode) +
+      (page == null ? 0 : page!.hashCode) +
+      (perPage == null ? 0 : perPage!.hashCode) +
+      (excludePolicyConstrained.hashCode);
 
   @override
-  String toString() => 'MattermostSearchAllChannelsRequest[term=$term, notAssociatedToGroup=$notAssociatedToGroup, excludeDefaultChannels=$excludeDefaultChannels, teamIds=$teamIds, groupConstrained=$groupConstrained, excludeGroupConstrained=$excludeGroupConstrained, public=$public, private=$private, deleted=$deleted, page=$page, perPage=$perPage, excludePolicyConstrained=$excludePolicyConstrained]';
+  String toString() =>
+      'MattermostSearchAllChannelsRequest[term=$term, notAssociatedToGroup=$notAssociatedToGroup, excludeDefaultChannels=$excludeDefaultChannels, teamIds=$teamIds, groupConstrained=$groupConstrained, excludeGroupConstrained=$excludeGroupConstrained, public=$public, private=$private, deleted=$deleted, page=$page, perPage=$perPage, excludePolicyConstrained=$excludePolicyConstrained]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'term'] = term;
+    _json[r'term'] = term;
     if (notAssociatedToGroup != null) {
       _json[r'not_associated_to_group'] = notAssociatedToGroup;
     }
     if (excludeDefaultChannels != null) {
       _json[r'exclude_default_channels'] = excludeDefaultChannels;
     }
-      _json[r'team_ids'] = teamIds;
+    _json[r'team_ids'] = teamIds;
     if (groupConstrained != null) {
       _json[r'group_constrained'] = groupConstrained;
     }
@@ -182,7 +185,7 @@ class MattermostSearchAllChannelsRequest {
     if (perPage != null) {
       _json[r'per_page'] = perPage;
     }
-      _json[r'exclude_policy_constrained'] = excludePolicyConstrained;
+    _json[r'exclude_policy_constrained'] = excludePolicyConstrained;
     return _json;
   }
 
@@ -198,8 +201,10 @@ class MattermostSearchAllChannelsRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSearchAllChannelsRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSearchAllChannelsRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostSearchAllChannelsRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostSearchAllChannelsRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -208,9 +213,7 @@ class MattermostSearchAllChannelsRequest {
         term: mapValueOfType<String>(json, r'term')!,
         notAssociatedToGroup: mapValueOfType<String>(json, r'not_associated_to_group'),
         excludeDefaultChannels: mapValueOfType<bool>(json, r'exclude_default_channels'),
-        teamIds: json[r'team_ids'] is List
-            ? (json[r'team_ids'] as List).cast<String>()
-            : const [],
+        teamIds: json[r'team_ids'] is List ? (json[r'team_ids'] as List).cast<String>() : const [],
         groupConstrained: mapValueOfType<bool>(json, r'group_constrained'),
         excludeGroupConstrained: mapValueOfType<bool>(json, r'exclude_group_constrained'),
         public: mapValueOfType<bool>(json, r'public'),
@@ -224,7 +227,10 @@ class MattermostSearchAllChannelsRequest {
     return null;
   }
 
-  static List<MattermostSearchAllChannelsRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchAllChannelsRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchAllChannelsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -252,12 +258,18 @@ class MattermostSearchAllChannelsRequest {
   }
 
   // maps a json object with a list of MattermostSearchAllChannelsRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchAllChannelsRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchAllChannelsRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchAllChannelsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchAllChannelsRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchAllChannelsRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -271,4 +283,3 @@ class MattermostSearchAllChannelsRequest {
     'term',
   };
 }
-

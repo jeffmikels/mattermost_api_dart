@@ -52,29 +52,32 @@ class MattermostPostList {
   bool? hasNext;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostList &&
-     other.order == order &&
-     other.posts == posts &&
-     other.nextPostId == nextPostId &&
-     other.prevPostId == prevPostId &&
-     other.hasNext == hasNext;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPostList &&
+          other.order == order &&
+          other.posts == posts &&
+          other.nextPostId == nextPostId &&
+          other.prevPostId == prevPostId &&
+          other.hasNext == hasNext;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (order.hashCode) +
-    (posts.hashCode) +
-    (nextPostId == null ? 0 : nextPostId!.hashCode) +
-    (prevPostId == null ? 0 : prevPostId!.hashCode) +
-    (hasNext == null ? 0 : hasNext!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (order.hashCode) +
+      (posts.hashCode) +
+      (nextPostId == null ? 0 : nextPostId!.hashCode) +
+      (prevPostId == null ? 0 : prevPostId!.hashCode) +
+      (hasNext == null ? 0 : hasNext!.hashCode);
 
   @override
-  String toString() => 'MattermostPostList[order=$order, posts=$posts, nextPostId=$nextPostId, prevPostId=$prevPostId, hasNext=$hasNext]';
+  String toString() =>
+      'MattermostPostList[order=$order, posts=$posts, nextPostId=$nextPostId, prevPostId=$prevPostId, hasNext=$hasNext]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'order'] = order;
-      _json[r'posts'] = posts;
+    _json[r'order'] = order;
+    _json[r'posts'] = posts;
     if (nextPostId != null) {
       _json[r'next_post_id'] = nextPostId;
     }
@@ -106,9 +109,7 @@ class MattermostPostList {
       }());
 
       return MattermostPostList(
-        order: json[r'order'] is List
-            ? (json[r'order'] as List).cast<String>()
-            : const [],
+        order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
         posts: MattermostPost.mapFromJson(json[r'posts'] ?? const {}),
         nextPostId: mapValueOfType<String>(json, r'next_post_id'),
         prevPostId: mapValueOfType<String>(json, r'prev_post_id'),
@@ -118,7 +119,10 @@ class MattermostPostList {
     return null;
   }
 
-  static List<MattermostPostList>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostList>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +150,18 @@ class MattermostPostList {
   }
 
   // maps a json object with a list of MattermostPostList-objects as value to a dart map
-  static Map<String, List<MattermostPostList>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostList>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostList.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostList.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,7 +171,5 @@ class MattermostPostList {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

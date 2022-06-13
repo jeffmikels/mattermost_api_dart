@@ -43,20 +43,23 @@ class MattermostEnvironmentConfigClusterSettings {
   bool? interNodeUrls;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigClusterSettings &&
-     other.enable == enable &&
-     other.interNodeListenAddress == interNodeListenAddress &&
-     other.interNodeUrls == interNodeUrls;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigClusterSettings &&
+          other.enable == enable &&
+          other.interNodeListenAddress == interNodeListenAddress &&
+          other.interNodeUrls == interNodeUrls;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (interNodeListenAddress == null ? 0 : interNodeListenAddress!.hashCode) +
-    (interNodeUrls == null ? 0 : interNodeUrls!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (interNodeListenAddress == null ? 0 : interNodeListenAddress!.hashCode) +
+      (interNodeUrls == null ? 0 : interNodeUrls!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
+  String toString() =>
+      'MattermostEnvironmentConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostEnvironmentConfigClusterSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigClusterSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigClusterSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigClusterSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigClusterSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostEnvironmentConfigClusterSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigClusterSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigClusterSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigClusterSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostEnvironmentConfigClusterSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigClusterSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigClusterSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigClusterSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigClusterSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigClusterSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigClusterSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostEnvironmentConfigClusterSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

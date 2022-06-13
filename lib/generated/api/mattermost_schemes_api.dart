@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostSchemesApi {
   MattermostSchemesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostSchemesApi {
 
   /// Create a scheme
   ///
-  /// Create a new scheme.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Create a new scheme.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,7 +25,9 @@ class MattermostSchemesApi {
   ///
   /// * [MattermostCreateSchemeRequest] mattermostCreateSchemeRequest (required):
   ///   Scheme object to create
-  Future<Response> createSchemeWithHttpInfo(MattermostCreateSchemeRequest mattermostCreateSchemeRequest,) async {
+  Future<Response> createSchemeWithHttpInfo(
+    MattermostCreateSchemeRequest mattermostCreateSchemeRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/schemes';
 
@@ -38,7 +39,6 @@ class MattermostSchemesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,14 +53,18 @@ class MattermostSchemesApi {
 
   /// Create a scheme
   ///
-  /// Create a new scheme.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Create a new scheme.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateSchemeRequest] mattermostCreateSchemeRequest (required):
   ///   Scheme object to create
-  Future<MattermostScheme?> createScheme(MattermostCreateSchemeRequest mattermostCreateSchemeRequest,) async {
-    final response = await createSchemeWithHttpInfo(mattermostCreateSchemeRequest,);
+  Future<MattermostScheme?> createScheme(
+    MattermostCreateSchemeRequest mattermostCreateSchemeRequest,
+  ) async {
+    final response = await createSchemeWithHttpInfo(
+      mattermostCreateSchemeRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -68,15 +72,17 @@ class MattermostSchemesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostScheme',) as MattermostScheme;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostScheme',
+      ) as MattermostScheme;
     }
     return null;
   }
 
   /// Delete a scheme
   ///
-  /// Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -84,10 +90,11 @@ class MattermostSchemesApi {
   ///
   /// * [String] schemeId (required):
   ///   ID of the scheme to delete
-  Future<Response> deleteSchemeWithHttpInfo(String schemeId,) async {
+  Future<Response> deleteSchemeWithHttpInfo(
+    String schemeId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/schemes/{scheme_id}'
-      .replaceAll('{scheme_id}', schemeId);
+    final path = r'/schemes/{scheme_id}'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -97,7 +104,6 @@ class MattermostSchemesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -112,14 +118,18 @@ class MattermostSchemesApi {
 
   /// Delete a scheme
   ///
-  /// Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
   /// * [String] schemeId (required):
   ///   ID of the scheme to delete
-  Future<MattermostStatusOK?> deleteScheme(String schemeId,) async {
-    final response = await deleteSchemeWithHttpInfo(schemeId,);
+  Future<MattermostStatusOK?> deleteScheme(
+    String schemeId,
+  ) async {
+    final response = await deleteSchemeWithHttpInfo(
+      schemeId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -127,15 +137,17 @@ class MattermostSchemesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Get a page of channels which use this scheme.
   ///
-  /// Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -149,10 +161,13 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page.
-  Future<Response> getChannelsForSchemeWithHttpInfo(String schemeId, { int? page, int? perPage, }) async {
+  Future<Response> getChannelsForSchemeWithHttpInfo(
+    String schemeId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/schemes/{scheme_id}/channels'
-      .replaceAll('{scheme_id}', schemeId);
+    final path = r'/schemes/{scheme_id}/channels'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -170,7 +185,6 @@ class MattermostSchemesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -184,7 +198,7 @@ class MattermostSchemesApi {
 
   /// Get a page of channels which use this scheme.
   ///
-  /// Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
@@ -196,8 +210,16 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page.
-  Future<List<MattermostChannel>?> getChannelsForScheme(String schemeId, { int? page, int? perPage, }) async {
-    final response = await getChannelsForSchemeWithHttpInfo(schemeId,  page: page, perPage: perPage, );
+  Future<List<MattermostChannel>?> getChannelsForScheme(
+    String schemeId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getChannelsForSchemeWithHttpInfo(
+      schemeId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -207,16 +229,15 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannel>') as List)
-        .cast<MattermostChannel>()
-        .toList();
-
+          .cast<MattermostChannel>()
+          .toList();
     }
     return null;
   }
 
   /// Get a scheme
   ///
-  /// Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -224,10 +245,11 @@ class MattermostSchemesApi {
   ///
   /// * [String] schemeId (required):
   ///   Scheme GUID
-  Future<Response> getSchemeWithHttpInfo(String schemeId,) async {
+  Future<Response> getSchemeWithHttpInfo(
+    String schemeId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/schemes/{scheme_id}'
-      .replaceAll('{scheme_id}', schemeId);
+    final path = r'/schemes/{scheme_id}'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -237,7 +259,6 @@ class MattermostSchemesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -252,14 +273,18 @@ class MattermostSchemesApi {
 
   /// Get a scheme
   ///
-  /// Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
   /// * [String] schemeId (required):
   ///   Scheme GUID
-  Future<MattermostScheme?> getScheme(String schemeId,) async {
-    final response = await getSchemeWithHttpInfo(schemeId,);
+  Future<MattermostScheme?> getScheme(
+    String schemeId,
+  ) async {
+    final response = await getSchemeWithHttpInfo(
+      schemeId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -267,15 +292,17 @@ class MattermostSchemesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostScheme',) as MattermostScheme;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostScheme',
+      ) as MattermostScheme;
     }
     return null;
   }
 
   /// Get the schemes.
   ///
-  /// Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -289,7 +316,11 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of schemes per page.
-  Future<Response> getSchemesWithHttpInfo({ String? scope, int? page, int? perPage, }) async {
+  Future<Response> getSchemesWithHttpInfo({
+    String? scope,
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/schemes';
 
@@ -312,7 +343,6 @@ class MattermostSchemesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -326,7 +356,7 @@ class MattermostSchemesApi {
 
   /// Get the schemes.
   ///
-  /// Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
+  /// Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
@@ -338,8 +368,16 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of schemes per page.
-  Future<List<MattermostScheme>?> getSchemes({ String? scope, int? page, int? perPage, }) async {
-    final response = await getSchemesWithHttpInfo( scope: scope, page: page, perPage: perPage, );
+  Future<List<MattermostScheme>?> getSchemes({
+    String? scope,
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getSchemesWithHttpInfo(
+      scope: scope,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -349,16 +387,15 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostScheme>') as List)
-        .cast<MattermostScheme>()
-        .toList();
-
+          .cast<MattermostScheme>()
+          .toList();
     }
     return null;
   }
 
   /// Get a page of teams which use this scheme.
   ///
-  /// Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -372,10 +409,13 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page.
-  Future<Response> getTeamsForSchemeWithHttpInfo(String schemeId, { int? page, int? perPage, }) async {
+  Future<Response> getTeamsForSchemeWithHttpInfo(
+    String schemeId, {
+    int? page,
+    int? perPage,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/schemes/{scheme_id}/teams'
-      .replaceAll('{scheme_id}', schemeId);
+    final path = r'/schemes/{scheme_id}/teams'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -393,7 +433,6 @@ class MattermostSchemesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -407,7 +446,7 @@ class MattermostSchemesApi {
 
   /// Get a page of teams which use this scheme.
   ///
-  /// Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
@@ -419,8 +458,16 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page.
-  Future<List<MattermostTeam>?> getTeamsForScheme(String schemeId, { int? page, int? perPage, }) async {
-    final response = await getTeamsForSchemeWithHttpInfo(schemeId,  page: page, perPage: perPage, );
+  Future<List<MattermostTeam>?> getTeamsForScheme(
+    String schemeId, {
+    int? page,
+    int? perPage,
+  }) async {
+    final response = await getTeamsForSchemeWithHttpInfo(
+      schemeId,
+      page: page,
+      perPage: perPage,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -430,16 +477,15 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostTeam>') as List)
-        .cast<MattermostTeam>()
-        .toList();
-
+          .cast<MattermostTeam>()
+          .toList();
     }
     return null;
   }
 
   /// Patch a scheme
   ///
-  /// Partially update a scheme by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Partially update a scheme by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -450,10 +496,12 @@ class MattermostSchemesApi {
   ///
   /// * [MattermostPatchSchemeRequest] mattermostPatchSchemeRequest (required):
   ///   Scheme object to be updated
-  Future<Response> patchSchemeWithHttpInfo(String schemeId, MattermostPatchSchemeRequest mattermostPatchSchemeRequest,) async {
+  Future<Response> patchSchemeWithHttpInfo(
+    String schemeId,
+    MattermostPatchSchemeRequest mattermostPatchSchemeRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/schemes/{scheme_id}/patch'
-      .replaceAll('{scheme_id}', schemeId);
+    final path = r'/schemes/{scheme_id}/patch'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostPatchSchemeRequest;
@@ -463,7 +511,6 @@ class MattermostSchemesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -478,7 +525,7 @@ class MattermostSchemesApi {
 
   /// Patch a scheme
   ///
-  /// Partially update a scheme by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
+  /// Partially update a scheme by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0
   ///
   /// Parameters:
   ///
@@ -487,8 +534,14 @@ class MattermostSchemesApi {
   ///
   /// * [MattermostPatchSchemeRequest] mattermostPatchSchemeRequest (required):
   ///   Scheme object to be updated
-  Future<MattermostScheme?> patchScheme(String schemeId, MattermostPatchSchemeRequest mattermostPatchSchemeRequest,) async {
-    final response = await patchSchemeWithHttpInfo(schemeId, mattermostPatchSchemeRequest,);
+  Future<MattermostScheme?> patchScheme(
+    String schemeId,
+    MattermostPatchSchemeRequest mattermostPatchSchemeRequest,
+  ) async {
+    final response = await patchSchemeWithHttpInfo(
+      schemeId,
+      mattermostPatchSchemeRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -496,8 +549,10 @@ class MattermostSchemesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostScheme',) as MattermostScheme;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostScheme',
+      ) as MattermostScheme;
     }
     return null;
   }

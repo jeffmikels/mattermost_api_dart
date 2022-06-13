@@ -58,26 +58,29 @@ class MattermostOpenGraphArticle {
   List<MattermostOpenGraphArticleAuthorsInner> authors;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenGraphArticle &&
-     other.publishedTime == publishedTime &&
-     other.modifiedTime == modifiedTime &&
-     other.expirationTime == expirationTime &&
-     other.section == section &&
-     other.tags == tags &&
-     other.authors == authors;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenGraphArticle &&
+          other.publishedTime == publishedTime &&
+          other.modifiedTime == modifiedTime &&
+          other.expirationTime == expirationTime &&
+          other.section == section &&
+          other.tags == tags &&
+          other.authors == authors;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (publishedTime == null ? 0 : publishedTime!.hashCode) +
-    (modifiedTime == null ? 0 : modifiedTime!.hashCode) +
-    (expirationTime == null ? 0 : expirationTime!.hashCode) +
-    (section == null ? 0 : section!.hashCode) +
-    (tags.hashCode) +
-    (authors.hashCode);
+      // ignore: unnecessary_parenthesis
+      (publishedTime == null ? 0 : publishedTime!.hashCode) +
+      (modifiedTime == null ? 0 : modifiedTime!.hashCode) +
+      (expirationTime == null ? 0 : expirationTime!.hashCode) +
+      (section == null ? 0 : section!.hashCode) +
+      (tags.hashCode) +
+      (authors.hashCode);
 
   @override
-  String toString() => 'MattermostOpenGraphArticle[publishedTime=$publishedTime, modifiedTime=$modifiedTime, expirationTime=$expirationTime, section=$section, tags=$tags, authors=$authors]';
+  String toString() =>
+      'MattermostOpenGraphArticle[publishedTime=$publishedTime, modifiedTime=$modifiedTime, expirationTime=$expirationTime, section=$section, tags=$tags, authors=$authors]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -93,8 +96,8 @@ class MattermostOpenGraphArticle {
     if (section != null) {
       _json[r'section'] = section;
     }
-      _json[r'tags'] = tags;
-      _json[r'authors'] = authors;
+    _json[r'tags'] = tags;
+    _json[r'authors'] = authors;
     return _json;
   }
 
@@ -121,16 +124,17 @@ class MattermostOpenGraphArticle {
         modifiedTime: mapValueOfType<String>(json, r'modified_time'),
         expirationTime: mapValueOfType<String>(json, r'expiration_time'),
         section: mapValueOfType<String>(json, r'section'),
-        tags: json[r'tags'] is List
-            ? (json[r'tags'] as List).cast<String>()
-            : const [],
+        tags: json[r'tags'] is List ? (json[r'tags'] as List).cast<String>() : const [],
         authors: MattermostOpenGraphArticleAuthorsInner.listFromJson(json[r'authors']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MattermostOpenGraphArticle>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenGraphArticle>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenGraphArticle>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -158,12 +162,18 @@ class MattermostOpenGraphArticle {
   }
 
   // maps a json object with a list of MattermostOpenGraphArticle-objects as value to a dart map
-  static Map<String, List<MattermostOpenGraphArticle>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenGraphArticle>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenGraphArticle>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenGraphArticle.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenGraphArticle.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -173,7 +183,5 @@ class MattermostOpenGraphArticle {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

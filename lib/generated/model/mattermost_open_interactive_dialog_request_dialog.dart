@@ -74,39 +74,42 @@ class MattermostOpenInteractiveDialogRequestDialog {
   String? state;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenInteractiveDialogRequestDialog &&
-     other.callbackId == callbackId &&
-     other.title == title &&
-     other.introductionText == introductionText &&
-     other.elements == elements &&
-     other.submitLabel == submitLabel &&
-     other.notifyOnCancel == notifyOnCancel &&
-     other.state == state;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenInteractiveDialogRequestDialog &&
+          other.callbackId == callbackId &&
+          other.title == title &&
+          other.introductionText == introductionText &&
+          other.elements == elements &&
+          other.submitLabel == submitLabel &&
+          other.notifyOnCancel == notifyOnCancel &&
+          other.state == state;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (callbackId == null ? 0 : callbackId!.hashCode) +
-    (title.hashCode) +
-    (introductionText == null ? 0 : introductionText!.hashCode) +
-    (elements.hashCode) +
-    (submitLabel == null ? 0 : submitLabel!.hashCode) +
-    (notifyOnCancel == null ? 0 : notifyOnCancel!.hashCode) +
-    (state == null ? 0 : state!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (callbackId == null ? 0 : callbackId!.hashCode) +
+      (title.hashCode) +
+      (introductionText == null ? 0 : introductionText!.hashCode) +
+      (elements.hashCode) +
+      (submitLabel == null ? 0 : submitLabel!.hashCode) +
+      (notifyOnCancel == null ? 0 : notifyOnCancel!.hashCode) +
+      (state == null ? 0 : state!.hashCode);
 
   @override
-  String toString() => 'MattermostOpenInteractiveDialogRequestDialog[callbackId=$callbackId, title=$title, introductionText=$introductionText, elements=$elements, submitLabel=$submitLabel, notifyOnCancel=$notifyOnCancel, state=$state]';
+  String toString() =>
+      'MattermostOpenInteractiveDialogRequestDialog[callbackId=$callbackId, title=$title, introductionText=$introductionText, elements=$elements, submitLabel=$submitLabel, notifyOnCancel=$notifyOnCancel, state=$state]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (callbackId != null) {
       _json[r'callback_id'] = callbackId;
     }
-      _json[r'title'] = title;
+    _json[r'title'] = title;
     if (introductionText != null) {
       _json[r'introduction_text'] = introductionText;
     }
-      _json[r'elements'] = elements;
+    _json[r'elements'] = elements;
     if (submitLabel != null) {
       _json[r'submit_label'] = submitLabel;
     }
@@ -131,8 +134,10 @@ class MattermostOpenInteractiveDialogRequestDialog {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostOpenInteractiveDialogRequestDialog[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostOpenInteractiveDialogRequestDialog[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostOpenInteractiveDialogRequestDialog[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostOpenInteractiveDialogRequestDialog[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -150,7 +155,10 @@ class MattermostOpenInteractiveDialogRequestDialog {
     return null;
   }
 
-  static List<MattermostOpenInteractiveDialogRequestDialog>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenInteractiveDialogRequestDialog>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenInteractiveDialogRequestDialog>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -178,12 +186,18 @@ class MattermostOpenInteractiveDialogRequestDialog {
   }
 
   // maps a json object with a list of MattermostOpenInteractiveDialogRequestDialog-objects as value to a dart map
-  static Map<String, List<MattermostOpenInteractiveDialogRequestDialog>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenInteractiveDialogRequestDialog>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenInteractiveDialogRequestDialog>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenInteractiveDialogRequestDialog.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenInteractiveDialogRequestDialog.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -198,4 +212,3 @@ class MattermostOpenInteractiveDialogRequestDialog {
     'elements',
   };
 }
-

@@ -91,32 +91,35 @@ class MattermostSubscription {
   String? dns;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSubscription &&
-     other.id == id &&
-     other.customerId == customerId &&
-     other.productId == productId &&
-     other.addOns == addOns &&
-     other.startAt == startAt &&
-     other.endAt == endAt &&
-     other.createAt == createAt &&
-     other.seats == seats &&
-     other.dns == dns;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSubscription &&
+          other.id == id &&
+          other.customerId == customerId &&
+          other.productId == productId &&
+          other.addOns == addOns &&
+          other.startAt == startAt &&
+          other.endAt == endAt &&
+          other.createAt == createAt &&
+          other.seats == seats &&
+          other.dns == dns;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (customerId == null ? 0 : customerId!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode) +
-    (addOns.hashCode) +
-    (startAt == null ? 0 : startAt!.hashCode) +
-    (endAt == null ? 0 : endAt!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (seats == null ? 0 : seats!.hashCode) +
-    (dns == null ? 0 : dns!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (customerId == null ? 0 : customerId!.hashCode) +
+      (productId == null ? 0 : productId!.hashCode) +
+      (addOns.hashCode) +
+      (startAt == null ? 0 : startAt!.hashCode) +
+      (endAt == null ? 0 : endAt!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (seats == null ? 0 : seats!.hashCode) +
+      (dns == null ? 0 : dns!.hashCode);
 
   @override
-  String toString() => 'MattermostSubscription[id=$id, customerId=$customerId, productId=$productId, addOns=$addOns, startAt=$startAt, endAt=$endAt, createAt=$createAt, seats=$seats, dns=$dns]';
+  String toString() =>
+      'MattermostSubscription[id=$id, customerId=$customerId, productId=$productId, addOns=$addOns, startAt=$startAt, endAt=$endAt, createAt=$createAt, seats=$seats, dns=$dns]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -129,7 +132,7 @@ class MattermostSubscription {
     if (productId != null) {
       _json[r'product_id'] = productId;
     }
-      _json[r'add_ons'] = addOns;
+    _json[r'add_ons'] = addOns;
     if (startAt != null) {
       _json[r'start_at'] = startAt;
     }
@@ -170,9 +173,7 @@ class MattermostSubscription {
         id: mapValueOfType<String>(json, r'id'),
         customerId: mapValueOfType<String>(json, r'customer_id'),
         productId: mapValueOfType<String>(json, r'product_id'),
-        addOns: json[r'add_ons'] is List
-            ? (json[r'add_ons'] as List).cast<String>()
-            : const [],
+        addOns: json[r'add_ons'] is List ? (json[r'add_ons'] as List).cast<String>() : const [],
         startAt: mapValueOfType<int>(json, r'start_at'),
         endAt: mapValueOfType<int>(json, r'end_at'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -183,7 +184,10 @@ class MattermostSubscription {
     return null;
   }
 
-  static List<MattermostSubscription>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSubscription>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSubscription>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -211,12 +215,18 @@ class MattermostSubscription {
   }
 
   // maps a json object with a list of MattermostSubscription-objects as value to a dart map
-  static Map<String, List<MattermostSubscription>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSubscription>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSubscription>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSubscription.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSubscription.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -226,7 +236,5 @@ class MattermostSubscription {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -19,13 +19,13 @@ class MattermostIntegrationsLimits {
   int? enabled;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostIntegrationsLimits &&
-     other.enabled == enabled;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostIntegrationsLimits && other.enabled == enabled;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enabled == null ? 0 : enabled!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() => 'MattermostIntegrationsLimits[enabled=$enabled]';
@@ -63,7 +63,10 @@ class MattermostIntegrationsLimits {
     return null;
   }
 
-  static List<MattermostIntegrationsLimits>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostIntegrationsLimits>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostIntegrationsLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -91,12 +94,18 @@ class MattermostIntegrationsLimits {
   }
 
   // maps a json object with a list of MattermostIntegrationsLimits-objects as value to a dart map
-  static Map<String, List<MattermostIntegrationsLimits>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostIntegrationsLimits>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostIntegrationsLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostIntegrationsLimits.listFromJson(entry.value, growable: growable,);
+        final value = MattermostIntegrationsLimits.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,7 +115,5 @@ class MattermostIntegrationsLimits {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

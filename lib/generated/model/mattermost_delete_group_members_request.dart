@@ -19,20 +19,20 @@ class MattermostDeleteGroupMembersRequest {
   List<int> userIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostDeleteGroupMembersRequest &&
-     other.userIds == userIds;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostDeleteGroupMembersRequest && other.userIds == userIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userIds.hashCode);
 
   @override
   String toString() => 'MattermostDeleteGroupMembersRequest[userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'user_ids'] = userIds;
+    _json[r'user_ids'] = userIds;
     return _json;
   }
 
@@ -48,22 +48,25 @@ class MattermostDeleteGroupMembersRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostDeleteGroupMembersRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostDeleteGroupMembersRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostDeleteGroupMembersRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostDeleteGroupMembersRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostDeleteGroupMembersRequest(
-        userIds: json[r'user_ids'] is List
-            ? (json[r'user_ids'] as List).cast<int>()
-            : const [],
+        userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<int>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostDeleteGroupMembersRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostDeleteGroupMembersRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostDeleteGroupMembersRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -91,12 +94,18 @@ class MattermostDeleteGroupMembersRequest {
   }
 
   // maps a json object with a list of MattermostDeleteGroupMembersRequest-objects as value to a dart map
-  static Map<String, List<MattermostDeleteGroupMembersRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostDeleteGroupMembersRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostDeleteGroupMembersRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostDeleteGroupMembersRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostDeleteGroupMembersRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,7 +115,5 @@ class MattermostDeleteGroupMembersRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

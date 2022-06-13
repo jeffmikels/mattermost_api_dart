@@ -27,26 +27,26 @@ class MattermostOpenInteractiveDialogRequest {
   MattermostOpenInteractiveDialogRequestDialog dialog;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOpenInteractiveDialogRequest &&
-     other.triggerId == triggerId &&
-     other.url == url &&
-     other.dialog == dialog;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOpenInteractiveDialogRequest &&
+          other.triggerId == triggerId &&
+          other.url == url &&
+          other.dialog == dialog;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (triggerId.hashCode) +
-    (url.hashCode) +
-    (dialog.hashCode);
+      // ignore: unnecessary_parenthesis
+      (triggerId.hashCode) + (url.hashCode) + (dialog.hashCode);
 
   @override
   String toString() => 'MattermostOpenInteractiveDialogRequest[triggerId=$triggerId, url=$url, dialog=$dialog]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'trigger_id'] = triggerId;
-      _json[r'url'] = url;
-      _json[r'dialog'] = dialog;
+    _json[r'trigger_id'] = triggerId;
+    _json[r'url'] = url;
+    _json[r'dialog'] = dialog;
     return _json;
   }
 
@@ -62,8 +62,10 @@ class MattermostOpenInteractiveDialogRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostOpenInteractiveDialogRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostOpenInteractiveDialogRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostOpenInteractiveDialogRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostOpenInteractiveDialogRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -77,7 +79,10 @@ class MattermostOpenInteractiveDialogRequest {
     return null;
   }
 
-  static List<MattermostOpenInteractiveDialogRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOpenInteractiveDialogRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOpenInteractiveDialogRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +110,18 @@ class MattermostOpenInteractiveDialogRequest {
   }
 
   // maps a json object with a list of MattermostOpenInteractiveDialogRequest-objects as value to a dart map
-  static Map<String, List<MattermostOpenInteractiveDialogRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOpenInteractiveDialogRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOpenInteractiveDialogRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOpenInteractiveDialogRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOpenInteractiveDialogRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -126,4 +137,3 @@ class MattermostOpenInteractiveDialogRequest {
     'dialog',
   };
 }
-

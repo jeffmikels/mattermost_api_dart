@@ -20,20 +20,20 @@ class MattermostUpdateTeamSchemeRequest {
   String schemeId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateTeamSchemeRequest &&
-     other.schemeId == schemeId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostUpdateTeamSchemeRequest && other.schemeId == schemeId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (schemeId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (schemeId.hashCode);
 
   @override
   String toString() => 'MattermostUpdateTeamSchemeRequest[schemeId=$schemeId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'scheme_id'] = schemeId;
+    _json[r'scheme_id'] = schemeId;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostUpdateTeamSchemeRequest {
     return null;
   }
 
-  static List<MattermostUpdateTeamSchemeRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateTeamSchemeRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateTeamSchemeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostUpdateTeamSchemeRequest {
   }
 
   // maps a json object with a list of MattermostUpdateTeamSchemeRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateTeamSchemeRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateTeamSchemeRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateTeamSchemeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateTeamSchemeRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateTeamSchemeRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostUpdateTeamSchemeRequest {
     'scheme_id',
   };
 }
-

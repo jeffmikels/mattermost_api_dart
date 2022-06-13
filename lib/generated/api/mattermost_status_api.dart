@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostStatusApi {
   MattermostStatusApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostStatusApi {
 
   /// Get user status
   ///
-  /// Get user status by id from the server. ##### Permissions Must be authenticated. 
+  /// Get user status by id from the server. ##### Permissions Must be authenticated.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,10 +25,11 @@ class MattermostStatusApi {
   ///
   /// * [String] userId (required):
   ///   User ID
-  Future<Response> getUserStatusWithHttpInfo(String userId,) async {
+  Future<Response> getUserStatusWithHttpInfo(
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -39,7 +39,6 @@ class MattermostStatusApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -54,14 +53,18 @@ class MattermostStatusApi {
 
   /// Get user status
   ///
-  /// Get user status by id from the server. ##### Permissions Must be authenticated. 
+  /// Get user status by id from the server. ##### Permissions Must be authenticated.
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
   ///   User ID
-  Future<MattermostStatus?> getUserStatus(String userId,) async {
-    final response = await getUserStatusWithHttpInfo(userId,);
+  Future<MattermostStatus?> getUserStatus(
+    String userId,
+  ) async {
+    final response = await getUserStatusWithHttpInfo(
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -69,15 +72,17 @@ class MattermostStatusApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatus',) as MattermostStatus;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatus',
+      ) as MattermostStatus;
     }
     return null;
   }
 
   /// Get user statuses by id
   ///
-  /// Get a list of user statuses by id from the server. ##### Permissions Must be authenticated. 
+  /// Get a list of user statuses by id from the server. ##### Permissions Must be authenticated.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -85,7 +90,9 @@ class MattermostStatusApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids to fetch
-  Future<Response> getUsersStatusesByIdsWithHttpInfo(List<String> requestBody,) async {
+  Future<Response> getUsersStatusesByIdsWithHttpInfo(
+    List<String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/status/ids';
 
@@ -98,7 +105,6 @@ class MattermostStatusApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -112,14 +118,18 @@ class MattermostStatusApi {
 
   /// Get user statuses by id
   ///
-  /// Get a list of user statuses by id from the server. ##### Permissions Must be authenticated. 
+  /// Get a list of user statuses by id from the server. ##### Permissions Must be authenticated.
   ///
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids to fetch
-  Future<List<MattermostStatus>?> getUsersStatusesByIds(List<String> requestBody,) async {
-    final response = await getUsersStatusesByIdsWithHttpInfo(requestBody,);
+  Future<List<MattermostStatus>?> getUsersStatusesByIds(
+    List<String> requestBody,
+  ) async {
+    final response = await getUsersStatusesByIdsWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -129,16 +139,15 @@ class MattermostStatusApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostStatus>') as List)
-        .cast<MattermostStatus>()
-        .toList();
-
+          .cast<MattermostStatus>()
+          .toList();
     }
     return null;
   }
 
   /// Delete user's recent custom status
   ///
-  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
+  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -149,10 +158,12 @@ class MattermostStatusApi {
   ///
   /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
-  Future<Response> postUserRecentCustomStatusDeleteWithHttpInfo(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,) async {
+  Future<Response> postUserRecentCustomStatusDeleteWithHttpInfo(
+    String userId,
+    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status/custom/recent/delete'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status/custom/recent/delete'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostRemoveRecentCustomStatusRequest;
@@ -162,7 +173,6 @@ class MattermostStatusApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -177,7 +187,7 @@ class MattermostStatusApi {
 
   /// Delete user's recent custom status
   ///
-  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
+  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted.
   ///
   /// Parameters:
   ///
@@ -186,8 +196,14 @@ class MattermostStatusApi {
   ///
   /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
-  Future<void> postUserRecentCustomStatusDelete(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,) async {
-    final response = await postUserRecentCustomStatusDeleteWithHttpInfo(userId, mattermostRemoveRecentCustomStatusRequest,);
+  Future<void> postUserRecentCustomStatusDelete(
+    String userId,
+    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+  ) async {
+    final response = await postUserRecentCustomStatusDeleteWithHttpInfo(
+      userId,
+      mattermostRemoveRecentCustomStatusRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -195,7 +211,7 @@ class MattermostStatusApi {
 
   /// Delete user's recent custom status
   ///
-  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
+  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -206,10 +222,12 @@ class MattermostStatusApi {
   ///
   /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
-  Future<Response> removeRecentCustomStatusWithHttpInfo(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,) async {
+  Future<Response> removeRecentCustomStatusWithHttpInfo(
+    String userId,
+    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status/custom/recent'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status/custom/recent'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostRemoveRecentCustomStatusRequest;
@@ -220,7 +238,6 @@ class MattermostStatusApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'DELETE',
@@ -234,7 +251,7 @@ class MattermostStatusApi {
 
   /// Delete user's recent custom status
   ///
-  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
+  /// Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted.
   ///
   /// Parameters:
   ///
@@ -243,8 +260,14 @@ class MattermostStatusApi {
   ///
   /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
-  Future<void> removeRecentCustomStatus(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,) async {
-    final response = await removeRecentCustomStatusWithHttpInfo(userId, mattermostRemoveRecentCustomStatusRequest,);
+  Future<void> removeRecentCustomStatus(
+    String userId,
+    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+  ) async {
+    final response = await removeRecentCustomStatusWithHttpInfo(
+      userId,
+      mattermostRemoveRecentCustomStatusRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -252,7 +275,7 @@ class MattermostStatusApi {
 
   /// Unsets user custom status
   ///
-  /// Unsets a user's custom status by updating the user's props and updates the user ##### Permissions Must be logged in as the user whose custom status is being removed. 
+  /// Unsets a user's custom status by updating the user's props and updates the user ##### Permissions Must be logged in as the user whose custom status is being removed.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -260,10 +283,11 @@ class MattermostStatusApi {
   ///
   /// * [String] userId (required):
   ///   User ID
-  Future<Response> unsetUserCustomStatusWithHttpInfo(String userId,) async {
+  Future<Response> unsetUserCustomStatusWithHttpInfo(
+    String userId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status/custom'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status/custom'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -273,7 +297,6 @@ class MattermostStatusApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -288,14 +311,18 @@ class MattermostStatusApi {
 
   /// Unsets user custom status
   ///
-  /// Unsets a user's custom status by updating the user's props and updates the user ##### Permissions Must be logged in as the user whose custom status is being removed. 
+  /// Unsets a user's custom status by updating the user's props and updates the user ##### Permissions Must be logged in as the user whose custom status is being removed.
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
   ///   User ID
-  Future<void> unsetUserCustomStatus(String userId,) async {
-    final response = await unsetUserCustomStatusWithHttpInfo(userId,);
+  Future<void> unsetUserCustomStatus(
+    String userId,
+  ) async {
+    final response = await unsetUserCustomStatusWithHttpInfo(
+      userId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -303,7 +330,7 @@ class MattermostStatusApi {
 
   /// Update user custom status
   ///
-  /// Updates a user's custom status by setting the value in the user's props and updates the user. Also save the given custom status to the recent custom statuses in the user's props ##### Permissions Must be logged in as the user whose custom status is being updated. 
+  /// Updates a user's custom status by setting the value in the user's props and updates the user. Also save the given custom status to the recent custom statuses in the user's props ##### Permissions Must be logged in as the user whose custom status is being updated.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -314,10 +341,12 @@ class MattermostStatusApi {
   ///
   /// * [MattermostUpdateUserCustomStatusRequest] mattermostUpdateUserCustomStatusRequest (required):
   ///   Custom status object that is to be updated
-  Future<Response> updateUserCustomStatusWithHttpInfo(String userId, MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,) async {
+  Future<Response> updateUserCustomStatusWithHttpInfo(
+    String userId,
+    MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status/custom'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status/custom'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateUserCustomStatusRequest;
@@ -328,7 +357,6 @@ class MattermostStatusApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -342,7 +370,7 @@ class MattermostStatusApi {
 
   /// Update user custom status
   ///
-  /// Updates a user's custom status by setting the value in the user's props and updates the user. Also save the given custom status to the recent custom statuses in the user's props ##### Permissions Must be logged in as the user whose custom status is being updated. 
+  /// Updates a user's custom status by setting the value in the user's props and updates the user. Also save the given custom status to the recent custom statuses in the user's props ##### Permissions Must be logged in as the user whose custom status is being updated.
   ///
   /// Parameters:
   ///
@@ -351,8 +379,14 @@ class MattermostStatusApi {
   ///
   /// * [MattermostUpdateUserCustomStatusRequest] mattermostUpdateUserCustomStatusRequest (required):
   ///   Custom status object that is to be updated
-  Future<void> updateUserCustomStatus(String userId, MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,) async {
-    final response = await updateUserCustomStatusWithHttpInfo(userId, mattermostUpdateUserCustomStatusRequest,);
+  Future<void> updateUserCustomStatus(
+    String userId,
+    MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,
+  ) async {
+    final response = await updateUserCustomStatusWithHttpInfo(
+      userId,
+      mattermostUpdateUserCustomStatusRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -360,7 +394,7 @@ class MattermostStatusApi {
 
   /// Update user status
   ///
-  /// Manually set a user's status. When setting a user's status, the status will remain that value until set \"online\" again, which will return the status to being automatically updated based on user activity. ##### Permissions Must have `edit_other_users` permission for the team. 
+  /// Manually set a user's status. When setting a user's status, the status will remain that value until set \"online\" again, which will return the status to being automatically updated based on user activity. ##### Permissions Must have `edit_other_users` permission for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -371,10 +405,12 @@ class MattermostStatusApi {
   ///
   /// * [MattermostUpdateUserStatusRequest] mattermostUpdateUserStatusRequest (required):
   ///   Status object that is to be updated
-  Future<Response> updateUserStatusWithHttpInfo(String userId, MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,) async {
+  Future<Response> updateUserStatusWithHttpInfo(
+    String userId,
+    MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/users/{user_id}/status'
-      .replaceAll('{user_id}', userId);
+    final path = r'/users/{user_id}/status'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostUpdateUserStatusRequest;
@@ -384,7 +420,6 @@ class MattermostStatusApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -399,7 +434,7 @@ class MattermostStatusApi {
 
   /// Update user status
   ///
-  /// Manually set a user's status. When setting a user's status, the status will remain that value until set \"online\" again, which will return the status to being automatically updated based on user activity. ##### Permissions Must have `edit_other_users` permission for the team. 
+  /// Manually set a user's status. When setting a user's status, the status will remain that value until set \"online\" again, which will return the status to being automatically updated based on user activity. ##### Permissions Must have `edit_other_users` permission for the team.
   ///
   /// Parameters:
   ///
@@ -408,8 +443,14 @@ class MattermostStatusApi {
   ///
   /// * [MattermostUpdateUserStatusRequest] mattermostUpdateUserStatusRequest (required):
   ///   Status object that is to be updated
-  Future<MattermostStatus?> updateUserStatus(String userId, MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,) async {
-    final response = await updateUserStatusWithHttpInfo(userId, mattermostUpdateUserStatusRequest,);
+  Future<MattermostStatus?> updateUserStatus(
+    String userId,
+    MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,
+  ) async {
+    final response = await updateUserStatusWithHttpInfo(
+      userId,
+      mattermostUpdateUserStatusRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -417,8 +458,10 @@ class MattermostStatusApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatus',) as MattermostStatus;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatus',
+      ) as MattermostStatus;
     }
     return null;
   }

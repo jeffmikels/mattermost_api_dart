@@ -110,34 +110,37 @@ class MattermostOAuthApp {
   int? updateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostOAuthApp &&
-     other.id == id &&
-     other.clientSecret == clientSecret &&
-     other.name == name &&
-     other.description == description &&
-     other.iconUrl == iconUrl &&
-     other.callbackUrls == callbackUrls &&
-     other.homepage == homepage &&
-     other.isTrusted == isTrusted &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostOAuthApp &&
+          other.id == id &&
+          other.clientSecret == clientSecret &&
+          other.name == name &&
+          other.description == description &&
+          other.iconUrl == iconUrl &&
+          other.callbackUrls == callbackUrls &&
+          other.homepage == homepage &&
+          other.isTrusted == isTrusted &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (clientSecret == null ? 0 : clientSecret!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (iconUrl == null ? 0 : iconUrl!.hashCode) +
-    (callbackUrls.hashCode) +
-    (homepage == null ? 0 : homepage!.hashCode) +
-    (isTrusted == null ? 0 : isTrusted!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (clientSecret == null ? 0 : clientSecret!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (iconUrl == null ? 0 : iconUrl!.hashCode) +
+      (callbackUrls.hashCode) +
+      (homepage == null ? 0 : homepage!.hashCode) +
+      (isTrusted == null ? 0 : isTrusted!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostOAuthApp[id=$id, clientSecret=$clientSecret, name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted, createAt=$createAt, updateAt=$updateAt]';
+  String toString() =>
+      'MattermostOAuthApp[id=$id, clientSecret=$clientSecret, name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted, createAt=$createAt, updateAt=$updateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -156,7 +159,7 @@ class MattermostOAuthApp {
     if (iconUrl != null) {
       _json[r'icon_url'] = iconUrl;
     }
-      _json[r'callback_urls'] = callbackUrls;
+    _json[r'callback_urls'] = callbackUrls;
     if (homepage != null) {
       _json[r'homepage'] = homepage;
     }
@@ -196,9 +199,7 @@ class MattermostOAuthApp {
         name: mapValueOfType<String>(json, r'name'),
         description: mapValueOfType<String>(json, r'description'),
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
-        callbackUrls: json[r'callback_urls'] is List
-            ? (json[r'callback_urls'] as List).cast<String>()
-            : const [],
+        callbackUrls: json[r'callback_urls'] is List ? (json[r'callback_urls'] as List).cast<String>() : const [],
         homepage: mapValueOfType<String>(json, r'homepage'),
         isTrusted: mapValueOfType<bool>(json, r'is_trusted'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -208,7 +209,10 @@ class MattermostOAuthApp {
     return null;
   }
 
-  static List<MattermostOAuthApp>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostOAuthApp>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostOAuthApp>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -236,12 +240,18 @@ class MattermostOAuthApp {
   }
 
   // maps a json object with a list of MattermostOAuthApp-objects as value to a dart map
-  static Map<String, List<MattermostOAuthApp>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostOAuthApp>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostOAuthApp>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostOAuthApp.listFromJson(entry.value, growable: growable,);
+        final value = MattermostOAuthApp.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -251,7 +261,5 @@ class MattermostOAuthApp {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostCommandsApi {
   MattermostCommandsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostCommandsApi {
 
   /// Create a command
   ///
-  /// Create a command for a team. ##### Permissions `manage_slash_commands` for the team the command is in. 
+  /// Create a command for a team. ##### Permissions `manage_slash_commands` for the team the command is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -26,7 +25,9 @@ class MattermostCommandsApi {
   ///
   /// * [MattermostCreateCommandRequest] mattermostCreateCommandRequest (required):
   ///   command to be created
-  Future<Response> createCommandWithHttpInfo(MattermostCreateCommandRequest mattermostCreateCommandRequest,) async {
+  Future<Response> createCommandWithHttpInfo(
+    MattermostCreateCommandRequest mattermostCreateCommandRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands';
 
@@ -38,7 +39,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,14 +53,18 @@ class MattermostCommandsApi {
 
   /// Create a command
   ///
-  /// Create a command for a team. ##### Permissions `manage_slash_commands` for the team the command is in. 
+  /// Create a command for a team. ##### Permissions `manage_slash_commands` for the team the command is in.
   ///
   /// Parameters:
   ///
   /// * [MattermostCreateCommandRequest] mattermostCreateCommandRequest (required):
   ///   command to be created
-  Future<MattermostCommand?> createCommand(MattermostCreateCommandRequest mattermostCreateCommandRequest,) async {
-    final response = await createCommandWithHttpInfo(mattermostCreateCommandRequest,);
+  Future<MattermostCommand?> createCommand(
+    MattermostCreateCommandRequest mattermostCreateCommandRequest,
+  ) async {
+    final response = await createCommandWithHttpInfo(
+      mattermostCreateCommandRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -68,15 +72,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCommand',) as MattermostCommand;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCommand',
+      ) as MattermostCommand;
     }
     return null;
   }
 
   /// Delete a command
   ///
-  /// Delete a command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Delete a command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -84,10 +90,11 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to delete
-  Future<Response> deleteCommandWithHttpInfo(String commandId,) async {
+  Future<Response> deleteCommandWithHttpInfo(
+    String commandId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/commands/{command_id}'
-      .replaceAll('{command_id}', commandId);
+    final path = r'/commands/{command_id}'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -97,7 +104,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -112,14 +118,18 @@ class MattermostCommandsApi {
 
   /// Delete a command
   ///
-  /// Delete a command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Delete a command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Parameters:
   ///
   /// * [String] commandId (required):
   ///   ID of the command to delete
-  Future<MattermostStatusOK?> deleteCommand(String commandId,) async {
-    final response = await deleteCommandWithHttpInfo(commandId,);
+  Future<MattermostStatusOK?> deleteCommand(
+    String commandId,
+  ) async {
+    final response = await deleteCommandWithHttpInfo(
+      commandId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -127,15 +137,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Execute a command
   ///
-  /// Execute a command on a team. ##### Permissions Must have `use_slash_commands` permission for the team the command is in. 
+  /// Execute a command on a team. ##### Permissions Must have `use_slash_commands` permission for the team the command is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -143,7 +155,9 @@ class MattermostCommandsApi {
   ///
   /// * [MattermostExecuteCommandRequest] mattermostExecuteCommandRequest (required):
   ///   command to be executed
-  Future<Response> executeCommandWithHttpInfo(MattermostExecuteCommandRequest mattermostExecuteCommandRequest,) async {
+  Future<Response> executeCommandWithHttpInfo(
+    MattermostExecuteCommandRequest mattermostExecuteCommandRequest,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands/execute';
 
@@ -155,7 +169,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -170,14 +183,18 @@ class MattermostCommandsApi {
 
   /// Execute a command
   ///
-  /// Execute a command on a team. ##### Permissions Must have `use_slash_commands` permission for the team the command is in. 
+  /// Execute a command on a team. ##### Permissions Must have `use_slash_commands` permission for the team the command is in.
   ///
   /// Parameters:
   ///
   /// * [MattermostExecuteCommandRequest] mattermostExecuteCommandRequest (required):
   ///   command to be executed
-  Future<MattermostCommandResponse?> executeCommand(MattermostExecuteCommandRequest mattermostExecuteCommandRequest,) async {
-    final response = await executeCommandWithHttpInfo(mattermostExecuteCommandRequest,);
+  Future<MattermostCommandResponse?> executeCommand(
+    MattermostExecuteCommandRequest mattermostExecuteCommandRequest,
+  ) async {
+    final response = await executeCommandWithHttpInfo(
+      mattermostExecuteCommandRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -185,15 +202,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCommandResponse',) as MattermostCommandResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCommandResponse',
+      ) as MattermostCommandResponse;
     }
     return null;
   }
 
   /// Get a command
   ///
-  /// Get a command definition based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.  __Minimum server version__: 5.22 
+  /// Get a command definition based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.  __Minimum server version__: 5.22
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -201,10 +220,11 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to get
-  Future<Response> getCommandByIdWithHttpInfo(String commandId,) async {
+  Future<Response> getCommandByIdWithHttpInfo(
+    String commandId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/commands/{command_id}'
-      .replaceAll('{command_id}', commandId);
+    final path = r'/commands/{command_id}'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -214,7 +234,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -229,14 +248,18 @@ class MattermostCommandsApi {
 
   /// Get a command
   ///
-  /// Get a command definition based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.  __Minimum server version__: 5.22 
+  /// Get a command definition based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.  __Minimum server version__: 5.22
   ///
   /// Parameters:
   ///
   /// * [String] commandId (required):
   ///   ID of the command to get
-  Future<MattermostCommand?> getCommandById(String commandId,) async {
-    final response = await getCommandByIdWithHttpInfo(commandId,);
+  Future<MattermostCommand?> getCommandById(
+    String commandId,
+  ) async {
+    final response = await getCommandByIdWithHttpInfo(
+      commandId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -244,15 +267,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCommand',) as MattermostCommand;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCommand',
+      ) as MattermostCommand;
     }
     return null;
   }
 
   /// List autocomplete commands
   ///
-  /// List autocomplete commands in the team. ##### Permissions `view_team` for the team. 
+  /// List autocomplete commands in the team. ##### Permissions `view_team` for the team.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -260,10 +285,11 @@ class MattermostCommandsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<Response> listAutocompleteCommandsWithHttpInfo(String teamId,) async {
+  Future<Response> listAutocompleteCommandsWithHttpInfo(
+    String teamId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/commands/autocomplete'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/commands/autocomplete'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -273,7 +299,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -288,14 +313,18 @@ class MattermostCommandsApi {
 
   /// List autocomplete commands
   ///
-  /// List autocomplete commands in the team. ##### Permissions `view_team` for the team. 
+  /// List autocomplete commands in the team. ##### Permissions `view_team` for the team.
   ///
   /// Parameters:
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<List<MattermostCommand>?> listAutocompleteCommands(String teamId,) async {
-    final response = await listAutocompleteCommandsWithHttpInfo(teamId,);
+  Future<List<MattermostCommand>?> listAutocompleteCommands(
+    String teamId,
+  ) async {
+    final response = await listAutocompleteCommandsWithHttpInfo(
+      teamId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -305,16 +334,15 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostCommand>') as List)
-        .cast<MattermostCommand>()
-        .toList();
-
+          .cast<MattermostCommand>()
+          .toList();
     }
     return null;
   }
 
   /// List commands' autocomplete data
   ///
-  /// List commands' autocomplete data for the team. ##### Permissions `view_team` for the team. __Minimum server version__: 5.24 
+  /// List commands' autocomplete data for the team. ##### Permissions `view_team` for the team. __Minimum server version__: 5.24
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -325,10 +353,12 @@ class MattermostCommandsApi {
   ///
   /// * [String] userInput (required):
   ///   String inputted by the user.
-  Future<Response> listCommandAutocompleteSuggestionsWithHttpInfo(String teamId, String userInput,) async {
+  Future<Response> listCommandAutocompleteSuggestionsWithHttpInfo(
+    String teamId,
+    String userInput,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/teams/{team_id}/commands/autocomplete_suggestions'
-      .replaceAll('{team_id}', teamId);
+    final path = r'/teams/{team_id}/commands/autocomplete_suggestions'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -337,10 +367,9 @@ class MattermostCommandsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'user_input', userInput));
+    queryParams.addAll(_queryParams('', 'user_input', userInput));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -355,7 +384,7 @@ class MattermostCommandsApi {
 
   /// List commands' autocomplete data
   ///
-  /// List commands' autocomplete data for the team. ##### Permissions `view_team` for the team. __Minimum server version__: 5.24 
+  /// List commands' autocomplete data for the team. ##### Permissions `view_team` for the team. __Minimum server version__: 5.24
   ///
   /// Parameters:
   ///
@@ -364,8 +393,14 @@ class MattermostCommandsApi {
   ///
   /// * [String] userInput (required):
   ///   String inputted by the user.
-  Future<List<MattermostAutocompleteSuggestion>?> listCommandAutocompleteSuggestions(String teamId, String userInput,) async {
-    final response = await listCommandAutocompleteSuggestionsWithHttpInfo(teamId, userInput,);
+  Future<List<MattermostAutocompleteSuggestion>?> listCommandAutocompleteSuggestions(
+    String teamId,
+    String userInput,
+  ) async {
+    final response = await listCommandAutocompleteSuggestionsWithHttpInfo(
+      teamId,
+      userInput,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -375,16 +410,15 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostAutocompleteSuggestion>') as List)
-        .cast<MattermostAutocompleteSuggestion>()
-        .toList();
-
+          .cast<MattermostAutocompleteSuggestion>()
+          .toList();
     }
     return null;
   }
 
   /// List commands for a team
   ///
-  /// List commands for a team. ##### Permissions `manage_slash_commands` if need list custom commands. 
+  /// List commands for a team. ##### Permissions `manage_slash_commands` if need list custom commands.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -394,8 +428,11 @@ class MattermostCommandsApi {
   ///   The team id.
   ///
   /// * [bool] customOnly:
-  ///   To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
-  Future<Response> listCommandsWithHttpInfo({ String? teamId, bool? customOnly, }) async {
+  ///   To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands.
+  Future<Response> listCommandsWithHttpInfo({
+    String? teamId,
+    bool? customOnly,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/commands';
 
@@ -415,7 +452,6 @@ class MattermostCommandsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -429,7 +465,7 @@ class MattermostCommandsApi {
 
   /// List commands for a team
   ///
-  /// List commands for a team. ##### Permissions `manage_slash_commands` if need list custom commands. 
+  /// List commands for a team. ##### Permissions `manage_slash_commands` if need list custom commands.
   ///
   /// Parameters:
   ///
@@ -437,9 +473,15 @@ class MattermostCommandsApi {
   ///   The team id.
   ///
   /// * [bool] customOnly:
-  ///   To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
-  Future<List<MattermostCommand>?> listCommands({ String? teamId, bool? customOnly, }) async {
-    final response = await listCommandsWithHttpInfo( teamId: teamId, customOnly: customOnly, );
+  ///   To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands.
+  Future<List<MattermostCommand>?> listCommands({
+    String? teamId,
+    bool? customOnly,
+  }) async {
+    final response = await listCommandsWithHttpInfo(
+      teamId: teamId,
+      customOnly: customOnly,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -449,16 +491,15 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MattermostCommand>') as List)
-        .cast<MattermostCommand>()
-        .toList();
-
+          .cast<MattermostCommand>()
+          .toList();
     }
     return null;
   }
 
   /// Move a command
   ///
-  /// Move a command to a different team based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is currently in and the destination team.  __Minimum server version__: 5.22 
+  /// Move a command to a different team based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is currently in and the destination team.  __Minimum server version__: 5.22
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -468,10 +509,12 @@ class MattermostCommandsApi {
   ///   ID of the command to move
   ///
   /// * [MattermostMoveCommandRequest] mattermostMoveCommandRequest (required):
-  Future<Response> moveCommandWithHttpInfo(String commandId, MattermostMoveCommandRequest mattermostMoveCommandRequest,) async {
+  Future<Response> moveCommandWithHttpInfo(
+    String commandId,
+    MattermostMoveCommandRequest mattermostMoveCommandRequest,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/commands/{command_id}/move'
-      .replaceAll('{command_id}', commandId);
+    final path = r'/commands/{command_id}/move'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostMoveCommandRequest;
@@ -482,7 +525,6 @@ class MattermostCommandsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -496,7 +538,7 @@ class MattermostCommandsApi {
 
   /// Move a command
   ///
-  /// Move a command to a different team based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is currently in and the destination team.  __Minimum server version__: 5.22 
+  /// Move a command to a different team based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is currently in and the destination team.  __Minimum server version__: 5.22
   ///
   /// Parameters:
   ///
@@ -504,8 +546,14 @@ class MattermostCommandsApi {
   ///   ID of the command to move
   ///
   /// * [MattermostMoveCommandRequest] mattermostMoveCommandRequest (required):
-  Future<MattermostStatusOK?> moveCommand(String commandId, MattermostMoveCommandRequest mattermostMoveCommandRequest,) async {
-    final response = await moveCommandWithHttpInfo(commandId, mattermostMoveCommandRequest,);
+  Future<MattermostStatusOK?> moveCommand(
+    String commandId,
+    MattermostMoveCommandRequest mattermostMoveCommandRequest,
+  ) async {
+    final response = await moveCommandWithHttpInfo(
+      commandId,
+      mattermostMoveCommandRequest,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -513,15 +561,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }
 
   /// Generate a new token
   ///
-  /// Generate a new token for the command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Generate a new token for the command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -529,10 +579,11 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to generate the new token
-  Future<Response> regenCommandTokenWithHttpInfo(String commandId,) async {
+  Future<Response> regenCommandTokenWithHttpInfo(
+    String commandId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/commands/{command_id}/regen_token'
-      .replaceAll('{command_id}', commandId);
+    final path = r'/commands/{command_id}/regen_token'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -543,7 +594,6 @@ class MattermostCommandsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -557,14 +607,18 @@ class MattermostCommandsApi {
 
   /// Generate a new token
   ///
-  /// Generate a new token for the command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Generate a new token for the command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Parameters:
   ///
   /// * [String] commandId (required):
   ///   ID of the command to generate the new token
-  Future<MattermostRegenCommandToken200Response?> regenCommandToken(String commandId,) async {
-    final response = await regenCommandTokenWithHttpInfo(commandId,);
+  Future<MattermostRegenCommandToken200Response?> regenCommandToken(
+    String commandId,
+  ) async {
+    final response = await regenCommandTokenWithHttpInfo(
+      commandId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -572,15 +626,17 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostRegenCommandToken200Response',) as MattermostRegenCommandToken200Response;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostRegenCommandToken200Response',
+      ) as MattermostRegenCommandToken200Response;
     }
     return null;
   }
 
   /// Update a command
   ///
-  /// Update a single command based on command id string and Command struct. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Update a single command based on command id string and Command struct. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -590,10 +646,12 @@ class MattermostCommandsApi {
   ///   ID of the command to update
   ///
   /// * [MattermostCommand] mattermostCommand (required):
-  Future<Response> updateCommandWithHttpInfo(String commandId, MattermostCommand mattermostCommand,) async {
+  Future<Response> updateCommandWithHttpInfo(
+    String commandId,
+    MattermostCommand mattermostCommand,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/commands/{command_id}'
-      .replaceAll('{command_id}', commandId);
+    final path = r'/commands/{command_id}'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
     Object? postBody = mattermostCommand;
@@ -603,7 +661,6 @@ class MattermostCommandsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -618,7 +675,7 @@ class MattermostCommandsApi {
 
   /// Update a command
   ///
-  /// Update a single command based on command id string and Command struct. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
+  /// Update a single command based on command id string and Command struct. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.
   ///
   /// Parameters:
   ///
@@ -626,8 +683,14 @@ class MattermostCommandsApi {
   ///   ID of the command to update
   ///
   /// * [MattermostCommand] mattermostCommand (required):
-  Future<MattermostCommand?> updateCommand(String commandId, MattermostCommand mattermostCommand,) async {
-    final response = await updateCommandWithHttpInfo(commandId, mattermostCommand,);
+  Future<MattermostCommand?> updateCommand(
+    String commandId,
+    MattermostCommand mattermostCommand,
+  ) async {
+    final response = await updateCommandWithHttpInfo(
+      commandId,
+      mattermostCommand,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -635,8 +698,10 @@ class MattermostCommandsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCommand',) as MattermostCommand;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostCommand',
+      ) as MattermostCommand;
     }
     return null;
   }

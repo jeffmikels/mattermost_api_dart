@@ -100,42 +100,45 @@ class MattermostSearchUsersRequest {
   ///
   bool? withoutTeam;
 
-  /// The maximum number of users to return in the results  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
+  /// The maximum number of users to return in the results  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__
   int limit;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchUsersRequest &&
-     other.term == term &&
-     other.teamId == teamId &&
-     other.notInTeamId == notInTeamId &&
-     other.inChannelId == inChannelId &&
-     other.notInChannelId == notInChannelId &&
-     other.inGroupId == inGroupId &&
-     other.groupConstrained == groupConstrained &&
-     other.allowInactive == allowInactive &&
-     other.withoutTeam == withoutTeam &&
-     other.limit == limit;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchUsersRequest &&
+          other.term == term &&
+          other.teamId == teamId &&
+          other.notInTeamId == notInTeamId &&
+          other.inChannelId == inChannelId &&
+          other.notInChannelId == notInChannelId &&
+          other.inGroupId == inGroupId &&
+          other.groupConstrained == groupConstrained &&
+          other.allowInactive == allowInactive &&
+          other.withoutTeam == withoutTeam &&
+          other.limit == limit;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (notInTeamId == null ? 0 : notInTeamId!.hashCode) +
-    (inChannelId == null ? 0 : inChannelId!.hashCode) +
-    (notInChannelId == null ? 0 : notInChannelId!.hashCode) +
-    (inGroupId == null ? 0 : inGroupId!.hashCode) +
-    (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
-    (allowInactive == null ? 0 : allowInactive!.hashCode) +
-    (withoutTeam == null ? 0 : withoutTeam!.hashCode) +
-    (limit.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (notInTeamId == null ? 0 : notInTeamId!.hashCode) +
+      (inChannelId == null ? 0 : inChannelId!.hashCode) +
+      (notInChannelId == null ? 0 : notInChannelId!.hashCode) +
+      (inGroupId == null ? 0 : inGroupId!.hashCode) +
+      (groupConstrained == null ? 0 : groupConstrained!.hashCode) +
+      (allowInactive == null ? 0 : allowInactive!.hashCode) +
+      (withoutTeam == null ? 0 : withoutTeam!.hashCode) +
+      (limit.hashCode);
 
   @override
-  String toString() => 'MattermostSearchUsersRequest[term=$term, teamId=$teamId, notInTeamId=$notInTeamId, inChannelId=$inChannelId, notInChannelId=$notInChannelId, inGroupId=$inGroupId, groupConstrained=$groupConstrained, allowInactive=$allowInactive, withoutTeam=$withoutTeam, limit=$limit]';
+  String toString() =>
+      'MattermostSearchUsersRequest[term=$term, teamId=$teamId, notInTeamId=$notInTeamId, inChannelId=$inChannelId, notInChannelId=$notInChannelId, inGroupId=$inGroupId, groupConstrained=$groupConstrained, allowInactive=$allowInactive, withoutTeam=$withoutTeam, limit=$limit]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'term'] = term;
+    _json[r'term'] = term;
     if (teamId != null) {
       _json[r'team_id'] = teamId;
     }
@@ -160,7 +163,7 @@ class MattermostSearchUsersRequest {
     if (withoutTeam != null) {
       _json[r'without_team'] = withoutTeam;
     }
-      _json[r'limit'] = limit;
+    _json[r'limit'] = limit;
     return _json;
   }
 
@@ -198,7 +201,10 @@ class MattermostSearchUsersRequest {
     return null;
   }
 
-  static List<MattermostSearchUsersRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchUsersRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchUsersRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -226,12 +232,18 @@ class MattermostSearchUsersRequest {
   }
 
   // maps a json object with a list of MattermostSearchUsersRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchUsersRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchUsersRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchUsersRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchUsersRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchUsersRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -245,4 +257,3 @@ class MattermostSearchUsersRequest {
     'term',
   };
 }
-

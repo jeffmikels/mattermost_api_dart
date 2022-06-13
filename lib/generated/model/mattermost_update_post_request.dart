@@ -60,28 +60,31 @@ class MattermostUpdatePostRequest {
   String? props;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdatePostRequest &&
-     other.id == id &&
-     other.isPinned == isPinned &&
-     other.message == message &&
-     other.hasReactions == hasReactions &&
-     other.props == props;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdatePostRequest &&
+          other.id == id &&
+          other.isPinned == isPinned &&
+          other.message == message &&
+          other.hasReactions == hasReactions &&
+          other.props == props;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (isPinned == null ? 0 : isPinned!.hashCode) +
-    (message == null ? 0 : message!.hashCode) +
-    (hasReactions == null ? 0 : hasReactions!.hashCode) +
-    (props == null ? 0 : props!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (isPinned == null ? 0 : isPinned!.hashCode) +
+      (message == null ? 0 : message!.hashCode) +
+      (hasReactions == null ? 0 : hasReactions!.hashCode) +
+      (props == null ? 0 : props!.hashCode);
 
   @override
-  String toString() => 'MattermostUpdatePostRequest[id=$id, isPinned=$isPinned, message=$message, hasReactions=$hasReactions, props=$props]';
+  String toString() =>
+      'MattermostUpdatePostRequest[id=$id, isPinned=$isPinned, message=$message, hasReactions=$hasReactions, props=$props]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'id'] = id;
+    _json[r'id'] = id;
     if (isPinned != null) {
       _json[r'is_pinned'] = isPinned;
     }
@@ -126,7 +129,10 @@ class MattermostUpdatePostRequest {
     return null;
   }
 
-  static List<MattermostUpdatePostRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdatePostRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdatePostRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -154,12 +160,18 @@ class MattermostUpdatePostRequest {
   }
 
   // maps a json object with a list of MattermostUpdatePostRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdatePostRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdatePostRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdatePostRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdatePostRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdatePostRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -173,4 +185,3 @@ class MattermostUpdatePostRequest {
     'id',
   };
 }
-

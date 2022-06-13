@@ -24,23 +24,21 @@ class MattermostPostLogRequest {
   String message;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPostLogRequest &&
-     other.level == level &&
-     other.message == message;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostPostLogRequest && other.level == level && other.message == message;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (level.hashCode) +
-    (message.hashCode);
+      // ignore: unnecessary_parenthesis
+      (level.hashCode) + (message.hashCode);
 
   @override
   String toString() => 'MattermostPostLogRequest[level=$level, message=$message]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'level'] = level;
-      _json[r'message'] = message;
+    _json[r'level'] = level;
+    _json[r'message'] = message;
     return _json;
   }
 
@@ -70,7 +68,10 @@ class MattermostPostLogRequest {
     return null;
   }
 
-  static List<MattermostPostLogRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPostLogRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPostLogRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +99,18 @@ class MattermostPostLogRequest {
   }
 
   // maps a json object with a list of MattermostPostLogRequest-objects as value to a dart map
-  static Map<String, List<MattermostPostLogRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPostLogRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPostLogRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPostLogRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPostLogRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,4 +125,3 @@ class MattermostPostLogRequest {
     'message',
   };
 }
-

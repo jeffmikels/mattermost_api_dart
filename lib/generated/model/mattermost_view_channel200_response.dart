@@ -36,15 +36,16 @@ class MattermostViewChannel200Response {
   Map? lastViewedAtTimes;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostViewChannel200Response &&
-     other.status == status &&
-     other.lastViewedAtTimes == lastViewedAtTimes;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostViewChannel200Response &&
+          other.status == status &&
+          other.lastViewedAtTimes == lastViewedAtTimes;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (status == null ? 0 : status!.hashCode) +
-    (lastViewedAtTimes == null ? 0 : lastViewedAtTimes!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (status == null ? 0 : status!.hashCode) + (lastViewedAtTimes == null ? 0 : lastViewedAtTimes!.hashCode);
 
   @override
   String toString() => 'MattermostViewChannel200Response[status=$status, lastViewedAtTimes=$lastViewedAtTimes]';
@@ -86,7 +87,10 @@ class MattermostViewChannel200Response {
     return null;
   }
 
-  static List<MattermostViewChannel200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostViewChannel200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostViewChannel200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +118,18 @@ class MattermostViewChannel200Response {
   }
 
   // maps a json object with a list of MattermostViewChannel200Response-objects as value to a dart map
-  static Map<String, List<MattermostViewChannel200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostViewChannel200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostViewChannel200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostViewChannel200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostViewChannel200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +139,5 @@ class MattermostViewChannel200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -86,28 +86,31 @@ class MattermostTeamMember {
   String? explicitRoles;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamMember &&
-     other.teamId == teamId &&
-     other.userId == userId &&
-     other.roles == roles &&
-     other.deleteAt == deleteAt &&
-     other.schemeUser == schemeUser &&
-     other.schemeAdmin == schemeAdmin &&
-     other.explicitRoles == explicitRoles;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostTeamMember &&
+          other.teamId == teamId &&
+          other.userId == userId &&
+          other.roles == roles &&
+          other.deleteAt == deleteAt &&
+          other.schemeUser == schemeUser &&
+          other.schemeAdmin == schemeAdmin &&
+          other.explicitRoles == explicitRoles;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (roles == null ? 0 : roles!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (schemeUser == null ? 0 : schemeUser!.hashCode) +
-    (schemeAdmin == null ? 0 : schemeAdmin!.hashCode) +
-    (explicitRoles == null ? 0 : explicitRoles!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (roles == null ? 0 : roles!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (schemeUser == null ? 0 : schemeUser!.hashCode) +
+      (schemeAdmin == null ? 0 : schemeAdmin!.hashCode) +
+      (explicitRoles == null ? 0 : explicitRoles!.hashCode);
 
   @override
-  String toString() => 'MattermostTeamMember[teamId=$teamId, userId=$userId, roles=$roles, deleteAt=$deleteAt, schemeUser=$schemeUser, schemeAdmin=$schemeAdmin, explicitRoles=$explicitRoles]';
+  String toString() =>
+      'MattermostTeamMember[teamId=$teamId, userId=$userId, roles=$roles, deleteAt=$deleteAt, schemeUser=$schemeUser, schemeAdmin=$schemeAdmin, explicitRoles=$explicitRoles]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -166,7 +169,10 @@ class MattermostTeamMember {
     return null;
   }
 
-  static List<MattermostTeamMember>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTeamMember>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTeamMember>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -194,12 +200,18 @@ class MattermostTeamMember {
   }
 
   // maps a json object with a list of MattermostTeamMember-objects as value to a dart map
-  static Map<String, List<MattermostTeamMember>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTeamMember>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTeamMember>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTeamMember.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTeamMember.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,7 +221,5 @@ class MattermostTeamMember {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

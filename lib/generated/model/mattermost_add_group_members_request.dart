@@ -19,20 +19,20 @@ class MattermostAddGroupMembersRequest {
   List<int> userIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAddGroupMembersRequest &&
-     other.userIds == userIds;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostAddGroupMembersRequest && other.userIds == userIds;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userIds.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userIds.hashCode);
 
   @override
   String toString() => 'MattermostAddGroupMembersRequest[userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'user_ids'] = userIds;
+    _json[r'user_ids'] = userIds;
     return _json;
   }
 
@@ -55,15 +55,16 @@ class MattermostAddGroupMembersRequest {
       }());
 
       return MattermostAddGroupMembersRequest(
-        userIds: json[r'user_ids'] is List
-            ? (json[r'user_ids'] as List).cast<int>()
-            : const [],
+        userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<int>() : const [],
       );
     }
     return null;
   }
 
-  static List<MattermostAddGroupMembersRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAddGroupMembersRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAddGroupMembersRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -91,12 +92,18 @@ class MattermostAddGroupMembersRequest {
   }
 
   // maps a json object with a list of MattermostAddGroupMembersRequest-objects as value to a dart map
-  static Map<String, List<MattermostAddGroupMembersRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAddGroupMembersRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAddGroupMembersRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAddGroupMembersRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAddGroupMembersRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,7 +113,5 @@ class MattermostAddGroupMembersRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

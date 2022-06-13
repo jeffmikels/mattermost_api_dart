@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostPermissionsApi {
   MattermostPermissionsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,15 +17,17 @@ class MattermostPermissionsApi {
 
   /// Return all system console subsection ancillary permissions
   ///
-  /// Returns all the ancillary permissions for the corresponding system console subsection permissions appended to the requested permission subsections.  __Minimum server version__: 5.35 
+  /// Returns all the ancillary permissions for the corresponding system console subsection permissions appended to the requested permission subsections.  __Minimum server version__: 5.35
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] subsectionPermissions:
-  ///   The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels 
-  Future<Response> getAncillaryPermissionsWithHttpInfo({ String? subsectionPermissions, }) async {
+  ///   The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels
+  Future<Response> getAncillaryPermissionsWithHttpInfo({
+    String? subsectionPermissions,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/permissions/ancillary';
 
@@ -43,7 +44,6 @@ class MattermostPermissionsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -57,14 +57,18 @@ class MattermostPermissionsApi {
 
   /// Return all system console subsection ancillary permissions
   ///
-  /// Returns all the ancillary permissions for the corresponding system console subsection permissions appended to the requested permission subsections.  __Minimum server version__: 5.35 
+  /// Returns all the ancillary permissions for the corresponding system console subsection permissions appended to the requested permission subsections.  __Minimum server version__: 5.35
   ///
   /// Parameters:
   ///
   /// * [String] subsectionPermissions:
-  ///   The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels 
-  Future<List<String>?> getAncillaryPermissions({ String? subsectionPermissions, }) async {
-    final response = await getAncillaryPermissionsWithHttpInfo( subsectionPermissions: subsectionPermissions, );
+  ///   The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels
+  Future<List<String>?> getAncillaryPermissions({
+    String? subsectionPermissions,
+  }) async {
+    final response = await getAncillaryPermissionsWithHttpInfo(
+      subsectionPermissions: subsectionPermissions,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -73,10 +77,7 @@ class MattermostPermissionsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>().toList();
     }
     return null;
   }

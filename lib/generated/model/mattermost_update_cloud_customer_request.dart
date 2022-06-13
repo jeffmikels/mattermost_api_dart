@@ -61,24 +61,27 @@ class MattermostUpdateCloudCustomerRequest {
   String? numEmployees;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUpdateCloudCustomerRequest &&
-     other.name == name &&
-     other.email == email &&
-     other.contactFirstName == contactFirstName &&
-     other.contactLastName == contactLastName &&
-     other.numEmployees == numEmployees;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUpdateCloudCustomerRequest &&
+          other.name == name &&
+          other.email == email &&
+          other.contactFirstName == contactFirstName &&
+          other.contactLastName == contactLastName &&
+          other.numEmployees == numEmployees;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (contactFirstName == null ? 0 : contactFirstName!.hashCode) +
-    (contactLastName == null ? 0 : contactLastName!.hashCode) +
-    (numEmployees == null ? 0 : numEmployees!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name == null ? 0 : name!.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (contactFirstName == null ? 0 : contactFirstName!.hashCode) +
+      (contactLastName == null ? 0 : contactLastName!.hashCode) +
+      (numEmployees == null ? 0 : numEmployees!.hashCode);
 
   @override
-  String toString() => 'MattermostUpdateCloudCustomerRequest[name=$name, email=$email, contactFirstName=$contactFirstName, contactLastName=$contactLastName, numEmployees=$numEmployees]';
+  String toString() =>
+      'MattermostUpdateCloudCustomerRequest[name=$name, email=$email, contactFirstName=$contactFirstName, contactLastName=$contactLastName, numEmployees=$numEmployees]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -112,8 +115,10 @@ class MattermostUpdateCloudCustomerRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostUpdateCloudCustomerRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostUpdateCloudCustomerRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostUpdateCloudCustomerRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostUpdateCloudCustomerRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -129,7 +134,10 @@ class MattermostUpdateCloudCustomerRequest {
     return null;
   }
 
-  static List<MattermostUpdateCloudCustomerRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUpdateCloudCustomerRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUpdateCloudCustomerRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +165,18 @@ class MattermostUpdateCloudCustomerRequest {
   }
 
   // maps a json object with a list of MattermostUpdateCloudCustomerRequest-objects as value to a dart map
-  static Map<String, List<MattermostUpdateCloudCustomerRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUpdateCloudCustomerRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUpdateCloudCustomerRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUpdateCloudCustomerRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUpdateCloudCustomerRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +186,5 @@ class MattermostUpdateCloudCustomerRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

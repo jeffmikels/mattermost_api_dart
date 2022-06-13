@@ -70,26 +70,29 @@ class MattermostPaymentMethod {
   String? name;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPaymentMethod &&
-     other.type == type &&
-     other.lastFour == lastFour &&
-     other.expMonth == expMonth &&
-     other.expYear == expYear &&
-     other.cardBrand == cardBrand &&
-     other.name == name;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostPaymentMethod &&
+          other.type == type &&
+          other.lastFour == lastFour &&
+          other.expMonth == expMonth &&
+          other.expYear == expYear &&
+          other.cardBrand == cardBrand &&
+          other.name == name;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (lastFour == null ? 0 : lastFour!.hashCode) +
-    (expMonth == null ? 0 : expMonth!.hashCode) +
-    (expYear == null ? 0 : expYear!.hashCode) +
-    (cardBrand == null ? 0 : cardBrand!.hashCode) +
-    (name == null ? 0 : name!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type == null ? 0 : type!.hashCode) +
+      (lastFour == null ? 0 : lastFour!.hashCode) +
+      (expMonth == null ? 0 : expMonth!.hashCode) +
+      (expYear == null ? 0 : expYear!.hashCode) +
+      (cardBrand == null ? 0 : cardBrand!.hashCode) +
+      (name == null ? 0 : name!.hashCode);
 
   @override
-  String toString() => 'MattermostPaymentMethod[type=$type, lastFour=$lastFour, expMonth=$expMonth, expYear=$expYear, cardBrand=$cardBrand, name=$name]';
+  String toString() =>
+      'MattermostPaymentMethod[type=$type, lastFour=$lastFour, expMonth=$expMonth, expYear=$expYear, cardBrand=$cardBrand, name=$name]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class MattermostPaymentMethod {
     return null;
   }
 
-  static List<MattermostPaymentMethod>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPaymentMethod>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPaymentMethod>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class MattermostPaymentMethod {
   }
 
   // maps a json object with a list of MattermostPaymentMethod-objects as value to a dart map
-  static Map<String, List<MattermostPaymentMethod>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPaymentMethod>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPaymentMethod>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPaymentMethod.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPaymentMethod.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class MattermostPaymentMethod {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -70,30 +70,33 @@ class MattermostCreateIncomingWebhookRequest {
   String? iconUrl;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreateIncomingWebhookRequest &&
-     other.channelId == channelId &&
-     other.userId == userId &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.username == username &&
-     other.iconUrl == iconUrl;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreateIncomingWebhookRequest &&
+          other.channelId == channelId &&
+          other.userId == userId &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.username == username &&
+          other.iconUrl == iconUrl;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (iconUrl == null ? 0 : iconUrl!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (iconUrl == null ? 0 : iconUrl!.hashCode);
 
   @override
-  String toString() => 'MattermostCreateIncomingWebhookRequest[channelId=$channelId, userId=$userId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
+  String toString() =>
+      'MattermostCreateIncomingWebhookRequest[channelId=$channelId, userId=$userId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
+    _json[r'channel_id'] = channelId;
     if (userId != null) {
       _json[r'user_id'] = userId;
     }
@@ -124,8 +127,10 @@ class MattermostCreateIncomingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostCreateIncomingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostCreateIncomingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostCreateIncomingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostCreateIncomingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -142,7 +147,10 @@ class MattermostCreateIncomingWebhookRequest {
     return null;
   }
 
-  static List<MattermostCreateIncomingWebhookRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreateIncomingWebhookRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreateIncomingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -170,12 +178,18 @@ class MattermostCreateIncomingWebhookRequest {
   }
 
   // maps a json object with a list of MattermostCreateIncomingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreateIncomingWebhookRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreateIncomingWebhookRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreateIncomingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreateIncomingWebhookRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreateIncomingWebhookRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -189,4 +203,3 @@ class MattermostCreateIncomingWebhookRequest {
     'channel_id',
   };
 }
-

@@ -205,56 +205,59 @@ class MattermostEnvironmentConfigEmailSettings {
   bool? emailBatchingInterval;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigEmailSettings &&
-     other.enableSignUpWithEmail == enableSignUpWithEmail &&
-     other.enableSignInWithEmail == enableSignInWithEmail &&
-     other.enableSignInWithUsername == enableSignInWithUsername &&
-     other.sendEmailNotifications == sendEmailNotifications &&
-     other.requireEmailVerification == requireEmailVerification &&
-     other.feedbackName == feedbackName &&
-     other.feedbackEmail == feedbackEmail &&
-     other.feedbackOrganization == feedbackOrganization &&
-     other.sMTPUsername == sMTPUsername &&
-     other.sMTPPassword == sMTPPassword &&
-     other.sMTPServer == sMTPServer &&
-     other.sMTPPort == sMTPPort &&
-     other.connectionSecurity == connectionSecurity &&
-     other.inviteSalt == inviteSalt &&
-     other.passwordResetSalt == passwordResetSalt &&
-     other.sendPushNotifications == sendPushNotifications &&
-     other.pushNotificationServer == pushNotificationServer &&
-     other.pushNotificationContents == pushNotificationContents &&
-     other.enableEmailBatching == enableEmailBatching &&
-     other.emailBatchingBufferSize == emailBatchingBufferSize &&
-     other.emailBatchingInterval == emailBatchingInterval;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigEmailSettings &&
+          other.enableSignUpWithEmail == enableSignUpWithEmail &&
+          other.enableSignInWithEmail == enableSignInWithEmail &&
+          other.enableSignInWithUsername == enableSignInWithUsername &&
+          other.sendEmailNotifications == sendEmailNotifications &&
+          other.requireEmailVerification == requireEmailVerification &&
+          other.feedbackName == feedbackName &&
+          other.feedbackEmail == feedbackEmail &&
+          other.feedbackOrganization == feedbackOrganization &&
+          other.sMTPUsername == sMTPUsername &&
+          other.sMTPPassword == sMTPPassword &&
+          other.sMTPServer == sMTPServer &&
+          other.sMTPPort == sMTPPort &&
+          other.connectionSecurity == connectionSecurity &&
+          other.inviteSalt == inviteSalt &&
+          other.passwordResetSalt == passwordResetSalt &&
+          other.sendPushNotifications == sendPushNotifications &&
+          other.pushNotificationServer == pushNotificationServer &&
+          other.pushNotificationContents == pushNotificationContents &&
+          other.enableEmailBatching == enableEmailBatching &&
+          other.emailBatchingBufferSize == emailBatchingBufferSize &&
+          other.emailBatchingInterval == emailBatchingInterval;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enableSignUpWithEmail == null ? 0 : enableSignUpWithEmail!.hashCode) +
-    (enableSignInWithEmail == null ? 0 : enableSignInWithEmail!.hashCode) +
-    (enableSignInWithUsername == null ? 0 : enableSignInWithUsername!.hashCode) +
-    (sendEmailNotifications == null ? 0 : sendEmailNotifications!.hashCode) +
-    (requireEmailVerification == null ? 0 : requireEmailVerification!.hashCode) +
-    (feedbackName == null ? 0 : feedbackName!.hashCode) +
-    (feedbackEmail == null ? 0 : feedbackEmail!.hashCode) +
-    (feedbackOrganization == null ? 0 : feedbackOrganization!.hashCode) +
-    (sMTPUsername == null ? 0 : sMTPUsername!.hashCode) +
-    (sMTPPassword == null ? 0 : sMTPPassword!.hashCode) +
-    (sMTPServer == null ? 0 : sMTPServer!.hashCode) +
-    (sMTPPort == null ? 0 : sMTPPort!.hashCode) +
-    (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
-    (inviteSalt == null ? 0 : inviteSalt!.hashCode) +
-    (passwordResetSalt == null ? 0 : passwordResetSalt!.hashCode) +
-    (sendPushNotifications == null ? 0 : sendPushNotifications!.hashCode) +
-    (pushNotificationServer == null ? 0 : pushNotificationServer!.hashCode) +
-    (pushNotificationContents == null ? 0 : pushNotificationContents!.hashCode) +
-    (enableEmailBatching == null ? 0 : enableEmailBatching!.hashCode) +
-    (emailBatchingBufferSize == null ? 0 : emailBatchingBufferSize!.hashCode) +
-    (emailBatchingInterval == null ? 0 : emailBatchingInterval!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enableSignUpWithEmail == null ? 0 : enableSignUpWithEmail!.hashCode) +
+      (enableSignInWithEmail == null ? 0 : enableSignInWithEmail!.hashCode) +
+      (enableSignInWithUsername == null ? 0 : enableSignInWithUsername!.hashCode) +
+      (sendEmailNotifications == null ? 0 : sendEmailNotifications!.hashCode) +
+      (requireEmailVerification == null ? 0 : requireEmailVerification!.hashCode) +
+      (feedbackName == null ? 0 : feedbackName!.hashCode) +
+      (feedbackEmail == null ? 0 : feedbackEmail!.hashCode) +
+      (feedbackOrganization == null ? 0 : feedbackOrganization!.hashCode) +
+      (sMTPUsername == null ? 0 : sMTPUsername!.hashCode) +
+      (sMTPPassword == null ? 0 : sMTPPassword!.hashCode) +
+      (sMTPServer == null ? 0 : sMTPServer!.hashCode) +
+      (sMTPPort == null ? 0 : sMTPPort!.hashCode) +
+      (connectionSecurity == null ? 0 : connectionSecurity!.hashCode) +
+      (inviteSalt == null ? 0 : inviteSalt!.hashCode) +
+      (passwordResetSalt == null ? 0 : passwordResetSalt!.hashCode) +
+      (sendPushNotifications == null ? 0 : sendPushNotifications!.hashCode) +
+      (pushNotificationServer == null ? 0 : pushNotificationServer!.hashCode) +
+      (pushNotificationContents == null ? 0 : pushNotificationContents!.hashCode) +
+      (enableEmailBatching == null ? 0 : enableEmailBatching!.hashCode) +
+      (emailBatchingBufferSize == null ? 0 : emailBatchingBufferSize!.hashCode) +
+      (emailBatchingInterval == null ? 0 : emailBatchingInterval!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigEmailSettings[enableSignUpWithEmail=$enableSignUpWithEmail, enableSignInWithEmail=$enableSignInWithEmail, enableSignInWithUsername=$enableSignInWithUsername, sendEmailNotifications=$sendEmailNotifications, requireEmailVerification=$requireEmailVerification, feedbackName=$feedbackName, feedbackEmail=$feedbackEmail, feedbackOrganization=$feedbackOrganization, sMTPUsername=$sMTPUsername, sMTPPassword=$sMTPPassword, sMTPServer=$sMTPServer, sMTPPort=$sMTPPort, connectionSecurity=$connectionSecurity, inviteSalt=$inviteSalt, passwordResetSalt=$passwordResetSalt, sendPushNotifications=$sendPushNotifications, pushNotificationServer=$pushNotificationServer, pushNotificationContents=$pushNotificationContents, enableEmailBatching=$enableEmailBatching, emailBatchingBufferSize=$emailBatchingBufferSize, emailBatchingInterval=$emailBatchingInterval]';
+  String toString() =>
+      'MattermostEnvironmentConfigEmailSettings[enableSignUpWithEmail=$enableSignUpWithEmail, enableSignInWithEmail=$enableSignInWithEmail, enableSignInWithUsername=$enableSignInWithUsername, sendEmailNotifications=$sendEmailNotifications, requireEmailVerification=$requireEmailVerification, feedbackName=$feedbackName, feedbackEmail=$feedbackEmail, feedbackOrganization=$feedbackOrganization, sMTPUsername=$sMTPUsername, sMTPPassword=$sMTPPassword, sMTPServer=$sMTPServer, sMTPPort=$sMTPPort, connectionSecurity=$connectionSecurity, inviteSalt=$inviteSalt, passwordResetSalt=$passwordResetSalt, sendPushNotifications=$sendPushNotifications, pushNotificationServer=$pushNotificationServer, pushNotificationContents=$pushNotificationContents, enableEmailBatching=$enableEmailBatching, emailBatchingBufferSize=$emailBatchingBufferSize, emailBatchingInterval=$emailBatchingInterval]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -336,8 +339,10 @@ class MattermostEnvironmentConfigEmailSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigEmailSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigEmailSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigEmailSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigEmailSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -369,7 +374,10 @@ class MattermostEnvironmentConfigEmailSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigEmailSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigEmailSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigEmailSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -397,12 +405,18 @@ class MattermostEnvironmentConfigEmailSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigEmailSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigEmailSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigEmailSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigEmailSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigEmailSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigEmailSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -412,7 +426,5 @@ class MattermostEnvironmentConfigEmailSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

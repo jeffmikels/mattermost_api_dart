@@ -10,7 +10,6 @@
 
 part of mattermost.api;
 
-
 class MattermostBleveApi {
   MattermostBleveApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
@@ -18,7 +17,7 @@ class MattermostBleveApi {
 
   /// Purge all Bleve indexes
   ///
-  /// Deletes all Bleve indexes and their contents. After calling this endpoint, it is necessary to schedule a new Bleve indexing job to repopulate the indexes. __Minimum server version__: 5.24 ##### Permissions Must have `sysconsole_write_experimental` permission. 
+  /// Deletes all Bleve indexes and their contents. After calling this endpoint, it is necessary to schedule a new Bleve indexing job to repopulate the indexes. __Minimum server version__: 5.24 ##### Permissions Must have `sysconsole_write_experimental` permission.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> purgeBleveIndexesWithHttpInfo() async {
@@ -34,7 +33,6 @@ class MattermostBleveApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -48,7 +46,7 @@ class MattermostBleveApi {
 
   /// Purge all Bleve indexes
   ///
-  /// Deletes all Bleve indexes and their contents. After calling this endpoint, it is necessary to schedule a new Bleve indexing job to repopulate the indexes. __Minimum server version__: 5.24 ##### Permissions Must have `sysconsole_write_experimental` permission. 
+  /// Deletes all Bleve indexes and their contents. After calling this endpoint, it is necessary to schedule a new Bleve indexing job to repopulate the indexes. __Minimum server version__: 5.24 ##### Permissions Must have `sysconsole_write_experimental` permission.
   Future<MattermostStatusOK?> purgeBleveIndexes() async {
     final response = await purgeBleveIndexesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -58,8 +56,10 @@ class MattermostBleveApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MattermostStatusOK',
+      ) as MattermostStatusOK;
     }
     return null;
   }

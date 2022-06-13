@@ -26,13 +26,14 @@ class MattermostResetSamlAuthDataToEmail200Response {
   int? numAffected;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostResetSamlAuthDataToEmail200Response &&
-     other.numAffected == numAffected;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostResetSamlAuthDataToEmail200Response && other.numAffected == numAffected;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (numAffected == null ? 0 : numAffected!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (numAffected == null ? 0 : numAffected!.hashCode);
 
   @override
   String toString() => 'MattermostResetSamlAuthDataToEmail200Response[numAffected=$numAffected]';
@@ -57,8 +58,10 @@ class MattermostResetSamlAuthDataToEmail200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostResetSamlAuthDataToEmail200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostResetSamlAuthDataToEmail200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostResetSamlAuthDataToEmail200Response[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostResetSamlAuthDataToEmail200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +73,10 @@ class MattermostResetSamlAuthDataToEmail200Response {
     return null;
   }
 
-  static List<MattermostResetSamlAuthDataToEmail200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostResetSamlAuthDataToEmail200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostResetSamlAuthDataToEmail200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +104,18 @@ class MattermostResetSamlAuthDataToEmail200Response {
   }
 
   // maps a json object with a list of MattermostResetSamlAuthDataToEmail200Response-objects as value to a dart map
-  static Map<String, List<MattermostResetSamlAuthDataToEmail200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostResetSamlAuthDataToEmail200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostResetSamlAuthDataToEmail200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostResetSamlAuthDataToEmail200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostResetSamlAuthDataToEmail200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +125,5 @@ class MattermostResetSamlAuthDataToEmail200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

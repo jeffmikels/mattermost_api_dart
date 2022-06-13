@@ -196,54 +196,57 @@ class MattermostConfigTeamSettings {
   int? maxNotificationsPerChannel;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigTeamSettings &&
-     other.siteName == siteName &&
-     other.maxUsersPerTeam == maxUsersPerTeam &&
-     other.enableTeamCreation == enableTeamCreation &&
-     other.enableUserCreation == enableUserCreation &&
-     other.enableOpenServer == enableOpenServer &&
-     other.restrictCreationToDomains == restrictCreationToDomains &&
-     other.enableCustomBrand == enableCustomBrand &&
-     other.customBrandText == customBrandText &&
-     other.customDescriptionText == customDescriptionText &&
-     other.restrictDirectMessage == restrictDirectMessage &&
-     other.restrictTeamInvite == restrictTeamInvite &&
-     other.restrictPublicChannelManagement == restrictPublicChannelManagement &&
-     other.restrictPrivateChannelManagement == restrictPrivateChannelManagement &&
-     other.restrictPublicChannelCreation == restrictPublicChannelCreation &&
-     other.restrictPrivateChannelCreation == restrictPrivateChannelCreation &&
-     other.restrictPublicChannelDeletion == restrictPublicChannelDeletion &&
-     other.restrictPrivateChannelDeletion == restrictPrivateChannelDeletion &&
-     other.userStatusAwayTimeout == userStatusAwayTimeout &&
-     other.maxChannelsPerTeam == maxChannelsPerTeam &&
-     other.maxNotificationsPerChannel == maxNotificationsPerChannel;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigTeamSettings &&
+          other.siteName == siteName &&
+          other.maxUsersPerTeam == maxUsersPerTeam &&
+          other.enableTeamCreation == enableTeamCreation &&
+          other.enableUserCreation == enableUserCreation &&
+          other.enableOpenServer == enableOpenServer &&
+          other.restrictCreationToDomains == restrictCreationToDomains &&
+          other.enableCustomBrand == enableCustomBrand &&
+          other.customBrandText == customBrandText &&
+          other.customDescriptionText == customDescriptionText &&
+          other.restrictDirectMessage == restrictDirectMessage &&
+          other.restrictTeamInvite == restrictTeamInvite &&
+          other.restrictPublicChannelManagement == restrictPublicChannelManagement &&
+          other.restrictPrivateChannelManagement == restrictPrivateChannelManagement &&
+          other.restrictPublicChannelCreation == restrictPublicChannelCreation &&
+          other.restrictPrivateChannelCreation == restrictPrivateChannelCreation &&
+          other.restrictPublicChannelDeletion == restrictPublicChannelDeletion &&
+          other.restrictPrivateChannelDeletion == restrictPrivateChannelDeletion &&
+          other.userStatusAwayTimeout == userStatusAwayTimeout &&
+          other.maxChannelsPerTeam == maxChannelsPerTeam &&
+          other.maxNotificationsPerChannel == maxNotificationsPerChannel;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (siteName == null ? 0 : siteName!.hashCode) +
-    (maxUsersPerTeam == null ? 0 : maxUsersPerTeam!.hashCode) +
-    (enableTeamCreation == null ? 0 : enableTeamCreation!.hashCode) +
-    (enableUserCreation == null ? 0 : enableUserCreation!.hashCode) +
-    (enableOpenServer == null ? 0 : enableOpenServer!.hashCode) +
-    (restrictCreationToDomains == null ? 0 : restrictCreationToDomains!.hashCode) +
-    (enableCustomBrand == null ? 0 : enableCustomBrand!.hashCode) +
-    (customBrandText == null ? 0 : customBrandText!.hashCode) +
-    (customDescriptionText == null ? 0 : customDescriptionText!.hashCode) +
-    (restrictDirectMessage == null ? 0 : restrictDirectMessage!.hashCode) +
-    (restrictTeamInvite == null ? 0 : restrictTeamInvite!.hashCode) +
-    (restrictPublicChannelManagement == null ? 0 : restrictPublicChannelManagement!.hashCode) +
-    (restrictPrivateChannelManagement == null ? 0 : restrictPrivateChannelManagement!.hashCode) +
-    (restrictPublicChannelCreation == null ? 0 : restrictPublicChannelCreation!.hashCode) +
-    (restrictPrivateChannelCreation == null ? 0 : restrictPrivateChannelCreation!.hashCode) +
-    (restrictPublicChannelDeletion == null ? 0 : restrictPublicChannelDeletion!.hashCode) +
-    (restrictPrivateChannelDeletion == null ? 0 : restrictPrivateChannelDeletion!.hashCode) +
-    (userStatusAwayTimeout == null ? 0 : userStatusAwayTimeout!.hashCode) +
-    (maxChannelsPerTeam == null ? 0 : maxChannelsPerTeam!.hashCode) +
-    (maxNotificationsPerChannel == null ? 0 : maxNotificationsPerChannel!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (siteName == null ? 0 : siteName!.hashCode) +
+      (maxUsersPerTeam == null ? 0 : maxUsersPerTeam!.hashCode) +
+      (enableTeamCreation == null ? 0 : enableTeamCreation!.hashCode) +
+      (enableUserCreation == null ? 0 : enableUserCreation!.hashCode) +
+      (enableOpenServer == null ? 0 : enableOpenServer!.hashCode) +
+      (restrictCreationToDomains == null ? 0 : restrictCreationToDomains!.hashCode) +
+      (enableCustomBrand == null ? 0 : enableCustomBrand!.hashCode) +
+      (customBrandText == null ? 0 : customBrandText!.hashCode) +
+      (customDescriptionText == null ? 0 : customDescriptionText!.hashCode) +
+      (restrictDirectMessage == null ? 0 : restrictDirectMessage!.hashCode) +
+      (restrictTeamInvite == null ? 0 : restrictTeamInvite!.hashCode) +
+      (restrictPublicChannelManagement == null ? 0 : restrictPublicChannelManagement!.hashCode) +
+      (restrictPrivateChannelManagement == null ? 0 : restrictPrivateChannelManagement!.hashCode) +
+      (restrictPublicChannelCreation == null ? 0 : restrictPublicChannelCreation!.hashCode) +
+      (restrictPrivateChannelCreation == null ? 0 : restrictPrivateChannelCreation!.hashCode) +
+      (restrictPublicChannelDeletion == null ? 0 : restrictPublicChannelDeletion!.hashCode) +
+      (restrictPrivateChannelDeletion == null ? 0 : restrictPrivateChannelDeletion!.hashCode) +
+      (userStatusAwayTimeout == null ? 0 : userStatusAwayTimeout!.hashCode) +
+      (maxChannelsPerTeam == null ? 0 : maxChannelsPerTeam!.hashCode) +
+      (maxNotificationsPerChannel == null ? 0 : maxNotificationsPerChannel!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
+  String toString() =>
+      'MattermostConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -354,7 +357,10 @@ class MattermostConfigTeamSettings {
     return null;
   }
 
-  static List<MattermostConfigTeamSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigTeamSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigTeamSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -382,12 +388,18 @@ class MattermostConfigTeamSettings {
   }
 
   // maps a json object with a list of MattermostConfigTeamSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigTeamSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigTeamSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigTeamSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigTeamSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigTeamSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -397,7 +409,5 @@ class MattermostConfigTeamSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -29,10 +29,10 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   ///
   String? term;
 
-  /// Filters results to channels belonging to the given team ids 
+  /// Filters results to channels belonging to the given team ids
   List<String> teamIds;
 
-  /// Filters results to only return Public / Open channels, can be used in conjunction with `private` to return both `public` and `private` channels 
+  /// Filters results to only return Public / Open channels, can be used in conjunction with `private` to return both `public` and `private` channels
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -41,7 +41,7 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   ///
   bool? public;
 
-  /// Filters results to only return Private channels, can be used in conjunction with `public` to return both `private` and `public` channels 
+  /// Filters results to only return Private channels, can be used in conjunction with `public` to return both `private` and `public` channels
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -50,7 +50,7 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   ///
   bool? private;
 
-  /// Filters results to only return deleted / archived channels 
+  /// Filters results to only return deleted / archived channels
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -60,31 +60,34 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   bool? deleted;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostSearchChannelsForRetentionPolicyRequest &&
-     other.term == term &&
-     other.teamIds == teamIds &&
-     other.public == public &&
-     other.private == private &&
-     other.deleted == deleted;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostSearchChannelsForRetentionPolicyRequest &&
+          other.term == term &&
+          other.teamIds == teamIds &&
+          other.public == public &&
+          other.private == private &&
+          other.deleted == deleted;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (term == null ? 0 : term!.hashCode) +
-    (teamIds.hashCode) +
-    (public == null ? 0 : public!.hashCode) +
-    (private == null ? 0 : private!.hashCode) +
-    (deleted == null ? 0 : deleted!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (term == null ? 0 : term!.hashCode) +
+      (teamIds.hashCode) +
+      (public == null ? 0 : public!.hashCode) +
+      (private == null ? 0 : private!.hashCode) +
+      (deleted == null ? 0 : deleted!.hashCode);
 
   @override
-  String toString() => 'MattermostSearchChannelsForRetentionPolicyRequest[term=$term, teamIds=$teamIds, public=$public, private=$private, deleted=$deleted]';
+  String toString() =>
+      'MattermostSearchChannelsForRetentionPolicyRequest[term=$term, teamIds=$teamIds, public=$public, private=$private, deleted=$deleted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (term != null) {
       _json[r'term'] = term;
     }
-      _json[r'team_ids'] = teamIds;
+    _json[r'team_ids'] = teamIds;
     if (public != null) {
       _json[r'public'] = public;
     }
@@ -109,17 +112,17 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostSearchChannelsForRetentionPolicyRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostSearchChannelsForRetentionPolicyRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostSearchChannelsForRetentionPolicyRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostSearchChannelsForRetentionPolicyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return MattermostSearchChannelsForRetentionPolicyRequest(
         term: mapValueOfType<String>(json, r'term'),
-        teamIds: json[r'team_ids'] is List
-            ? (json[r'team_ids'] as List).cast<String>()
-            : const [],
+        teamIds: json[r'team_ids'] is List ? (json[r'team_ids'] as List).cast<String>() : const [],
         public: mapValueOfType<bool>(json, r'public'),
         private: mapValueOfType<bool>(json, r'private'),
         deleted: mapValueOfType<bool>(json, r'deleted'),
@@ -128,7 +131,10 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
     return null;
   }
 
-  static List<MattermostSearchChannelsForRetentionPolicyRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostSearchChannelsForRetentionPolicyRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostSearchChannelsForRetentionPolicyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -156,12 +162,18 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   }
 
   // maps a json object with a list of MattermostSearchChannelsForRetentionPolicyRequest-objects as value to a dart map
-  static Map<String, List<MattermostSearchChannelsForRetentionPolicyRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostSearchChannelsForRetentionPolicyRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostSearchChannelsForRetentionPolicyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostSearchChannelsForRetentionPolicyRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostSearchChannelsForRetentionPolicyRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -171,7 +183,5 @@ class MattermostSearchChannelsForRetentionPolicyRequest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -25,13 +25,13 @@ class MattermostGetFileLink200Response {
   String? link;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGetFileLink200Response &&
-     other.link == link;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostGetFileLink200Response && other.link == link;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (link == null ? 0 : link!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (link == null ? 0 : link!.hashCode);
 
   @override
   String toString() => 'MattermostGetFileLink200Response[link=$link]';
@@ -69,7 +69,10 @@ class MattermostGetFileLink200Response {
     return null;
   }
 
-  static List<MattermostGetFileLink200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGetFileLink200Response>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGetFileLink200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +100,18 @@ class MattermostGetFileLink200Response {
   }
 
   // maps a json object with a list of MattermostGetFileLink200Response-objects as value to a dart map
-  static Map<String, List<MattermostGetFileLink200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGetFileLink200Response>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGetFileLink200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGetFileLink200Response.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGetFileLink200Response.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +121,5 @@ class MattermostGetFileLink200Response {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

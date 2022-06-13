@@ -26,13 +26,13 @@ class MattermostLicenseRenewalLink {
   String? renewalLink;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostLicenseRenewalLink &&
-     other.renewalLink == renewalLink;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostLicenseRenewalLink && other.renewalLink == renewalLink;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (renewalLink == null ? 0 : renewalLink!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (renewalLink == null ? 0 : renewalLink!.hashCode);
 
   @override
   String toString() => 'MattermostLicenseRenewalLink[renewalLink=$renewalLink]';
@@ -70,7 +70,10 @@ class MattermostLicenseRenewalLink {
     return null;
   }
 
-  static List<MattermostLicenseRenewalLink>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostLicenseRenewalLink>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostLicenseRenewalLink>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +101,18 @@ class MattermostLicenseRenewalLink {
   }
 
   // maps a json object with a list of MattermostLicenseRenewalLink-objects as value to a dart map
-  static Map<String, List<MattermostLicenseRenewalLink>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostLicenseRenewalLink>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostLicenseRenewalLink>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostLicenseRenewalLink.listFromJson(entry.value, growable: growable,);
+        final value = MattermostLicenseRenewalLink.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +122,5 @@ class MattermostLicenseRenewalLink {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

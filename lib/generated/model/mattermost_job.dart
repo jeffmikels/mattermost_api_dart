@@ -96,30 +96,33 @@ class MattermostJob {
   Map? data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostJob &&
-     other.id == id &&
-     other.type == type &&
-     other.createAt == createAt &&
-     other.startAt == startAt &&
-     other.lastActivityAt == lastActivityAt &&
-     other.status == status &&
-     other.progress == progress &&
-     other.data == data;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostJob &&
+          other.id == id &&
+          other.type == type &&
+          other.createAt == createAt &&
+          other.startAt == startAt &&
+          other.lastActivityAt == lastActivityAt &&
+          other.status == status &&
+          other.progress == progress &&
+          other.data == data;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (startAt == null ? 0 : startAt!.hashCode) +
-    (lastActivityAt == null ? 0 : lastActivityAt!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (progress == null ? 0 : progress!.hashCode) +
-    (data == null ? 0 : data!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (startAt == null ? 0 : startAt!.hashCode) +
+      (lastActivityAt == null ? 0 : lastActivityAt!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (progress == null ? 0 : progress!.hashCode) +
+      (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'MattermostJob[id=$id, type=$type, createAt=$createAt, startAt=$startAt, lastActivityAt=$lastActivityAt, status=$status, progress=$progress, data=$data]';
+  String toString() =>
+      'MattermostJob[id=$id, type=$type, createAt=$createAt, startAt=$startAt, lastActivityAt=$lastActivityAt, status=$status, progress=$progress, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -182,7 +185,10 @@ class MattermostJob {
     return null;
   }
 
-  static List<MattermostJob>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostJob>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostJob>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -210,12 +216,18 @@ class MattermostJob {
   }
 
   // maps a json object with a list of MattermostJob-objects as value to a dart map
-  static Map<String, List<MattermostJob>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostJob>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostJob>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostJob.listFromJson(entry.value, growable: growable,);
+        final value = MattermostJob.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -225,7 +237,5 @@ class MattermostJob {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

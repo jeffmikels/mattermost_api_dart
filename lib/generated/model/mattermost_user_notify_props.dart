@@ -86,28 +86,31 @@ class MattermostUserNotifyProps {
   bool? firstName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserNotifyProps &&
-     other.email == email &&
-     other.push == push &&
-     other.desktop == desktop &&
-     other.desktopSound == desktopSound &&
-     other.mentionKeys == mentionKeys &&
-     other.channel == channel &&
-     other.firstName == firstName;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserNotifyProps &&
+          other.email == email &&
+          other.push == push &&
+          other.desktop == desktop &&
+          other.desktopSound == desktopSound &&
+          other.mentionKeys == mentionKeys &&
+          other.channel == channel &&
+          other.firstName == firstName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email == null ? 0 : email!.hashCode) +
-    (push == null ? 0 : push!.hashCode) +
-    (desktop == null ? 0 : desktop!.hashCode) +
-    (desktopSound == null ? 0 : desktopSound!.hashCode) +
-    (mentionKeys == null ? 0 : mentionKeys!.hashCode) +
-    (channel == null ? 0 : channel!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email == null ? 0 : email!.hashCode) +
+      (push == null ? 0 : push!.hashCode) +
+      (desktop == null ? 0 : desktop!.hashCode) +
+      (desktopSound == null ? 0 : desktopSound!.hashCode) +
+      (mentionKeys == null ? 0 : mentionKeys!.hashCode) +
+      (channel == null ? 0 : channel!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode);
 
   @override
-  String toString() => 'MattermostUserNotifyProps[email=$email, push=$push, desktop=$desktop, desktopSound=$desktopSound, mentionKeys=$mentionKeys, channel=$channel, firstName=$firstName]';
+  String toString() =>
+      'MattermostUserNotifyProps[email=$email, push=$push, desktop=$desktop, desktopSound=$desktopSound, mentionKeys=$mentionKeys, channel=$channel, firstName=$firstName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -166,7 +169,10 @@ class MattermostUserNotifyProps {
     return null;
   }
 
-  static List<MattermostUserNotifyProps>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserNotifyProps>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserNotifyProps>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -194,12 +200,18 @@ class MattermostUserNotifyProps {
   }
 
   // maps a json object with a list of MattermostUserNotifyProps-objects as value to a dart map
-  static Map<String, List<MattermostUserNotifyProps>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserNotifyProps>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserNotifyProps>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserNotifyProps.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserNotifyProps.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,7 +221,5 @@ class MattermostUserNotifyProps {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

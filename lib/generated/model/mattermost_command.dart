@@ -186,48 +186,51 @@ class MattermostCommand {
   String? url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCommand &&
-     other.id == id &&
-     other.token == token &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.creatorId == creatorId &&
-     other.teamId == teamId &&
-     other.trigger == trigger &&
-     other.method == method &&
-     other.username == username &&
-     other.iconUrl == iconUrl &&
-     other.autoComplete == autoComplete &&
-     other.autoCompleteDesc == autoCompleteDesc &&
-     other.autoCompleteHint == autoCompleteHint &&
-     other.displayName == displayName &&
-     other.description == description &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCommand &&
+          other.id == id &&
+          other.token == token &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.creatorId == creatorId &&
+          other.teamId == teamId &&
+          other.trigger == trigger &&
+          other.method == method &&
+          other.username == username &&
+          other.iconUrl == iconUrl &&
+          other.autoComplete == autoComplete &&
+          other.autoCompleteDesc == autoCompleteDesc &&
+          other.autoCompleteHint == autoCompleteHint &&
+          other.displayName == displayName &&
+          other.description == description &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (token == null ? 0 : token!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (trigger == null ? 0 : trigger!.hashCode) +
-    (method == null ? 0 : method!.hashCode) +
-    (username == null ? 0 : username!.hashCode) +
-    (iconUrl == null ? 0 : iconUrl!.hashCode) +
-    (autoComplete == null ? 0 : autoComplete!.hashCode) +
-    (autoCompleteDesc == null ? 0 : autoCompleteDesc!.hashCode) +
-    (autoCompleteHint == null ? 0 : autoCompleteHint!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (url == null ? 0 : url!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (token == null ? 0 : token!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (trigger == null ? 0 : trigger!.hashCode) +
+      (method == null ? 0 : method!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (iconUrl == null ? 0 : iconUrl!.hashCode) +
+      (autoComplete == null ? 0 : autoComplete!.hashCode) +
+      (autoCompleteDesc == null ? 0 : autoCompleteDesc!.hashCode) +
+      (autoCompleteHint == null ? 0 : autoCompleteHint!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (url == null ? 0 : url!.hashCode);
 
   @override
-  String toString() => 'MattermostCommand[id=$id, token=$token, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, trigger=$trigger, method=$method, username=$username, iconUrl=$iconUrl, autoComplete=$autoComplete, autoCompleteDesc=$autoCompleteDesc, autoCompleteHint=$autoCompleteHint, displayName=$displayName, description=$description, url=$url]';
+  String toString() =>
+      'MattermostCommand[id=$id, token=$token, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, trigger=$trigger, method=$method, username=$username, iconUrl=$iconUrl, autoComplete=$autoComplete, autoCompleteDesc=$autoCompleteDesc, autoCompleteHint=$autoCompleteHint, displayName=$displayName, description=$description, url=$url]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -326,7 +329,10 @@ class MattermostCommand {
     return null;
   }
 
-  static List<MattermostCommand>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCommand>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCommand>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -354,12 +360,18 @@ class MattermostCommand {
   }
 
   // maps a json object with a list of MattermostCommand-objects as value to a dart map
-  static Map<String, List<MattermostCommand>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCommand>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCommand>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCommand.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCommand.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -369,7 +381,5 @@ class MattermostCommand {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

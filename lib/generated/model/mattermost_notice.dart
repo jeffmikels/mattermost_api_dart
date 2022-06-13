@@ -106,32 +106,35 @@ class MattermostNotice {
   String? title;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostNotice &&
-     other.id == id &&
-     other.sysAdminOnly == sysAdminOnly &&
-     other.teamAdminOnly == teamAdminOnly &&
-     other.action == action &&
-     other.actionParam == actionParam &&
-     other.actionText == actionText &&
-     other.description == description &&
-     other.image == image &&
-     other.title == title;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostNotice &&
+          other.id == id &&
+          other.sysAdminOnly == sysAdminOnly &&
+          other.teamAdminOnly == teamAdminOnly &&
+          other.action == action &&
+          other.actionParam == actionParam &&
+          other.actionText == actionText &&
+          other.description == description &&
+          other.image == image &&
+          other.title == title;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (sysAdminOnly == null ? 0 : sysAdminOnly!.hashCode) +
-    (teamAdminOnly == null ? 0 : teamAdminOnly!.hashCode) +
-    (action == null ? 0 : action!.hashCode) +
-    (actionParam == null ? 0 : actionParam!.hashCode) +
-    (actionText == null ? 0 : actionText!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (image == null ? 0 : image!.hashCode) +
-    (title == null ? 0 : title!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (sysAdminOnly == null ? 0 : sysAdminOnly!.hashCode) +
+      (teamAdminOnly == null ? 0 : teamAdminOnly!.hashCode) +
+      (action == null ? 0 : action!.hashCode) +
+      (actionParam == null ? 0 : actionParam!.hashCode) +
+      (actionText == null ? 0 : actionText!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (image == null ? 0 : image!.hashCode) +
+      (title == null ? 0 : title!.hashCode);
 
   @override
-  String toString() => 'MattermostNotice[id=$id, sysAdminOnly=$sysAdminOnly, teamAdminOnly=$teamAdminOnly, action=$action, actionParam=$actionParam, actionText=$actionText, description=$description, image=$image, title=$title]';
+  String toString() =>
+      'MattermostNotice[id=$id, sysAdminOnly=$sysAdminOnly, teamAdminOnly=$teamAdminOnly, action=$action, actionParam=$actionParam, actionText=$actionText, description=$description, image=$image, title=$title]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -198,7 +201,10 @@ class MattermostNotice {
     return null;
   }
 
-  static List<MattermostNotice>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostNotice>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostNotice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -226,12 +232,18 @@ class MattermostNotice {
   }
 
   // maps a json object with a list of MattermostNotice-objects as value to a dart map
-  static Map<String, List<MattermostNotice>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostNotice>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostNotice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostNotice.listFromJson(entry.value, growable: growable,);
+        final value = MattermostNotice.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -241,7 +253,5 @@ class MattermostNotice {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

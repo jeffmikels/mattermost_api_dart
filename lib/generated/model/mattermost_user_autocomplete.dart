@@ -24,23 +24,22 @@ class MattermostUserAutocomplete {
   List<MattermostUser> outOfChannel;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostUserAutocomplete &&
-     other.users == users &&
-     other.outOfChannel == outOfChannel;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostUserAutocomplete && other.users == users && other.outOfChannel == outOfChannel;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (users.hashCode) +
-    (outOfChannel.hashCode);
+      // ignore: unnecessary_parenthesis
+      (users.hashCode) + (outOfChannel.hashCode);
 
   @override
   String toString() => 'MattermostUserAutocomplete[users=$users, outOfChannel=$outOfChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'users'] = users;
-      _json[r'out_of_channel'] = outOfChannel;
+    _json[r'users'] = users;
+    _json[r'out_of_channel'] = outOfChannel;
     return _json;
   }
 
@@ -70,7 +69,10 @@ class MattermostUserAutocomplete {
     return null;
   }
 
-  static List<MattermostUserAutocomplete>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostUserAutocomplete>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostUserAutocomplete>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +100,18 @@ class MattermostUserAutocomplete {
   }
 
   // maps a json object with a list of MattermostUserAutocomplete-objects as value to a dart map
-  static Map<String, List<MattermostUserAutocomplete>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostUserAutocomplete>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostUserAutocomplete>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostUserAutocomplete.listFromJson(entry.value, growable: growable,);
+        final value = MattermostUserAutocomplete.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +121,5 @@ class MattermostUserAutocomplete {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

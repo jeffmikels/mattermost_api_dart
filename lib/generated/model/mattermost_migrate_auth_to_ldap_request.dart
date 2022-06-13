@@ -27,26 +27,26 @@ class MattermostMigrateAuthToLdapRequest {
   bool force;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMigrateAuthToLdapRequest &&
-     other.from == from &&
-     other.matchField == matchField &&
-     other.force == force;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostMigrateAuthToLdapRequest &&
+          other.from == from &&
+          other.matchField == matchField &&
+          other.force == force;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from.hashCode) +
-    (matchField.hashCode) +
-    (force.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from.hashCode) + (matchField.hashCode) + (force.hashCode);
 
   @override
   String toString() => 'MattermostMigrateAuthToLdapRequest[from=$from, matchField=$matchField, force=$force]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'from'] = from;
-      _json[r'match_field'] = matchField;
-      _json[r'force'] = force;
+    _json[r'from'] = from;
+    _json[r'match_field'] = matchField;
+    _json[r'force'] = force;
     return _json;
   }
 
@@ -62,8 +62,10 @@ class MattermostMigrateAuthToLdapRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostMigrateAuthToLdapRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostMigrateAuthToLdapRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostMigrateAuthToLdapRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostMigrateAuthToLdapRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -77,7 +79,10 @@ class MattermostMigrateAuthToLdapRequest {
     return null;
   }
 
-  static List<MattermostMigrateAuthToLdapRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMigrateAuthToLdapRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMigrateAuthToLdapRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +110,18 @@ class MattermostMigrateAuthToLdapRequest {
   }
 
   // maps a json object with a list of MattermostMigrateAuthToLdapRequest-objects as value to a dart map
-  static Map<String, List<MattermostMigrateAuthToLdapRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMigrateAuthToLdapRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMigrateAuthToLdapRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMigrateAuthToLdapRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMigrateAuthToLdapRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -126,4 +137,3 @@ class MattermostMigrateAuthToLdapRequest {
     'force',
   };
 }
-

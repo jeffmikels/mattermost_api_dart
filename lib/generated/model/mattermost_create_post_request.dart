@@ -48,33 +48,36 @@ class MattermostCreatePostRequest {
   Map? props;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostCreatePostRequest &&
-     other.channelId == channelId &&
-     other.message == message &&
-     other.rootId == rootId &&
-     other.fileIds == fileIds &&
-     other.props == props;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostCreatePostRequest &&
+          other.channelId == channelId &&
+          other.message == message &&
+          other.rootId == rootId &&
+          other.fileIds == fileIds &&
+          other.props == props;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (message.hashCode) +
-    (rootId == null ? 0 : rootId!.hashCode) +
-    (fileIds.hashCode) +
-    (props == null ? 0 : props!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) +
+      (message.hashCode) +
+      (rootId == null ? 0 : rootId!.hashCode) +
+      (fileIds.hashCode) +
+      (props == null ? 0 : props!.hashCode);
 
   @override
-  String toString() => 'MattermostCreatePostRequest[channelId=$channelId, message=$message, rootId=$rootId, fileIds=$fileIds, props=$props]';
+  String toString() =>
+      'MattermostCreatePostRequest[channelId=$channelId, message=$message, rootId=$rootId, fileIds=$fileIds, props=$props]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
-      _json[r'message'] = message;
+    _json[r'channel_id'] = channelId;
+    _json[r'message'] = message;
     if (rootId != null) {
       _json[r'root_id'] = rootId;
     }
-      _json[r'file_ids'] = fileIds;
+    _json[r'file_ids'] = fileIds;
     if (props != null) {
       _json[r'props'] = props;
     }
@@ -103,16 +106,17 @@ class MattermostCreatePostRequest {
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         message: mapValueOfType<String>(json, r'message')!,
         rootId: mapValueOfType<String>(json, r'root_id'),
-        fileIds: json[r'file_ids'] is List
-            ? (json[r'file_ids'] as List).cast<String>()
-            : const [],
+        fileIds: json[r'file_ids'] is List ? (json[r'file_ids'] as List).cast<String>() : const [],
         props: mapValueOfType<Map>(json, r'props'),
       );
     }
     return null;
   }
 
-  static List<MattermostCreatePostRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostCreatePostRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostCreatePostRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -140,12 +144,18 @@ class MattermostCreatePostRequest {
   }
 
   // maps a json object with a list of MattermostCreatePostRequest-objects as value to a dart map
-  static Map<String, List<MattermostCreatePostRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostCreatePostRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostCreatePostRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostCreatePostRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostCreatePostRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -160,4 +170,3 @@ class MattermostCreatePostRequest {
     'message',
   };
 }
-

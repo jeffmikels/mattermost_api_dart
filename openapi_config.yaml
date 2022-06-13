@@ -8,10 +8,16 @@ additionalProperties:
   pubVersion: 0.1.0
   useEnumExtension: true
   apiClientName: MattermostApiClient # defaults to ApiClient if not specified
-  modelNamePrefix: Mattermost
   apiNamePrefix: Mattermost
+  modelNamePrefix: Mattermost
+  modelNameSuffix:
 
 templateDir: openapi_mattermost_templates
 # templateDir: /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator/src/main/resources/dart2
-skipValidateSpec: true
+skipValidateSpec: false
 skipOverwrite: false
+
+debugModels: false
+debugOperations: false
+org.openapitools.codegen.utils.oncelogger.enabled: true
+verbose: false

@@ -79,28 +79,31 @@ class MattermostConfigLogSettings {
   bool? enableDiagnostics;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigLogSettings &&
-     other.enableConsole == enableConsole &&
-     other.consoleLevel == consoleLevel &&
-     other.enableFile == enableFile &&
-     other.fileLevel == fileLevel &&
-     other.fileLocation == fileLocation &&
-     other.enableWebhookDebugging == enableWebhookDebugging &&
-     other.enableDiagnostics == enableDiagnostics;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigLogSettings &&
+          other.enableConsole == enableConsole &&
+          other.consoleLevel == consoleLevel &&
+          other.enableFile == enableFile &&
+          other.fileLevel == fileLevel &&
+          other.fileLocation == fileLocation &&
+          other.enableWebhookDebugging == enableWebhookDebugging &&
+          other.enableDiagnostics == enableDiagnostics;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enableConsole == null ? 0 : enableConsole!.hashCode) +
-    (consoleLevel == null ? 0 : consoleLevel!.hashCode) +
-    (enableFile == null ? 0 : enableFile!.hashCode) +
-    (fileLevel == null ? 0 : fileLevel!.hashCode) +
-    (fileLocation == null ? 0 : fileLocation!.hashCode) +
-    (enableWebhookDebugging == null ? 0 : enableWebhookDebugging!.hashCode) +
-    (enableDiagnostics == null ? 0 : enableDiagnostics!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enableConsole == null ? 0 : enableConsole!.hashCode) +
+      (consoleLevel == null ? 0 : consoleLevel!.hashCode) +
+      (enableFile == null ? 0 : enableFile!.hashCode) +
+      (fileLevel == null ? 0 : fileLevel!.hashCode) +
+      (fileLocation == null ? 0 : fileLocation!.hashCode) +
+      (enableWebhookDebugging == null ? 0 : enableWebhookDebugging!.hashCode) +
+      (enableDiagnostics == null ? 0 : enableDiagnostics!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
+  String toString() =>
+      'MattermostConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -159,7 +162,10 @@ class MattermostConfigLogSettings {
     return null;
   }
 
-  static List<MattermostConfigLogSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigLogSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigLogSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -187,12 +193,18 @@ class MattermostConfigLogSettings {
   }
 
   // maps a json object with a list of MattermostConfigLogSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigLogSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigLogSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigLogSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigLogSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigLogSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -202,7 +214,5 @@ class MattermostConfigLogSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

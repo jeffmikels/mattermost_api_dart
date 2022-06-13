@@ -27,26 +27,26 @@ class MattermostMigrateAuthToSamlRequest {
   bool auto;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostMigrateAuthToSamlRequest &&
-     other.from == from &&
-     other.matches == matches &&
-     other.auto == auto;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostMigrateAuthToSamlRequest &&
+          other.from == from &&
+          other.matches == matches &&
+          other.auto == auto;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from.hashCode) +
-    (matches.hashCode) +
-    (auto.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from.hashCode) + (matches.hashCode) + (auto.hashCode);
 
   @override
   String toString() => 'MattermostMigrateAuthToSamlRequest[from=$from, matches=$matches, auto=$auto]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'from'] = from;
-      _json[r'matches'] = matches;
-      _json[r'auto'] = auto;
+    _json[r'from'] = from;
+    _json[r'matches'] = matches;
+    _json[r'auto'] = auto;
     return _json;
   }
 
@@ -62,8 +62,10 @@ class MattermostMigrateAuthToSamlRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostMigrateAuthToSamlRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostMigrateAuthToSamlRequest[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostMigrateAuthToSamlRequest[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostMigrateAuthToSamlRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -77,7 +79,10 @@ class MattermostMigrateAuthToSamlRequest {
     return null;
   }
 
-  static List<MattermostMigrateAuthToSamlRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostMigrateAuthToSamlRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostMigrateAuthToSamlRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +110,18 @@ class MattermostMigrateAuthToSamlRequest {
   }
 
   // maps a json object with a list of MattermostMigrateAuthToSamlRequest-objects as value to a dart map
-  static Map<String, List<MattermostMigrateAuthToSamlRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostMigrateAuthToSamlRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostMigrateAuthToSamlRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostMigrateAuthToSamlRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostMigrateAuthToSamlRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -126,4 +137,3 @@ class MattermostMigrateAuthToSamlRequest {
     'auto',
   };
 }
-

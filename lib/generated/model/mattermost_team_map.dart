@@ -25,13 +25,12 @@ class MattermostTeamMap {
   MattermostTeam? teamId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamMap &&
-     other.teamId == teamId;
+  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamMap && other.teamId == teamId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode);
 
   @override
   String toString() => 'MattermostTeamMap[teamId=$teamId]';
@@ -69,7 +68,10 @@ class MattermostTeamMap {
     return null;
   }
 
-  static List<MattermostTeamMap>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTeamMap>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTeamMap>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +99,18 @@ class MattermostTeamMap {
   }
 
   // maps a json object with a list of MattermostTeamMap-objects as value to a dart map
-  static Map<String, List<MattermostTeamMap>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTeamMap>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTeamMap>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTeamMap.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTeamMap.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +120,5 @@ class MattermostTeamMap {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

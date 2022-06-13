@@ -147,42 +147,45 @@ class MattermostChannel {
   String? creatorId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostChannel &&
-     other.id == id &&
-     other.createAt == createAt &&
-     other.updateAt == updateAt &&
-     other.deleteAt == deleteAt &&
-     other.teamId == teamId &&
-     other.type == type &&
-     other.displayName == displayName &&
-     other.name == name &&
-     other.header == header &&
-     other.purpose == purpose &&
-     other.lastPostAt == lastPostAt &&
-     other.totalMsgCount == totalMsgCount &&
-     other.extraUpdateAt == extraUpdateAt &&
-     other.creatorId == creatorId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostChannel &&
+          other.id == id &&
+          other.createAt == createAt &&
+          other.updateAt == updateAt &&
+          other.deleteAt == deleteAt &&
+          other.teamId == teamId &&
+          other.type == type &&
+          other.displayName == displayName &&
+          other.name == name &&
+          other.header == header &&
+          other.purpose == purpose &&
+          other.lastPostAt == lastPostAt &&
+          other.totalMsgCount == totalMsgCount &&
+          other.extraUpdateAt == extraUpdateAt &&
+          other.creatorId == creatorId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (displayName == null ? 0 : displayName!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (header == null ? 0 : header!.hashCode) +
-    (purpose == null ? 0 : purpose!.hashCode) +
-    (lastPostAt == null ? 0 : lastPostAt!.hashCode) +
-    (totalMsgCount == null ? 0 : totalMsgCount!.hashCode) +
-    (extraUpdateAt == null ? 0 : extraUpdateAt!.hashCode) +
-    (creatorId == null ? 0 : creatorId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (displayName == null ? 0 : displayName!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (header == null ? 0 : header!.hashCode) +
+      (purpose == null ? 0 : purpose!.hashCode) +
+      (lastPostAt == null ? 0 : lastPostAt!.hashCode) +
+      (totalMsgCount == null ? 0 : totalMsgCount!.hashCode) +
+      (extraUpdateAt == null ? 0 : extraUpdateAt!.hashCode) +
+      (creatorId == null ? 0 : creatorId!.hashCode);
 
   @override
-  String toString() => 'MattermostChannel[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, teamId=$teamId, type=$type, displayName=$displayName, name=$name, header=$header, purpose=$purpose, lastPostAt=$lastPostAt, totalMsgCount=$totalMsgCount, extraUpdateAt=$extraUpdateAt, creatorId=$creatorId]';
+  String toString() =>
+      'MattermostChannel[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, teamId=$teamId, type=$type, displayName=$displayName, name=$name, header=$header, purpose=$purpose, lastPostAt=$lastPostAt, totalMsgCount=$totalMsgCount, extraUpdateAt=$extraUpdateAt, creatorId=$creatorId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -269,7 +272,10 @@ class MattermostChannel {
     return null;
   }
 
-  static List<MattermostChannel>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostChannel>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -297,12 +303,18 @@ class MattermostChannel {
   }
 
   // maps a json object with a list of MattermostChannel-objects as value to a dart map
-  static Map<String, List<MattermostChannel>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostChannel>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostChannel.listFromJson(entry.value, growable: growable,);
+        final value = MattermostChannel.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -312,7 +324,5 @@ class MattermostChannel {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

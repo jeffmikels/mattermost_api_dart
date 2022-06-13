@@ -43,20 +43,23 @@ class MattermostConfigLocalizationSettings {
   String? availableLocales;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostConfigLocalizationSettings &&
-     other.defaultServerLocale == defaultServerLocale &&
-     other.defaultClientLocale == defaultClientLocale &&
-     other.availableLocales == availableLocales;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostConfigLocalizationSettings &&
+          other.defaultServerLocale == defaultServerLocale &&
+          other.defaultClientLocale == defaultClientLocale &&
+          other.availableLocales == availableLocales;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (defaultServerLocale == null ? 0 : defaultServerLocale!.hashCode) +
-    (defaultClientLocale == null ? 0 : defaultClientLocale!.hashCode) +
-    (availableLocales == null ? 0 : availableLocales!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (defaultServerLocale == null ? 0 : defaultServerLocale!.hashCode) +
+      (defaultClientLocale == null ? 0 : defaultClientLocale!.hashCode) +
+      (availableLocales == null ? 0 : availableLocales!.hashCode);
 
   @override
-  String toString() => 'MattermostConfigLocalizationSettings[defaultServerLocale=$defaultServerLocale, defaultClientLocale=$defaultClientLocale, availableLocales=$availableLocales]';
+  String toString() =>
+      'MattermostConfigLocalizationSettings[defaultServerLocale=$defaultServerLocale, defaultClientLocale=$defaultClientLocale, availableLocales=$availableLocales]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,8 +87,10 @@ class MattermostConfigLocalizationSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostConfigLocalizationSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostConfigLocalizationSettings[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "MattermostConfigLocalizationSettings[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "MattermostConfigLocalizationSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +104,10 @@ class MattermostConfigLocalizationSettings {
     return null;
   }
 
-  static List<MattermostConfigLocalizationSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostConfigLocalizationSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostConfigLocalizationSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +135,18 @@ class MattermostConfigLocalizationSettings {
   }
 
   // maps a json object with a list of MattermostConfigLocalizationSettings-objects as value to a dart map
-  static Map<String, List<MattermostConfigLocalizationSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostConfigLocalizationSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostConfigLocalizationSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostConfigLocalizationSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostConfigLocalizationSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +156,5 @@ class MattermostConfigLocalizationSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

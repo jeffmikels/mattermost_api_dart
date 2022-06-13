@@ -88,30 +88,33 @@ class MattermostGroupSyncableTeams {
   int? updateAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostGroupSyncableTeams &&
-     other.teamId == teamId &&
-     other.teamDisplayName == teamDisplayName &&
-     other.teamType == teamType &&
-     other.groupId == groupId &&
-     other.autoAdd == autoAdd &&
-     other.createAt == createAt &&
-     other.deleteAt == deleteAt &&
-     other.updateAt == updateAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostGroupSyncableTeams &&
+          other.teamId == teamId &&
+          other.teamDisplayName == teamDisplayName &&
+          other.teamType == teamType &&
+          other.groupId == groupId &&
+          other.autoAdd == autoAdd &&
+          other.createAt == createAt &&
+          other.deleteAt == deleteAt &&
+          other.updateAt == updateAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId!.hashCode) +
-    (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
-    (teamType == null ? 0 : teamType!.hashCode) +
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (autoAdd == null ? 0 : autoAdd!.hashCode) +
-    (createAt == null ? 0 : createAt!.hashCode) +
-    (deleteAt == null ? 0 : deleteAt!.hashCode) +
-    (updateAt == null ? 0 : updateAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId!.hashCode) +
+      (teamDisplayName == null ? 0 : teamDisplayName!.hashCode) +
+      (teamType == null ? 0 : teamType!.hashCode) +
+      (groupId == null ? 0 : groupId!.hashCode) +
+      (autoAdd == null ? 0 : autoAdd!.hashCode) +
+      (createAt == null ? 0 : createAt!.hashCode) +
+      (deleteAt == null ? 0 : deleteAt!.hashCode) +
+      (updateAt == null ? 0 : updateAt!.hashCode);
 
   @override
-  String toString() => 'MattermostGroupSyncableTeams[teamId=$teamId, teamDisplayName=$teamDisplayName, teamType=$teamType, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
+  String toString() =>
+      'MattermostGroupSyncableTeams[teamId=$teamId, teamDisplayName=$teamDisplayName, teamType=$teamType, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -174,7 +177,10 @@ class MattermostGroupSyncableTeams {
     return null;
   }
 
-  static List<MattermostGroupSyncableTeams>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostGroupSyncableTeams>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostGroupSyncableTeams>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -202,12 +208,18 @@ class MattermostGroupSyncableTeams {
   }
 
   // maps a json object with a list of MattermostGroupSyncableTeams-objects as value to a dart map
-  static Map<String, List<MattermostGroupSyncableTeams>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostGroupSyncableTeams>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostGroupSyncableTeams>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostGroupSyncableTeams.listFromJson(entry.value, growable: growable,);
+        final value = MattermostGroupSyncableTeams.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -217,7 +229,5 @@ class MattermostGroupSyncableTeams {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

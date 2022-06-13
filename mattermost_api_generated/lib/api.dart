@@ -372,7 +372,7 @@ final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
 /// also add individual apis as getters on the primary default api client
-extension MattermostApiClientExtension on  MattermostApiClient {
+extension MattermostApiClientExtension on MattermostApiClient {
 	
 	MattermostAuthenticationApi get authentication => MattermostAuthenticationApi(this);
 	

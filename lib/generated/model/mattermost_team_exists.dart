@@ -25,13 +25,12 @@ class MattermostTeamExists {
   bool? exists;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamExists &&
-     other.exists == exists;
+  bool operator ==(Object other) => identical(this, other) || other is MattermostTeamExists && other.exists == exists;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (exists == null ? 0 : exists!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (exists == null ? 0 : exists!.hashCode);
 
   @override
   String toString() => 'MattermostTeamExists[exists=$exists]';
@@ -69,7 +68,10 @@ class MattermostTeamExists {
     return null;
   }
 
-  static List<MattermostTeamExists>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostTeamExists>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostTeamExists>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +99,18 @@ class MattermostTeamExists {
   }
 
   // maps a json object with a list of MattermostTeamExists-objects as value to a dart map
-  static Map<String, List<MattermostTeamExists>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostTeamExists>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostTeamExists>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostTeamExists.listFromJson(entry.value, growable: growable,);
+        final value = MattermostTeamExists.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +120,5 @@ class MattermostTeamExists {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

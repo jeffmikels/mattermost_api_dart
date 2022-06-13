@@ -26,13 +26,13 @@ class MattermostPluginManifestWebapp {
   String? bundlePath;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostPluginManifestWebapp &&
-     other.bundlePath == bundlePath;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostPluginManifestWebapp && other.bundlePath == bundlePath;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (bundlePath == null ? 0 : bundlePath!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (bundlePath == null ? 0 : bundlePath!.hashCode);
 
   @override
   String toString() => 'MattermostPluginManifestWebapp[bundlePath=$bundlePath]';
@@ -70,7 +70,10 @@ class MattermostPluginManifestWebapp {
     return null;
   }
 
-  static List<MattermostPluginManifestWebapp>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostPluginManifestWebapp>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostPluginManifestWebapp>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +101,18 @@ class MattermostPluginManifestWebapp {
   }
 
   // maps a json object with a list of MattermostPluginManifestWebapp-objects as value to a dart map
-  static Map<String, List<MattermostPluginManifestWebapp>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostPluginManifestWebapp>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostPluginManifestWebapp>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostPluginManifestWebapp.listFromJson(entry.value, growable: growable,);
+        final value = MattermostPluginManifestWebapp.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,7 +122,5 @@ class MattermostPluginManifestWebapp {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -24,23 +24,22 @@ class MattermostExecuteCommandRequest {
   String command;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostExecuteCommandRequest &&
-     other.channelId == channelId &&
-     other.command == command;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostExecuteCommandRequest && other.channelId == channelId && other.command == command;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (channelId.hashCode) +
-    (command.hashCode);
+      // ignore: unnecessary_parenthesis
+      (channelId.hashCode) + (command.hashCode);
 
   @override
   String toString() => 'MattermostExecuteCommandRequest[channelId=$channelId, command=$command]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'channel_id'] = channelId;
-      _json[r'command'] = command;
+    _json[r'channel_id'] = channelId;
+    _json[r'command'] = command;
     return _json;
   }
 
@@ -70,7 +69,10 @@ class MattermostExecuteCommandRequest {
     return null;
   }
 
-  static List<MattermostExecuteCommandRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostExecuteCommandRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostExecuteCommandRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +100,18 @@ class MattermostExecuteCommandRequest {
   }
 
   // maps a json object with a list of MattermostExecuteCommandRequest-objects as value to a dart map
-  static Map<String, List<MattermostExecuteCommandRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostExecuteCommandRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostExecuteCommandRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostExecuteCommandRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostExecuteCommandRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,4 +126,3 @@ class MattermostExecuteCommandRequest {
     'command',
   };
 }
-

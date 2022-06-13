@@ -169,48 +169,51 @@ class MattermostEnvironmentConfigSamlSettings {
   bool? loginButtonText;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostEnvironmentConfigSamlSettings &&
-     other.enable == enable &&
-     other.verify == verify &&
-     other.encrypt == encrypt &&
-     other.idpUrl == idpUrl &&
-     other.idpDescriptorUrl == idpDescriptorUrl &&
-     other.assertionConsumerServiceURL == assertionConsumerServiceURL &&
-     other.idpCertificateFile == idpCertificateFile &&
-     other.publicCertificateFile == publicCertificateFile &&
-     other.privateKeyFile == privateKeyFile &&
-     other.firstNameAttribute == firstNameAttribute &&
-     other.lastNameAttribute == lastNameAttribute &&
-     other.emailAttribute == emailAttribute &&
-     other.usernameAttribute == usernameAttribute &&
-     other.nicknameAttribute == nicknameAttribute &&
-     other.localeAttribute == localeAttribute &&
-     other.positionAttribute == positionAttribute &&
-     other.loginButtonText == loginButtonText;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MattermostEnvironmentConfigSamlSettings &&
+          other.enable == enable &&
+          other.verify == verify &&
+          other.encrypt == encrypt &&
+          other.idpUrl == idpUrl &&
+          other.idpDescriptorUrl == idpDescriptorUrl &&
+          other.assertionConsumerServiceURL == assertionConsumerServiceURL &&
+          other.idpCertificateFile == idpCertificateFile &&
+          other.publicCertificateFile == publicCertificateFile &&
+          other.privateKeyFile == privateKeyFile &&
+          other.firstNameAttribute == firstNameAttribute &&
+          other.lastNameAttribute == lastNameAttribute &&
+          other.emailAttribute == emailAttribute &&
+          other.usernameAttribute == usernameAttribute &&
+          other.nicknameAttribute == nicknameAttribute &&
+          other.localeAttribute == localeAttribute &&
+          other.positionAttribute == positionAttribute &&
+          other.loginButtonText == loginButtonText;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (enable == null ? 0 : enable!.hashCode) +
-    (verify == null ? 0 : verify!.hashCode) +
-    (encrypt == null ? 0 : encrypt!.hashCode) +
-    (idpUrl == null ? 0 : idpUrl!.hashCode) +
-    (idpDescriptorUrl == null ? 0 : idpDescriptorUrl!.hashCode) +
-    (assertionConsumerServiceURL == null ? 0 : assertionConsumerServiceURL!.hashCode) +
-    (idpCertificateFile == null ? 0 : idpCertificateFile!.hashCode) +
-    (publicCertificateFile == null ? 0 : publicCertificateFile!.hashCode) +
-    (privateKeyFile == null ? 0 : privateKeyFile!.hashCode) +
-    (firstNameAttribute == null ? 0 : firstNameAttribute!.hashCode) +
-    (lastNameAttribute == null ? 0 : lastNameAttribute!.hashCode) +
-    (emailAttribute == null ? 0 : emailAttribute!.hashCode) +
-    (usernameAttribute == null ? 0 : usernameAttribute!.hashCode) +
-    (nicknameAttribute == null ? 0 : nicknameAttribute!.hashCode) +
-    (localeAttribute == null ? 0 : localeAttribute!.hashCode) +
-    (positionAttribute == null ? 0 : positionAttribute!.hashCode) +
-    (loginButtonText == null ? 0 : loginButtonText!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (enable == null ? 0 : enable!.hashCode) +
+      (verify == null ? 0 : verify!.hashCode) +
+      (encrypt == null ? 0 : encrypt!.hashCode) +
+      (idpUrl == null ? 0 : idpUrl!.hashCode) +
+      (idpDescriptorUrl == null ? 0 : idpDescriptorUrl!.hashCode) +
+      (assertionConsumerServiceURL == null ? 0 : assertionConsumerServiceURL!.hashCode) +
+      (idpCertificateFile == null ? 0 : idpCertificateFile!.hashCode) +
+      (publicCertificateFile == null ? 0 : publicCertificateFile!.hashCode) +
+      (privateKeyFile == null ? 0 : privateKeyFile!.hashCode) +
+      (firstNameAttribute == null ? 0 : firstNameAttribute!.hashCode) +
+      (lastNameAttribute == null ? 0 : lastNameAttribute!.hashCode) +
+      (emailAttribute == null ? 0 : emailAttribute!.hashCode) +
+      (usernameAttribute == null ? 0 : usernameAttribute!.hashCode) +
+      (nicknameAttribute == null ? 0 : nicknameAttribute!.hashCode) +
+      (localeAttribute == null ? 0 : localeAttribute!.hashCode) +
+      (positionAttribute == null ? 0 : positionAttribute!.hashCode) +
+      (loginButtonText == null ? 0 : loginButtonText!.hashCode);
 
   @override
-  String toString() => 'MattermostEnvironmentConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
+  String toString() =>
+      'MattermostEnvironmentConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -280,8 +283,10 @@ class MattermostEnvironmentConfigSamlSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MattermostEnvironmentConfigSamlSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MattermostEnvironmentConfigSamlSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MattermostEnvironmentConfigSamlSettings[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MattermostEnvironmentConfigSamlSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -309,7 +314,10 @@ class MattermostEnvironmentConfigSamlSettings {
     return null;
   }
 
-  static List<MattermostEnvironmentConfigSamlSettings>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostEnvironmentConfigSamlSettings>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostEnvironmentConfigSamlSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -337,12 +345,18 @@ class MattermostEnvironmentConfigSamlSettings {
   }
 
   // maps a json object with a list of MattermostEnvironmentConfigSamlSettings-objects as value to a dart map
-  static Map<String, List<MattermostEnvironmentConfigSamlSettings>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostEnvironmentConfigSamlSettings>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostEnvironmentConfigSamlSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostEnvironmentConfigSamlSettings.listFromJson(entry.value, growable: growable,);
+        final value = MattermostEnvironmentConfigSamlSettings.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -352,7 +366,5 @@ class MattermostEnvironmentConfigSamlSettings {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

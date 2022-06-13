@@ -20,20 +20,20 @@ class MattermostAttachDeviceIdRequest {
   String deviceId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MattermostAttachDeviceIdRequest &&
-     other.deviceId == deviceId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MattermostAttachDeviceIdRequest && other.deviceId == deviceId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (deviceId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (deviceId.hashCode);
 
   @override
   String toString() => 'MattermostAttachDeviceIdRequest[deviceId=$deviceId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'device_id'] = deviceId;
+    _json[r'device_id'] = deviceId;
     return _json;
   }
 
@@ -62,7 +62,10 @@ class MattermostAttachDeviceIdRequest {
     return null;
   }
 
-  static List<MattermostAttachDeviceIdRequest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MattermostAttachDeviceIdRequest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MattermostAttachDeviceIdRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +93,18 @@ class MattermostAttachDeviceIdRequest {
   }
 
   // maps a json object with a list of MattermostAttachDeviceIdRequest-objects as value to a dart map
-  static Map<String, List<MattermostAttachDeviceIdRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MattermostAttachDeviceIdRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MattermostAttachDeviceIdRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MattermostAttachDeviceIdRequest.listFromJson(entry.value, growable: growable,);
+        final value = MattermostAttachDeviceIdRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +118,3 @@ class MattermostAttachDeviceIdRequest {
     'device_id',
   };
 }
-
