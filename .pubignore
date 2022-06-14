@@ -1,1 +1,18 @@
+# Jeff's helper code
+codegen.py
 mattermost_api_generated
+openapi_mattermost_templates
+openapi_config.yaml
+mattermost-swagger*
+mustache_to_handlebars.py
+fix_converted.py
+fix_templates.py
+mattermost-codegen.dart
+push_templates.sh
+push-and-publish.sh
+
+# other stuff
+.vscode
+.dart_tool
+.packages
+.openapi-generator-ignore

@@ -240,14 +240,14 @@ Class | Method | HTTP request | Description
 *MattermostJobsApi* | [**getJobsByType**](doc//MattermostJobsApi.md#getjobsbytype) | **GET** /jobs/type/{type} | Get the jobs of the given type.
 *MattermostLDAPApi* | [**deleteLdapPrivateCertificate**](doc//MattermostLDAPApi.md#deleteldapprivatecertificate) | **DELETE** /ldap/certificate/private | Remove private key
 *MattermostLDAPApi* | [**deleteLdapPublicCertificate**](doc//MattermostLDAPApi.md#deleteldappubliccertificate) | **DELETE** /ldap/certificate/public | Remove public certificate
+*MattermostLDAPApi* | [**getLdapGroups**](doc//MattermostLDAPApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
+*MattermostLDAPApi* | [**linkLdapGroup**](doc//MattermostLDAPApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
 *MattermostLDAPApi* | [**migrateAuthToLdap**](doc//MattermostLDAPApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
 *MattermostLDAPApi* | [**migrateIdLdap**](doc//MattermostLDAPApi.md#migrateidldap) | **POST** /ldap/migrateid | Migrate Id LDAP
 *MattermostLDAPApi* | [**syncLdap**](doc//MattermostLDAPApi.md#syncldap) | **POST** /ldap/sync | Sync with LDAP
 *MattermostLDAPApi* | [**testLdap**](doc//MattermostLDAPApi.md#testldap) | **POST** /ldap/test | Test LDAP configuration
 *MattermostLDAPApi* | [**uploadLdapPrivateCertificate**](doc//MattermostLDAPApi.md#uploadldapprivatecertificate) | **POST** /ldap/certificate/private | Upload private key
 *MattermostLDAPApi* | [**uploadLdapPublicCertificate**](doc//MattermostLDAPApi.md#uploadldappubliccertificate) | **POST** /ldap/certificate/public | Upload public certificate
-*MattermostLdapApi* | [**getLdapGroups**](doc//MattermostLdapApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
-*MattermostLdapApi* | [**linkLdapGroup**](doc//MattermostLdapApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
 *MattermostMigrateApi* | [**migrateAuthToLdap**](doc//MattermostMigrateApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
 *MattermostMigrateApi* | [**migrateAuthToSaml**](doc//MattermostMigrateApi.md#migrateauthtosaml) | **POST** /users/migrate_auth/saml | Migrate user accounts authentication type to SAML.
 *MattermostOAuthApi* | [**createOAuthApp**](doc//MattermostOAuthApi.md#createoauthapp) | **POST** /oauth/apps | Register OAuth app

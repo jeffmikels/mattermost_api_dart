@@ -15,8 +15,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart';
-import 'package:intl/intl.dart';
-import 'package:meta/meta.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';
@@ -366,7 +364,6 @@ part 'model/mattermost_view_channel_request.dart';
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
-final _dateFormatter = DateFormat('yyyy-MM-dd');
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
@@ -392,7 +389,7 @@ extension MattermostApiClientExtension on MattermostApiClient {
 	MattermostInsightsApi get insights => MattermostInsightsApi(this);
 	MattermostIntegrationActionsApi get integrationActions => MattermostIntegrationActionsApi(this);
 	MattermostJobsApi get jobs => MattermostJobsApi(this);
-	MattermostLdapApi get ldap => MattermostLdapApi(this);
+	MattermostLDAPApi get lDAP => MattermostLDAPApi(this);
 	MattermostMigrateApi get migrate => MattermostMigrateApi(this);
 	MattermostOAuthApi get oAuth => MattermostOAuthApi(this);
 	MattermostOpenGraphApi get openGraph => MattermostOpenGraphApi(this);

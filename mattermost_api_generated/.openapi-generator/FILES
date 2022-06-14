@@ -160,7 +160,6 @@ doc/MattermostJobsApi.md
 doc/MattermostLDAPApi.md
 doc/MattermostLDAPGroup.md
 doc/MattermostLDAPGroupsPaged.md
-doc/MattermostLdapApi.md
 doc/MattermostLicenseRenewalLink.md
 doc/MattermostLoginByCwsTokenRequest.md
 doc/MattermostLoginRequest.md
@@ -358,7 +357,6 @@ lib/api/mattermost_imports_api.dart
 lib/api/mattermost_insights_api.dart
 lib/api/mattermost_integration_actions_api.dart
 lib/api/mattermost_jobs_api.dart
-lib/api/mattermost_ldap_api.dart
 lib/api/mattermost_ldap_api.dart
 lib/api/mattermost_migrate_api.dart
 lib/api/mattermost_o_auth_api.dart

@@ -53,15 +53,15 @@ with open(apifn, 'r') as apifile:
   addedparts = False
 
   for line in orig.split('\n'):
-    # ignore the second ldap file
-    if 'ldap_api.dart' in line:
-      if usedldap:
-        continue
-      usedldap = True
+    # # ignore the second ldap file
+    # if 'ldap_api.dart' in line:
+    #   if usedldap:
+    #     continue
+    #   usedldap = True
 
-    # ignore the incorrect ldap api getter
-    if 'get lDAP' in line:
-      continue
+    # # ignore the incorrect ldap api getter
+    # if 'get lDAP' in line:
+    #   continue
 
     towrite.append(line)
 
@@ -116,8 +116,6 @@ replacements = [
         '''elements: Map.listFromJson(json[r'elements'])!,''',
         '''elements: json[r'elements'] ?? const [],'''
     ),
-
-
 ]
 
 for rep in replacements:
@@ -135,7 +133,7 @@ test = os.path.join(OUTPUT, 'test')
 os.system(f'rsync -av "{test}/" test/generated/')
 
 doc = os.path.join(OUTPUT, 'doc')
-os.system(f'rsync -av "{doc}/" doc/generated/')
+os.system(f'rsync -av "{doc}/" doc/')
 
 readme = os.path.join(OUTPUT, 'README.md')
 os.system(f'cp "{readme}" GENERATED_README.md')

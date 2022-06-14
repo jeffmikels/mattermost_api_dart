@@ -35,6 +35,24 @@ void main() {
       // TODO
     });
 
+    // Returns a list of LDAP groups
+    //
+    // ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+    //
+    //Future<List<MattermostLDAPGroupsPaged>> getLdapGroups({ String q, int page, int perPage }) async
+    test('test getLdapGroups', () async {
+      // TODO
+    });
+
+    // Link a LDAP group
+    //
+    // ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
+    //
+    //Future<MattermostStatusOK> linkLdapGroup(String remoteId) async
+    test('test linkLdapGroup', () async {
+      // TODO
+    });
+
     // Migrate user accounts authentication type to LDAP.
     //
     // Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to LDAP. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 

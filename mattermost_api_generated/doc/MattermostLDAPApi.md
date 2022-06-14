@@ -1,4 +1,4 @@
-# mattermost_api.api.MattermostLdapApi
+# mattermost_api.api.MattermostLDAPApi
 
 ## Load the API package
 ```dart
@@ -9,9 +9,107 @@ All URIs are relative to *http://your-mattermost-url.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLdapGroups**](MattermostLdapApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
-[**linkLdapGroup**](MattermostLdapApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
+[**deleteLdapPrivateCertificate**](MattermostLDAPApi.md#deleteldapprivatecertificate) | **DELETE** /ldap/certificate/private | Remove private key
+[**deleteLdapPublicCertificate**](MattermostLDAPApi.md#deleteldappubliccertificate) | **DELETE** /ldap/certificate/public | Remove public certificate
+[**getLdapGroups**](MattermostLDAPApi.md#getldapgroups) | **GET** /ldap/groups | Returns a list of LDAP groups
+[**linkLdapGroup**](MattermostLDAPApi.md#linkldapgroup) | **POST** /ldap/groups/{remote_id}/link | Link a LDAP group
+[**migrateAuthToLdap**](MattermostLDAPApi.md#migrateauthtoldap) | **POST** /users/migrate_auth/ldap | Migrate user accounts authentication type to LDAP.
+[**migrateIdLdap**](MattermostLDAPApi.md#migrateidldap) | **POST** /ldap/migrateid | Migrate Id LDAP
+[**syncLdap**](MattermostLDAPApi.md#syncldap) | **POST** /ldap/sync | Sync with LDAP
+[**testLdap**](MattermostLDAPApi.md#testldap) | **POST** /ldap/test | Test LDAP configuration
+[**uploadLdapPrivateCertificate**](MattermostLDAPApi.md#uploadldapprivatecertificate) | **POST** /ldap/certificate/private | Upload private key
+[**uploadLdapPublicCertificate**](MattermostLDAPApi.md#uploadldappubliccertificate) | **POST** /ldap/certificate/public | Upload public certificate
 
+
+# **deleteLdapPrivateCertificate**
+> MattermostStatusOK deleteLdapPrivateCertificate()
+
+Remove private key
+
+Delete the current private key being used with your TLS verification. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+
+try {
+    final result = api_instance.deleteLdapPrivateCertificate();
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteLdapPublicCertificate**
+> MattermostStatusOK deleteLdapPublicCertificate()
+
+Remove public certificate
+
+Delete the current public certificate being used for TLS verification. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+
+try {
+    final result = api_instance.deleteLdapPublicCertificate();
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLdapGroups**
 > List<MattermostLDAPGroupsPaged> getLdapGroups(q, page, perPage)
@@ -30,7 +128,7 @@ import 'package:mattermost_api/api.dart';
 // String yourTokenGeneratorFunction() { ... }
 //defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostLdapApi();
+final api_instance = MattermostLDAPApi();
 final q = q_example; // String | Search term
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
@@ -39,7 +137,7 @@ try {
     final result = api_instance.getLdapGroups(q, page, perPage);
     print(result);
 } catch (e) {
-    print('Exception when calling MattermostLdapApi->getLdapGroups: $e\n');
+    print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
 }
 ```
 
@@ -83,14 +181,14 @@ import 'package:mattermost_api/api.dart';
 // String yourTokenGeneratorFunction() { ... }
 //defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostLdapApi();
+final api_instance = MattermostLDAPApi();
 final remoteId = remoteId_example; // String | Group GUID
 
 try {
     final result = api_instance.linkLdapGroup(remoteId);
     print(result);
 } catch (e) {
-    print('Exception when calling MattermostLdapApi->linkLdapGroup: $e\n');
+    print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
 }
 ```
 
@@ -111,6 +209,291 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **migrateAuthToLdap**
+> migrateAuthToLdap(mattermostMigrateAuthToLdapRequest)
+
+Migrate user accounts authentication type to LDAP.
+
+Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to LDAP. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
+
+try {
+    api_instance.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->migrateAuthToLdap: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mattermostMigrateAuthToLdapRequest** | [**MattermostMigrateAuthToLdapRequest**](MattermostMigrateAuthToLdapRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **migrateIdLdap**
+> MattermostStatusOK migrateIdLdap(mattermostMigrateIdLdapRequest)
+
+Migrate Id LDAP
+
+Migrate LDAP IdAttribute to new value. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.26 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+final mattermostMigrateIdLdapRequest = MattermostMigrateIdLdapRequest(); // MattermostMigrateIdLdapRequest | 
+
+try {
+    final result = api_instance.migrateIdLdap(mattermostMigrateIdLdapRequest);
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mattermostMigrateIdLdapRequest** | [**MattermostMigrateIdLdapRequest**](MattermostMigrateIdLdapRequest.md)|  | 
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **syncLdap**
+> MattermostStatusOK syncLdap()
+
+Sync with LDAP
+
+Synchronize any user attribute changes in the configured AD/LDAP server with Mattermost. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+
+try {
+    final result = api_instance.syncLdap();
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **testLdap**
+> MattermostStatusOK testLdap()
+
+Test LDAP configuration
+
+Test the current AD/LDAP configuration to see if the AD/LDAP server can be contacted successfully. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+
+try {
+    final result = api_instance.testLdap();
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **uploadLdapPrivateCertificate**
+> MattermostStatusOK uploadLdapPrivateCertificate(certificate)
+
+Upload private key
+
+Upload the private key to be used for TLS verification. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+final certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
+
+try {
+    final result = api_instance.uploadLdapPrivateCertificate(certificate);
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **certificate** | **MultipartFile**| The private key file | 
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **uploadLdapPublicCertificate**
+> MattermostStatusOK uploadLdapPublicCertificate(certificate)
+
+Upload public certificate
+
+Upload the public certificate to be used for TLS verification. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `manage_system` permission. 
+
+### Example
+```dart
+import 'package:mattermost_api/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MattermostLDAPApi();
+final certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
+
+try {
+    final result = api_instance.uploadLdapPublicCertificate(certificate);
+    print(result);
+} catch (e) {
+    print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **certificate** | **MultipartFile**| The public certificate file | 
+
+### Return type
+
+[**MattermostStatusOK**](MattermostStatusOK.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
