@@ -32,8 +32,7 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
 
 /// also add individual apis as getters on the primary default api client
 extension {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}Extension on {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} {
-	{{#apiInfo}}{{#apis}}
-	{{{classname}}} get {{{classVarName}}} => {{{classname}}}(this);
+	{{#apiInfo}}{{#apis}}{{{classname}}} get {{{classVarName}}} => {{{classname}}}(this);
 	{{/apis}}{{/apiInfo}}
 }
 
