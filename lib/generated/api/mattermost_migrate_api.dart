@@ -23,17 +23,17 @@ class MattermostMigrateApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
   Future<Response> migrateAuthToLdapWithHttpInfo({
-    MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest,
+    MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/ldap';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToLdapRequest;
+    Object? postBody = mMMigrateAuthToLdapRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -56,15 +56,15 @@ class MattermostMigrateApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
   Future<void> migrateAuthToLdap({
-    MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest,
+    MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest,
   }) async {
     final response = await migrateAuthToLdapWithHttpInfo(
-      mattermostMigrateAuthToLdapRequest: mattermostMigrateAuthToLdapRequest,
+      mMMigrateAuthToLdapRequest: mMMigrateAuthToLdapRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -76,17 +76,17 @@ class MattermostMigrateApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
   Future<Response> migrateAuthToSamlWithHttpInfo({
-    MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest,
+    MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/saml';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToSamlRequest;
+    Object? postBody = mMMigrateAuthToSamlRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -109,15 +109,15 @@ class MattermostMigrateApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
   Future<void> migrateAuthToSaml({
-    MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest,
+    MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest,
   }) async {
     final response = await migrateAuthToSamlWithHttpInfo(
-      mattermostMigrateAuthToSamlRequest: mattermostMigrateAuthToSamlRequest,
+      mMMigrateAuthToSamlRequest: mMMigrateAuthToSamlRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 }

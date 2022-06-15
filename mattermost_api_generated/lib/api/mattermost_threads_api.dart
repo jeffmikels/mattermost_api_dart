@@ -40,7 +40,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -72,7 +72,7 @@ class MattermostThreadsApi {
   Future<void> getThreadMentionCountsByChannel(String userId, String teamId,) async {
     final response = await getThreadMentionCountsByChannelWithHttpInfo(userId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -102,7 +102,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -137,7 +137,7 @@ class MattermostThreadsApi {
   Future<void> getUserThread(String userId, String teamId, String threadId,) async {
     final response = await getUserThreadWithHttpInfo(userId, teamId, threadId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -181,7 +181,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -247,16 +247,16 @@ class MattermostThreadsApi {
   ///
   /// * [bool] totalsOnly:
   ///   Setting this to true will only return the total counts.
-  Future<MattermostUserThreads?> getUserThreads(String userId, String teamId, { int? since, bool? deleted, bool? extended, int? page, int? pageSize, bool? totalsOnly, }) async {
+  Future<MMUserThreads?> getUserThreads(String userId, String teamId, { int? since, bool? deleted, bool? extended, int? page, int? pageSize, bool? totalsOnly, }) async {
     final response = await getUserThreadsWithHttpInfo(userId, teamId,  since: since, deleted: deleted, extended: extended, page: page, pageSize: pageSize, totalsOnly: totalsOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserThreads',) as MattermostUserThreads;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserThreads',) as MMUserThreads;
     
     }
     return null;
@@ -288,7 +288,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -323,7 +323,7 @@ class MattermostThreadsApi {
   Future<void> startFollowingThread(String userId, String teamId, String threadId,) async {
     final response = await startFollowingThreadWithHttpInfo(userId, teamId, threadId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -353,7 +353,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -388,7 +388,7 @@ class MattermostThreadsApi {
   Future<void> stopFollowingThread(String userId, String teamId, String threadId,) async {
     final response = await stopFollowingThreadWithHttpInfo(userId, teamId, threadId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -422,7 +422,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -460,7 +460,7 @@ class MattermostThreadsApi {
   Future<void> updateThreadReadForUser(String userId, String teamId, String threadId, String timestamp,) async {
     final response = await updateThreadReadForUserWithHttpInfo(userId, teamId, threadId, timestamp,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -486,7 +486,7 @@ class MattermostThreadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -518,7 +518,7 @@ class MattermostThreadsApi {
   Future<void> updateThreadsReadForUser(String userId, String teamId,) async {
     final response = await updateThreadsReadForUserWithHttpInfo(userId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 }

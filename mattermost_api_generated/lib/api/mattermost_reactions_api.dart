@@ -44,7 +44,7 @@ class MattermostReactionsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -76,16 +76,16 @@ class MattermostReactionsApi {
   ///
   /// * [String] emojiName (required):
   ///   emoji name
-  Future<MattermostStatusOK?> deleteReaction(String userId, String postId, String emojiName,) async {
+  Future<MMStatusOK?> deleteReaction(String userId, String postId, String emojiName,) async {
     final response = await deleteReactionWithHttpInfo(userId, postId, emojiName,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -108,7 +108,7 @@ class MattermostReactionsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -134,16 +134,16 @@ class MattermostReactionsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of post IDs
-  Future<Map<String, List<MattermostReaction>>?> getBulkReactions(List<String> requestBody,) async {
+  Future<Map<String, List<MMReaction>>?> getBulkReactions(List<String> requestBody,) async {
     final response = await getBulkReactionsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, List<MattermostReaction>>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, List<MattermostReaction>>'),);
+      return Map<String, List<MMReaction>>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, List<MMReaction>>'),);
 
     }
     return null;
@@ -167,7 +167,7 @@ class MattermostReactionsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -193,18 +193,18 @@ class MattermostReactionsApi {
   ///
   /// * [String] postId (required):
   ///   ID of a post
-  Future<List<MattermostReaction>?> getReactions(String postId,) async {
+  Future<List<MMReaction>?> getReactions(String postId,) async {
     final response = await getReactionsWithHttpInfo(postId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostReaction>') as List)
-        .cast<MattermostReaction>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMReaction>') as List)
+        .cast<MMReaction>()
         .toList();
 
     }
@@ -219,16 +219,16 @@ class MattermostReactionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostReaction] mattermostReaction (required):
+  /// * [MMReaction] mMReaction (required):
   ///   The user's reaction with its post_id, user_id, and emoji_name fields set
-  Future<Response> saveReactionWithHttpInfo(MattermostReaction mattermostReaction,) async {
+  Future<Response> saveReactionWithHttpInfo(MMReaction mMReaction,) async {
     // ignore: prefer_const_declarations
     final path = r'/reactions';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostReaction;
+    Object? postBody = mMReaction;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -252,18 +252,18 @@ class MattermostReactionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostReaction] mattermostReaction (required):
+  /// * [MMReaction] mMReaction (required):
   ///   The user's reaction with its post_id, user_id, and emoji_name fields set
-  Future<MattermostReaction?> saveReaction(MattermostReaction mattermostReaction,) async {
-    final response = await saveReactionWithHttpInfo(mattermostReaction,);
+  Future<MMReaction?> saveReaction(MMReaction mMReaction,) async {
+    final response = await saveReactionWithHttpInfo(mMReaction,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostReaction',) as MattermostReaction;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMReaction',) as MMReaction;
     
     }
     return null;

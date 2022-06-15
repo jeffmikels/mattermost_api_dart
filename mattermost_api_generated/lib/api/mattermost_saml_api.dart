@@ -30,7 +30,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -51,16 +51,16 @@ class MattermostSAMLApi {
   /// Remove IDP certificate
   ///
   /// Delete the current IDP certificate being used with your SAML configuration. This will also disable SAML on your system as this certificate is required for SAML. ##### Permissions Must have `sysconsole_write_authentication` permission. 
-  Future<MattermostStatusOK?> deleteSamlIdpCertificate() async {
+  Future<MMStatusOK?> deleteSamlIdpCertificate() async {
     final response = await deleteSamlIdpCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -78,7 +78,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -99,16 +99,16 @@ class MattermostSAMLApi {
   /// Remove private key
   ///
   /// Delete the current private key being used with your SAML configuration. This will also disable encryption for SAML on your system as this key is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
-  Future<MattermostStatusOK?> deleteSamlPrivateCertificate() async {
+  Future<MMStatusOK?> deleteSamlPrivateCertificate() async {
     final response = await deleteSamlPrivateCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -126,7 +126,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -147,16 +147,16 @@ class MattermostSAMLApi {
   /// Remove public certificate
   ///
   /// Delete the current public certificate being used with your SAML configuration. This will also disable encryption for SAML on your system as this certificate is required for that. ##### Permissions Must have `sysconsole_write_authentication` permission. 
-  Future<MattermostStatusOK?> deleteSamlPublicCertificate() async {
+  Future<MMStatusOK?> deleteSamlPublicCertificate() async {
     final response = await deleteSamlPublicCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -174,7 +174,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -195,16 +195,16 @@ class MattermostSAMLApi {
   /// Get certificate status
   ///
   /// Get the status of the uploaded certificates and keys in use by your SAML configuration. ##### Permissions Must have `sysconsole_write_authentication` permission. 
-  Future<MattermostSamlCertificateStatus?> getSamlCertificateStatus() async {
+  Future<MMSamlCertificateStatus?> getSamlCertificateStatus() async {
     final response = await getSamlCertificateStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSamlCertificateStatus',) as MattermostSamlCertificateStatus;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSamlCertificateStatus',) as MMSamlCertificateStatus;
     
     }
     return null;
@@ -222,7 +222,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -246,7 +246,7 @@ class MattermostSAMLApi {
   Future<String?> getSamlMetadata() async {
     final response = await getSamlMetadataWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -266,15 +266,15 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostGetSamlMetadataFromIdpRequest] mattermostGetSamlMetadataFromIdpRequest:
-  Future<Response> getSamlMetadataFromIdpWithHttpInfo({ MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest, }) async {
+  /// * [MMGetSamlMetadataFromIdpRequest] mMGetSamlMetadataFromIdpRequest:
+  Future<Response> getSamlMetadataFromIdpWithHttpInfo({ MMGetSamlMetadataFromIdpRequest? mMGetSamlMetadataFromIdpRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/metadatafromidp';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostGetSamlMetadataFromIdpRequest;
+    Object? postBody = mMGetSamlMetadataFromIdpRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -298,11 +298,11 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostGetSamlMetadataFromIdpRequest] mattermostGetSamlMetadataFromIdpRequest:
-  Future<String?> getSamlMetadataFromIdp({ MattermostGetSamlMetadataFromIdpRequest? mattermostGetSamlMetadataFromIdpRequest, }) async {
-    final response = await getSamlMetadataFromIdpWithHttpInfo( mattermostGetSamlMetadataFromIdpRequest: mattermostGetSamlMetadataFromIdpRequest, );
+  /// * [MMGetSamlMetadataFromIdpRequest] mMGetSamlMetadataFromIdpRequest:
+  Future<String?> getSamlMetadataFromIdp({ MMGetSamlMetadataFromIdpRequest? mMGetSamlMetadataFromIdpRequest, }) async {
+    final response = await getSamlMetadataFromIdpWithHttpInfo( mMGetSamlMetadataFromIdpRequest: mMGetSamlMetadataFromIdpRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -322,15 +322,15 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<Response> migrateAuthToSamlWithHttpInfo({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
+  Future<Response> migrateAuthToSamlWithHttpInfo({ MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/saml';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToSamlRequest;
+    Object? postBody = mMMigrateAuthToSamlRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -354,11 +354,11 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<void> migrateAuthToSaml({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
-    final response = await migrateAuthToSamlWithHttpInfo( mattermostMigrateAuthToSamlRequest: mattermostMigrateAuthToSamlRequest, );
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
+  Future<void> migrateAuthToSaml({ MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest, }) async {
+    final response = await migrateAuthToSamlWithHttpInfo( mMMigrateAuthToSamlRequest: mMMigrateAuthToSamlRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -370,15 +370,15 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostResetSamlAuthDataToEmailRequest] mattermostResetSamlAuthDataToEmailRequest:
-  Future<Response> resetSamlAuthDataToEmailWithHttpInfo({ MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest, }) async {
+  /// * [MMResetSamlAuthDataToEmailRequest] mMResetSamlAuthDataToEmailRequest:
+  Future<Response> resetSamlAuthDataToEmailWithHttpInfo({ MMResetSamlAuthDataToEmailRequest? mMResetSamlAuthDataToEmailRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/saml/reset_auth_data';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostResetSamlAuthDataToEmailRequest;
+    Object? postBody = mMResetSamlAuthDataToEmailRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -402,17 +402,17 @@ class MattermostSAMLApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostResetSamlAuthDataToEmailRequest] mattermostResetSamlAuthDataToEmailRequest:
-  Future<MattermostResetSamlAuthDataToEmail200Response?> resetSamlAuthDataToEmail({ MattermostResetSamlAuthDataToEmailRequest? mattermostResetSamlAuthDataToEmailRequest, }) async {
-    final response = await resetSamlAuthDataToEmailWithHttpInfo( mattermostResetSamlAuthDataToEmailRequest: mattermostResetSamlAuthDataToEmailRequest, );
+  /// * [MMResetSamlAuthDataToEmailRequest] mMResetSamlAuthDataToEmailRequest:
+  Future<MMResetSamlAuthDataToEmail200Response?> resetSamlAuthDataToEmail({ MMResetSamlAuthDataToEmailRequest? mMResetSamlAuthDataToEmailRequest, }) async {
+    final response = await resetSamlAuthDataToEmailWithHttpInfo( mMResetSamlAuthDataToEmailRequest: mMResetSamlAuthDataToEmailRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostResetSamlAuthDataToEmail200Response',) as MattermostResetSamlAuthDataToEmail200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMResetSamlAuthDataToEmail200Response',) as MMResetSamlAuthDataToEmail200Response;
     
     }
     return null;
@@ -435,7 +435,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -471,16 +471,16 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The IDP certificate file
-  Future<MattermostStatusOK?> uploadSamlIdpCertificate(MultipartFile certificate,) async {
+  Future<MMStatusOK?> uploadSamlIdpCertificate(MultipartFile certificate,) async {
     final response = await uploadSamlIdpCertificateWithHttpInfo(certificate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -503,7 +503,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -539,16 +539,16 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The private key file
-  Future<MattermostStatusOK?> uploadSamlPrivateCertificate(MultipartFile certificate,) async {
+  Future<MMStatusOK?> uploadSamlPrivateCertificate(MultipartFile certificate,) async {
     final response = await uploadSamlPrivateCertificateWithHttpInfo(certificate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -571,7 +571,7 @@ class MattermostSAMLApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -607,16 +607,16 @@ class MattermostSAMLApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The public certificate file
-  Future<MattermostStatusOK?> uploadSamlPublicCertificate(MultipartFile certificate,) async {
+  Future<MMStatusOK?> uploadSamlPublicCertificate(MultipartFile certificate,) async {
     final response = await uploadSamlPublicCertificateWithHttpInfo(certificate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **getUserStatus**
-> MattermostStatus getUserStatus(userId)
+> MMStatus getUserStatus(userId)
 
 Get user status
 
@@ -33,19 +33,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostStatus**](MattermostStatus.md)
+[**MMStatus**](MMStatus.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getUsersStatusesByIds**
-> List<MattermostStatus> getUsersStatusesByIds(requestBody)
+> List<MMStatus> getUsersStatusesByIds(requestBody)
 
 Get user statuses by id
 
@@ -96,19 +96,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MattermostStatus>**](MattermostStatus.md)
+[**List<MMStatus>**](MMStatus.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **postUserRecentCustomStatusDelete**
-> postUserRecentCustomStatusDelete(userId, mattermostRemoveRecentCustomStatusRequest)
+> postUserRecentCustomStatusDelete(userId, mMRemoveRecentCustomStatusRequest)
 
 Delete user's recent custom status
 
@@ -159,27 +159,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User ID
-final MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
+final MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest = MMRemoveRecentCustomStatusRequest(); // MMRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-  await client.status.postUserRecentCustomStatusDelete(userId, mattermostRemoveRecentCustomStatusRequest);
+  await client.status.postUserRecentCustomStatusDelete(userId, mMRemoveRecentCustomStatusRequest);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->postUserRecentCustomStatusDelete: $e\n');
 }
@@ -191,7 +191,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User ID | 
- **mattermostRemoveRecentCustomStatusRequest** | [**MattermostRemoveRecentCustomStatusRequest**](MattermostRemoveRecentCustomStatusRequest.md)| Custom Status object that is to be removed from the recent custom statuses. | 
+ **mMRemoveRecentCustomStatusRequest** | [**MMRemoveRecentCustomStatusRequest**](MMRemoveRecentCustomStatusRequest.md)| Custom Status object that is to be removed from the recent custom statuses. | 
 
 ### Return type
 
@@ -209,7 +209,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeRecentCustomStatus**
-> removeRecentCustomStatus(userId, mattermostRemoveRecentCustomStatusRequest)
+> removeRecentCustomStatus(userId, mMRemoveRecentCustomStatusRequest)
 
 Delete user's recent custom status
 
@@ -223,27 +223,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User ID
-final MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
+final MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest = MMRemoveRecentCustomStatusRequest(); // MMRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-  await client.status.removeRecentCustomStatus(userId, mattermostRemoveRecentCustomStatusRequest);
+  await client.status.removeRecentCustomStatus(userId, mMRemoveRecentCustomStatusRequest);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->removeRecentCustomStatus: $e\n');
 }
@@ -255,7 +255,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User ID | 
- **mattermostRemoveRecentCustomStatusRequest** | [**MattermostRemoveRecentCustomStatusRequest**](MattermostRemoveRecentCustomStatusRequest.md)| Custom Status object that is to be removed from the recent custom statuses. | 
+ **mMRemoveRecentCustomStatusRequest** | [**MMRemoveRecentCustomStatusRequest**](MMRemoveRecentCustomStatusRequest.md)| Custom Status object that is to be removed from the recent custom statuses. | 
 
 ### Return type
 
@@ -287,19 +287,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -335,7 +335,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateUserCustomStatus**
-> updateUserCustomStatus(userId, mattermostUpdateUserCustomStatusRequest)
+> updateUserCustomStatus(userId, mMUpdateUserCustomStatusRequest)
 
 Update user custom status
 
@@ -349,27 +349,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User ID
-final MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest = MattermostUpdateUserCustomStatusRequest(); // MattermostUpdateUserCustomStatusRequest | Custom status object that is to be updated
+final MMUpdateUserCustomStatusRequest mMUpdateUserCustomStatusRequest = MMUpdateUserCustomStatusRequest(); // MMUpdateUserCustomStatusRequest | Custom status object that is to be updated
 
 try {
-  await client.status.updateUserCustomStatus(userId, mattermostUpdateUserCustomStatusRequest);
+  await client.status.updateUserCustomStatus(userId, mMUpdateUserCustomStatusRequest);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->updateUserCustomStatus: $e\n');
 }
@@ -381,7 +381,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User ID | 
- **mattermostUpdateUserCustomStatusRequest** | [**MattermostUpdateUserCustomStatusRequest**](MattermostUpdateUserCustomStatusRequest.md)| Custom status object that is to be updated | 
+ **mMUpdateUserCustomStatusRequest** | [**MMUpdateUserCustomStatusRequest**](MMUpdateUserCustomStatusRequest.md)| Custom status object that is to be updated | 
 
 ### Return type
 
@@ -399,7 +399,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateUserStatus**
-> MattermostStatus updateUserStatus(userId, mattermostUpdateUserStatusRequest)
+> MMStatus updateUserStatus(userId, mMUpdateUserStatusRequest)
 
 Update user status
 
@@ -413,27 +413,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User ID
-final MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest = MattermostUpdateUserStatusRequest(); // MattermostUpdateUserStatusRequest | Status object that is to be updated
+final MMUpdateUserStatusRequest mMUpdateUserStatusRequest = MMUpdateUserStatusRequest(); // MMUpdateUserStatusRequest | Status object that is to be updated
 
 try {
-  final result = await client.status.updateUserStatus(userId, mattermostUpdateUserStatusRequest);
+  final result = await client.status.updateUserStatus(userId, mMUpdateUserStatusRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->updateUserStatus: $e\n');
@@ -446,11 +446,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User ID | 
- **mattermostUpdateUserStatusRequest** | [**MattermostUpdateUserStatusRequest**](MattermostUpdateUserStatusRequest.md)| Status object that is to be updated | 
+ **mMUpdateUserStatusRequest** | [**MMUpdateUserStatusRequest**](MMUpdateUserStatusRequest.md)| Status object that is to be updated | 
 
 ### Return type
 
-[**MattermostStatus**](MattermostStatus.md)
+[**MMStatus**](MMStatus.md)
 
 ### Authorization
 

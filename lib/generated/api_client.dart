@@ -11,11 +11,19 @@
 part of mattermost.api;
 
 class MattermostApiClient {
-  MattermostApiClient({this.basePath = 'http://your-mattermost-url.com/api/v4', this.authentication});
+  /// [MattermostApiClient] Constructor
+  MattermostApiClient({
+    this.basePath = 'http://your-mattermost-url.com/api/v4',
+    MMAuthentication? authMethod,
+  }) : _authMethod = authMethod;
 
   final String basePath;
 
-  var _client = Client();
+  final MMAuthentication? _authMethod;
+  MMAuthentication? get authMethod => _authMethod;
+
+  /// HTTP [Client] to use for operations.
+  Client _client = Client();
 
   /// Returns the current HTTP [Client] instance to use in this class.
   ///
@@ -27,21 +35,155 @@ class MattermostApiClient {
     _client = newClient;
   }
 
-  final _defaultHeaderMap = <String, String>{};
-  final MattermostAuthentication? authentication;
+  /// Returns the current default headers that will form the basis of every
+  /// request, but does not include headers determined by the `authMethod`.
+  Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
 
+  /// Add a new key-value combination to the default headers. Do not use this
+  /// for authentication. Use the proper `authMethod` for that.
   void addDefaultHeader(String key, String value) {
     _defaultHeaderMap[key] = value;
   }
 
-  Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
+  final _defaultHeaderMap = <String, String>{};
 
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi', a key might appear multiple times.
+  // Individual child API endpoints are exposed here as getters
+
+  /// Return an instance of [MattermostAuthenticationApi] configured to use this client.
+  MattermostAuthenticationApi get authentication => MattermostAuthenticationApi(this);
+
+  /// Return an instance of [MattermostBleveApi] configured to use this client.
+  MattermostBleveApi get bleve => MattermostBleveApi(this);
+
+  /// Return an instance of [MattermostBotsApi] configured to use this client.
+  MattermostBotsApi get bots => MattermostBotsApi(this);
+
+  /// Return an instance of [MattermostBrandApi] configured to use this client.
+  MattermostBrandApi get brand => MattermostBrandApi(this);
+
+  /// Return an instance of [MattermostChannelsApi] configured to use this client.
+  MattermostChannelsApi get channels => MattermostChannelsApi(this);
+
+  /// Return an instance of [MattermostCloudApi] configured to use this client.
+  MattermostCloudApi get cloud => MattermostCloudApi(this);
+
+  /// Return an instance of [MattermostClusterApi] configured to use this client.
+  MattermostClusterApi get cluster => MattermostClusterApi(this);
+
+  /// Return an instance of [MattermostCommandsApi] configured to use this client.
+  MattermostCommandsApi get commands => MattermostCommandsApi(this);
+
+  /// Return an instance of [MattermostComplianceApi] configured to use this client.
+  MattermostComplianceApi get compliance => MattermostComplianceApi(this);
+
+  /// Return an instance of [MattermostDataRetentionApi] configured to use this client.
+  MattermostDataRetentionApi get dataRetention => MattermostDataRetentionApi(this);
+
+  /// Return an instance of [MattermostElasticsearchApi] configured to use this client.
+  MattermostElasticsearchApi get elasticsearch => MattermostElasticsearchApi(this);
+
+  /// Return an instance of [MattermostEmojiApi] configured to use this client.
+  MattermostEmojiApi get emoji => MattermostEmojiApi(this);
+
+  /// Return an instance of [MattermostExportsApi] configured to use this client.
+  MattermostExportsApi get exports => MattermostExportsApi(this);
+
+  /// Return an instance of [MattermostFilesApi] configured to use this client.
+  MattermostFilesApi get files => MattermostFilesApi(this);
+
+  /// Return an instance of [MattermostGroupsApi] configured to use this client.
+  MattermostGroupsApi get groups => MattermostGroupsApi(this);
+
+  /// Return an instance of [MattermostImportsApi] configured to use this client.
+  MattermostImportsApi get imports => MattermostImportsApi(this);
+
+  /// Return an instance of [MattermostInsightsApi] configured to use this client.
+  MattermostInsightsApi get insights => MattermostInsightsApi(this);
+
+  /// Return an instance of [MattermostIntegrationActionsApi] configured to use this client.
+  MattermostIntegrationActionsApi get integrationActions => MattermostIntegrationActionsApi(this);
+
+  /// Return an instance of [MattermostJobsApi] configured to use this client.
+  MattermostJobsApi get jobs => MattermostJobsApi(this);
+
+  /// Return an instance of [MattermostLDAPApi] configured to use this client.
+  MattermostLDAPApi get lDAP => MattermostLDAPApi(this);
+
+  /// Return an instance of [MattermostMigrateApi] configured to use this client.
+  MattermostMigrateApi get migrate => MattermostMigrateApi(this);
+
+  /// Return an instance of [MattermostOAuthApi] configured to use this client.
+  MattermostOAuthApi get oAuth => MattermostOAuthApi(this);
+
+  /// Return an instance of [MattermostOpenGraphApi] configured to use this client.
+  MattermostOpenGraphApi get openGraph => MattermostOpenGraphApi(this);
+
+  /// Return an instance of [MattermostPermissionsApi] configured to use this client.
+  MattermostPermissionsApi get permissions => MattermostPermissionsApi(this);
+
+  /// Return an instance of [MattermostPluginsApi] configured to use this client.
+  MattermostPluginsApi get plugins => MattermostPluginsApi(this);
+
+  /// Return an instance of [MattermostPostsApi] configured to use this client.
+  MattermostPostsApi get posts => MattermostPostsApi(this);
+
+  /// Return an instance of [MattermostPreferencesApi] configured to use this client.
+  MattermostPreferencesApi get preferences => MattermostPreferencesApi(this);
+
+  /// Return an instance of [MattermostReactionsApi] configured to use this client.
+  MattermostReactionsApi get reactions => MattermostReactionsApi(this);
+
+  /// Return an instance of [MattermostRolesApi] configured to use this client.
+  MattermostRolesApi get roles => MattermostRolesApi(this);
+
+  /// Return an instance of [MattermostRootApi] configured to use this client.
+  MattermostRootApi get root => MattermostRootApi(this);
+
+  /// Return an instance of [MattermostSAMLApi] configured to use this client.
+  MattermostSAMLApi get sAML => MattermostSAMLApi(this);
+
+  /// Return an instance of [MattermostSchemesApi] configured to use this client.
+  MattermostSchemesApi get schemes => MattermostSchemesApi(this);
+
+  /// Return an instance of [MattermostSearchApi] configured to use this client.
+  MattermostSearchApi get search => MattermostSearchApi(this);
+
+  /// Return an instance of [MattermostSharedChannelsApi] configured to use this client.
+  MattermostSharedChannelsApi get sharedChannels => MattermostSharedChannelsApi(this);
+
+  /// Return an instance of [MattermostStatusApi] configured to use this client.
+  MattermostStatusApi get status => MattermostStatusApi(this);
+
+  /// Return an instance of [MattermostSystemApi] configured to use this client.
+  MattermostSystemApi get system => MattermostSystemApi(this);
+
+  /// Return an instance of [MattermostTeamsApi] configured to use this client.
+  MattermostTeamsApi get teams => MattermostTeamsApi(this);
+
+  /// Return an instance of [MattermostTermsOfServiceApi] configured to use this client.
+  MattermostTermsOfServiceApi get termsOfService => MattermostTermsOfServiceApi(this);
+
+  /// Return an instance of [MattermostThreadsApi] configured to use this client.
+  MattermostThreadsApi get threads => MattermostThreadsApi(this);
+
+  /// Return an instance of [MattermostUploadsApi] configured to use this client.
+  MattermostUploadsApi get uploads => MattermostUploadsApi(this);
+
+  /// Return an instance of [MattermostUsageApi] configured to use this client.
+  MattermostUsageApi get usage => MattermostUsageApi(this);
+
+  /// Return an instance of [MattermostUsersApi] configured to use this client.
+  MattermostUsersApi get users => MattermostUsersApi(this);
+
+  /// Return an instance of [MattermostWebhooksApi] configured to use this client.
+  MattermostWebhooksApi get webhooks => MattermostWebhooksApi(this);
+
+  /// Actually make an API request and return the HTTP [Response] asynchronously.
+  /// This function will wrap all errors with [MMApiException]
   Future<Response> invokeAPI(
     String path,
     String method,
-    List<MattermostQueryParam> queryParams,
+    List<MMQueryParam> queryParams,
     Object? body,
     Map<String, String> headerParams,
     Map<String, String> formParams,
@@ -54,9 +196,8 @@ class MattermostApiClient {
       headerParams['Content-Type'] = contentType;
     }
 
-    final urlEncodedMattermostQueryParams = queryParams.map((param) => '$param');
-    final queryString =
-        urlEncodedMattermostQueryParams.isNotEmpty ? '?${urlEncodedMattermostQueryParams.join('&')}' : '';
+    final urlEncodedMMQueryParams = queryParams.map((param) => '$param');
+    final queryString = urlEncodedMMQueryParams.isNotEmpty ? '?${urlEncodedMMQueryParams.join('&')}' : '';
     final uri = Uri.parse('$basePath$path$queryString');
 
     try {
@@ -127,35 +268,35 @@ class MattermostApiClient {
           );
       }
     } on SocketException catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.badRequest,
         'Socket operation failed: $method $path',
         error,
         trace,
       );
     } on TlsException catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.badRequest,
         'TLS/SSL communication failed: $method $path',
         error,
         trace,
       );
     } on IOException catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.badRequest,
         'I/O operation failed: $method $path',
         error,
         trace,
       );
     } on ClientException catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.badRequest,
         'HTTP connection failed: $method $path',
         error,
         trace,
       );
     } on Exception catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.badRequest,
         'Exception occurred: $method $path',
         error,
@@ -163,11 +304,24 @@ class MattermostApiClient {
       );
     }
 
-    throw MattermostApiException(
+    throw MMApiException(
       HttpStatus.badRequest,
       'Invalid HTTP operation: $method $path',
     );
   }
+
+  /// Will update query and header parameters based on authentication settings
+  /// (called from the invokeAPI command).
+  void _updateParamsForAuth(
+    List<MMQueryParam> queryParams,
+    Map<String, String> headerParams,
+  ) {
+    if (_authMethod != null) {
+      _authMethod!.applyToParams(queryParams, headerParams);
+    }
+  }
+
+  // Code to handle object deserialization: json --> model
 
   Future<dynamic> deserializeAsync(
     String json,
@@ -196,16 +350,6 @@ class MattermostApiClient {
   @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
   String serialize(Object? value) => value == null ? '' : json.encode(value);
 
-  /// Update query and header parameters based on authentication settings.
-  void _updateParamsForAuth(
-    List<MattermostQueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (authentication != null) {
-      authentication!.applyToParams(queryParams, headerParams);
-    }
-  }
-
   static dynamic _deserialize(dynamic value, String targetType, {bool growable = false}) {
     try {
       switch (targetType) {
@@ -223,588 +367,588 @@ class MattermostApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'MattermostAddChannelMemberRequest':
-          return MattermostAddChannelMemberRequest.fromJson(value);
-        case 'MattermostAddGroupMembersRequest':
-          return MattermostAddGroupMembersRequest.fromJson(value);
-        case 'MattermostAddOn':
-          return MattermostAddOn.fromJson(value);
-        case 'MattermostAddTeamMemberRequest':
-          return MattermostAddTeamMemberRequest.fromJson(value);
-        case 'MattermostAddress':
-          return MattermostAddress.fromJson(value);
-        case 'MattermostAppError':
-          return MattermostAppError.fromJson(value);
-        case 'MattermostAttachDeviceIdRequest':
-          return MattermostAttachDeviceIdRequest.fromJson(value);
-        case 'MattermostAudit':
-          return MattermostAudit.fromJson(value);
-        case 'MattermostAutocompleteSuggestion':
-          return MattermostAutocompleteSuggestion.fromJson(value);
-        case 'MattermostBoardsLimits':
-          return MattermostBoardsLimits.fromJson(value);
-        case 'MattermostBot':
-          return MattermostBot.fromJson(value);
-        case 'MattermostChannel':
-          return MattermostChannel.fromJson(value);
-        case 'MattermostChannelData':
-          return MattermostChannelData.fromJson(value);
-        case 'MattermostChannelMember':
-          return MattermostChannelMember.fromJson(value);
-        case 'MattermostChannelMemberCountByGroup':
-          return MattermostChannelMemberCountByGroup.fromJson(value);
-        case 'MattermostChannelMemberWithTeamData':
-          return MattermostChannelMemberWithTeamData.fromJson(value);
-        case 'MattermostChannelMemberWithTeamDataAllOf':
-          return MattermostChannelMemberWithTeamDataAllOf.fromJson(value);
-        case 'MattermostChannelModeratedRole':
-          return MattermostChannelModeratedRole.fromJson(value);
-        case 'MattermostChannelModeratedRoles':
-          return MattermostChannelModeratedRoles.fromJson(value);
-        case 'MattermostChannelModeratedRolesPatch':
-          return MattermostChannelModeratedRolesPatch.fromJson(value);
-        case 'MattermostChannelModeration':
-          return MattermostChannelModeration.fromJson(value);
-        case 'MattermostChannelModerationPatch':
-          return MattermostChannelModerationPatch.fromJson(value);
-        case 'MattermostChannelNotifyProps':
-          return MattermostChannelNotifyProps.fromJson(value);
-        case 'MattermostChannelStats':
-          return MattermostChannelStats.fromJson(value);
-        case 'MattermostChannelUnread':
-          return MattermostChannelUnread.fromJson(value);
-        case 'MattermostChannelUnreadAt':
-          return MattermostChannelUnreadAt.fromJson(value);
-        case 'MattermostChannelWithTeamData':
-          return MattermostChannelWithTeamData.fromJson(value);
-        case 'MattermostChannelWithTeamDataAllOf':
-          return MattermostChannelWithTeamDataAllOf.fromJson(value);
-        case 'MattermostCheckUserMfa200Response':
-          return MattermostCheckUserMfa200Response.fromJson(value);
-        case 'MattermostCheckUserMfaRequest':
-          return MattermostCheckUserMfaRequest.fromJson(value);
-        case 'MattermostCloudCustomer':
-          return MattermostCloudCustomer.fromJson(value);
-        case 'MattermostClusterInfo':
-          return MattermostClusterInfo.fromJson(value);
-        case 'MattermostCommand':
-          return MattermostCommand.fromJson(value);
-        case 'MattermostCommandResponse':
-          return MattermostCommandResponse.fromJson(value);
-        case 'MattermostCompliance':
-          return MattermostCompliance.fromJson(value);
-        case 'MattermostConfig':
-          return MattermostConfig.fromJson(value);
-        case 'MattermostConfigAnalyticsSettings':
-          return MattermostConfigAnalyticsSettings.fromJson(value);
-        case 'MattermostConfigClusterSettings':
-          return MattermostConfigClusterSettings.fromJson(value);
-        case 'MattermostConfigComplianceSettings':
-          return MattermostConfigComplianceSettings.fromJson(value);
-        case 'MattermostConfigEmailSettings':
-          return MattermostConfigEmailSettings.fromJson(value);
-        case 'MattermostConfigFileSettings':
-          return MattermostConfigFileSettings.fromJson(value);
-        case 'MattermostConfigGitLabSettings':
-          return MattermostConfigGitLabSettings.fromJson(value);
-        case 'MattermostConfigLdapSettings':
-          return MattermostConfigLdapSettings.fromJson(value);
-        case 'MattermostConfigLocalizationSettings':
-          return MattermostConfigLocalizationSettings.fromJson(value);
-        case 'MattermostConfigLogSettings':
-          return MattermostConfigLogSettings.fromJson(value);
-        case 'MattermostConfigMetricsSettings':
-          return MattermostConfigMetricsSettings.fromJson(value);
-        case 'MattermostConfigNativeAppSettings':
-          return MattermostConfigNativeAppSettings.fromJson(value);
-        case 'MattermostConfigPasswordSettings':
-          return MattermostConfigPasswordSettings.fromJson(value);
-        case 'MattermostConfigPrivacySettings':
-          return MattermostConfigPrivacySettings.fromJson(value);
-        case 'MattermostConfigRateLimitSettings':
-          return MattermostConfigRateLimitSettings.fromJson(value);
-        case 'MattermostConfigSamlSettings':
-          return MattermostConfigSamlSettings.fromJson(value);
-        case 'MattermostConfigServiceSettings':
-          return MattermostConfigServiceSettings.fromJson(value);
-        case 'MattermostConfigSqlSettings':
-          return MattermostConfigSqlSettings.fromJson(value);
-        case 'MattermostConfigSupportSettings':
-          return MattermostConfigSupportSettings.fromJson(value);
-        case 'MattermostConfigTeamSettings':
-          return MattermostConfigTeamSettings.fromJson(value);
-        case 'MattermostConvertBotToUserRequest':
-          return MattermostConvertBotToUserRequest.fromJson(value);
-        case 'MattermostCreateBotRequest':
-          return MattermostCreateBotRequest.fromJson(value);
-        case 'MattermostCreateChannelRequest':
-          return MattermostCreateChannelRequest.fromJson(value);
-        case 'MattermostCreateCommandRequest':
-          return MattermostCreateCommandRequest.fromJson(value);
-        case 'MattermostCreateGroupRequest':
-          return MattermostCreateGroupRequest.fromJson(value);
-        case 'MattermostCreateGroupRequestGroup':
-          return MattermostCreateGroupRequestGroup.fromJson(value);
-        case 'MattermostCreateIncomingWebhookRequest':
-          return MattermostCreateIncomingWebhookRequest.fromJson(value);
-        case 'MattermostCreateJobRequest':
-          return MattermostCreateJobRequest.fromJson(value);
-        case 'MattermostCreateOAuthAppRequest':
-          return MattermostCreateOAuthAppRequest.fromJson(value);
-        case 'MattermostCreateOutgoingWebhookRequest':
-          return MattermostCreateOutgoingWebhookRequest.fromJson(value);
-        case 'MattermostCreatePostEphemeralRequest':
-          return MattermostCreatePostEphemeralRequest.fromJson(value);
-        case 'MattermostCreatePostEphemeralRequestPost':
-          return MattermostCreatePostEphemeralRequestPost.fromJson(value);
-        case 'MattermostCreatePostRequest':
-          return MattermostCreatePostRequest.fromJson(value);
-        case 'MattermostCreateSchemeRequest':
-          return MattermostCreateSchemeRequest.fromJson(value);
-        case 'MattermostCreateTeamRequest':
-          return MattermostCreateTeamRequest.fromJson(value);
-        case 'MattermostCreateUploadRequest':
-          return MattermostCreateUploadRequest.fromJson(value);
-        case 'MattermostCreateUserAccessTokenRequest':
-          return MattermostCreateUserAccessTokenRequest.fromJson(value);
-        case 'MattermostCreateUserRequest':
-          return MattermostCreateUserRequest.fromJson(value);
-        case 'MattermostDataRetentionPolicy':
-          return MattermostDataRetentionPolicy.fromJson(value);
-        case 'MattermostDataRetentionPolicyAllOf':
-          return MattermostDataRetentionPolicyAllOf.fromJson(value);
-        case 'MattermostDataRetentionPolicyCreate':
-          return MattermostDataRetentionPolicyCreate.fromJson(value);
-        case 'MattermostDataRetentionPolicyForChannel':
-          return MattermostDataRetentionPolicyForChannel.fromJson(value);
-        case 'MattermostDataRetentionPolicyForTeam':
-          return MattermostDataRetentionPolicyForTeam.fromJson(value);
-        case 'MattermostDataRetentionPolicyWithTeamAndChannelCounts':
-          return MattermostDataRetentionPolicyWithTeamAndChannelCounts.fromJson(value);
-        case 'MattermostDataRetentionPolicyWithTeamAndChannelCountsAllOf':
-          return MattermostDataRetentionPolicyWithTeamAndChannelCountsAllOf.fromJson(value);
-        case 'MattermostDataRetentionPolicyWithTeamAndChannelIds':
-          return MattermostDataRetentionPolicyWithTeamAndChannelIds.fromJson(value);
-        case 'MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf':
-          return MattermostDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(value);
-        case 'MattermostDataRetentionPolicyWithoutId':
-          return MattermostDataRetentionPolicyWithoutId.fromJson(value);
-        case 'MattermostDeleteGroupMembersRequest':
-          return MattermostDeleteGroupMembersRequest.fromJson(value);
-        case 'MattermostDisableUserAccessTokenRequest':
-          return MattermostDisableUserAccessTokenRequest.fromJson(value);
-        case 'MattermostEmoji':
-          return MattermostEmoji.fromJson(value);
-        case 'MattermostEnableUserAccessTokenRequest':
-          return MattermostEnableUserAccessTokenRequest.fromJson(value);
-        case 'MattermostEnvironmentConfig':
-          return MattermostEnvironmentConfig.fromJson(value);
-        case 'MattermostEnvironmentConfigAnalyticsSettings':
-          return MattermostEnvironmentConfigAnalyticsSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigClusterSettings':
-          return MattermostEnvironmentConfigClusterSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigComplianceSettings':
-          return MattermostEnvironmentConfigComplianceSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigEmailSettings':
-          return MattermostEnvironmentConfigEmailSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigFileSettings':
-          return MattermostEnvironmentConfigFileSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigGitLabSettings':
-          return MattermostEnvironmentConfigGitLabSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigLdapSettings':
-          return MattermostEnvironmentConfigLdapSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigLocalizationSettings':
-          return MattermostEnvironmentConfigLocalizationSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigLogSettings':
-          return MattermostEnvironmentConfigLogSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigMetricsSettings':
-          return MattermostEnvironmentConfigMetricsSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigNativeAppSettings':
-          return MattermostEnvironmentConfigNativeAppSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigPasswordSettings':
-          return MattermostEnvironmentConfigPasswordSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigRateLimitSettings':
-          return MattermostEnvironmentConfigRateLimitSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigSamlSettings':
-          return MattermostEnvironmentConfigSamlSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigServiceSettings':
-          return MattermostEnvironmentConfigServiceSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigSqlSettings':
-          return MattermostEnvironmentConfigSqlSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigSupportSettings':
-          return MattermostEnvironmentConfigSupportSettings.fromJson(value);
-        case 'MattermostEnvironmentConfigTeamSettings':
-          return MattermostEnvironmentConfigTeamSettings.fromJson(value);
-        case 'MattermostExecuteCommandRequest':
-          return MattermostExecuteCommandRequest.fromJson(value);
-        case 'MattermostFileInfo':
-          return MattermostFileInfo.fromJson(value);
-        case 'MattermostFileInfoList':
-          return MattermostFileInfoList.fromJson(value);
-        case 'MattermostFilesLimits':
-          return MattermostFilesLimits.fromJson(value);
-        case 'MattermostGenerateMfaSecret200Response':
-          return MattermostGenerateMfaSecret200Response.fromJson(value);
-        case 'MattermostGetDataRetentionPoliciesCount200Response':
-          return MattermostGetDataRetentionPoliciesCount200Response.fromJson(value);
-        case 'MattermostGetFileLink200Response':
-          return MattermostGetFileLink200Response.fromJson(value);
-        case 'MattermostGetGroupStats200Response':
-          return MattermostGetGroupStats200Response.fromJson(value);
-        case 'MattermostGetGroupUsers200Response':
-          return MattermostGetGroupUsers200Response.fromJson(value);
-        case 'MattermostGetPlugins200Response':
-          return MattermostGetPlugins200Response.fromJson(value);
-        case 'MattermostGetRedirectLocation200Response':
-          return MattermostGetRedirectLocation200Response.fromJson(value);
-        case 'MattermostGetSamlMetadataFromIdpRequest':
-          return MattermostGetSamlMetadataFromIdpRequest.fromJson(value);
-        case 'MattermostGetTeamInviteInfo200Response':
-          return MattermostGetTeamInviteInfo200Response.fromJson(value);
-        case 'MattermostGetUsersByGroupChannelIds200Response':
-          return MattermostGetUsersByGroupChannelIds200Response.fromJson(value);
-        case 'MattermostGlobalDataRetentionPolicy':
-          return MattermostGlobalDataRetentionPolicy.fromJson(value);
-        case 'MattermostGroup':
-          return MattermostGroup.fromJson(value);
-        case 'MattermostGroupSyncableChannel':
-          return MattermostGroupSyncableChannel.fromJson(value);
-        case 'MattermostGroupSyncableChannels':
-          return MattermostGroupSyncableChannels.fromJson(value);
-        case 'MattermostGroupSyncableTeam':
-          return MattermostGroupSyncableTeam.fromJson(value);
-        case 'MattermostGroupSyncableTeams':
-          return MattermostGroupSyncableTeams.fromJson(value);
-        case 'MattermostGroupWithSchemeAdmin':
-          return MattermostGroupWithSchemeAdmin.fromJson(value);
-        case 'MattermostImportTeam200Response':
-          return MattermostImportTeam200Response.fromJson(value);
-        case 'MattermostIncomingWebhook':
-          return MattermostIncomingWebhook.fromJson(value);
-        case 'MattermostInstallMarketplacePluginRequest':
-          return MattermostInstallMarketplacePluginRequest.fromJson(value);
-        case 'MattermostIntegrationsLimits':
-          return MattermostIntegrationsLimits.fromJson(value);
-        case 'MattermostIntegrityCheckResult':
-          return MattermostIntegrityCheckResult.fromJson(value);
-        case 'MattermostInviteGuestsToTeamRequest':
-          return MattermostInviteGuestsToTeamRequest.fromJson(value);
-        case 'MattermostInvoice':
-          return MattermostInvoice.fromJson(value);
-        case 'MattermostInvoiceLineItem':
-          return MattermostInvoiceLineItem.fromJson(value);
-        case 'MattermostJob':
-          return MattermostJob.fromJson(value);
-        case 'MattermostLDAPGroup':
-          return MattermostLDAPGroup.fromJson(value);
-        case 'MattermostLDAPGroupsPaged':
-          return MattermostLDAPGroupsPaged.fromJson(value);
-        case 'MattermostLicenseRenewalLink':
-          return MattermostLicenseRenewalLink.fromJson(value);
-        case 'MattermostLoginByCwsTokenRequest':
-          return MattermostLoginByCwsTokenRequest.fromJson(value);
-        case 'MattermostLoginRequest':
-          return MattermostLoginRequest.fromJson(value);
-        case 'MattermostMarketplacePlugin':
-          return MattermostMarketplacePlugin.fromJson(value);
-        case 'MattermostMessagesLimits':
-          return MattermostMessagesLimits.fromJson(value);
-        case 'MattermostMigrateAuthToLdapRequest':
-          return MattermostMigrateAuthToLdapRequest.fromJson(value);
-        case 'MattermostMigrateAuthToSamlRequest':
-          return MattermostMigrateAuthToSamlRequest.fromJson(value);
-        case 'MattermostMigrateIdLdapRequest':
-          return MattermostMigrateIdLdapRequest.fromJson(value);
-        case 'MattermostMoveChannelRequest':
-          return MattermostMoveChannelRequest.fromJson(value);
-        case 'MattermostMoveCommandRequest':
-          return MattermostMoveCommandRequest.fromJson(value);
-        case 'MattermostNotice':
-          return MattermostNotice.fromJson(value);
-        case 'MattermostOAuthApp':
-          return MattermostOAuthApp.fromJson(value);
-        case 'MattermostOpenGraph':
-          return MattermostOpenGraph.fromJson(value);
-        case 'MattermostOpenGraphArticle':
-          return MattermostOpenGraphArticle.fromJson(value);
-        case 'MattermostOpenGraphArticleAuthorsInner':
-          return MattermostOpenGraphArticleAuthorsInner.fromJson(value);
-        case 'MattermostOpenGraphAudiosInner':
-          return MattermostOpenGraphAudiosInner.fromJson(value);
-        case 'MattermostOpenGraphBook':
-          return MattermostOpenGraphBook.fromJson(value);
-        case 'MattermostOpenGraphImagesInner':
-          return MattermostOpenGraphImagesInner.fromJson(value);
-        case 'MattermostOpenGraphRequest':
-          return MattermostOpenGraphRequest.fromJson(value);
-        case 'MattermostOpenGraphVideosInner':
-          return MattermostOpenGraphVideosInner.fromJson(value);
-        case 'MattermostOpenInteractiveDialogRequest':
-          return MattermostOpenInteractiveDialogRequest.fromJson(value);
-        case 'MattermostOpenInteractiveDialogRequestDialog':
-          return MattermostOpenInteractiveDialogRequestDialog.fromJson(value);
-        case 'MattermostOrderedSidebarCategories':
-          return MattermostOrderedSidebarCategories.fromJson(value);
-        case 'MattermostOrphanedRecord':
-          return MattermostOrphanedRecord.fromJson(value);
-        case 'MattermostOutgoingWebhook':
-          return MattermostOutgoingWebhook.fromJson(value);
-        case 'MattermostPatchChannelRequest':
-          return MattermostPatchChannelRequest.fromJson(value);
-        case 'MattermostPatchGroupRequest':
-          return MattermostPatchGroupRequest.fromJson(value);
-        case 'MattermostPatchGroupSyncableForTeamRequest':
-          return MattermostPatchGroupSyncableForTeamRequest.fromJson(value);
-        case 'MattermostPatchPostRequest':
-          return MattermostPatchPostRequest.fromJson(value);
-        case 'MattermostPatchRoleRequest':
-          return MattermostPatchRoleRequest.fromJson(value);
-        case 'MattermostPatchSchemeRequest':
-          return MattermostPatchSchemeRequest.fromJson(value);
-        case 'MattermostPatchTeamRequest':
-          return MattermostPatchTeamRequest.fromJson(value);
-        case 'MattermostPatchUserRequest':
-          return MattermostPatchUserRequest.fromJson(value);
-        case 'MattermostPaymentMethod':
-          return MattermostPaymentMethod.fromJson(value);
-        case 'MattermostPaymentSetupIntent':
-          return MattermostPaymentSetupIntent.fromJson(value);
-        case 'MattermostPluginManifest':
-          return MattermostPluginManifest.fromJson(value);
-        case 'MattermostPluginManifestBackend':
-          return MattermostPluginManifestBackend.fromJson(value);
-        case 'MattermostPluginManifestServer':
-          return MattermostPluginManifestServer.fromJson(value);
-        case 'MattermostPluginManifestServerExecutables':
-          return MattermostPluginManifestServerExecutables.fromJson(value);
-        case 'MattermostPluginManifestWebapp':
-          return MattermostPluginManifestWebapp.fromJson(value);
-        case 'MattermostPluginStatus':
-          return MattermostPluginStatus.fromJson(value);
-        case 'MattermostPost':
-          return MattermostPost.fromJson(value);
-        case 'MattermostPostList':
-          return MattermostPostList.fromJson(value);
-        case 'MattermostPostListWithSearchMatches':
-          return MattermostPostListWithSearchMatches.fromJson(value);
-        case 'MattermostPostLogRequest':
-          return MattermostPostLogRequest.fromJson(value);
-        case 'MattermostPostMetadata':
-          return MattermostPostMetadata.fromJson(value);
-        case 'MattermostPostMetadataEmbedsInner':
-          return MattermostPostMetadataEmbedsInner.fromJson(value);
-        case 'MattermostPostMetadataImagesInner':
-          return MattermostPostMetadataImagesInner.fromJson(value);
-        case 'MattermostPostsUsage':
-          return MattermostPostsUsage.fromJson(value);
-        case 'MattermostPreference':
-          return MattermostPreference.fromJson(value);
-        case 'MattermostProduct':
-          return MattermostProduct.fromJson(value);
-        case 'MattermostProductLimits':
-          return MattermostProductLimits.fromJson(value);
-        case 'MattermostPublishUserTypingRequest':
-          return MattermostPublishUserTypingRequest.fromJson(value);
-        case 'MattermostPushNotification':
-          return MattermostPushNotification.fromJson(value);
-        case 'MattermostReaction':
-          return MattermostReaction.fromJson(value);
-        case 'MattermostRegenCommandToken200Response':
-          return MattermostRegenCommandToken200Response.fromJson(value);
-        case 'MattermostRegisterTermsOfServiceActionRequest':
-          return MattermostRegisterTermsOfServiceActionRequest.fromJson(value);
-        case 'MattermostRelationalIntegrityCheckData':
-          return MattermostRelationalIntegrityCheckData.fromJson(value);
-        case 'MattermostRemoteClusterInfo':
-          return MattermostRemoteClusterInfo.fromJson(value);
-        case 'MattermostRemoveRecentCustomStatusRequest':
-          return MattermostRemoveRecentCustomStatusRequest.fromJson(value);
-        case 'MattermostRequestTrialLicenseRequest':
-          return MattermostRequestTrialLicenseRequest.fromJson(value);
-        case 'MattermostResetPasswordRequest':
-          return MattermostResetPasswordRequest.fromJson(value);
-        case 'MattermostResetSamlAuthDataToEmail200Response':
-          return MattermostResetSamlAuthDataToEmail200Response.fromJson(value);
-        case 'MattermostResetSamlAuthDataToEmailRequest':
-          return MattermostResetSamlAuthDataToEmailRequest.fromJson(value);
-        case 'MattermostRetentionPolicyForChannelList':
-          return MattermostRetentionPolicyForChannelList.fromJson(value);
-        case 'MattermostRetentionPolicyForTeamList':
-          return MattermostRetentionPolicyForTeamList.fromJson(value);
-        case 'MattermostRevokeSessionRequest':
-          return MattermostRevokeSessionRequest.fromJson(value);
-        case 'MattermostRevokeUserAccessTokenRequest':
-          return MattermostRevokeUserAccessTokenRequest.fromJson(value);
-        case 'MattermostRole':
-          return MattermostRole.fromJson(value);
-        case 'MattermostSamlCertificateStatus':
-          return MattermostSamlCertificateStatus.fromJson(value);
-        case 'MattermostScheme':
-          return MattermostScheme.fromJson(value);
-        case 'MattermostSearchAllChannels200Response':
-          return MattermostSearchAllChannels200Response.fromJson(value);
-        case 'MattermostSearchAllChannelsRequest':
-          return MattermostSearchAllChannelsRequest.fromJson(value);
-        case 'MattermostSearchArchivedChannelsRequest':
-          return MattermostSearchArchivedChannelsRequest.fromJson(value);
-        case 'MattermostSearchChannelsForRetentionPolicyRequest':
-          return MattermostSearchChannelsForRetentionPolicyRequest.fromJson(value);
-        case 'MattermostSearchChannelsRequest':
-          return MattermostSearchChannelsRequest.fromJson(value);
-        case 'MattermostSearchEmojiRequest':
-          return MattermostSearchEmojiRequest.fromJson(value);
-        case 'MattermostSearchGroupChannelsRequest':
-          return MattermostSearchGroupChannelsRequest.fromJson(value);
-        case 'MattermostSearchPostsRequest':
-          return MattermostSearchPostsRequest.fromJson(value);
-        case 'MattermostSearchTeams200Response':
-          return MattermostSearchTeams200Response.fromJson(value);
-        case 'MattermostSearchTeamsForRetentionPolicyRequest':
-          return MattermostSearchTeamsForRetentionPolicyRequest.fromJson(value);
-        case 'MattermostSearchTeamsRequest':
-          return MattermostSearchTeamsRequest.fromJson(value);
-        case 'MattermostSearchUserAccessTokensRequest':
-          return MattermostSearchUserAccessTokensRequest.fromJson(value);
-        case 'MattermostSearchUsersRequest':
-          return MattermostSearchUsersRequest.fromJson(value);
-        case 'MattermostSendPasswordResetEmailRequest':
-          return MattermostSendPasswordResetEmailRequest.fromJson(value);
-        case 'MattermostSendVerificationEmailRequest':
-          return MattermostSendVerificationEmailRequest.fromJson(value);
-        case 'MattermostSendWarnMetricAckRequest':
-          return MattermostSendWarnMetricAckRequest.fromJson(value);
-        case 'MattermostServerBusy':
-          return MattermostServerBusy.fromJson(value);
-        case 'MattermostSession':
-          return MattermostSession.fromJson(value);
-        case 'MattermostSharedChannel':
-          return MattermostSharedChannel.fromJson(value);
-        case 'MattermostSidebarCategory':
-          return MattermostSidebarCategory.fromJson(value);
-        case 'MattermostSidebarCategoryWithChannels':
-          return MattermostSidebarCategoryWithChannels.fromJson(value);
-        case 'MattermostSlackAttachment':
-          return MattermostSlackAttachment.fromJson(value);
-        case 'MattermostSlackAttachmentField':
-          return MattermostSlackAttachmentField.fromJson(value);
-        case 'MattermostStatus':
-          return MattermostStatus.fromJson(value);
-        case 'MattermostStatusOK':
-          return MattermostStatusOK.fromJson(value);
-        case 'MattermostSubmitInteractiveDialogRequest':
-          return MattermostSubmitInteractiveDialogRequest.fromJson(value);
-        case 'MattermostSubscription':
-          return MattermostSubscription.fromJson(value);
-        case 'MattermostSubscriptionStats':
-          return MattermostSubscriptionStats.fromJson(value);
-        case 'MattermostSwitchAccountType200Response':
-          return MattermostSwitchAccountType200Response.fromJson(value);
-        case 'MattermostSwitchAccountTypeRequest':
-          return MattermostSwitchAccountTypeRequest.fromJson(value);
-        case 'MattermostSystem':
-          return MattermostSystem.fromJson(value);
-        case 'MattermostSystemStatusResponse':
-          return MattermostSystemStatusResponse.fromJson(value);
-        case 'MattermostTeam':
-          return MattermostTeam.fromJson(value);
-        case 'MattermostTeamExists':
-          return MattermostTeamExists.fromJson(value);
-        case 'MattermostTeamMap':
-          return MattermostTeamMap.fromJson(value);
-        case 'MattermostTeamMember':
-          return MattermostTeamMember.fromJson(value);
-        case 'MattermostTeamStats':
-          return MattermostTeamStats.fromJson(value);
-        case 'MattermostTeamUnread':
-          return MattermostTeamUnread.fromJson(value);
-        case 'MattermostTeamsLimits':
-          return MattermostTeamsLimits.fromJson(value);
-        case 'MattermostTermsOfService':
-          return MattermostTermsOfService.fromJson(value);
-        case 'MattermostTestSiteURLRequest':
-          return MattermostTestSiteURLRequest.fromJson(value);
-        case 'MattermostTimezone':
-          return MattermostTimezone.fromJson(value);
-        case 'MattermostTopChannel':
-          return MattermostTopChannel.fromJson(value);
-        case 'MattermostTopChannelList':
-          return MattermostTopChannelList.fromJson(value);
-        case 'MattermostTopReaction':
-          return MattermostTopReaction.fromJson(value);
-        case 'MattermostTopReactionList':
-          return MattermostTopReactionList.fromJson(value);
-        case 'MattermostUpdateChannelPrivacyRequest':
-          return MattermostUpdateChannelPrivacyRequest.fromJson(value);
-        case 'MattermostUpdateChannelRequest':
-          return MattermostUpdateChannelRequest.fromJson(value);
-        case 'MattermostUpdateCloudCustomerRequest':
-          return MattermostUpdateCloudCustomerRequest.fromJson(value);
-        case 'MattermostUpdateIncomingWebhookRequest':
-          return MattermostUpdateIncomingWebhookRequest.fromJson(value);
-        case 'MattermostUpdateOAuthAppRequest':
-          return MattermostUpdateOAuthAppRequest.fromJson(value);
-        case 'MattermostUpdateOutgoingWebhookRequest':
-          return MattermostUpdateOutgoingWebhookRequest.fromJson(value);
-        case 'MattermostUpdatePostRequest':
-          return MattermostUpdatePostRequest.fromJson(value);
-        case 'MattermostUpdateTeamMemberSchemeRolesRequest':
-          return MattermostUpdateTeamMemberSchemeRolesRequest.fromJson(value);
-        case 'MattermostUpdateTeamPrivacyRequest':
-          return MattermostUpdateTeamPrivacyRequest.fromJson(value);
-        case 'MattermostUpdateTeamRequest':
-          return MattermostUpdateTeamRequest.fromJson(value);
-        case 'MattermostUpdateTeamSchemeRequest':
-          return MattermostUpdateTeamSchemeRequest.fromJson(value);
-        case 'MattermostUpdateUserActiveRequest':
-          return MattermostUpdateUserActiveRequest.fromJson(value);
-        case 'MattermostUpdateUserCustomStatusRequest':
-          return MattermostUpdateUserCustomStatusRequest.fromJson(value);
-        case 'MattermostUpdateUserMfaRequest':
-          return MattermostUpdateUserMfaRequest.fromJson(value);
-        case 'MattermostUpdateUserPasswordRequest':
-          return MattermostUpdateUserPasswordRequest.fromJson(value);
-        case 'MattermostUpdateUserRequest':
-          return MattermostUpdateUserRequest.fromJson(value);
-        case 'MattermostUpdateUserRolesRequest':
-          return MattermostUpdateUserRolesRequest.fromJson(value);
-        case 'MattermostUpdateUserStatusRequest':
-          return MattermostUpdateUserStatusRequest.fromJson(value);
-        case 'MattermostUpgradeToEnterpriseStatus200Response':
-          return MattermostUpgradeToEnterpriseStatus200Response.fromJson(value);
-        case 'MattermostUploadFile201Response':
-          return MattermostUploadFile201Response.fromJson(value);
-        case 'MattermostUploadSession':
-          return MattermostUploadSession.fromJson(value);
-        case 'MattermostUser':
-          return MattermostUser.fromJson(value);
-        case 'MattermostUserAccessToken':
-          return MattermostUserAccessToken.fromJson(value);
-        case 'MattermostUserAccessTokenSanitized':
-          return MattermostUserAccessTokenSanitized.fromJson(value);
-        case 'MattermostUserAuthData':
-          return MattermostUserAuthData.fromJson(value);
-        case 'MattermostUserAutocomplete':
-          return MattermostUserAutocomplete.fromJson(value);
-        case 'MattermostUserAutocompleteInChannel':
-          return MattermostUserAutocompleteInChannel.fromJson(value);
-        case 'MattermostUserAutocompleteInTeam':
-          return MattermostUserAutocompleteInTeam.fromJson(value);
-        case 'MattermostUserNotifyProps':
-          return MattermostUserNotifyProps.fromJson(value);
-        case 'MattermostUserTermsOfService':
-          return MattermostUserTermsOfService.fromJson(value);
-        case 'MattermostUserThread':
-          return MattermostUserThread.fromJson(value);
-        case 'MattermostUserThreads':
-          return MattermostUserThreads.fromJson(value);
-        case 'MattermostUsersStats':
-          return MattermostUsersStats.fromJson(value);
-        case 'MattermostVerifyUserEmailRequest':
-          return MattermostVerifyUserEmailRequest.fromJson(value);
-        case 'MattermostViewChannel200Response':
-          return MattermostViewChannel200Response.fromJson(value);
-        case 'MattermostViewChannelRequest':
-          return MattermostViewChannelRequest.fromJson(value);
+        case 'MMAddChannelMemberRequest':
+          return MMAddChannelMemberRequest.fromJson(value);
+        case 'MMAddGroupMembersRequest':
+          return MMAddGroupMembersRequest.fromJson(value);
+        case 'MMAddOn':
+          return MMAddOn.fromJson(value);
+        case 'MMAddTeamMemberRequest':
+          return MMAddTeamMemberRequest.fromJson(value);
+        case 'MMAddress':
+          return MMAddress.fromJson(value);
+        case 'MMAppError':
+          return MMAppError.fromJson(value);
+        case 'MMAttachDeviceIdRequest':
+          return MMAttachDeviceIdRequest.fromJson(value);
+        case 'MMAudit':
+          return MMAudit.fromJson(value);
+        case 'MMAutocompleteSuggestion':
+          return MMAutocompleteSuggestion.fromJson(value);
+        case 'MMBoardsLimits':
+          return MMBoardsLimits.fromJson(value);
+        case 'MMBot':
+          return MMBot.fromJson(value);
+        case 'MMChannel':
+          return MMChannel.fromJson(value);
+        case 'MMChannelData':
+          return MMChannelData.fromJson(value);
+        case 'MMChannelMember':
+          return MMChannelMember.fromJson(value);
+        case 'MMChannelMemberCountByGroup':
+          return MMChannelMemberCountByGroup.fromJson(value);
+        case 'MMChannelMemberWithTeamData':
+          return MMChannelMemberWithTeamData.fromJson(value);
+        case 'MMChannelMemberWithTeamDataAllOf':
+          return MMChannelMemberWithTeamDataAllOf.fromJson(value);
+        case 'MMChannelModeratedRole':
+          return MMChannelModeratedRole.fromJson(value);
+        case 'MMChannelModeratedRoles':
+          return MMChannelModeratedRoles.fromJson(value);
+        case 'MMChannelModeratedRolesPatch':
+          return MMChannelModeratedRolesPatch.fromJson(value);
+        case 'MMChannelModeration':
+          return MMChannelModeration.fromJson(value);
+        case 'MMChannelModerationPatch':
+          return MMChannelModerationPatch.fromJson(value);
+        case 'MMChannelNotifyProps':
+          return MMChannelNotifyProps.fromJson(value);
+        case 'MMChannelStats':
+          return MMChannelStats.fromJson(value);
+        case 'MMChannelUnread':
+          return MMChannelUnread.fromJson(value);
+        case 'MMChannelUnreadAt':
+          return MMChannelUnreadAt.fromJson(value);
+        case 'MMChannelWithTeamData':
+          return MMChannelWithTeamData.fromJson(value);
+        case 'MMChannelWithTeamDataAllOf':
+          return MMChannelWithTeamDataAllOf.fromJson(value);
+        case 'MMCheckUserMfa200Response':
+          return MMCheckUserMfa200Response.fromJson(value);
+        case 'MMCheckUserMfaRequest':
+          return MMCheckUserMfaRequest.fromJson(value);
+        case 'MMCloudCustomer':
+          return MMCloudCustomer.fromJson(value);
+        case 'MMClusterInfo':
+          return MMClusterInfo.fromJson(value);
+        case 'MMCommand':
+          return MMCommand.fromJson(value);
+        case 'MMCommandResponse':
+          return MMCommandResponse.fromJson(value);
+        case 'MMCompliance':
+          return MMCompliance.fromJson(value);
+        case 'MMConfig':
+          return MMConfig.fromJson(value);
+        case 'MMConfigAnalyticsSettings':
+          return MMConfigAnalyticsSettings.fromJson(value);
+        case 'MMConfigClusterSettings':
+          return MMConfigClusterSettings.fromJson(value);
+        case 'MMConfigComplianceSettings':
+          return MMConfigComplianceSettings.fromJson(value);
+        case 'MMConfigEmailSettings':
+          return MMConfigEmailSettings.fromJson(value);
+        case 'MMConfigFileSettings':
+          return MMConfigFileSettings.fromJson(value);
+        case 'MMConfigGitLabSettings':
+          return MMConfigGitLabSettings.fromJson(value);
+        case 'MMConfigLdapSettings':
+          return MMConfigLdapSettings.fromJson(value);
+        case 'MMConfigLocalizationSettings':
+          return MMConfigLocalizationSettings.fromJson(value);
+        case 'MMConfigLogSettings':
+          return MMConfigLogSettings.fromJson(value);
+        case 'MMConfigMetricsSettings':
+          return MMConfigMetricsSettings.fromJson(value);
+        case 'MMConfigNativeAppSettings':
+          return MMConfigNativeAppSettings.fromJson(value);
+        case 'MMConfigPasswordSettings':
+          return MMConfigPasswordSettings.fromJson(value);
+        case 'MMConfigPrivacySettings':
+          return MMConfigPrivacySettings.fromJson(value);
+        case 'MMConfigRateLimitSettings':
+          return MMConfigRateLimitSettings.fromJson(value);
+        case 'MMConfigSamlSettings':
+          return MMConfigSamlSettings.fromJson(value);
+        case 'MMConfigServiceSettings':
+          return MMConfigServiceSettings.fromJson(value);
+        case 'MMConfigSqlSettings':
+          return MMConfigSqlSettings.fromJson(value);
+        case 'MMConfigSupportSettings':
+          return MMConfigSupportSettings.fromJson(value);
+        case 'MMConfigTeamSettings':
+          return MMConfigTeamSettings.fromJson(value);
+        case 'MMConvertBotToUserRequest':
+          return MMConvertBotToUserRequest.fromJson(value);
+        case 'MMCreateBotRequest':
+          return MMCreateBotRequest.fromJson(value);
+        case 'MMCreateChannelRequest':
+          return MMCreateChannelRequest.fromJson(value);
+        case 'MMCreateCommandRequest':
+          return MMCreateCommandRequest.fromJson(value);
+        case 'MMCreateGroupRequest':
+          return MMCreateGroupRequest.fromJson(value);
+        case 'MMCreateGroupRequestGroup':
+          return MMCreateGroupRequestGroup.fromJson(value);
+        case 'MMCreateIncomingWebhookRequest':
+          return MMCreateIncomingWebhookRequest.fromJson(value);
+        case 'MMCreateJobRequest':
+          return MMCreateJobRequest.fromJson(value);
+        case 'MMCreateOAuthAppRequest':
+          return MMCreateOAuthAppRequest.fromJson(value);
+        case 'MMCreateOutgoingWebhookRequest':
+          return MMCreateOutgoingWebhookRequest.fromJson(value);
+        case 'MMCreatePostEphemeralRequest':
+          return MMCreatePostEphemeralRequest.fromJson(value);
+        case 'MMCreatePostEphemeralRequestPost':
+          return MMCreatePostEphemeralRequestPost.fromJson(value);
+        case 'MMCreatePostRequest':
+          return MMCreatePostRequest.fromJson(value);
+        case 'MMCreateSchemeRequest':
+          return MMCreateSchemeRequest.fromJson(value);
+        case 'MMCreateTeamRequest':
+          return MMCreateTeamRequest.fromJson(value);
+        case 'MMCreateUploadRequest':
+          return MMCreateUploadRequest.fromJson(value);
+        case 'MMCreateUserAccessTokenRequest':
+          return MMCreateUserAccessTokenRequest.fromJson(value);
+        case 'MMCreateUserRequest':
+          return MMCreateUserRequest.fromJson(value);
+        case 'MMDataRetentionPolicy':
+          return MMDataRetentionPolicy.fromJson(value);
+        case 'MMDataRetentionPolicyAllOf':
+          return MMDataRetentionPolicyAllOf.fromJson(value);
+        case 'MMDataRetentionPolicyCreate':
+          return MMDataRetentionPolicyCreate.fromJson(value);
+        case 'MMDataRetentionPolicyForChannel':
+          return MMDataRetentionPolicyForChannel.fromJson(value);
+        case 'MMDataRetentionPolicyForTeam':
+          return MMDataRetentionPolicyForTeam.fromJson(value);
+        case 'MMDataRetentionPolicyWithTeamAndChannelCounts':
+          return MMDataRetentionPolicyWithTeamAndChannelCounts.fromJson(value);
+        case 'MMDataRetentionPolicyWithTeamAndChannelCountsAllOf':
+          return MMDataRetentionPolicyWithTeamAndChannelCountsAllOf.fromJson(value);
+        case 'MMDataRetentionPolicyWithTeamAndChannelIds':
+          return MMDataRetentionPolicyWithTeamAndChannelIds.fromJson(value);
+        case 'MMDataRetentionPolicyWithTeamAndChannelIdsAllOf':
+          return MMDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(value);
+        case 'MMDataRetentionPolicyWithoutId':
+          return MMDataRetentionPolicyWithoutId.fromJson(value);
+        case 'MMDeleteGroupMembersRequest':
+          return MMDeleteGroupMembersRequest.fromJson(value);
+        case 'MMDisableUserAccessTokenRequest':
+          return MMDisableUserAccessTokenRequest.fromJson(value);
+        case 'MMEmoji':
+          return MMEmoji.fromJson(value);
+        case 'MMEnableUserAccessTokenRequest':
+          return MMEnableUserAccessTokenRequest.fromJson(value);
+        case 'MMEnvironmentConfig':
+          return MMEnvironmentConfig.fromJson(value);
+        case 'MMEnvironmentConfigAnalyticsSettings':
+          return MMEnvironmentConfigAnalyticsSettings.fromJson(value);
+        case 'MMEnvironmentConfigClusterSettings':
+          return MMEnvironmentConfigClusterSettings.fromJson(value);
+        case 'MMEnvironmentConfigComplianceSettings':
+          return MMEnvironmentConfigComplianceSettings.fromJson(value);
+        case 'MMEnvironmentConfigEmailSettings':
+          return MMEnvironmentConfigEmailSettings.fromJson(value);
+        case 'MMEnvironmentConfigFileSettings':
+          return MMEnvironmentConfigFileSettings.fromJson(value);
+        case 'MMEnvironmentConfigGitLabSettings':
+          return MMEnvironmentConfigGitLabSettings.fromJson(value);
+        case 'MMEnvironmentConfigLdapSettings':
+          return MMEnvironmentConfigLdapSettings.fromJson(value);
+        case 'MMEnvironmentConfigLocalizationSettings':
+          return MMEnvironmentConfigLocalizationSettings.fromJson(value);
+        case 'MMEnvironmentConfigLogSettings':
+          return MMEnvironmentConfigLogSettings.fromJson(value);
+        case 'MMEnvironmentConfigMetricsSettings':
+          return MMEnvironmentConfigMetricsSettings.fromJson(value);
+        case 'MMEnvironmentConfigNativeAppSettings':
+          return MMEnvironmentConfigNativeAppSettings.fromJson(value);
+        case 'MMEnvironmentConfigPasswordSettings':
+          return MMEnvironmentConfigPasswordSettings.fromJson(value);
+        case 'MMEnvironmentConfigRateLimitSettings':
+          return MMEnvironmentConfigRateLimitSettings.fromJson(value);
+        case 'MMEnvironmentConfigSamlSettings':
+          return MMEnvironmentConfigSamlSettings.fromJson(value);
+        case 'MMEnvironmentConfigServiceSettings':
+          return MMEnvironmentConfigServiceSettings.fromJson(value);
+        case 'MMEnvironmentConfigSqlSettings':
+          return MMEnvironmentConfigSqlSettings.fromJson(value);
+        case 'MMEnvironmentConfigSupportSettings':
+          return MMEnvironmentConfigSupportSettings.fromJson(value);
+        case 'MMEnvironmentConfigTeamSettings':
+          return MMEnvironmentConfigTeamSettings.fromJson(value);
+        case 'MMExecuteCommandRequest':
+          return MMExecuteCommandRequest.fromJson(value);
+        case 'MMFileInfo':
+          return MMFileInfo.fromJson(value);
+        case 'MMFileInfoList':
+          return MMFileInfoList.fromJson(value);
+        case 'MMFilesLimits':
+          return MMFilesLimits.fromJson(value);
+        case 'MMGenerateMfaSecret200Response':
+          return MMGenerateMfaSecret200Response.fromJson(value);
+        case 'MMGetDataRetentionPoliciesCount200Response':
+          return MMGetDataRetentionPoliciesCount200Response.fromJson(value);
+        case 'MMGetFileLink200Response':
+          return MMGetFileLink200Response.fromJson(value);
+        case 'MMGetGroupStats200Response':
+          return MMGetGroupStats200Response.fromJson(value);
+        case 'MMGetGroupUsers200Response':
+          return MMGetGroupUsers200Response.fromJson(value);
+        case 'MMGetPlugins200Response':
+          return MMGetPlugins200Response.fromJson(value);
+        case 'MMGetRedirectLocation200Response':
+          return MMGetRedirectLocation200Response.fromJson(value);
+        case 'MMGetSamlMetadataFromIdpRequest':
+          return MMGetSamlMetadataFromIdpRequest.fromJson(value);
+        case 'MMGetTeamInviteInfo200Response':
+          return MMGetTeamInviteInfo200Response.fromJson(value);
+        case 'MMGetUsersByGroupChannelIds200Response':
+          return MMGetUsersByGroupChannelIds200Response.fromJson(value);
+        case 'MMGlobalDataRetentionPolicy':
+          return MMGlobalDataRetentionPolicy.fromJson(value);
+        case 'MMGroup':
+          return MMGroup.fromJson(value);
+        case 'MMGroupSyncableChannel':
+          return MMGroupSyncableChannel.fromJson(value);
+        case 'MMGroupSyncableChannels':
+          return MMGroupSyncableChannels.fromJson(value);
+        case 'MMGroupSyncableTeam':
+          return MMGroupSyncableTeam.fromJson(value);
+        case 'MMGroupSyncableTeams':
+          return MMGroupSyncableTeams.fromJson(value);
+        case 'MMGroupWithSchemeAdmin':
+          return MMGroupWithSchemeAdmin.fromJson(value);
+        case 'MMImportTeam200Response':
+          return MMImportTeam200Response.fromJson(value);
+        case 'MMIncomingWebhook':
+          return MMIncomingWebhook.fromJson(value);
+        case 'MMInstallMarketplacePluginRequest':
+          return MMInstallMarketplacePluginRequest.fromJson(value);
+        case 'MMIntegrationsLimits':
+          return MMIntegrationsLimits.fromJson(value);
+        case 'MMIntegrityCheckResult':
+          return MMIntegrityCheckResult.fromJson(value);
+        case 'MMInviteGuestsToTeamRequest':
+          return MMInviteGuestsToTeamRequest.fromJson(value);
+        case 'MMInvoice':
+          return MMInvoice.fromJson(value);
+        case 'MMInvoiceLineItem':
+          return MMInvoiceLineItem.fromJson(value);
+        case 'MMJob':
+          return MMJob.fromJson(value);
+        case 'MMLDAPGroup':
+          return MMLDAPGroup.fromJson(value);
+        case 'MMLDAPGroupsPaged':
+          return MMLDAPGroupsPaged.fromJson(value);
+        case 'MMLicenseRenewalLink':
+          return MMLicenseRenewalLink.fromJson(value);
+        case 'MMLoginByCwsTokenRequest':
+          return MMLoginByCwsTokenRequest.fromJson(value);
+        case 'MMLoginRequest':
+          return MMLoginRequest.fromJson(value);
+        case 'MMMarketplacePlugin':
+          return MMMarketplacePlugin.fromJson(value);
+        case 'MMMessagesLimits':
+          return MMMessagesLimits.fromJson(value);
+        case 'MMMigrateAuthToLdapRequest':
+          return MMMigrateAuthToLdapRequest.fromJson(value);
+        case 'MMMigrateAuthToSamlRequest':
+          return MMMigrateAuthToSamlRequest.fromJson(value);
+        case 'MMMigrateIdLdapRequest':
+          return MMMigrateIdLdapRequest.fromJson(value);
+        case 'MMMoveChannelRequest':
+          return MMMoveChannelRequest.fromJson(value);
+        case 'MMMoveCommandRequest':
+          return MMMoveCommandRequest.fromJson(value);
+        case 'MMNotice':
+          return MMNotice.fromJson(value);
+        case 'MMOAuthApp':
+          return MMOAuthApp.fromJson(value);
+        case 'MMOpenGraph':
+          return MMOpenGraph.fromJson(value);
+        case 'MMOpenGraphArticle':
+          return MMOpenGraphArticle.fromJson(value);
+        case 'MMOpenGraphArticleAuthorsInner':
+          return MMOpenGraphArticleAuthorsInner.fromJson(value);
+        case 'MMOpenGraphAudiosInner':
+          return MMOpenGraphAudiosInner.fromJson(value);
+        case 'MMOpenGraphBook':
+          return MMOpenGraphBook.fromJson(value);
+        case 'MMOpenGraphImagesInner':
+          return MMOpenGraphImagesInner.fromJson(value);
+        case 'MMOpenGraphRequest':
+          return MMOpenGraphRequest.fromJson(value);
+        case 'MMOpenGraphVideosInner':
+          return MMOpenGraphVideosInner.fromJson(value);
+        case 'MMOpenInteractiveDialogRequest':
+          return MMOpenInteractiveDialogRequest.fromJson(value);
+        case 'MMOpenInteractiveDialogRequestDialog':
+          return MMOpenInteractiveDialogRequestDialog.fromJson(value);
+        case 'MMOrderedSidebarCategories':
+          return MMOrderedSidebarCategories.fromJson(value);
+        case 'MMOrphanedRecord':
+          return MMOrphanedRecord.fromJson(value);
+        case 'MMOutgoingWebhook':
+          return MMOutgoingWebhook.fromJson(value);
+        case 'MMPatchChannelRequest':
+          return MMPatchChannelRequest.fromJson(value);
+        case 'MMPatchGroupRequest':
+          return MMPatchGroupRequest.fromJson(value);
+        case 'MMPatchGroupSyncableForTeamRequest':
+          return MMPatchGroupSyncableForTeamRequest.fromJson(value);
+        case 'MMPatchPostRequest':
+          return MMPatchPostRequest.fromJson(value);
+        case 'MMPatchRoleRequest':
+          return MMPatchRoleRequest.fromJson(value);
+        case 'MMPatchSchemeRequest':
+          return MMPatchSchemeRequest.fromJson(value);
+        case 'MMPatchTeamRequest':
+          return MMPatchTeamRequest.fromJson(value);
+        case 'MMPatchUserRequest':
+          return MMPatchUserRequest.fromJson(value);
+        case 'MMPaymentMethod':
+          return MMPaymentMethod.fromJson(value);
+        case 'MMPaymentSetupIntent':
+          return MMPaymentSetupIntent.fromJson(value);
+        case 'MMPluginManifest':
+          return MMPluginManifest.fromJson(value);
+        case 'MMPluginManifestBackend':
+          return MMPluginManifestBackend.fromJson(value);
+        case 'MMPluginManifestServer':
+          return MMPluginManifestServer.fromJson(value);
+        case 'MMPluginManifestServerExecutables':
+          return MMPluginManifestServerExecutables.fromJson(value);
+        case 'MMPluginManifestWebapp':
+          return MMPluginManifestWebapp.fromJson(value);
+        case 'MMPluginStatus':
+          return MMPluginStatus.fromJson(value);
+        case 'MMPost':
+          return MMPost.fromJson(value);
+        case 'MMPostList':
+          return MMPostList.fromJson(value);
+        case 'MMPostListWithSearchMatches':
+          return MMPostListWithSearchMatches.fromJson(value);
+        case 'MMPostLogRequest':
+          return MMPostLogRequest.fromJson(value);
+        case 'MMPostMetadata':
+          return MMPostMetadata.fromJson(value);
+        case 'MMPostMetadataEmbedsInner':
+          return MMPostMetadataEmbedsInner.fromJson(value);
+        case 'MMPostMetadataImagesInner':
+          return MMPostMetadataImagesInner.fromJson(value);
+        case 'MMPostsUsage':
+          return MMPostsUsage.fromJson(value);
+        case 'MMPreference':
+          return MMPreference.fromJson(value);
+        case 'MMProduct':
+          return MMProduct.fromJson(value);
+        case 'MMProductLimits':
+          return MMProductLimits.fromJson(value);
+        case 'MMPublishUserTypingRequest':
+          return MMPublishUserTypingRequest.fromJson(value);
+        case 'MMPushNotification':
+          return MMPushNotification.fromJson(value);
+        case 'MMReaction':
+          return MMReaction.fromJson(value);
+        case 'MMRegenCommandToken200Response':
+          return MMRegenCommandToken200Response.fromJson(value);
+        case 'MMRegisterTermsOfServiceActionRequest':
+          return MMRegisterTermsOfServiceActionRequest.fromJson(value);
+        case 'MMRelationalIntegrityCheckData':
+          return MMRelationalIntegrityCheckData.fromJson(value);
+        case 'MMRemoteClusterInfo':
+          return MMRemoteClusterInfo.fromJson(value);
+        case 'MMRemoveRecentCustomStatusRequest':
+          return MMRemoveRecentCustomStatusRequest.fromJson(value);
+        case 'MMRequestTrialLicenseRequest':
+          return MMRequestTrialLicenseRequest.fromJson(value);
+        case 'MMResetPasswordRequest':
+          return MMResetPasswordRequest.fromJson(value);
+        case 'MMResetSamlAuthDataToEmail200Response':
+          return MMResetSamlAuthDataToEmail200Response.fromJson(value);
+        case 'MMResetSamlAuthDataToEmailRequest':
+          return MMResetSamlAuthDataToEmailRequest.fromJson(value);
+        case 'MMRetentionPolicyForChannelList':
+          return MMRetentionPolicyForChannelList.fromJson(value);
+        case 'MMRetentionPolicyForTeamList':
+          return MMRetentionPolicyForTeamList.fromJson(value);
+        case 'MMRevokeSessionRequest':
+          return MMRevokeSessionRequest.fromJson(value);
+        case 'MMRevokeUserAccessTokenRequest':
+          return MMRevokeUserAccessTokenRequest.fromJson(value);
+        case 'MMRole':
+          return MMRole.fromJson(value);
+        case 'MMSamlCertificateStatus':
+          return MMSamlCertificateStatus.fromJson(value);
+        case 'MMScheme':
+          return MMScheme.fromJson(value);
+        case 'MMSearchAllChannels200Response':
+          return MMSearchAllChannels200Response.fromJson(value);
+        case 'MMSearchAllChannelsRequest':
+          return MMSearchAllChannelsRequest.fromJson(value);
+        case 'MMSearchArchivedChannelsRequest':
+          return MMSearchArchivedChannelsRequest.fromJson(value);
+        case 'MMSearchChannelsForRetentionPolicyRequest':
+          return MMSearchChannelsForRetentionPolicyRequest.fromJson(value);
+        case 'MMSearchChannelsRequest':
+          return MMSearchChannelsRequest.fromJson(value);
+        case 'MMSearchEmojiRequest':
+          return MMSearchEmojiRequest.fromJson(value);
+        case 'MMSearchGroupChannelsRequest':
+          return MMSearchGroupChannelsRequest.fromJson(value);
+        case 'MMSearchPostsRequest':
+          return MMSearchPostsRequest.fromJson(value);
+        case 'MMSearchTeams200Response':
+          return MMSearchTeams200Response.fromJson(value);
+        case 'MMSearchTeamsForRetentionPolicyRequest':
+          return MMSearchTeamsForRetentionPolicyRequest.fromJson(value);
+        case 'MMSearchTeamsRequest':
+          return MMSearchTeamsRequest.fromJson(value);
+        case 'MMSearchUserAccessTokensRequest':
+          return MMSearchUserAccessTokensRequest.fromJson(value);
+        case 'MMSearchUsersRequest':
+          return MMSearchUsersRequest.fromJson(value);
+        case 'MMSendPasswordResetEmailRequest':
+          return MMSendPasswordResetEmailRequest.fromJson(value);
+        case 'MMSendVerificationEmailRequest':
+          return MMSendVerificationEmailRequest.fromJson(value);
+        case 'MMSendWarnMetricAckRequest':
+          return MMSendWarnMetricAckRequest.fromJson(value);
+        case 'MMServerBusy':
+          return MMServerBusy.fromJson(value);
+        case 'MMSession':
+          return MMSession.fromJson(value);
+        case 'MMSharedChannel':
+          return MMSharedChannel.fromJson(value);
+        case 'MMSidebarCategory':
+          return MMSidebarCategory.fromJson(value);
+        case 'MMSidebarCategoryWithChannels':
+          return MMSidebarCategoryWithChannels.fromJson(value);
+        case 'MMSlackAttachment':
+          return MMSlackAttachment.fromJson(value);
+        case 'MMSlackAttachmentField':
+          return MMSlackAttachmentField.fromJson(value);
+        case 'MMStatus':
+          return MMStatus.fromJson(value);
+        case 'MMStatusOK':
+          return MMStatusOK.fromJson(value);
+        case 'MMSubmitInteractiveDialogRequest':
+          return MMSubmitInteractiveDialogRequest.fromJson(value);
+        case 'MMSubscription':
+          return MMSubscription.fromJson(value);
+        case 'MMSubscriptionStats':
+          return MMSubscriptionStats.fromJson(value);
+        case 'MMSwitchAccountType200Response':
+          return MMSwitchAccountType200Response.fromJson(value);
+        case 'MMSwitchAccountTypeRequest':
+          return MMSwitchAccountTypeRequest.fromJson(value);
+        case 'MMSystem':
+          return MMSystem.fromJson(value);
+        case 'MMSystemStatusResponse':
+          return MMSystemStatusResponse.fromJson(value);
+        case 'MMTeam':
+          return MMTeam.fromJson(value);
+        case 'MMTeamExists':
+          return MMTeamExists.fromJson(value);
+        case 'MMTeamMap':
+          return MMTeamMap.fromJson(value);
+        case 'MMTeamMember':
+          return MMTeamMember.fromJson(value);
+        case 'MMTeamStats':
+          return MMTeamStats.fromJson(value);
+        case 'MMTeamUnread':
+          return MMTeamUnread.fromJson(value);
+        case 'MMTeamsLimits':
+          return MMTeamsLimits.fromJson(value);
+        case 'MMTermsOfService':
+          return MMTermsOfService.fromJson(value);
+        case 'MMTestSiteURLRequest':
+          return MMTestSiteURLRequest.fromJson(value);
+        case 'MMTimezone':
+          return MMTimezone.fromJson(value);
+        case 'MMTopChannel':
+          return MMTopChannel.fromJson(value);
+        case 'MMTopChannelList':
+          return MMTopChannelList.fromJson(value);
+        case 'MMTopReaction':
+          return MMTopReaction.fromJson(value);
+        case 'MMTopReactionList':
+          return MMTopReactionList.fromJson(value);
+        case 'MMUpdateChannelPrivacyRequest':
+          return MMUpdateChannelPrivacyRequest.fromJson(value);
+        case 'MMUpdateChannelRequest':
+          return MMUpdateChannelRequest.fromJson(value);
+        case 'MMUpdateCloudCustomerRequest':
+          return MMUpdateCloudCustomerRequest.fromJson(value);
+        case 'MMUpdateIncomingWebhookRequest':
+          return MMUpdateIncomingWebhookRequest.fromJson(value);
+        case 'MMUpdateOAuthAppRequest':
+          return MMUpdateOAuthAppRequest.fromJson(value);
+        case 'MMUpdateOutgoingWebhookRequest':
+          return MMUpdateOutgoingWebhookRequest.fromJson(value);
+        case 'MMUpdatePostRequest':
+          return MMUpdatePostRequest.fromJson(value);
+        case 'MMUpdateTeamMemberSchemeRolesRequest':
+          return MMUpdateTeamMemberSchemeRolesRequest.fromJson(value);
+        case 'MMUpdateTeamPrivacyRequest':
+          return MMUpdateTeamPrivacyRequest.fromJson(value);
+        case 'MMUpdateTeamRequest':
+          return MMUpdateTeamRequest.fromJson(value);
+        case 'MMUpdateTeamSchemeRequest':
+          return MMUpdateTeamSchemeRequest.fromJson(value);
+        case 'MMUpdateUserActiveRequest':
+          return MMUpdateUserActiveRequest.fromJson(value);
+        case 'MMUpdateUserCustomStatusRequest':
+          return MMUpdateUserCustomStatusRequest.fromJson(value);
+        case 'MMUpdateUserMfaRequest':
+          return MMUpdateUserMfaRequest.fromJson(value);
+        case 'MMUpdateUserPasswordRequest':
+          return MMUpdateUserPasswordRequest.fromJson(value);
+        case 'MMUpdateUserRequest':
+          return MMUpdateUserRequest.fromJson(value);
+        case 'MMUpdateUserRolesRequest':
+          return MMUpdateUserRolesRequest.fromJson(value);
+        case 'MMUpdateUserStatusRequest':
+          return MMUpdateUserStatusRequest.fromJson(value);
+        case 'MMUpgradeToEnterpriseStatus200Response':
+          return MMUpgradeToEnterpriseStatus200Response.fromJson(value);
+        case 'MMUploadFile201Response':
+          return MMUploadFile201Response.fromJson(value);
+        case 'MMUploadSession':
+          return MMUploadSession.fromJson(value);
+        case 'MMUser':
+          return MMUser.fromJson(value);
+        case 'MMUserAccessToken':
+          return MMUserAccessToken.fromJson(value);
+        case 'MMUserAccessTokenSanitized':
+          return MMUserAccessTokenSanitized.fromJson(value);
+        case 'MMUserAuthData':
+          return MMUserAuthData.fromJson(value);
+        case 'MMUserAutocomplete':
+          return MMUserAutocomplete.fromJson(value);
+        case 'MMUserAutocompleteInChannel':
+          return MMUserAutocompleteInChannel.fromJson(value);
+        case 'MMUserAutocompleteInTeam':
+          return MMUserAutocompleteInTeam.fromJson(value);
+        case 'MMUserNotifyProps':
+          return MMUserNotifyProps.fromJson(value);
+        case 'MMUserTermsOfService':
+          return MMUserTermsOfService.fromJson(value);
+        case 'MMUserThread':
+          return MMUserThread.fromJson(value);
+        case 'MMUserThreads':
+          return MMUserThreads.fromJson(value);
+        case 'MMUsersStats':
+          return MMUsersStats.fromJson(value);
+        case 'MMVerifyUserEmailRequest':
+          return MMVerifyUserEmailRequest.fromJson(value);
+        case 'MMViewChannel200Response':
+          return MMViewChannel200Response.fromJson(value);
+        case 'MMViewChannelRequest':
+          return MMViewChannelRequest.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
@@ -837,21 +981,21 @@ class MattermostApiClient {
           }
       }
     } on Exception catch (error, trace) {
-      throw MattermostApiException.withInner(
+      throw MMApiException.withInner(
         HttpStatus.internalServerError,
         'Exception during deserialization.',
         error,
         trace,
       );
     }
-    throw MattermostApiException(
+    throw MMApiException(
       HttpStatus.internalServerError,
       'Could not find a suitable class for deserialization',
     );
   }
 }
 
-/// Primarily intended for use in an isolate.
+/// "Root" level class for use in an isolate.
 class DeserializationMessage {
   const DeserializationMessage({
     required this.json,
@@ -869,7 +1013,7 @@ class DeserializationMessage {
   final bool growable;
 }
 
-/// Primarily intended for use in an isolate.
+/// "Root" level function for use in an isolate.
 Future<dynamic> deserializeAsync(DeserializationMessage message) async {
   // Remove all spaces. Necessary for regular expressions as well.
   final targetType = message.targetType.replaceAll(' ', '');

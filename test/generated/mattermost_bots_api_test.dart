@@ -21,7 +21,7 @@ void main() {
     //
     // Assign a bot to a specified user. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> assignBot(String botUserId, String userId) async
+    //Future<MMBot> assignBot(String botUserId, String userId) async
     test('test assignBot', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MattermostStatusOK> convertBotToUser(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool setSystemAdmin }) async
+    //Future<MMStatusOK> convertBotToUser(String botUserId, MMConvertBotToUserRequest mMConvertBotToUserRequest, { bool setSystemAdmin }) async
     test('test convertBotToUser', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MattermostStatusOK> convertUserToBot(String userId) async
+    //Future<MMStatusOK> convertUserToBot(String userId) async
     test('test convertUserToBot', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Create a new bot account on the system. Username is required. ##### Permissions Must have `create_bot` permission. __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> createBot(MattermostCreateBotRequest mattermostCreateBotRequest) async
+    //Future<MMBot> createBot(MMCreateBotRequest mMCreateBotRequest) async
     test('test createBot', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
     //
-    //Future<MattermostStatusOK> deleteBotIconImage(String botUserId) async
+    //Future<MMStatusOK> deleteBotIconImage(String botUserId) async
     test('test deleteBotIconImage', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> disableBot(String botUserId) async
+    //Future<MMBot> disableBot(String botUserId) async
     test('test disableBot', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> enableBot(String botUserId) async
+    //Future<MMBot> enableBot(String botUserId) async
     test('test enableBot', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> getBot(String botUserId, { bool includeDeleted }) async
+    //Future<MMBot> getBot(String botUserId, { bool includeDeleted }) async
     test('test getBot', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
     //
-    //Future<List<MattermostBot>> getBots({ int page, int perPage, bool includeDeleted, bool onlyOrphaned }) async
+    //Future<List<MMBot>> getBots({ int page, int perPage, bool includeDeleted, bool onlyOrphaned }) async
     test('test getBots', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Partially update a bot by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions Must have `manage_bots` permission.  __Minimum server version__: 5.10 
     //
-    //Future<MattermostBot> patchBot(String botUserId, MattermostCreateBotRequest mattermostCreateBotRequest) async
+    //Future<MMBot> patchBot(String botUserId, MMCreateBotRequest mMCreateBotRequest) async
     test('test patchBot', () async {
       // TODO
     });
@@ -120,7 +120,7 @@ void main() {
     //
     // Set a bot's LHS icon image based on bot_user_id string parameter. Icon image must be SVG format, all other formats are rejected. ##### Permissions Must have `manage_bots` permission. __Minimum server version__: 5.14 
     //
-    //Future<MattermostStatusOK> setBotIconImage(String botUserId, MultipartFile image) async
+    //Future<MMStatusOK> setBotIconImage(String botUserId, MultipartFile image) async
     test('test setBotIconImage', () async {
       // TODO
     });

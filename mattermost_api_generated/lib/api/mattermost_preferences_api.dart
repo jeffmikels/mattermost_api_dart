@@ -29,17 +29,17 @@ class MattermostPreferencesApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MattermostPreference>] mattermostPreference (required):
+  /// * [List<MMPreference>] mMPreference (required):
   ///   List of preference objects
-  Future<Response> deletePreferencesWithHttpInfo(String userId, List<MattermostPreference> mattermostPreference,) async {
+  Future<Response> deletePreferencesWithHttpInfo(String userId, List<MMPreference> mMPreference,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/preferences/delete'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPreference;
+    Object? postBody = mMPreference;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -66,18 +66,18 @@ class MattermostPreferencesApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MattermostPreference>] mattermostPreference (required):
+  /// * [List<MMPreference>] mMPreference (required):
   ///   List of preference objects
-  Future<MattermostStatusOK?> deletePreferences(String userId, List<MattermostPreference> mattermostPreference,) async {
-    final response = await deletePreferencesWithHttpInfo(userId, mattermostPreference,);
+  Future<MMStatusOK?> deletePreferences(String userId, List<MMPreference> mMPreference,) async {
+    final response = await deletePreferencesWithHttpInfo(userId, mMPreference,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -101,7 +101,7 @@ class MattermostPreferencesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -127,18 +127,18 @@ class MattermostPreferencesApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostPreference>?> getPreferences(String userId,) async {
+  Future<List<MMPreference>?> getPreferences(String userId,) async {
     final response = await getPreferencesWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPreference>') as List)
-        .cast<MattermostPreference>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMPreference>') as List)
+        .cast<MMPreference>()
         .toList();
 
     }
@@ -167,7 +167,7 @@ class MattermostPreferencesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -196,18 +196,18 @@ class MattermostPreferencesApi {
   ///
   /// * [String] category (required):
   ///   The category of a group of preferences
-  Future<List<MattermostPreference>?> getPreferencesByCategory(String userId, String category,) async {
+  Future<List<MMPreference>?> getPreferencesByCategory(String userId, String category,) async {
     final response = await getPreferencesByCategoryWithHttpInfo(userId, category,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPreference>') as List)
-        .cast<MattermostPreference>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMPreference>') as List)
+        .cast<MMPreference>()
         .toList();
 
     }
@@ -240,7 +240,7 @@ class MattermostPreferencesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -272,16 +272,16 @@ class MattermostPreferencesApi {
   ///
   /// * [String] preferenceName (required):
   ///   The name of the preference
-  Future<MattermostPreference?> getPreferencesByCategoryByName(String userId, String category, String preferenceName,) async {
+  Future<MMPreference?> getPreferencesByCategoryByName(String userId, String category, String preferenceName,) async {
     final response = await getPreferencesByCategoryByNameWithHttpInfo(userId, category, preferenceName,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPreference',) as MattermostPreference;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPreference',) as MMPreference;
     
     }
     return null;
@@ -298,17 +298,17 @@ class MattermostPreferencesApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MattermostPreference>] mattermostPreference (required):
+  /// * [List<MMPreference>] mMPreference (required):
   ///   List of preference objects
-  Future<Response> updatePreferencesWithHttpInfo(String userId, List<MattermostPreference> mattermostPreference,) async {
+  Future<Response> updatePreferencesWithHttpInfo(String userId, List<MMPreference> mMPreference,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/preferences'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPreference;
+    Object? postBody = mMPreference;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -335,18 +335,18 @@ class MattermostPreferencesApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MattermostPreference>] mattermostPreference (required):
+  /// * [List<MMPreference>] mMPreference (required):
   ///   List of preference objects
-  Future<MattermostStatusOK?> updatePreferences(String userId, List<MattermostPreference> mattermostPreference,) async {
-    final response = await updatePreferencesWithHttpInfo(userId, mattermostPreference,);
+  Future<MMStatusOK?> updatePreferences(String userId, List<MMPreference> mMPreference,) async {
+    final response = await updatePreferencesWithHttpInfo(userId, mMPreference,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

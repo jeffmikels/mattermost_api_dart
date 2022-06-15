@@ -45,7 +45,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -88,16 +88,16 @@ class MattermostInsightsApi {
   ///
   /// * [int] perPage:
   ///   The number of items per page, up to a maximum of 200.
-  Future<MattermostTopChannelList?> getTopChannelsForTeam(String teamId, String timeRange, { int? page, int? perPage, }) async {
+  Future<MMTopChannelList?> getTopChannelsForTeam(String teamId, String timeRange, { int? page, int? perPage, }) async {
     final response = await getTopChannelsForTeamWithHttpInfo(teamId, timeRange,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTopChannelList',) as MattermostTopChannelList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTopChannelList',) as MMTopChannelList;
     
     }
     return null;
@@ -133,7 +133,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -182,16 +182,16 @@ class MattermostInsightsApi {
   ///
   /// * [String] teamId:
   ///   Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
-  Future<MattermostTopReactionList?> getTopChannelsForUser(String userId, String timeRange, { int? page, int? perPage, String? teamId, }) async {
+  Future<MMTopReactionList?> getTopChannelsForUser(String userId, String timeRange, { int? page, int? perPage, String? teamId, }) async {
     final response = await getTopChannelsForUserWithHttpInfo(userId, timeRange,  page: page, perPage: perPage, teamId: teamId, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTopReactionList',) as MattermostTopReactionList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTopReactionList',) as MMTopReactionList;
     
     }
     return null;
@@ -224,7 +224,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -267,16 +267,16 @@ class MattermostInsightsApi {
   ///
   /// * [int] perPage:
   ///   The number of items per page, up to a maximum of 200.
-  Future<MattermostTopReactionList?> getTopReactionsForTeam(String teamId, String timeRange, { int? page, int? perPage, }) async {
+  Future<MMTopReactionList?> getTopReactionsForTeam(String teamId, String timeRange, { int? page, int? perPage, }) async {
     final response = await getTopReactionsForTeamWithHttpInfo(teamId, timeRange,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTopReactionList',) as MattermostTopReactionList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTopReactionList',) as MMTopReactionList;
     
     }
     return null;
@@ -312,7 +312,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -361,16 +361,16 @@ class MattermostInsightsApi {
   ///
   /// * [String] teamId:
   ///   Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
-  Future<MattermostTopReactionList?> getTopReactionsForUser(String userId, String timeRange, { int? page, int? perPage, String? teamId, }) async {
+  Future<MMTopReactionList?> getTopReactionsForUser(String userId, String timeRange, { int? page, int? perPage, String? teamId, }) async {
     final response = await getTopReactionsForUserWithHttpInfo(userId, timeRange,  page: page, perPage: perPage, teamId: teamId, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTopReactionList',) as MattermostTopReactionList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTopReactionList',) as MMTopReactionList;
     
     }
     return null;

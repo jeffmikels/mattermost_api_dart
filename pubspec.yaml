@@ -1,6 +1,6 @@
 name: mattermost_api
 description: An implementation of the Mattermost API as of 4.0.0.
-version: 0.1.2
+version: 0.1.3
 homepage: https://www.jeffmikels.com
 repository: https://github.com/jeffmikels/mattermost_api_dart
 

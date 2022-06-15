@@ -30,7 +30,7 @@ class MattermostTermsOfServiceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -51,16 +51,16 @@ class MattermostTermsOfServiceApi {
   /// Creates a new terms of service
   ///
   /// Creates new terms of service  __Minimum server version__: 5.4 ##### Permissions Must have `manage_system` permission. 
-  Future<MattermostTermsOfService?> createTermsOfService() async {
+  Future<MMTermsOfService?> createTermsOfService() async {
     final response = await createTermsOfServiceWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTermsOfService',) as MattermostTermsOfService;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTermsOfService',) as MMTermsOfService;
     
     }
     return null;
@@ -78,7 +78,7 @@ class MattermostTermsOfServiceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -99,16 +99,16 @@ class MattermostTermsOfServiceApi {
   /// Get latest terms of service
   ///
   /// Get latest terms of service from the server  __Minimum server version__: 5.4 ##### Permissions Must be authenticated. 
-  Future<MattermostTermsOfService?> getTermsOfService() async {
+  Future<MMTermsOfService?> getTermsOfService() async {
     final response = await getTermsOfServiceWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostTermsOfService',) as MattermostTermsOfService;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMTermsOfService',) as MMTermsOfService;
     
     }
     return null;
@@ -132,7 +132,7 @@ class MattermostTermsOfServiceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -158,16 +158,16 @@ class MattermostTermsOfServiceApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostUserTermsOfService?> getUserTermsOfService(String userId,) async {
+  Future<MMUserTermsOfService?> getUserTermsOfService(String userId,) async {
     final response = await getUserTermsOfServiceWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserTermsOfService',) as MattermostUserTermsOfService;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserTermsOfService',) as MMUserTermsOfService;
     
     }
     return null;
@@ -184,17 +184,17 @@ class MattermostTermsOfServiceApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRegisterTermsOfServiceActionRequest] mattermostRegisterTermsOfServiceActionRequest (required):
+  /// * [MMRegisterTermsOfServiceActionRequest] mMRegisterTermsOfServiceActionRequest (required):
   ///   terms of service details
-  Future<Response> registerTermsOfServiceActionWithHttpInfo(String userId, MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest,) async {
+  Future<Response> registerTermsOfServiceActionWithHttpInfo(String userId, MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/terms_of_service'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRegisterTermsOfServiceActionRequest;
+    Object? postBody = mMRegisterTermsOfServiceActionRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -221,18 +221,18 @@ class MattermostTermsOfServiceApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRegisterTermsOfServiceActionRequest] mattermostRegisterTermsOfServiceActionRequest (required):
+  /// * [MMRegisterTermsOfServiceActionRequest] mMRegisterTermsOfServiceActionRequest (required):
   ///   terms of service details
-  Future<MattermostStatusOK?> registerTermsOfServiceAction(String userId, MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest,) async {
-    final response = await registerTermsOfServiceActionWithHttpInfo(userId, mattermostRegisterTermsOfServiceActionRequest,);
+  Future<MMStatusOK?> registerTermsOfServiceAction(String userId, MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest,) async {
+    final response = await registerTermsOfServiceActionWithHttpInfo(userId, mMRegisterTermsOfServiceActionRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

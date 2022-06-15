@@ -21,7 +21,7 @@ void main() {
     //
     // Add a user to a channel by creating a channel member object.
     //
-    //Future<MattermostChannelMember> addChannelMember(String channelId, MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest) async
+    //Future<MMChannelMember> addChannelMember(String channelId, MMAddChannelMemberRequest mMAddChannelMemberRequest) async
     test('test addChannelMember', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Autocomplete public channels on a team based on the search term provided in the request URL.  __Minimum server version__: 4.7  ##### Permissions Must have the `list_team_channels` permission. 
     //
-    //Future<List<MattermostChannel>> autocompleteChannelsForTeam(String teamId, String name) async
+    //Future<List<MMChannel>> autocompleteChannelsForTeam(String teamId, String name) async
     test('test autocompleteChannelsForTeam', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Autocomplete your channels on a team based on the search term provided in the request URL.  __Minimum server version__: 5.4  ##### Permissions Must have the `list_team_channels` permission. 
     //
-    //Future<List<MattermostChannel>> autocompleteChannelsForTeamForSearch(String teamId, String name) async
+    //Future<List<MMChannel>> autocompleteChannelsForTeamForSearch(String teamId, String name) async
     test('test autocompleteChannelsForTeamForSearch', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Create a new channel. ##### Permissions If creating a public channel, `create_public_channel` permission is required. If creating a private channel, `create_private_channel` permission is required. 
     //
-    //Future<MattermostChannel> createChannel(MattermostCreateChannelRequest mattermostCreateChannelRequest) async
+    //Future<MMChannel> createChannel(MMCreateChannelRequest mMCreateChannelRequest) async
     test('test createChannel', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Create a new direct message channel between two users. ##### Permissions Must be one of the two users and have `create_direct_channel` permission. Having the `manage_system` permission voids the previous requirements. 
     //
-    //Future<MattermostChannel> createDirectChannel(List<String> requestBody) async
+    //Future<MMChannel> createDirectChannel(List<String> requestBody) async
     test('test createDirectChannel', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Create a new group message channel to group of users. If the logged in user's id is not included in the list, it will be appended to the end. ##### Permissions Must have `create_group_channel` permission. 
     //
-    //Future<MattermostChannel> createGroupChannel(List<String> requestBody) async
+    //Future<MMChannel> createGroupChannel(List<String> requestBody) async
     test('test createGroupChannel', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Create a custom sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<MattermostSidebarCategory> createSidebarCategoryForTeamForUser(String teamId, String userId, MattermostSidebarCategory mattermostSidebarCategory) async
+    //Future<MMSidebarCategory> createSidebarCategoryForTeamForUser(String teamId, String userId, MMSidebarCategory mMSidebarCategory) async
     test('test createSidebarCategoryForTeamForUser', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Archives a channel. This will set the `deleteAt` to the current timestamp in the database. Soft deleted channels may not be accessible in the user interface. They can be viewed and unarchived in the **System Console > User Management > Channels** based on your license. Direct and group message channels cannot be deleted.  As of server version 5.28, optionally use the `permanent=true` query parameter to permanently delete the channel for compliance reasons. To use this feature `ServiceSettings.EnableAPIChannelDeletion` must be set to `true` in the server's configuration.  If you permanently delete a channel this action is not recoverable outside of a database backup.  ##### Permissions `delete_public_channel` permission if the channel is public, `delete_private_channel` permission if the channel is private, or have `manage_system` permission. 
     //
-    //Future<MattermostStatusOK> deleteChannel(String channelId) async
+    //Future<MMStatusOK> deleteChannel(String channelId) async
     test('test deleteChannel', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // ##### Permissions `manage_system` 
     //
-    //Future<List<MattermostChannelWithTeamData>> getAllChannels({ String notAssociatedToGroup, int page, int perPage, bool excludeDefaultChannels, bool includeDeleted, bool includeTotalCount, bool excludePolicyConstrained }) async
+    //Future<List<MMChannelWithTeamData>> getAllChannels({ String notAssociatedToGroup, int page, int perPage, bool excludeDefaultChannels, bool includeDeleted, bool includeTotalCount, bool excludePolicyConstrained }) async
     test('test getAllChannels', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Get channel from the provided channel id string. ##### Permissions `read_channel` permission for the channel. 
     //
-    //Future<MattermostChannel> getChannel(String channelId) async
+    //Future<MMChannel> getChannel(String channelId) async
     test('test getChannel', () async {
       // TODO
     });
@@ -120,7 +120,7 @@ void main() {
     //
     // Gets channel from the provided team id and channel name strings. ##### Permissions `read_channel` permission for the channel. 
     //
-    //Future<MattermostChannel> getChannelByName(String teamId, String channelName, { bool includeDeleted }) async
+    //Future<MMChannel> getChannelByName(String teamId, String channelName, { bool includeDeleted }) async
     test('test getChannelByName', () async {
       // TODO
     });
@@ -129,7 +129,7 @@ void main() {
     //
     // Gets a channel from the provided team name and channel name strings. ##### Permissions `read_channel` permission for the channel. 
     //
-    //Future<MattermostChannel> getChannelByNameForTeamName(String teamName, String channelName, { bool includeDeleted }) async
+    //Future<MMChannel> getChannelByNameForTeamName(String teamName, String channelName, { bool includeDeleted }) async
     test('test getChannelByNameForTeamName', () async {
       // TODO
     });
@@ -138,7 +138,7 @@ void main() {
     //
     // Get a channel member. ##### Permissions `read_channel` permission for the channel. 
     //
-    //Future<MattermostChannelMember> getChannelMember(String channelId, String userId) async
+    //Future<MMChannelMember> getChannelMember(String channelId, String userId) async
     test('test getChannelMember', () async {
       // TODO
     });
@@ -156,7 +156,7 @@ void main() {
     //
     // Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel. 
     //
-    //Future<List<MattermostChannelMember>> getChannelMembers(String channelId, { int page, int perPage }) async
+    //Future<List<MMChannelMember>> getChannelMembers(String channelId, { int page, int perPage }) async
     test('test getChannelMembers', () async {
       // TODO
     });
@@ -165,7 +165,7 @@ void main() {
     //
     // Get a list of channel members based on the provided user ids. ##### Permissions Must have the `read_channel` permission. 
     //
-    //Future<List<MattermostChannelMember>> getChannelMembersByIds(String channelId, List<String> requestBody) async
+    //Future<List<MMChannelMember>> getChannelMembersByIds(String channelId, List<String> requestBody) async
     test('test getChannelMembersByIds', () async {
       // TODO
     });
@@ -174,7 +174,7 @@ void main() {
     //
     // Get all channel memberships and associated membership roles (i.e. `channel_user`, `channel_admin`) for a user on a specific team. ##### Permissions Logged in as the user and `view_team` permission for the team. Having `manage_system` permission voids the previous requirements. 
     //
-    //Future<List<MattermostChannelMember>> getChannelMembersForUser(String userId, String teamId) async
+    //Future<List<MMChannelMember>> getChannelMembersForUser(String userId, String teamId) async
     test('test getChannelMembersForUser', () async {
       // TODO
     });
@@ -192,7 +192,7 @@ void main() {
     //
     // ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
     //
-    //Future<List<MattermostChannelModeration>> getChannelModerations(String channelId) async
+    //Future<List<MMChannelModeration>> getChannelModerations(String channelId) async
     test('test getChannelModerations', () async {
       // TODO
     });
@@ -201,7 +201,7 @@ void main() {
     //
     // Get statistics for a channel. ##### Permissions Must have the `read_channel` permission. 
     //
-    //Future<MattermostChannelStats> getChannelStats(String channelId) async
+    //Future<MMChannelStats> getChannelStats(String channelId) async
     test('test getChannelStats', () async {
       // TODO
     });
@@ -210,7 +210,7 @@ void main() {
     //
     // Get the total unread messages and mentions for a channel for a user. ##### Permissions Must be logged in as user and have the `read_channel` permission, or have `edit_other_usrs` permission. 
     //
-    //Future<MattermostChannelUnread> getChannelUnread(String userId, String channelId) async
+    //Future<MMChannelUnread> getChannelUnread(String userId, String channelId) async
     test('test getChannelUnread', () async {
       // TODO
     });
@@ -219,7 +219,7 @@ void main() {
     //
     // Get all the channels on a team for a user. ##### Permissions Logged in as the user, or have `edit_other_users` permission, and `view_team` permission for the team. 
     //
-    //Future<List<MattermostChannel>> getChannelsForTeamForUser(String userId, String teamId, { bool includeDeleted, int lastDeleteAt }) async
+    //Future<List<MMChannel>> getChannelsForTeamForUser(String userId, String teamId, { bool includeDeleted, int lastDeleteAt }) async
     test('test getChannelsForTeamForUser', () async {
       // TODO
     });
@@ -228,7 +228,7 @@ void main() {
     //
     // Get all channels from all teams that a user is a member of.  __Minimum server version__: 6.1  ##### Permissions  Logged in as the user, or have `edit_other_users` permission. 
     //
-    //Future<List<MattermostChannel>> getChannelsForUser(String userId, { int lastDeleteAt, bool includeDeleted }) async
+    //Future<List<MMChannel>> getChannelsForUser(String userId, { int lastDeleteAt, bool includeDeleted }) async
     test('test getChannelsForUser', () async {
       // TODO
     });
@@ -237,7 +237,7 @@ void main() {
     //
     // Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10 
     //
-    //Future<List<MattermostChannel>> getDeletedChannelsForTeam(String teamId, { int page, int perPage }) async
+    //Future<List<MMChannel>> getDeletedChannelsForTeam(String teamId, { int page, int perPage }) async
     test('test getDeletedChannelsForTeam', () async {
       // TODO
     });
@@ -246,7 +246,7 @@ void main() {
     //
     // Get a list of pinned posts for channel.
     //
-    //Future<MattermostPostList> getPinnedPosts(String channelId) async
+    //Future<MMPostList> getPinnedPosts(String channelId) async
     test('test getPinnedPosts', () async {
       // TODO
     });
@@ -255,7 +255,7 @@ void main() {
     //
     // Get a page of private channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 5.26  ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<List<MattermostChannel>> getPrivateChannelsForTeam(String teamId, { int page, int perPage }) async
+    //Future<List<MMChannel>> getPrivateChannelsForTeam(String teamId, { int page, int perPage }) async
     test('test getPrivateChannelsForTeam', () async {
       // TODO
     });
@@ -264,7 +264,7 @@ void main() {
     //
     // Get a list of public channels on a team by id. ##### Permissions `view_team` for the team the channels are on. 
     //
-    //Future<List<MattermostChannel>> getPublicChannelsByIdsForTeam(String teamId, List<String> requestBody) async
+    //Future<List<MMChannel>> getPublicChannelsByIdsForTeam(String teamId, List<String> requestBody) async
     test('test getPublicChannelsByIdsForTeam', () async {
       // TODO
     });
@@ -273,7 +273,7 @@ void main() {
     //
     // Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<List<MattermostChannel>> getPublicChannelsForTeam(String teamId, { int page, int perPage }) async
+    //Future<List<MMChannel>> getPublicChannelsForTeam(String teamId, { int page, int perPage }) async
     test('test getPublicChannelsForTeam', () async {
       // TODO
     });
@@ -282,7 +282,7 @@ void main() {
     //
     // Get a list of sidebar categories that will appear in the user's sidebar on the given team, including a list of channel IDs in each category. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<List<MattermostOrderedSidebarCategories>> getSidebarCategoriesForTeamForUser(String teamId, String userId) async
+    //Future<List<MMOrderedSidebarCategories>> getSidebarCategoriesForTeamForUser(String teamId, String userId) async
     test('test getSidebarCategoriesForTeamForUser', () async {
       // TODO
     });
@@ -291,7 +291,7 @@ void main() {
     //
     // Returns a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<MattermostSidebarCategory> getSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId) async
+    //Future<MMSidebarCategory> getSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId) async
     test('test getSidebarCategoryForTeamForUser', () async {
       // TODO
     });
@@ -309,7 +309,7 @@ void main() {
     //
     // Move a channel to another team.  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission. 
     //
-    //Future<MattermostChannel> moveChannel(String channelId, MattermostMoveChannelRequest mattermostMoveChannelRequest) async
+    //Future<MMChannel> moveChannel(String channelId, MMMoveChannelRequest mMMoveChannelRequest) async
     test('test moveChannel', () async {
       // TODO
     });
@@ -318,7 +318,7 @@ void main() {
     //
     // Partially update a channel by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
     //
-    //Future<MattermostChannel> patchChannel(String channelId, MattermostPatchChannelRequest mattermostPatchChannelRequest) async
+    //Future<MMChannel> patchChannel(String channelId, MMPatchChannelRequest mMPatchChannelRequest) async
     test('test patchChannel', () async {
       // TODO
     });
@@ -327,7 +327,7 @@ void main() {
     //
     // ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.22 
     //
-    //Future<List<MattermostChannelModeration>> patchChannelModerations(String channelId, MattermostChannelModerationPatch mattermostChannelModerationPatch) async
+    //Future<List<MMChannelModeration>> patchChannelModerations(String channelId, MMChannelModerationPatch mMChannelModerationPatch) async
     test('test patchChannelModerations', () async {
       // TODO
     });
@@ -336,7 +336,7 @@ void main() {
     //
     // Deletes a single sidebar category for the user on the given team. Only custom categories can be deleted. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<MattermostSidebarCategory> removeSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId) async
+    //Future<MMSidebarCategory> removeSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId) async
     test('test removeSidebarCategoryForTeamForUser', () async {
       // TODO
     });
@@ -345,7 +345,7 @@ void main() {
     //
     // Delete a channel member, effectively removing them from a channel.  In server version 5.3 and later, channel members can only be deleted from public or private channels. ##### Permissions `manage_public_channel_members` permission if the channel is public. `manage_private_channel_members` permission if the channel is private. 
     //
-    //Future<MattermostStatusOK> removeUserFromChannel(String channelId, String userId) async
+    //Future<MMStatusOK> removeUserFromChannel(String channelId, String userId) async
     test('test removeUserFromChannel', () async {
       // TODO
     });
@@ -354,7 +354,7 @@ void main() {
     //
     // Restore channel from the provided channel id string.  __Minimum server version__: 3.10  ##### Permissions `manage_team` permission for the team of the channel. 
     //
-    //Future<MattermostChannel> restoreChannel(String channelId) async
+    //Future<MMChannel> restoreChannel(String channelId) async
     test('test restoreChannel', () async {
       // TODO
     });
@@ -363,7 +363,7 @@ void main() {
     //
     // Returns all private and open type channels where 'term' matches on the name, display name, or purpose of the channel.  Configured 'default' channels (ex Town Square and Off-Topic) can be excluded from the results with the `exclude_default_channels` boolean parameter.  Channels that are associated (via GroupChannel records) to a given group can be excluded from the results with the `not_associated_to_group` parameter and a group id string. 
     //
-    //Future<MattermostSearchAllChannels200Response> searchAllChannels(MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest, { bool systemConsole }) async
+    //Future<MMSearchAllChannels200Response> searchAllChannels(MMSearchAllChannelsRequest mMSearchAllChannelsRequest, { bool systemConsole }) async
     test('test searchAllChannels', () async {
       // TODO
     });
@@ -372,7 +372,7 @@ void main() {
     //
     // Search archived channels on a team based on the search term provided in the request body.  __Minimum server version__: 5.18  ##### Permissions Must have the `list_team_channels` permission.  In server version 5.18 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
     //
-    //Future<List<MattermostChannel>> searchArchivedChannels(String teamId, MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest) async
+    //Future<List<MMChannel>> searchArchivedChannels(String teamId, MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest) async
     test('test searchArchivedChannels', () async {
       // TODO
     });
@@ -381,7 +381,7 @@ void main() {
     //
     // Search public channels on a team based on the search term provided in the request body. ##### Permissions Must have the `list_team_channels` permission.  In server version 5.16 and later, a user without the `list_team_channels` permission will be able to use this endpoint, with the search results limited to the channels that the user is a member of. 
     //
-    //Future<List<MattermostChannel>> searchChannels(String teamId, MattermostSearchChannelsRequest mattermostSearchChannelsRequest) async
+    //Future<List<MMChannel>> searchChannels(String teamId, MMSearchChannelsRequest mMSearchChannelsRequest) async
     test('test searchChannels', () async {
       // TODO
     });
@@ -390,7 +390,7 @@ void main() {
     //
     // Get a list of group channels for a user which members' usernames match the search term.  __Minimum server version__: 5.14 
     //
-    //Future<List<MattermostChannel>> searchGroupChannels(MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest) async
+    //Future<List<MMChannel>> searchGroupChannels(MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest) async
     test('test searchGroupChannels', () async {
       // TODO
     });
@@ -399,7 +399,7 @@ void main() {
     //
     // Update a channel. The fields that can be updated are listed as parameters. Omitted fields will be treated as blanks. ##### Permissions If updating a public channel, `manage_public_channel_members` permission is required. If updating a private channel, `manage_private_channel_members` permission is required. 
     //
-    //Future<MattermostChannel> updateChannel(String channelId, MattermostUpdateChannelRequest mattermostUpdateChannelRequest) async
+    //Future<MMChannel> updateChannel(String channelId, MMUpdateChannelRequest mMUpdateChannelRequest) async
     test('test updateChannel', () async {
       // TODO
     });
@@ -408,7 +408,7 @@ void main() {
     //
     // Update a channel member's scheme_admin/scheme_user properties. Typically this should either be `scheme_admin=false, scheme_user=true` for ordinary channel member, or `scheme_admin=true, scheme_user=true` for a channel admin. __Minimum server version__: 5.0 ##### Permissions Must be authenticated and have the `manage_channel_roles` permission. 
     //
-    //Future<MattermostStatusOK> updateChannelMemberSchemeRoles(String channelId, String userId, MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest) async
+    //Future<MMStatusOK> updateChannelMemberSchemeRoles(String channelId, String userId, MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest) async
     test('test updateChannelMemberSchemeRoles', () async {
       // TODO
     });
@@ -417,7 +417,7 @@ void main() {
     //
     // Update a user's notification properties for a channel. Only the provided fields are updated. ##### Permissions Must be logged in as the user or have `edit_other_users` permission. 
     //
-    //Future<MattermostStatusOK> updateChannelNotifyProps(String channelId, String userId, MattermostChannelNotifyProps mattermostChannelNotifyProps) async
+    //Future<MMStatusOK> updateChannelNotifyProps(String channelId, String userId, MMChannelNotifyProps mMChannelNotifyProps) async
     test('test updateChannelNotifyProps', () async {
       // TODO
     });
@@ -426,7 +426,7 @@ void main() {
     //
     // Updates channel's privacy allowing changing a channel from Public to Private and back.  __Minimum server version__: 5.16  ##### Permissions `manage_team` permission for the channels team on version < 5.28. `convert_public_channel_to_private` permission for the channel if updating privacy to 'P' on version >= 5.28. `convert_private_channel_to_public` permission for the channel if updating privacy to 'O' on version >= 5.28. 
     //
-    //Future<MattermostChannel> updateChannelPrivacy(String channelId, MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest) async
+    //Future<MMChannel> updateChannelPrivacy(String channelId, MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest) async
     test('test updateChannelPrivacy', () async {
       // TODO
     });
@@ -435,7 +435,7 @@ void main() {
     //
     // Update a user's roles for a channel. ##### Permissions Must have `manage_channel_roles` permission for the channel. 
     //
-    //Future<MattermostStatusOK> updateChannelRoles(String channelId, String userId, MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest) async
+    //Future<MMStatusOK> updateChannelRoles(String channelId, String userId, MMUpdateUserRolesRequest mMUpdateUserRolesRequest) async
     test('test updateChannelRoles', () async {
       // TODO
     });
@@ -444,7 +444,7 @@ void main() {
     //
     // Set a channel's scheme, more specifically sets the scheme_id value of a channel record.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.10 
     //
-    //Future<MattermostStatusOK> updateChannelScheme(String channelId, MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest) async
+    //Future<MMStatusOK> updateChannelScheme(String channelId, MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest) async
     test('test updateChannelScheme', () async {
       // TODO
     });
@@ -453,7 +453,7 @@ void main() {
     //
     // Update any number of sidebar categories for the user on the given team. This can be used to reorder the channels in these categories. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<MattermostSidebarCategory> updateSidebarCategoriesForTeamForUser(String teamId, String userId, List<MattermostSidebarCategory> mattermostSidebarCategory) async
+    //Future<MMSidebarCategory> updateSidebarCategoriesForTeamForUser(String teamId, String userId, List<MMSidebarCategory> mMSidebarCategory) async
     test('test updateSidebarCategoriesForTeamForUser', () async {
       // TODO
     });
@@ -462,7 +462,7 @@ void main() {
     //
     // Updates a single sidebar category for the user on the given team. __Minimum server version__: 5.26 ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
     //
-    //Future<MattermostSidebarCategory> updateSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId, MattermostSidebarCategory mattermostSidebarCategory) async
+    //Future<MMSidebarCategory> updateSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId, MMSidebarCategory mMSidebarCategory) async
     test('test updateSidebarCategoryForTeamForUser', () async {
       // TODO
     });
@@ -480,7 +480,7 @@ void main() {
     //
     // Perform all the actions involved in viewing a channel. This includes marking channels as read, clearing push notifications, and updating the active channel. ##### Permissions Must be logged in as user or have `edit_other_users` permission.  __Response only includes `last_viewed_at_times` in Mattermost server 4.3 and newer.__ 
     //
-    //Future<MattermostViewChannel200Response> viewChannel(String userId, MattermostViewChannelRequest mattermostViewChannelRequest) async
+    //Future<MMViewChannel200Response> viewChannel(String userId, MMViewChannelRequest mMViewChannelRequest) async
     test('test viewChannel', () async {
       // TODO
     });

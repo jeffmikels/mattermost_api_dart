@@ -21,7 +21,7 @@ void main() {
     //
     // Get user status by id from the server. ##### Permissions Must be authenticated. 
     //
-    //Future<MattermostStatus> getUserStatus(String userId) async
+    //Future<MMStatus> getUserStatus(String userId) async
     test('test getUserStatus', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get a list of user statuses by id from the server. ##### Permissions Must be authenticated. 
     //
-    //Future<List<MattermostStatus>> getUsersStatusesByIds(List<String> requestBody) async
+    //Future<List<MMStatus>> getUsersStatusesByIds(List<String> requestBody) async
     test('test getUsersStatusesByIds', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
     //
-    //Future postUserRecentCustomStatusDelete(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest) async
+    //Future postUserRecentCustomStatusDelete(String userId, MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest) async
     test('test postUserRecentCustomStatusDelete', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Deletes a user's recent custom status by removing the specific status from the recentCustomStatuses in the user's props and updates the user. ##### Permissions Must be logged in as the user whose recent custom status is being deleted. 
     //
-    //Future removeRecentCustomStatus(String userId, MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest) async
+    //Future removeRecentCustomStatus(String userId, MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest) async
     test('test removeRecentCustomStatus', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Updates a user's custom status by setting the value in the user's props and updates the user. Also save the given custom status to the recent custom statuses in the user's props ##### Permissions Must be logged in as the user whose custom status is being updated. 
     //
-    //Future updateUserCustomStatus(String userId, MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest) async
+    //Future updateUserCustomStatus(String userId, MMUpdateUserCustomStatusRequest mMUpdateUserCustomStatusRequest) async
     test('test updateUserCustomStatus', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Manually set a user's status. When setting a user's status, the status will remain that value until set \"online\" again, which will return the status to being automatically updated based on user activity. ##### Permissions Must have `edit_other_users` permission for the team. 
     //
-    //Future<MattermostStatus> updateUserStatus(String userId, MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest) async
+    //Future<MMStatus> updateUserStatus(String userId, MMUpdateUserStatusRequest mMUpdateUserStatusRequest) async
     test('test updateUserStatus', () async {
       // TODO
     });

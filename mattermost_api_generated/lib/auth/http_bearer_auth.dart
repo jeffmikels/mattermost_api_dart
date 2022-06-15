@@ -10,13 +10,13 @@
 
 part of mattermost.api;
 
-typedef MattermostHttpBearerAuthProvider = String Function();
+typedef MMHttpBearerAuthProvider = String Function();
 
-class MattermostHttpBearerAuthentication implements MattermostAuthentication {
+class MMHttpBearerAuthentication implements MMAuthentication {
 
   /// Constucts [HttpBearerAuthentication] from an optional [accessToken] which will be included in request headers
   /// using the `Authorization: Bearer [token]` method.
-  MattermostHttpBearerAuthentication([dynamic accessToken]) {
+  MMHttpBearerAuthentication([dynamic accessToken]) {
     this.accessToken = accessToken;
   }
 
@@ -26,14 +26,14 @@ class MattermostHttpBearerAuthentication implements MattermostAuthentication {
 
   /// may be a String or a Function that returns a string.
   set accessToken(dynamic accessToken) {
-    if (accessToken is! String && accessToken is! MattermostHttpBearerAuthProvider) {
+    if (accessToken is! String && accessToken is! MMHttpBearerAuthProvider) {
       throw ArgumentError('accessToken value must be either a String or a String Function().');
     }
     _accessToken = accessToken;
   }
 
   @override
-  void applyToParams(List<MattermostQueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MMQueryParam> queryParams, Map<String, String> headerParams) {
     if (_accessToken == null) {
       return;
     }
@@ -42,7 +42,7 @@ class MattermostHttpBearerAuthentication implements MattermostAuthentication {
 
     if (_accessToken is String) {
       accessToken = _accessToken;
-    } else if (_accessToken is MattermostHttpBearerAuthProvider) {
+    } else if (_accessToken is MMHttpBearerAuthProvider) {
       accessToken = _accessToken!();
     } else {
       return;

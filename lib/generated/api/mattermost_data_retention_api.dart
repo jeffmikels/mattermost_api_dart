@@ -37,7 +37,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -64,7 +64,7 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> addChannelsToRetentionPolicy(
+  Future<MMStatusOK?> addChannelsToRetentionPolicy(
     String policyId,
     List<String> requestBody,
   ) async {
@@ -73,7 +73,7 @@ class MattermostDataRetentionApi {
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -81,8 +81,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -109,7 +109,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -136,7 +136,7 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> addTeamsToRetentionPolicy(
+  Future<MMStatusOK?> addTeamsToRetentionPolicy(
     String policyId,
     List<String> requestBody,
   ) async {
@@ -145,7 +145,7 @@ class MattermostDataRetentionApi {
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -153,8 +153,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -167,17 +167,17 @@ class MattermostDataRetentionApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostDataRetentionPolicyCreate] mattermostDataRetentionPolicyCreate (required):
+  /// * [MMDataRetentionPolicyCreate] mMDataRetentionPolicyCreate (required):
   Future<Response> createDataRetentionPolicyWithHttpInfo(
-    MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,
+    MMDataRetentionPolicyCreate mMDataRetentionPolicyCreate,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostDataRetentionPolicyCreate;
+    Object? postBody = mMDataRetentionPolicyCreate;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -200,15 +200,15 @@ class MattermostDataRetentionApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostDataRetentionPolicyCreate] mattermostDataRetentionPolicyCreate (required):
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> createDataRetentionPolicy(
-    MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate,
+  /// * [MMDataRetentionPolicyCreate] mMDataRetentionPolicyCreate (required):
+  Future<MMDataRetentionPolicyWithTeamAndChannelCounts?> createDataRetentionPolicy(
+    MMDataRetentionPolicyCreate mMDataRetentionPolicyCreate,
   ) async {
     final response = await createDataRetentionPolicyWithHttpInfo(
-      mattermostDataRetentionPolicyCreate,
+      mMDataRetentionPolicyCreate,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -216,8 +216,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
-      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
+        'MMDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MMDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
@@ -241,7 +241,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -266,14 +266,14 @@ class MattermostDataRetentionApi {
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<MattermostStatusOK?> deleteDataRetentionPolicy(
+  Future<MMStatusOK?> deleteDataRetentionPolicy(
     String policyId,
   ) async {
     final response = await deleteDataRetentionPolicyWithHttpInfo(
       policyId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -281,8 +281,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -314,7 +314,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -352,7 +352,7 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<MattermostRetentionPolicyForChannelList?> getChannelPoliciesForUser(
+  Future<MMRetentionPolicyForChannelList?> getChannelPoliciesForUser(
     String userId, {
     int? page,
     int? perPage,
@@ -363,7 +363,7 @@ class MattermostDataRetentionApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -371,8 +371,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostRetentionPolicyForChannelList',
-      ) as MattermostRetentionPolicyForChannelList;
+        'MMRetentionPolicyForChannelList',
+      ) as MMRetentionPolicyForChannelList;
     }
     return null;
   }
@@ -404,7 +404,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -442,7 +442,7 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostChannelWithTeamData>?> getChannelsForRetentionPolicy(
+  Future<List<MMChannelWithTeamData>?> getChannelsForRetentionPolicy(
     String policyId, {
     int? page,
     int? perPage,
@@ -453,15 +453,15 @@ class MattermostDataRetentionApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelWithTeamData>') as List)
-          .cast<MattermostChannelWithTeamData>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelWithTeamData>') as List)
+          .cast<MMChannelWithTeamData>()
           .toList();
     }
     return null;
@@ -490,7 +490,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -525,7 +525,7 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>?> getDataRetentionPolicies({
+  Future<List<MMDataRetentionPolicyWithTeamAndChannelCounts>?> getDataRetentionPolicies({
     int? page,
     int? perPage,
   }) async {
@@ -534,16 +534,16 @@ class MattermostDataRetentionApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(
-              responseBody, 'List<MattermostDataRetentionPolicyWithTeamAndChannelCounts>') as List)
-          .cast<MattermostDataRetentionPolicyWithTeamAndChannelCounts>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMDataRetentionPolicyWithTeamAndChannelCounts>')
+              as List)
+          .cast<MMDataRetentionPolicyWithTeamAndChannelCounts>()
           .toList();
     }
     return null;
@@ -561,7 +561,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -581,10 +581,10 @@ class MattermostDataRetentionApi {
   /// Get the number of granular data retention policies
   ///
   /// Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license.
-  Future<MattermostGetDataRetentionPoliciesCount200Response?> getDataRetentionPoliciesCount() async {
+  Future<MMGetDataRetentionPoliciesCount200Response?> getDataRetentionPoliciesCount() async {
     final response = await getDataRetentionPoliciesCountWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -592,8 +592,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostGetDataRetentionPoliciesCount200Response',
-      ) as MattermostGetDataRetentionPoliciesCount200Response;
+        'MMGetDataRetentionPoliciesCount200Response',
+      ) as MMGetDataRetentionPoliciesCount200Response;
     }
     return null;
   }
@@ -610,7 +610,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -630,10 +630,10 @@ class MattermostDataRetentionApi {
   /// Get the global data retention policy
   ///
   /// Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license.
-  Future<MattermostGlobalDataRetentionPolicy?> getDataRetentionPolicy() async {
+  Future<MMGlobalDataRetentionPolicy?> getDataRetentionPolicy() async {
     final response = await getDataRetentionPolicyWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -641,8 +641,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostGlobalDataRetentionPolicy',
-      ) as MattermostGlobalDataRetentionPolicy;
+        'MMGlobalDataRetentionPolicy',
+      ) as MMGlobalDataRetentionPolicy;
     }
     return null;
   }
@@ -666,7 +666,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -691,14 +691,14 @@ class MattermostDataRetentionApi {
   ///
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> getDataRetentionPolicyByID(
+  Future<MMDataRetentionPolicyWithTeamAndChannelCounts?> getDataRetentionPolicyByID(
     String policyId,
   ) async {
     final response = await getDataRetentionPolicyByIDWithHttpInfo(
       policyId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -706,8 +706,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
-      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
+        'MMDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MMDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
@@ -739,7 +739,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -777,7 +777,7 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of policies per page. There is a maximum limit of 200 per page.
-  Future<MattermostRetentionPolicyForTeamList?> getTeamPoliciesForUser(
+  Future<MMRetentionPolicyForTeamList?> getTeamPoliciesForUser(
     String userId, {
     int? page,
     int? perPage,
@@ -788,7 +788,7 @@ class MattermostDataRetentionApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -796,8 +796,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostRetentionPolicyForTeamList',
-      ) as MattermostRetentionPolicyForTeamList;
+        'MMRetentionPolicyForTeamList',
+      ) as MMRetentionPolicyForTeamList;
     }
     return null;
   }
@@ -829,7 +829,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -867,7 +867,7 @@ class MattermostDataRetentionApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page. There is a maximum limit of 200 per page.
-  Future<List<MattermostTeam>?> getTeamsForRetentionPolicy(
+  Future<List<MMTeam>?> getTeamsForRetentionPolicy(
     String policyId, {
     int? page,
     int? perPage,
@@ -878,16 +878,14 @@ class MattermostDataRetentionApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostTeam>') as List)
-          .cast<MattermostTeam>()
-          .toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMTeam>') as List).cast<MMTeam>().toList();
     }
     return null;
   }
@@ -903,18 +901,18 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostDataRetentionPolicyWithTeamAndChannelIds] mattermostDataRetentionPolicyWithTeamAndChannelIds (required):
+  /// * [MMDataRetentionPolicyWithTeamAndChannelIds] mMDataRetentionPolicyWithTeamAndChannelIds (required):
   Future<Response> patchDataRetentionPolicyWithHttpInfo(
     String policyId,
-    MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,
+    MMDataRetentionPolicyWithTeamAndChannelIds mMDataRetentionPolicyWithTeamAndChannelIds,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies/{policy_id}'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostDataRetentionPolicyWithTeamAndChannelIds;
+    Object? postBody = mMDataRetentionPolicyWithTeamAndChannelIds;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -940,17 +938,17 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostDataRetentionPolicyWithTeamAndChannelIds] mattermostDataRetentionPolicyWithTeamAndChannelIds (required):
-  Future<MattermostDataRetentionPolicyWithTeamAndChannelCounts?> patchDataRetentionPolicy(
+  /// * [MMDataRetentionPolicyWithTeamAndChannelIds] mMDataRetentionPolicyWithTeamAndChannelIds (required):
+  Future<MMDataRetentionPolicyWithTeamAndChannelCounts?> patchDataRetentionPolicy(
     String policyId,
-    MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds,
+    MMDataRetentionPolicyWithTeamAndChannelIds mMDataRetentionPolicyWithTeamAndChannelIds,
   ) async {
     final response = await patchDataRetentionPolicyWithHttpInfo(
       policyId,
-      mattermostDataRetentionPolicyWithTeamAndChannelIds,
+      mMDataRetentionPolicyWithTeamAndChannelIds,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -958,8 +956,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostDataRetentionPolicyWithTeamAndChannelCounts',
-      ) as MattermostDataRetentionPolicyWithTeamAndChannelCounts;
+        'MMDataRetentionPolicyWithTeamAndChannelCounts',
+      ) as MMDataRetentionPolicyWithTeamAndChannelCounts;
     }
     return null;
   }
@@ -986,7 +984,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1013,7 +1011,7 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> removeChannelsFromRetentionPolicy(
+  Future<MMStatusOK?> removeChannelsFromRetentionPolicy(
     String policyId,
     List<String> requestBody,
   ) async {
@@ -1022,7 +1020,7 @@ class MattermostDataRetentionApi {
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1030,8 +1028,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -1058,7 +1056,7 @@ class MattermostDataRetentionApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1085,7 +1083,7 @@ class MattermostDataRetentionApi {
   ///   The ID of the granular retention policy.
   ///
   /// * [List<String>] requestBody (required):
-  Future<MattermostStatusOK?> removeTeamsFromRetentionPolicy(
+  Future<MMStatusOK?> removeTeamsFromRetentionPolicy(
     String policyId,
     List<String> requestBody,
   ) async {
@@ -1094,7 +1092,7 @@ class MattermostDataRetentionApi {
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1102,8 +1100,8 @@ class MattermostDataRetentionApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -1119,18 +1117,18 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostSearchChannelsForRetentionPolicyRequest] mattermostSearchChannelsForRetentionPolicyRequest (required):
+  /// * [MMSearchChannelsForRetentionPolicyRequest] mMSearchChannelsForRetentionPolicyRequest (required):
   Future<Response> searchChannelsForRetentionPolicyWithHttpInfo(
     String policyId,
-    MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,
+    MMSearchChannelsForRetentionPolicyRequest mMSearchChannelsForRetentionPolicyRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies/{policy_id}/channels/search'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSearchChannelsForRetentionPolicyRequest;
+    Object? postBody = mMSearchChannelsForRetentionPolicyRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1156,25 +1154,25 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostSearchChannelsForRetentionPolicyRequest] mattermostSearchChannelsForRetentionPolicyRequest (required):
-  Future<List<MattermostChannelWithTeamData>?> searchChannelsForRetentionPolicy(
+  /// * [MMSearchChannelsForRetentionPolicyRequest] mMSearchChannelsForRetentionPolicyRequest (required):
+  Future<List<MMChannelWithTeamData>?> searchChannelsForRetentionPolicy(
     String policyId,
-    MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest,
+    MMSearchChannelsForRetentionPolicyRequest mMSearchChannelsForRetentionPolicyRequest,
   ) async {
     final response = await searchChannelsForRetentionPolicyWithHttpInfo(
       policyId,
-      mattermostSearchChannelsForRetentionPolicyRequest,
+      mMSearchChannelsForRetentionPolicyRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelWithTeamData>') as List)
-          .cast<MattermostChannelWithTeamData>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelWithTeamData>') as List)
+          .cast<MMChannelWithTeamData>()
           .toList();
     }
     return null;
@@ -1191,18 +1189,18 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostSearchTeamsForRetentionPolicyRequest] mattermostSearchTeamsForRetentionPolicyRequest (required):
+  /// * [MMSearchTeamsForRetentionPolicyRequest] mMSearchTeamsForRetentionPolicyRequest (required):
   Future<Response> searchTeamsForRetentionPolicyWithHttpInfo(
     String policyId,
-    MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,
+    MMSearchTeamsForRetentionPolicyRequest mMSearchTeamsForRetentionPolicyRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/data_retention/policies/{policy_id}/teams/search'.replaceAll('{policy_id}', policyId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSearchTeamsForRetentionPolicyRequest;
+    Object? postBody = mMSearchTeamsForRetentionPolicyRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1228,26 +1226,24 @@ class MattermostDataRetentionApi {
   /// * [String] policyId (required):
   ///   The ID of the granular retention policy.
   ///
-  /// * [MattermostSearchTeamsForRetentionPolicyRequest] mattermostSearchTeamsForRetentionPolicyRequest (required):
-  Future<List<MattermostTeam>?> searchTeamsForRetentionPolicy(
+  /// * [MMSearchTeamsForRetentionPolicyRequest] mMSearchTeamsForRetentionPolicyRequest (required):
+  Future<List<MMTeam>?> searchTeamsForRetentionPolicy(
     String policyId,
-    MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest,
+    MMSearchTeamsForRetentionPolicyRequest mMSearchTeamsForRetentionPolicyRequest,
   ) async {
     final response = await searchTeamsForRetentionPolicyWithHttpInfo(
       policyId,
-      mattermostSearchTeamsForRetentionPolicyRequest,
+      mMSearchTeamsForRetentionPolicyRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostTeam>') as List)
-          .cast<MattermostTeam>()
-          .toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMTeam>') as List).cast<MMTeam>().toList();
     }
     return null;
   }

@@ -21,7 +21,7 @@ void main() {
     //
     // Disable a previously enabled plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
     //
-    //Future<MattermostStatusOK> disablePlugin(String pluginId) async
+    //Future<MMStatusOK> disablePlugin(String pluginId) async
     test('test disablePlugin', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Enable a previously uploaded plugin. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
     //
-    //Future<MattermostStatusOK> enablePlugin(String pluginId) async
+    //Future<MMStatusOK> enablePlugin(String pluginId) async
     test('test enablePlugin', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Gets all plugins from the marketplace server, merging data from locally installed plugins as well as prepackaged plugins shipped with the server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
     //
-    //Future<List<MattermostMarketplacePlugin>> getMarketplacePlugins({ int page, int perPage, String filter, String serverVersion, bool localOnly }) async
+    //Future<List<MMMarketplacePlugin>> getMarketplacePlugins({ int page, int perPage, String filter, String serverVersion, bool localOnly }) async
     test('test getMarketplacePlugins', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
     //
-    //Future<MattermostSystem> getMarketplaceVisitedByAdmin() async
+    //Future<MMSystem> getMarketplaceVisitedByAdmin() async
     test('test getMarketplaceVisitedByAdmin', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
     //
-    //Future<List<MattermostPluginStatus>> getPluginStatuses() async
+    //Future<List<MMPluginStatus>> getPluginStatuses() async
     test('test getPluginStatuses', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
     //
-    //Future<MattermostGetPlugins200Response> getPlugins() async
+    //Future<MMGetPlugins200Response> getPlugins() async
     test('test getPlugins', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
     //
-    //Future<List<MattermostPluginManifestWebapp>> getWebappPlugins() async
+    //Future<List<MMPluginManifestWebapp>> getWebappPlugins() async
     test('test getWebappPlugins', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Installs a plugin listed in the marketplace server.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.16 
     //
-    //Future<MattermostPluginManifest> installMarketplacePlugin(MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest) async
+    //Future<MMPluginManifest> installMarketplacePlugin(MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest) async
     test('test installMarketplacePlugin', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
     //
-    //Future<MattermostStatusOK> installPluginFromUrl(String pluginDownloadUrl, { String force }) async
+    //Future<MMStatusOK> installPluginFromUrl(String pluginDownloadUrl, { String force }) async
     test('test installPluginFromUrl', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Remove the plugin with the provided ID from the server. All plugin files are deleted. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
     //
-    //Future<MattermostStatusOK> removePlugin(String pluginId) async
+    //Future<MMStatusOK> removePlugin(String pluginId) async
     test('test removePlugin', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Upload a plugin that is contained within a compressed .tar.gz file. Plugins and plugin uploads must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
     //
-    //Future<MattermostStatusOK> uploadPlugin(MultipartFile plugin, { String force }) async
+    //Future<MMStatusOK> uploadPlugin(MultipartFile plugin, { String force }) async
     test('test uploadPlugin', () async {
       // TODO
     });

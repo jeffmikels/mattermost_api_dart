@@ -21,7 +21,7 @@ void main() {
     //
     // Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get some generic metadata about a URL. Used for creating link previews.  __Minimum server version__: 3.10  ##### Permissions No permission required but must be logged in. 
     //
-    //Future<MattermostOpenGraph> openGraph(MattermostOpenGraphRequest mattermostOpenGraphRequest) async
+    //Future<MMOpenGraph> openGraph(MMOpenGraphRequest mMOpenGraphRequest) async
     test('test openGraph', () async {
       // TODO
     });

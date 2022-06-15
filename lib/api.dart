@@ -1,1 +1,1 @@
-export './generated/api.dart';
+export 'generated/api.dart';

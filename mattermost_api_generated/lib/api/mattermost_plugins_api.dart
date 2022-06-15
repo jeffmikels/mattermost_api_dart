@@ -35,7 +35,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -60,16 +60,16 @@ class MattermostPluginsApi {
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> disablePlugin(String pluginId,) async {
+  Future<MMStatusOK?> disablePlugin(String pluginId,) async {
     final response = await disablePluginWithHttpInfo(pluginId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -92,7 +92,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -117,16 +117,16 @@ class MattermostPluginsApi {
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> enablePlugin(String pluginId,) async {
+  Future<MMStatusOK?> enablePlugin(String pluginId,) async {
     final response = await enablePluginWithHttpInfo(pluginId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -161,7 +161,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -215,18 +215,18 @@ class MattermostPluginsApi {
   ///
   /// * [bool] localOnly:
   ///   Set true to only retrieve local plugins.
-  Future<List<MattermostMarketplacePlugin>?> getMarketplacePlugins({ int? page, int? perPage, String? filter, String? serverVersion, bool? localOnly, }) async {
+  Future<List<MMMarketplacePlugin>?> getMarketplacePlugins({ int? page, int? perPage, String? filter, String? serverVersion, bool? localOnly, }) async {
     final response = await getMarketplacePluginsWithHttpInfo( page: page, perPage: perPage, filter: filter, serverVersion: serverVersion, localOnly: localOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostMarketplacePlugin>') as List)
-        .cast<MattermostMarketplacePlugin>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMMarketplacePlugin>') as List)
+        .cast<MMMarketplacePlugin>()
         .toList();
 
     }
@@ -245,7 +245,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -266,16 +266,16 @@ class MattermostPluginsApi {
   /// Get if the Plugin Marketplace has been visited by at least an admin.
   ///
   /// Retrieves the status that specifies that at least one System Admin has visited the in-product Plugin Marketplace. __Minimum server version: 5.33__ ##### Permissions Must have `manage_system` permissions. 
-  Future<MattermostSystem?> getMarketplaceVisitedByAdmin() async {
+  Future<MMSystem?> getMarketplaceVisitedByAdmin() async {
     final response = await getMarketplaceVisitedByAdminWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSystem',) as MattermostSystem;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSystem',) as MMSystem;
     
     }
     return null;
@@ -293,7 +293,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -314,18 +314,18 @@ class MattermostPluginsApi {
   /// Get plugins status
   ///
   /// Returns the status for plugins installed anywhere in the cluster  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
-  Future<List<MattermostPluginStatus>?> getPluginStatuses() async {
+  Future<List<MMPluginStatus>?> getPluginStatuses() async {
     final response = await getPluginStatusesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPluginStatus>') as List)
-        .cast<MattermostPluginStatus>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMPluginStatus>') as List)
+        .cast<MMPluginStatus>()
         .toList();
 
     }
@@ -344,7 +344,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -365,16 +365,16 @@ class MattermostPluginsApi {
   /// Get plugins
   ///
   /// Get a list of inactive and a list of active plugin manifests. Plugins must be enabled in the server's config settings.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 4.4 
-  Future<MattermostGetPlugins200Response?> getPlugins() async {
+  Future<MMGetPlugins200Response?> getPlugins() async {
     final response = await getPluginsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetPlugins200Response',) as MattermostGetPlugins200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGetPlugins200Response',) as MMGetPlugins200Response;
     
     }
     return null;
@@ -392,7 +392,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -413,18 +413,18 @@ class MattermostPluginsApi {
   /// Get webapp plugins
   ///
   /// Get a list of web app plugins installed and activated on the server.  ##### Permissions No permissions required.  __Minimum server version__: 4.4 
-  Future<List<MattermostPluginManifestWebapp>?> getWebappPlugins() async {
+  Future<List<MMPluginManifestWebapp>?> getWebappPlugins() async {
     final response = await getWebappPluginsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostPluginManifestWebapp>') as List)
-        .cast<MattermostPluginManifestWebapp>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMPluginManifestWebapp>') as List)
+        .cast<MMPluginManifestWebapp>()
         .toList();
 
     }
@@ -439,16 +439,16 @@ class MattermostPluginsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostInstallMarketplacePluginRequest] mattermostInstallMarketplacePluginRequest (required):
+  /// * [MMInstallMarketplacePluginRequest] mMInstallMarketplacePluginRequest (required):
   ///   The metadata identifying the plugin to install.
-  Future<Response> installMarketplacePluginWithHttpInfo(MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,) async {
+  Future<Response> installMarketplacePluginWithHttpInfo(MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/marketplace';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostInstallMarketplacePluginRequest;
+    Object? postBody = mMInstallMarketplacePluginRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -472,18 +472,18 @@ class MattermostPluginsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostInstallMarketplacePluginRequest] mattermostInstallMarketplacePluginRequest (required):
+  /// * [MMInstallMarketplacePluginRequest] mMInstallMarketplacePluginRequest (required):
   ///   The metadata identifying the plugin to install.
-  Future<MattermostPluginManifest?> installMarketplacePlugin(MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest,) async {
-    final response = await installMarketplacePluginWithHttpInfo(mattermostInstallMarketplacePluginRequest,);
+  Future<MMPluginManifest?> installMarketplacePlugin(MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest,) async {
+    final response = await installMarketplacePluginWithHttpInfo(mMInstallMarketplacePluginRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPluginManifest',) as MattermostPluginManifest;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPluginManifest',) as MMPluginManifest;
     
     }
     return null;
@@ -509,7 +509,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -543,16 +543,16 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<MattermostStatusOK?> installPluginFromUrl(String pluginDownloadUrl, { String? force, }) async {
+  Future<MMStatusOK?> installPluginFromUrl(String pluginDownloadUrl, { String? force, }) async {
     final response = await installPluginFromUrlWithHttpInfo(pluginDownloadUrl,  force: force, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -575,7 +575,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -600,16 +600,16 @@ class MattermostPluginsApi {
   /// Parameters:
   ///
   /// * [String] pluginId (required):
-  Future<MattermostStatusOK?> removePlugin(String pluginId,) async {
+  Future<MMStatusOK?> removePlugin(String pluginId,) async {
     final response = await removePluginWithHttpInfo(pluginId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -635,7 +635,7 @@ class MattermostPluginsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -678,16 +678,16 @@ class MattermostPluginsApi {
   ///
   /// * [String] force:
   ///   Set to 'true' to overwrite a previously installed plugin with the same ID, if any
-  Future<MattermostStatusOK?> uploadPlugin(MultipartFile plugin, { String? force, }) async {
+  Future<MMStatusOK?> uploadPlugin(MultipartFile plugin, { String? force, }) async {
     final response = await uploadPluginWithHttpInfo(plugin,  force: force, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

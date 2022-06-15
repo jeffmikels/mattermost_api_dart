@@ -21,7 +21,7 @@ void main() {
     //
     // Creates new terms of service  __Minimum server version__: 5.4 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MattermostTermsOfService> createTermsOfService() async
+    //Future<MMTermsOfService> createTermsOfService() async
     test('test createTermsOfService', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get latest terms of service from the server  __Minimum server version__: 5.4 ##### Permissions Must be authenticated. 
     //
-    //Future<MattermostTermsOfService> getTermsOfService() async
+    //Future<MMTermsOfService> getTermsOfService() async
     test('test getTermsOfService', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Will be deprecated in v6.0 Fetches user's latest terms of service action if the latest action was for acceptance.  __Minimum server version__: 5.6 ##### Permissions Must be logged in as the user being acted on. 
     //
-    //Future<MattermostUserTermsOfService> getUserTermsOfService(String userId) async
+    //Future<MMUserTermsOfService> getUserTermsOfService(String userId) async
     test('test getUserTermsOfService', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Records user action when they accept or decline custom terms of service. Records the action in audit table. Updates user's last accepted terms of service ID if they accepted it.  __Minimum server version__: 5.4 ##### Permissions Must be logged in as the user being acted on. 
     //
-    //Future<MattermostStatusOK> registerTermsOfServiceAction(String userId, MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest) async
+    //Future<MMStatusOK> registerTermsOfServiceAction(String userId, MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest) async
     test('test registerTermsOfServiceAction', () async {
       // TODO
     });

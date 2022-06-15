@@ -23,18 +23,18 @@ class MattermostIntegrationActionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostOpenInteractiveDialogRequest] mattermostOpenInteractiveDialogRequest (required):
+  /// * [MMOpenInteractiveDialogRequest] mMOpenInteractiveDialogRequest (required):
   ///   Metadata for the dialog to be opened
   Future<Response> openInteractiveDialogWithHttpInfo(
-    MattermostOpenInteractiveDialogRequest mattermostOpenInteractiveDialogRequest,
+    MMOpenInteractiveDialogRequest mMOpenInteractiveDialogRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/actions/dialogs/open';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostOpenInteractiveDialogRequest;
+    Object? postBody = mMOpenInteractiveDialogRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -57,16 +57,16 @@ class MattermostIntegrationActionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostOpenInteractiveDialogRequest] mattermostOpenInteractiveDialogRequest (required):
+  /// * [MMOpenInteractiveDialogRequest] mMOpenInteractiveDialogRequest (required):
   ///   Metadata for the dialog to be opened
-  Future<MattermostStatusOK?> openInteractiveDialog(
-    MattermostOpenInteractiveDialogRequest mattermostOpenInteractiveDialogRequest,
+  Future<MMStatusOK?> openInteractiveDialog(
+    MMOpenInteractiveDialogRequest mMOpenInteractiveDialogRequest,
   ) async {
     final response = await openInteractiveDialogWithHttpInfo(
-      mattermostOpenInteractiveDialogRequest,
+      mMOpenInteractiveDialogRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostIntegrationActionsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }
@@ -88,18 +88,18 @@ class MattermostIntegrationActionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSubmitInteractiveDialogRequest] mattermostSubmitInteractiveDialogRequest (required):
+  /// * [MMSubmitInteractiveDialogRequest] mMSubmitInteractiveDialogRequest (required):
   ///   Dialog submission data
   Future<Response> submitInteractiveDialogWithHttpInfo(
-    MattermostSubmitInteractiveDialogRequest mattermostSubmitInteractiveDialogRequest,
+    MMSubmitInteractiveDialogRequest mMSubmitInteractiveDialogRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/actions/dialogs/submit';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSubmitInteractiveDialogRequest;
+    Object? postBody = mMSubmitInteractiveDialogRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -122,16 +122,16 @@ class MattermostIntegrationActionsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSubmitInteractiveDialogRequest] mattermostSubmitInteractiveDialogRequest (required):
+  /// * [MMSubmitInteractiveDialogRequest] mMSubmitInteractiveDialogRequest (required):
   ///   Dialog submission data
-  Future<MattermostStatusOK?> submitInteractiveDialog(
-    MattermostSubmitInteractiveDialogRequest mattermostSubmitInteractiveDialogRequest,
+  Future<MMStatusOK?> submitInteractiveDialog(
+    MMSubmitInteractiveDialogRequest mMSubmitInteractiveDialogRequest,
   ) async {
     final response = await submitInteractiveDialogWithHttpInfo(
-      mattermostSubmitInteractiveDialogRequest,
+      mMSubmitInteractiveDialogRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -139,8 +139,8 @@ class MattermostIntegrationActionsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatusOK',
-      ) as MattermostStatusOK;
+        'MMStatusOK',
+      ) as MMStatusOK;
     }
     return null;
   }

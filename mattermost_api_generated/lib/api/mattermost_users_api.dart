@@ -26,15 +26,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostAttachDeviceIdRequest] mattermostAttachDeviceIdRequest (required):
-  Future<Response> attachDeviceIdWithHttpInfo(MattermostAttachDeviceIdRequest mattermostAttachDeviceIdRequest,) async {
+  /// * [MMAttachDeviceIdRequest] mMAttachDeviceIdRequest (required):
+  Future<Response> attachDeviceIdWithHttpInfo(MMAttachDeviceIdRequest mMAttachDeviceIdRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/sessions/device';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostAttachDeviceIdRequest;
+    Object? postBody = mMAttachDeviceIdRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -58,17 +58,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostAttachDeviceIdRequest] mattermostAttachDeviceIdRequest (required):
-  Future<MattermostStatusOK?> attachDeviceId(MattermostAttachDeviceIdRequest mattermostAttachDeviceIdRequest,) async {
-    final response = await attachDeviceIdWithHttpInfo(mattermostAttachDeviceIdRequest,);
+  /// * [MMAttachDeviceIdRequest] mMAttachDeviceIdRequest (required):
+  Future<MMStatusOK?> attachDeviceId(MMAttachDeviceIdRequest mMAttachDeviceIdRequest,) async {
+    final response = await attachDeviceIdWithHttpInfo(mMAttachDeviceIdRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -100,7 +100,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -146,16 +146,16 @@ class MattermostUsersApi {
   ///
   /// * [int] limit:
   ///   The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
-  Future<MattermostUserAutocomplete?> autocompleteUsers(String name, { String? teamId, String? channelId, int? limit, }) async {
+  Future<MMUserAutocomplete?> autocompleteUsers(String name, { String? teamId, String? channelId, int? limit, }) async {
     final response = await autocompleteUsersWithHttpInfo(name,  teamId: teamId, channelId: channelId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserAutocomplete',) as MattermostUserAutocomplete;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserAutocomplete',) as MMUserAutocomplete;
     
     }
     return null;
@@ -169,15 +169,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCheckUserMfaRequest] mattermostCheckUserMfaRequest (required):
-  Future<Response> checkUserMfaWithHttpInfo(MattermostCheckUserMfaRequest mattermostCheckUserMfaRequest,) async {
+  /// * [MMCheckUserMfaRequest] mMCheckUserMfaRequest (required):
+  Future<Response> checkUserMfaWithHttpInfo(MMCheckUserMfaRequest mMCheckUserMfaRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/mfa';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCheckUserMfaRequest;
+    Object? postBody = mMCheckUserMfaRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -201,17 +201,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCheckUserMfaRequest] mattermostCheckUserMfaRequest (required):
-  Future<MattermostCheckUserMfa200Response?> checkUserMfa(MattermostCheckUserMfaRequest mattermostCheckUserMfaRequest,) async {
-    final response = await checkUserMfaWithHttpInfo(mattermostCheckUserMfaRequest,);
+  /// * [MMCheckUserMfaRequest] mMCheckUserMfaRequest (required):
+  Future<MMCheckUserMfa200Response?> checkUserMfa(MMCheckUserMfaRequest mMCheckUserMfaRequest,) async {
+    final response = await checkUserMfaWithHttpInfo(mMCheckUserMfaRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostCheckUserMfa200Response',) as MattermostCheckUserMfa200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMCheckUserMfa200Response',) as MMCheckUserMfa200Response;
     
     }
     return null;
@@ -228,20 +228,20 @@ class MattermostUsersApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostConvertBotToUserRequest] mattermostConvertBotToUserRequest (required):
+  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<Response> convertBotToUserWithHttpInfo(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
+  Future<Response> convertBotToUserWithHttpInfo(String botUserId, MMConvertBotToUserRequest mMConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
     // ignore: prefer_const_declarations
     final path = r'/bots/{bot_user_id}/convert_to_user'
       .replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostConvertBotToUserRequest;
+    Object? postBody = mMConvertBotToUserRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -272,21 +272,21 @@ class MattermostUsersApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostConvertBotToUserRequest] mattermostConvertBotToUserRequest (required):
+  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<MattermostStatusOK?> convertBotToUser(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
-    final response = await convertBotToUserWithHttpInfo(botUserId, mattermostConvertBotToUserRequest,  setSystemAdmin: setSystemAdmin, );
+  Future<MMStatusOK?> convertBotToUser(String botUserId, MMConvertBotToUserRequest mMConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
+    final response = await convertBotToUserWithHttpInfo(botUserId, mMConvertBotToUserRequest,  setSystemAdmin: setSystemAdmin, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -310,7 +310,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -336,16 +336,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> convertUserToBot(String userId,) async {
+  Future<MMStatusOK?> convertUserToBot(String userId,) async {
     final response = await convertUserToBotWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -359,7 +359,7 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateUserRequest] mattermostCreateUserRequest (required):
+  /// * [MMCreateUserRequest] mMCreateUserRequest (required):
   ///   User object to be created
   ///
   /// * [String] t:
@@ -367,14 +367,14 @@ class MattermostUsersApi {
   ///
   /// * [String] iid:
   ///   Token id from an invitation link
-  Future<Response> createUserWithHttpInfo(MattermostCreateUserRequest mattermostCreateUserRequest, { String? t, String? iid, }) async {
+  Future<Response> createUserWithHttpInfo(MMCreateUserRequest mMCreateUserRequest, { String? t, String? iid, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateUserRequest;
+    Object? postBody = mMCreateUserRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -405,7 +405,7 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateUserRequest] mattermostCreateUserRequest (required):
+  /// * [MMCreateUserRequest] mMCreateUserRequest (required):
   ///   User object to be created
   ///
   /// * [String] t:
@@ -413,16 +413,16 @@ class MattermostUsersApi {
   ///
   /// * [String] iid:
   ///   Token id from an invitation link
-  Future<MattermostUser?> createUser(MattermostCreateUserRequest mattermostCreateUserRequest, { String? t, String? iid, }) async {
-    final response = await createUserWithHttpInfo(mattermostCreateUserRequest,  t: t, iid: iid, );
+  Future<MMUser?> createUser(MMCreateUserRequest mMCreateUserRequest, { String? t, String? iid, }) async {
+    final response = await createUserWithHttpInfo(mMCreateUserRequest,  t: t, iid: iid, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -439,16 +439,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostCreateUserAccessTokenRequest] mattermostCreateUserAccessTokenRequest (required):
-  Future<Response> createUserAccessTokenWithHttpInfo(String userId, MattermostCreateUserAccessTokenRequest mattermostCreateUserAccessTokenRequest,) async {
+  /// * [MMCreateUserAccessTokenRequest] mMCreateUserAccessTokenRequest (required):
+  Future<Response> createUserAccessTokenWithHttpInfo(String userId, MMCreateUserAccessTokenRequest mMCreateUserAccessTokenRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/tokens'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateUserAccessTokenRequest;
+    Object? postBody = mMCreateUserAccessTokenRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -475,17 +475,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostCreateUserAccessTokenRequest] mattermostCreateUserAccessTokenRequest (required):
-  Future<MattermostUserAccessToken?> createUserAccessToken(String userId, MattermostCreateUserAccessTokenRequest mattermostCreateUserAccessTokenRequest,) async {
-    final response = await createUserAccessTokenWithHttpInfo(userId, mattermostCreateUserAccessTokenRequest,);
+  /// * [MMCreateUserAccessTokenRequest] mMCreateUserAccessTokenRequest (required):
+  Future<MMUserAccessToken?> createUserAccessToken(String userId, MMCreateUserAccessTokenRequest mMCreateUserAccessTokenRequest,) async {
+    final response = await createUserAccessTokenWithHttpInfo(userId, mMCreateUserAccessTokenRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserAccessToken',) as MattermostUserAccessToken;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserAccessToken',) as MMUserAccessToken;
     
     }
     return null;
@@ -509,7 +509,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -535,16 +535,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> deleteUser(String userId,) async {
+  Future<MMStatusOK?> deleteUser(String userId,) async {
     final response = await deleteUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -568,7 +568,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -594,16 +594,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> demoteUserToGuest(String userId,) async {
+  Future<MMStatusOK?> demoteUserToGuest(String userId,) async {
     final response = await demoteUserToGuestWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -617,15 +617,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostDisableUserAccessTokenRequest] mattermostDisableUserAccessTokenRequest (required):
-  Future<Response> disableUserAccessTokenWithHttpInfo(MattermostDisableUserAccessTokenRequest mattermostDisableUserAccessTokenRequest,) async {
+  /// * [MMDisableUserAccessTokenRequest] mMDisableUserAccessTokenRequest (required):
+  Future<Response> disableUserAccessTokenWithHttpInfo(MMDisableUserAccessTokenRequest mMDisableUserAccessTokenRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/tokens/disable';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostDisableUserAccessTokenRequest;
+    Object? postBody = mMDisableUserAccessTokenRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -649,17 +649,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostDisableUserAccessTokenRequest] mattermostDisableUserAccessTokenRequest (required):
-  Future<MattermostStatusOK?> disableUserAccessToken(MattermostDisableUserAccessTokenRequest mattermostDisableUserAccessTokenRequest,) async {
-    final response = await disableUserAccessTokenWithHttpInfo(mattermostDisableUserAccessTokenRequest,);
+  /// * [MMDisableUserAccessTokenRequest] mMDisableUserAccessTokenRequest (required):
+  Future<MMStatusOK?> disableUserAccessToken(MMDisableUserAccessTokenRequest mMDisableUserAccessTokenRequest,) async {
+    final response = await disableUserAccessTokenWithHttpInfo(mMDisableUserAccessTokenRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -673,15 +673,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostEnableUserAccessTokenRequest] mattermostEnableUserAccessTokenRequest (required):
-  Future<Response> enableUserAccessTokenWithHttpInfo(MattermostEnableUserAccessTokenRequest mattermostEnableUserAccessTokenRequest,) async {
+  /// * [MMEnableUserAccessTokenRequest] mMEnableUserAccessTokenRequest (required):
+  Future<Response> enableUserAccessTokenWithHttpInfo(MMEnableUserAccessTokenRequest mMEnableUserAccessTokenRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/tokens/enable';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostEnableUserAccessTokenRequest;
+    Object? postBody = mMEnableUserAccessTokenRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -705,17 +705,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostEnableUserAccessTokenRequest] mattermostEnableUserAccessTokenRequest (required):
-  Future<MattermostStatusOK?> enableUserAccessToken(MattermostEnableUserAccessTokenRequest mattermostEnableUserAccessTokenRequest,) async {
-    final response = await enableUserAccessTokenWithHttpInfo(mattermostEnableUserAccessTokenRequest,);
+  /// * [MMEnableUserAccessTokenRequest] mMEnableUserAccessTokenRequest (required):
+  Future<MMStatusOK?> enableUserAccessToken(MMEnableUserAccessTokenRequest mMEnableUserAccessTokenRequest,) async {
+    final response = await enableUserAccessTokenWithHttpInfo(mMEnableUserAccessTokenRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -739,7 +739,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -765,16 +765,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostGenerateMfaSecret200Response?> generateMfaSecret(String userId,) async {
+  Future<MMGenerateMfaSecret200Response?> generateMfaSecret(String userId,) async {
     final response = await generateMfaSecretWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGenerateMfaSecret200Response',) as MattermostGenerateMfaSecret200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGenerateMfaSecret200Response',) as MMGenerateMfaSecret200Response;
     
     }
     return null;
@@ -804,7 +804,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -843,18 +843,18 @@ class MattermostUsersApi {
   ///
   /// * [int] pageSize:
   ///   PageSize specifies the size of the returned chunk of results.
-  Future<List<MattermostChannelMemberWithTeamData>?> getChannelMembersWithTeamDataForUser(String userId, { int? page, int? pageSize, }) async {
+  Future<List<MMChannelMemberWithTeamData>?> getChannelMembersWithTeamDataForUser(String userId, { int? page, int? pageSize, }) async {
     final response = await getChannelMembersWithTeamDataForUserWithHttpInfo(userId,  page: page, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostChannelMemberWithTeamData>') as List)
-        .cast<MattermostChannelMemberWithTeamData>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelMemberWithTeamData>') as List)
+        .cast<MMChannelMemberWithTeamData>()
         .toList();
 
     }
@@ -879,7 +879,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -908,7 +908,7 @@ class MattermostUsersApi {
   Future<void> getDefaultProfileImage(String userId,) async {
     final response = await getDefaultProfileImageWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -924,7 +924,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -945,16 +945,16 @@ class MattermostUsersApi {
   /// Get user IDs of known users
   ///
   /// Get the list of user IDs of users with any direct relationship with a user. That means any user sharing any channel, including direct and group channels. ##### Permissions Must be authenticated.  __Minimum server version__: 5.23 
-  Future<MattermostUsersStats?> getKnownUsers() async {
+  Future<MMUsersStats?> getKnownUsers() async {
     final response = await getKnownUsersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUsersStats',) as MattermostUsersStats;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUsersStats',) as MMUsersStats;
     
     }
     return null;
@@ -981,7 +981,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1017,7 +1017,7 @@ class MattermostUsersApi {
   Future<void> getProfileImage(String userId, { num? q, }) async {
     final response = await getProfileImageWithHttpInfo(userId,  q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -1039,7 +1039,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1065,18 +1065,18 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostSession>?> getSessions(String userId,) async {
+  Future<List<MMSession>?> getSessions(String userId,) async {
     final response = await getSessionsWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostSession>') as List)
-        .cast<MattermostSession>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMSession>') as List)
+        .cast<MMSession>()
         .toList();
 
     }
@@ -1095,7 +1095,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1116,16 +1116,16 @@ class MattermostUsersApi {
   /// Get total count of users in the system
   ///
   /// Get a total count of users in the system. ##### Permissions Must be authenticated. 
-  Future<MattermostUsersStats?> getTotalUsersStats() async {
+  Future<MMUsersStats?> getTotalUsersStats() async {
     final response = await getTotalUsersStatsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUsersStats',) as MattermostUsersStats;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUsersStats',) as MMUsersStats;
     
     }
     return null;
@@ -1166,7 +1166,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1232,16 +1232,16 @@ class MattermostUsersApi {
   ///
   /// * [String] teamRoles:
   ///   Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will include users that are only team users and not admins or guests 
-  Future<MattermostUsersStats?> getTotalUsersStatsFiltered({ String? inTeam, String? inChannel, bool? includeDeleted, bool? includeBots, String? roles, String? channelRoles, String? teamRoles, }) async {
+  Future<MMUsersStats?> getTotalUsersStatsFiltered({ String? inTeam, String? inChannel, bool? includeDeleted, bool? includeBots, String? roles, String? channelRoles, String? teamRoles, }) async {
     final response = await getTotalUsersStatsFilteredWithHttpInfo( inTeam: inTeam, inChannel: inChannel, includeDeleted: includeDeleted, includeBots: includeBots, roles: roles, channelRoles: channelRoles, teamRoles: teamRoles, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUsersStats',) as MattermostUsersStats;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUsersStats',) as MMUsersStats;
     
     }
     return null;
@@ -1265,7 +1265,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1291,18 +1291,18 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   The ID of the user. This can also be \"me\" which will point to the current user.
-  Future<List<MattermostUploadSession>?> getUploadsForUser(String userId,) async {
+  Future<List<MMUploadSession>?> getUploadsForUser(String userId,) async {
     final response = await getUploadsForUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUploadSession>') as List)
-        .cast<MattermostUploadSession>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUploadSession>') as List)
+        .cast<MMUploadSession>()
         .toList();
 
     }
@@ -1327,7 +1327,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1353,16 +1353,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID. This can also be \"me\" which will point to the current user.
-  Future<MattermostUser?> getUser(String userId,) async {
+  Future<MMUser?> getUser(String userId,) async {
     final response = await getUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -1386,7 +1386,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1412,16 +1412,16 @@ class MattermostUsersApi {
   ///
   /// * [String] tokenId (required):
   ///   User access token GUID
-  Future<MattermostUserAccessTokenSanitized?> getUserAccessToken(String tokenId,) async {
+  Future<MMUserAccessTokenSanitized?> getUserAccessToken(String tokenId,) async {
     final response = await getUserAccessTokenWithHttpInfo(tokenId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserAccessTokenSanitized',) as MattermostUserAccessTokenSanitized;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserAccessTokenSanitized',) as MMUserAccessTokenSanitized;
     
     }
     return null;
@@ -1447,7 +1447,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1483,18 +1483,18 @@ class MattermostUsersApi {
   ///
   /// * [int] perPage:
   ///   The number of tokens per page.
-  Future<List<MattermostUserAccessTokenSanitized>?> getUserAccessTokens({ int? page, int? perPage, }) async {
+  Future<List<MMUserAccessTokenSanitized>?> getUserAccessTokens({ int? page, int? perPage, }) async {
     final response = await getUserAccessTokensWithHttpInfo( page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUserAccessTokenSanitized>') as List)
-        .cast<MattermostUserAccessTokenSanitized>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUserAccessTokenSanitized>') as List)
+        .cast<MMUserAccessTokenSanitized>()
         .toList();
 
     }
@@ -1525,7 +1525,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1564,18 +1564,18 @@ class MattermostUsersApi {
   ///
   /// * [int] perPage:
   ///   The number of tokens per page.
-  Future<List<MattermostUserAccessTokenSanitized>?> getUserAccessTokensForUser(String userId, { int? page, int? perPage, }) async {
+  Future<List<MMUserAccessTokenSanitized>?> getUserAccessTokensForUser(String userId, { int? page, int? perPage, }) async {
     final response = await getUserAccessTokensForUserWithHttpInfo(userId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUserAccessTokenSanitized>') as List)
-        .cast<MattermostUserAccessTokenSanitized>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUserAccessTokenSanitized>') as List)
+        .cast<MMUserAccessTokenSanitized>()
         .toList();
 
     }
@@ -1600,7 +1600,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1626,18 +1626,18 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostAudit>?> getUserAudits(String userId,) async {
+  Future<List<MMAudit>?> getUserAudits(String userId,) async {
     final response = await getUserAuditsWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostAudit>') as List)
-        .cast<MattermostAudit>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMAudit>') as List)
+        .cast<MMAudit>()
         .toList();
 
     }
@@ -1662,7 +1662,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1688,16 +1688,16 @@ class MattermostUsersApi {
   ///
   /// * [String] email (required):
   ///   User Email
-  Future<MattermostUser?> getUserByEmail(String email,) async {
+  Future<MMUser?> getUserByEmail(String email,) async {
     final response = await getUserByEmailWithHttpInfo(email,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -1721,7 +1721,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1747,16 +1747,16 @@ class MattermostUsersApi {
   ///
   /// * [String] username (required):
   ///   Username
-  Future<MattermostUser?> getUserByUsername(String username,) async {
+  Future<MMUser?> getUserByUsername(String username,) async {
     final response = await getUserByUsernameWithHttpInfo(username,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -1780,7 +1780,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1806,16 +1806,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostUserTermsOfService?> getUserTermsOfService(String userId,) async {
+  Future<MMUserTermsOfService?> getUserTermsOfService(String userId,) async {
     final response = await getUserTermsOfServiceWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserTermsOfService',) as MattermostUserTermsOfService;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserTermsOfService',) as MMUserTermsOfService;
     
     }
     return null;
@@ -1883,7 +1883,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2003,18 +2003,18 @@ class MattermostUsersApi {
   ///
   /// * [String] teamRoles:
   ///   Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will return users that are only team users and not admins or guests  __Minimum server version__: 5.26 
-  Future<List<MattermostUser>?> getUsers({ int? page, int? perPage, String? inTeam, String? notInTeam, String? inChannel, String? notInChannel, String? inGroup, bool? groupConstrained, bool? withoutTeam, bool? active, bool? inactive, String? role, String? sort, String? roles, String? channelRoles, String? teamRoles, }) async {
+  Future<List<MMUser>?> getUsers({ int? page, int? perPage, String? inTeam, String? notInTeam, String? inChannel, String? notInChannel, String? inGroup, bool? groupConstrained, bool? withoutTeam, bool? active, bool? inactive, String? role, String? sort, String? roles, String? channelRoles, String? teamRoles, }) async {
     final response = await getUsersWithHttpInfo( page: page, perPage: perPage, inTeam: inTeam, notInTeam: notInTeam, inChannel: inChannel, notInChannel: notInChannel, inGroup: inGroup, groupConstrained: groupConstrained, withoutTeam: withoutTeam, active: active, inactive: inactive, role: role, sort: sort, roles: roles, channelRoles: channelRoles, teamRoles: teamRoles, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUser>') as List)
-        .cast<MattermostUser>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUser>') as List)
+        .cast<MMUser>()
         .toList();
 
     }
@@ -2038,7 +2038,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2064,16 +2064,16 @@ class MattermostUsersApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of group channel ids
-  Future<MattermostGetUsersByGroupChannelIds200Response?> getUsersByGroupChannelIds(List<String> requestBody,) async {
+  Future<MMGetUsersByGroupChannelIds200Response?> getUsersByGroupChannelIds(List<String> requestBody,) async {
     final response = await getUsersByGroupChannelIdsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetUsersByGroupChannelIds200Response',) as MattermostGetUsersByGroupChannelIds200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGetUsersByGroupChannelIds200Response',) as MMGetUsersByGroupChannelIds200Response;
     
     }
     return null;
@@ -2099,7 +2099,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2132,18 +2132,18 @@ class MattermostUsersApi {
   ///
   /// * [int] since:
   ///   Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14 
-  Future<List<MattermostUser>?> getUsersByIds(List<String> requestBody, { int? since, }) async {
+  Future<List<MMUser>?> getUsersByIds(List<String> requestBody, { int? since, }) async {
     final response = await getUsersByIdsWithHttpInfo(requestBody,  since: since, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUser>') as List)
-        .cast<MattermostUser>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUser>') as List)
+        .cast<MMUser>()
         .toList();
 
     }
@@ -2167,7 +2167,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2193,18 +2193,18 @@ class MattermostUsersApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of usernames
-  Future<List<MattermostUser>?> getUsersByUsernames(List<String> requestBody,) async {
+  Future<List<MMUser>?> getUsersByUsernames(List<String> requestBody,) async {
     final response = await getUsersByUsernamesWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUser>') as List)
-        .cast<MattermostUser>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUser>') as List)
+        .cast<MMUser>()
         .toList();
 
     }
@@ -2219,16 +2219,16 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostLoginRequest] mattermostLoginRequest (required):
+  /// * [MMLoginRequest] mMLoginRequest (required):
   ///   User authentication object
-  Future<Response> loginWithHttpInfo(MattermostLoginRequest mattermostLoginRequest,) async {
+  Future<Response> loginWithHttpInfo(MMLoginRequest mMLoginRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/login';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostLoginRequest;
+    Object? postBody = mMLoginRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2252,18 +2252,18 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostLoginRequest] mattermostLoginRequest (required):
+  /// * [MMLoginRequest] mMLoginRequest (required):
   ///   User authentication object
-  Future<MattermostUser?> login(MattermostLoginRequest mattermostLoginRequest,) async {
-    final response = await loginWithHttpInfo(mattermostLoginRequest,);
+  Future<MMUser?> login(MMLoginRequest mMLoginRequest,) async {
+    final response = await loginWithHttpInfo(mMLoginRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -2277,16 +2277,16 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostLoginByCwsTokenRequest] mattermostLoginByCwsTokenRequest (required):
+  /// * [MMLoginByCwsTokenRequest] mMLoginByCwsTokenRequest (required):
   ///   User authentication object
-  Future<Response> loginByCwsTokenWithHttpInfo(MattermostLoginByCwsTokenRequest mattermostLoginByCwsTokenRequest,) async {
+  Future<Response> loginByCwsTokenWithHttpInfo(MMLoginByCwsTokenRequest mMLoginByCwsTokenRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/login/cws';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostLoginByCwsTokenRequest;
+    Object? postBody = mMLoginByCwsTokenRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2310,12 +2310,12 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostLoginByCwsTokenRequest] mattermostLoginByCwsTokenRequest (required):
+  /// * [MMLoginByCwsTokenRequest] mMLoginByCwsTokenRequest (required):
   ///   User authentication object
-  Future<void> loginByCwsToken(MattermostLoginByCwsTokenRequest mattermostLoginByCwsTokenRequest,) async {
-    final response = await loginByCwsTokenWithHttpInfo(mattermostLoginByCwsTokenRequest,);
+  Future<void> loginByCwsToken(MMLoginByCwsTokenRequest mMLoginByCwsTokenRequest,) async {
+    final response = await loginByCwsTokenWithHttpInfo(mMLoginByCwsTokenRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2331,7 +2331,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2352,16 +2352,16 @@ class MattermostUsersApi {
   /// Logout from the Mattermost server
   ///
   /// ##### Permissions An active session is required 
-  Future<MattermostStatusOK?> logout() async {
+  Future<MMStatusOK?> logout() async {
     final response = await logoutWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2375,15 +2375,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
-  Future<Response> migrateAuthToLdapWithHttpInfo({ MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest, }) async {
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
+  Future<Response> migrateAuthToLdapWithHttpInfo({ MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/ldap';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToLdapRequest;
+    Object? postBody = mMMigrateAuthToLdapRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2407,11 +2407,11 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
-  Future<void> migrateAuthToLdap({ MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest, }) async {
-    final response = await migrateAuthToLdapWithHttpInfo( mattermostMigrateAuthToLdapRequest: mattermostMigrateAuthToLdapRequest, );
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
+  Future<void> migrateAuthToLdap({ MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest, }) async {
+    final response = await migrateAuthToLdapWithHttpInfo( mMMigrateAuthToLdapRequest: mMMigrateAuthToLdapRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2423,15 +2423,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<Response> migrateAuthToSamlWithHttpInfo({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
+  Future<Response> migrateAuthToSamlWithHttpInfo({ MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/saml';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToSamlRequest;
+    Object? postBody = mMMigrateAuthToSamlRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2455,11 +2455,11 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToSamlRequest] mattermostMigrateAuthToSamlRequest:
-  Future<void> migrateAuthToSaml({ MattermostMigrateAuthToSamlRequest? mattermostMigrateAuthToSamlRequest, }) async {
-    final response = await migrateAuthToSamlWithHttpInfo( mattermostMigrateAuthToSamlRequest: mattermostMigrateAuthToSamlRequest, );
+  /// * [MMMigrateAuthToSamlRequest] mMMigrateAuthToSamlRequest:
+  Future<void> migrateAuthToSaml({ MMMigrateAuthToSamlRequest? mMMigrateAuthToSamlRequest, }) async {
+    final response = await migrateAuthToSamlWithHttpInfo( mMMigrateAuthToSamlRequest: mMMigrateAuthToSamlRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2474,17 +2474,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostPatchUserRequest] mattermostPatchUserRequest (required):
+  /// * [MMPatchUserRequest] mMPatchUserRequest (required):
   ///   User object that is to be updated
-  Future<Response> patchUserWithHttpInfo(String userId, MattermostPatchUserRequest mattermostPatchUserRequest,) async {
+  Future<Response> patchUserWithHttpInfo(String userId, MMPatchUserRequest mMPatchUserRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/patch'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPatchUserRequest;
+    Object? postBody = mMPatchUserRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2511,18 +2511,18 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostPatchUserRequest] mattermostPatchUserRequest (required):
+  /// * [MMPatchUserRequest] mMPatchUserRequest (required):
   ///   User object that is to be updated
-  Future<MattermostUser?> patchUser(String userId, MattermostPatchUserRequest mattermostPatchUserRequest,) async {
-    final response = await patchUserWithHttpInfo(userId, mattermostPatchUserRequest,);
+  Future<MMUser?> patchUser(String userId, MMPatchUserRequest mMPatchUserRequest,) async {
+    final response = await patchUserWithHttpInfo(userId, mMPatchUserRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -2540,7 +2540,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2564,7 +2564,7 @@ class MattermostUsersApi {
   Future<void> permanentDeleteAllUsers() async {
     final response = await permanentDeleteAllUsersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2586,7 +2586,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2612,16 +2612,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> promoteGuestToUser(String userId,) async {
+  Future<MMStatusOK?> promoteGuestToUser(String userId,) async {
     final response = await promoteGuestToUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2638,16 +2638,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostPublishUserTypingRequest] mattermostPublishUserTypingRequest:
-  Future<Response> publishUserTypingWithHttpInfo(String userId, { MattermostPublishUserTypingRequest? mattermostPublishUserTypingRequest, }) async {
+  /// * [MMPublishUserTypingRequest] mMPublishUserTypingRequest:
+  Future<Response> publishUserTypingWithHttpInfo(String userId, { MMPublishUserTypingRequest? mMPublishUserTypingRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/typing'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPublishUserTypingRequest;
+    Object? postBody = mMPublishUserTypingRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2674,11 +2674,11 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostPublishUserTypingRequest] mattermostPublishUserTypingRequest:
-  Future<void> publishUserTyping(String userId, { MattermostPublishUserTypingRequest? mattermostPublishUserTypingRequest, }) async {
-    final response = await publishUserTypingWithHttpInfo(userId,  mattermostPublishUserTypingRequest: mattermostPublishUserTypingRequest, );
+  /// * [MMPublishUserTypingRequest] mMPublishUserTypingRequest:
+  Future<void> publishUserTyping(String userId, { MMPublishUserTypingRequest? mMPublishUserTypingRequest, }) async {
+    final response = await publishUserTypingWithHttpInfo(userId,  mMPublishUserTypingRequest: mMPublishUserTypingRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2693,17 +2693,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRegisterTermsOfServiceActionRequest] mattermostRegisterTermsOfServiceActionRequest (required):
+  /// * [MMRegisterTermsOfServiceActionRequest] mMRegisterTermsOfServiceActionRequest (required):
   ///   terms of service details
-  Future<Response> registerTermsOfServiceActionWithHttpInfo(String userId, MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest,) async {
+  Future<Response> registerTermsOfServiceActionWithHttpInfo(String userId, MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/terms_of_service'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRegisterTermsOfServiceActionRequest;
+    Object? postBody = mMRegisterTermsOfServiceActionRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2730,18 +2730,18 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRegisterTermsOfServiceActionRequest] mattermostRegisterTermsOfServiceActionRequest (required):
+  /// * [MMRegisterTermsOfServiceActionRequest] mMRegisterTermsOfServiceActionRequest (required):
   ///   terms of service details
-  Future<MattermostStatusOK?> registerTermsOfServiceAction(String userId, MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest,) async {
-    final response = await registerTermsOfServiceActionWithHttpInfo(userId, mattermostRegisterTermsOfServiceActionRequest,);
+  Future<MMStatusOK?> registerTermsOfServiceAction(String userId, MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest,) async {
+    final response = await registerTermsOfServiceActionWithHttpInfo(userId, mMRegisterTermsOfServiceActionRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2755,15 +2755,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostResetPasswordRequest] mattermostResetPasswordRequest (required):
-  Future<Response> resetPasswordWithHttpInfo(MattermostResetPasswordRequest mattermostResetPasswordRequest,) async {
+  /// * [MMResetPasswordRequest] mMResetPasswordRequest (required):
+  Future<Response> resetPasswordWithHttpInfo(MMResetPasswordRequest mMResetPasswordRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/password/reset';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostResetPasswordRequest;
+    Object? postBody = mMResetPasswordRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2787,17 +2787,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostResetPasswordRequest] mattermostResetPasswordRequest (required):
-  Future<MattermostStatusOK?> resetPassword(MattermostResetPasswordRequest mattermostResetPasswordRequest,) async {
-    final response = await resetPasswordWithHttpInfo(mattermostResetPasswordRequest,);
+  /// * [MMResetPasswordRequest] mMResetPasswordRequest (required):
+  Future<MMStatusOK?> resetPassword(MMResetPasswordRequest mMResetPasswordRequest,) async {
+    final response = await resetPasswordWithHttpInfo(mMResetPasswordRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2821,7 +2821,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2847,16 +2847,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> revokeAllSessions(String userId,) async {
+  Future<MMStatusOK?> revokeAllSessions(String userId,) async {
     final response = await revokeAllSessionsWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2873,16 +2873,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRevokeSessionRequest] mattermostRevokeSessionRequest (required):
-  Future<Response> revokeSessionWithHttpInfo(String userId, MattermostRevokeSessionRequest mattermostRevokeSessionRequest,) async {
+  /// * [MMRevokeSessionRequest] mMRevokeSessionRequest (required):
+  Future<Response> revokeSessionWithHttpInfo(String userId, MMRevokeSessionRequest mMRevokeSessionRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/sessions/revoke'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRevokeSessionRequest;
+    Object? postBody = mMRevokeSessionRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2909,17 +2909,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostRevokeSessionRequest] mattermostRevokeSessionRequest (required):
-  Future<MattermostStatusOK?> revokeSession(String userId, MattermostRevokeSessionRequest mattermostRevokeSessionRequest,) async {
-    final response = await revokeSessionWithHttpInfo(userId, mattermostRevokeSessionRequest,);
+  /// * [MMRevokeSessionRequest] mMRevokeSessionRequest (required):
+  Future<MMStatusOK?> revokeSession(String userId, MMRevokeSessionRequest mMRevokeSessionRequest,) async {
+    final response = await revokeSessionWithHttpInfo(userId, mMRevokeSessionRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -2937,7 +2937,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2961,7 +2961,7 @@ class MattermostUsersApi {
   Future<void> revokeSessionsFromAllUsers() async {
     final response = await revokeSessionsFromAllUsersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2973,15 +2973,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostRevokeUserAccessTokenRequest] mattermostRevokeUserAccessTokenRequest (required):
-  Future<Response> revokeUserAccessTokenWithHttpInfo(MattermostRevokeUserAccessTokenRequest mattermostRevokeUserAccessTokenRequest,) async {
+  /// * [MMRevokeUserAccessTokenRequest] mMRevokeUserAccessTokenRequest (required):
+  Future<Response> revokeUserAccessTokenWithHttpInfo(MMRevokeUserAccessTokenRequest mMRevokeUserAccessTokenRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/tokens/revoke';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRevokeUserAccessTokenRequest;
+    Object? postBody = mMRevokeUserAccessTokenRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3005,17 +3005,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostRevokeUserAccessTokenRequest] mattermostRevokeUserAccessTokenRequest (required):
-  Future<MattermostStatusOK?> revokeUserAccessToken(MattermostRevokeUserAccessTokenRequest mattermostRevokeUserAccessTokenRequest,) async {
-    final response = await revokeUserAccessTokenWithHttpInfo(mattermostRevokeUserAccessTokenRequest,);
+  /// * [MMRevokeUserAccessTokenRequest] mMRevokeUserAccessTokenRequest (required):
+  Future<MMStatusOK?> revokeUserAccessToken(MMRevokeUserAccessTokenRequest mMRevokeUserAccessTokenRequest,) async {
+    final response = await revokeUserAccessTokenWithHttpInfo(mMRevokeUserAccessTokenRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3029,16 +3029,16 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchUserAccessTokensRequest] mattermostSearchUserAccessTokensRequest (required):
+  /// * [MMSearchUserAccessTokensRequest] mMSearchUserAccessTokensRequest (required):
   ///   Search criteria
-  Future<Response> searchUserAccessTokensWithHttpInfo(MattermostSearchUserAccessTokensRequest mattermostSearchUserAccessTokensRequest,) async {
+  Future<Response> searchUserAccessTokensWithHttpInfo(MMSearchUserAccessTokensRequest mMSearchUserAccessTokensRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/tokens/search';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSearchUserAccessTokensRequest;
+    Object? postBody = mMSearchUserAccessTokensRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3062,20 +3062,20 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchUserAccessTokensRequest] mattermostSearchUserAccessTokensRequest (required):
+  /// * [MMSearchUserAccessTokensRequest] mMSearchUserAccessTokensRequest (required):
   ///   Search criteria
-  Future<List<MattermostUserAccessTokenSanitized>?> searchUserAccessTokens(MattermostSearchUserAccessTokensRequest mattermostSearchUserAccessTokensRequest,) async {
-    final response = await searchUserAccessTokensWithHttpInfo(mattermostSearchUserAccessTokensRequest,);
+  Future<List<MMUserAccessTokenSanitized>?> searchUserAccessTokens(MMSearchUserAccessTokensRequest mMSearchUserAccessTokensRequest,) async {
+    final response = await searchUserAccessTokensWithHttpInfo(mMSearchUserAccessTokensRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUserAccessTokenSanitized>') as List)
-        .cast<MattermostUserAccessTokenSanitized>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUserAccessTokenSanitized>') as List)
+        .cast<MMUserAccessTokenSanitized>()
         .toList();
 
     }
@@ -3090,16 +3090,16 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchUsersRequest] mattermostSearchUsersRequest (required):
+  /// * [MMSearchUsersRequest] mMSearchUsersRequest (required):
   ///   Search criteria
-  Future<Response> searchUsersWithHttpInfo(MattermostSearchUsersRequest mattermostSearchUsersRequest,) async {
+  Future<Response> searchUsersWithHttpInfo(MMSearchUsersRequest mMSearchUsersRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/search';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSearchUsersRequest;
+    Object? postBody = mMSearchUsersRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3123,20 +3123,20 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchUsersRequest] mattermostSearchUsersRequest (required):
+  /// * [MMSearchUsersRequest] mMSearchUsersRequest (required):
   ///   Search criteria
-  Future<List<MattermostUser>?> searchUsers(MattermostSearchUsersRequest mattermostSearchUsersRequest,) async {
-    final response = await searchUsersWithHttpInfo(mattermostSearchUsersRequest,);
+  Future<List<MMUser>?> searchUsers(MMSearchUsersRequest mMSearchUsersRequest,) async {
+    final response = await searchUsersWithHttpInfo(mMSearchUsersRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostUser>') as List)
-        .cast<MattermostUser>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMUser>') as List)
+        .cast<MMUser>()
         .toList();
 
     }
@@ -3151,15 +3151,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSendPasswordResetEmailRequest] mattermostSendPasswordResetEmailRequest (required):
-  Future<Response> sendPasswordResetEmailWithHttpInfo(MattermostSendPasswordResetEmailRequest mattermostSendPasswordResetEmailRequest,) async {
+  /// * [MMSendPasswordResetEmailRequest] mMSendPasswordResetEmailRequest (required):
+  Future<Response> sendPasswordResetEmailWithHttpInfo(MMSendPasswordResetEmailRequest mMSendPasswordResetEmailRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/password/reset/send';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSendPasswordResetEmailRequest;
+    Object? postBody = mMSendPasswordResetEmailRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3183,17 +3183,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSendPasswordResetEmailRequest] mattermostSendPasswordResetEmailRequest (required):
-  Future<MattermostStatusOK?> sendPasswordResetEmail(MattermostSendPasswordResetEmailRequest mattermostSendPasswordResetEmailRequest,) async {
-    final response = await sendPasswordResetEmailWithHttpInfo(mattermostSendPasswordResetEmailRequest,);
+  /// * [MMSendPasswordResetEmailRequest] mMSendPasswordResetEmailRequest (required):
+  Future<MMStatusOK?> sendPasswordResetEmail(MMSendPasswordResetEmailRequest mMSendPasswordResetEmailRequest,) async {
+    final response = await sendPasswordResetEmailWithHttpInfo(mMSendPasswordResetEmailRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3207,15 +3207,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSendVerificationEmailRequest] mattermostSendVerificationEmailRequest (required):
-  Future<Response> sendVerificationEmailWithHttpInfo(MattermostSendVerificationEmailRequest mattermostSendVerificationEmailRequest,) async {
+  /// * [MMSendVerificationEmailRequest] mMSendVerificationEmailRequest (required):
+  Future<Response> sendVerificationEmailWithHttpInfo(MMSendVerificationEmailRequest mMSendVerificationEmailRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/email/verify/send';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSendVerificationEmailRequest;
+    Object? postBody = mMSendVerificationEmailRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3239,17 +3239,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSendVerificationEmailRequest] mattermostSendVerificationEmailRequest (required):
-  Future<MattermostStatusOK?> sendVerificationEmail(MattermostSendVerificationEmailRequest mattermostSendVerificationEmailRequest,) async {
-    final response = await sendVerificationEmailWithHttpInfo(mattermostSendVerificationEmailRequest,);
+  /// * [MMSendVerificationEmailRequest] mMSendVerificationEmailRequest (required):
+  Future<MMStatusOK?> sendVerificationEmail(MMSendVerificationEmailRequest mMSendVerificationEmailRequest,) async {
+    final response = await sendVerificationEmailWithHttpInfo(mMSendVerificationEmailRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3273,7 +3273,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3299,16 +3299,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> setDefaultProfileImage(String userId,) async {
+  Future<MMStatusOK?> setDefaultProfileImage(String userId,) async {
     final response = await setDefaultProfileImageWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3335,7 +3335,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3374,16 +3374,16 @@ class MattermostUsersApi {
   ///
   /// * [MultipartFile] image (required):
   ///   The image to be uploaded
-  Future<MattermostStatusOK?> setProfileImage(String userId, MultipartFile image,) async {
+  Future<MMStatusOK?> setProfileImage(String userId, MultipartFile image,) async {
     final response = await setProfileImageWithHttpInfo(userId, image,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3397,15 +3397,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSwitchAccountTypeRequest] mattermostSwitchAccountTypeRequest (required):
-  Future<Response> switchAccountTypeWithHttpInfo(MattermostSwitchAccountTypeRequest mattermostSwitchAccountTypeRequest,) async {
+  /// * [MMSwitchAccountTypeRequest] mMSwitchAccountTypeRequest (required):
+  Future<Response> switchAccountTypeWithHttpInfo(MMSwitchAccountTypeRequest mMSwitchAccountTypeRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/login/switch';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSwitchAccountTypeRequest;
+    Object? postBody = mMSwitchAccountTypeRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3429,17 +3429,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSwitchAccountTypeRequest] mattermostSwitchAccountTypeRequest (required):
-  Future<MattermostSwitchAccountType200Response?> switchAccountType(MattermostSwitchAccountTypeRequest mattermostSwitchAccountTypeRequest,) async {
-    final response = await switchAccountTypeWithHttpInfo(mattermostSwitchAccountTypeRequest,);
+  /// * [MMSwitchAccountTypeRequest] mMSwitchAccountTypeRequest (required):
+  Future<MMSwitchAccountType200Response?> switchAccountType(MMSwitchAccountTypeRequest mMSwitchAccountTypeRequest,) async {
+    final response = await switchAccountTypeWithHttpInfo(mMSwitchAccountTypeRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostSwitchAccountType200Response',) as MattermostSwitchAccountType200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSwitchAccountType200Response',) as MMSwitchAccountType200Response;
     
     }
     return null;
@@ -3456,17 +3456,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserRequest] mattermostUpdateUserRequest (required):
+  /// * [MMUpdateUserRequest] mMUpdateUserRequest (required):
   ///   User object that is to be updated
-  Future<Response> updateUserWithHttpInfo(String userId, MattermostUpdateUserRequest mattermostUpdateUserRequest,) async {
+  Future<Response> updateUserWithHttpInfo(String userId, MMUpdateUserRequest mMUpdateUserRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserRequest;
+    Object? postBody = mMUpdateUserRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3493,18 +3493,18 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserRequest] mattermostUpdateUserRequest (required):
+  /// * [MMUpdateUserRequest] mMUpdateUserRequest (required):
   ///   User object that is to be updated
-  Future<MattermostUser?> updateUser(String userId, MattermostUpdateUserRequest mattermostUpdateUserRequest,) async {
-    final response = await updateUserWithHttpInfo(userId, mattermostUpdateUserRequest,);
+  Future<MMUser?> updateUser(String userId, MMUpdateUserRequest mMUpdateUserRequest,) async {
+    final response = await updateUserWithHttpInfo(userId, mMUpdateUserRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;
@@ -3521,17 +3521,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserActiveRequest] mattermostUpdateUserActiveRequest (required):
+  /// * [MMUpdateUserActiveRequest] mMUpdateUserActiveRequest (required):
   ///   Use `true` to set the user active, `false` for inactive
-  Future<Response> updateUserActiveWithHttpInfo(String userId, MattermostUpdateUserActiveRequest mattermostUpdateUserActiveRequest,) async {
+  Future<Response> updateUserActiveWithHttpInfo(String userId, MMUpdateUserActiveRequest mMUpdateUserActiveRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/active'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserActiveRequest;
+    Object? postBody = mMUpdateUserActiveRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3558,18 +3558,18 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserActiveRequest] mattermostUpdateUserActiveRequest (required):
+  /// * [MMUpdateUserActiveRequest] mMUpdateUserActiveRequest (required):
   ///   Use `true` to set the user active, `false` for inactive
-  Future<MattermostStatusOK?> updateUserActive(String userId, MattermostUpdateUserActiveRequest mattermostUpdateUserActiveRequest,) async {
-    final response = await updateUserActiveWithHttpInfo(userId, mattermostUpdateUserActiveRequest,);
+  Future<MMStatusOK?> updateUserActive(String userId, MMUpdateUserActiveRequest mMUpdateUserActiveRequest,) async {
+    final response = await updateUserActiveWithHttpInfo(userId, mMUpdateUserActiveRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3586,16 +3586,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUserAuthData] mattermostUserAuthData (required):
-  Future<Response> updateUserAuthWithHttpInfo(String userId, MattermostUserAuthData mattermostUserAuthData,) async {
+  /// * [MMUserAuthData] mMUserAuthData (required):
+  Future<Response> updateUserAuthWithHttpInfo(String userId, MMUserAuthData mMUserAuthData,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/auth'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUserAuthData;
+    Object? postBody = mMUserAuthData;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3622,17 +3622,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUserAuthData] mattermostUserAuthData (required):
-  Future<MattermostUserAuthData?> updateUserAuth(String userId, MattermostUserAuthData mattermostUserAuthData,) async {
-    final response = await updateUserAuthWithHttpInfo(userId, mattermostUserAuthData,);
+  /// * [MMUserAuthData] mMUserAuthData (required):
+  Future<MMUserAuthData?> updateUserAuth(String userId, MMUserAuthData mMUserAuthData,) async {
+    final response = await updateUserAuthWithHttpInfo(userId, mMUserAuthData,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUserAuthData',) as MattermostUserAuthData;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUserAuthData',) as MMUserAuthData;
     
     }
     return null;
@@ -3649,16 +3649,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserMfaRequest] mattermostUpdateUserMfaRequest (required):
-  Future<Response> updateUserMfaWithHttpInfo(String userId, MattermostUpdateUserMfaRequest mattermostUpdateUserMfaRequest,) async {
+  /// * [MMUpdateUserMfaRequest] mMUpdateUserMfaRequest (required):
+  Future<Response> updateUserMfaWithHttpInfo(String userId, MMUpdateUserMfaRequest mMUpdateUserMfaRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/mfa'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserMfaRequest;
+    Object? postBody = mMUpdateUserMfaRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3685,17 +3685,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserMfaRequest] mattermostUpdateUserMfaRequest (required):
-  Future<MattermostStatusOK?> updateUserMfa(String userId, MattermostUpdateUserMfaRequest mattermostUpdateUserMfaRequest,) async {
-    final response = await updateUserMfaWithHttpInfo(userId, mattermostUpdateUserMfaRequest,);
+  /// * [MMUpdateUserMfaRequest] mMUpdateUserMfaRequest (required):
+  Future<MMStatusOK?> updateUserMfa(String userId, MMUpdateUserMfaRequest mMUpdateUserMfaRequest,) async {
+    final response = await updateUserMfaWithHttpInfo(userId, mMUpdateUserMfaRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3712,16 +3712,16 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserPasswordRequest] mattermostUpdateUserPasswordRequest (required):
-  Future<Response> updateUserPasswordWithHttpInfo(String userId, MattermostUpdateUserPasswordRequest mattermostUpdateUserPasswordRequest,) async {
+  /// * [MMUpdateUserPasswordRequest] mMUpdateUserPasswordRequest (required):
+  Future<Response> updateUserPasswordWithHttpInfo(String userId, MMUpdateUserPasswordRequest mMUpdateUserPasswordRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/password'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserPasswordRequest;
+    Object? postBody = mMUpdateUserPasswordRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3748,17 +3748,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserPasswordRequest] mattermostUpdateUserPasswordRequest (required):
-  Future<MattermostStatusOK?> updateUserPassword(String userId, MattermostUpdateUserPasswordRequest mattermostUpdateUserPasswordRequest,) async {
-    final response = await updateUserPasswordWithHttpInfo(userId, mattermostUpdateUserPasswordRequest,);
+  /// * [MMUpdateUserPasswordRequest] mMUpdateUserPasswordRequest (required):
+  Future<MMStatusOK?> updateUserPassword(String userId, MMUpdateUserPasswordRequest mMUpdateUserPasswordRequest,) async {
+    final response = await updateUserPasswordWithHttpInfo(userId, mMUpdateUserPasswordRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3775,17 +3775,17 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserRolesRequest] mattermostUpdateUserRolesRequest (required):
+  /// * [MMUpdateUserRolesRequest] mMUpdateUserRolesRequest (required):
   ///   Space-delimited system roles to assign to the user
-  Future<Response> updateUserRolesWithHttpInfo(String userId, MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,) async {
+  Future<Response> updateUserRolesWithHttpInfo(String userId, MMUpdateUserRolesRequest mMUpdateUserRolesRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/roles'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserRolesRequest;
+    Object? postBody = mMUpdateUserRolesRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3812,18 +3812,18 @@ class MattermostUsersApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MattermostUpdateUserRolesRequest] mattermostUpdateUserRolesRequest (required):
+  /// * [MMUpdateUserRolesRequest] mMUpdateUserRolesRequest (required):
   ///   Space-delimited system roles to assign to the user
-  Future<MattermostStatusOK?> updateUserRoles(String userId, MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest,) async {
-    final response = await updateUserRolesWithHttpInfo(userId, mattermostUpdateUserRolesRequest,);
+  Future<MMStatusOK?> updateUserRoles(String userId, MMUpdateUserRolesRequest mMUpdateUserRolesRequest,) async {
+    final response = await updateUserRolesWithHttpInfo(userId, mMUpdateUserRolesRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3837,15 +3837,15 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostVerifyUserEmailRequest] mattermostVerifyUserEmailRequest (required):
-  Future<Response> verifyUserEmailWithHttpInfo(MattermostVerifyUserEmailRequest mattermostVerifyUserEmailRequest,) async {
+  /// * [MMVerifyUserEmailRequest] mMVerifyUserEmailRequest (required):
+  Future<Response> verifyUserEmailWithHttpInfo(MMVerifyUserEmailRequest mMVerifyUserEmailRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/email/verify';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostVerifyUserEmailRequest;
+    Object? postBody = mMVerifyUserEmailRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3869,17 +3869,17 @@ class MattermostUsersApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostVerifyUserEmailRequest] mattermostVerifyUserEmailRequest (required):
-  Future<MattermostStatusOK?> verifyUserEmail(MattermostVerifyUserEmailRequest mattermostVerifyUserEmailRequest,) async {
-    final response = await verifyUserEmailWithHttpInfo(mattermostVerifyUserEmailRequest,);
+  /// * [MMVerifyUserEmailRequest] mMVerifyUserEmailRequest (required):
+  Future<MMStatusOK?> verifyUserEmail(MMVerifyUserEmailRequest mMVerifyUserEmailRequest,) async {
+    final response = await verifyUserEmailWithHttpInfo(mMVerifyUserEmailRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -3903,7 +3903,7 @@ class MattermostUsersApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3929,16 +3929,16 @@ class MattermostUsersApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostUser?> verifyUserEmailWithoutToken(String userId,) async {
+  Future<MMUser?> verifyUserEmailWithoutToken(String userId,) async {
     final response = await verifyUserEmailWithoutTokenWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostUser',) as MattermostUser;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUser',) as MMUser;
     
     }
     return null;

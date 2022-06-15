@@ -34,7 +34,7 @@ class MattermostStatusApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -59,14 +59,14 @@ class MattermostStatusApi {
   ///
   /// * [String] userId (required):
   ///   User ID
-  Future<MattermostStatus?> getUserStatus(
+  Future<MMStatus?> getUserStatus(
     String userId,
   ) async {
     final response = await getUserStatusWithHttpInfo(
       userId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostStatusApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatus',
-      ) as MattermostStatus;
+        'MMStatus',
+      ) as MMStatus;
     }
     return null;
   }
@@ -99,7 +99,7 @@ class MattermostStatusApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -124,23 +124,21 @@ class MattermostStatusApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids to fetch
-  Future<List<MattermostStatus>?> getUsersStatusesByIds(
+  Future<List<MMStatus>?> getUsersStatusesByIds(
     List<String> requestBody,
   ) async {
     final response = await getUsersStatusesByIdsWithHttpInfo(
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostStatus>') as List)
-          .cast<MattermostStatus>()
-          .toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMStatus>') as List).cast<MMStatus>().toList();
     }
     return null;
   }
@@ -156,19 +154,19 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
+  /// * [MMRemoveRecentCustomStatusRequest] mMRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
   Future<Response> postUserRecentCustomStatusDeleteWithHttpInfo(
     String userId,
-    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+    MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/status/custom/recent/delete'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRemoveRecentCustomStatusRequest;
+    Object? postBody = mMRemoveRecentCustomStatusRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -194,18 +192,18 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
+  /// * [MMRemoveRecentCustomStatusRequest] mMRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
   Future<void> postUserRecentCustomStatusDelete(
     String userId,
-    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+    MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest,
   ) async {
     final response = await postUserRecentCustomStatusDeleteWithHttpInfo(
       userId,
-      mattermostRemoveRecentCustomStatusRequest,
+      mMRemoveRecentCustomStatusRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -220,19 +218,19 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
+  /// * [MMRemoveRecentCustomStatusRequest] mMRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
   Future<Response> removeRecentCustomStatusWithHttpInfo(
     String userId,
-    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+    MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/status/custom/recent'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostRemoveRecentCustomStatusRequest;
+    Object? postBody = mMRemoveRecentCustomStatusRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -258,18 +256,18 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostRemoveRecentCustomStatusRequest] mattermostRemoveRecentCustomStatusRequest (required):
+  /// * [MMRemoveRecentCustomStatusRequest] mMRemoveRecentCustomStatusRequest (required):
   ///   Custom Status object that is to be removed from the recent custom statuses.
   Future<void> removeRecentCustomStatus(
     String userId,
-    MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest,
+    MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest,
   ) async {
     final response = await removeRecentCustomStatusWithHttpInfo(
       userId,
-      mattermostRemoveRecentCustomStatusRequest,
+      mMRemoveRecentCustomStatusRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -292,7 +290,7 @@ class MattermostStatusApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -324,7 +322,7 @@ class MattermostStatusApi {
       userId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -339,19 +337,19 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostUpdateUserCustomStatusRequest] mattermostUpdateUserCustomStatusRequest (required):
+  /// * [MMUpdateUserCustomStatusRequest] mMUpdateUserCustomStatusRequest (required):
   ///   Custom status object that is to be updated
   Future<Response> updateUserCustomStatusWithHttpInfo(
     String userId,
-    MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,
+    MMUpdateUserCustomStatusRequest mMUpdateUserCustomStatusRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/status/custom'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserCustomStatusRequest;
+    Object? postBody = mMUpdateUserCustomStatusRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -377,18 +375,18 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostUpdateUserCustomStatusRequest] mattermostUpdateUserCustomStatusRequest (required):
+  /// * [MMUpdateUserCustomStatusRequest] mMUpdateUserCustomStatusRequest (required):
   ///   Custom status object that is to be updated
   Future<void> updateUserCustomStatus(
     String userId,
-    MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest,
+    MMUpdateUserCustomStatusRequest mMUpdateUserCustomStatusRequest,
   ) async {
     final response = await updateUserCustomStatusWithHttpInfo(
       userId,
-      mattermostUpdateUserCustomStatusRequest,
+      mMUpdateUserCustomStatusRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -403,19 +401,19 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostUpdateUserStatusRequest] mattermostUpdateUserStatusRequest (required):
+  /// * [MMUpdateUserStatusRequest] mMUpdateUserStatusRequest (required):
   ///   Status object that is to be updated
   Future<Response> updateUserStatusWithHttpInfo(
     String userId,
-    MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,
+    MMUpdateUserStatusRequest mMUpdateUserStatusRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/status'.replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateUserStatusRequest;
+    Object? postBody = mMUpdateUserStatusRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -441,18 +439,18 @@ class MattermostStatusApi {
   /// * [String] userId (required):
   ///   User ID
   ///
-  /// * [MattermostUpdateUserStatusRequest] mattermostUpdateUserStatusRequest (required):
+  /// * [MMUpdateUserStatusRequest] mMUpdateUserStatusRequest (required):
   ///   Status object that is to be updated
-  Future<MattermostStatus?> updateUserStatus(
+  Future<MMStatus?> updateUserStatus(
     String userId,
-    MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest,
+    MMUpdateUserStatusRequest mMUpdateUserStatusRequest,
   ) async {
     final response = await updateUserStatusWithHttpInfo(
       userId,
-      mattermostUpdateUserStatusRequest,
+      mMUpdateUserStatusRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -460,8 +458,8 @@ class MattermostStatusApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostStatus',
-      ) as MattermostStatus;
+        'MMStatus',
+      ) as MMStatus;
     }
     return null;
   }

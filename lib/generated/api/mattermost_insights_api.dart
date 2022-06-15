@@ -46,7 +46,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -88,7 +88,7 @@ class MattermostInsightsApi {
   ///
   /// * [int] perPage:
   ///   The number of items per page, up to a maximum of 200.
-  Future<MattermostTopChannelList?> getTopChannelsForTeam(
+  Future<MMTopChannelList?> getTopChannelsForTeam(
     String teamId,
     String timeRange, {
     int? page,
@@ -101,7 +101,7 @@ class MattermostInsightsApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -109,8 +109,8 @@ class MattermostInsightsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostTopChannelList',
-      ) as MattermostTopChannelList;
+        'MMTopChannelList',
+      ) as MMTopChannelList;
     }
     return null;
   }
@@ -150,7 +150,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -198,7 +198,7 @@ class MattermostInsightsApi {
   ///
   /// * [String] teamId:
   ///   Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team.
-  Future<MattermostTopReactionList?> getTopChannelsForUser(
+  Future<MMTopReactionList?> getTopChannelsForUser(
     String userId,
     String timeRange, {
     int? page,
@@ -213,7 +213,7 @@ class MattermostInsightsApi {
       teamId: teamId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -221,8 +221,8 @@ class MattermostInsightsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostTopReactionList',
-      ) as MattermostTopReactionList;
+        'MMTopReactionList',
+      ) as MMTopReactionList;
     }
     return null;
   }
@@ -258,7 +258,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -300,7 +300,7 @@ class MattermostInsightsApi {
   ///
   /// * [int] perPage:
   ///   The number of items per page, up to a maximum of 200.
-  Future<MattermostTopReactionList?> getTopReactionsForTeam(
+  Future<MMTopReactionList?> getTopReactionsForTeam(
     String teamId,
     String timeRange, {
     int? page,
@@ -313,7 +313,7 @@ class MattermostInsightsApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -321,8 +321,8 @@ class MattermostInsightsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostTopReactionList',
-      ) as MattermostTopReactionList;
+        'MMTopReactionList',
+      ) as MMTopReactionList;
     }
     return null;
   }
@@ -362,7 +362,7 @@ class MattermostInsightsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -410,7 +410,7 @@ class MattermostInsightsApi {
   ///
   /// * [String] teamId:
   ///   Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team.
-  Future<MattermostTopReactionList?> getTopReactionsForUser(
+  Future<MMTopReactionList?> getTopReactionsForUser(
     String userId,
     String timeRange, {
     int? page,
@@ -425,7 +425,7 @@ class MattermostInsightsApi {
       teamId: teamId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -433,8 +433,8 @@ class MattermostInsightsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostTopReactionList',
-      ) as MattermostTopReactionList;
+        'MMTopReactionList',
+      ) as MMTopReactionList;
     }
     return null;
   }

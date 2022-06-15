@@ -29,16 +29,16 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   The ID of the group.
   ///
-  /// * [MattermostAddGroupMembersRequest] mattermostAddGroupMembersRequest (required):
-  Future<Response> addGroupMembersWithHttpInfo(String groupId, MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,) async {
+  /// * [MMAddGroupMembersRequest] mMAddGroupMembersRequest (required):
+  Future<Response> addGroupMembersWithHttpInfo(String groupId, MMAddGroupMembersRequest mMAddGroupMembersRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/members'
       .replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostAddGroupMembersRequest;
+    Object? postBody = mMAddGroupMembersRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -65,17 +65,17 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   The ID of the group.
   ///
-  /// * [MattermostAddGroupMembersRequest] mattermostAddGroupMembersRequest (required):
-  Future<MattermostStatusOK?> addGroupMembers(String groupId, MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest,) async {
-    final response = await addGroupMembersWithHttpInfo(groupId, mattermostAddGroupMembersRequest,);
+  /// * [MMAddGroupMembersRequest] mMAddGroupMembersRequest (required):
+  Future<MMStatusOK?> addGroupMembers(String groupId, MMAddGroupMembersRequest mMAddGroupMembersRequest,) async {
+    final response = await addGroupMembersWithHttpInfo(groupId, mMAddGroupMembersRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -89,16 +89,16 @@ class MattermostGroupsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateGroupRequest] mattermostCreateGroupRequest (required):
+  /// * [MMCreateGroupRequest] mMCreateGroupRequest (required):
   ///   Group object and initial members.
-  Future<Response> createGroupWithHttpInfo(MattermostCreateGroupRequest mattermostCreateGroupRequest,) async {
+  Future<Response> createGroupWithHttpInfo(MMCreateGroupRequest mMCreateGroupRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateGroupRequest;
+    Object? postBody = mMCreateGroupRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -122,12 +122,12 @@ class MattermostGroupsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateGroupRequest] mattermostCreateGroupRequest (required):
+  /// * [MMCreateGroupRequest] mMCreateGroupRequest (required):
   ///   Group object and initial members.
-  Future<void> createGroup(MattermostCreateGroupRequest mattermostCreateGroupRequest,) async {
-    final response = await createGroupWithHttpInfo(mattermostCreateGroupRequest,);
+  Future<void> createGroup(MMCreateGroupRequest mMCreateGroupRequest,) async {
+    final response = await createGroupWithHttpInfo(mMCreateGroupRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -149,7 +149,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -175,16 +175,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   The ID of the group.
-  Future<MattermostStatusOK?> deleteGroup(String groupId,) async {
+  Future<MMStatusOK?> deleteGroup(String groupId,) async {
     final response = await deleteGroupWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -201,16 +201,16 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   The ID of the group to delete.
   ///
-  /// * [MattermostDeleteGroupMembersRequest] mattermostDeleteGroupMembersRequest (required):
-  Future<Response> deleteGroupMembersWithHttpInfo(String groupId, MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,) async {
+  /// * [MMDeleteGroupMembersRequest] mMDeleteGroupMembersRequest (required):
+  Future<Response> deleteGroupMembersWithHttpInfo(String groupId, MMDeleteGroupMembersRequest mMDeleteGroupMembersRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/members'
       .replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostDeleteGroupMembersRequest;
+    Object? postBody = mMDeleteGroupMembersRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -237,17 +237,17 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   The ID of the group to delete.
   ///
-  /// * [MattermostDeleteGroupMembersRequest] mattermostDeleteGroupMembersRequest (required):
-  Future<MattermostStatusOK?> deleteGroupMembers(String groupId, MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest,) async {
-    final response = await deleteGroupMembersWithHttpInfo(groupId, mattermostDeleteGroupMembersRequest,);
+  /// * [MMDeleteGroupMembersRequest] mMDeleteGroupMembersRequest (required):
+  Future<MMStatusOK?> deleteGroupMembers(String groupId, MMDeleteGroupMembersRequest mMDeleteGroupMembersRequest,) async {
+    final response = await deleteGroupMembersWithHttpInfo(groupId, mMDeleteGroupMembersRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -271,7 +271,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -297,16 +297,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<MattermostGroup?> getGroup(String groupId,) async {
+  Future<MMGroup?> getGroup(String groupId,) async {
     final response = await getGroupWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroup',) as MattermostGroup;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroup',) as MMGroup;
     
     }
     return null;
@@ -330,7 +330,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -356,16 +356,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<MattermostGetGroupStats200Response?> getGroupStats(String groupId,) async {
+  Future<MMGetGroupStats200Response?> getGroupStats(String groupId,) async {
     final response = await getGroupStatsWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetGroupStats200Response',) as MattermostGetGroupStats200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGetGroupStats200Response',) as MMGetGroupStats200Response;
     
     }
     return null;
@@ -393,7 +393,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -422,16 +422,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostGroupSyncableChannel?> getGroupSyncableForChannelId(String groupId, String channelId,) async {
+  Future<MMGroupSyncableChannel?> getGroupSyncableForChannelId(String groupId, String channelId,) async {
     final response = await getGroupSyncableForChannelIdWithHttpInfo(groupId, channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableChannel',) as MMGroupSyncableChannel;
     
     }
     return null;
@@ -459,7 +459,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -488,16 +488,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostGroupSyncableTeam?> getGroupSyncableForTeamId(String groupId, String teamId,) async {
+  Future<MMGroupSyncableTeam?> getGroupSyncableForTeamId(String groupId, String teamId,) async {
     final response = await getGroupSyncableForTeamIdWithHttpInfo(groupId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableTeam',) as MMGroupSyncableTeam;
     
     }
     return null;
@@ -521,7 +521,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -547,18 +547,18 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<List<MattermostGroupSyncableChannels>?> getGroupSyncablesChannels(String groupId,) async {
+  Future<List<MMGroupSyncableChannels>?> getGroupSyncablesChannels(String groupId,) async {
     final response = await getGroupSyncablesChannelsWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroupSyncableChannels>') as List)
-        .cast<MattermostGroupSyncableChannels>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroupSyncableChannels>') as List)
+        .cast<MMGroupSyncableChannels>()
         .toList();
 
     }
@@ -583,7 +583,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -609,18 +609,18 @@ class MattermostGroupsApi {
   ///
   /// * [String] groupId (required):
   ///   Group GUID
-  Future<List<MattermostGroupSyncableTeams>?> getGroupSyncablesTeams(String groupId,) async {
+  Future<List<MMGroupSyncableTeams>?> getGroupSyncablesTeams(String groupId,) async {
     final response = await getGroupSyncablesTeamsWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroupSyncableTeams>') as List)
-        .cast<MattermostGroupSyncableTeams>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroupSyncableTeams>') as List)
+        .cast<MMGroupSyncableTeams>()
         .toList();
 
     }
@@ -651,7 +651,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -690,16 +690,16 @@ class MattermostGroupsApi {
   ///
   /// * [int] perPage:
   ///   The number of groups per page.
-  Future<MattermostGetGroupUsers200Response?> getGroupUsers(String groupId, { int? page, int? perPage, }) async {
+  Future<MMGetGroupUsers200Response?> getGroupUsers(String groupId, { int? page, int? perPage, }) async {
     final response = await getGroupUsersWithHttpInfo(groupId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGetGroupUsers200Response',) as MattermostGetGroupUsers200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGetGroupUsers200Response',) as MMGetGroupUsers200Response;
     
     }
     return null;
@@ -743,7 +743,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -811,18 +811,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroups(String notAssociatedToTeam, String notAssociatedToChannel, { int? page, int? perPage, String? q, bool? includeMemberCount, int? since, bool? filterAllowReference, }) async {
+  Future<List<MMGroup>?> getGroups(String notAssociatedToTeam, String notAssociatedToChannel, { int? page, int? perPage, String? q, bool? includeMemberCount, int? since, bool? filterAllowReference, }) async {
     final response = await getGroupsWithHttpInfo(notAssociatedToTeam, notAssociatedToChannel,  page: page, perPage: perPage, q: q, includeMemberCount: includeMemberCount, since: since, filterAllowReference: filterAllowReference, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroup>') as List)
+        .cast<MMGroup>()
         .toList();
 
     }
@@ -859,7 +859,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -910,18 +910,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] paginate:
   ///   Boolean to determine whether the pagination should be applied or not
-  Future<List<Map<String, List<MattermostGroupWithSchemeAdmin>>>?> getGroupsAssociatedToChannelsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, bool? paginate, }) async {
+  Future<List<Map<String, List<MMGroupWithSchemeAdmin>>>?> getGroupsAssociatedToChannelsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, bool? paginate, }) async {
     final response = await getGroupsAssociatedToChannelsByTeamWithHttpInfo(teamId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, paginate: paginate, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Map<String, List<MattermostGroupWithSchemeAdmin>>>') as List)
-        .cast<Map<String, List<MattermostGroupWithSchemeAdmin>>>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<Map<String, List<MMGroupWithSchemeAdmin>>>') as List)
+        .cast<Map<String, List<MMGroupWithSchemeAdmin>>>()
         .toList();
 
     }
@@ -955,7 +955,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1000,18 +1000,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroupsByChannel(String channelId, { int? page, int? perPage, bool? filterAllowReference, }) async {
+  Future<List<MMGroup>?> getGroupsByChannel(String channelId, { int? page, int? perPage, bool? filterAllowReference, }) async {
     final response = await getGroupsByChannelWithHttpInfo(channelId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroup>') as List)
+        .cast<MMGroup>()
         .toList();
 
     }
@@ -1045,7 +1045,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1090,18 +1090,18 @@ class MattermostGroupsApi {
   ///
   /// * [bool] filterAllowReference:
   ///   Boolean which filters in the group entries with the `allow_reference` attribute set.
-  Future<List<MattermostGroup>?> getGroupsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, }) async {
+  Future<List<MMGroup>?> getGroupsByTeam(String teamId, { int? page, int? perPage, bool? filterAllowReference, }) async {
     final response = await getGroupsByTeamWithHttpInfo(teamId,  page: page, perPage: perPage, filterAllowReference: filterAllowReference, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroup>') as List)
+        .cast<MMGroup>()
         .toList();
 
     }
@@ -1126,7 +1126,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1152,18 +1152,18 @@ class MattermostGroupsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MattermostGroup>?> getGroupsByUserId(String userId,) async {
+  Future<List<MMGroup>?> getGroupsByUserId(String userId,) async {
     final response = await getGroupsByUserIdWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostGroup>') as List)
-        .cast<MattermostGroup>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMGroup>') as List)
+        .cast<MMGroup>()
         .toList();
 
     }
@@ -1192,7 +1192,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1221,16 +1221,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostGroupSyncableChannel?> linkGroupSyncableForChannel(String groupId, String channelId,) async {
+  Future<MMGroupSyncableChannel?> linkGroupSyncableForChannel(String groupId, String channelId,) async {
     final response = await linkGroupSyncableForChannelWithHttpInfo(groupId, channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableChannel',) as MMGroupSyncableChannel;
     
     }
     return null;
@@ -1258,7 +1258,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1287,16 +1287,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostGroupSyncableTeam?> linkGroupSyncableForTeam(String groupId, String teamId,) async {
+  Future<MMGroupSyncableTeam?> linkGroupSyncableForTeam(String groupId, String teamId,) async {
     final response = await linkGroupSyncableForTeamWithHttpInfo(groupId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableTeam',) as MMGroupSyncableTeam;
     
     }
     return null;
@@ -1313,17 +1313,17 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   Group GUID
   ///
-  /// * [MattermostPatchGroupRequest] mattermostPatchGroupRequest (required):
+  /// * [MMPatchGroupRequest] mMPatchGroupRequest (required):
   ///   Group object that is to be updated
-  Future<Response> patchGroupWithHttpInfo(String groupId, MattermostPatchGroupRequest mattermostPatchGroupRequest,) async {
+  Future<Response> patchGroupWithHttpInfo(String groupId, MMPatchGroupRequest mMPatchGroupRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/patch'
       .replaceAll('{group_id}', groupId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPatchGroupRequest;
+    Object? postBody = mMPatchGroupRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1350,18 +1350,18 @@ class MattermostGroupsApi {
   /// * [String] groupId (required):
   ///   Group GUID
   ///
-  /// * [MattermostPatchGroupRequest] mattermostPatchGroupRequest (required):
+  /// * [MMPatchGroupRequest] mMPatchGroupRequest (required):
   ///   Group object that is to be updated
-  Future<MattermostGroup?> patchGroup(String groupId, MattermostPatchGroupRequest mattermostPatchGroupRequest,) async {
-    final response = await patchGroupWithHttpInfo(groupId, mattermostPatchGroupRequest,);
+  Future<MMGroup?> patchGroup(String groupId, MMPatchGroupRequest mMPatchGroupRequest,) async {
+    final response = await patchGroupWithHttpInfo(groupId, mMPatchGroupRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroup',) as MattermostGroup;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroup',) as MMGroup;
     
     }
     return null;
@@ -1381,18 +1381,18 @@ class MattermostGroupsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
+  /// * [MMPatchGroupSyncableForTeamRequest] mMPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<Response> patchGroupSyncableForChannelWithHttpInfo(String groupId, String channelId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
+  Future<Response> patchGroupSyncableForChannelWithHttpInfo(String groupId, String channelId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/channels/{channel_id}/patch'
       .replaceAll('{group_id}', groupId)
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPatchGroupSyncableForTeamRequest;
+    Object? postBody = mMPatchGroupSyncableForTeamRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1422,18 +1422,18 @@ class MattermostGroupsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
+  /// * [MMPatchGroupSyncableForTeamRequest] mMPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<MattermostGroupSyncableChannel?> patchGroupSyncableForChannel(String groupId, String channelId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
-    final response = await patchGroupSyncableForChannelWithHttpInfo(groupId, channelId, mattermostPatchGroupSyncableForTeamRequest,);
+  Future<MMGroupSyncableChannel?> patchGroupSyncableForChannel(String groupId, String channelId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest,) async {
+    final response = await patchGroupSyncableForChannelWithHttpInfo(groupId, channelId, mMPatchGroupSyncableForTeamRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableChannel',) as MattermostGroupSyncableChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableChannel',) as MMGroupSyncableChannel;
     
     }
     return null;
@@ -1453,18 +1453,18 @@ class MattermostGroupsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
+  /// * [MMPatchGroupSyncableForTeamRequest] mMPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<Response> patchGroupSyncableForTeamWithHttpInfo(String groupId, String teamId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
+  Future<Response> patchGroupSyncableForTeamWithHttpInfo(String groupId, String teamId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/groups/{group_id}/teams/{team_id}/patch'
       .replaceAll('{group_id}', groupId)
       .replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostPatchGroupSyncableForTeamRequest;
+    Object? postBody = mMPatchGroupSyncableForTeamRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1494,18 +1494,18 @@ class MattermostGroupsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MattermostPatchGroupSyncableForTeamRequest] mattermostPatchGroupSyncableForTeamRequest (required):
+  /// * [MMPatchGroupSyncableForTeamRequest] mMPatchGroupSyncableForTeamRequest (required):
   ///   GroupSyncable object that is to be updated
-  Future<MattermostGroupSyncableTeam?> patchGroupSyncableForTeam(String groupId, String teamId, MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest,) async {
-    final response = await patchGroupSyncableForTeamWithHttpInfo(groupId, teamId, mattermostPatchGroupSyncableForTeamRequest,);
+  Future<MMGroupSyncableTeam?> patchGroupSyncableForTeam(String groupId, String teamId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest,) async {
+    final response = await patchGroupSyncableForTeamWithHttpInfo(groupId, teamId, mMPatchGroupSyncableForTeamRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostGroupSyncableTeam',) as MattermostGroupSyncableTeam;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGroupSyncableTeam',) as MMGroupSyncableTeam;
     
     }
     return null;
@@ -1533,7 +1533,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1562,16 +1562,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MattermostStatusOK?> unlinkGroupSyncableForChannel(String groupId, String channelId,) async {
+  Future<MMStatusOK?> unlinkGroupSyncableForChannel(String groupId, String channelId,) async {
     final response = await unlinkGroupSyncableForChannelWithHttpInfo(groupId, channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -1599,7 +1599,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1628,16 +1628,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<MattermostStatusOK?> unlinkGroupSyncableForTeam(String groupId, String teamId,) async {
+  Future<MMStatusOK?> unlinkGroupSyncableForTeam(String groupId, String teamId,) async {
     final response = await unlinkGroupSyncableForTeamWithHttpInfo(groupId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -1661,7 +1661,7 @@ class MattermostGroupsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1687,16 +1687,16 @@ class MattermostGroupsApi {
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<MattermostStatusOK?> unlinkLdapGroup(String remoteId,) async {
+  Future<MMStatusOK?> unlinkLdapGroup(String remoteId,) async {
     final response = await unlinkLdapGroupWithHttpInfo(remoteId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

@@ -21,7 +21,7 @@ void main() {
     //
     // Create and save a compliance report. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MattermostCompliance> createComplianceReport() async
+    //Future<MMCompliance> createComplianceReport() async
     test('test createComplianceReport', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get a compliance reports previously created. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MattermostCompliance> getComplianceReport(String reportId) async
+    //Future<MMCompliance> getComplianceReport(String reportId) async
     test('test getComplianceReport', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<List<MattermostCompliance>> getComplianceReports({ int page, int perPage }) async
+    //Future<List<MMCompliance>> getComplianceReports({ int page, int perPage }) async
     test('test getComplianceReports', () async {
       // TODO
     });

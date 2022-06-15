@@ -40,7 +40,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -69,16 +69,16 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   The user ID to assign the bot to.
-  Future<MattermostBot?> assignBot(String botUserId, String userId,) async {
+  Future<MMBot?> assignBot(String botUserId, String userId,) async {
     final response = await assignBotWithHttpInfo(botUserId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -95,20 +95,20 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostConvertBotToUserRequest] mattermostConvertBotToUserRequest (required):
+  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<Response> convertBotToUserWithHttpInfo(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
+  Future<Response> convertBotToUserWithHttpInfo(String botUserId, MMConvertBotToUserRequest mMConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
     // ignore: prefer_const_declarations
     final path = r'/bots/{bot_user_id}/convert_to_user'
       .replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostConvertBotToUserRequest;
+    Object? postBody = mMConvertBotToUserRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -139,21 +139,21 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostConvertBotToUserRequest] mattermostConvertBotToUserRequest (required):
+  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<MattermostStatusOK?> convertBotToUser(String botUserId, MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
-    final response = await convertBotToUserWithHttpInfo(botUserId, mattermostConvertBotToUserRequest,  setSystemAdmin: setSystemAdmin, );
+  Future<MMStatusOK?> convertBotToUser(String botUserId, MMConvertBotToUserRequest mMConvertBotToUserRequest, { bool? setSystemAdmin, }) async {
+    final response = await convertBotToUserWithHttpInfo(botUserId, mMConvertBotToUserRequest,  setSystemAdmin: setSystemAdmin, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -177,7 +177,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -203,16 +203,16 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MattermostStatusOK?> convertUserToBot(String userId,) async {
+  Future<MMStatusOK?> convertUserToBot(String userId,) async {
     final response = await convertUserToBotWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -226,16 +226,16 @@ class MattermostBotsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
+  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
   ///   Bot to be created
-  Future<Response> createBotWithHttpInfo(MattermostCreateBotRequest mattermostCreateBotRequest,) async {
+  Future<Response> createBotWithHttpInfo(MMCreateBotRequest mMCreateBotRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/bots';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateBotRequest;
+    Object? postBody = mMCreateBotRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -259,18 +259,18 @@ class MattermostBotsApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
+  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
   ///   Bot to be created
-  Future<MattermostBot?> createBot(MattermostCreateBotRequest mattermostCreateBotRequest,) async {
-    final response = await createBotWithHttpInfo(mattermostCreateBotRequest,);
+  Future<MMBot?> createBot(MMCreateBotRequest mMCreateBotRequest,) async {
+    final response = await createBotWithHttpInfo(mMCreateBotRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -294,7 +294,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -320,16 +320,16 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostStatusOK?> deleteBotIconImage(String botUserId,) async {
+  Future<MMStatusOK?> deleteBotIconImage(String botUserId,) async {
     final response = await deleteBotIconImageWithHttpInfo(botUserId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -353,7 +353,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -379,16 +379,16 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostBot?> disableBot(String botUserId,) async {
+  Future<MMBot?> disableBot(String botUserId,) async {
     final response = await disableBotWithHttpInfo(botUserId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -412,7 +412,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -438,16 +438,16 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MattermostBot?> enableBot(String botUserId,) async {
+  Future<MMBot?> enableBot(String botUserId,) async {
     final response = await enableBotWithHttpInfo(botUserId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -474,7 +474,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -507,16 +507,16 @@ class MattermostBotsApi {
   ///
   /// * [bool] includeDeleted:
   ///   If deleted bots should be returned.
-  Future<MattermostBot?> getBot(String botUserId, { bool? includeDeleted, }) async {
+  Future<MMBot?> getBot(String botUserId, { bool? includeDeleted, }) async {
     final response = await getBotWithHttpInfo(botUserId,  includeDeleted: includeDeleted, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -540,7 +540,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -569,7 +569,7 @@ class MattermostBotsApi {
   Future<void> getBotIconImage(String botUserId,) async {
     final response = await getBotIconImageWithHttpInfo(botUserId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -599,7 +599,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -647,18 +647,18 @@ class MattermostBotsApi {
   ///
   /// * [bool] onlyOrphaned:
   ///   When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
-  Future<List<MattermostBot>?> getBots({ int? page, int? perPage, bool? includeDeleted, bool? onlyOrphaned, }) async {
+  Future<List<MMBot>?> getBots({ int? page, int? perPage, bool? includeDeleted, bool? onlyOrphaned, }) async {
     final response = await getBotsWithHttpInfo( page: page, perPage: perPage, includeDeleted: includeDeleted, onlyOrphaned: onlyOrphaned, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostBot>') as List)
-        .cast<MattermostBot>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMBot>') as List)
+        .cast<MMBot>()
         .toList();
 
     }
@@ -676,17 +676,17 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
+  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
   ///   Bot to be created
-  Future<Response> patchBotWithHttpInfo(String botUserId, MattermostCreateBotRequest mattermostCreateBotRequest,) async {
+  Future<Response> patchBotWithHttpInfo(String botUserId, MMCreateBotRequest mMCreateBotRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/bots/{bot_user_id}'
       .replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateBotRequest;
+    Object? postBody = mMCreateBotRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -713,18 +713,18 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MattermostCreateBotRequest] mattermostCreateBotRequest (required):
+  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
   ///   Bot to be created
-  Future<MattermostBot?> patchBot(String botUserId, MattermostCreateBotRequest mattermostCreateBotRequest,) async {
-    final response = await patchBotWithHttpInfo(botUserId, mattermostCreateBotRequest,);
+  Future<MMBot?> patchBot(String botUserId, MMCreateBotRequest mMCreateBotRequest,) async {
+    final response = await patchBotWithHttpInfo(botUserId, mMCreateBotRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostBot',) as MattermostBot;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMBot',) as MMBot;
     
     }
     return null;
@@ -751,7 +751,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -790,16 +790,16 @@ class MattermostBotsApi {
   ///
   /// * [MultipartFile] image (required):
   ///   SVG icon image to be uploaded
-  Future<MattermostStatusOK?> setBotIconImage(String botUserId, MultipartFile image,) async {
+  Future<MMStatusOK?> setBotIconImage(String botUserId, MultipartFile image,) async {
     final response = await setBotIconImageWithHttpInfo(botUserId, image,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

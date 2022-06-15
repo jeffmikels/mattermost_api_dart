@@ -10,19 +10,19 @@ void main() async {
   late MattermostApiClient client;
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
-    authentication: MattermostOAuth(accessToken: 'YOUR TOKEN'),
+    authMethod: MMOAuth(accessToken: 'YOUR TOKEN'),
   );
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
-    authentication: MattermostHttpBasicAuthentication(
+    authMethod: MMHttpBasicAuthentication(
       username: 'USERNAME',
       password: 'PASSWORD',
     ),
   );
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
-    authentication: MattermostApiKeyAuthentication(
-      HttpLocation.query,
+    authMethod: MMApiKeyAuthentication(
+      MMHttpLocation.query,
       'PARAM_NAME',
       'API_KEY',
       apiKeyPrefix: 'PREFIX',
@@ -30,11 +30,11 @@ void main() async {
   );
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
-    authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+    authMethod: MMHttpBearerAuthentication('YOUR TOKEN'),
   );
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
-    authentication: MattermostHttpBearerAuthentication(() => 'ACCESS TOKEN FROM FUNCTION'),
+    authMethod: MMHttpBearerAuthentication(() => 'ACCESS TOKEN FROM FUNCTION'),
   );
 
   client.channels.getChannel('1234567');

@@ -30,7 +30,7 @@ class MattermostUsageApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -51,16 +51,16 @@ class MattermostUsageApi {
   /// Get current usage of posts
   ///
   /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0 
-  Future<MattermostPostsUsage?> getPostsUsage() async {
+  Future<MMPostsUsage?> getPostsUsage() async {
     final response = await getPostsUsageWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPostsUsage',) as MattermostPostsUsage;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPostsUsage',) as MMPostsUsage;
     
     }
     return null;

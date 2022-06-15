@@ -30,7 +30,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -51,16 +51,16 @@ class MattermostLDAPApi {
   /// Remove private key
   ///
   /// Delete the current private key being used with your TLS verification. ##### Permissions Must have `manage_system` permission. 
-  Future<MattermostStatusOK?> deleteLdapPrivateCertificate() async {
+  Future<MMStatusOK?> deleteLdapPrivateCertificate() async {
     final response = await deleteLdapPrivateCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -78,7 +78,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -99,16 +99,16 @@ class MattermostLDAPApi {
   /// Remove public certificate
   ///
   /// Delete the current public certificate being used for TLS verification. ##### Permissions Must have `manage_system` permission. 
-  Future<MattermostStatusOK?> deleteLdapPublicCertificate() async {
+  Future<MMStatusOK?> deleteLdapPublicCertificate() async {
     final response = await deleteLdapPublicCertificateWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -137,7 +137,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -179,18 +179,18 @@ class MattermostLDAPApi {
   ///
   /// * [int] perPage:
   ///   The number of users per page. There is a maximum limit of 200 users per page.
-  Future<List<MattermostLDAPGroupsPaged>?> getLdapGroups({ String? q, int? page, int? perPage, }) async {
+  Future<List<MMLDAPGroupsPaged>?> getLdapGroups({ String? q, int? page, int? perPage, }) async {
     final response = await getLdapGroupsWithHttpInfo( q: q, page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostLDAPGroupsPaged>') as List)
-        .cast<MattermostLDAPGroupsPaged>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMLDAPGroupsPaged>') as List)
+        .cast<MMLDAPGroupsPaged>()
         .toList();
 
     }
@@ -215,7 +215,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -241,16 +241,16 @@ class MattermostLDAPApi {
   ///
   /// * [String] remoteId (required):
   ///   Group GUID
-  Future<MattermostStatusOK?> linkLdapGroup(String remoteId,) async {
+  Future<MMStatusOK?> linkLdapGroup(String remoteId,) async {
     final response = await linkLdapGroupWithHttpInfo(remoteId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -264,15 +264,15 @@ class MattermostLDAPApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
-  Future<Response> migrateAuthToLdapWithHttpInfo({ MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest, }) async {
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
+  Future<Response> migrateAuthToLdapWithHttpInfo({ MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest, }) async {
     // ignore: prefer_const_declarations
     final path = r'/users/migrate_auth/ldap';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateAuthToLdapRequest;
+    Object? postBody = mMMigrateAuthToLdapRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -296,11 +296,11 @@ class MattermostLDAPApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateAuthToLdapRequest] mattermostMigrateAuthToLdapRequest:
-  Future<void> migrateAuthToLdap({ MattermostMigrateAuthToLdapRequest? mattermostMigrateAuthToLdapRequest, }) async {
-    final response = await migrateAuthToLdapWithHttpInfo( mattermostMigrateAuthToLdapRequest: mattermostMigrateAuthToLdapRequest, );
+  /// * [MMMigrateAuthToLdapRequest] mMMigrateAuthToLdapRequest:
+  Future<void> migrateAuthToLdap({ MMMigrateAuthToLdapRequest? mMMigrateAuthToLdapRequest, }) async {
+    final response = await migrateAuthToLdapWithHttpInfo( mMMigrateAuthToLdapRequest: mMMigrateAuthToLdapRequest, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -312,15 +312,15 @@ class MattermostLDAPApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateIdLdapRequest] mattermostMigrateIdLdapRequest (required):
-  Future<Response> migrateIdLdapWithHttpInfo(MattermostMigrateIdLdapRequest mattermostMigrateIdLdapRequest,) async {
+  /// * [MMMigrateIdLdapRequest] mMMigrateIdLdapRequest (required):
+  Future<Response> migrateIdLdapWithHttpInfo(MMMigrateIdLdapRequest mMMigrateIdLdapRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/ldap/migrateid';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostMigrateIdLdapRequest;
+    Object? postBody = mMMigrateIdLdapRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -344,17 +344,17 @@ class MattermostLDAPApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostMigrateIdLdapRequest] mattermostMigrateIdLdapRequest (required):
-  Future<MattermostStatusOK?> migrateIdLdap(MattermostMigrateIdLdapRequest mattermostMigrateIdLdapRequest,) async {
-    final response = await migrateIdLdapWithHttpInfo(mattermostMigrateIdLdapRequest,);
+  /// * [MMMigrateIdLdapRequest] mMMigrateIdLdapRequest (required):
+  Future<MMStatusOK?> migrateIdLdap(MMMigrateIdLdapRequest mMMigrateIdLdapRequest,) async {
+    final response = await migrateIdLdapWithHttpInfo(mMMigrateIdLdapRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -372,7 +372,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -393,16 +393,16 @@ class MattermostLDAPApi {
   /// Sync with LDAP
   ///
   /// Synchronize any user attribute changes in the configured AD/LDAP server with Mattermost. ##### Permissions Must have `manage_system` permission. 
-  Future<MattermostStatusOK?> syncLdap() async {
+  Future<MMStatusOK?> syncLdap() async {
     final response = await syncLdapWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -420,7 +420,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -441,16 +441,16 @@ class MattermostLDAPApi {
   /// Test LDAP configuration
   ///
   /// Test the current AD/LDAP configuration to see if the AD/LDAP server can be contacted successfully. ##### Permissions Must have `manage_system` permission. 
-  Future<MattermostStatusOK?> testLdap() async {
+  Future<MMStatusOK?> testLdap() async {
     final response = await testLdapWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -473,7 +473,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -509,16 +509,16 @@ class MattermostLDAPApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The private key file
-  Future<MattermostStatusOK?> uploadLdapPrivateCertificate(MultipartFile certificate,) async {
+  Future<MMStatusOK?> uploadLdapPrivateCertificate(MultipartFile certificate,) async {
     final response = await uploadLdapPrivateCertificateWithHttpInfo(certificate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -541,7 +541,7 @@ class MattermostLDAPApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -577,16 +577,16 @@ class MattermostLDAPApi {
   ///
   /// * [MultipartFile] certificate (required):
   ///   The public certificate file
-  Future<MattermostStatusOK?> uploadLdapPublicCertificate(MultipartFile certificate,) async {
+  Future<MMStatusOK?> uploadLdapPublicCertificate(MultipartFile certificate,) async {
     final response = await uploadLdapPublicCertificateWithHttpInfo(certificate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;

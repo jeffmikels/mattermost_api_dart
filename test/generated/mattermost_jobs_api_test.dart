@@ -21,7 +21,7 @@ void main() {
     //
     // Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
     //
-    //Future<MattermostStatusOK> cancelJob(String jobId) async
+    //Future<MMStatusOK> cancelJob(String jobId) async
     test('test cancelJob', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
     //
-    //Future<MattermostJob> createJob(MattermostCreateJobRequest mattermostCreateJobRequest) async
+    //Future<MMJob> createJob(MMCreateJobRequest mMCreateJobRequest) async
     test('test createJob', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
     //
-    //Future<MattermostJob> getJob(String jobId) async
+    //Future<MMJob> getJob(String jobId) async
     test('test getJob', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
     //
-    //Future<List<MattermostJob>> getJobs({ int page, int perPage }) async
+    //Future<List<MMJob>> getJobs({ int page, int perPage }) async
     test('test getJobs', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
     //
-    //Future<List<MattermostJob>> getJobsByType(String type, { int page, int perPage }) async
+    //Future<List<MMJob>> getJobsByType(String type, { int page, int perPage }) async
     test('test getJobsByType', () async {
       // TODO
     });

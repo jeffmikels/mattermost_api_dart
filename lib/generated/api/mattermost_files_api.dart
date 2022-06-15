@@ -34,7 +34,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -66,7 +66,7 @@ class MattermostFilesApi {
       fileId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -89,7 +89,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -114,14 +114,14 @@ class MattermostFilesApi {
   ///
   /// * [String] fileId (required):
   ///   The ID of the file info to get
-  Future<MattermostFileInfo?> getFileInfo(
+  Future<MMFileInfo?> getFileInfo(
     String fileId,
   ) async {
     final response = await getFileInfoWithHttpInfo(
       fileId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -129,8 +129,8 @@ class MattermostFilesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostFileInfo',
-      ) as MattermostFileInfo;
+        'MMFileInfo',
+      ) as MMFileInfo;
     }
     return null;
   }
@@ -154,7 +154,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -179,14 +179,14 @@ class MattermostFilesApi {
   ///
   /// * [String] fileId (required):
   ///   The ID of the file to get a link for
-  Future<MattermostGetFileLink200Response?> getFileLink(
+  Future<MMGetFileLink200Response?> getFileLink(
     String fileId,
   ) async {
     final response = await getFileLinkWithHttpInfo(
       fileId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -194,8 +194,8 @@ class MattermostFilesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostGetFileLink200Response',
-      ) as MattermostGetFileLink200Response;
+        'MMGetFileLink200Response',
+      ) as MMGetFileLink200Response;
     }
     return null;
   }
@@ -219,7 +219,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -251,7 +251,7 @@ class MattermostFilesApi {
       fileId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -278,7 +278,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -317,7 +317,7 @@ class MattermostFilesApi {
       h,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -340,7 +340,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -372,7 +372,7 @@ class MattermostFilesApi {
       fileId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -419,7 +419,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -492,7 +492,7 @@ class MattermostFilesApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page. (Only works with Elasticsearch)
-  Future<MattermostFileInfoList?> searchFiles(
+  Future<MMFileInfoList?> searchFiles(
     String teamId,
     String terms,
     bool isOrSearch, {
@@ -511,7 +511,7 @@ class MattermostFilesApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -519,8 +519,8 @@ class MattermostFilesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostFileInfoList',
-      ) as MattermostFileInfoList;
+        'MMFileInfoList',
+      ) as MMFileInfoList;
     }
     return null;
   }
@@ -560,7 +560,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -623,7 +623,7 @@ class MattermostFilesApi {
   ///
   /// * [String] clientIds:
   ///   A unique identifier for the file that will be returned in the response
-  Future<MattermostUploadFile201Response?> uploadFile({
+  Future<MMUploadFile201Response?> uploadFile({
     String? channelId,
     String? filename,
     MultipartFile? files,
@@ -638,7 +638,7 @@ class MattermostFilesApi {
       clientIds: clientIds,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -646,8 +646,8 @@ class MattermostFilesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MattermostUploadFile201Response',
-      ) as MattermostUploadFile201Response;
+        'MMUploadFile201Response',
+      ) as MMUploadFile201Response;
     }
     return null;
   }

@@ -26,16 +26,16 @@ class MattermostOAuthApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateOAuthAppRequest] mattermostCreateOAuthAppRequest (required):
+  /// * [MMCreateOAuthAppRequest] mMCreateOAuthAppRequest (required):
   ///   OAuth application to register
-  Future<Response> createOAuthAppWithHttpInfo(MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,) async {
+  Future<Response> createOAuthAppWithHttpInfo(MMCreateOAuthAppRequest mMCreateOAuthAppRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/oauth/apps';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostCreateOAuthAppRequest;
+    Object? postBody = mMCreateOAuthAppRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -59,18 +59,18 @@ class MattermostOAuthApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostCreateOAuthAppRequest] mattermostCreateOAuthAppRequest (required):
+  /// * [MMCreateOAuthAppRequest] mMCreateOAuthAppRequest (required):
   ///   OAuth application to register
-  Future<MattermostOAuthApp?> createOAuthApp(MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest,) async {
-    final response = await createOAuthAppWithHttpInfo(mattermostCreateOAuthAppRequest,);
+  Future<MMOAuthApp?> createOAuthApp(MMCreateOAuthAppRequest mMCreateOAuthAppRequest,) async {
+    final response = await createOAuthAppWithHttpInfo(mMCreateOAuthAppRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOAuthApp',) as MMOAuthApp;
     
     }
     return null;
@@ -94,7 +94,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -120,16 +120,16 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostStatusOK?> deleteOAuthApp(String appId,) async {
+  Future<MMStatusOK?> deleteOAuthApp(String appId,) async {
     final response = await deleteOAuthAppWithHttpInfo(appId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostStatusOK',) as MattermostStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
     
     }
     return null;
@@ -159,7 +159,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -198,18 +198,18 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<List<MattermostOAuthApp>?> getAuthorizedOAuthAppsForUser(String userId, { int? page, int? perPage, }) async {
+  Future<List<MMOAuthApp>?> getAuthorizedOAuthAppsForUser(String userId, { int? page, int? perPage, }) async {
     final response = await getAuthorizedOAuthAppsForUserWithHttpInfo(userId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOAuthApp>') as List)
-        .cast<MattermostOAuthApp>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMOAuthApp>') as List)
+        .cast<MMOAuthApp>()
         .toList();
 
     }
@@ -234,7 +234,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -260,16 +260,16 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> getOAuthApp(String appId,) async {
+  Future<MMOAuthApp?> getOAuthApp(String appId,) async {
     final response = await getOAuthAppWithHttpInfo(appId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOAuthApp',) as MMOAuthApp;
     
     }
     return null;
@@ -293,7 +293,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -319,16 +319,16 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> getOAuthAppInfo(String appId,) async {
+  Future<MMOAuthApp?> getOAuthAppInfo(String appId,) async {
     final response = await getOAuthAppInfoWithHttpInfo(appId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOAuthApp',) as MMOAuthApp;
     
     }
     return null;
@@ -354,7 +354,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -390,18 +390,18 @@ class MattermostOAuthApi {
   ///
   /// * [int] perPage:
   ///   The number of apps per page.
-  Future<List<MattermostOAuthApp>?> getOAuthApps({ int? page, int? perPage, }) async {
+  Future<List<MMOAuthApp>?> getOAuthApps({ int? page, int? perPage, }) async {
     final response = await getOAuthAppsWithHttpInfo( page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostOAuthApp>') as List)
-        .cast<MattermostOAuthApp>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMOAuthApp>') as List)
+        .cast<MMOAuthApp>()
         .toList();
 
     }
@@ -426,7 +426,7 @@ class MattermostOAuthApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -452,16 +452,16 @@ class MattermostOAuthApi {
   ///
   /// * [String] appId (required):
   ///   Application client id
-  Future<MattermostOAuthApp?> regenerateOAuthAppSecret(String appId,) async {
+  Future<MMOAuthApp?> regenerateOAuthAppSecret(String appId,) async {
     final response = await regenerateOAuthAppSecretWithHttpInfo(appId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOAuthApp',) as MMOAuthApp;
     
     }
     return null;
@@ -478,17 +478,17 @@ class MattermostOAuthApi {
   /// * [String] appId (required):
   ///   Application client id
   ///
-  /// * [MattermostUpdateOAuthAppRequest] mattermostUpdateOAuthAppRequest (required):
+  /// * [MMUpdateOAuthAppRequest] mMUpdateOAuthAppRequest (required):
   ///   OAuth application to update
-  Future<Response> updateOAuthAppWithHttpInfo(String appId, MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,) async {
+  Future<Response> updateOAuthAppWithHttpInfo(String appId, MMUpdateOAuthAppRequest mMUpdateOAuthAppRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/oauth/apps/{app_id}'
       .replaceAll('{app_id}', appId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostUpdateOAuthAppRequest;
+    Object? postBody = mMUpdateOAuthAppRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -515,18 +515,18 @@ class MattermostOAuthApi {
   /// * [String] appId (required):
   ///   Application client id
   ///
-  /// * [MattermostUpdateOAuthAppRequest] mattermostUpdateOAuthAppRequest (required):
+  /// * [MMUpdateOAuthAppRequest] mMUpdateOAuthAppRequest (required):
   ///   OAuth application to update
-  Future<MattermostOAuthApp?> updateOAuthApp(String appId, MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest,) async {
-    final response = await updateOAuthAppWithHttpInfo(appId, mattermostUpdateOAuthAppRequest,);
+  Future<MMOAuthApp?> updateOAuthApp(String appId, MMUpdateOAuthAppRequest mMUpdateOAuthAppRequest,) async {
+    final response = await updateOAuthAppWithHttpInfo(appId, mMUpdateOAuthAppRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOAuthApp',) as MattermostOAuthApp;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOAuthApp',) as MMOAuthApp;
     
     }
     return null;

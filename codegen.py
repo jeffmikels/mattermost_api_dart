@@ -24,6 +24,7 @@ def dogen(use_local=True, post_process=False):
     os.environ['DART_POST_PROCESS_FILE'] = 'dart format'
     args.append('--enable-post-process-file')
 
+  # build and test the generator with ./mvnw package
   if use_local:
     cmd = ['java', '-jar', '/Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar']
   else:
@@ -107,12 +108,12 @@ replacements = [
 
     # still needed for some reason
     Replacement(
-        os.path.join(OUTPUT, 'lib', 'model/mattermost_post_list_with_search_matches.dart'),
+        os.path.join(OUTPUT, 'lib', 'model/mm_post_list_with_search_matches.dart'),
         ''': mapCastOfType<String, List>(json, r'matches'),''',
         ''': mapCastOfType<String, List<String>>(json, r'matches')!,'''
     ),
     Replacement(
-        os.path.join(OUTPUT, 'lib', 'model/mattermost_open_interactive_dialog_request_dialog.dart'),
+        os.path.join(OUTPUT, 'lib', 'model/mm_open_interactive_dialog_request_dialog.dart'),
         '''elements: Map.listFromJson(json[r'elements'])!,''',
         '''elements: json[r'elements'] ?? const [],'''
     ),

@@ -11,7 +11,7 @@
 part of mattermost.api;
 
 // ignore: one_member_abstracts
-abstract class MattermostAuthentication {
+abstract class MMAuthentication {
   /// Apply authentication settings to header and query params.
-  void applyToParams(List<MattermostQueryParam> queryParams, Map<String, String> headerParams);
+  void applyToParams(List<MMQueryParam> queryParams, Map<String, String> headerParams);
 }

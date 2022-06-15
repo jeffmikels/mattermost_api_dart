@@ -21,7 +21,7 @@ void main() {
     //
     // ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33 
     //
-    //Future<List<MattermostRole>> getAllRoles() async
+    //Future<List<MMRole>> getAllRoles() async
     test('test getAllRoles', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get a role from the provided role id.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
     //
-    //Future<MattermostRole> getRole(String roleId) async
+    //Future<MMRole> getRole(String roleId) async
     test('test getRole', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get a role from the provided role name.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
     //
-    //Future<MattermostRole> getRoleByName(String roleName) async
+    //Future<MMRole> getRoleByName(String roleName) async
     test('test getRoleByName', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get a list of roles from their names.  ##### Permissions Requires an active session but no other permissions.  __Minimum server version__: 4.9 
     //
-    //Future<List<MattermostRole>> getRolesByNames(List<String> requestBody) async
+    //Future<List<MMRole>> getRolesByNames(List<String> requestBody) async
     test('test getRolesByNames', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Partially update a role by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 4.9 
     //
-    //Future<MattermostRole> patchRole(String roleId, MattermostPatchRoleRequest mattermostPatchRoleRequest) async
+    //Future<MMRole> patchRole(String roleId, MMPatchRoleRequest mMPatchRoleRequest) async
     test('test patchRole', () async {
       // TODO
     });

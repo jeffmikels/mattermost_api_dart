@@ -10,8 +10,8 @@
 
 part of mattermost.api;
 
-class MattermostQueryParam {
-  const MattermostQueryParam(this.name, this.value);
+class MMQueryParam {
+  const MMQueryParam(this.name, this.value);
 
   final String name;
   final String value;
@@ -21,7 +21,7 @@ class MattermostQueryParam {
 }
 
 // Ported from the Java version.
-Iterable<MattermostQueryParam> _queryParams(
+Iterable<MMQueryParam> _queryParams(
   String collectionFormat,
   String name,
   dynamic value,
@@ -29,12 +29,12 @@ Iterable<MattermostQueryParam> _queryParams(
   // Assertions to run in debug mode only.
   assert(name.isNotEmpty, 'Parameter cannot be an empty string.');
 
-  final params = <MattermostQueryParam>[];
+  final params = <MMQueryParam>[];
 
   if (value is List) {
     if (collectionFormat == 'multi') {
       return value.map(
-        (dynamic v) => MattermostQueryParam(name, parameterToString(v)),
+        (dynamic v) => MMQueryParam(name, parameterToString(v)),
       );
     }
 
@@ -45,12 +45,12 @@ Iterable<MattermostQueryParam> _queryParams(
 
     final delimiter = _delimiters[collectionFormat] ?? ',';
 
-    params.add(MattermostQueryParam(
+    params.add(MMQueryParam(
       name,
       value.map<dynamic>(parameterToString).join(delimiter),
     ));
   } else if (value != null) {
-    params.add(MattermostQueryParam(name, parameterToString(value)));
+    params.add(MMQueryParam(name, parameterToString(value)));
   }
 
   return params;

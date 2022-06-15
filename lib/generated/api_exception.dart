@@ -10,10 +10,10 @@
 
 part of mattermost.api;
 
-class MattermostApiException implements Exception {
-  MattermostApiException(this.code, this.message);
+class MMApiException implements Exception {
+  MMApiException(this.code, this.message);
 
-  MattermostApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
+  MMApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
 
   int code = 0;
   String? message;
@@ -23,11 +23,11 @@ class MattermostApiException implements Exception {
   @override
   String toString() {
     if (message == null) {
-      return 'MattermostApiException';
+      return 'MMApiException';
     }
     if (innerException == null) {
-      return 'MattermostApiException $code: $message';
+      return 'MMApiException $code: $message';
     }
-    return 'MattermostApiException $code: $message (Inner exception: $innerException)\n\n$stackTrace';
+    return 'MMApiException $code: $message (Inner exception: $innerException)\n\n$stackTrace';
   }
 }

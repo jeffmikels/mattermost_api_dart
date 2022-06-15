@@ -30,7 +30,7 @@ class MattermostRootApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -51,16 +51,16 @@ class MattermostRootApi {
   /// Acknowledge receiving of a notification
   ///
   /// __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
-  Future<MattermostPushNotification?> acknowledgeNotification() async {
+  Future<MMPushNotification?> acknowledgeNotification() async {
     final response = await acknowledgeNotificationWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostPushNotification',) as MattermostPushNotification;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPushNotification',) as MMPushNotification;
     
     }
     return null;

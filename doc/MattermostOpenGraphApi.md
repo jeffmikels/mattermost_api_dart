@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **openGraph**
-> MattermostOpenGraph openGraph(mattermostOpenGraphRequest)
+> MMOpenGraph openGraph(mMOpenGraphRequest)
 
 Get open graph metadata for url
 
@@ -27,26 +27,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MattermostOpenGraphRequest mattermostOpenGraphRequest = MattermostOpenGraphRequest(); // MattermostOpenGraphRequest | 
+final MMOpenGraphRequest mMOpenGraphRequest = MMOpenGraphRequest(); // MMOpenGraphRequest | 
 
 try {
-  final result = await client.openGraph.openGraph(mattermostOpenGraphRequest);
+  final result = await client.openGraph.openGraph(mMOpenGraphRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOpenGraphApi->openGraph: $e\n');
@@ -58,11 +58,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mattermostOpenGraphRequest** | [**MattermostOpenGraphRequest**](MattermostOpenGraphRequest.md)|  | 
+ **mMOpenGraphRequest** | [**MMOpenGraphRequest**](MMOpenGraphRequest.md)|  | 
 
 ### Return type
 
-[**MattermostOpenGraph**](MattermostOpenGraph.md)
+[**MMOpenGraph**](MMOpenGraph.md)
 
 ### Authorization
 

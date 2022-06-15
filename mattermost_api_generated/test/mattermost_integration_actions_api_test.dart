@@ -21,7 +21,7 @@ void main() {
     //
     // Open an interactive dialog using a trigger ID provided by a slash command, or some other action payload. See https://docs.mattermost.com/developer/interactive-dialogs.html for more information on interactive dialogs. __Minimum server version: 5.6__ 
     //
-    //Future<MattermostStatusOK> openInteractiveDialog(MattermostOpenInteractiveDialogRequest mattermostOpenInteractiveDialogRequest) async
+    //Future<MMStatusOK> openInteractiveDialog(MMOpenInteractiveDialogRequest mMOpenInteractiveDialogRequest) async
     test('test openInteractiveDialog', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Endpoint used by the Mattermost clients to submit a dialog. See https://docs.mattermost.com/developer/interactive-dialogs.html for more information on interactive dialogs. __Minimum server version: 5.6__ 
     //
-    //Future<MattermostStatusOK> submitInteractiveDialog(MattermostSubmitInteractiveDialogRequest mattermostSubmitInteractiveDialogRequest) async
+    //Future<MMStatusOK> submitInteractiveDialog(MMSubmitInteractiveDialogRequest mMSubmitInteractiveDialogRequest) async
     test('test submitInteractiveDialog', () async {
       // TODO
     });

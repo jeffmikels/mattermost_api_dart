@@ -35,7 +35,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -63,16 +63,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] name (required):
   ///   The emoji name to search.
-  Future<MattermostEmoji?> autocompleteEmoji(String name,) async {
+  Future<MMEmoji?> autocompleteEmoji(String name,) async {
     final response = await autocompleteEmojiWithHttpInfo(name,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -98,7 +98,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -141,16 +141,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] emoji (required):
   ///   A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
-  Future<MattermostEmoji?> createEmoji(MultipartFile image, String emoji,) async {
+  Future<MMEmoji?> createEmoji(MultipartFile image, String emoji,) async {
     final response = await createEmojiWithHttpInfo(image, emoji,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -174,7 +174,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -200,16 +200,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] emojiId (required):
   ///   Emoji GUID
-  Future<MattermostEmoji?> deleteEmoji(String emojiId,) async {
+  Future<MMEmoji?> deleteEmoji(String emojiId,) async {
     final response = await deleteEmojiWithHttpInfo(emojiId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -233,7 +233,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -259,16 +259,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] emojiId (required):
   ///   Emoji GUID
-  Future<MattermostEmoji?> getEmoji(String emojiId,) async {
+  Future<MMEmoji?> getEmoji(String emojiId,) async {
     final response = await getEmojiWithHttpInfo(emojiId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -292,7 +292,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -318,16 +318,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] emojiName (required):
   ///   Emoji name
-  Future<MattermostEmoji?> getEmojiByName(String emojiName,) async {
+  Future<MMEmoji?> getEmojiByName(String emojiName,) async {
     final response = await getEmojiByNameWithHttpInfo(emojiName,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -351,7 +351,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -380,7 +380,7 @@ class MattermostEmojiApi {
   Future<void> getEmojiImage(String emojiId,) async {
     final response = await getEmojiImageWithHttpInfo(emojiId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -407,7 +407,7 @@ class MattermostEmojiApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -449,16 +449,16 @@ class MattermostEmojiApi {
   ///
   /// * [String] sort:
   ///   Either blank for no sorting or \"name\" to sort by emoji names. Minimum server version for sorting is 4.7.
-  Future<MattermostEmoji?> getEmojiList({ int? page, int? perPage, String? sort, }) async {
+  Future<MMEmoji?> getEmojiList({ int? page, int? perPage, String? sort, }) async {
     final response = await getEmojiListWithHttpInfo( page: page, perPage: perPage, sort: sort, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostEmoji',) as MattermostEmoji;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMEmoji',) as MMEmoji;
     
     }
     return null;
@@ -472,16 +472,16 @@ class MattermostEmojiApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchEmojiRequest] mattermostSearchEmojiRequest (required):
+  /// * [MMSearchEmojiRequest] mMSearchEmojiRequest (required):
   ///   Search criteria
-  Future<Response> searchEmojiWithHttpInfo(MattermostSearchEmojiRequest mattermostSearchEmojiRequest,) async {
+  Future<Response> searchEmojiWithHttpInfo(MMSearchEmojiRequest mMSearchEmojiRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/emoji/search';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostSearchEmojiRequest;
+    Object? postBody = mMSearchEmojiRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -505,20 +505,20 @@ class MattermostEmojiApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostSearchEmojiRequest] mattermostSearchEmojiRequest (required):
+  /// * [MMSearchEmojiRequest] mMSearchEmojiRequest (required):
   ///   Search criteria
-  Future<List<MattermostEmoji>?> searchEmoji(MattermostSearchEmojiRequest mattermostSearchEmojiRequest,) async {
-    final response = await searchEmojiWithHttpInfo(mattermostSearchEmojiRequest,);
+  Future<List<MMEmoji>?> searchEmoji(MMSearchEmojiRequest mMSearchEmojiRequest,) async {
+    final response = await searchEmojiWithHttpInfo(mMSearchEmojiRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MattermostEmoji>') as List)
-        .cast<MattermostEmoji>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MMEmoji>') as List)
+        .cast<MMEmoji>()
         .toList();
 
     }

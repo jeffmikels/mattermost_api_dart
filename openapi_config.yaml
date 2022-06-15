@@ -7,9 +7,10 @@ additionalProperties:
   pubLibrary: mattermost.api
   pubVersion: 0.1.0
   useEnumExtension: true
-  apiClientName: MattermostApiClient # defaults to ApiClient if not specified
+  apiClientName: MattermostApiClient # takes precedent over prefix/suffix defaults to ApiClient if not specified
   apiNamePrefix: Mattermost
-  modelNamePrefix: Mattermost
+  apiNameSuffix: Api
+  modelNamePrefix: MM
   modelNameSuffix:
   
 readmeName: GENERATED_README

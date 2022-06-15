@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **openInteractiveDialog**
-> MattermostStatusOK openInteractiveDialog(mattermostOpenInteractiveDialogRequest)
+> MMStatusOK openInteractiveDialog(mMOpenInteractiveDialogRequest)
 
 Open a dialog
 
@@ -28,26 +28,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MattermostOpenInteractiveDialogRequest mattermostOpenInteractiveDialogRequest = MattermostOpenInteractiveDialogRequest(); // MattermostOpenInteractiveDialogRequest | Metadata for the dialog to be opened
+final MMOpenInteractiveDialogRequest mMOpenInteractiveDialogRequest = MMOpenInteractiveDialogRequest(); // MMOpenInteractiveDialogRequest | Metadata for the dialog to be opened
 
 try {
-  final result = await client.integrationActions.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
+  final result = await client.integrationActions.openInteractiveDialog(mMOpenInteractiveDialogRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostIntegrationActionsApi->openInteractiveDialog: $e\n');
@@ -59,11 +59,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mattermostOpenInteractiveDialogRequest** | [**MattermostOpenInteractiveDialogRequest**](MattermostOpenInteractiveDialogRequest.md)| Metadata for the dialog to be opened | 
+ **mMOpenInteractiveDialogRequest** | [**MMOpenInteractiveDialogRequest**](MMOpenInteractiveDialogRequest.md)| Metadata for the dialog to be opened | 
 
 ### Return type
 
-[**MattermostStatusOK**](MattermostStatusOK.md)
+[**MMStatusOK**](MMStatusOK.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **submitInteractiveDialog**
-> MattermostStatusOK submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest)
+> MMStatusOK submitInteractiveDialog(mMSubmitInteractiveDialogRequest)
 
 Submit a dialog
 
@@ -91,26 +91,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MattermostSubmitInteractiveDialogRequest mattermostSubmitInteractiveDialogRequest = MattermostSubmitInteractiveDialogRequest(); // MattermostSubmitInteractiveDialogRequest | Dialog submission data
+final MMSubmitInteractiveDialogRequest mMSubmitInteractiveDialogRequest = MMSubmitInteractiveDialogRequest(); // MMSubmitInteractiveDialogRequest | Dialog submission data
 
 try {
-  final result = await client.integrationActions.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);
+  final result = await client.integrationActions.submitInteractiveDialog(mMSubmitInteractiveDialogRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostIntegrationActionsApi->submitInteractiveDialog: $e\n');
@@ -122,11 +122,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mattermostSubmitInteractiveDialogRequest** | [**MattermostSubmitInteractiveDialogRequest**](MattermostSubmitInteractiveDialogRequest.md)| Dialog submission data | 
+ **mMSubmitInteractiveDialogRequest** | [**MMSubmitInteractiveDialogRequest**](MMSubmitInteractiveDialogRequest.md)| Dialog submission data | 
 
 ### Return type
 
-[**MattermostStatusOK**](MattermostStatusOK.md)
+[**MMStatusOK**](MMStatusOK.md)
 
 ### Authorization
 

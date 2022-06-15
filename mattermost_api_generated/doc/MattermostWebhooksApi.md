@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **createIncomingWebhook**
-> MattermostIncomingWebhook createIncomingWebhook(mattermostCreateIncomingWebhookRequest)
+> MMIncomingWebhook createIncomingWebhook(mMCreateIncomingWebhookRequest)
 
 Create an incoming webhook
 
@@ -37,26 +37,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest = MattermostCreateIncomingWebhookRequest(); // MattermostCreateIncomingWebhookRequest | Incoming webhook to be created
+final MMCreateIncomingWebhookRequest mMCreateIncomingWebhookRequest = MMCreateIncomingWebhookRequest(); // MMCreateIncomingWebhookRequest | Incoming webhook to be created
 
 try {
-  final result = await client.webhooks.createIncomingWebhook(mattermostCreateIncomingWebhookRequest);
+  final result = await client.webhooks.createIncomingWebhook(mMCreateIncomingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->createIncomingWebhook: $e\n');
@@ -68,11 +68,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mattermostCreateIncomingWebhookRequest** | [**MattermostCreateIncomingWebhookRequest**](MattermostCreateIncomingWebhookRequest.md)| Incoming webhook to be created | 
+ **mMCreateIncomingWebhookRequest** | [**MMCreateIncomingWebhookRequest**](MMCreateIncomingWebhookRequest.md)| Incoming webhook to be created | 
 
 ### Return type
 
-[**MattermostIncomingWebhook**](MattermostIncomingWebhook.md)
+[**MMIncomingWebhook**](MMIncomingWebhook.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createOutgoingWebhook**
-> MattermostOutgoingWebhook createOutgoingWebhook(mattermostCreateOutgoingWebhookRequest)
+> MMOutgoingWebhook createOutgoingWebhook(mMCreateOutgoingWebhookRequest)
 
 Create an outgoing webhook
 
@@ -100,26 +100,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest = MattermostCreateOutgoingWebhookRequest(); // MattermostCreateOutgoingWebhookRequest | Outgoing webhook to be created
+final MMCreateOutgoingWebhookRequest mMCreateOutgoingWebhookRequest = MMCreateOutgoingWebhookRequest(); // MMCreateOutgoingWebhookRequest | Outgoing webhook to be created
 
 try {
-  final result = await client.webhooks.createOutgoingWebhook(mattermostCreateOutgoingWebhookRequest);
+  final result = await client.webhooks.createOutgoingWebhook(mMCreateOutgoingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->createOutgoingWebhook: $e\n');
@@ -131,11 +131,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mattermostCreateOutgoingWebhookRequest** | [**MattermostCreateOutgoingWebhookRequest**](MattermostCreateOutgoingWebhookRequest.md)| Outgoing webhook to be created | 
+ **mMCreateOutgoingWebhookRequest** | [**MMCreateOutgoingWebhookRequest**](MMCreateOutgoingWebhookRequest.md)| Outgoing webhook to be created | 
 
 ### Return type
 
-[**MattermostOutgoingWebhook**](MattermostOutgoingWebhook.md)
+[**MMOutgoingWebhook**](MMOutgoingWebhook.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteIncomingWebhook**
-> MattermostStatusOK deleteIncomingWebhook(hookId)
+> MMStatusOK deleteIncomingWebhook(hookId)
 
 Delete an incoming webhook
 
@@ -163,19 +163,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostStatusOK**](MattermostStatusOK.md)
+[**MMStatusOK**](MMStatusOK.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteOutgoingWebhook**
-> MattermostStatusOK deleteOutgoingWebhook(hookId)
+> MMStatusOK deleteOutgoingWebhook(hookId)
 
 Delete an outgoing webhook
 
@@ -226,19 +226,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostStatusOK**](MattermostStatusOK.md)
+[**MMStatusOK**](MMStatusOK.md)
 
 ### Authorization
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getIncomingWebhook**
-> MattermostIncomingWebhook getIncomingWebhook(hookId)
+> MMIncomingWebhook getIncomingWebhook(hookId)
 
 Get an incoming webhook
 
@@ -289,19 +289,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostIncomingWebhook**](MattermostIncomingWebhook.md)
+[**MMIncomingWebhook**](MMIncomingWebhook.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getIncomingWebhooks**
-> List<MattermostIncomingWebhook> getIncomingWebhooks(page, perPage, teamId)
+> List<MMIncomingWebhook> getIncomingWebhooks(page, perPage, teamId)
 
 List incoming webhooks
 
@@ -352,19 +352,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MattermostIncomingWebhook>**](MattermostIncomingWebhook.md)
+[**List<MMIncomingWebhook>**](MMIncomingWebhook.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getOutgoingWebhook**
-> MattermostOutgoingWebhook getOutgoingWebhook(hookId)
+> MMOutgoingWebhook getOutgoingWebhook(hookId)
 
 Get an outgoing webhook
 
@@ -419,19 +419,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostOutgoingWebhook**](MattermostOutgoingWebhook.md)
+[**MMOutgoingWebhook**](MMOutgoingWebhook.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getOutgoingWebhooks**
-> List<MattermostOutgoingWebhook> getOutgoingWebhooks(page, perPage, teamId, channelId)
+> List<MMOutgoingWebhook> getOutgoingWebhooks(page, perPage, teamId, channelId)
 
 List outgoing webhooks
 
@@ -482,19 +482,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MattermostOutgoingWebhook>**](MattermostOutgoingWebhook.md)
+[**List<MMOutgoingWebhook>**](MMOutgoingWebhook.md)
 
 ### Authorization
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **regenOutgoingHookToken**
-> MattermostStatusOK regenOutgoingHookToken(hookId)
+> MMStatusOK regenOutgoingHookToken(hookId)
 
 Regenerate the token for the outgoing webhook.
 
@@ -551,19 +551,19 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MattermostStatusOK**](MattermostStatusOK.md)
+[**MMStatusOK**](MMStatusOK.md)
 
 ### Authorization
 
@@ -600,7 +600,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateIncomingWebhook**
-> MattermostIncomingWebhook updateIncomingWebhook(hookId, mattermostUpdateIncomingWebhookRequest)
+> MMIncomingWebhook updateIncomingWebhook(hookId, mMUpdateIncomingWebhookRequest)
 
 Update an incoming webhook
 
@@ -614,27 +614,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String hookId = 'hookId_example'; // String | Incoming Webhook GUID
-final MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest = MattermostUpdateIncomingWebhookRequest(); // MattermostUpdateIncomingWebhookRequest | Incoming webhook to be updated
+final MMUpdateIncomingWebhookRequest mMUpdateIncomingWebhookRequest = MMUpdateIncomingWebhookRequest(); // MMUpdateIncomingWebhookRequest | Incoming webhook to be updated
 
 try {
-  final result = await client.webhooks.updateIncomingWebhook(hookId, mattermostUpdateIncomingWebhookRequest);
+  final result = await client.webhooks.updateIncomingWebhook(hookId, mMUpdateIncomingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->updateIncomingWebhook: $e\n');
@@ -647,11 +647,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hookId** | **String**| Incoming Webhook GUID | 
- **mattermostUpdateIncomingWebhookRequest** | [**MattermostUpdateIncomingWebhookRequest**](MattermostUpdateIncomingWebhookRequest.md)| Incoming webhook to be updated | 
+ **mMUpdateIncomingWebhookRequest** | [**MMUpdateIncomingWebhookRequest**](MMUpdateIncomingWebhookRequest.md)| Incoming webhook to be updated | 
 
 ### Return type
 
-[**MattermostIncomingWebhook**](MattermostIncomingWebhook.md)
+[**MMIncomingWebhook**](MMIncomingWebhook.md)
 
 ### Authorization
 
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateOutgoingWebhook**
-> MattermostOutgoingWebhook updateOutgoingWebhook(hookId, mattermostUpdateOutgoingWebhookRequest)
+> MMOutgoingWebhook updateOutgoingWebhook(hookId, mMUpdateOutgoingWebhookRequest)
 
 Update an outgoing webhook
 
@@ -679,27 +679,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
 client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String hookId = 'hookId_example'; // String | outgoing Webhook GUID
-final MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest = MattermostUpdateOutgoingWebhookRequest(); // MattermostUpdateOutgoingWebhookRequest | Outgoing webhook to be updated
+final MMUpdateOutgoingWebhookRequest mMUpdateOutgoingWebhookRequest = MMUpdateOutgoingWebhookRequest(); // MMUpdateOutgoingWebhookRequest | Outgoing webhook to be updated
 
 try {
-  final result = await client.webhooks.updateOutgoingWebhook(hookId, mattermostUpdateOutgoingWebhookRequest);
+  final result = await client.webhooks.updateOutgoingWebhook(hookId, mMUpdateOutgoingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->updateOutgoingWebhook: $e\n');
@@ -712,11 +712,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hookId** | **String**| outgoing Webhook GUID | 
- **mattermostUpdateOutgoingWebhookRequest** | [**MattermostUpdateOutgoingWebhookRequest**](MattermostUpdateOutgoingWebhookRequest.md)| Outgoing webhook to be updated | 
+ **mMUpdateOutgoingWebhookRequest** | [**MMUpdateOutgoingWebhookRequest**](MMUpdateOutgoingWebhookRequest.md)| Outgoing webhook to be updated | 
 
 ### Return type
 
-[**MattermostOutgoingWebhook**](MattermostOutgoingWebhook.md)
+[**MMOutgoingWebhook**](MMOutgoingWebhook.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@ class {{{modelNamePrefix}}}ApiKeyAuthentication{{{modelNameSuffix}}} implements 
   {{{modelNamePrefix}}}ApiKeyAuthentication{{{modelNameSuffix}}}(this.location, this.paramName, this.apiKey, {this.apiKeyPrefix = ''});
 
   /// `location` can be 'query', 'header', or 'cookie'
-  final HttpLocation location;
+  final {{{modelNamePrefix}}}HttpLocation{{{modelNameSuffix}}} location;
 
   /// `paramName` is the name of the parameter to use for sending the api key
   final String paramName;
@@ -20,11 +20,11 @@ class {{{modelNamePrefix}}}ApiKeyAuthentication{{{modelNameSuffix}}} implements 
     final paramValue = apiKeyPrefix.isEmpty ? apiKey : '$apiKeyPrefix $apiKey';
 
     if (paramValue.isNotEmpty) {
-      if (location == HttpLocation.query) {
+      if (location == {{{modelNamePrefix}}}HttpLocation{{{modelNameSuffix}}}.query) {
         queryParams.add({{{modelNamePrefix}}}QueryParam{{{modelNameSuffix}}}(paramName, paramValue));
-      } else if (location == HttpLocation.header) {
+      } else if (location == {{{modelNamePrefix}}}HttpLocation{{{modelNameSuffix}}}.header) {
         headerParams[paramName] = paramValue;
-      } else if (location == HttpLocation.cookie) {
+      } else if (location == {{{modelNamePrefix}}}HttpLocation{{{modelNameSuffix}}}.cookie) {
         headerParams.update(
           'Cookie',
           (existingCookie) => '$existingCookie; $paramName=$paramValue',

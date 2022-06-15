@@ -26,15 +26,15 @@ class MattermostOpenGraphApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostOpenGraphRequest] mattermostOpenGraphRequest (required):
-  Future<Response> openGraphWithHttpInfo(MattermostOpenGraphRequest mattermostOpenGraphRequest,) async {
+  /// * [MMOpenGraphRequest] mMOpenGraphRequest (required):
+  Future<Response> openGraphWithHttpInfo(MMOpenGraphRequest mMOpenGraphRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/opengraph';
 
     // ignore: prefer_final_locals
-    Object? postBody = mattermostOpenGraphRequest;
+    Object? postBody = mMOpenGraphRequest;
 
-    final queryParams = <MattermostQueryParam>[];
+    final queryParams = <MMQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -58,17 +58,17 @@ class MattermostOpenGraphApi {
   ///
   /// Parameters:
   ///
-  /// * [MattermostOpenGraphRequest] mattermostOpenGraphRequest (required):
-  Future<MattermostOpenGraph?> openGraph(MattermostOpenGraphRequest mattermostOpenGraphRequest,) async {
-    final response = await openGraphWithHttpInfo(mattermostOpenGraphRequest,);
+  /// * [MMOpenGraphRequest] mMOpenGraphRequest (required):
+  Future<MMOpenGraph?> openGraph(MMOpenGraphRequest mMOpenGraphRequest,) async {
+    final response = await openGraphWithHttpInfo(mMOpenGraphRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MattermostApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MattermostOpenGraph',) as MattermostOpenGraph;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMOpenGraph',) as MMOpenGraph;
     
     }
     return null;
