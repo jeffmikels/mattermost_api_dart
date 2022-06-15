@@ -60,8 +60,8 @@ Every API model in the library is prefixed with the word `Mattermost` and every 
 
 ## More Details
 
-[Read the Auto-Generated Documentation](GENERATED_README.md).
-[Read the Dart Api Docs](https://pub.dev/documentation/mattermost_api/latest/mattermost.api/MattermostApiClient.html)
+- [Read the Auto-Generated Documentation](GENERATED_README.md).
+- [Read the Dart API Docs](https://pub.dev/documentation/mattermost_api/latest/mattermost.api/MattermostApiClient-class.html)
 
 ## Issues Resolved
 
