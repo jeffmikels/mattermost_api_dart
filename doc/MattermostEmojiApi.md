@@ -30,7 +30,8 @@ Get a list of custom emoji with names starting with or matching the provided nam
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -93,7 +94,8 @@ Create a custom emoji for the team. ##### Permissions Must be authenticated.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -158,7 +160,8 @@ Delete a custom emoji. ##### Permissions Must have the `manage_team` or `manage_
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -221,7 +224,8 @@ Get some metadata for a custom emoji. ##### Permissions Must be authenticated.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -284,7 +288,8 @@ Get some metadata for a custom emoji using its name. ##### Permissions Must be a
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -347,7 +352,8 @@ Get the image for a custom emoji. ##### Permissions Must be authenticated.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -409,7 +415,8 @@ Get a page of metadata for custom emoji on the system. Since server version 4.7,
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -476,7 +483,8 @@ Search for custom emoji by name based on search criteria provided in the request
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',

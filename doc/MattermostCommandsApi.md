@@ -32,7 +32,8 @@ Create a command for a team. ##### Permissions `manage_slash_commands` for the t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -95,7 +96,8 @@ Delete a command based on command id string. ##### Permissions Must have `manage
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -158,7 +160,8 @@ Execute a command on a team. ##### Permissions Must have `use_slash_commands` pe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -221,7 +224,8 @@ Get a command definition based on command id string. ##### Permissions Must have
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -284,7 +288,8 @@ List autocomplete commands in the team. ##### Permissions `view_team` for the te
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -347,7 +352,8 @@ List commands' autocomplete data for the team. ##### Permissions `view_team` for
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -412,7 +418,8 @@ List commands for a team. ##### Permissions `manage_slash_commands` if need list
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -477,7 +484,8 @@ Move a command to a different team based on command id string. ##### Permissions
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -542,7 +550,8 @@ Generate a new token for the command based on command id string. ##### Permissio
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -605,7 +614,8 @@ Update a single command based on command id string and Command struct. ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',

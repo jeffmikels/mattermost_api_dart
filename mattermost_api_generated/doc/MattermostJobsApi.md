@@ -28,7 +28,8 @@ Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manag
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -91,7 +92,8 @@ Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `m
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -154,7 +156,8 @@ Download the result of a single job. __Minimum server version: 5.28__ ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -216,7 +219,8 @@ Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -279,7 +283,8 @@ Get a page of jobs. Use the query parameters to modify the behaviour of this end
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -344,7 +349,8 @@ Get a page of jobs of the given type. Use the query parameters to modify the beh
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',

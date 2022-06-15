@@ -33,7 +33,8 @@ Delete the current IDP certificate being used with your SAML configuration. This
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -92,7 +93,8 @@ Delete the current private key being used with your SAML configuration. This wil
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -151,7 +153,8 @@ Delete the current public certificate being used with your SAML configuration. T
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -210,7 +213,8 @@ Get the status of the uploaded certificates and keys in use by your SAML configu
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -269,7 +273,8 @@ Get SAML metadata from the server. SAML must be configured properly. ##### Permi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -328,7 +333,8 @@ Get SAML metadata from the Identity Provider. SAML must be configured properly. 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -391,7 +397,8 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -453,7 +460,8 @@ Reset the AuthData field of SAML users to their email. This is meant to be used 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -516,7 +524,8 @@ Upload the IDP certificate to be used with your SAML configuration. The server w
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -579,7 +588,8 @@ Upload the private key to be used for encryption with your SAML configuration. T
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -642,7 +652,8 @@ Upload the public certificate to be used for encryption with your SAML configura
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',

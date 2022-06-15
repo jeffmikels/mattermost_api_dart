@@ -32,7 +32,8 @@ Delete the current private key being used with your TLS verification. ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -91,7 +92,8 @@ Delete the current public certificate being used for TLS verification. ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -150,7 +152,8 @@ Returns a list of LDAP groups
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -217,7 +220,8 @@ Link a LDAP group
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -280,7 +284,8 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -342,7 +347,8 @@ Migrate LDAP IdAttribute to new value. ##### Permissions Must have `manage_syste
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -405,7 +411,8 @@ Synchronize any user attribute changes in the configured AD/LDAP server with Mat
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -464,7 +471,8 @@ Test the current AD/LDAP configuration to see if the AD/LDAP server can be conta
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -523,7 +531,8 @@ Upload the private key to be used for TLS verification. The server will pick a h
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -586,7 +595,8 @@ Upload the public certificate to be used for TLS verification. The server will p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',

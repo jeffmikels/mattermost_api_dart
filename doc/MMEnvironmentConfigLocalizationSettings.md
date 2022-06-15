@@ -4,7 +4,8 @@
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 late MattermostApiClient client;
 
 // example client with HTTP Bearer authorization and string token:

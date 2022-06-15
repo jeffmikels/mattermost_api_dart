@@ -23,7 +23,8 @@ Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get som
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Client options
+// Instantiate your client...
+//
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
