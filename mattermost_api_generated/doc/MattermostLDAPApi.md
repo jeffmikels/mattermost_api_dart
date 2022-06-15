@@ -54,7 +54,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.lDAP.deleteLdapPrivateCertificate();
+  final MMStatusOK result = await client.lDAP.deleteLdapPrivateCertificate();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
@@ -113,7 +113,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.lDAP.deleteLdapPublicCertificate();
+  final MMStatusOK result = await client.lDAP.deleteLdapPublicCertificate();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
@@ -175,7 +175,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 
 try {
-  final result = await client.lDAP.getLdapGroups(q, page, perPage);
+  final List&lt;MMLDAPGroupsPaged&gt; result = await client.lDAP.getLdapGroups(q, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
@@ -240,7 +240,7 @@ var client = MattermostApiClient(
 final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
-  final result = await client.lDAP.linkLdapGroup(remoteId);
+  final MMStatusOK result = await client.lDAP.linkLdapGroup(remoteId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
@@ -365,7 +365,7 @@ var client = MattermostApiClient(
 final MMMigrateIdLdapRequest mMMigrateIdLdapRequest = MMMigrateIdLdapRequest(); // MMMigrateIdLdapRequest | 
 
 try {
-  final result = await client.lDAP.migrateIdLdap(mMMigrateIdLdapRequest);
+  final MMStatusOK result = await client.lDAP.migrateIdLdap(mMMigrateIdLdapRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
@@ -427,7 +427,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.lDAP.syncLdap();
+  final MMStatusOK result = await client.lDAP.syncLdap();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
@@ -486,7 +486,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.lDAP.testLdap();
+  final MMStatusOK result = await client.lDAP.testLdap();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
@@ -546,7 +546,7 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-  final result = await client.lDAP.uploadLdapPrivateCertificate(certificate);
+  final MMStatusOK result = await client.lDAP.uploadLdapPrivateCertificate(certificate);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
@@ -609,7 +609,7 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-  final result = await client.lDAP.uploadLdapPublicCertificate(certificate);
+  final MMStatusOK result = await client.lDAP.uploadLdapPublicCertificate(certificate);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');

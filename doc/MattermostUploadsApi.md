@@ -48,7 +48,7 @@ var client = MattermostApiClient(
 final MMCreateUploadRequest mMCreateUploadRequest = MMCreateUploadRequest(); // MMCreateUploadRequest | 
 
 try {
-  final result = await client.uploads.createUpload(mMCreateUploadRequest);
+  final MMUploadSession result = await client.uploads.createUpload(mMCreateUploadRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUploadsApi->createUpload: $e\n');
@@ -173,7 +173,7 @@ var client = MattermostApiClient(
 final String uploadId = 'uploadId_example'; // String | The ID of the upload session the data belongs to.
 
 try {
-  final result = await client.uploads.uploadData(uploadId);
+  final MMFileInfo result = await client.uploads.uploadData(uploadId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUploadsApi->uploadData: $e\n');

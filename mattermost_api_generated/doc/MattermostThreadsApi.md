@@ -189,7 +189,7 @@ final int pageSize = 56; // int | PageSize specifies the size of the returned ch
 final bool totalsOnly = true; // bool | Setting this to true will only return the total counts.
 
 try {
-  final result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
+  final MMUserThreads result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->getUserThreads: $e\n');

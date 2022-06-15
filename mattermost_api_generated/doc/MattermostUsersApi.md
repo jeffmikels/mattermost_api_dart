@@ -107,7 +107,7 @@ var client = MattermostApiClient(
 final MMAttachDeviceIdRequest mMAttachDeviceIdRequest = MMAttachDeviceIdRequest(); // MMAttachDeviceIdRequest | 
 
 try {
-  final result = await client.users.attachDeviceId(mMAttachDeviceIdRequest);
+  final MMStatusOK result = await client.users.attachDeviceId(mMAttachDeviceIdRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->attachDeviceId: $e\n');
@@ -173,7 +173,7 @@ final String channelId = 'channelId_example'; // String | Channel ID
 final int limit = 56; // int | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
 
 try {
-  final result = await client.users.autocompleteUsers(name, teamId, channelId, limit);
+  final MMUserAutocomplete result = await client.users.autocompleteUsers(name, teamId, channelId, limit);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->autocompleteUsers: $e\n');
@@ -239,7 +239,7 @@ var client = MattermostApiClient(
 final MMCheckUserMfaRequest mMCheckUserMfaRequest = MMCheckUserMfaRequest(); // MMCheckUserMfaRequest | 
 
 try {
-  final result = await client.users.checkUserMfa(mMCheckUserMfaRequest);
+  final MMCheckUserMfa200Response result = await client.users.checkUserMfa(mMCheckUserMfaRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->checkUserMfa: $e\n');
@@ -304,7 +304,7 @@ final MMConvertBotToUserRequest mMConvertBotToUserRequest = MMConvertBotToUserRe
 final bool setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
-  final result = await client.users.convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin);
+  final MMStatusOK result = await client.users.convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->convertBotToUser: $e\n');
@@ -369,7 +369,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.convertUserToBot(userId);
+  final MMStatusOK result = await client.users.convertUserToBot(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->convertUserToBot: $e\n');
@@ -434,7 +434,7 @@ final String t = 't_example'; // String | Token id from an email invitation
 final String iid = 'iid_example'; // String | Token id from an invitation link
 
 try {
-  final result = await client.users.createUser(mMCreateUserRequest, t, iid);
+  final MMUser result = await client.users.createUser(mMCreateUserRequest, t, iid);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->createUser: $e\n');
@@ -500,7 +500,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMCreateUserAccessTokenRequest mMCreateUserAccessTokenRequest = MMCreateUserAccessTokenRequest(); // MMCreateUserAccessTokenRequest | 
 
 try {
-  final result = await client.users.createUserAccessToken(userId, mMCreateUserAccessTokenRequest);
+  final MMUserAccessToken result = await client.users.createUserAccessToken(userId, mMCreateUserAccessTokenRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->createUserAccessToken: $e\n');
@@ -564,7 +564,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.deleteUser(userId);
+  final MMStatusOK result = await client.users.deleteUser(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->deleteUser: $e\n');
@@ -627,7 +627,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.demoteUserToGuest(userId);
+  final MMStatusOK result = await client.users.demoteUserToGuest(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->demoteUserToGuest: $e\n');
@@ -690,7 +690,7 @@ var client = MattermostApiClient(
 final MMDisableUserAccessTokenRequest mMDisableUserAccessTokenRequest = MMDisableUserAccessTokenRequest(); // MMDisableUserAccessTokenRequest | 
 
 try {
-  final result = await client.users.disableUserAccessToken(mMDisableUserAccessTokenRequest);
+  final MMStatusOK result = await client.users.disableUserAccessToken(mMDisableUserAccessTokenRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->disableUserAccessToken: $e\n');
@@ -753,7 +753,7 @@ var client = MattermostApiClient(
 final MMEnableUserAccessTokenRequest mMEnableUserAccessTokenRequest = MMEnableUserAccessTokenRequest(); // MMEnableUserAccessTokenRequest | 
 
 try {
-  final result = await client.users.enableUserAccessToken(mMEnableUserAccessTokenRequest);
+  final MMStatusOK result = await client.users.enableUserAccessToken(mMEnableUserAccessTokenRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->enableUserAccessToken: $e\n');
@@ -816,7 +816,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.generateMfaSecret(userId);
+  final MMGenerateMfaSecret200Response result = await client.users.generateMfaSecret(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->generateMfaSecret: $e\n');
@@ -881,7 +881,7 @@ final int page = 56; // int | Page specifies which part of the results to return
 final int pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
 
 try {
-  final result = await client.users.getChannelMembersWithTeamDataForUser(userId, page, pageSize);
+  final List&lt;MMChannelMemberWithTeamData&gt; result = await client.users.getChannelMembersWithTeamDataForUser(userId, page, pageSize);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getChannelMembersWithTeamDataForUser: $e\n');
@@ -1007,7 +1007,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.users.getKnownUsers();
+  final MMUsersStats result = await client.users.getKnownUsers();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getKnownUsers: $e\n');
@@ -1131,7 +1131,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.getSessions(userId);
+  final List&lt;MMSession&gt; result = await client.users.getSessions(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getSessions: $e\n');
@@ -1193,7 +1193,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.users.getTotalUsersStats();
+  final MMUsersStats result = await client.users.getTotalUsersStats();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getTotalUsersStats: $e\n');
@@ -1259,7 +1259,7 @@ final String channelRoles = 'channelRoles_example'; // String | Comma separated 
 final String teamRoles = 'teamRoles_example'; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will include users that are only team users and not admins or guests 
 
 try {
-  final result = await client.users.getTotalUsersStatsFiltered(inTeam, inChannel, includeDeleted, includeBots, roles, channelRoles, teamRoles);
+  final MMUsersStats result = await client.users.getTotalUsersStatsFiltered(inTeam, inChannel, includeDeleted, includeBots, roles, channelRoles, teamRoles);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getTotalUsersStatsFiltered: $e\n');
@@ -1328,7 +1328,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 
 try {
-  final result = await client.users.getUploadsForUser(userId);
+  final List&lt;MMUploadSession&gt; result = await client.users.getUploadsForUser(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUploadsForUser: $e\n');
@@ -1391,7 +1391,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID. This can also be \"me\" which will point to the current user.
 
 try {
-  final result = await client.users.getUser(userId);
+  final MMUser result = await client.users.getUser(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUser: $e\n');
@@ -1454,7 +1454,7 @@ var client = MattermostApiClient(
 final String tokenId = 'tokenId_example'; // String | User access token GUID
 
 try {
-  final result = await client.users.getUserAccessToken(tokenId);
+  final MMUserAccessTokenSanitized result = await client.users.getUserAccessToken(tokenId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserAccessToken: $e\n');
@@ -1518,7 +1518,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of tokens per page.
 
 try {
-  final result = await client.users.getUserAccessTokens(page, perPage);
+  final List&lt;MMUserAccessTokenSanitized&gt; result = await client.users.getUserAccessTokens(page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserAccessTokens: $e\n');
@@ -1584,7 +1584,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of tokens per page.
 
 try {
-  final result = await client.users.getUserAccessTokensForUser(userId, page, perPage);
+  final List&lt;MMUserAccessTokenSanitized&gt; result = await client.users.getUserAccessTokensForUser(userId, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserAccessTokensForUser: $e\n');
@@ -1649,7 +1649,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.getUserAudits(userId);
+  final List&lt;MMAudit&gt; result = await client.users.getUserAudits(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserAudits: $e\n');
@@ -1712,7 +1712,7 @@ var client = MattermostApiClient(
 final String email = 'email_example'; // String | User Email
 
 try {
-  final result = await client.users.getUserByEmail(email);
+  final MMUser result = await client.users.getUserByEmail(email);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserByEmail: $e\n');
@@ -1775,7 +1775,7 @@ var client = MattermostApiClient(
 final String username = 'username_example'; // String | Username
 
 try {
-  final result = await client.users.getUserByUsername(username);
+  final MMUser result = await client.users.getUserByUsername(username);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserByUsername: $e\n');
@@ -1838,7 +1838,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.getUserTermsOfService(userId);
+  final MMUserTermsOfService result = await client.users.getUserTermsOfService(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUserTermsOfService: $e\n');
@@ -1916,7 +1916,7 @@ final String channelRoles = 'channelRoles_example'; // String | Comma separated 
 final String teamRoles = 'teamRoles_example'; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will return users that are only team users and not admins or guests  __Minimum server version__: 5.26 
 
 try {
-  final result = await client.users.getUsers(page, perPage, inTeam, notInTeam, inChannel, notInChannel, inGroup, groupConstrained, withoutTeam, active, inactive, role, sort, roles, channelRoles, teamRoles);
+  final List&lt;MMUser&gt; result = await client.users.getUsers(page, perPage, inTeam, notInTeam, inChannel, notInChannel, inGroup, groupConstrained, withoutTeam, active, inactive, role, sort, roles, channelRoles, teamRoles);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUsers: $e\n');
@@ -1994,7 +1994,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of group channel ids
 
 try {
-  final result = await client.users.getUsersByGroupChannelIds(requestBody);
+  final MMGetUsersByGroupChannelIds200Response result = await client.users.getUsersByGroupChannelIds(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUsersByGroupChannelIds: $e\n');
@@ -2058,7 +2058,7 @@ final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List 
 final int since = 56; // int | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14 
 
 try {
-  final result = await client.users.getUsersByIds(requestBody, since);
+  final List&lt;MMUser&gt; result = await client.users.getUsersByIds(requestBody, since);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUsersByIds: $e\n');
@@ -2122,7 +2122,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of usernames
 
 try {
-  final result = await client.users.getUsersByUsernames(requestBody);
+  final List&lt;MMUser&gt; result = await client.users.getUsersByUsernames(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->getUsersByUsernames: $e\n');
@@ -2185,7 +2185,7 @@ var client = MattermostApiClient(
 final MMLoginRequest mMLoginRequest = MMLoginRequest(); // MMLoginRequest | User authentication object
 
 try {
-  final result = await client.users.login(mMLoginRequest);
+  final MMUser result = await client.users.login(mMLoginRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->login: $e\n');
@@ -2309,7 +2309,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.users.logout();
+  final MMStatusOK result = await client.users.logout();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->logout: $e\n');
@@ -2494,7 +2494,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMPatchUserRequest mMPatchUserRequest = MMPatchUserRequest(); // MMPatchUserRequest | User object that is to be updated
 
 try {
-  final result = await client.users.patchUser(userId, mMPatchUserRequest);
+  final MMUser result = await client.users.patchUser(userId, mMPatchUserRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->patchUser: $e\n');
@@ -2616,7 +2616,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.promoteGuestToUser(userId);
+  final MMStatusOK result = await client.users.promoteGuestToUser(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->promoteGuestToUser: $e\n');
@@ -2744,7 +2744,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest = MMRegisterTermsOfServiceActionRequest(); // MMRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-  final result = await client.users.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest);
+  final MMStatusOK result = await client.users.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->registerTermsOfServiceAction: $e\n');
@@ -2808,7 +2808,7 @@ var client = MattermostApiClient(
 final MMResetPasswordRequest mMResetPasswordRequest = MMResetPasswordRequest(); // MMResetPasswordRequest | 
 
 try {
-  final result = await client.users.resetPassword(mMResetPasswordRequest);
+  final MMStatusOK result = await client.users.resetPassword(mMResetPasswordRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->resetPassword: $e\n');
@@ -2871,7 +2871,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.revokeAllSessions(userId);
+  final MMStatusOK result = await client.users.revokeAllSessions(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->revokeAllSessions: $e\n');
@@ -2935,7 +2935,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMRevokeSessionRequest mMRevokeSessionRequest = MMRevokeSessionRequest(); // MMRevokeSessionRequest | 
 
 try {
-  final result = await client.users.revokeSession(userId, mMRevokeSessionRequest);
+  final MMStatusOK result = await client.users.revokeSession(userId, mMRevokeSessionRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->revokeSession: $e\n');
@@ -3057,7 +3057,7 @@ var client = MattermostApiClient(
 final MMRevokeUserAccessTokenRequest mMRevokeUserAccessTokenRequest = MMRevokeUserAccessTokenRequest(); // MMRevokeUserAccessTokenRequest | 
 
 try {
-  final result = await client.users.revokeUserAccessToken(mMRevokeUserAccessTokenRequest);
+  final MMStatusOK result = await client.users.revokeUserAccessToken(mMRevokeUserAccessTokenRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->revokeUserAccessToken: $e\n');
@@ -3120,7 +3120,7 @@ var client = MattermostApiClient(
 final MMSearchUserAccessTokensRequest mMSearchUserAccessTokensRequest = MMSearchUserAccessTokensRequest(); // MMSearchUserAccessTokensRequest | Search criteria
 
 try {
-  final result = await client.users.searchUserAccessTokens(mMSearchUserAccessTokensRequest);
+  final List&lt;MMUserAccessTokenSanitized&gt; result = await client.users.searchUserAccessTokens(mMSearchUserAccessTokensRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->searchUserAccessTokens: $e\n');
@@ -3183,7 +3183,7 @@ var client = MattermostApiClient(
 final MMSearchUsersRequest mMSearchUsersRequest = MMSearchUsersRequest(); // MMSearchUsersRequest | Search criteria
 
 try {
-  final result = await client.users.searchUsers(mMSearchUsersRequest);
+  final List&lt;MMUser&gt; result = await client.users.searchUsers(mMSearchUsersRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->searchUsers: $e\n');
@@ -3246,7 +3246,7 @@ var client = MattermostApiClient(
 final MMSendPasswordResetEmailRequest mMSendPasswordResetEmailRequest = MMSendPasswordResetEmailRequest(); // MMSendPasswordResetEmailRequest | 
 
 try {
-  final result = await client.users.sendPasswordResetEmail(mMSendPasswordResetEmailRequest);
+  final MMStatusOK result = await client.users.sendPasswordResetEmail(mMSendPasswordResetEmailRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->sendPasswordResetEmail: $e\n');
@@ -3309,7 +3309,7 @@ var client = MattermostApiClient(
 final MMSendVerificationEmailRequest mMSendVerificationEmailRequest = MMSendVerificationEmailRequest(); // MMSendVerificationEmailRequest | 
 
 try {
-  final result = await client.users.sendVerificationEmail(mMSendVerificationEmailRequest);
+  final MMStatusOK result = await client.users.sendVerificationEmail(mMSendVerificationEmailRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->sendVerificationEmail: $e\n');
@@ -3372,7 +3372,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.setDefaultProfileImage(userId);
+  final MMStatusOK result = await client.users.setDefaultProfileImage(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->setDefaultProfileImage: $e\n');
@@ -3436,7 +3436,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-  final result = await client.users.setProfileImage(userId, image);
+  final MMStatusOK result = await client.users.setProfileImage(userId, image);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->setProfileImage: $e\n');
@@ -3500,7 +3500,7 @@ var client = MattermostApiClient(
 final MMSwitchAccountTypeRequest mMSwitchAccountTypeRequest = MMSwitchAccountTypeRequest(); // MMSwitchAccountTypeRequest | 
 
 try {
-  final result = await client.users.switchAccountType(mMSwitchAccountTypeRequest);
+  final MMSwitchAccountType200Response result = await client.users.switchAccountType(mMSwitchAccountTypeRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->switchAccountType: $e\n');
@@ -3564,7 +3564,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserRequest mMUpdateUserRequest = MMUpdateUserRequest(); // MMUpdateUserRequest | User object that is to be updated
 
 try {
-  final result = await client.users.updateUser(userId, mMUpdateUserRequest);
+  final MMUser result = await client.users.updateUser(userId, mMUpdateUserRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUser: $e\n');
@@ -3629,7 +3629,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserActiveRequest mMUpdateUserActiveRequest = MMUpdateUserActiveRequest(); // MMUpdateUserActiveRequest | Use `true` to set the user active, `false` for inactive
 
 try {
-  final result = await client.users.updateUserActive(userId, mMUpdateUserActiveRequest);
+  final MMStatusOK result = await client.users.updateUserActive(userId, mMUpdateUserActiveRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUserActive: $e\n');
@@ -3694,7 +3694,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUserAuthData mMUserAuthData = MMUserAuthData(); // MMUserAuthData | 
 
 try {
-  final result = await client.users.updateUserAuth(userId, mMUserAuthData);
+  final MMUserAuthData result = await client.users.updateUserAuth(userId, mMUserAuthData);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUserAuth: $e\n');
@@ -3759,7 +3759,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserMfaRequest mMUpdateUserMfaRequest = MMUpdateUserMfaRequest(); // MMUpdateUserMfaRequest | 
 
 try {
-  final result = await client.users.updateUserMfa(userId, mMUpdateUserMfaRequest);
+  final MMStatusOK result = await client.users.updateUserMfa(userId, mMUpdateUserMfaRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUserMfa: $e\n');
@@ -3824,7 +3824,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserPasswordRequest mMUpdateUserPasswordRequest = MMUpdateUserPasswordRequest(); // MMUpdateUserPasswordRequest | 
 
 try {
-  final result = await client.users.updateUserPassword(userId, mMUpdateUserPasswordRequest);
+  final MMStatusOK result = await client.users.updateUserPassword(userId, mMUpdateUserPasswordRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUserPassword: $e\n');
@@ -3889,7 +3889,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited system roles to assign to the user
 
 try {
-  final result = await client.users.updateUserRoles(userId, mMUpdateUserRolesRequest);
+  final MMStatusOK result = await client.users.updateUserRoles(userId, mMUpdateUserRolesRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->updateUserRoles: $e\n');
@@ -3953,7 +3953,7 @@ var client = MattermostApiClient(
 final MMVerifyUserEmailRequest mMVerifyUserEmailRequest = MMVerifyUserEmailRequest(); // MMVerifyUserEmailRequest | 
 
 try {
-  final result = await client.users.verifyUserEmail(mMVerifyUserEmailRequest);
+  final MMStatusOK result = await client.users.verifyUserEmail(mMVerifyUserEmailRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->verifyUserEmail: $e\n');
@@ -4016,7 +4016,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.users.verifyUserEmailWithoutToken(userId);
+  final MMUser result = await client.users.verifyUserEmailWithoutToken(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsersApi->verifyUserEmailWithoutToken: $e\n');

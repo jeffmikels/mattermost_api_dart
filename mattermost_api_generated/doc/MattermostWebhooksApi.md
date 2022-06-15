@@ -56,7 +56,7 @@ var client = MattermostApiClient(
 final MMCreateIncomingWebhookRequest mMCreateIncomingWebhookRequest = MMCreateIncomingWebhookRequest(); // MMCreateIncomingWebhookRequest | Incoming webhook to be created
 
 try {
-  final result = await client.webhooks.createIncomingWebhook(mMCreateIncomingWebhookRequest);
+  final MMIncomingWebhook result = await client.webhooks.createIncomingWebhook(mMCreateIncomingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->createIncomingWebhook: $e\n');
@@ -119,7 +119,7 @@ var client = MattermostApiClient(
 final MMCreateOutgoingWebhookRequest mMCreateOutgoingWebhookRequest = MMCreateOutgoingWebhookRequest(); // MMCreateOutgoingWebhookRequest | Outgoing webhook to be created
 
 try {
-  final result = await client.webhooks.createOutgoingWebhook(mMCreateOutgoingWebhookRequest);
+  final MMOutgoingWebhook result = await client.webhooks.createOutgoingWebhook(mMCreateOutgoingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->createOutgoingWebhook: $e\n');
@@ -182,7 +182,7 @@ var client = MattermostApiClient(
 final String hookId = 'hookId_example'; // String | Incoming webhook GUID
 
 try {
-  final result = await client.webhooks.deleteIncomingWebhook(hookId);
+  final MMStatusOK result = await client.webhooks.deleteIncomingWebhook(hookId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->deleteIncomingWebhook: $e\n');
@@ -245,7 +245,7 @@ var client = MattermostApiClient(
 final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
-  final result = await client.webhooks.deleteOutgoingWebhook(hookId);
+  final MMStatusOK result = await client.webhooks.deleteOutgoingWebhook(hookId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->deleteOutgoingWebhook: $e\n');
@@ -308,7 +308,7 @@ var client = MattermostApiClient(
 final String hookId = 'hookId_example'; // String | Incoming Webhook GUID
 
 try {
-  final result = await client.webhooks.getIncomingWebhook(hookId);
+  final MMIncomingWebhook result = await client.webhooks.getIncomingWebhook(hookId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->getIncomingWebhook: $e\n');
@@ -373,7 +373,7 @@ final int perPage = 56; // int | The number of hooks per page.
 final String teamId = 'teamId_example'; // String | The ID of the team to get hooks for.
 
 try {
-  final result = await client.webhooks.getIncomingWebhooks(page, perPage, teamId);
+  final List&lt;MMIncomingWebhook&gt; result = await client.webhooks.getIncomingWebhooks(page, perPage, teamId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->getIncomingWebhooks: $e\n');
@@ -438,7 +438,7 @@ var client = MattermostApiClient(
 final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
-  final result = await client.webhooks.getOutgoingWebhook(hookId);
+  final MMOutgoingWebhook result = await client.webhooks.getOutgoingWebhook(hookId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->getOutgoingWebhook: $e\n');
@@ -504,7 +504,7 @@ final String teamId = 'teamId_example'; // String | The ID of the team to get ho
 final String channelId = 'channelId_example'; // String | The ID of the channel to get hooks for.
 
 try {
-  final result = await client.webhooks.getOutgoingWebhooks(page, perPage, teamId, channelId);
+  final List&lt;MMOutgoingWebhook&gt; result = await client.webhooks.getOutgoingWebhooks(page, perPage, teamId, channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->getOutgoingWebhooks: $e\n');
@@ -570,7 +570,7 @@ var client = MattermostApiClient(
 final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
-  final result = await client.webhooks.regenOutgoingHookToken(hookId);
+  final MMStatusOK result = await client.webhooks.regenOutgoingHookToken(hookId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->regenOutgoingHookToken: $e\n');
@@ -634,7 +634,7 @@ final String hookId = 'hookId_example'; // String | Incoming Webhook GUID
 final MMUpdateIncomingWebhookRequest mMUpdateIncomingWebhookRequest = MMUpdateIncomingWebhookRequest(); // MMUpdateIncomingWebhookRequest | Incoming webhook to be updated
 
 try {
-  final result = await client.webhooks.updateIncomingWebhook(hookId, mMUpdateIncomingWebhookRequest);
+  final MMIncomingWebhook result = await client.webhooks.updateIncomingWebhook(hookId, mMUpdateIncomingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->updateIncomingWebhook: $e\n');
@@ -699,7 +699,7 @@ final String hookId = 'hookId_example'; // String | outgoing Webhook GUID
 final MMUpdateOutgoingWebhookRequest mMUpdateOutgoingWebhookRequest = MMUpdateOutgoingWebhookRequest(); // MMUpdateOutgoingWebhookRequest | Outgoing webhook to be updated
 
 try {
-  final result = await client.webhooks.updateOutgoingWebhook(hookId, mMUpdateOutgoingWebhookRequest);
+  final MMOutgoingWebhook result = await client.webhooks.updateOutgoingWebhook(hookId, mMUpdateOutgoingWebhookRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostWebhooksApi->updateOutgoingWebhook: $e\n');

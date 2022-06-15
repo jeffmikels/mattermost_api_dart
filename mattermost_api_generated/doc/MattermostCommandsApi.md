@@ -55,7 +55,7 @@ var client = MattermostApiClient(
 final MMCreateCommandRequest mMCreateCommandRequest = MMCreateCommandRequest(); // MMCreateCommandRequest | command to be created
 
 try {
-  final result = await client.commands.createCommand(mMCreateCommandRequest);
+  final MMCommand result = await client.commands.createCommand(mMCreateCommandRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->createCommand: $e\n');
@@ -118,7 +118,7 @@ var client = MattermostApiClient(
 final String commandId = 'commandId_example'; // String | ID of the command to delete
 
 try {
-  final result = await client.commands.deleteCommand(commandId);
+  final MMStatusOK result = await client.commands.deleteCommand(commandId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->deleteCommand: $e\n');
@@ -181,7 +181,7 @@ var client = MattermostApiClient(
 final MMExecuteCommandRequest mMExecuteCommandRequest = MMExecuteCommandRequest(); // MMExecuteCommandRequest | command to be executed
 
 try {
-  final result = await client.commands.executeCommand(mMExecuteCommandRequest);
+  final MMCommandResponse result = await client.commands.executeCommand(mMExecuteCommandRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->executeCommand: $e\n');
@@ -244,7 +244,7 @@ var client = MattermostApiClient(
 final String commandId = 'commandId_example'; // String | ID of the command to get
 
 try {
-  final result = await client.commands.getCommandById(commandId);
+  final MMCommand result = await client.commands.getCommandById(commandId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->getCommandById: $e\n');
@@ -307,7 +307,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final result = await client.commands.listAutocompleteCommands(teamId);
+  final List&lt;MMCommand&gt; result = await client.commands.listAutocompleteCommands(teamId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listAutocompleteCommands: $e\n');
@@ -371,7 +371,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userInput = 'userInput_example'; // String | String inputted by the user.
 
 try {
-  final result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
+  final List&lt;MMAutocompleteSuggestion&gt; result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listCommandAutocompleteSuggestions: $e\n');
@@ -436,7 +436,7 @@ final String teamId = 'teamId_example'; // String | The team id.
 final bool customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
 
 try {
-  final result = await client.commands.listCommands(teamId, customOnly);
+  final List&lt;MMCommand&gt; result = await client.commands.listCommands(teamId, customOnly);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listCommands: $e\n');
@@ -501,7 +501,7 @@ final String commandId = 'commandId_example'; // String | ID of the command to m
 final MMMoveCommandRequest mMMoveCommandRequest = MMMoveCommandRequest(); // MMMoveCommandRequest | 
 
 try {
-  final result = await client.commands.moveCommand(commandId, mMMoveCommandRequest);
+  final MMStatusOK result = await client.commands.moveCommand(commandId, mMMoveCommandRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->moveCommand: $e\n');
@@ -565,7 +565,7 @@ var client = MattermostApiClient(
 final String commandId = 'commandId_example'; // String | ID of the command to generate the new token
 
 try {
-  final result = await client.commands.regenCommandToken(commandId);
+  final MMRegenCommandToken200Response result = await client.commands.regenCommandToken(commandId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->regenCommandToken: $e\n');
@@ -629,7 +629,7 @@ final String commandId = 'commandId_example'; // String | ID of the command to u
 final MMCommand mMCommand = MMCommand(); // MMCommand | 
 
 try {
-  final result = await client.commands.updateCommand(commandId, mMCommand);
+  final MMCommand result = await client.commands.updateCommand(commandId, mMCommand);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->updateCommand: $e\n');

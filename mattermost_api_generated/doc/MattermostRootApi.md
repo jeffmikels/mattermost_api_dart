@@ -45,7 +45,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.root.acknowledgeNotification();
+  final MMPushNotification result = await client.root.acknowledgeNotification();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRootApi->acknowledgeNotification: $e\n');

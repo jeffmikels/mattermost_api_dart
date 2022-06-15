@@ -83,7 +83,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.checkIntegrity();
+  final List&lt;MMIntegrityCheckResult&gt; result = await client.system.checkIntegrity();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->checkIntegrity: $e\n');
@@ -142,7 +142,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.clearServerBusy();
+  final MMStatusOK result = await client.system.clearServerBusy();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->clearServerBusy: $e\n');
@@ -201,7 +201,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.databaseRecycle();
+  final MMStatusOK result = await client.system.databaseRecycle();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->databaseRecycle: $e\n');
@@ -384,7 +384,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of audits per page.
 
 try {
-  final result = await client.system.getAudits(page, perPage);
+  final List&lt;MMAudit&gt; result = await client.system.getAudits(page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getAudits: $e\n');
@@ -571,7 +571,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getConfig();
+  final MMConfig result = await client.system.getConfig();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getConfig: $e\n');
@@ -630,7 +630,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getEnvironmentConfig();
+  final MMEnvironmentConfig result = await client.system.getEnvironmentConfig();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getEnvironmentConfig: $e\n');
@@ -689,7 +689,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getImageByUrl();
+  final MultipartFile result = await client.system.getImageByUrl();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getImageByUrl: $e\n');
@@ -750,7 +750,7 @@ final int page = 56; // int | The page to select.
 final String logsPerPage = 'logsPerPage_example'; // String | The number of logs per page. There is a maximum limit of 10000 logs per page.
 
 try {
-  final result = await client.system.getLogs(page, logsPerPage);
+  final List&lt;String&gt; result = await client.system.getLogs(page, logsPerPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getLogs: $e\n');
@@ -817,7 +817,7 @@ final String teamId = 'teamId_example'; // String | ID of the team
 final String locale = 'locale_example'; // String | Client locale
 
 try {
-  final result = await client.system.getNotices(clientVersion, client, teamId, locale);
+  final List&lt;MMNotice&gt; result = await client.system.getNotices(clientVersion, client, teamId, locale);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getNotices: $e\n');
@@ -884,7 +884,7 @@ final bool getServerStatus = true; // bool | Check the status of the database an
 final String deviceId = 'deviceId_example'; // String | Check whether this device id can receive push notifications
 
 try {
-  final result = await client.system.getPing(getServerStatus, deviceId);
+  final MMSystemStatusResponse result = await client.system.getPing(getServerStatus, deviceId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getPing: $e\n');
@@ -948,7 +948,7 @@ var client = MattermostApiClient(
 final String url = 'url_example'; // String | Url to check
 
 try {
-  final result = await client.system.getRedirectLocation(url);
+  final MMGetRedirectLocation200Response result = await client.system.getRedirectLocation(url);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getRedirectLocation: $e\n');
@@ -1010,7 +1010,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getServerBusyExpires();
+  final MMServerBusy result = await client.system.getServerBusyExpires();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getServerBusyExpires: $e\n');
@@ -1069,7 +1069,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getSupportedTimezone();
+  final List&lt;String&gt; result = await client.system.getSupportedTimezone();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getSupportedTimezone: $e\n');
@@ -1128,7 +1128,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.getWarnMetricsStatus();
+  final MMStatusOK result = await client.system.getWarnMetricsStatus();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getWarnMetricsStatus: $e\n');
@@ -1187,7 +1187,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.invalidateCaches();
+  final MMStatusOK result = await client.system.invalidateCaches();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->invalidateCaches: $e\n');
@@ -1247,7 +1247,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of notice IDs
 
 try {
-  final result = await client.system.markNoticesViewed(requestBody);
+  final MMStatusOK result = await client.system.markNoticesViewed(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->markNoticesViewed: $e\n');
@@ -1310,7 +1310,7 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final result = await client.system.patchConfig(mMConfig);
+  final MMConfig result = await client.system.patchConfig(mMConfig);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->patchConfig: $e\n');
@@ -1373,7 +1373,7 @@ var client = MattermostApiClient(
 final MMPostLogRequest mMPostLogRequest = MMPostLogRequest(); // MMPostLogRequest | 
 
 try {
-  final result = await client.system.postLog(mMPostLogRequest);
+  final List&lt;String&gt; result = await client.system.postLog(mMPostLogRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->postLog: $e\n');
@@ -1435,7 +1435,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.reloadConfig();
+  final MMStatusOK result = await client.system.reloadConfig();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->reloadConfig: $e\n');
@@ -1552,7 +1552,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.requestLicenseRenewalLink();
+  final MMLicenseRenewalLink result = await client.system.requestLicenseRenewalLink();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->requestLicenseRenewalLink: $e\n');
@@ -1673,7 +1673,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.restartServer();
+  final MMStatusOK result = await client.system.restartServer();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->restartServer: $e\n');
@@ -1733,7 +1733,7 @@ var client = MattermostApiClient(
 final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
 
 try {
-  final result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId);
+  final MMStatusOK result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->sendTrialLicenseWarnMetricAck: $e\n');
@@ -1797,7 +1797,7 @@ final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
 final MMSendWarnMetricAckRequest mMSendWarnMetricAckRequest = MMSendWarnMetricAckRequest(); // MMSendWarnMetricAckRequest | payload that contains the ack flag
 
 try {
-  final result = await client.system.sendWarnMetricAck(warnMetricId, mMSendWarnMetricAckRequest);
+  final MMStatusOK result = await client.system.sendWarnMetricAck(warnMetricId, mMSendWarnMetricAckRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->sendWarnMetricAck: $e\n');
@@ -1861,7 +1861,7 @@ var client = MattermostApiClient(
 final String seconds = 'seconds_example'; // String | Number of seconds until server is automatically marked as not busy.
 
 try {
-  final result = await client.system.setServerBusy(seconds);
+  final MMStatusOK result = await client.system.setServerBusy(seconds);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->setServerBusy: $e\n');
@@ -1924,7 +1924,7 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final result = await client.system.testEmail(mMConfig);
+  final MMStatusOK result = await client.system.testEmail(mMConfig);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testEmail: $e\n');
@@ -1987,7 +1987,7 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final result = await client.system.testS3Connection(mMConfig);
+  final MMStatusOK result = await client.system.testS3Connection(mMConfig);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testS3Connection: $e\n');
@@ -2050,7 +2050,7 @@ var client = MattermostApiClient(
 final MMTestSiteURLRequest mMTestSiteURLRequest = MMTestSiteURLRequest(); // MMTestSiteURLRequest | 
 
 try {
-  final result = await client.system.testSiteURL(mMTestSiteURLRequest);
+  final MMStatusOK result = await client.system.testSiteURL(mMTestSiteURLRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testSiteURL: $e\n');
@@ -2171,7 +2171,7 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final result = await client.system.updateConfig(mMConfig);
+  final MMConfig result = await client.system.updateConfig(mMConfig);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->updateConfig: $e\n');
@@ -2234,7 +2234,7 @@ var client = MattermostApiClient(
 final MMSystem mMSystem = MMSystem(); // MMSystem | 
 
 try {
-  final result = await client.system.updateMarketplaceVisitedByAdmin(mMSystem);
+  final MMStatusOK result = await client.system.updateMarketplaceVisitedByAdmin(mMSystem);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->updateMarketplaceVisitedByAdmin: $e\n');
@@ -2296,7 +2296,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.upgradeToEnterprise();
+  final MMPushNotification result = await client.system.upgradeToEnterprise();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->upgradeToEnterprise: $e\n');
@@ -2355,7 +2355,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.system.upgradeToEnterpriseStatus();
+  final MMUpgradeToEnterpriseStatus200Response result = await client.system.upgradeToEnterpriseStatus();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->upgradeToEnterpriseStatus: $e\n');
@@ -2415,7 +2415,7 @@ var client = MattermostApiClient(
 final MultipartFile license = BINARY_DATA_HERE; // MultipartFile | The license to be uploaded
 
 try {
-  final result = await client.system.uploadLicenseFile(license);
+  final MMStatusOK result = await client.system.uploadLicenseFile(license);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSystemApi->uploadLicenseFile: $e\n');

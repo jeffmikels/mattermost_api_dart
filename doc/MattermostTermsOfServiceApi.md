@@ -48,7 +48,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.termsOfService.createTermsOfService();
+  final MMTermsOfService result = await client.termsOfService.createTermsOfService();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->createTermsOfService: $e\n');
@@ -107,7 +107,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.termsOfService.getTermsOfService();
+  final MMTermsOfService result = await client.termsOfService.getTermsOfService();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getTermsOfService: $e\n');
@@ -167,7 +167,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.termsOfService.getUserTermsOfService(userId);
+  final MMUserTermsOfService result = await client.termsOfService.getUserTermsOfService(userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getUserTermsOfService: $e\n');
@@ -231,7 +231,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest = MMRegisterTermsOfServiceActionRequest(); // MMRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-  final result = await client.termsOfService.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest);
+  final MMStatusOK result = await client.termsOfService.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->registerTermsOfServiceAction: $e\n');

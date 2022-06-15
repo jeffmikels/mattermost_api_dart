@@ -53,7 +53,7 @@ var client = MattermostApiClient(
 final String name = 'name_example'; // String | The emoji name to search.
 
 try {
-  final result = await client.emoji.autocompleteEmoji(name);
+  final MMEmoji result = await client.emoji.autocompleteEmoji(name);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->autocompleteEmoji: $e\n');
@@ -117,7 +117,7 @@ final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | A file to be up
 final String emoji = 'emoji_example'; // String | A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
 
 try {
-  final result = await client.emoji.createEmoji(image, emoji);
+  final MMEmoji result = await client.emoji.createEmoji(image, emoji);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->createEmoji: $e\n');
@@ -181,7 +181,7 @@ var client = MattermostApiClient(
 final String emojiId = 'emojiId_example'; // String | Emoji GUID
 
 try {
-  final result = await client.emoji.deleteEmoji(emojiId);
+  final MMEmoji result = await client.emoji.deleteEmoji(emojiId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->deleteEmoji: $e\n');
@@ -244,7 +244,7 @@ var client = MattermostApiClient(
 final String emojiId = 'emojiId_example'; // String | Emoji GUID
 
 try {
-  final result = await client.emoji.getEmoji(emojiId);
+  final MMEmoji result = await client.emoji.getEmoji(emojiId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmoji: $e\n');
@@ -307,7 +307,7 @@ var client = MattermostApiClient(
 final String emojiName = 'emojiName_example'; // String | Emoji name
 
 try {
-  final result = await client.emoji.getEmojiByName(emojiName);
+  final MMEmoji result = await client.emoji.getEmojiByName(emojiName);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmojiByName: $e\n');
@@ -434,7 +434,7 @@ final int perPage = 56; // int | The number of emojis per page.
 final String sort = 'sort_example'; // String | Either blank for no sorting or \"name\" to sort by emoji names. Minimum server version for sorting is 4.7.
 
 try {
-  final result = await client.emoji.getEmojiList(page, perPage, sort);
+  final MMEmoji result = await client.emoji.getEmojiList(page, perPage, sort);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmojiList: $e\n');
@@ -499,7 +499,7 @@ var client = MattermostApiClient(
 final MMSearchEmojiRequest mMSearchEmojiRequest = MMSearchEmojiRequest(); // MMSearchEmojiRequest | Search criteria
 
 try {
-  final result = await client.emoji.searchEmoji(mMSearchEmojiRequest);
+  final List&lt;MMEmoji&gt; result = await client.emoji.searchEmoji(mMSearchEmojiRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->searchEmoji: $e\n');

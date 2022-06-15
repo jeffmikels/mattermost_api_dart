@@ -56,7 +56,7 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final result = await client.plugins.disablePlugin(pluginId);
+  final MMStatusOK result = await client.plugins.disablePlugin(pluginId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
@@ -119,7 +119,7 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final result = await client.plugins.enablePlugin(pluginId);
+  final MMStatusOK result = await client.plugins.enablePlugin(pluginId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
@@ -186,7 +186,7 @@ final String serverVersion = 'serverVersion_example'; // String | Set to filter 
 final bool localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
-  final result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
+  final List&lt;MMMarketplacePlugin&gt; result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
@@ -252,7 +252,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.plugins.getMarketplaceVisitedByAdmin();
+  final MMSystem result = await client.plugins.getMarketplaceVisitedByAdmin();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
@@ -311,7 +311,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.plugins.getPluginStatuses();
+  final List&lt;MMPluginStatus&gt; result = await client.plugins.getPluginStatuses();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
@@ -370,7 +370,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.plugins.getPlugins();
+  final MMGetPlugins200Response result = await client.plugins.getPlugins();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
@@ -429,7 +429,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.plugins.getWebappPlugins();
+  final List&lt;MMPluginManifestWebapp&gt; result = await client.plugins.getWebappPlugins();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
@@ -489,7 +489,7 @@ var client = MattermostApiClient(
 final MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest = MMInstallMarketplacePluginRequest(); // MMInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
-  final result = await client.plugins.installMarketplacePlugin(mMInstallMarketplacePluginRequest);
+  final MMPluginManifest result = await client.plugins.installMarketplacePlugin(mMInstallMarketplacePluginRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
@@ -553,7 +553,7 @@ final String pluginDownloadUrl = 'pluginDownloadUrl_example'; // String | URL us
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
+  final MMStatusOK result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
@@ -617,7 +617,7 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final result = await client.plugins.removePlugin(pluginId);
+  final MMStatusOK result = await client.plugins.removePlugin(pluginId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
@@ -681,7 +681,7 @@ final MultipartFile plugin = BINARY_DATA_HERE; // MultipartFile | The plugin ima
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final result = await client.plugins.uploadPlugin(plugin, force);
+  final MMStatusOK result = await client.plugins.uploadPlugin(plugin, force);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');

@@ -120,7 +120,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.createCustomerPayment();
+  final MMPaymentSetupIntent result = await client.cloud.createCustomerPayment();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->createCustomerPayment: $e\n');
@@ -179,7 +179,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getCloudCustomer();
+  final MMCloudCustomer result = await client.cloud.getCloudCustomer();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudCustomer: $e\n');
@@ -238,7 +238,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getCloudLimits();
+  final MMProductLimits result = await client.cloud.getCloudLimits();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudLimits: $e\n');
@@ -297,7 +297,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getCloudProducts();
+  final List&lt;MMProduct&gt; result = await client.cloud.getCloudProducts();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudProducts: $e\n');
@@ -418,7 +418,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getInvoicesForSubscription();
+  final List&lt;MMInvoice&gt; result = await client.cloud.getInvoicesForSubscription();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getInvoicesForSubscription: $e\n');
@@ -477,7 +477,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getSubscription();
+  final MMSubscription result = await client.cloud.getSubscription();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscription: $e\n');
@@ -536,7 +536,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.cloud.getSubscriptionStats();
+  final MMSubscriptionStats result = await client.cloud.getSubscriptionStats();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscriptionStats: $e\n');
@@ -770,7 +770,7 @@ var client = MattermostApiClient(
 final MMUpdateCloudCustomerRequest mMUpdateCloudCustomerRequest = MMUpdateCloudCustomerRequest(); // MMUpdateCloudCustomerRequest | Customer patch including information to update
 
 try {
-  final result = await client.cloud.updateCloudCustomer(mMUpdateCloudCustomerRequest);
+  final MMCloudCustomer result = await client.cloud.updateCloudCustomer(mMUpdateCloudCustomerRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomer: $e\n');
@@ -833,7 +833,7 @@ var client = MattermostApiClient(
 final MMAddress mMAddress = MMAddress(); // MMAddress | Company address information to update
 
 try {
-  final result = await client.cloud.updateCloudCustomerAddress(mMAddress);
+  final MMCloudCustomer result = await client.cloud.updateCloudCustomerAddress(mMAddress);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomerAddress: $e\n');

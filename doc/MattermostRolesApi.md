@@ -49,7 +49,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.roles.getAllRoles();
+  final List&lt;MMRole&gt; result = await client.roles.getAllRoles();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getAllRoles: $e\n');
@@ -109,7 +109,7 @@ var client = MattermostApiClient(
 final String roleId = 'roleId_example'; // String | Role GUID
 
 try {
-  final result = await client.roles.getRole(roleId);
+  final MMRole result = await client.roles.getRole(roleId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRole: $e\n');
@@ -172,7 +172,7 @@ var client = MattermostApiClient(
 final String roleName = 'roleName_example'; // String | Role Name
 
 try {
-  final result = await client.roles.getRoleByName(roleName);
+  final MMRole result = await client.roles.getRoleByName(roleName);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRoleByName: $e\n');
@@ -235,7 +235,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of role names
 
 try {
-  final result = await client.roles.getRolesByNames(requestBody);
+  final List&lt;MMRole&gt; result = await client.roles.getRolesByNames(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRolesByNames: $e\n');
@@ -299,7 +299,7 @@ final String roleId = 'roleId_example'; // String | Role GUID
 final MMPatchRoleRequest mMPatchRoleRequest = MMPatchRoleRequest(); // MMPatchRoleRequest | Role object to be updated
 
 try {
-  final result = await client.roles.patchRole(roleId, mMPatchRoleRequest);
+  final MMRole result = await client.roles.patchRole(roleId, mMPatchRoleRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostRolesApi->patchRole: $e\n');

@@ -46,7 +46,7 @@ var client = MattermostApiClient(
 final String subsectionPermissions = 'subsectionPermissions_example'; // String | The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels 
 
 try {
-  final result = await client.permissions.getAncillaryPermissions(subsectionPermissions);
+  final List&lt;String&gt; result = await client.permissions.getAncillaryPermissions(subsectionPermissions);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPermissionsApi->getAncillaryPermissions: $e\n');

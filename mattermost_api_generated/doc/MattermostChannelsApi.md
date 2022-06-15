@@ -98,7 +98,7 @@ final String channelId = 'channelId_example'; // String | The channel ID
 final MMAddChannelMemberRequest mMAddChannelMemberRequest = MMAddChannelMemberRequest(); // MMAddChannelMemberRequest | 
 
 try {
-  final result = await client.channels.addChannelMember(channelId, mMAddChannelMemberRequest);
+  final MMChannelMember result = await client.channels.addChannelMember(channelId, mMAddChannelMemberRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->addChannelMember: $e\n');
@@ -163,7 +163,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final result = await client.channels.autocompleteChannelsForTeam(teamId, name);
+  final List&lt;MMChannel&gt; result = await client.channels.autocompleteChannelsForTeam(teamId, name);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeam: $e\n');
@@ -228,7 +228,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name);
+  final List&lt;MMChannel&gt; result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeamForSearch: $e\n');
@@ -360,7 +360,7 @@ var client = MattermostApiClient(
 final MMCreateChannelRequest mMCreateChannelRequest = MMCreateChannelRequest(); // MMCreateChannelRequest | Channel object to be created
 
 try {
-  final result = await client.channels.createChannel(mMCreateChannelRequest);
+  final MMChannel result = await client.channels.createChannel(mMCreateChannelRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createChannel: $e\n');
@@ -423,7 +423,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
 
 try {
-  final result = await client.channels.createDirectChannel(requestBody);
+  final MMChannel result = await client.channels.createDirectChannel(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createDirectChannel: $e\n');
@@ -486,7 +486,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
 
 try {
-  final result = await client.channels.createGroupChannel(requestBody);
+  final MMChannel result = await client.channels.createGroupChannel(requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createGroupChannel: $e\n');
@@ -551,7 +551,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
 
 try {
-  final result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory);
+  final MMSidebarCategory result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createSidebarCategoryForTeamForUser: $e\n');
@@ -616,7 +616,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.deleteChannel(channelId);
+  final MMStatusOK result = await client.channels.deleteChannel(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->deleteChannel: $e\n');
@@ -685,7 +685,7 @@ final bool includeTotalCount = true; // bool | Appends a total count of returned
 final bool excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-  final result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained);
+  final List&lt;MMChannelWithTeamData&gt; result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getAllChannels: $e\n');
@@ -754,7 +754,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getChannel(channelId);
+  final MMChannel result = await client.channels.getChannel(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannel: $e\n');
@@ -819,7 +819,7 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final result = await client.channels.getChannelByName(teamId, channelName, includeDeleted);
+  final MMChannel result = await client.channels.getChannelByName(teamId, channelName, includeDeleted);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByName: $e\n');
@@ -886,7 +886,7 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted);
+  final MMChannel result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByNameForTeamName: $e\n');
@@ -952,7 +952,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.channels.getChannelMember(channelId, userId);
+  final MMChannelMember result = await client.channels.getChannelMember(channelId, userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMember: $e\n');
@@ -1082,7 +1082,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
 
 try {
-  final result = await client.channels.getChannelMembers(channelId, page, perPage);
+  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembers(channelId, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembers: $e\n');
@@ -1148,7 +1148,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-  final result = await client.channels.getChannelMembersByIds(channelId, requestBody);
+  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembersByIds(channelId, requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersByIds: $e\n');
@@ -1213,7 +1213,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final result = await client.channels.getChannelMembersForUser(userId, teamId);
+  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembersForUser(userId, teamId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersForUser: $e\n');
@@ -1277,7 +1277,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getChannelMembersTimezones(channelId);
+  final List&lt;String&gt; result = await client.channels.getChannelMembersTimezones(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersTimezones: $e\n');
@@ -1340,7 +1340,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getChannelModerations(channelId);
+  final List&lt;MMChannelModeration&gt; result = await client.channels.getChannelModerations(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelModerations: $e\n');
@@ -1403,7 +1403,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getChannelStats(channelId);
+  final MMChannelStats result = await client.channels.getChannelStats(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelStats: $e\n');
@@ -1467,7 +1467,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getChannelUnread(userId, channelId);
+  final MMChannelUnread result = await client.channels.getChannelUnread(userId, channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelUnread: $e\n');
@@ -1534,7 +1534,7 @@ final bool includeDeleted = true; // bool | Defines if deleted channels should b
 final int lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 
 try {
-  final result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt);
+  final List&lt;MMChannel&gt; result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForTeamForUser: $e\n');
@@ -1602,7 +1602,7 @@ final int lastDeleteAt = 56; // int | Filters the deleted channels by this time 
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 
 try {
-  final result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted);
+  final List&lt;MMChannel&gt; result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForUser: $e\n');
@@ -1669,7 +1669,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage);
+  final List&lt;MMChannel&gt; result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getDeletedChannelsForTeam: $e\n');
@@ -1734,7 +1734,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.getPinnedPosts(channelId);
+  final MMPostList result = await client.channels.getPinnedPosts(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPinnedPosts: $e\n');
@@ -1799,7 +1799,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of private channels per page.
 
 try {
-  final result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage);
+  final List&lt;MMChannel&gt; result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPrivateChannelsForTeam: $e\n');
@@ -1865,7 +1865,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of channel ids
 
 try {
-  final result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody);
+  final List&lt;MMChannel&gt; result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsByIdsForTeam: $e\n');
@@ -1931,7 +1931,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage);
+  final List&lt;MMChannel&gt; result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsForTeam: $e\n');
@@ -1997,7 +1997,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId);
+  final List&lt;MMOrderedSidebarCategories&gt; result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoriesForTeamForUser: $e\n');
@@ -2063,7 +2063,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId);
+  final MMSidebarCategory result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoryForTeamForUser: $e\n');
@@ -2129,7 +2129,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId);
+  final List&lt;String&gt; result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoryOrderForTeamForUser: $e\n');
@@ -2194,7 +2194,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMMoveChannelRequest mMMoveChannelRequest = MMMoveChannelRequest(); // MMMoveChannelRequest | 
 
 try {
-  final result = await client.channels.moveChannel(channelId, mMMoveChannelRequest);
+  final MMChannel result = await client.channels.moveChannel(channelId, mMMoveChannelRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->moveChannel: $e\n');
@@ -2259,7 +2259,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMPatchChannelRequest mMPatchChannelRequest = MMPatchChannelRequest(); // MMPatchChannelRequest | Channel object to be updated
 
 try {
-  final result = await client.channels.patchChannel(channelId, mMPatchChannelRequest);
+  final MMChannel result = await client.channels.patchChannel(channelId, mMPatchChannelRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannel: $e\n');
@@ -2324,7 +2324,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMChannelModerationPatch mMChannelModerationPatch = MMChannelModerationPatch(); // MMChannelModerationPatch | 
 
 try {
-  final result = await client.channels.patchChannelModerations(channelId, mMChannelModerationPatch);
+  final List&lt;MMChannelModeration&gt; result = await client.channels.patchChannelModerations(channelId, mMChannelModerationPatch);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannelModerations: $e\n');
@@ -2390,7 +2390,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId);
+  final MMSidebarCategory result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeSidebarCategoryForTeamForUser: $e\n');
@@ -2456,7 +2456,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final result = await client.channels.removeUserFromChannel(channelId, userId);
+  final MMStatusOK result = await client.channels.removeUserFromChannel(channelId, userId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeUserFromChannel: $e\n');
@@ -2520,7 +2520,7 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final result = await client.channels.restoreChannel(channelId);
+  final MMChannel result = await client.channels.restoreChannel(channelId);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->restoreChannel: $e\n');
@@ -2584,7 +2584,7 @@ final MMSearchAllChannelsRequest mMSearchAllChannelsRequest = MMSearchAllChannel
 final bool systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
 
 try {
-  final result = await client.channels.searchAllChannels(mMSearchAllChannelsRequest, systemConsole);
+  final MMSearchAllChannels200Response result = await client.channels.searchAllChannels(mMSearchAllChannelsRequest, systemConsole);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchAllChannels: $e\n');
@@ -2649,7 +2649,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest = MMSearchArchivedChannelsRequest(); // MMSearchArchivedChannelsRequest | Search criteria
 
 try {
-  final result = await client.channels.searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest);
+  final List&lt;MMChannel&gt; result = await client.channels.searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchArchivedChannels: $e\n');
@@ -2714,7 +2714,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMSearchChannelsRequest mMSearchChannelsRequest = MMSearchChannelsRequest(); // MMSearchChannelsRequest | Search criteria
 
 try {
-  final result = await client.channels.searchChannels(teamId, mMSearchChannelsRequest);
+  final List&lt;MMChannel&gt; result = await client.channels.searchChannels(teamId, mMSearchChannelsRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchChannels: $e\n');
@@ -2778,7 +2778,7 @@ var client = MattermostApiClient(
 final MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest = MMSearchGroupChannelsRequest(); // MMSearchGroupChannelsRequest | Search criteria
 
 try {
-  final result = await client.channels.searchGroupChannels(mMSearchGroupChannelsRequest);
+  final List&lt;MMChannel&gt; result = await client.channels.searchGroupChannels(mMSearchGroupChannelsRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchGroupChannels: $e\n');
@@ -2842,7 +2842,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateChannelRequest mMUpdateChannelRequest = MMUpdateChannelRequest(); // MMUpdateChannelRequest | Channel object to be updated
 
 try {
-  final result = await client.channels.updateChannel(channelId, mMUpdateChannelRequest);
+  final MMChannel result = await client.channels.updateChannel(channelId, mMUpdateChannelRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannel: $e\n');
@@ -2908,7 +2908,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest = MMUpdateTeamMemberSchemeRolesRequest(); // MMUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-  final result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest);
+  final MMStatusOK result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelMemberSchemeRoles: $e\n');
@@ -2975,7 +2975,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMChannelNotifyProps mMChannelNotifyProps = MMChannelNotifyProps(); // MMChannelNotifyProps | 
 
 try {
-  final result = await client.channels.updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps);
+  final MMStatusOK result = await client.channels.updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelNotifyProps: $e\n');
@@ -3041,7 +3041,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest = MMUpdateChannelPrivacyRequest(); // MMUpdateChannelPrivacyRequest | 
 
 try {
-  final result = await client.channels.updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest);
+  final MMChannel result = await client.channels.updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelPrivacy: $e\n');
@@ -3107,7 +3107,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
 
 try {
-  final result = await client.channels.updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest);
+  final MMStatusOK result = await client.channels.updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelRoles: $e\n');
@@ -3173,7 +3173,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest = MMUpdateTeamSchemeRequest(); // MMUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-  final result = await client.channels.updateChannelScheme(channelId, mMUpdateTeamSchemeRequest);
+  final MMStatusOK result = await client.channels.updateChannelScheme(channelId, mMUpdateTeamSchemeRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelScheme: $e\n');
@@ -3239,7 +3239,7 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;MMSidebarCategory&gt; mMSidebarCategory = [List<MMSidebarCategory>()]; // List<MMSidebarCategory> | 
 
 try {
-  final result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory);
+  final MMSidebarCategory result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoriesForTeamForUser: $e\n');
@@ -3307,7 +3307,7 @@ final String categoryId = 'categoryId_example'; // String | Category GUID
 final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
 
 try {
-  final result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory);
+  final MMSidebarCategory result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoryForTeamForUser: $e\n');
@@ -3375,7 +3375,7 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody);
+  final List&lt;String&gt; result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoryOrderForTeamForUser: $e\n');
@@ -3441,7 +3441,7 @@ final String userId = 'userId_example'; // String | User ID to perform the view 
 final MMViewChannelRequest mMViewChannelRequest = MMViewChannelRequest(); // MMViewChannelRequest | Paremeters affecting how and which channels to view
 
 try {
-  final result = await client.channels.viewChannel(userId, mMViewChannelRequest);
+  final MMViewChannel200Response result = await client.channels.viewChannel(userId, mMViewChannelRequest);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->viewChannel: $e\n');

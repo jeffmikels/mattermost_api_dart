@@ -52,7 +52,7 @@ final int page = 56; // int | The page to select. (Only works with Elasticsearch
 final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-  final result = await client.search.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+  final MMFileInfoList result = await client.search.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSearchApi->searchFiles: $e\n');

@@ -47,7 +47,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.brand.deleteBrandImage();
+  final MMStatusOK result = await client.brand.deleteBrandImage();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBrandApi->deleteBrandImage: $e\n');
@@ -106,7 +106,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final result = await client.brand.getBrandImage();
+  final String result = await client.brand.getBrandImage();
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBrandApi->getBrandImage: $e\n');
@@ -166,7 +166,7 @@ var client = MattermostApiClient(
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-  final result = await client.brand.uploadBrandImage(image);
+  final MMStatusOK result = await client.brand.uploadBrandImage(image);
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBrandApi->uploadBrandImage: $e\n');
