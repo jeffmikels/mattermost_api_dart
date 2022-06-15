@@ -46,9 +46,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | ID of the user
-final postId = postId_example; // String | ID of the post
-final emojiName = emojiName_example; // String | emoji name
+final String userId = 'userId_example'; // String | ID of the user
+final String postId = 'postId_example'; // String | ID of the post
+final String emojiName = 'emojiName_example'; // String | emoji name
 
 try {
   final result = await client.reactions.deleteReaction(userId, postId, emojiName);
@@ -113,7 +113,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | Array of post IDs
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of post IDs
 
 try {
   final result = await client.reactions.getBulkReactions(requestBody);
@@ -176,7 +176,7 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of a post
+final String postId = 'postId_example'; // String | ID of a post
 
 try {
   final result = await client.reactions.getReactions(postId);
@@ -239,7 +239,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostReaction = MattermostReaction(); // MattermostReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
+final MattermostReaction mattermostReaction = MattermostReaction(); // MattermostReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
 
 try {
   final result = await client.reactions.saveReaction(mattermostReaction);

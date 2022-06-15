@@ -48,7 +48,7 @@ client = MattermostApiClient(
 );
 
 
-final jobId = jobId_example; // String | Job GUID
+final String jobId = 'jobId_example'; // String | Job GUID
 
 try {
   final result = await client.jobs.cancelJob(jobId);
@@ -111,7 +111,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateJobRequest = MattermostCreateJobRequest(); // MattermostCreateJobRequest | Job object to be created
+final MattermostCreateJobRequest mattermostCreateJobRequest = MattermostCreateJobRequest(); // MattermostCreateJobRequest | Job object to be created
 
 try {
   final result = await client.jobs.createJob(mattermostCreateJobRequest);
@@ -174,7 +174,7 @@ client = MattermostApiClient(
 );
 
 
-final jobId = jobId_example; // String | Job GUID
+final String jobId = 'jobId_example'; // String | Job GUID
 
 try {
   await client.jobs.downloadJob(jobId);
@@ -236,7 +236,7 @@ client = MattermostApiClient(
 );
 
 
-final jobId = jobId_example; // String | Job GUID
+final String jobId = 'jobId_example'; // String | Job GUID
 
 try {
   final result = await client.jobs.getJob(jobId);
@@ -299,8 +299,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of jobs per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of jobs per page.
 
 try {
   final result = await client.jobs.getJobs(page, perPage);
@@ -364,9 +364,9 @@ client = MattermostApiClient(
 );
 
 
-final type = type_example; // String | Job type
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of jobs per page.
+final String type = 'type_example'; // String | Job type
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of jobs per page.
 
 try {
   final result = await client.jobs.getJobsByType(type, page, perPage);

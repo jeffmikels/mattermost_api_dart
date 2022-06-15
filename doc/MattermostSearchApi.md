@@ -43,13 +43,13 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
-final isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
-final timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
-final includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
-final page = 56; // int | The page to select. (Only works with Elasticsearch)
-final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
+final String teamId = 'teamId_example'; // String | Team GUID
+final String terms = 'terms_example'; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
+final bool isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
+final int timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
+final bool includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
+final int page = 56; // int | The page to select. (Only works with Elasticsearch)
+final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
   final result = await client.search.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);

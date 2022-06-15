@@ -348,7 +348,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostGetSamlMetadataFromIdpRequest = MattermostGetSamlMetadataFromIdpRequest(); // MattermostGetSamlMetadataFromIdpRequest | 
+final MattermostGetSamlMetadataFromIdpRequest mattermostGetSamlMetadataFromIdpRequest = MattermostGetSamlMetadataFromIdpRequest(); // MattermostGetSamlMetadataFromIdpRequest | 
 
 try {
   final result = await client.sAML.getSamlMetadataFromIdp(mattermostGetSamlMetadataFromIdpRequest);
@@ -411,7 +411,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
+final MattermostMigrateAuthToSamlRequest mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
   await client.sAML.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
@@ -473,7 +473,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostResetSamlAuthDataToEmailRequest = MattermostResetSamlAuthDataToEmailRequest(); // MattermostResetSamlAuthDataToEmailRequest | 
+final MattermostResetSamlAuthDataToEmailRequest mattermostResetSamlAuthDataToEmailRequest = MattermostResetSamlAuthDataToEmailRequest(); // MattermostResetSamlAuthDataToEmailRequest | 
 
 try {
   final result = await client.sAML.resetSamlAuthDataToEmail(mattermostResetSamlAuthDataToEmailRequest);
@@ -536,7 +536,7 @@ client = MattermostApiClient(
 );
 
 
-final certificate = BINARY_DATA_HERE; // MultipartFile | The IDP certificate file
+final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The IDP certificate file
 
 try {
   final result = await client.sAML.uploadSamlIdpCertificate(certificate);
@@ -599,7 +599,7 @@ client = MattermostApiClient(
 );
 
 
-final certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
+final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
   final result = await client.sAML.uploadSamlPrivateCertificate(certificate);
@@ -662,7 +662,7 @@ client = MattermostApiClient(
 );
 
 
-final certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
+final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
   final result = await client.sAML.uploadSamlPublicCertificate(certificate);

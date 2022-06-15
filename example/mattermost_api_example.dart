@@ -7,7 +7,7 @@ void debug(Object s) {
 }
 
 void main() async {
-  var client;
+  late MattermostApiClient client;
   client = MattermostApiClient(
     basePath: 'https://your-server.tld/api/v4',
     authentication: MattermostOAuth(accessToken: 'YOUR TOKEN'),
@@ -36,4 +36,6 @@ void main() async {
     basePath: 'https://your-server.tld/api/v4',
     authentication: MattermostHttpBearerAuthentication(() => 'ACCESS TOKEN FROM FUNCTION'),
   );
+
+  client.channels.getChannel('1234567');
 }

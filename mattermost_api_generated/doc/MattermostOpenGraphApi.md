@@ -43,7 +43,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostOpenGraphRequest = MattermostOpenGraphRequest(); // MattermostOpenGraphRequest | 
+final MattermostOpenGraphRequest mattermostOpenGraphRequest = MattermostOpenGraphRequest(); // MattermostOpenGraphRequest | 
 
 try {
   final result = await client.openGraph.openGraph(mattermostOpenGraphRequest);

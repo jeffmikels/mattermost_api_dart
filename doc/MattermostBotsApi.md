@@ -54,8 +54,8 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final userId = userId_example; // String | The user ID to assign the bot to.
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final String userId = 'userId_example'; // String | The user ID to assign the bot to.
 
 try {
   final result = await client.bots.assignBot(botUserId, userId);
@@ -119,9 +119,9 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
-final setSystemAdmin = true; // bool | Whether to give the user the system admin role.
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
+final bool setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
   final result = await client.bots.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
@@ -186,7 +186,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.bots.convertUserToBot(userId);
@@ -249,7 +249,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
+final MattermostCreateBotRequest mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
 
 try {
   final result = await client.bots.createBot(mattermostCreateBotRequest);
@@ -312,7 +312,7 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
+final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
   final result = await client.bots.deleteBotIconImage(botUserId);
@@ -375,7 +375,7 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
+final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
   final result = await client.bots.disableBot(botUserId);
@@ -438,7 +438,7 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
+final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
   final result = await client.bots.enableBot(botUserId);
@@ -501,8 +501,8 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final includeDeleted = true; // bool | If deleted bots should be returned.
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final bool includeDeleted = true; // bool | If deleted bots should be returned.
 
 try {
   final result = await client.bots.getBot(botUserId, includeDeleted);
@@ -566,7 +566,7 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
+final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
   await client.bots.getBotIconImage(botUserId);
@@ -628,10 +628,10 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
-final includeDeleted = true; // bool | If deleted bots should be returned.
-final onlyOrphaned = true; // bool | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
+final bool includeDeleted = true; // bool | If deleted bots should be returned.
+final bool onlyOrphaned = true; // bool | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
 
 try {
   final result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned);
@@ -697,8 +697,8 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final MattermostCreateBotRequest mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
 
 try {
   final result = await client.bots.patchBot(botUserId, mattermostCreateBotRequest);
@@ -762,8 +762,8 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final image = BINARY_DATA_HERE; // MultipartFile | SVG icon image to be uploaded
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | SVG icon image to be uploaded
 
 try {
   final result = await client.bots.setBotIconImage(botUserId, image);

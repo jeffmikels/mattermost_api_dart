@@ -56,7 +56,7 @@ client = MattermostApiClient(
 );
 
 
-final stripeSetupIntentId = stripeSetupIntentId_example; // String | 
+final String stripeSetupIntentId = 'stripeSetupIntentId_example'; // String | 
 
 try {
   await client.cloud.confirmCustomerPayment(stripeSetupIntentId);
@@ -354,7 +354,7 @@ client = MattermostApiClient(
 );
 
 
-final invoiceId = invoiceId_example; // String | Invoice ID
+final String invoiceId = 'invoiceId_example'; // String | Invoice ID
 
 try {
   await client.cloud.getInvoiceForSubscriptionAsPdf(invoiceId);
@@ -767,7 +767,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostUpdateCloudCustomerRequest = MattermostUpdateCloudCustomerRequest(); // MattermostUpdateCloudCustomerRequest | Customer patch including information to update
+final MattermostUpdateCloudCustomerRequest mattermostUpdateCloudCustomerRequest = MattermostUpdateCloudCustomerRequest(); // MattermostUpdateCloudCustomerRequest | Customer patch including information to update
 
 try {
   final result = await client.cloud.updateCloudCustomer(mattermostUpdateCloudCustomerRequest);
@@ -830,7 +830,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostAddress = MattermostAddress(); // MattermostAddress | Company address information to update
+final MattermostAddress mattermostAddress = MattermostAddress(); // MattermostAddress | Company address information to update
 
 try {
   final result = await client.cloud.updateCloudCustomerAddress(mattermostAddress);

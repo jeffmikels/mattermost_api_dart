@@ -59,8 +59,8 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreatePostRequest = MattermostCreatePostRequest(); // MattermostCreatePostRequest | Post object to create
-final setOnline = true; // bool | Whether to set the user status as online or not.
+final MattermostCreatePostRequest mattermostCreatePostRequest = MattermostCreatePostRequest(); // MattermostCreatePostRequest | Post object to create
+final bool setOnline = true; // bool | Whether to set the user status as online or not.
 
 try {
   final result = await client.posts.createPost(mattermostCreatePostRequest, setOnline);
@@ -124,7 +124,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreatePostEphemeralRequest = MattermostCreatePostEphemeralRequest(); // MattermostCreatePostEphemeralRequest | Ephemeral Post object to send
+final MattermostCreatePostEphemeralRequest mattermostCreatePostEphemeralRequest = MattermostCreatePostEphemeralRequest(); // MattermostCreatePostEphemeralRequest | Ephemeral Post object to send
 
 try {
   final result = await client.posts.createPostEphemeral(mattermostCreatePostEphemeralRequest);
@@ -187,7 +187,7 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of the post to delete
+final String postId = 'postId_example'; // String | ID of the post to delete
 
 try {
   final result = await client.posts.deletePost(postId);
@@ -250,8 +250,8 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | Post GUID
-final actionId = actionId_example; // String | Action GUID
+final String postId = 'postId_example'; // String | Post GUID
+final String actionId = 'actionId_example'; // String | Action GUID
 
 try {
   final result = await client.posts.doPostAction(postId, actionId);
@@ -315,8 +315,8 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of the post
-final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
+final String postId = 'postId_example'; // String | ID of the post
+final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
   final result = await client.posts.getFileInfosForPost(postId, includeDeleted);
@@ -380,11 +380,11 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | ID of the user
-final teamId = teamId_example; // String | Team ID
-final channelId = channelId_example; // String | Channel ID
-final page = 56; // int | The page to select
-final perPage = 56; // int | The number of posts per page
+final String userId = 'userId_example'; // String | ID of the user
+final String teamId = 'teamId_example'; // String | Team ID
+final String channelId = 'channelId_example'; // String | Channel ID
+final int page = 56; // int | The page to select
+final int perPage = 56; // int | The number of posts per page
 
 try {
   final result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
@@ -451,8 +451,8 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of the post to get
-final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
+final String postId = 'postId_example'; // String | ID of the post to get
+final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
   final result = await client.posts.getPost(postId, includeDeleted);
@@ -516,14 +516,14 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of a post in the thread
-final perPage = 56; // int | The number of posts per page
-final fromPost = fromPost_example; // String | The post_id to return the next page of posts from
-final fromCreateAt = 56; // int | The create_at timestamp to return the next page of posts from
-final direction = direction_example; // String | The direction to return the posts. Either up or down.
-final skipFetchThreads = true; // bool | Whether to skip fetching threads or not
-final collapsedThreads = true; // bool | Whether the client uses CRT or not
-final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
+final String postId = 'postId_example'; // String | ID of a post in the thread
+final int perPage = 56; // int | The number of posts per page
+final String fromPost = 'fromPost_example'; // String | The post_id to return the next page of posts from
+final int fromCreateAt = 56; // int | The create_at timestamp to return the next page of posts from
+final String direction = 'direction_example'; // String | The direction to return the posts. Either up or down.
+final bool skipFetchThreads = true; // bool | Whether to skip fetching threads or not
+final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
+final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
   final result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
@@ -593,13 +593,13 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | ID of the user
-final channelId = channelId_example; // String | The channel ID to get the posts for
-final limitBefore = 56; // int | Number of posts before the oldest unread posts. Maximum is 200 posts if limit is set greater than that.
-final limitAfter = 56; // int | Number of posts after and including the oldest unread post. Maximum is 200 posts if limit is set greater than that.
-final skipFetchThreads = true; // bool | Whether to skip fetching threads or not
-final collapsedThreads = true; // bool | Whether the client uses CRT or not
-final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
+final String userId = 'userId_example'; // String | ID of the user
+final String channelId = 'channelId_example'; // String | The channel ID to get the posts for
+final int limitBefore = 56; // int | Number of posts before the oldest unread posts. Maximum is 200 posts if limit is set greater than that.
+final int limitAfter = 56; // int | Number of posts after and including the oldest unread post. Maximum is 200 posts if limit is set greater than that.
+final bool skipFetchThreads = true; // bool | Whether to skip fetching threads or not
+final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
+final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
   final result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
@@ -668,7 +668,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of post ids
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of post ids
 
 try {
   final result = await client.posts.getPostsByIds(requestBody);
@@ -731,12 +731,12 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | The channel ID to get the posts for
-final page = 56; // int | The page to select
-final perPage = 56; // int | The number of posts per page
-final since = 56; // int | Provide a non-zero value in Unix time milliseconds to select posts modified after that time
-final before = before_example; // String | A post id to select the posts that came before this one
-final after = after_example; // String | A post id to select the posts that came after this one
+final String channelId = 'channelId_example'; // String | The channel ID to get the posts for
+final int page = 56; // int | The page to select
+final int perPage = 56; // int | The number of posts per page
+final int since = 56; // int | Provide a non-zero value in Unix time milliseconds to select posts modified after that time
+final String before = 'before_example'; // String | A post id to select the posts that came before this one
+final String after = 'after_example'; // String | A post id to select the posts that came after this one
 
 try {
   final result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after);
@@ -804,8 +804,8 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | Post GUID
-final mattermostPatchPostRequest = MattermostPatchPostRequest(); // MattermostPatchPostRequest | Post object that is to be updated
+final String postId = 'postId_example'; // String | Post GUID
+final MattermostPatchPostRequest mattermostPatchPostRequest = MattermostPatchPostRequest(); // MattermostPatchPostRequest | Post object that is to be updated
 
 try {
   final result = await client.posts.patchPost(postId, mattermostPatchPostRequest);
@@ -869,7 +869,7 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | Post GUID
+final String postId = 'postId_example'; // String | Post GUID
 
 try {
   final result = await client.posts.pinPost(postId);
@@ -932,8 +932,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostSearchPostsRequest = MattermostSearchPostsRequest(); // MattermostSearchPostsRequest | The search terms and logic to use in the search.
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostSearchPostsRequest mattermostSearchPostsRequest = MattermostSearchPostsRequest(); // MattermostSearchPostsRequest | The search terms and logic to use in the search.
 
 try {
   final result = await client.posts.searchPosts(teamId, mattermostSearchPostsRequest);
@@ -997,8 +997,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final postId = postId_example; // String | Post GUID
+final String userId = 'userId_example'; // String | User GUID
+final String postId = 'postId_example'; // String | Post GUID
 
 try {
   final result = await client.posts.setPostUnread(userId, postId);
@@ -1062,7 +1062,7 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | Post GUID
+final String postId = 'postId_example'; // String | Post GUID
 
 try {
   final result = await client.posts.unpinPost(postId);
@@ -1125,8 +1125,8 @@ client = MattermostApiClient(
 );
 
 
-final postId = postId_example; // String | ID of the post to update
-final mattermostUpdatePostRequest = MattermostUpdatePostRequest(); // MattermostUpdatePostRequest | Post object that is to be updated
+final String postId = 'postId_example'; // String | ID of the post to update
+final MattermostUpdatePostRequest mattermostUpdatePostRequest = MattermostUpdatePostRequest(); // MattermostUpdatePostRequest | Post object that is to be updated
 
 try {
   final result = await client.posts.updatePost(postId, mattermostUpdatePostRequest);

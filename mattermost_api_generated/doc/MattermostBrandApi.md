@@ -163,7 +163,7 @@ client = MattermostApiClient(
 );
 
 
-final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
+final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
   final result = await client.brand.uploadBrandImage(image);

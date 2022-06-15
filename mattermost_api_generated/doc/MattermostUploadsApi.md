@@ -45,7 +45,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateUploadRequest = MattermostCreateUploadRequest(); // MattermostCreateUploadRequest | 
+final MattermostCreateUploadRequest mattermostCreateUploadRequest = MattermostCreateUploadRequest(); // MattermostCreateUploadRequest | 
 
 try {
   final result = await client.uploads.createUpload(mattermostCreateUploadRequest);
@@ -108,7 +108,7 @@ client = MattermostApiClient(
 );
 
 
-final uploadId = uploadId_example; // String | The ID of the upload session to get.
+final String uploadId = 'uploadId_example'; // String | The ID of the upload session to get.
 
 try {
   await client.uploads.getUpload(uploadId);
@@ -170,7 +170,7 @@ client = MattermostApiClient(
 );
 
 
-final uploadId = uploadId_example; // String | The ID of the upload session the data belongs to.
+final String uploadId = 'uploadId_example'; // String | The ID of the upload session the data belongs to.
 
 try {
   final result = await client.uploads.uploadData(uploadId);

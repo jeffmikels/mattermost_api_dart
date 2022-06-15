@@ -105,7 +105,7 @@ client = MattermostApiClient(
 );
 
 
-final reportId = reportId_example; // String | Compliance report GUID
+final String reportId = 'reportId_example'; // String | Compliance report GUID
 
 try {
   await client.compliance.downloadComplianceReport(reportId);
@@ -167,7 +167,7 @@ client = MattermostApiClient(
 );
 
 
-final reportId = reportId_example; // String | Compliance report GUID
+final String reportId = 'reportId_example'; // String | Compliance report GUID
 
 try {
   final result = await client.compliance.getComplianceReport(reportId);
@@ -230,8 +230,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of reports per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of reports per page.
 
 try {
   final result = await client.compliance.getComplianceReports(page, perPage);

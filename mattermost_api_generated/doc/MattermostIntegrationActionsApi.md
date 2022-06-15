@@ -44,7 +44,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostOpenInteractiveDialogRequest = MattermostOpenInteractiveDialogRequest(); // MattermostOpenInteractiveDialogRequest | Metadata for the dialog to be opened
+final MattermostOpenInteractiveDialogRequest mattermostOpenInteractiveDialogRequest = MattermostOpenInteractiveDialogRequest(); // MattermostOpenInteractiveDialogRequest | Metadata for the dialog to be opened
 
 try {
   final result = await client.integrationActions.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
@@ -107,7 +107,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSubmitInteractiveDialogRequest = MattermostSubmitInteractiveDialogRequest(); // MattermostSubmitInteractiveDialogRequest | Dialog submission data
+final MattermostSubmitInteractiveDialogRequest mattermostSubmitInteractiveDialogRequest = MattermostSubmitInteractiveDialogRequest(); // MattermostSubmitInteractiveDialogRequest | Dialog submission data
 
 try {
   final result = await client.integrationActions.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);

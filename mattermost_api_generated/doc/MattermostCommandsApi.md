@@ -52,7 +52,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateCommandRequest = MattermostCreateCommandRequest(); // MattermostCreateCommandRequest | command to be created
+final MattermostCreateCommandRequest mattermostCreateCommandRequest = MattermostCreateCommandRequest(); // MattermostCreateCommandRequest | command to be created
 
 try {
   final result = await client.commands.createCommand(mattermostCreateCommandRequest);
@@ -115,7 +115,7 @@ client = MattermostApiClient(
 );
 
 
-final commandId = commandId_example; // String | ID of the command to delete
+final String commandId = 'commandId_example'; // String | ID of the command to delete
 
 try {
   final result = await client.commands.deleteCommand(commandId);
@@ -178,7 +178,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostExecuteCommandRequest = MattermostExecuteCommandRequest(); // MattermostExecuteCommandRequest | command to be executed
+final MattermostExecuteCommandRequest mattermostExecuteCommandRequest = MattermostExecuteCommandRequest(); // MattermostExecuteCommandRequest | command to be executed
 
 try {
   final result = await client.commands.executeCommand(mattermostExecuteCommandRequest);
@@ -241,7 +241,7 @@ client = MattermostApiClient(
 );
 
 
-final commandId = commandId_example; // String | ID of the command to get
+final String commandId = 'commandId_example'; // String | ID of the command to get
 
 try {
   final result = await client.commands.getCommandById(commandId);
@@ -304,7 +304,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.commands.listAutocompleteCommands(teamId);
@@ -367,8 +367,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userInput = userInput_example; // String | String inputted by the user.
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userInput = 'userInput_example'; // String | String inputted by the user.
 
 try {
   final result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
@@ -432,8 +432,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | The team id.
-final customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
+final String teamId = 'teamId_example'; // String | The team id.
+final bool customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
 
 try {
   final result = await client.commands.listCommands(teamId, customOnly);
@@ -497,8 +497,8 @@ client = MattermostApiClient(
 );
 
 
-final commandId = commandId_example; // String | ID of the command to move
-final mattermostMoveCommandRequest = MattermostMoveCommandRequest(); // MattermostMoveCommandRequest | 
+final String commandId = 'commandId_example'; // String | ID of the command to move
+final MattermostMoveCommandRequest mattermostMoveCommandRequest = MattermostMoveCommandRequest(); // MattermostMoveCommandRequest | 
 
 try {
   final result = await client.commands.moveCommand(commandId, mattermostMoveCommandRequest);
@@ -562,7 +562,7 @@ client = MattermostApiClient(
 );
 
 
-final commandId = commandId_example; // String | ID of the command to generate the new token
+final String commandId = 'commandId_example'; // String | ID of the command to generate the new token
 
 try {
   final result = await client.commands.regenCommandToken(commandId);
@@ -625,8 +625,8 @@ client = MattermostApiClient(
 );
 
 
-final commandId = commandId_example; // String | ID of the command to update
-final mattermostCommand = MattermostCommand(); // MattermostCommand | 
+final String commandId = 'commandId_example'; // String | ID of the command to update
+final MattermostCommand mattermostCommand = MattermostCommand(); // MattermostCommand | 
 
 try {
   final result = await client.commands.updateCommand(commandId, mattermostCommand);

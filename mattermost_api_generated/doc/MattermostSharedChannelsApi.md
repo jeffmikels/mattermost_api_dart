@@ -44,9 +44,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team Id
-final page = 56; // int | 
-final perPage = 56; // int | 
+final String teamId = 'teamId_example'; // String | Team Id
+final int page = 56; // int | 
+final int perPage = 56; // int | 
 
 try {
   final result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage);
@@ -111,7 +111,7 @@ client = MattermostApiClient(
 );
 
 
-final remoteId = remoteId_example; // String | Remote Cluster GUID
+final String remoteId = 'remoteId_example'; // String | Remote Cluster GUID
 
 try {
   final result = await client.sharedChannels.getRemoteClusterInfo(remoteId);

@@ -66,8 +66,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | The ID of the group.
-final mattermostAddGroupMembersRequest = MattermostAddGroupMembersRequest(); // MattermostAddGroupMembersRequest | 
+final String groupId = 'groupId_example'; // String | The ID of the group.
+final MattermostAddGroupMembersRequest mattermostAddGroupMembersRequest = MattermostAddGroupMembersRequest(); // MattermostAddGroupMembersRequest | 
 
 try {
   final result = await client.groups.addGroupMembers(groupId, mattermostAddGroupMembersRequest);
@@ -131,7 +131,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateGroupRequest = MattermostCreateGroupRequest(); // MattermostCreateGroupRequest | Group object and initial members.
+final MattermostCreateGroupRequest mattermostCreateGroupRequest = MattermostCreateGroupRequest(); // MattermostCreateGroupRequest | Group object and initial members.
 
 try {
   await client.groups.createGroup(mattermostCreateGroupRequest);
@@ -193,7 +193,7 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | The ID of the group.
+final String groupId = 'groupId_example'; // String | The ID of the group.
 
 try {
   final result = await client.groups.deleteGroup(groupId);
@@ -256,8 +256,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | The ID of the group to delete.
-final mattermostDeleteGroupMembersRequest = MattermostDeleteGroupMembersRequest(); // MattermostDeleteGroupMembersRequest | 
+final String groupId = 'groupId_example'; // String | The ID of the group to delete.
+final MattermostDeleteGroupMembersRequest mattermostDeleteGroupMembersRequest = MattermostDeleteGroupMembersRequest(); // MattermostDeleteGroupMembersRequest | 
 
 try {
   final result = await client.groups.deleteGroupMembers(groupId, mattermostDeleteGroupMembersRequest);
@@ -321,7 +321,7 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
+final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
   final result = await client.groups.getGroup(groupId);
@@ -384,7 +384,7 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
+final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
   final result = await client.groups.getGroupStats(groupId);
@@ -447,8 +447,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final channelId = channelId_example; // String | Channel GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.groups.getGroupSyncableForChannelId(groupId, channelId);
@@ -512,8 +512,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final teamId = teamId_example; // String | Team GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.groups.getGroupSyncableForTeamId(groupId, teamId);
@@ -577,7 +577,7 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
+final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
   final result = await client.groups.getGroupSyncablesChannels(groupId);
@@ -640,7 +640,7 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
+final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
   final result = await client.groups.getGroupSyncablesTeams(groupId);
@@ -703,9 +703,9 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of groups per page.
+final String groupId = 'groupId_example'; // String | Group GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of groups per page.
 
 try {
   final result = await client.groups.getGroupUsers(groupId, page, perPage);
@@ -770,14 +770,14 @@ client = MattermostApiClient(
 );
 
 
-final notAssociatedToTeam = notAssociatedToTeam_example; // String | Team GUID which is used to return all the groups not associated to this team
-final notAssociatedToChannel = notAssociatedToChannel_example; // String | Group GUID which is used to return all the groups not associated to this channel
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of groups per page.
-final q = q_example; // String | String to pattern match the `name` and `display_name` field. Will return all groups whose `name` and `display_name` field match any of the text.
-final includeMemberCount = true; // bool | Boolean which adds the `member_count` attribute to each group JSON object
-final since = 56; // int | Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24 
-final filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
+final String notAssociatedToTeam = 'notAssociatedToTeam_example'; // String | Team GUID which is used to return all the groups not associated to this team
+final String notAssociatedToChannel = 'notAssociatedToChannel_example'; // String | Group GUID which is used to return all the groups not associated to this channel
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of groups per page.
+final String q = 'q_example'; // String | String to pattern match the `name` and `display_name` field. Will return all groups whose `name` and `display_name` field match any of the text.
+final bool includeMemberCount = true; // bool | Boolean which adds the `member_count` attribute to each group JSON object
+final int since = 56; // int | Only return groups that have been modified since the given Unix timestamp (in milliseconds). All modified groups, including deleted and created groups, will be returned. __Minimum server version__: 5.24 
+final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
   final result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference);
@@ -847,11 +847,11 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of groups per page.
-final filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
-final paginate = true; // bool | Boolean to determine whether the pagination should be applied or not
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of groups per page.
+final bool filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
+final bool paginate = true; // bool | Boolean to determine whether the pagination should be applied or not
 
 try {
   final result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate);
@@ -918,10 +918,10 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of groups per page.
-final filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
+final String channelId = 'channelId_example'; // String | Channel GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of groups per page.
+final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
   final result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference);
@@ -987,10 +987,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of groups per page.
-final filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of groups per page.
+final bool filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
 
 try {
   final result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference);
@@ -1056,7 +1056,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.groups.getGroupsByUserId(userId);
@@ -1119,8 +1119,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final channelId = channelId_example; // String | Channel GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.groups.linkGroupSyncableForChannel(groupId, channelId);
@@ -1184,8 +1184,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final teamId = teamId_example; // String | Team GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.groups.linkGroupSyncableForTeam(groupId, teamId);
@@ -1249,8 +1249,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final mattermostPatchGroupRequest = MattermostPatchGroupRequest(); // MattermostPatchGroupRequest | Group object that is to be updated
+final String groupId = 'groupId_example'; // String | Group GUID
+final MattermostPatchGroupRequest mattermostPatchGroupRequest = MattermostPatchGroupRequest(); // MattermostPatchGroupRequest | Group object that is to be updated
 
 try {
   final result = await client.groups.patchGroup(groupId, mattermostPatchGroupRequest);
@@ -1314,9 +1314,9 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final channelId = channelId_example; // String | Channel GUID
-final mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
+final String groupId = 'groupId_example'; // String | Group GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
   final result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mattermostPatchGroupSyncableForTeamRequest);
@@ -1381,9 +1381,9 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final teamId = teamId_example; // String | Team GUID
-final mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
+final String groupId = 'groupId_example'; // String | Group GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostPatchGroupSyncableForTeamRequest mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
   final result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mattermostPatchGroupSyncableForTeamRequest);
@@ -1448,8 +1448,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final channelId = channelId_example; // String | Channel GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId);
@@ -1513,8 +1513,8 @@ client = MattermostApiClient(
 );
 
 
-final groupId = groupId_example; // String | Group GUID
-final teamId = teamId_example; // String | Team GUID
+final String groupId = 'groupId_example'; // String | Group GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId);
@@ -1578,7 +1578,7 @@ client = MattermostApiClient(
 );
 
 
-final remoteId = remoteId_example; // String | Group GUID
+final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
   final result = await client.groups.unlinkLdapGroup(remoteId);

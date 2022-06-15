@@ -53,7 +53,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateIncomingWebhookRequest = MattermostCreateIncomingWebhookRequest(); // MattermostCreateIncomingWebhookRequest | Incoming webhook to be created
+final MattermostCreateIncomingWebhookRequest mattermostCreateIncomingWebhookRequest = MattermostCreateIncomingWebhookRequest(); // MattermostCreateIncomingWebhookRequest | Incoming webhook to be created
 
 try {
   final result = await client.webhooks.createIncomingWebhook(mattermostCreateIncomingWebhookRequest);
@@ -116,7 +116,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateOutgoingWebhookRequest = MattermostCreateOutgoingWebhookRequest(); // MattermostCreateOutgoingWebhookRequest | Outgoing webhook to be created
+final MattermostCreateOutgoingWebhookRequest mattermostCreateOutgoingWebhookRequest = MattermostCreateOutgoingWebhookRequest(); // MattermostCreateOutgoingWebhookRequest | Outgoing webhook to be created
 
 try {
   final result = await client.webhooks.createOutgoingWebhook(mattermostCreateOutgoingWebhookRequest);
@@ -179,7 +179,7 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Incoming webhook GUID
+final String hookId = 'hookId_example'; // String | Incoming webhook GUID
 
 try {
   final result = await client.webhooks.deleteIncomingWebhook(hookId);
@@ -242,7 +242,7 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Outgoing webhook GUID
+final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
   final result = await client.webhooks.deleteOutgoingWebhook(hookId);
@@ -305,7 +305,7 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Incoming Webhook GUID
+final String hookId = 'hookId_example'; // String | Incoming Webhook GUID
 
 try {
   final result = await client.webhooks.getIncomingWebhook(hookId);
@@ -368,9 +368,9 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of hooks per page.
-final teamId = teamId_example; // String | The ID of the team to get hooks for.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of hooks per page.
+final String teamId = 'teamId_example'; // String | The ID of the team to get hooks for.
 
 try {
   final result = await client.webhooks.getIncomingWebhooks(page, perPage, teamId);
@@ -435,7 +435,7 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Outgoing webhook GUID
+final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
   final result = await client.webhooks.getOutgoingWebhook(hookId);
@@ -498,10 +498,10 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of hooks per page.
-final teamId = teamId_example; // String | The ID of the team to get hooks for.
-final channelId = channelId_example; // String | The ID of the channel to get hooks for.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of hooks per page.
+final String teamId = 'teamId_example'; // String | The ID of the team to get hooks for.
+final String channelId = 'channelId_example'; // String | The ID of the channel to get hooks for.
 
 try {
   final result = await client.webhooks.getOutgoingWebhooks(page, perPage, teamId, channelId);
@@ -567,7 +567,7 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Outgoing webhook GUID
+final String hookId = 'hookId_example'; // String | Outgoing webhook GUID
 
 try {
   final result = await client.webhooks.regenOutgoingHookToken(hookId);
@@ -630,8 +630,8 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | Incoming Webhook GUID
-final mattermostUpdateIncomingWebhookRequest = MattermostUpdateIncomingWebhookRequest(); // MattermostUpdateIncomingWebhookRequest | Incoming webhook to be updated
+final String hookId = 'hookId_example'; // String | Incoming Webhook GUID
+final MattermostUpdateIncomingWebhookRequest mattermostUpdateIncomingWebhookRequest = MattermostUpdateIncomingWebhookRequest(); // MattermostUpdateIncomingWebhookRequest | Incoming webhook to be updated
 
 try {
   final result = await client.webhooks.updateIncomingWebhook(hookId, mattermostUpdateIncomingWebhookRequest);
@@ -695,8 +695,8 @@ client = MattermostApiClient(
 );
 
 
-final hookId = hookId_example; // String | outgoing Webhook GUID
-final mattermostUpdateOutgoingWebhookRequest = MattermostUpdateOutgoingWebhookRequest(); // MattermostUpdateOutgoingWebhookRequest | Outgoing webhook to be updated
+final String hookId = 'hookId_example'; // String | outgoing Webhook GUID
+final MattermostUpdateOutgoingWebhookRequest mattermostUpdateOutgoingWebhookRequest = MattermostUpdateOutgoingWebhookRequest(); // MattermostUpdateOutgoingWebhookRequest | Outgoing webhook to be updated
 
 try {
   final result = await client.webhooks.updateOutgoingWebhook(hookId, mattermostUpdateOutgoingWebhookRequest);

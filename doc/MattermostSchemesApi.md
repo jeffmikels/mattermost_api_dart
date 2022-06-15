@@ -49,7 +49,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateSchemeRequest = MattermostCreateSchemeRequest(); // MattermostCreateSchemeRequest | Scheme object to create
+final MattermostCreateSchemeRequest mattermostCreateSchemeRequest = MattermostCreateSchemeRequest(); // MattermostCreateSchemeRequest | Scheme object to create
 
 try {
   final result = await client.schemes.createScheme(mattermostCreateSchemeRequest);
@@ -112,7 +112,7 @@ client = MattermostApiClient(
 );
 
 
-final schemeId = schemeId_example; // String | ID of the scheme to delete
+final String schemeId = 'schemeId_example'; // String | ID of the scheme to delete
 
 try {
   final result = await client.schemes.deleteScheme(schemeId);
@@ -175,9 +175,9 @@ client = MattermostApiClient(
 );
 
 
-final schemeId = schemeId_example; // String | Scheme GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of channels per page.
+final String schemeId = 'schemeId_example'; // String | Scheme GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of channels per page.
 
 try {
   final result = await client.schemes.getChannelsForScheme(schemeId, page, perPage);
@@ -242,7 +242,7 @@ client = MattermostApiClient(
 );
 
 
-final schemeId = schemeId_example; // String | Scheme GUID
+final String schemeId = 'schemeId_example'; // String | Scheme GUID
 
 try {
   final result = await client.schemes.getScheme(schemeId);
@@ -305,9 +305,9 @@ client = MattermostApiClient(
 );
 
 
-final scope = scope_example; // String | Limit the results returned to the provided scope, either `team` or `channel`.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of schemes per page.
+final String scope = 'scope_example'; // String | Limit the results returned to the provided scope, either `team` or `channel`.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of schemes per page.
 
 try {
   final result = await client.schemes.getSchemes(scope, page, perPage);
@@ -372,9 +372,9 @@ client = MattermostApiClient(
 );
 
 
-final schemeId = schemeId_example; // String | Scheme GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of teams per page.
+final String schemeId = 'schemeId_example'; // String | Scheme GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of teams per page.
 
 try {
   final result = await client.schemes.getTeamsForScheme(schemeId, page, perPage);
@@ -439,8 +439,8 @@ client = MattermostApiClient(
 );
 
 
-final schemeId = schemeId_example; // String | Scheme GUID
-final mattermostPatchSchemeRequest = MattermostPatchSchemeRequest(); // MattermostPatchSchemeRequest | Scheme object to be updated
+final String schemeId = 'schemeId_example'; // String | Scheme GUID
+final MattermostPatchSchemeRequest mattermostPatchSchemeRequest = MattermostPatchSchemeRequest(); // MattermostPatchSchemeRequest | Scheme object to be updated
 
 try {
   final result = await client.schemes.patchScheme(schemeId, mattermostPatchSchemeRequest);

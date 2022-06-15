@@ -79,8 +79,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostAddTeamMemberRequest = MattermostAddTeamMemberRequest(); // MattermostAddTeamMemberRequest | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostAddTeamMemberRequest mattermostAddTeamMemberRequest = MattermostAddTeamMemberRequest(); // MattermostAddTeamMemberRequest | 
 
 try {
   final result = await client.teams.addTeamMember(teamId, mattermostAddTeamMemberRequest);
@@ -144,7 +144,7 @@ client = MattermostApiClient(
 );
 
 
-final token = token_example; // String | Token id from the invitation
+final String token = 'token_example'; // String | Token id from the invitation
 
 try {
   final result = await client.teams.addTeamMemberFromInvite(token);
@@ -207,9 +207,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostTeamMember = [List<MattermostTeamMember>()]; // List<MattermostTeamMember> | 
-final graceful = true; // bool | Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]`
+final String teamId = 'teamId_example'; // String | Team GUID
+final List&lt;MattermostTeamMember&gt; mattermostTeamMember = [List<MattermostTeamMember>()]; // List<MattermostTeamMember> | 
+final bool graceful = true; // bool | Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]`
 
 try {
   final result = await client.teams.addTeamMembers(teamId, mattermostTeamMember, graceful);
@@ -274,7 +274,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateTeamRequest = MattermostCreateTeamRequest(); // MattermostCreateTeamRequest | Team that is to be created
+final MattermostCreateTeamRequest mattermostCreateTeamRequest = MattermostCreateTeamRequest(); // MattermostCreateTeamRequest | Team that is to be created
 
 try {
   final result = await client.teams.createTeam(mattermostCreateTeamRequest);
@@ -337,10 +337,10 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of teams per page.
-final includeTotalCount = true; // bool | 
-final excludePolicyConstrained = true; // bool | If set to true, teams which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of teams per page.
+final bool includeTotalCount = true; // bool | 
+final bool excludePolicyConstrained = true; // bool | If set to true, teams which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
   final result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained);
@@ -406,7 +406,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.getTeam(teamId);
@@ -469,7 +469,7 @@ client = MattermostApiClient(
 );
 
 
-final name = name_example; // String | Team Name
+final String name = 'name_example'; // String | Team Name
 
 try {
   final result = await client.teams.getTeamByName(name);
@@ -532,7 +532,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   await client.teams.getTeamIcon(teamId);
@@ -594,7 +594,7 @@ client = MattermostApiClient(
 );
 
 
-final inviteId = inviteId_example; // String | Invite id for a team
+final String inviteId = 'inviteId_example'; // String | Invite id for a team
 
 try {
   final result = await client.teams.getTeamInviteInfo(inviteId);
@@ -657,8 +657,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.teams.getTeamMember(teamId, userId);
@@ -722,9 +722,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page.
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page.
 
 try {
   final result = await client.teams.getTeamMembers(teamId, page, perPage);
@@ -789,8 +789,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final requestBody = [List<String>()]; // List<String> | List of user ids
+final String teamId = 'teamId_example'; // String | Team GUID
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
   final result = await client.teams.getTeamMembersByIds(teamId, requestBody);
@@ -854,7 +854,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.teams.getTeamMembersForUser(userId);
@@ -917,7 +917,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.getTeamStats(teamId);
@@ -980,8 +980,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final teamId = teamId_example; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.getTeamUnread(userId, teamId);
@@ -1045,7 +1045,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.teams.getTeamsForUser(userId);
@@ -1108,9 +1108,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final excludeTeam = excludeTeam_example; // String | Optional team id to be excluded from the results
-final includeCollapsedThreads = true; // bool | Boolean to determine whether the collapsed threads should be included or not
+final String userId = 'userId_example'; // String | User GUID
+final String excludeTeam = 'excludeTeam_example'; // String | Optional team id to be excluded from the results
+final bool includeCollapsedThreads = true; // bool | Boolean to determine whether the collapsed threads should be included or not
 
 try {
   final result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads);
@@ -1175,10 +1175,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final file = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded in zip format.
-final filesize = 56; // int | The size of the zip file to be imported.
-final importFrom = importFrom_example; // String | String that defines from which application the team was exported to be imported into Mattermost.
+final String teamId = 'teamId_example'; // String | Team GUID
+final MultipartFile file = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded in zip format.
+final int filesize = 56; // int | The size of the zip file to be imported.
+final String importFrom = 'importFrom_example'; // String | String that defines from which application the team was exported to be imported into Mattermost.
 
 try {
   final result = await client.teams.importTeam(teamId, file, filesize, importFrom);
@@ -1303,8 +1303,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostInviteGuestsToTeamRequest = MattermostInviteGuestsToTeamRequest(); // MattermostInviteGuestsToTeamRequest | Guests invite information
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostInviteGuestsToTeamRequest mattermostInviteGuestsToTeamRequest = MattermostInviteGuestsToTeamRequest(); // MattermostInviteGuestsToTeamRequest | Guests invite information
 
 try {
   final result = await client.teams.inviteGuestsToTeam(teamId, mattermostInviteGuestsToTeamRequest);
@@ -1368,8 +1368,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final requestBody = [List<String>()]; // List<String> | List of user's email
+final String teamId = 'teamId_example'; // String | Team GUID
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user's email
 
 try {
   final result = await client.teams.inviteUsersToTeam(teamId, requestBody);
@@ -1433,8 +1433,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostPatchTeamRequest = MattermostPatchTeamRequest(); // MattermostPatchTeamRequest | Team object that is to be updated
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostPatchTeamRequest mattermostPatchTeamRequest = MattermostPatchTeamRequest(); // MattermostPatchTeamRequest | Team object that is to be updated
 
 try {
   final result = await client.teams.patchTeam(teamId, mattermostPatchTeamRequest);
@@ -1498,7 +1498,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.regenerateTeamInviteId(teamId);
@@ -1561,7 +1561,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.removeTeamIcon(teamId);
@@ -1624,8 +1624,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.teams.removeTeamMember(teamId, userId);
@@ -1689,7 +1689,7 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.teams.restoreTeam(teamId);
@@ -1752,13 +1752,13 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
-final isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
-final timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
-final includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
-final page = 56; // int | The page to select. (Only works with Elasticsearch)
-final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
+final String teamId = 'teamId_example'; // String | Team GUID
+final String terms = 'terms_example'; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
+final bool isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
+final int timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
+final bool includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
+final int page = 56; // int | The page to select. (Only works with Elasticsearch)
+final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
   final result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
@@ -1827,7 +1827,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSearchTeamsRequest = MattermostSearchTeamsRequest(); // MattermostSearchTeamsRequest | Search criteria
+final MattermostSearchTeamsRequest mattermostSearchTeamsRequest = MattermostSearchTeamsRequest(); // MattermostSearchTeamsRequest | Search criteria
 
 try {
   final result = await client.teams.searchTeams(mattermostSearchTeamsRequest);
@@ -1890,8 +1890,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
+final String teamId = 'teamId_example'; // String | Team GUID
+final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
   final result = await client.teams.setTeamIcon(teamId, image);
@@ -1955,8 +1955,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final permanent = true; // bool | Permanently delete the team, to be used for compliance reasons only. As of server version 5.0, `ServiceSettings.EnableAPITeamDeletion` must be set to `true` in the server's configuration.
+final String teamId = 'teamId_example'; // String | Team GUID
+final bool permanent = true; // bool | Permanently delete the team, to be used for compliance reasons only. As of server version 5.0, `ServiceSettings.EnableAPITeamDeletion` must be set to `true` in the server's configuration.
 
 try {
   final result = await client.teams.softDeleteTeam(teamId, permanent);
@@ -2020,7 +2020,7 @@ client = MattermostApiClient(
 );
 
 
-final name = name_example; // String | Team Name
+final String name = 'name_example'; // String | Team Name
 
 try {
   final result = await client.teams.teamExists(name);
@@ -2083,10 +2083,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final groupIds = groupIds_example; // String | A comma-separated list of group ids.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page.
+final String teamId = 'teamId_example'; // String | Team GUID
+final String groupIds = 'groupIds_example'; // String | A comma-separated list of group ids.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page.
 
 try {
   await client.teams.teamMembersMinusGroupMembers(teamId, groupIds, page, perPage);
@@ -2151,8 +2151,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostUpdateTeamRequest = MattermostUpdateTeamRequest(); // MattermostUpdateTeamRequest | Team to update
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostUpdateTeamRequest mattermostUpdateTeamRequest = MattermostUpdateTeamRequest(); // MattermostUpdateTeamRequest | Team to update
 
 try {
   final result = await client.teams.updateTeam(teamId, mattermostUpdateTeamRequest);
@@ -2216,9 +2216,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited team roles to assign to the user
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited team roles to assign to the user
 
 try {
   final result = await client.teams.updateTeamMemberRoles(teamId, userId, mattermostUpdateUserRolesRequest);
@@ -2283,9 +2283,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
   final result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
@@ -2350,8 +2350,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostUpdateTeamPrivacyRequest = MattermostUpdateTeamPrivacyRequest(); // MattermostUpdateTeamPrivacyRequest | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostUpdateTeamPrivacyRequest mattermostUpdateTeamPrivacyRequest = MattermostUpdateTeamPrivacyRequest(); // MattermostUpdateTeamPrivacyRequest | 
 
 try {
   final result = await client.teams.updateTeamPrivacy(teamId, mattermostUpdateTeamPrivacyRequest);
@@ -2415,8 +2415,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
 
 try {
   final result = await client.teams.updateTeamScheme(teamId, mattermostUpdateTeamSchemeRequest);

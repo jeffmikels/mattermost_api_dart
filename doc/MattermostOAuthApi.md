@@ -50,7 +50,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateOAuthAppRequest = MattermostCreateOAuthAppRequest(); // MattermostCreateOAuthAppRequest | OAuth application to register
+final MattermostCreateOAuthAppRequest mattermostCreateOAuthAppRequest = MattermostCreateOAuthAppRequest(); // MattermostCreateOAuthAppRequest | OAuth application to register
 
 try {
   final result = await client.oAuth.createOAuthApp(mattermostCreateOAuthAppRequest);
@@ -113,7 +113,7 @@ client = MattermostApiClient(
 );
 
 
-final appId = appId_example; // String | Application client id
+final String appId = 'appId_example'; // String | Application client id
 
 try {
   final result = await client.oAuth.deleteOAuthApp(appId);
@@ -176,9 +176,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of apps per page.
+final String userId = 'userId_example'; // String | User GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of apps per page.
 
 try {
   final result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage);
@@ -243,7 +243,7 @@ client = MattermostApiClient(
 );
 
 
-final appId = appId_example; // String | Application client id
+final String appId = 'appId_example'; // String | Application client id
 
 try {
   final result = await client.oAuth.getOAuthApp(appId);
@@ -306,7 +306,7 @@ client = MattermostApiClient(
 );
 
 
-final appId = appId_example; // String | Application client id
+final String appId = 'appId_example'; // String | Application client id
 
 try {
   final result = await client.oAuth.getOAuthAppInfo(appId);
@@ -369,8 +369,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of apps per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of apps per page.
 
 try {
   final result = await client.oAuth.getOAuthApps(page, perPage);
@@ -434,7 +434,7 @@ client = MattermostApiClient(
 );
 
 
-final appId = appId_example; // String | Application client id
+final String appId = 'appId_example'; // String | Application client id
 
 try {
   final result = await client.oAuth.regenerateOAuthAppSecret(appId);
@@ -497,8 +497,8 @@ client = MattermostApiClient(
 );
 
 
-final appId = appId_example; // String | Application client id
-final mattermostUpdateOAuthAppRequest = MattermostUpdateOAuthAppRequest(); // MattermostUpdateOAuthAppRequest | OAuth application to update
+final String appId = 'appId_example'; // String | Application client id
+final MattermostUpdateOAuthAppRequest mattermostUpdateOAuthAppRequest = MattermostUpdateOAuthAppRequest(); // MattermostUpdateOAuthAppRequest | OAuth application to update
 
 try {
   final result = await client.oAuth.updateOAuthApp(appId, mattermostUpdateOAuthAppRequest);

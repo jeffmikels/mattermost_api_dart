@@ -106,7 +106,7 @@ client = MattermostApiClient(
 );
 
 
-final roleId = roleId_example; // String | Role GUID
+final String roleId = 'roleId_example'; // String | Role GUID
 
 try {
   final result = await client.roles.getRole(roleId);
@@ -169,7 +169,7 @@ client = MattermostApiClient(
 );
 
 
-final roleName = roleName_example; // String | Role Name
+final String roleName = 'roleName_example'; // String | Role Name
 
 try {
   final result = await client.roles.getRoleByName(roleName);
@@ -232,7 +232,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of role names
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of role names
 
 try {
   final result = await client.roles.getRolesByNames(requestBody);
@@ -295,8 +295,8 @@ client = MattermostApiClient(
 );
 
 
-final roleId = roleId_example; // String | Role GUID
-final mattermostPatchRoleRequest = MattermostPatchRoleRequest(); // MattermostPatchRoleRequest | Role object to be updated
+final String roleId = 'roleId_example'; // String | Role GUID
+final MattermostPatchRoleRequest mattermostPatchRoleRequest = MattermostPatchRoleRequest(); // MattermostPatchRoleRequest | Role object to be updated
 
 try {
   final result = await client.roles.patchRole(roleId, mattermostPatchRoleRequest);

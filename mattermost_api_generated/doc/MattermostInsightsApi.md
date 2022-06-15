@@ -46,10 +46,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of items per page, up to a maximum of 200.
+final String teamId = 'teamId_example'; // String | Team GUID
+final String timeRange = 'timeRange_example'; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
   final result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage);
@@ -115,11 +115,11 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of items per page, up to a maximum of 200.
-final teamId = teamId_example; // String | Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
+final String userId = 'userId_example'; // String | User GUID
+final String timeRange = 'timeRange_example'; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
+final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
   final result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId);
@@ -186,10 +186,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of items per page, up to a maximum of 200.
+final String teamId = 'teamId_example'; // String | Team GUID
+final String timeRange = 'timeRange_example'; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
   final result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage);
@@ -255,11 +255,11 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of items per page, up to a maximum of 200.
-final teamId = teamId_example; // String | Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
+final String userId = 'userId_example'; // String | User GUID
+final String timeRange = 'timeRange_example'; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
+final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
   final result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId);

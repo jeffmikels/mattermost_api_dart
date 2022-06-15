@@ -44,7 +44,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
+final MattermostMigrateAuthToLdapRequest mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
   await client.authentication.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
@@ -106,7 +106,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
+final MattermostMigrateAuthToSamlRequest mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
   await client.authentication.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);

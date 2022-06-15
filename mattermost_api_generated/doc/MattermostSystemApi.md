@@ -316,8 +316,8 @@ client = MattermostApiClient(
 );
 
 
-final name = name_example; // String | Possible values are \"standard\", \"bot_post_counts_day\", \"post_counts_day\", \"user_counts_with_posts_day\" or \"extra_counts\"
-final teamId = teamId_example; // String | The team ID to filter the data by
+final String name = 'name_example'; // String | Possible values are \"standard\", \"bot_post_counts_day\", \"post_counts_day\", \"user_counts_with_posts_day\" or \"extra_counts\"
+final String teamId = 'teamId_example'; // String | The team ID to filter the data by
 
 try {
   await client.system.getAnalyticsOld(name, teamId);
@@ -380,8 +380,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of audits per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of audits per page.
 
 try {
   final result = await client.system.getAudits(page, perPage);
@@ -445,7 +445,7 @@ client = MattermostApiClient(
 );
 
 
-final format = format_example; // String | Must be `old`, other formats not implemented yet
+final String format = 'format_example'; // String | Must be `old`, other formats not implemented yet
 
 try {
   await client.system.getClientConfig(format);
@@ -507,7 +507,7 @@ client = MattermostApiClient(
 );
 
 
-final format = format_example; // String | Must be `old`, other formats not implemented yet
+final String format = 'format_example'; // String | Must be `old`, other formats not implemented yet
 
 try {
   await client.system.getClientLicense(format);
@@ -746,8 +746,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final logsPerPage = logsPerPage_example; // String | The number of logs per page. There is a maximum limit of 10000 logs per page.
+final int page = 56; // int | The page to select.
+final String logsPerPage = 'logsPerPage_example'; // String | The number of logs per page. There is a maximum limit of 10000 logs per page.
 
 try {
   final result = await client.system.getLogs(page, logsPerPage);
@@ -811,10 +811,10 @@ client = MattermostApiClient(
 );
 
 
-final clientVersion = clientVersion_example; // String | Version of the client (desktop/mobile/web) that issues the request
-final client = client_example; // String | Client type (web/mobile-ios/mobile-android/desktop)
-final teamId = teamId_example; // String | ID of the team
-final locale = locale_example; // String | Client locale
+final String clientVersion = 'clientVersion_example'; // String | Version of the client (desktop/mobile/web) that issues the request
+final String client = 'client_example'; // String | Client type (web/mobile-ios/mobile-android/desktop)
+final String teamId = 'teamId_example'; // String | ID of the team
+final String locale = 'locale_example'; // String | Client locale
 
 try {
   final result = await client.system.getNotices(clientVersion, client, teamId, locale);
@@ -880,8 +880,8 @@ client = MattermostApiClient(
 );
 
 
-final getServerStatus = true; // bool | Check the status of the database and file storage as well
-final deviceId = deviceId_example; // String | Check whether this device id can receive push notifications
+final bool getServerStatus = true; // bool | Check the status of the database and file storage as well
+final String deviceId = 'deviceId_example'; // String | Check whether this device id can receive push notifications
 
 try {
   final result = await client.system.getPing(getServerStatus, deviceId);
@@ -945,7 +945,7 @@ client = MattermostApiClient(
 );
 
 
-final url = url_example; // String | Url to check
+final String url = 'url_example'; // String | Url to check
 
 try {
   final result = await client.system.getRedirectLocation(url);
@@ -1244,7 +1244,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | Array of notice IDs
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of notice IDs
 
 try {
   final result = await client.system.markNoticesViewed(requestBody);
@@ -1307,7 +1307,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
+final MattermostConfig mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
   final result = await client.system.patchConfig(mattermostConfig);
@@ -1370,7 +1370,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostPostLogRequest = MattermostPostLogRequest(); // MattermostPostLogRequest | 
+final MattermostPostLogRequest mattermostPostLogRequest = MattermostPostLogRequest(); // MattermostPostLogRequest | 
 
 try {
   final result = await client.system.postLog(mattermostPostLogRequest);
@@ -1609,7 +1609,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostRequestTrialLicenseRequest = MattermostRequestTrialLicenseRequest(); // MattermostRequestTrialLicenseRequest | License request
+final MattermostRequestTrialLicenseRequest mattermostRequestTrialLicenseRequest = MattermostRequestTrialLicenseRequest(); // MattermostRequestTrialLicenseRequest | License request
 
 try {
   await client.system.requestTrialLicense(mattermostRequestTrialLicenseRequest);
@@ -1730,7 +1730,7 @@ client = MattermostApiClient(
 );
 
 
-final warnMetricId = warnMetricId_example; // String | Warn Metric Id.
+final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
 
 try {
   final result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId);
@@ -1793,8 +1793,8 @@ client = MattermostApiClient(
 );
 
 
-final warnMetricId = warnMetricId_example; // String | Warn Metric Id.
-final mattermostSendWarnMetricAckRequest = MattermostSendWarnMetricAckRequest(); // MattermostSendWarnMetricAckRequest | payload that contains the ack flag
+final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
+final MattermostSendWarnMetricAckRequest mattermostSendWarnMetricAckRequest = MattermostSendWarnMetricAckRequest(); // MattermostSendWarnMetricAckRequest | payload that contains the ack flag
 
 try {
   final result = await client.system.sendWarnMetricAck(warnMetricId, mattermostSendWarnMetricAckRequest);
@@ -1858,7 +1858,7 @@ client = MattermostApiClient(
 );
 
 
-final seconds = seconds_example; // String | Number of seconds until server is automatically marked as not busy.
+final String seconds = 'seconds_example'; // String | Number of seconds until server is automatically marked as not busy.
 
 try {
   final result = await client.system.setServerBusy(seconds);
@@ -1921,7 +1921,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
+final MattermostConfig mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
   final result = await client.system.testEmail(mattermostConfig);
@@ -1984,7 +1984,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
+final MattermostConfig mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
   final result = await client.system.testS3Connection(mattermostConfig);
@@ -2047,7 +2047,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostTestSiteURLRequest = MattermostTestSiteURLRequest(); // MattermostTestSiteURLRequest | 
+final MattermostTestSiteURLRequest mattermostTestSiteURLRequest = MattermostTestSiteURLRequest(); // MattermostTestSiteURLRequest | 
 
 try {
   final result = await client.system.testSiteURL(mattermostTestSiteURLRequest);
@@ -2168,7 +2168,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
+final MattermostConfig mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
   final result = await client.system.updateConfig(mattermostConfig);
@@ -2231,7 +2231,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSystem = MattermostSystem(); // MattermostSystem | 
+final MattermostSystem mattermostSystem = MattermostSystem(); // MattermostSystem | 
 
 try {
   final result = await client.system.updateMarketplaceVisitedByAdmin(mattermostSystem);
@@ -2412,7 +2412,7 @@ client = MattermostApiClient(
 );
 
 
-final license = BINARY_DATA_HERE; // MultipartFile | The license to be uploaded
+final MultipartFile license = BINARY_DATA_HERE; // MultipartFile | The license to be uploaded
 
 try {
   final result = await client.system.uploadLicenseFile(license);

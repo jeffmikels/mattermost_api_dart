@@ -50,7 +50,7 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file to get
+final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
   await client.files.getFile(fileId);
@@ -112,7 +112,7 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file info to get
+final String fileId = 'fileId_example'; // String | The ID of the file info to get
 
 try {
   final result = await client.files.getFileInfo(fileId);
@@ -175,7 +175,7 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file to get a link for
+final String fileId = 'fileId_example'; // String | The ID of the file to get a link for
 
 try {
   final result = await client.files.getFileLink(fileId);
@@ -238,7 +238,7 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file to get
+final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
   await client.files.getFilePreview(fileId);
@@ -300,8 +300,8 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file to get
-final h = h_example; // String | File hash
+final String fileId = 'fileId_example'; // String | The ID of the file to get
+final String h = 'h_example'; // String | File hash
 
 try {
   await client.files.getFilePublic(fileId, h);
@@ -364,7 +364,7 @@ client = MattermostApiClient(
 );
 
 
-final fileId = fileId_example; // String | The ID of the file to get
+final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
   await client.files.getFileThumbnail(fileId);
@@ -426,13 +426,13 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
-final isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
-final timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
-final includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
-final page = 56; // int | The page to select. (Only works with Elasticsearch)
-final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
+final String teamId = 'teamId_example'; // String | Team GUID
+final String terms = 'terms_example'; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
+final bool isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
+final int timeZoneOffset = 56; // int | Offset from UTC of user timezone for date searches.
+final bool includeDeletedChannels = true; // bool | Set to true if deleted channels should be included in the search. (archived channels)
+final int page = 56; // int | The page to select. (Only works with Elasticsearch)
+final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
   final result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
@@ -501,11 +501,11 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | The ID of the channel that this file will be uploaded to
-final filename = filename_example; // String | The name of the file to be uploaded
-final files = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded
-final channelId2 = channelId_example; // String | The ID of the channel that this file will be uploaded to
-final clientIds = clientIds_example; // String | A unique identifier for the file that will be returned in the response
+final String channelId = 'channelId_example'; // String | The ID of the channel that this file will be uploaded to
+final String filename = 'filename_example'; // String | The name of the file to be uploaded
+final MultipartFile files = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded
+final String channelId2 = 'channelId_example'; // String | The ID of the channel that this file will be uploaded to
+final String clientIds = 'clientIds_example'; // String | A unique identifier for the file that will be returned in the response
 
 try {
   final result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds);

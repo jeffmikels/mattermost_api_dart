@@ -170,9 +170,9 @@ client = MattermostApiClient(
 );
 
 
-final q = q_example; // String | Search term
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
+final String q = 'q_example'; // String | Search term
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 
 try {
   final result = await client.lDAP.getLdapGroups(q, page, perPage);
@@ -237,7 +237,7 @@ client = MattermostApiClient(
 );
 
 
-final remoteId = remoteId_example; // String | Group GUID
+final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
   final result = await client.lDAP.linkLdapGroup(remoteId);
@@ -300,7 +300,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
+final MattermostMigrateAuthToLdapRequest mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
   await client.lDAP.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
@@ -362,7 +362,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateIdLdapRequest = MattermostMigrateIdLdapRequest(); // MattermostMigrateIdLdapRequest | 
+final MattermostMigrateIdLdapRequest mattermostMigrateIdLdapRequest = MattermostMigrateIdLdapRequest(); // MattermostMigrateIdLdapRequest | 
 
 try {
   final result = await client.lDAP.migrateIdLdap(mattermostMigrateIdLdapRequest);
@@ -543,7 +543,7 @@ client = MattermostApiClient(
 );
 
 
-final certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
+final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
   final result = await client.lDAP.uploadLdapPrivateCertificate(certificate);
@@ -606,7 +606,7 @@ client = MattermostApiClient(
 );
 
 
-final certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
+final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
   final result = await client.lDAP.uploadLdapPublicCertificate(certificate);

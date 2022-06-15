@@ -104,7 +104,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostAttachDeviceIdRequest = MattermostAttachDeviceIdRequest(); // MattermostAttachDeviceIdRequest | 
+final MattermostAttachDeviceIdRequest mattermostAttachDeviceIdRequest = MattermostAttachDeviceIdRequest(); // MattermostAttachDeviceIdRequest | 
 
 try {
   final result = await client.users.attachDeviceId(mattermostAttachDeviceIdRequest);
@@ -167,10 +167,10 @@ client = MattermostApiClient(
 );
 
 
-final name = name_example; // String | Username, nickname first name or last name
-final teamId = teamId_example; // String | Team ID
-final channelId = channelId_example; // String | Channel ID
-final limit = 56; // int | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
+final String name = 'name_example'; // String | Username, nickname first name or last name
+final String teamId = 'teamId_example'; // String | Team ID
+final String channelId = 'channelId_example'; // String | Channel ID
+final int limit = 56; // int | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
 
 try {
   final result = await client.users.autocompleteUsers(name, teamId, channelId, limit);
@@ -236,7 +236,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCheckUserMfaRequest = MattermostCheckUserMfaRequest(); // MattermostCheckUserMfaRequest | 
+final MattermostCheckUserMfaRequest mattermostCheckUserMfaRequest = MattermostCheckUserMfaRequest(); // MattermostCheckUserMfaRequest | 
 
 try {
   final result = await client.users.checkUserMfa(mattermostCheckUserMfaRequest);
@@ -299,9 +299,9 @@ client = MattermostApiClient(
 );
 
 
-final botUserId = botUserId_example; // String | Bot user ID
-final mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
-final setSystemAdmin = true; // bool | Whether to give the user the system admin role.
+final String botUserId = 'botUserId_example'; // String | Bot user ID
+final MattermostConvertBotToUserRequest mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
+final bool setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
   final result = await client.users.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
@@ -366,7 +366,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.convertUserToBot(userId);
@@ -429,9 +429,9 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateUserRequest = MattermostCreateUserRequest(); // MattermostCreateUserRequest | User object to be created
-final t = t_example; // String | Token id from an email invitation
-final iid = iid_example; // String | Token id from an invitation link
+final MattermostCreateUserRequest mattermostCreateUserRequest = MattermostCreateUserRequest(); // MattermostCreateUserRequest | User object to be created
+final String t = 't_example'; // String | Token id from an email invitation
+final String iid = 'iid_example'; // String | Token id from an invitation link
 
 try {
   final result = await client.users.createUser(mattermostCreateUserRequest, t, iid);
@@ -496,8 +496,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostCreateUserAccessTokenRequest = MattermostCreateUserAccessTokenRequest(); // MattermostCreateUserAccessTokenRequest | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostCreateUserAccessTokenRequest mattermostCreateUserAccessTokenRequest = MattermostCreateUserAccessTokenRequest(); // MattermostCreateUserAccessTokenRequest | 
 
 try {
   final result = await client.users.createUserAccessToken(userId, mattermostCreateUserAccessTokenRequest);
@@ -561,7 +561,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.deleteUser(userId);
@@ -624,7 +624,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.demoteUserToGuest(userId);
@@ -687,7 +687,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostDisableUserAccessTokenRequest = MattermostDisableUserAccessTokenRequest(); // MattermostDisableUserAccessTokenRequest | 
+final MattermostDisableUserAccessTokenRequest mattermostDisableUserAccessTokenRequest = MattermostDisableUserAccessTokenRequest(); // MattermostDisableUserAccessTokenRequest | 
 
 try {
   final result = await client.users.disableUserAccessToken(mattermostDisableUserAccessTokenRequest);
@@ -750,7 +750,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostEnableUserAccessTokenRequest = MattermostEnableUserAccessTokenRequest(); // MattermostEnableUserAccessTokenRequest | 
+final MattermostEnableUserAccessTokenRequest mattermostEnableUserAccessTokenRequest = MattermostEnableUserAccessTokenRequest(); // MattermostEnableUserAccessTokenRequest | 
 
 try {
   final result = await client.users.enableUserAccessToken(mattermostEnableUserAccessTokenRequest);
@@ -813,7 +813,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.generateMfaSecret(userId);
@@ -876,9 +876,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final page = 56; // int | Page specifies which part of the results to return, by PageSize.
-final pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final int page = 56; // int | Page specifies which part of the results to return, by PageSize.
+final int pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
 
 try {
   final result = await client.users.getChannelMembersWithTeamDataForUser(userId, page, pageSize);
@@ -943,7 +943,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   await client.users.getDefaultProfileImage(userId);
@@ -1064,8 +1064,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final q = 8.14; // num | Not used by the server. Clients can pass in the last picture update time of the user to potentially take advantage of caching
+final String userId = 'userId_example'; // String | User GUID
+final num q = 8.14; // num | Not used by the server. Clients can pass in the last picture update time of the user to potentially take advantage of caching
 
 try {
   await client.users.getProfileImage(userId, q);
@@ -1128,7 +1128,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.getSessions(userId);
@@ -1250,13 +1250,13 @@ client = MattermostApiClient(
 );
 
 
-final inTeam = inTeam_example; // String | The ID of the team to get user stats for.
-final inChannel = inChannel_example; // String | The ID of the channel to get user stats for.
-final includeDeleted = true; // bool | If deleted accounts should be included in the count.
-final includeBots = true; // bool | If bot accounts should be included in the count.
-final roles = roles_example; // String | Comma separated string used to filter users based on any of the specified system roles  Example: `?roles=system_admin,system_user` will include users that are either system admins or system users 
-final channelRoles = channelRoles_example; // String | Comma separated string used to filter users based on any of the specified channel roles, can only be used in conjunction with `in_channel`  Example: `?in_channel=4eb6axxw7fg3je5iyasnfudc5y&channel_roles=channel_user` will include users that are only channel users and not admins or guests 
-final teamRoles = teamRoles_example; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will include users that are only team users and not admins or guests 
+final String inTeam = 'inTeam_example'; // String | The ID of the team to get user stats for.
+final String inChannel = 'inChannel_example'; // String | The ID of the channel to get user stats for.
+final bool includeDeleted = true; // bool | If deleted accounts should be included in the count.
+final bool includeBots = true; // bool | If bot accounts should be included in the count.
+final String roles = 'roles_example'; // String | Comma separated string used to filter users based on any of the specified system roles  Example: `?roles=system_admin,system_user` will include users that are either system admins or system users 
+final String channelRoles = 'channelRoles_example'; // String | Comma separated string used to filter users based on any of the specified channel roles, can only be used in conjunction with `in_channel`  Example: `?in_channel=4eb6axxw7fg3je5iyasnfudc5y&channel_roles=channel_user` will include users that are only channel users and not admins or guests 
+final String teamRoles = 'teamRoles_example'; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will include users that are only team users and not admins or guests 
 
 try {
   final result = await client.users.getTotalUsersStatsFiltered(inTeam, inChannel, includeDeleted, includeBots, roles, channelRoles, teamRoles);
@@ -1325,7 +1325,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 
 try {
   final result = await client.users.getUploadsForUser(userId);
@@ -1388,7 +1388,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID. This can also be \"me\" which will point to the current user.
+final String userId = 'userId_example'; // String | User GUID. This can also be \"me\" which will point to the current user.
 
 try {
   final result = await client.users.getUser(userId);
@@ -1451,7 +1451,7 @@ client = MattermostApiClient(
 );
 
 
-final tokenId = tokenId_example; // String | User access token GUID
+final String tokenId = 'tokenId_example'; // String | User access token GUID
 
 try {
   final result = await client.users.getUserAccessToken(tokenId);
@@ -1514,8 +1514,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of tokens per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of tokens per page.
 
 try {
   final result = await client.users.getUserAccessTokens(page, perPage);
@@ -1579,9 +1579,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of tokens per page.
+final String userId = 'userId_example'; // String | User GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of tokens per page.
 
 try {
   final result = await client.users.getUserAccessTokensForUser(userId, page, perPage);
@@ -1646,7 +1646,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.getUserAudits(userId);
@@ -1709,7 +1709,7 @@ client = MattermostApiClient(
 );
 
 
-final email = email_example; // String | User Email
+final String email = 'email_example'; // String | User Email
 
 try {
   final result = await client.users.getUserByEmail(email);
@@ -1772,7 +1772,7 @@ client = MattermostApiClient(
 );
 
 
-final username = username_example; // String | Username
+final String username = 'username_example'; // String | Username
 
 try {
   final result = await client.users.getUserByUsername(username);
@@ -1835,7 +1835,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.getUserTermsOfService(userId);
@@ -1898,22 +1898,22 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
-final inTeam = inTeam_example; // String | The ID of the team to get users for.
-final notInTeam = notInTeam_example; // String | The ID of the team to exclude users for. Must not be used with \"in_team\" query parameter.
-final inChannel = inChannel_example; // String | The ID of the channel to get users for.
-final notInChannel = notInChannel_example; // String | The ID of the channel to exclude users for. Must be used with \"in_channel\" query parameter.
-final inGroup = inGroup_example; // String | The ID of the group to get users for. Must have `manage_system` permission.
-final groupConstrained = true; // bool | When used with `not_in_channel` or `not_in_team`, returns only the users that are allowed to join the channel or team based on its group constrains.
-final withoutTeam = true; // bool | Whether or not to list users that are not on any team. This option takes precendence over `in_team`, `in_channel`, and `not_in_channel`.
-final active = true; // bool | Whether or not to list only users that are active. This option cannot be used along with the `inactive` option.
-final inactive = true; // bool | Whether or not to list only users that are deactivated. This option cannot be used along with the `active` option.
-final role = role_example; // String | Returns users that have this role.
-final sort = sort_example; // String | Sort is only available in conjunction with certain options below. The paging parameter is also always available.  ##### `in_team` Can be \"\", \"last_activity_at\" or \"create_at\". When left blank, sorting is done by username. __Minimum server version__: 4.0 ##### `in_channel` Can be \"\", \"status\". When left blank, sorting is done by username. `status` will sort by User's current status (Online, Away, DND, Offline), then by Username. __Minimum server version__: 4.7 
-final roles = roles_example; // String | Comma separated string used to filter users based on any of the specified system roles  Example: `?roles=system_admin,system_user` will return users that are either system admins or system users  __Minimum server version__: 5.26 
-final channelRoles = channelRoles_example; // String | Comma separated string used to filter users based on any of the specified channel roles, can only be used in conjunction with `in_channel`  Example: `?in_channel=4eb6axxw7fg3je5iyasnfudc5y&channel_roles=channel_user` will return users that are only channel users and not admins or guests  __Minimum server version__: 5.26 
-final teamRoles = teamRoles_example; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will return users that are only team users and not admins or guests  __Minimum server version__: 5.26 
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
+final String inTeam = 'inTeam_example'; // String | The ID of the team to get users for.
+final String notInTeam = 'notInTeam_example'; // String | The ID of the team to exclude users for. Must not be used with \"in_team\" query parameter.
+final String inChannel = 'inChannel_example'; // String | The ID of the channel to get users for.
+final String notInChannel = 'notInChannel_example'; // String | The ID of the channel to exclude users for. Must be used with \"in_channel\" query parameter.
+final String inGroup = 'inGroup_example'; // String | The ID of the group to get users for. Must have `manage_system` permission.
+final bool groupConstrained = true; // bool | When used with `not_in_channel` or `not_in_team`, returns only the users that are allowed to join the channel or team based on its group constrains.
+final bool withoutTeam = true; // bool | Whether or not to list users that are not on any team. This option takes precendence over `in_team`, `in_channel`, and `not_in_channel`.
+final bool active = true; // bool | Whether or not to list only users that are active. This option cannot be used along with the `inactive` option.
+final bool inactive = true; // bool | Whether or not to list only users that are deactivated. This option cannot be used along with the `active` option.
+final String role = 'role_example'; // String | Returns users that have this role.
+final String sort = 'sort_example'; // String | Sort is only available in conjunction with certain options below. The paging parameter is also always available.  ##### `in_team` Can be \"\", \"last_activity_at\" or \"create_at\". When left blank, sorting is done by username. __Minimum server version__: 4.0 ##### `in_channel` Can be \"\", \"status\". When left blank, sorting is done by username. `status` will sort by User's current status (Online, Away, DND, Offline), then by Username. __Minimum server version__: 4.7 
+final String roles = 'roles_example'; // String | Comma separated string used to filter users based on any of the specified system roles  Example: `?roles=system_admin,system_user` will return users that are either system admins or system users  __Minimum server version__: 5.26 
+final String channelRoles = 'channelRoles_example'; // String | Comma separated string used to filter users based on any of the specified channel roles, can only be used in conjunction with `in_channel`  Example: `?in_channel=4eb6axxw7fg3je5iyasnfudc5y&channel_roles=channel_user` will return users that are only channel users and not admins or guests  __Minimum server version__: 5.26 
+final String teamRoles = 'teamRoles_example'; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will return users that are only team users and not admins or guests  __Minimum server version__: 5.26 
 
 try {
   final result = await client.users.getUsers(page, perPage, inTeam, notInTeam, inChannel, notInChannel, inGroup, groupConstrained, withoutTeam, active, inactive, role, sort, roles, channelRoles, teamRoles);
@@ -1991,7 +1991,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of group channel ids
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of group channel ids
 
 try {
   final result = await client.users.getUsersByGroupChannelIds(requestBody);
@@ -2054,8 +2054,8 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of user ids
-final since = 56; // int | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14 
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
+final int since = 56; // int | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14 
 
 try {
   final result = await client.users.getUsersByIds(requestBody, since);
@@ -2119,7 +2119,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of usernames
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of usernames
 
 try {
   final result = await client.users.getUsersByUsernames(requestBody);
@@ -2182,7 +2182,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostLoginRequest = MattermostLoginRequest(); // MattermostLoginRequest | User authentication object
+final MattermostLoginRequest mattermostLoginRequest = MattermostLoginRequest(); // MattermostLoginRequest | User authentication object
 
 try {
   final result = await client.users.login(mattermostLoginRequest);
@@ -2245,7 +2245,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostLoginByCwsTokenRequest = MattermostLoginByCwsTokenRequest(); // MattermostLoginByCwsTokenRequest | User authentication object
+final MattermostLoginByCwsTokenRequest mattermostLoginByCwsTokenRequest = MattermostLoginByCwsTokenRequest(); // MattermostLoginByCwsTokenRequest | User authentication object
 
 try {
   await client.users.loginByCwsToken(mattermostLoginByCwsTokenRequest);
@@ -2366,7 +2366,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
+final MattermostMigrateAuthToLdapRequest mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
   await client.users.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
@@ -2428,7 +2428,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
+final MattermostMigrateAuthToSamlRequest mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
   await client.users.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
@@ -2490,8 +2490,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostPatchUserRequest = MattermostPatchUserRequest(); // MattermostPatchUserRequest | User object that is to be updated
+final String userId = 'userId_example'; // String | User GUID
+final MattermostPatchUserRequest mattermostPatchUserRequest = MattermostPatchUserRequest(); // MattermostPatchUserRequest | User object that is to be updated
 
 try {
   final result = await client.users.patchUser(userId, mattermostPatchUserRequest);
@@ -2613,7 +2613,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.promoteGuestToUser(userId);
@@ -2676,8 +2676,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostPublishUserTypingRequest = MattermostPublishUserTypingRequest(); // MattermostPublishUserTypingRequest | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostPublishUserTypingRequest mattermostPublishUserTypingRequest = MattermostPublishUserTypingRequest(); // MattermostPublishUserTypingRequest | 
 
 try {
   await client.users.publishUserTyping(userId, mattermostPublishUserTypingRequest);
@@ -2740,8 +2740,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
+final String userId = 'userId_example'; // String | User GUID
+final MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
   final result = await client.users.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);
@@ -2805,7 +2805,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostResetPasswordRequest = MattermostResetPasswordRequest(); // MattermostResetPasswordRequest | 
+final MattermostResetPasswordRequest mattermostResetPasswordRequest = MattermostResetPasswordRequest(); // MattermostResetPasswordRequest | 
 
 try {
   final result = await client.users.resetPassword(mattermostResetPasswordRequest);
@@ -2868,7 +2868,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.revokeAllSessions(userId);
@@ -2931,8 +2931,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostRevokeSessionRequest = MattermostRevokeSessionRequest(); // MattermostRevokeSessionRequest | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostRevokeSessionRequest mattermostRevokeSessionRequest = MattermostRevokeSessionRequest(); // MattermostRevokeSessionRequest | 
 
 try {
   final result = await client.users.revokeSession(userId, mattermostRevokeSessionRequest);
@@ -3054,7 +3054,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostRevokeUserAccessTokenRequest = MattermostRevokeUserAccessTokenRequest(); // MattermostRevokeUserAccessTokenRequest | 
+final MattermostRevokeUserAccessTokenRequest mattermostRevokeUserAccessTokenRequest = MattermostRevokeUserAccessTokenRequest(); // MattermostRevokeUserAccessTokenRequest | 
 
 try {
   final result = await client.users.revokeUserAccessToken(mattermostRevokeUserAccessTokenRequest);
@@ -3117,7 +3117,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSearchUserAccessTokensRequest = MattermostSearchUserAccessTokensRequest(); // MattermostSearchUserAccessTokensRequest | Search criteria
+final MattermostSearchUserAccessTokensRequest mattermostSearchUserAccessTokensRequest = MattermostSearchUserAccessTokensRequest(); // MattermostSearchUserAccessTokensRequest | Search criteria
 
 try {
   final result = await client.users.searchUserAccessTokens(mattermostSearchUserAccessTokensRequest);
@@ -3180,7 +3180,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSearchUsersRequest = MattermostSearchUsersRequest(); // MattermostSearchUsersRequest | Search criteria
+final MattermostSearchUsersRequest mattermostSearchUsersRequest = MattermostSearchUsersRequest(); // MattermostSearchUsersRequest | Search criteria
 
 try {
   final result = await client.users.searchUsers(mattermostSearchUsersRequest);
@@ -3243,7 +3243,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSendPasswordResetEmailRequest = MattermostSendPasswordResetEmailRequest(); // MattermostSendPasswordResetEmailRequest | 
+final MattermostSendPasswordResetEmailRequest mattermostSendPasswordResetEmailRequest = MattermostSendPasswordResetEmailRequest(); // MattermostSendPasswordResetEmailRequest | 
 
 try {
   final result = await client.users.sendPasswordResetEmail(mattermostSendPasswordResetEmailRequest);
@@ -3306,7 +3306,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSendVerificationEmailRequest = MattermostSendVerificationEmailRequest(); // MattermostSendVerificationEmailRequest | 
+final MattermostSendVerificationEmailRequest mattermostSendVerificationEmailRequest = MattermostSendVerificationEmailRequest(); // MattermostSendVerificationEmailRequest | 
 
 try {
   final result = await client.users.sendVerificationEmail(mattermostSendVerificationEmailRequest);
@@ -3369,7 +3369,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.setDefaultProfileImage(userId);
@@ -3432,8 +3432,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
+final String userId = 'userId_example'; // String | User GUID
+final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
   final result = await client.users.setProfileImage(userId, image);
@@ -3497,7 +3497,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSwitchAccountTypeRequest = MattermostSwitchAccountTypeRequest(); // MattermostSwitchAccountTypeRequest | 
+final MattermostSwitchAccountTypeRequest mattermostSwitchAccountTypeRequest = MattermostSwitchAccountTypeRequest(); // MattermostSwitchAccountTypeRequest | 
 
 try {
   final result = await client.users.switchAccountType(mattermostSwitchAccountTypeRequest);
@@ -3560,8 +3560,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserRequest = MattermostUpdateUserRequest(); // MattermostUpdateUserRequest | User object that is to be updated
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserRequest mattermostUpdateUserRequest = MattermostUpdateUserRequest(); // MattermostUpdateUserRequest | User object that is to be updated
 
 try {
   final result = await client.users.updateUser(userId, mattermostUpdateUserRequest);
@@ -3625,8 +3625,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserActiveRequest = MattermostUpdateUserActiveRequest(); // MattermostUpdateUserActiveRequest | Use `true` to set the user active, `false` for inactive
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserActiveRequest mattermostUpdateUserActiveRequest = MattermostUpdateUserActiveRequest(); // MattermostUpdateUserActiveRequest | Use `true` to set the user active, `false` for inactive
 
 try {
   final result = await client.users.updateUserActive(userId, mattermostUpdateUserActiveRequest);
@@ -3690,8 +3690,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUserAuthData = MattermostUserAuthData(); // MattermostUserAuthData | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUserAuthData mattermostUserAuthData = MattermostUserAuthData(); // MattermostUserAuthData | 
 
 try {
   final result = await client.users.updateUserAuth(userId, mattermostUserAuthData);
@@ -3755,8 +3755,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserMfaRequest = MattermostUpdateUserMfaRequest(); // MattermostUpdateUserMfaRequest | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserMfaRequest mattermostUpdateUserMfaRequest = MattermostUpdateUserMfaRequest(); // MattermostUpdateUserMfaRequest | 
 
 try {
   final result = await client.users.updateUserMfa(userId, mattermostUpdateUserMfaRequest);
@@ -3820,8 +3820,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserPasswordRequest = MattermostUpdateUserPasswordRequest(); // MattermostUpdateUserPasswordRequest | 
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserPasswordRequest mattermostUpdateUserPasswordRequest = MattermostUpdateUserPasswordRequest(); // MattermostUpdateUserPasswordRequest | 
 
 try {
   final result = await client.users.updateUserPassword(userId, mattermostUpdateUserPasswordRequest);
@@ -3885,8 +3885,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited system roles to assign to the user
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited system roles to assign to the user
 
 try {
   final result = await client.users.updateUserRoles(userId, mattermostUpdateUserRolesRequest);
@@ -3950,7 +3950,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostVerifyUserEmailRequest = MattermostVerifyUserEmailRequest(); // MattermostVerifyUserEmailRequest | 
+final MattermostVerifyUserEmailRequest mattermostVerifyUserEmailRequest = MattermostVerifyUserEmailRequest(); // MattermostVerifyUserEmailRequest | 
 
 try {
   final result = await client.users.verifyUserEmail(mattermostVerifyUserEmailRequest);
@@ -4013,7 +4013,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.users.verifyUserEmailWithoutToken(userId);

@@ -59,8 +59,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final requestBody = [List<String>()]; // List<String> | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
   final result = await client.dataRetention.addChannelsToRetentionPolicy(policyId, requestBody);
@@ -124,8 +124,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final requestBody = [List<String>()]; // List<String> | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
   final result = await client.dataRetention.addTeamsToRetentionPolicy(policyId, requestBody);
@@ -189,7 +189,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostDataRetentionPolicyCreate = MattermostDataRetentionPolicyCreate(); // MattermostDataRetentionPolicyCreate | 
+final MattermostDataRetentionPolicyCreate mattermostDataRetentionPolicyCreate = MattermostDataRetentionPolicyCreate(); // MattermostDataRetentionPolicyCreate | 
 
 try {
   final result = await client.dataRetention.createDataRetentionPolicy(mattermostDataRetentionPolicyCreate);
@@ -252,7 +252,7 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
   final result = await client.dataRetention.deleteDataRetentionPolicy(policyId);
@@ -315,9 +315,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
   final result = await client.dataRetention.getChannelPoliciesForUser(userId, page, perPage);
@@ -382,9 +382,9 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of channels per page. There is a maximum limit of 200 per page.
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of channels per page. There is a maximum limit of 200 per page.
 
 try {
   final result = await client.dataRetention.getChannelsForRetentionPolicy(policyId, page, perPage);
@@ -449,8 +449,8 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
   final result = await client.dataRetention.getDataRetentionPolicies(page, perPage);
@@ -632,7 +632,7 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
   final result = await client.dataRetention.getDataRetentionPolicyByID(policyId);
@@ -695,9 +695,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
   final result = await client.dataRetention.getTeamPoliciesForUser(userId, page, perPage);
@@ -762,9 +762,9 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of teams per page. There is a maximum limit of 200 per page.
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of teams per page. There is a maximum limit of 200 per page.
 
 try {
   final result = await client.dataRetention.getTeamsForRetentionPolicy(policyId, page, perPage);
@@ -829,8 +829,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final mattermostDataRetentionPolicyWithTeamAndChannelIds = MattermostDataRetentionPolicyWithTeamAndChannelIds(); // MattermostDataRetentionPolicyWithTeamAndChannelIds | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final MattermostDataRetentionPolicyWithTeamAndChannelIds mattermostDataRetentionPolicyWithTeamAndChannelIds = MattermostDataRetentionPolicyWithTeamAndChannelIds(); // MattermostDataRetentionPolicyWithTeamAndChannelIds | 
 
 try {
   final result = await client.dataRetention.patchDataRetentionPolicy(policyId, mattermostDataRetentionPolicyWithTeamAndChannelIds);
@@ -894,8 +894,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final requestBody = [List<String>()]; // List<String> | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
   final result = await client.dataRetention.removeChannelsFromRetentionPolicy(policyId, requestBody);
@@ -959,8 +959,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final requestBody = [List<String>()]; // List<String> | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
   final result = await client.dataRetention.removeTeamsFromRetentionPolicy(policyId, requestBody);
@@ -1024,8 +1024,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final mattermostSearchChannelsForRetentionPolicyRequest = MattermostSearchChannelsForRetentionPolicyRequest(); // MattermostSearchChannelsForRetentionPolicyRequest | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final MattermostSearchChannelsForRetentionPolicyRequest mattermostSearchChannelsForRetentionPolicyRequest = MattermostSearchChannelsForRetentionPolicyRequest(); // MattermostSearchChannelsForRetentionPolicyRequest | 
 
 try {
   final result = await client.dataRetention.searchChannelsForRetentionPolicy(policyId, mattermostSearchChannelsForRetentionPolicyRequest);
@@ -1089,8 +1089,8 @@ client = MattermostApiClient(
 );
 
 
-final policyId = policyId_example; // String | The ID of the granular retention policy.
-final mattermostSearchTeamsForRetentionPolicyRequest = MattermostSearchTeamsForRetentionPolicyRequest(); // MattermostSearchTeamsForRetentionPolicyRequest | 
+final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
+final MattermostSearchTeamsForRetentionPolicyRequest mattermostSearchTeamsForRetentionPolicyRequest = MattermostSearchTeamsForRetentionPolicyRequest(); // MattermostSearchTeamsForRetentionPolicyRequest | 
 
 try {
   final result = await client.dataRetention.searchTeamsForRetentionPolicy(policyId, mattermostSearchTeamsForRetentionPolicyRequest);

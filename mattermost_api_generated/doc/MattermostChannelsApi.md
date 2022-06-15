@@ -94,8 +94,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | The channel ID
-final mattermostAddChannelMemberRequest = MattermostAddChannelMemberRequest(); // MattermostAddChannelMemberRequest | 
+final String channelId = 'channelId_example'; // String | The channel ID
+final MattermostAddChannelMemberRequest mattermostAddChannelMemberRequest = MattermostAddChannelMemberRequest(); // MattermostAddChannelMemberRequest | 
 
 try {
   final result = await client.channels.addChannelMember(channelId, mattermostAddChannelMemberRequest);
@@ -159,8 +159,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final name = name_example; // String | Name or display name
+final String teamId = 'teamId_example'; // String | Team GUID
+final String name = 'name_example'; // String | Name or display name
 
 try {
   final result = await client.channels.autocompleteChannelsForTeam(teamId, name);
@@ -224,8 +224,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final name = name_example; // String | Name or display name
+final String teamId = 'teamId_example'; // String | Team GUID
+final String name = 'name_example'; // String | Name or display name
 
 try {
   final result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name);
@@ -289,10 +289,10 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final groupIds = groupIds_example; // String | A comma-separated list of group ids.
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of users per page.
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String groupIds = 'groupIds_example'; // String | A comma-separated list of group ids.
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of users per page.
 
 try {
   await client.channels.channelMembersMinusGroupMembers(channelId, groupIds, page, perPage);
@@ -357,7 +357,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostCreateChannelRequest = MattermostCreateChannelRequest(); // MattermostCreateChannelRequest | Channel object to be created
+final MattermostCreateChannelRequest mattermostCreateChannelRequest = MattermostCreateChannelRequest(); // MattermostCreateChannelRequest | Channel object to be created
 
 try {
   final result = await client.channels.createChannel(mattermostCreateChannelRequest);
@@ -420,7 +420,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
 
 try {
   final result = await client.channels.createDirectChannel(requestBody);
@@ -483,7 +483,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
 
 try {
   final result = await client.channels.createGroupChannel(requestBody);
@@ -546,9 +546,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostSidebarCategory mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
 
 try {
   final result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mattermostSidebarCategory);
@@ -613,7 +613,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.deleteChannel(channelId);
@@ -676,13 +676,13 @@ client = MattermostApiClient(
 );
 
 
-final notAssociatedToGroup = notAssociatedToGroup_example; // String | A group id to exclude channels that are associated with that group via GroupChannel records. This can also be left blank with `not_associated_to_group=`.
-final page = 56; // int | 
-final perPage = 56; // int | 
-final excludeDefaultChannels = true; // bool | Whether to exclude default channels (ex Town Square, Off-Topic) from the results.
-final includeDeleted = true; // bool | Include channels that have been archived. This correlates to the `DeleteAt` flag being set in the database.
-final includeTotalCount = true; // bool | Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.      
-final excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
+final String notAssociatedToGroup = 'notAssociatedToGroup_example'; // String | A group id to exclude channels that are associated with that group via GroupChannel records. This can also be left blank with `not_associated_to_group=`.
+final int page = 56; // int | 
+final int perPage = 56; // int | 
+final bool excludeDefaultChannels = true; // bool | Whether to exclude default channels (ex Town Square, Off-Topic) from the results.
+final bool includeDeleted = true; // bool | Include channels that have been archived. This correlates to the `DeleteAt` flag being set in the database.
+final bool includeTotalCount = true; // bool | Appends a total count of returned channels inside the response object - ex: `{ \"channels\": [], \"total_count\" : 0 }`.      
+final bool excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
   final result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained);
@@ -751,7 +751,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getChannel(channelId);
@@ -814,9 +814,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final channelName = channelName_example; // String | Channel Name
-final includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
+final String teamId = 'teamId_example'; // String | Team GUID
+final String channelName = 'channelName_example'; // String | Channel Name
+final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
   final result = await client.channels.getChannelByName(teamId, channelName, includeDeleted);
@@ -881,9 +881,9 @@ client = MattermostApiClient(
 );
 
 
-final teamName = teamName_example; // String | Team Name
-final channelName = channelName_example; // String | Channel Name
-final includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
+final String teamName = 'teamName_example'; // String | Team Name
+final String channelName = 'channelName_example'; // String | Channel Name
+final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
   final result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted);
@@ -948,8 +948,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final userId = userId_example; // String | User GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.channels.getChannelMember(channelId, userId);
@@ -1013,8 +1013,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final includeTimezones = true; // bool | Defines if member timezone counts should be returned or not
+final String channelId = 'channelId_example'; // String | Channel GUID
+final bool includeTimezones = true; // bool | Defines if member timezone counts should be returned or not
 
 try {
   await client.channels.getChannelMemberCountsByGroup(channelId, includeTimezones);
@@ -1077,9 +1077,9 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
+final String channelId = 'channelId_example'; // String | Channel GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
 
 try {
   final result = await client.channels.getChannelMembers(channelId, page, perPage);
@@ -1144,8 +1144,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final requestBody = [List<String>()]; // List<String> | List of user ids
+final String channelId = 'channelId_example'; // String | Channel GUID
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
   final result = await client.channels.getChannelMembersByIds(channelId, requestBody);
@@ -1209,8 +1209,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final teamId = teamId_example; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
   final result = await client.channels.getChannelMembersForUser(userId, teamId);
@@ -1274,7 +1274,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getChannelMembersTimezones(channelId);
@@ -1337,7 +1337,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getChannelModerations(channelId);
@@ -1400,7 +1400,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getChannelStats(channelId);
@@ -1463,8 +1463,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final channelId = channelId_example; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getChannelUnread(userId, channelId);
@@ -1528,10 +1528,10 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final teamId = teamId_example; // String | Team GUID
-final includeDeleted = true; // bool | Defines if deleted channels should be returned or not
-final lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
+final String userId = 'userId_example'; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not
+final int lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 
 try {
   final result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt);
@@ -1597,9 +1597,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
-final includeDeleted = true; // bool | Defines if deleted channels should be returned or not
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final int lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
+final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 
 try {
   final result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted);
@@ -1664,9 +1664,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of public channels per page.
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of public channels per page.
 
 try {
   final result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage);
@@ -1731,7 +1731,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.getPinnedPosts(channelId);
@@ -1794,9 +1794,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of private channels per page.
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of private channels per page.
 
 try {
   final result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage);
@@ -1861,8 +1861,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final requestBody = [List<String>()]; // List<String> | List of channel ids
+final String teamId = 'teamId_example'; // String | Team GUID
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of channel ids
 
 try {
   final result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody);
@@ -1926,9 +1926,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final page = 56; // int | The page to select.
-final perPage = 56; // int | The number of public channels per page.
+final String teamId = 'teamId_example'; // String | Team GUID
+final int page = 56; // int | The page to select.
+final int perPage = 56; // int | The number of public channels per page.
 
 try {
   final result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage);
@@ -1993,8 +1993,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId);
@@ -2058,9 +2058,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final categoryId = categoryId_example; // String | Category GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
   final result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId);
@@ -2125,8 +2125,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId);
@@ -2190,8 +2190,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostMoveChannelRequest = MattermostMoveChannelRequest(); // MattermostMoveChannelRequest | 
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostMoveChannelRequest mattermostMoveChannelRequest = MattermostMoveChannelRequest(); // MattermostMoveChannelRequest | 
 
 try {
   final result = await client.channels.moveChannel(channelId, mattermostMoveChannelRequest);
@@ -2255,8 +2255,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostPatchChannelRequest = MattermostPatchChannelRequest(); // MattermostPatchChannelRequest | Channel object to be updated
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostPatchChannelRequest mattermostPatchChannelRequest = MattermostPatchChannelRequest(); // MattermostPatchChannelRequest | Channel object to be updated
 
 try {
   final result = await client.channels.patchChannel(channelId, mattermostPatchChannelRequest);
@@ -2320,8 +2320,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostChannelModerationPatch = MattermostChannelModerationPatch(); // MattermostChannelModerationPatch | 
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostChannelModerationPatch mattermostChannelModerationPatch = MattermostChannelModerationPatch(); // MattermostChannelModerationPatch | 
 
 try {
   final result = await client.channels.patchChannelModerations(channelId, mattermostChannelModerationPatch);
@@ -2385,9 +2385,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final categoryId = categoryId_example; // String | Category GUID
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
   final result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId);
@@ -2452,8 +2452,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final userId = userId_example; // String | User GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.channels.removeUserFromChannel(channelId, userId);
@@ -2517,7 +2517,7 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
   final result = await client.channels.restoreChannel(channelId);
@@ -2580,8 +2580,8 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSearchAllChannelsRequest = MattermostSearchAllChannelsRequest(); // MattermostSearchAllChannelsRequest | The search terms and logic to use in the search.
-final systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
+final MattermostSearchAllChannelsRequest mattermostSearchAllChannelsRequest = MattermostSearchAllChannelsRequest(); // MattermostSearchAllChannelsRequest | The search terms and logic to use in the search.
+final bool systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
 
 try {
   final result = await client.channels.searchAllChannels(mattermostSearchAllChannelsRequest, systemConsole);
@@ -2645,8 +2645,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostSearchArchivedChannelsRequest = MattermostSearchArchivedChannelsRequest(); // MattermostSearchArchivedChannelsRequest | Search criteria
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostSearchArchivedChannelsRequest mattermostSearchArchivedChannelsRequest = MattermostSearchArchivedChannelsRequest(); // MattermostSearchArchivedChannelsRequest | Search criteria
 
 try {
   final result = await client.channels.searchArchivedChannels(teamId, mattermostSearchArchivedChannelsRequest);
@@ -2710,8 +2710,8 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final mattermostSearchChannelsRequest = MattermostSearchChannelsRequest(); // MattermostSearchChannelsRequest | Search criteria
+final String teamId = 'teamId_example'; // String | Team GUID
+final MattermostSearchChannelsRequest mattermostSearchChannelsRequest = MattermostSearchChannelsRequest(); // MattermostSearchChannelsRequest | Search criteria
 
 try {
   final result = await client.channels.searchChannels(teamId, mattermostSearchChannelsRequest);
@@ -2775,7 +2775,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostSearchGroupChannelsRequest = MattermostSearchGroupChannelsRequest(); // MattermostSearchGroupChannelsRequest | Search criteria
+final MattermostSearchGroupChannelsRequest mattermostSearchGroupChannelsRequest = MattermostSearchGroupChannelsRequest(); // MattermostSearchGroupChannelsRequest | Search criteria
 
 try {
   final result = await client.channels.searchGroupChannels(mattermostSearchGroupChannelsRequest);
@@ -2838,8 +2838,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostUpdateChannelRequest = MattermostUpdateChannelRequest(); // MattermostUpdateChannelRequest | Channel object to be updated
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostUpdateChannelRequest mattermostUpdateChannelRequest = MattermostUpdateChannelRequest(); // MattermostUpdateChannelRequest | Channel object to be updated
 
 try {
   final result = await client.channels.updateChannel(channelId, mattermostUpdateChannelRequest);
@@ -2903,9 +2903,9 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final userId = userId_example; // String | User GUID
-final mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateTeamMemberSchemeRolesRequest mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
   final result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
@@ -2970,9 +2970,9 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final userId = userId_example; // String | User GUID
-final mattermostChannelNotifyProps = MattermostChannelNotifyProps(); // MattermostChannelNotifyProps | 
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostChannelNotifyProps mattermostChannelNotifyProps = MattermostChannelNotifyProps(); // MattermostChannelNotifyProps | 
 
 try {
   final result = await client.channels.updateChannelNotifyProps(channelId, userId, mattermostChannelNotifyProps);
@@ -3037,8 +3037,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostUpdateChannelPrivacyRequest = MattermostUpdateChannelPrivacyRequest(); // MattermostUpdateChannelPrivacyRequest | 
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostUpdateChannelPrivacyRequest mattermostUpdateChannelPrivacyRequest = MattermostUpdateChannelPrivacyRequest(); // MattermostUpdateChannelPrivacyRequest | 
 
 try {
   final result = await client.channels.updateChannelPrivacy(channelId, mattermostUpdateChannelPrivacyRequest);
@@ -3102,9 +3102,9 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final userId = userId_example; // String | User GUID
-final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
+final String channelId = 'channelId_example'; // String | Channel GUID
+final String userId = 'userId_example'; // String | User GUID
+final MattermostUpdateUserRolesRequest mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
 
 try {
   final result = await client.channels.updateChannelRoles(channelId, userId, mattermostUpdateUserRolesRequest);
@@ -3169,8 +3169,8 @@ client = MattermostApiClient(
 );
 
 
-final channelId = channelId_example; // String | Channel GUID
-final mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
+final String channelId = 'channelId_example'; // String | Channel GUID
+final MattermostUpdateTeamSchemeRequest mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
 
 try {
   final result = await client.channels.updateChannelScheme(channelId, mattermostUpdateTeamSchemeRequest);
@@ -3234,9 +3234,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final mattermostSidebarCategory = [List<MattermostSidebarCategory>()]; // List<MattermostSidebarCategory> | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final List&lt;MattermostSidebarCategory&gt; mattermostSidebarCategory = [List<MattermostSidebarCategory>()]; // List<MattermostSidebarCategory> | 
 
 try {
   final result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mattermostSidebarCategory);
@@ -3301,10 +3301,10 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final categoryId = categoryId_example; // String | Category GUID
-final mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final String categoryId = 'categoryId_example'; // String | Category GUID
+final MattermostSidebarCategory mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
 
 try {
   final result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mattermostSidebarCategory);
@@ -3370,9 +3370,9 @@ client = MattermostApiClient(
 );
 
 
-final teamId = teamId_example; // String | Team GUID
-final userId = userId_example; // String | User GUID
-final requestBody = [List<String>()]; // List<String> | 
+final String teamId = 'teamId_example'; // String | Team GUID
+final String userId = 'userId_example'; // String | User GUID
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
   final result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody);
@@ -3437,8 +3437,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID to perform the view action for
-final mattermostViewChannelRequest = MattermostViewChannelRequest(); // MattermostViewChannelRequest | Paremeters affecting how and which channels to view
+final String userId = 'userId_example'; // String | User ID to perform the view action for
+final MattermostViewChannelRequest mattermostViewChannelRequest = MattermostViewChannelRequest(); // MattermostViewChannelRequest | Paremeters affecting how and which channels to view
 
 try {
   final result = await client.channels.viewChannel(userId, mattermostViewChannelRequest);

@@ -45,7 +45,7 @@ client = MattermostApiClient(
 );
 
 
-final exportName = exportName_example; // String | The name of the export file to delete
+final String exportName = 'exportName_example'; // String | The name of the export file to delete
 
 try {
   await client.exports.deleteExport(exportName);
@@ -107,7 +107,7 @@ client = MattermostApiClient(
 );
 
 
-final exportName = exportName_example; // String | The name of the export file to download
+final String exportName = 'exportName_example'; // String | The name of the export file to download
 
 try {
   await client.exports.downloadExport(exportName);

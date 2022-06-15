@@ -53,7 +53,7 @@ client = MattermostApiClient(
 );
 
 
-final pluginId = pluginId_example; // String | 
+final String pluginId = 'pluginId_example'; // String | 
 
 try {
   final result = await client.plugins.disablePlugin(pluginId);
@@ -116,7 +116,7 @@ client = MattermostApiClient(
 );
 
 
-final pluginId = pluginId_example; // String | 
+final String pluginId = 'pluginId_example'; // String | 
 
 try {
   final result = await client.plugins.enablePlugin(pluginId);
@@ -179,11 +179,11 @@ client = MattermostApiClient(
 );
 
 
-final page = 56; // int | Page number to be fetched. (not yet implemented)
-final perPage = 56; // int | Number of item per page. (not yet implemented)
-final filter = filter_example; // String | Set to filter plugins by ID, name, or description.
-final serverVersion = serverVersion_example; // String | Set to filter minimum plugin server version. (not yet implemented)
-final localOnly = true; // bool | Set true to only retrieve local plugins.
+final int page = 56; // int | Page number to be fetched. (not yet implemented)
+final int perPage = 56; // int | Number of item per page. (not yet implemented)
+final String filter = 'filter_example'; // String | Set to filter plugins by ID, name, or description.
+final String serverVersion = 'serverVersion_example'; // String | Set to filter minimum plugin server version. (not yet implemented)
+final bool localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
   final result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
@@ -486,7 +486,7 @@ client = MattermostApiClient(
 );
 
 
-final mattermostInstallMarketplacePluginRequest = MattermostInstallMarketplacePluginRequest(); // MattermostInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
+final MattermostInstallMarketplacePluginRequest mattermostInstallMarketplacePluginRequest = MattermostInstallMarketplacePluginRequest(); // MattermostInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
   final result = await client.plugins.installMarketplacePlugin(mattermostInstallMarketplacePluginRequest);
@@ -549,8 +549,8 @@ client = MattermostApiClient(
 );
 
 
-final pluginDownloadUrl = pluginDownloadUrl_example; // String | URL used to download the plugin
-final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
+final String pluginDownloadUrl = 'pluginDownloadUrl_example'; // String | URL used to download the plugin
+final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
   final result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
@@ -614,7 +614,7 @@ client = MattermostApiClient(
 );
 
 
-final pluginId = pluginId_example; // String | 
+final String pluginId = 'pluginId_example'; // String | 
 
 try {
   final result = await client.plugins.removePlugin(pluginId);
@@ -677,8 +677,8 @@ client = MattermostApiClient(
 );
 
 
-final plugin = BINARY_DATA_HERE; // MultipartFile | The plugin image to be uploaded
-final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
+final MultipartFile plugin = BINARY_DATA_HERE; // MultipartFile | The plugin image to be uploaded
+final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
   final result = await client.plugins.uploadPlugin(plugin, force);

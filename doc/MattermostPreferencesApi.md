@@ -47,8 +47,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
+final String userId = 'userId_example'; // String | User GUID
+final List&lt;MattermostPreference&gt; mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
   final result = await client.preferences.deletePreferences(userId, mattermostPreference);
@@ -112,7 +112,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.preferences.getPreferences(userId);
@@ -175,8 +175,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final category = category_example; // String | The category of a group of preferences
+final String userId = 'userId_example'; // String | User GUID
+final String category = 'category_example'; // String | The category of a group of preferences
 
 try {
   final result = await client.preferences.getPreferencesByCategory(userId, category);
@@ -240,9 +240,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final category = category_example; // String | The category of a group of preferences
-final preferenceName = preferenceName_example; // String | The name of the preference
+final String userId = 'userId_example'; // String | User GUID
+final String category = 'category_example'; // String | The category of a group of preferences
+final String preferenceName = 'preferenceName_example'; // String | The name of the preference
 
 try {
   final result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName);
@@ -307,8 +307,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
+final String userId = 'userId_example'; // String | User GUID
+final List&lt;MattermostPreference&gt; mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
   final result = await client.preferences.updatePreferences(userId, mattermostPreference);

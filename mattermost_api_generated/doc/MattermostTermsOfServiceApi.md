@@ -164,7 +164,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
+final String userId = 'userId_example'; // String | User GUID
 
 try {
   final result = await client.termsOfService.getUserTermsOfService(userId);
@@ -227,8 +227,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User GUID
-final mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
+final String userId = 'userId_example'; // String | User GUID
+final MattermostRegisterTermsOfServiceActionRequest mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
   final result = await client.termsOfService.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);

@@ -49,8 +49,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
 
 try {
   await client.threads.getThreadMentionCountsByChannel(userId, teamId);
@@ -113,9 +113,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
-final threadId = threadId_example; // String | The ID of the thread to follow
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
+final String threadId = 'threadId_example'; // String | The ID of the thread to follow
 
 try {
   await client.threads.getUserThread(userId, teamId, threadId);
@@ -179,14 +179,14 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
-final since = 56; // int | Since filters the threads based on their LastUpdateAt timestamp.
-final deleted = true; // bool | Deleted will specify that even deleted threads should be returned (For mobile sync).
-final extended = true; // bool | Extended will enrich the response with participant details.
-final page = 56; // int | Page specifies which part of the results to return, by PageSize.
-final pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
-final totalsOnly = true; // bool | Setting this to true will only return the total counts.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
+final int since = 56; // int | Since filters the threads based on their LastUpdateAt timestamp.
+final bool deleted = true; // bool | Deleted will specify that even deleted threads should be returned (For mobile sync).
+final bool extended = true; // bool | Extended will enrich the response with participant details.
+final int page = 56; // int | Page specifies which part of the results to return, by PageSize.
+final int pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
+final bool totalsOnly = true; // bool | Setting this to true will only return the total counts.
 
 try {
   final result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
@@ -256,9 +256,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
-final threadId = threadId_example; // String | The ID of the thread to follow
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
+final String threadId = 'threadId_example'; // String | The ID of the thread to follow
 
 try {
   await client.threads.startFollowingThread(userId, teamId, threadId);
@@ -322,9 +322,9 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
-final threadId = threadId_example; // String | The ID of the thread to update
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
+final String threadId = 'threadId_example'; // String | The ID of the thread to update
 
 try {
   await client.threads.stopFollowingThread(userId, teamId, threadId);
@@ -388,10 +388,10 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
-final threadId = threadId_example; // String | The ID of the thread to update
-final timestamp = timestamp_example; // String | The timestamp to which the thread's \"last read\" state will be reset.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
+final String threadId = 'threadId_example'; // String | The ID of the thread to update
+final String timestamp = 'timestamp_example'; // String | The timestamp to which the thread's \"last read\" state will be reset.
 
 try {
   await client.threads.updateThreadReadForUser(userId, teamId, threadId, timestamp);
@@ -456,8 +456,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
-final teamId = teamId_example; // String | The ID of the team in which the thread is.
+final String userId = 'userId_example'; // String | The ID of the user. This can also be \"me\" which will point to the current user.
+final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
 
 try {
   await client.threads.updateThreadsReadForUser(userId, teamId);

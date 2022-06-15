@@ -3,7 +3,7 @@ import 'package:{{{pubName}}}/api.dart';
 {{>client_example}}
 
 {{#allParams}}
-final {{{paramName}}} = {{#isArray}}[{{/isArray}}{{#isBodyParam}}{{{dataType}}}(){{/isBodyParam}}{{^isBodyParam}}{{{example}}}{{/isBodyParam}}{{#isArray}}]{{/isArray}}; // {{{dataType}}} | {{{description}}}
+final {{dataType}} {{{paramName}}} = {{#isString}}'{{/isString}}{{#isArray}}[{{/isArray}}{{#isBodyParam}}{{{dataType}}}(){{/isBodyParam}}{{^isBodyParam}}{{{example}}}{{/isBodyParam}}{{#isArray}}]{{/isArray}}{{#isString}}'{{/isString}}; // {{{dataType}}} | {{{description}}}
 {{/allParams}}
 
 try {

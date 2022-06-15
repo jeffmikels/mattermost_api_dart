@@ -49,7 +49,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
+final String userId = 'userId_example'; // String | User ID
 
 try {
   final result = await client.status.getUserStatus(userId);
@@ -112,7 +112,7 @@ client = MattermostApiClient(
 );
 
 
-final requestBody = [List<String>()]; // List<String> | List of user ids to fetch
+final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids to fetch
 
 try {
   final result = await client.status.getUsersStatusesByIds(requestBody);
@@ -175,8 +175,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
-final mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
+final String userId = 'userId_example'; // String | User ID
+final MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
   await client.status.postUserRecentCustomStatusDelete(userId, mattermostRemoveRecentCustomStatusRequest);
@@ -239,8 +239,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
-final mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
+final String userId = 'userId_example'; // String | User ID
+final MattermostRemoveRecentCustomStatusRequest mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
   await client.status.removeRecentCustomStatus(userId, mattermostRemoveRecentCustomStatusRequest);
@@ -303,7 +303,7 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
+final String userId = 'userId_example'; // String | User ID
 
 try {
   await client.status.unsetUserCustomStatus(userId);
@@ -365,8 +365,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
-final mattermostUpdateUserCustomStatusRequest = MattermostUpdateUserCustomStatusRequest(); // MattermostUpdateUserCustomStatusRequest | Custom status object that is to be updated
+final String userId = 'userId_example'; // String | User ID
+final MattermostUpdateUserCustomStatusRequest mattermostUpdateUserCustomStatusRequest = MattermostUpdateUserCustomStatusRequest(); // MattermostUpdateUserCustomStatusRequest | Custom status object that is to be updated
 
 try {
   await client.status.updateUserCustomStatus(userId, mattermostUpdateUserCustomStatusRequest);
@@ -429,8 +429,8 @@ client = MattermostApiClient(
 );
 
 
-final userId = userId_example; // String | User ID
-final mattermostUpdateUserStatusRequest = MattermostUpdateUserStatusRequest(); // MattermostUpdateUserStatusRequest | Status object that is to be updated
+final String userId = 'userId_example'; // String | User ID
+final MattermostUpdateUserStatusRequest mattermostUpdateUserStatusRequest = MattermostUpdateUserStatusRequest(); // MattermostUpdateUserStatusRequest | Status object that is to be updated
 
 try {
   final result = await client.status.updateUserStatus(userId, mattermostUpdateUserStatusRequest);
