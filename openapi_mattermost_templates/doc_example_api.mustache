@@ -1,0 +1,16 @@
+import 'package:{{{pubName}}}/api.dart';
+
+{{>doc_example_client}}
+
+{{#allParams}}
+final {{dataType}} {{{paramName}}} = {{#isString}}'{{/isString}}{{#isArray}}[{{/isArray}}{{#isBodyParam}}{{{dataType}}}(){{/isBodyParam}}{{^isBodyParam}}{{{example}}}{{/isBodyParam}}{{#isArray}}]{{/isArray}}{{#isString}}'{{/isString}}; // {{{dataType}}} | {{{description}}}
+{{/allParams}}
+
+try {
+  {{#returnType}}final result = {{/returnType}}await client.{{classVarName}}.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+  {{#returnType}}
+  print(result);
+  {{/returnType}}
+} catch (e) {
+  print('Exception when calling {{{classname}}}->{{{operationId}}}: $e\n');
+}
