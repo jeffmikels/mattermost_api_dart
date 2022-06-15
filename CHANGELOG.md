@@ -1,6 +1,6 @@
 ## 0.1.4
 
--   removed extraneous docs.
+-   removed extraneous docs, and fixed capitalization of the class prefix. Was `MM`, but now is `Mm` because it makes the automatically generated variable names more pleasant.
 
 ## 0.1.3
 

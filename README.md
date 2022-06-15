@@ -29,16 +29,16 @@ import 'package:mattermost_api/api.dart';
 ```dart
 var mmClient = MattermostApiClient(
   basePath: '$mmBaseUrl/api/v4',
-  authentication: MMHttpBearerAuthentication(config.mmToken),
+  authentication: MmHttpBearerAuthentication(config.mmToken),
 );
 ```
 
 Available authentication classes:
 
--   `MMApiKeyAuthentication`
--   `MMHttpBasicAuthentication`
--   `MMHttpBearerAuthentication`
--   `MMOAuth`
+-   `MmApiKeyAuthentication`
+-   `MmHttpBasicAuthentication`
+-   `MmHttpBearerAuthentication`
+-   `MmOAuth`
 
 ## Accessing the API endpoints
 
@@ -48,15 +48,15 @@ Make your requests:
 
 ```dart
 // using getters on the client instance
-MMTeam? team = await mmClient.teams.getTeamByName(myTeamName);
-MMChannel? channel = await mmClient.channels.getChannel(myChannelId);
+MmTeam? team = await mmClient.teams.getTeamByName(myTeamName);
+MmChannel? channel = await mmClient.channels.getChannel(myChannelId);
 
 // using the classes directly
 var channelApi = MattermostChannelsApi(mmClient)
-MMChannel? channel = await channelApi.getChannel(myChannelId);
+MmChannel? channel = await channelApi.getChannel(myChannelId);
 ```
 
-Every API model in the library is prefixed with the word `Mattermost` and every object class is prefixed with the letters `MM` so if you are using an IDE, simply start typing either `Mattermost` or `MM` and your IDE should pick up everything that's available.
+Every API model in the library is prefixed with the word `Mattermost` and every object class is prefixed with the letters `Mm` so if you are using an IDE, simply start typing either `Mattermost` or `Mm` and your IDE should pick up everything that's available.
 
 ## More Details
 
