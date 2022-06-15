@@ -1,3 +1,7 @@
+## 0.1.4
+
+-   removed extraneous docs.
+
 ## 0.1.3
 
 -   Changed the authentication variable in the `MattermostApiClient` to `authMethod` and made it read-only.

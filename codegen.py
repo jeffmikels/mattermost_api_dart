@@ -39,7 +39,7 @@ print('removing previously generated files')
 os.system(f'rm -rf mattermost_api_generated/*')
 os.system(f'rm -rf lib/generated/*')
 os.system(f'rm -rf test/generated/*')
-os.system(f'rm -rf doc/generated/*')
+os.system(f'rm -rf doc/*')
 
 dogen()
 towrite = []
