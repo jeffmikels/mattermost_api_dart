@@ -51,10 +51,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -117,10 +116,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -181,10 +179,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -245,10 +242,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -311,10 +307,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -377,10 +372,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -449,10 +443,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -515,10 +508,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -593,10 +585,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -669,10 +660,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -733,10 +723,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -807,10 +796,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -873,10 +861,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -937,10 +924,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -1003,10 +989,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -1069,10 +1054,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );
@@ -1133,10 +1117,9 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
-late MattermostApiClient client;
 
 // Configure client with HTTP Bearer authorization and string token:
-client = MattermostApiClient(
+var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
 );

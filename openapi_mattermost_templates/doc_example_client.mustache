@@ -47,15 +47,13 @@
 {{/isOAuth}}
 {{/authMethods}}
 {{/hasAuthMethods}}
-{{! sample client }}
-late {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} client;
 
 {{#hasAuthMethods}}
 {{#authMethods}}
 {{#isBasic}}
 {{#isBasicBasic}}
 // Configure client with HTTP basic authorization:
-client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+var client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
   basePath: 'https://your-server.tld/api/v4',
   authentication: {{{modelNamePrefix}}}HttpBasicAuthentication{{{modelNameSuffix}}}(
     username: 'USERNAME',
@@ -65,7 +63,7 @@ client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelName
 {{/isBasicBasic}}
 {{#isBasicBearer}}
 // Configure client with HTTP Bearer authorization and string token:
-client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+var client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
   basePath: 'https://your-server.tld/api/v4',
   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}('YOUR TOKEN'),
 );
@@ -73,7 +71,7 @@ client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelName
 {{/isBasic}}
 {{#isApiKey}}
 // Configure client with ApiKey authorization:
-client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+var client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
   basePath: 'https://your-server.tld/api/v4',
   authentication: MattermostApiKeyAuthentication(
     HttpLocation.query,
@@ -85,7 +83,7 @@ client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelName
 {{/isApiKey}}
 {{#isOAuth}}
 // Configure client with OAuth authorization:
-client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+var client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
   basePath: 'https://your-server.tld/api/v4',
   authentication: {{{modelNamePrefix}}}OAuth{{{modelNameSuffix}}}(accessToken: 'YOUR TOKEN'),
 );
@@ -94,7 +92,7 @@ client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelName
 {{/hasAuthMethods}}
 {{^hasAuthMethods}}
 // example client with HTTP Bearer authorization and string token:
-client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+var client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
   basePath: 'https://your-server.tld/api/v4',
   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}('YOUR TOKEN'),
 );
