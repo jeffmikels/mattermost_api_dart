@@ -1,4 +1,4 @@
-# mattermost_api.model.MMSlackAttachment
+# mattermost_api.model.MmSlackAttachment
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMSlackAttachment example = await client.slackAttachment.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmSlackAttachment example = await client.slackAttachment.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **title** | **String** |  | [optional] 
 **titleLink** | **String** |  | [optional] 
 **text** | **String** |  | [optional] 
-**fields** | [**List<MMSlackAttachmentField>**](MMSlackAttachmentField.md) |  | [optional] [default to const []]
+**fields** | [**List<MmSlackAttachmentField>**](MmSlackAttachmentField.md) |  | [optional] [default to const []]
 **imageURL** | **String** |  | [optional] 
 **thumbURL** | **String** |  | [optional] 
 **footer** | **String** |  | [optional] 

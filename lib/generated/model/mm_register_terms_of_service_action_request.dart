@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRegisterTermsOfServiceActionRequest {
-  /// Returns a new [MMRegisterTermsOfServiceActionRequest] instance.
-  MMRegisterTermsOfServiceActionRequest({
+class MmRegisterTermsOfServiceActionRequest {
+  /// Returns a new [MmRegisterTermsOfServiceActionRequest] instance.
+  MmRegisterTermsOfServiceActionRequest({
     required this.serviceTermsId,
     required this.accepted,
   });
@@ -26,7 +26,7 @@ class MMRegisterTermsOfServiceActionRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRegisterTermsOfServiceActionRequest &&
+      other is MmRegisterTermsOfServiceActionRequest &&
           other.serviceTermsId == serviceTermsId &&
           other.accepted == accepted;
 
@@ -36,7 +36,7 @@ class MMRegisterTermsOfServiceActionRequest {
       (serviceTermsId.hashCode) + (accepted.hashCode);
 
   @override
-  String toString() => 'MMRegisterTermsOfServiceActionRequest[serviceTermsId=$serviceTermsId, accepted=$accepted]';
+  String toString() => 'MmRegisterTermsOfServiceActionRequest[serviceTermsId=$serviceTermsId, accepted=$accepted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMRegisterTermsOfServiceActionRequest {
     return _json;
   }
 
-  /// Returns a new [MMRegisterTermsOfServiceActionRequest] instance and imports its values from
+  /// Returns a new [MmRegisterTermsOfServiceActionRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRegisterTermsOfServiceActionRequest? fromJson(dynamic value) {
+  static MmRegisterTermsOfServiceActionRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,14 +58,14 @@ class MMRegisterTermsOfServiceActionRequest {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMRegisterTermsOfServiceActionRequest[$key]" is missing from JSON.');
+              'Required key "MmRegisterTermsOfServiceActionRequest[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMRegisterTermsOfServiceActionRequest[$key]" has a null value in JSON.');
+              'Required key "MmRegisterTermsOfServiceActionRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRegisterTermsOfServiceActionRequest(
+      return MmRegisterTermsOfServiceActionRequest(
         serviceTermsId: mapValueOfType<String>(json, r'serviceTermsId')!,
         accepted: mapValueOfType<String>(json, r'accepted')!,
       );
@@ -73,14 +73,14 @@ class MMRegisterTermsOfServiceActionRequest {
     return null;
   }
 
-  static List<MMRegisterTermsOfServiceActionRequest>? listFromJson(
+  static List<MmRegisterTermsOfServiceActionRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRegisterTermsOfServiceActionRequest>[];
+    final result = <MmRegisterTermsOfServiceActionRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRegisterTermsOfServiceActionRequest.fromJson(row);
+        final value = MmRegisterTermsOfServiceActionRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -89,12 +89,12 @@ class MMRegisterTermsOfServiceActionRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRegisterTermsOfServiceActionRequest> mapFromJson(dynamic json) {
-    final map = <String, MMRegisterTermsOfServiceActionRequest>{};
+  static Map<String, MmRegisterTermsOfServiceActionRequest> mapFromJson(dynamic json) {
+    final map = <String, MmRegisterTermsOfServiceActionRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRegisterTermsOfServiceActionRequest.fromJson(entry.value);
+        final value = MmRegisterTermsOfServiceActionRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -103,16 +103,16 @@ class MMRegisterTermsOfServiceActionRequest {
     return map;
   }
 
-  // maps a json object with a list of MMRegisterTermsOfServiceActionRequest-objects as value to a dart map
-  static Map<String, List<MMRegisterTermsOfServiceActionRequest>> mapListFromJson(
+  // maps a json object with a list of MmRegisterTermsOfServiceActionRequest-objects as value to a dart map
+  static Map<String, List<MmRegisterTermsOfServiceActionRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRegisterTermsOfServiceActionRequest>>{};
+    final map = <String, List<MmRegisterTermsOfServiceActionRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRegisterTermsOfServiceActionRequest.listFromJson(
+        final value = MmRegisterTermsOfServiceActionRequest.listFromJson(
           entry.value,
           growable: growable,
         );

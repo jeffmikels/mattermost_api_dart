@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAddGroupMembersRequest {
-  /// Returns a new [MMAddGroupMembersRequest] instance.
-  MMAddGroupMembersRequest({
+class MmAddGroupMembersRequest {
+  /// Returns a new [MmAddGroupMembersRequest] instance.
+  MmAddGroupMembersRequest({
     this.userIds = const [],
   });
 
@@ -20,7 +20,7 @@ class MMAddGroupMembersRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMAddGroupMembersRequest && other.userIds == userIds;
+      identical(this, other) || other is MmAddGroupMembersRequest && other.userIds == userIds;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMAddGroupMembersRequest {
       (userIds.hashCode);
 
   @override
-  String toString() => 'MMAddGroupMembersRequest[userIds=$userIds]';
+  String toString() => 'MmAddGroupMembersRequest[userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class MMAddGroupMembersRequest {
     return _json;
   }
 
-  /// Returns a new [MMAddGroupMembersRequest] instance and imports its values from
+  /// Returns a new [MmAddGroupMembersRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAddGroupMembersRequest? fromJson(dynamic value) {
+  static MmAddGroupMembersRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,27 +48,27 @@ class MMAddGroupMembersRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAddGroupMembersRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAddGroupMembersRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAddGroupMembersRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAddGroupMembersRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAddGroupMembersRequest(
+      return MmAddGroupMembersRequest(
         userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<int>() : const [],
       );
     }
     return null;
   }
 
-  static List<MMAddGroupMembersRequest>? listFromJson(
+  static List<MmAddGroupMembersRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAddGroupMembersRequest>[];
+    final result = <MmAddGroupMembersRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAddGroupMembersRequest.fromJson(row);
+        final value = MmAddGroupMembersRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -77,12 +77,12 @@ class MMAddGroupMembersRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAddGroupMembersRequest> mapFromJson(dynamic json) {
-    final map = <String, MMAddGroupMembersRequest>{};
+  static Map<String, MmAddGroupMembersRequest> mapFromJson(dynamic json) {
+    final map = <String, MmAddGroupMembersRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddGroupMembersRequest.fromJson(entry.value);
+        final value = MmAddGroupMembersRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -91,16 +91,16 @@ class MMAddGroupMembersRequest {
     return map;
   }
 
-  // maps a json object with a list of MMAddGroupMembersRequest-objects as value to a dart map
-  static Map<String, List<MMAddGroupMembersRequest>> mapListFromJson(
+  // maps a json object with a list of MmAddGroupMembersRequest-objects as value to a dart map
+  static Map<String, List<MmAddGroupMembersRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAddGroupMembersRequest>>{};
+    final map = <String, List<MmAddGroupMembersRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddGroupMembersRequest.listFromJson(
+        final value = MmAddGroupMembersRequest.listFromJson(
           entry.value,
           growable: growable,
         );

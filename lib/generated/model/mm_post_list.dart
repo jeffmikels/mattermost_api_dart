@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPostList {
-  /// Returns a new [MMPostList] instance.
-  MMPostList({
+class MmPostList {
+  /// Returns a new [MmPostList] instance.
+  MmPostList({
     this.order = const [],
     this.posts = const {},
     this.nextPostId,
@@ -22,7 +22,7 @@ class MMPostList {
 
   List<String> order;
 
-  Map<String, MMPost> posts;
+  Map<String, MmPost> posts;
 
   /// The ID of next post. Not omitted when empty or not relevant.
   ///
@@ -54,7 +54,7 @@ class MMPostList {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPostList &&
+      other is MmPostList &&
           other.order == order &&
           other.posts == posts &&
           other.nextPostId == nextPostId &&
@@ -72,7 +72,7 @@ class MMPostList {
 
   @override
   String toString() =>
-      'MMPostList[order=$order, posts=$posts, nextPostId=$nextPostId, prevPostId=$prevPostId, hasNext=$hasNext]';
+      'MmPostList[order=$order, posts=$posts, nextPostId=$nextPostId, prevPostId=$prevPostId, hasNext=$hasNext]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -90,10 +90,10 @@ class MMPostList {
     return _json;
   }
 
-  /// Returns a new [MMPostList] instance and imports its values from
+  /// Returns a new [MmPostList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostList? fromJson(dynamic value) {
+  static MmPostList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -102,15 +102,15 @@ class MMPostList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostList(
+      return MmPostList(
         order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
-        posts: MMPost.mapFromJson(json[r'posts'] ?? const {}),
+        posts: MmPost.mapFromJson(json[r'posts'] ?? const {}),
         nextPostId: mapValueOfType<String>(json, r'next_post_id'),
         prevPostId: mapValueOfType<String>(json, r'prev_post_id'),
         hasNext: mapValueOfType<bool>(json, r'has_next'),
@@ -119,14 +119,14 @@ class MMPostList {
     return null;
   }
 
-  static List<MMPostList>? listFromJson(
+  static List<MmPostList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostList>[];
+    final result = <MmPostList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostList.fromJson(row);
+        final value = MmPostList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -135,12 +135,12 @@ class MMPostList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostList> mapFromJson(dynamic json) {
-    final map = <String, MMPostList>{};
+  static Map<String, MmPostList> mapFromJson(dynamic json) {
+    final map = <String, MmPostList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostList.fromJson(entry.value);
+        final value = MmPostList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -149,16 +149,16 @@ class MMPostList {
     return map;
   }
 
-  // maps a json object with a list of MMPostList-objects as value to a dart map
-  static Map<String, List<MMPostList>> mapListFromJson(
+  // maps a json object with a list of MmPostList-objects as value to a dart map
+  static Map<String, List<MmPostList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostList>>{};
+    final map = <String, List<MmPostList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostList.listFromJson(
+        final value = MmPostList.listFromJson(
           entry.value,
           growable: growable,
         );

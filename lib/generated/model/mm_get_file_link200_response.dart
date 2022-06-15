@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGetFileLink200Response {
-  /// Returns a new [MMGetFileLink200Response] instance.
-  MMGetFileLink200Response({
+class MmGetFileLink200Response {
+  /// Returns a new [MmGetFileLink200Response] instance.
+  MmGetFileLink200Response({
     this.link,
   });
 
@@ -25,7 +25,7 @@ class MMGetFileLink200Response {
   String? link;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMGetFileLink200Response && other.link == link;
+  bool operator ==(Object other) => identical(this, other) || other is MmGetFileLink200Response && other.link == link;
 
   @override
   int get hashCode =>
@@ -33,7 +33,7 @@ class MMGetFileLink200Response {
       (link == null ? 0 : link!.hashCode);
 
   @override
-  String toString() => 'MMGetFileLink200Response[link=$link]';
+  String toString() => 'MmGetFileLink200Response[link=$link]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMGetFileLink200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetFileLink200Response] instance and imports its values from
+  /// Returns a new [MmGetFileLink200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetFileLink200Response? fromJson(dynamic value) {
+  static MmGetFileLink200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,27 +55,27 @@ class MMGetFileLink200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGetFileLink200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGetFileLink200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGetFileLink200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGetFileLink200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetFileLink200Response(
+      return MmGetFileLink200Response(
         link: mapValueOfType<String>(json, r'link'),
       );
     }
     return null;
   }
 
-  static List<MMGetFileLink200Response>? listFromJson(
+  static List<MmGetFileLink200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetFileLink200Response>[];
+    final result = <MmGetFileLink200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetFileLink200Response.fromJson(row);
+        final value = MmGetFileLink200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -84,12 +84,12 @@ class MMGetFileLink200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetFileLink200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetFileLink200Response>{};
+  static Map<String, MmGetFileLink200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetFileLink200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetFileLink200Response.fromJson(entry.value);
+        final value = MmGetFileLink200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -98,16 +98,16 @@ class MMGetFileLink200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetFileLink200Response-objects as value to a dart map
-  static Map<String, List<MMGetFileLink200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetFileLink200Response-objects as value to a dart map
+  static Map<String, List<MmGetFileLink200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetFileLink200Response>>{};
+    final map = <String, List<MmGetFileLink200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetFileLink200Response.listFromJson(
+        final value = MmGetFileLink200Response.listFromJson(
           entry.value,
           growable: growable,
         );

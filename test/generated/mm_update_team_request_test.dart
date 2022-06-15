@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateTeamRequest
+// tests for MmUpdateTeamRequest
 void main() {
-  // final instance = MMUpdateTeamRequest();
+  // final instance = MmUpdateTeamRequest();
 
-  group('test MMUpdateTeamRequest', () {
+  group('test MmUpdateTeamRequest', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigRateLimitSettings {
-  /// Returns a new [MMEnvironmentConfigRateLimitSettings] instance.
-  MMEnvironmentConfigRateLimitSettings({
+class MmEnvironmentConfigRateLimitSettings {
+  /// Returns a new [MmEnvironmentConfigRateLimitSettings] instance.
+  MmEnvironmentConfigRateLimitSettings({
     this.enable,
     this.perSec,
     this.maxBurst,
@@ -72,7 +72,7 @@ class MMEnvironmentConfigRateLimitSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigRateLimitSettings &&
+      other is MmEnvironmentConfigRateLimitSettings &&
           other.enable == enable &&
           other.perSec == perSec &&
           other.maxBurst == maxBurst &&
@@ -92,7 +92,7 @@ class MMEnvironmentConfigRateLimitSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
+      'MmEnvironmentConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMEnvironmentConfigRateLimitSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigRateLimitSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigRateLimitSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigRateLimitSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigRateLimitSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -130,14 +130,14 @@ class MMEnvironmentConfigRateLimitSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigRateLimitSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigRateLimitSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigRateLimitSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigRateLimitSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigRateLimitSettings(
+      return MmEnvironmentConfigRateLimitSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         perSec: mapValueOfType<bool>(json, r'PerSec'),
         maxBurst: mapValueOfType<bool>(json, r'MaxBurst'),
@@ -149,14 +149,14 @@ class MMEnvironmentConfigRateLimitSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigRateLimitSettings>? listFromJson(
+  static List<MmEnvironmentConfigRateLimitSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigRateLimitSettings>[];
+    final result = <MmEnvironmentConfigRateLimitSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigRateLimitSettings.fromJson(row);
+        final value = MmEnvironmentConfigRateLimitSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -165,12 +165,12 @@ class MMEnvironmentConfigRateLimitSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigRateLimitSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigRateLimitSettings>{};
+  static Map<String, MmEnvironmentConfigRateLimitSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigRateLimitSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigRateLimitSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigRateLimitSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -179,16 +179,16 @@ class MMEnvironmentConfigRateLimitSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigRateLimitSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigRateLimitSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigRateLimitSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigRateLimitSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigRateLimitSettings>>{};
+    final map = <String, List<MmEnvironmentConfigRateLimitSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigRateLimitSettings.listFromJson(
+        final value = MmEnvironmentConfigRateLimitSettings.listFromJson(
           entry.value,
           growable: growable,
         );

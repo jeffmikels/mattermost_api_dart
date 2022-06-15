@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreatePostEphemeralRequestPost
+// tests for MmCreatePostEphemeralRequestPost
 void main() {
-  // final instance = MMCreatePostEphemeralRequestPost();
+  // final instance = MmCreatePostEphemeralRequestPost();
 
-  group('test MMCreatePostEphemeralRequestPost', () {
+  group('test MmCreatePostEphemeralRequestPost', () {
     // The channel ID to post in
     // String channelId
     test('to test the property `channelId`', () async {

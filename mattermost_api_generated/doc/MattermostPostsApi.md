@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **createPost**
-> MMPost createPost(mMCreatePostRequest, setOnline)
+> MmPost createPost(mmCreatePostRequest, setOnline)
 
 Create a post
 
@@ -44,26 +44,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreatePostRequest mMCreatePostRequest = MMCreatePostRequest(); // MMCreatePostRequest | Post object to create
+final MmCreatePostRequest mmCreatePostRequest = MmCreatePostRequest(); // MmCreatePostRequest | Post object to create
 final bool setOnline = true; // bool | Whether to set the user status as online or not.
 
 try {
-  final MMPost? result = await client.posts.createPost(mMCreatePostRequest, setOnline); // await the Future<MMPost?>
+  final MmPost? result = await client.posts.createPost(mmCreatePostRequest, setOnline); // await the Future<MmPost?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->createPost: $e\n');
@@ -75,12 +75,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreatePostRequest** | [**MMCreatePostRequest**](MMCreatePostRequest.md)| Post object to create | 
+ **mmCreatePostRequest** | [**MmCreatePostRequest**](MmCreatePostRequest.md)| Post object to create | 
  **setOnline** | **bool**| Whether to set the user status as online or not. | [optional] 
 
 ### Return type
 
-[**MMPost**](MMPost.md)
+[**MmPost**](MmPost.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createPostEphemeral**
-> MMPost createPostEphemeral(mMCreatePostEphemeralRequest)
+> MmPost createPostEphemeral(mmCreatePostEphemeralRequest)
 
 Create a ephemeral post
 
@@ -109,25 +109,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreatePostEphemeralRequest mMCreatePostEphemeralRequest = MMCreatePostEphemeralRequest(); // MMCreatePostEphemeralRequest | Ephemeral Post object to send
+final MmCreatePostEphemeralRequest mmCreatePostEphemeralRequest = MmCreatePostEphemeralRequest(); // MmCreatePostEphemeralRequest | Ephemeral Post object to send
 
 try {
-  final MMPost? result = await client.posts.createPostEphemeral(mMCreatePostEphemeralRequest); // await the Future<MMPost?>
+  final MmPost? result = await client.posts.createPostEphemeral(mmCreatePostEphemeralRequest); // await the Future<MmPost?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->createPostEphemeral: $e\n');
@@ -139,11 +139,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreatePostEphemeralRequest** | [**MMCreatePostEphemeralRequest**](MMCreatePostEphemeralRequest.md)| Ephemeral Post object to send | 
+ **mmCreatePostEphemeralRequest** | [**MmCreatePostEphemeralRequest**](MmCreatePostEphemeralRequest.md)| Ephemeral Post object to send | 
 
 ### Return type
 
-[**MMPost**](MMPost.md)
+[**MmPost**](MmPost.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deletePost**
-> MMStatusOK deletePost(postId)
+> MmStatusOK deletePost(postId)
 
 Delete a post
 
@@ -172,25 +172,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | ID of the post to delete
 
 try {
-  final MMStatusOK? result = await client.posts.deletePost(postId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.posts.deletePost(postId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->deletePost: $e\n');
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **doPostAction**
-> MMStatusOK doPostAction(postId, actionId)
+> MmStatusOK doPostAction(postId, actionId)
 
 Perform a post action
 
@@ -235,18 +235,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -254,7 +254,7 @@ final String postId = 'postId_example'; // String | Post GUID
 final String actionId = 'actionId_example'; // String | Action GUID
 
 try {
-  final MMStatusOK? result = await client.posts.doPostAction(postId, actionId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.posts.doPostAction(postId, actionId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->doPostAction: $e\n');
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getFileInfosForPost**
-> List<MMFileInfo> getFileInfosForPost(postId, includeDeleted)
+> List<MmFileInfo> getFileInfosForPost(postId, includeDeleted)
 
 Get file info for post
 
@@ -300,18 +300,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -319,7 +319,7 @@ final String postId = 'postId_example'; // String | ID of the post
 final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-  final List&lt;MMFileInfo&gt;? result = await client.posts.getFileInfosForPost(postId, includeDeleted); // await the Future<List&lt;MMFileInfo&gt;?>
+  final List&lt;MmFileInfo&gt;? result = await client.posts.getFileInfosForPost(postId, includeDeleted); // await the Future<List&lt;MmFileInfo&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getFileInfosForPost: $e\n');
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMFileInfo>**](MMFileInfo.md)
+[**List<MmFileInfo>**](MmFileInfo.md)
 
 ### Authorization
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getFlaggedPostsForUser**
-> List<MMPostList> getFlaggedPostsForUser(userId, teamId, channelId, page, perPage)
+> List<MmPostList> getFlaggedPostsForUser(userId, teamId, channelId, page, perPage)
 
 Get a list of flagged posts
 
@@ -365,18 +365,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -387,7 +387,7 @@ final int page = 56; // int | The page to select
 final int perPage = 56; // int | The number of posts per page
 
 try {
-  final List&lt;MMPostList&gt;? result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage); // await the Future<List&lt;MMPostList&gt;?>
+  final List&lt;MmPostList&gt;? result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage); // await the Future<List&lt;MmPostList&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getFlaggedPostsForUser: $e\n');
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMPostList>**](MMPostList.md)
+[**List<MmPostList>**](MmPostList.md)
 
 ### Authorization
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPost**
-> MMPost getPost(postId, includeDeleted)
+> MmPost getPost(postId, includeDeleted)
 
 Get a post
 
@@ -436,18 +436,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -455,7 +455,7 @@ final String postId = 'postId_example'; // String | ID of the post to get
 final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-  final MMPost? result = await client.posts.getPost(postId, includeDeleted); // await the Future<MMPost?>
+  final MmPost? result = await client.posts.getPost(postId, includeDeleted); // await the Future<MmPost?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPost: $e\n');
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPost**](MMPost.md)
+[**MmPost**](MmPost.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPostThread**
-> MMPostList getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended)
+> MmPostList getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended)
 
 Get a thread
 
@@ -501,18 +501,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -526,7 +526,7 @@ final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
 final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-  final MMPostList? result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // await the Future<MMPostList?>
+  final MmPostList? result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // await the Future<MmPostList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostThread: $e\n');
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPostList**](MMPostList.md)
+[**MmPostList**](MmPostList.md)
 
 ### Authorization
 
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPostsAroundLastUnread**
-> MMPostList getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended)
+> MmPostList getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended)
 
 Get posts around oldest unread
 
@@ -578,18 +578,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -602,7 +602,7 @@ final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
 final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-  final MMPostList? result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // await the Future<MMPostList?>
+  final MmPostList? result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // await the Future<MmPostList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsAroundLastUnread: $e\n');
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPostList**](MMPostList.md)
+[**MmPostList**](MmPostList.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPostsByIds**
-> List<MMPost> getPostsByIds(requestBody)
+> List<MmPost> getPostsByIds(requestBody)
 
 Get posts by a list of ids
 
@@ -653,25 +653,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of post ids
 
 try {
-  final List&lt;MMPost&gt;? result = await client.posts.getPostsByIds(requestBody); // await the Future<List&lt;MMPost&gt;?>
+  final List&lt;MmPost&gt;? result = await client.posts.getPostsByIds(requestBody); // await the Future<List&lt;MmPost&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsByIds: $e\n');
@@ -687,7 +687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMPost>**](MMPost.md)
+[**List<MmPost>**](MmPost.md)
 
 ### Authorization
 
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPostsForChannel**
-> MMPostList getPostsForChannel(channelId, page, perPage, since, before, after)
+> MmPostList getPostsForChannel(channelId, page, perPage, since, before, after)
 
 Get posts for a channel
 
@@ -716,18 +716,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -739,7 +739,7 @@ final String before = 'before_example'; // String | A post id to select the post
 final String after = 'after_example'; // String | A post id to select the posts that came after this one
 
 try {
-  final MMPostList? result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after); // await the Future<MMPostList?>
+  final MmPostList? result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after); // await the Future<MmPostList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsForChannel: $e\n');
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPostList**](MMPostList.md)
+[**MmPostList**](MmPostList.md)
 
 ### Authorization
 
@@ -774,7 +774,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchPost**
-> MMPost patchPost(postId, mMPatchPostRequest)
+> MmPost patchPost(postId, mmPatchPostRequest)
 
 Patch a post
 
@@ -789,26 +789,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | Post GUID
-final MMPatchPostRequest mMPatchPostRequest = MMPatchPostRequest(); // MMPatchPostRequest | Post object that is to be updated
+final MmPatchPostRequest mmPatchPostRequest = MmPatchPostRequest(); // MmPatchPostRequest | Post object that is to be updated
 
 try {
-  final MMPost? result = await client.posts.patchPost(postId, mMPatchPostRequest); // await the Future<MMPost?>
+  final MmPost? result = await client.posts.patchPost(postId, mmPatchPostRequest); // await the Future<MmPost?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->patchPost: $e\n');
@@ -821,11 +821,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postId** | **String**| Post GUID | 
- **mMPatchPostRequest** | [**MMPatchPostRequest**](MMPatchPostRequest.md)| Post object that is to be updated | 
+ **mmPatchPostRequest** | [**MmPatchPostRequest**](MmPatchPostRequest.md)| Post object that is to be updated | 
 
 ### Return type
 
-[**MMPost**](MMPost.md)
+[**MmPost**](MmPost.md)
 
 ### Authorization
 
@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **pinPost**
-> MMStatusOK pinPost(postId)
+> MmStatusOK pinPost(postId)
 
 Pin a post to the channel
 
@@ -854,25 +854,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMStatusOK? result = await client.posts.pinPost(postId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.posts.pinPost(postId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->pinPost: $e\n');
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchPosts**
-> MMPostListWithSearchMatches searchPosts(teamId, mMSearchPostsRequest)
+> MmPostListWithSearchMatches searchPosts(teamId, mmSearchPostsRequest)
 
 Search for team posts
 
@@ -917,26 +917,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMSearchPostsRequest mMSearchPostsRequest = MMSearchPostsRequest(); // MMSearchPostsRequest | The search terms and logic to use in the search.
+final MmSearchPostsRequest mmSearchPostsRequest = MmSearchPostsRequest(); // MmSearchPostsRequest | The search terms and logic to use in the search.
 
 try {
-  final MMPostListWithSearchMatches? result = await client.posts.searchPosts(teamId, mMSearchPostsRequest); // await the Future<MMPostListWithSearchMatches?>
+  final MmPostListWithSearchMatches? result = await client.posts.searchPosts(teamId, mmSearchPostsRequest); // await the Future<MmPostListWithSearchMatches?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->searchPosts: $e\n');
@@ -949,11 +949,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMSearchPostsRequest** | [**MMSearchPostsRequest**](MMSearchPostsRequest.md)| The search terms and logic to use in the search. | 
+ **mmSearchPostsRequest** | [**MmSearchPostsRequest**](MmSearchPostsRequest.md)| The search terms and logic to use in the search. | 
 
 ### Return type
 
-[**MMPostListWithSearchMatches**](MMPostListWithSearchMatches.md)
+[**MmPostListWithSearchMatches**](MmPostListWithSearchMatches.md)
 
 ### Authorization
 
@@ -967,7 +967,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **setPostUnread**
-> MMChannelUnreadAt setPostUnread(userId, postId)
+> MmChannelUnreadAt setPostUnread(userId, postId)
 
 Mark as unread from a post.
 
@@ -982,18 +982,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1001,7 +1001,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMChannelUnreadAt? result = await client.posts.setPostUnread(userId, postId); // await the Future<MMChannelUnreadAt?>
+  final MmChannelUnreadAt? result = await client.posts.setPostUnread(userId, postId); // await the Future<MmChannelUnreadAt?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->setPostUnread: $e\n');
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannelUnreadAt**](MMChannelUnreadAt.md)
+[**MmChannelUnreadAt**](MmChannelUnreadAt.md)
 
 ### Authorization
 
@@ -1032,7 +1032,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **unpinPost**
-> MMStatusOK unpinPost(postId)
+> MmStatusOK unpinPost(postId)
 
 Unpin a post to the channel
 
@@ -1047,25 +1047,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMStatusOK? result = await client.posts.unpinPost(postId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.posts.unpinPost(postId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->unpinPost: $e\n');
@@ -1081,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1095,7 +1095,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updatePost**
-> MMPost updatePost(postId, mMUpdatePostRequest)
+> MmPost updatePost(postId, mmUpdatePostRequest)
 
 Update a post
 
@@ -1110,26 +1110,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | ID of the post to update
-final MMUpdatePostRequest mMUpdatePostRequest = MMUpdatePostRequest(); // MMUpdatePostRequest | Post object that is to be updated
+final MmUpdatePostRequest mmUpdatePostRequest = MmUpdatePostRequest(); // MmUpdatePostRequest | Post object that is to be updated
 
 try {
-  final MMPost? result = await client.posts.updatePost(postId, mMUpdatePostRequest); // await the Future<MMPost?>
+  final MmPost? result = await client.posts.updatePost(postId, mmUpdatePostRequest); // await the Future<MmPost?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPostsApi->updatePost: $e\n');
@@ -1142,11 +1142,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postId** | **String**| ID of the post to update | 
- **mMUpdatePostRequest** | [**MMUpdatePostRequest**](MMUpdatePostRequest.md)| Post object that is to be updated | 
+ **mmUpdatePostRequest** | [**MmUpdatePostRequest**](MmUpdatePostRequest.md)| Post object that is to be updated | 
 
 ### Return type
 
-[**MMPost**](MMPost.md)
+[**MmPost**](MmPost.md)
 
 ### Authorization
 

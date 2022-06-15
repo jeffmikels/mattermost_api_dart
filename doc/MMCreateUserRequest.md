@@ -1,4 +1,4 @@
-# mattermost_api.model.MMCreateUserRequest
+# mattermost_api.model.MmCreateUserRequest
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMCreateUserRequest example = await client.createUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmCreateUserRequest example = await client.createUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **password** | **String** | The password used for email authentication. | [optional] 
 **locale** | **String** |  | [optional] 
 **props** | [**Map**](.md) |  | [optional] 
-**notifyProps** | [**MMUserNotifyProps**](MMUserNotifyProps.md) |  | [optional] 
+**notifyProps** | [**MmUserNotifyProps**](MmUserNotifyProps.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

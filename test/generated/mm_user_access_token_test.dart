@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserAccessToken
+// tests for MmUserAccessToken
 void main() {
-  // final instance = MMUserAccessToken();
+  // final instance = MmUserAccessToken();
 
-  group('test MMUserAccessToken', () {
+  group('test MmUserAccessToken', () {
     // Unique identifier for the token
     // String id
     test('to test the property `id`', () async {

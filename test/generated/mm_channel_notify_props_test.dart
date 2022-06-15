@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelNotifyProps
+// tests for MmChannelNotifyProps
 void main() {
-  // final instance = MMChannelNotifyProps();
+  // final instance = MmChannelNotifyProps();
 
-  group('test MMChannelNotifyProps', () {
+  group('test MmChannelNotifyProps', () {
     // Set to \"true\" to enable email notifications, \"false\" to disable, or \"default\" to use the global user notification setting.
     // bool email
     test('to test the property `email`', () async {

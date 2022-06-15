@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOrphanedRecord {
-  /// Returns a new [MMOrphanedRecord] instance.
-  MMOrphanedRecord({
+class MmOrphanedRecord {
+  /// Returns a new [MmOrphanedRecord] instance.
+  MmOrphanedRecord({
     this.parentId,
     this.childId,
   });
@@ -37,7 +37,7 @@ class MMOrphanedRecord {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMOrphanedRecord && other.parentId == parentId && other.childId == childId;
+      identical(this, other) || other is MmOrphanedRecord && other.parentId == parentId && other.childId == childId;
 
   @override
   int get hashCode =>
@@ -45,7 +45,7 @@ class MMOrphanedRecord {
       (parentId == null ? 0 : parentId!.hashCode) + (childId == null ? 0 : childId!.hashCode);
 
   @override
-  String toString() => 'MMOrphanedRecord[parentId=$parentId, childId=$childId]';
+  String toString() => 'MmOrphanedRecord[parentId=$parentId, childId=$childId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class MMOrphanedRecord {
     return _json;
   }
 
-  /// Returns a new [MMOrphanedRecord] instance and imports its values from
+  /// Returns a new [MmOrphanedRecord] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOrphanedRecord? fromJson(dynamic value) {
+  static MmOrphanedRecord? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,13 +70,13 @@ class MMOrphanedRecord {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOrphanedRecord[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOrphanedRecord[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOrphanedRecord[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOrphanedRecord[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOrphanedRecord(
+      return MmOrphanedRecord(
         parentId: mapValueOfType<String>(json, r'parent_id'),
         childId: mapValueOfType<String>(json, r'child_id'),
       );
@@ -84,14 +84,14 @@ class MMOrphanedRecord {
     return null;
   }
 
-  static List<MMOrphanedRecord>? listFromJson(
+  static List<MmOrphanedRecord>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOrphanedRecord>[];
+    final result = <MmOrphanedRecord>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOrphanedRecord.fromJson(row);
+        final value = MmOrphanedRecord.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +100,12 @@ class MMOrphanedRecord {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOrphanedRecord> mapFromJson(dynamic json) {
-    final map = <String, MMOrphanedRecord>{};
+  static Map<String, MmOrphanedRecord> mapFromJson(dynamic json) {
+    final map = <String, MmOrphanedRecord>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOrphanedRecord.fromJson(entry.value);
+        final value = MmOrphanedRecord.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,16 +114,16 @@ class MMOrphanedRecord {
     return map;
   }
 
-  // maps a json object with a list of MMOrphanedRecord-objects as value to a dart map
-  static Map<String, List<MMOrphanedRecord>> mapListFromJson(
+  // maps a json object with a list of MmOrphanedRecord-objects as value to a dart map
+  static Map<String, List<MmOrphanedRecord>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOrphanedRecord>>{};
+    final map = <String, List<MmOrphanedRecord>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOrphanedRecord.listFromJson(
+        final value = MmOrphanedRecord.listFromJson(
           entry.value,
           growable: growable,
         );

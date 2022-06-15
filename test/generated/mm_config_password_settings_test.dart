@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigPasswordSettings
+// tests for MmConfigPasswordSettings
 void main() {
-  // final instance = MMConfigPasswordSettings();
+  // final instance = MmConfigPasswordSettings();
 
-  group('test MMConfigPasswordSettings', () {
+  group('test MmConfigPasswordSettings', () {
     // int minimumLength
     test('to test the property `minimumLength`', () async {
       // TODO

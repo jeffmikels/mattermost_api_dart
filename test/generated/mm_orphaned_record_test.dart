@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOrphanedRecord
+// tests for MmOrphanedRecord
 void main() {
-  // final instance = MMOrphanedRecord();
+  // final instance = MmOrphanedRecord();
 
-  group('test MMOrphanedRecord', () {
+  group('test MmOrphanedRecord', () {
     // the id of the parent relation (table) entry.
     // String parentId
     test('to test the property `parentId`', () async {

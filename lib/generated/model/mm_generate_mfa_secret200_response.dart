@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGenerateMfaSecret200Response {
-  /// Returns a new [MMGenerateMfaSecret200Response] instance.
-  MMGenerateMfaSecret200Response({
+class MmGenerateMfaSecret200Response {
+  /// Returns a new [MmGenerateMfaSecret200Response] instance.
+  MmGenerateMfaSecret200Response({
     this.secret,
     this.qrCode,
   });
@@ -38,7 +38,7 @@ class MMGenerateMfaSecret200Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGenerateMfaSecret200Response && other.secret == secret && other.qrCode == qrCode;
+      other is MmGenerateMfaSecret200Response && other.secret == secret && other.qrCode == qrCode;
 
   @override
   int get hashCode =>
@@ -46,7 +46,7 @@ class MMGenerateMfaSecret200Response {
       (secret == null ? 0 : secret!.hashCode) + (qrCode == null ? 0 : qrCode!.hashCode);
 
   @override
-  String toString() => 'MMGenerateMfaSecret200Response[secret=$secret, qrCode=$qrCode]';
+  String toString() => 'MmGenerateMfaSecret200Response[secret=$secret, qrCode=$qrCode]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -59,10 +59,10 @@ class MMGenerateMfaSecret200Response {
     return _json;
   }
 
-  /// Returns a new [MMGenerateMfaSecret200Response] instance and imports its values from
+  /// Returns a new [MmGenerateMfaSecret200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGenerateMfaSecret200Response? fromJson(dynamic value) {
+  static MmGenerateMfaSecret200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,13 +71,13 @@ class MMGenerateMfaSecret200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGenerateMfaSecret200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGenerateMfaSecret200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGenerateMfaSecret200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGenerateMfaSecret200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGenerateMfaSecret200Response(
+      return MmGenerateMfaSecret200Response(
         secret: mapValueOfType<String>(json, r'secret'),
         qrCode: mapValueOfType<String>(json, r'qr_code'),
       );
@@ -85,14 +85,14 @@ class MMGenerateMfaSecret200Response {
     return null;
   }
 
-  static List<MMGenerateMfaSecret200Response>? listFromJson(
+  static List<MmGenerateMfaSecret200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGenerateMfaSecret200Response>[];
+    final result = <MmGenerateMfaSecret200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGenerateMfaSecret200Response.fromJson(row);
+        final value = MmGenerateMfaSecret200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -101,12 +101,12 @@ class MMGenerateMfaSecret200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGenerateMfaSecret200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGenerateMfaSecret200Response>{};
+  static Map<String, MmGenerateMfaSecret200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGenerateMfaSecret200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGenerateMfaSecret200Response.fromJson(entry.value);
+        final value = MmGenerateMfaSecret200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,16 +115,16 @@ class MMGenerateMfaSecret200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGenerateMfaSecret200Response-objects as value to a dart map
-  static Map<String, List<MMGenerateMfaSecret200Response>> mapListFromJson(
+  // maps a json object with a list of MmGenerateMfaSecret200Response-objects as value to a dart map
+  static Map<String, List<MmGenerateMfaSecret200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGenerateMfaSecret200Response>>{};
+    final map = <String, List<MmGenerateMfaSecret200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGenerateMfaSecret200Response.listFromJson(
+        final value = MmGenerateMfaSecret200Response.listFromJson(
           entry.value,
           growable: growable,
         );

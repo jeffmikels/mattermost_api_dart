@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPaymentMethod
+// tests for MmPaymentMethod
 void main() {
-  // final instance = MMPaymentMethod();
+  // final instance = MmPaymentMethod();
 
-  group('test MMPaymentMethod', () {
+  group('test MmPaymentMethod', () {
     // String type
     test('to test the property `type`', () async {
       // TODO

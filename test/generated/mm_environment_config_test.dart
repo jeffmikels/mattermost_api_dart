@@ -11,112 +11,112 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfig
+// tests for MmEnvironmentConfig
 void main() {
-  // final instance = MMEnvironmentConfig();
+  // final instance = MmEnvironmentConfig();
 
-  group('test MMEnvironmentConfig', () {
-    // MMEnvironmentConfigServiceSettings serviceSettings
+  group('test MmEnvironmentConfig', () {
+    // MmEnvironmentConfigServiceSettings serviceSettings
     test('to test the property `serviceSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigTeamSettings teamSettings
+    // MmEnvironmentConfigTeamSettings teamSettings
     test('to test the property `teamSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigSqlSettings sqlSettings
+    // MmEnvironmentConfigSqlSettings sqlSettings
     test('to test the property `sqlSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigLogSettings logSettings
+    // MmEnvironmentConfigLogSettings logSettings
     test('to test the property `logSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigPasswordSettings passwordSettings
+    // MmEnvironmentConfigPasswordSettings passwordSettings
     test('to test the property `passwordSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigFileSettings fileSettings
+    // MmEnvironmentConfigFileSettings fileSettings
     test('to test the property `fileSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigEmailSettings emailSettings
+    // MmEnvironmentConfigEmailSettings emailSettings
     test('to test the property `emailSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigRateLimitSettings rateLimitSettings
+    // MmEnvironmentConfigRateLimitSettings rateLimitSettings
     test('to test the property `rateLimitSettings`', () async {
       // TODO
     });
 
-    // MMConfigPrivacySettings privacySettings
+    // MmConfigPrivacySettings privacySettings
     test('to test the property `privacySettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigSupportSettings supportSettings
+    // MmEnvironmentConfigSupportSettings supportSettings
     test('to test the property `supportSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigGitLabSettings gitLabSettings
+    // MmEnvironmentConfigGitLabSettings gitLabSettings
     test('to test the property `gitLabSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigGitLabSettings googleSettings
+    // MmEnvironmentConfigGitLabSettings googleSettings
     test('to test the property `googleSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigGitLabSettings office365Settings
+    // MmEnvironmentConfigGitLabSettings office365Settings
     test('to test the property `office365Settings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigLdapSettings ldapSettings
+    // MmEnvironmentConfigLdapSettings ldapSettings
     test('to test the property `ldapSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigComplianceSettings complianceSettings
+    // MmEnvironmentConfigComplianceSettings complianceSettings
     test('to test the property `complianceSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigLocalizationSettings localizationSettings
+    // MmEnvironmentConfigLocalizationSettings localizationSettings
     test('to test the property `localizationSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigSamlSettings samlSettings
+    // MmEnvironmentConfigSamlSettings samlSettings
     test('to test the property `samlSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigNativeAppSettings nativeAppSettings
+    // MmEnvironmentConfigNativeAppSettings nativeAppSettings
     test('to test the property `nativeAppSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigClusterSettings clusterSettings
+    // MmEnvironmentConfigClusterSettings clusterSettings
     test('to test the property `clusterSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigMetricsSettings metricsSettings
+    // MmEnvironmentConfigMetricsSettings metricsSettings
     test('to test the property `metricsSettings`', () async {
       // TODO
     });
 
-    // MMEnvironmentConfigAnalyticsSettings analyticsSettings
+    // MmEnvironmentConfigAnalyticsSettings analyticsSettings
     test('to test the property `analyticsSettings`', () async {
       // TODO
     });

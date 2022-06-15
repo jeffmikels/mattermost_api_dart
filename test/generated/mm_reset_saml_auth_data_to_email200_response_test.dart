@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMResetSamlAuthDataToEmail200Response
+// tests for MmResetSamlAuthDataToEmail200Response
 void main() {
-  // final instance = MMResetSamlAuthDataToEmail200Response();
+  // final instance = MmResetSamlAuthDataToEmail200Response();
 
-  group('test MMResetSamlAuthDataToEmail200Response', () {
+  group('test MmResetSamlAuthDataToEmail200Response', () {
     // The number of users whose AuthData field was reset.
     // int numAffected
     test('to test the property `numAffected`', () async {

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCheckUserMfaRequest
+// tests for MmCheckUserMfaRequest
 void main() {
-  // final instance = MMCheckUserMfaRequest();
+  // final instance = MmCheckUserMfaRequest();
 
-  group('test MMCheckUserMfaRequest', () {
+  group('test MmCheckUserMfaRequest', () {
     // The email or username used to login
     // String loginId
     test('to test the property `loginId`', () async {

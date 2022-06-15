@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUploadSession {
-  /// Returns a new [MMUploadSession] instance.
-  MMUploadSession({
+class MmUploadSession {
+  /// Returns a new [MmUploadSession] instance.
+  MmUploadSession({
     this.id,
     this.type,
     this.createAt,
@@ -33,7 +33,7 @@ class MMUploadSession {
   String? id;
 
   /// The type of the upload.
-  MMUploadSessionTypeEnum? type;
+  MmUploadSessionTypeEnum? type;
 
   /// The time the upload was created in milliseconds.
   ///
@@ -92,7 +92,7 @@ class MMUploadSession {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUploadSession &&
+      other is MmUploadSession &&
           other.id == id &&
           other.type == type &&
           other.createAt == createAt &&
@@ -116,7 +116,7 @@ class MMUploadSession {
 
   @override
   String toString() =>
-      'MMUploadSession[id=$id, type=$type, createAt=$createAt, userId=$userId, channelId=$channelId, filename=$filename, fileSize=$fileSize, fileOffset=$fileOffset]';
+      'MmUploadSession[id=$id, type=$type, createAt=$createAt, userId=$userId, channelId=$channelId, filename=$filename, fileSize=$fileSize, fileOffset=$fileOffset]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -147,10 +147,10 @@ class MMUploadSession {
     return _json;
   }
 
-  /// Returns a new [MMUploadSession] instance and imports its values from
+  /// Returns a new [MmUploadSession] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUploadSession? fromJson(dynamic value) {
+  static MmUploadSession? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -159,15 +159,15 @@ class MMUploadSession {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUploadSession[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUploadSession[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUploadSession[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUploadSession[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUploadSession(
+      return MmUploadSession(
         id: mapValueOfType<String>(json, r'id'),
-        type: MMUploadSessionTypeEnum.fromJson(json[r'type']),
+        type: MmUploadSessionTypeEnum.fromJson(json[r'type']),
         createAt: mapValueOfType<int>(json, r'create_at'),
         userId: mapValueOfType<String>(json, r'user_id'),
         channelId: mapValueOfType<String>(json, r'channel_id'),
@@ -179,14 +179,14 @@ class MMUploadSession {
     return null;
   }
 
-  static List<MMUploadSession>? listFromJson(
+  static List<MmUploadSession>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUploadSession>[];
+    final result = <MmUploadSession>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUploadSession.fromJson(row);
+        final value = MmUploadSession.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -195,12 +195,12 @@ class MMUploadSession {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUploadSession> mapFromJson(dynamic json) {
-    final map = <String, MMUploadSession>{};
+  static Map<String, MmUploadSession> mapFromJson(dynamic json) {
+    final map = <String, MmUploadSession>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUploadSession.fromJson(entry.value);
+        final value = MmUploadSession.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,16 +209,16 @@ class MMUploadSession {
     return map;
   }
 
-  // maps a json object with a list of MMUploadSession-objects as value to a dart map
-  static Map<String, List<MMUploadSession>> mapListFromJson(
+  // maps a json object with a list of MmUploadSession-objects as value to a dart map
+  static Map<String, List<MmUploadSession>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUploadSession>>{};
+    final map = <String, List<MmUploadSession>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUploadSession.listFromJson(
+        final value = MmUploadSession.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -235,9 +235,9 @@ class MMUploadSession {
 }
 
 /// The type of the upload.
-class MMUploadSessionTypeEnum {
+class MmUploadSessionTypeEnum {
   /// Instantiate a new enum with the provided [value].
-  const MMUploadSessionTypeEnum._(this.value);
+  const MmUploadSessionTypeEnum._(this.value);
 
   /// The underlying value of this enum member.
   final String value;
@@ -247,25 +247,25 @@ class MMUploadSessionTypeEnum {
 
   String toJson() => value;
 
-  static const attachment = MMUploadSessionTypeEnum._(r'attachment');
-  static const import_ = MMUploadSessionTypeEnum._(r'import');
+  static const attachment = MmUploadSessionTypeEnum._(r'attachment');
+  static const import_ = MmUploadSessionTypeEnum._(r'import');
 
-  /// List of all possible values in this [enum][MMUploadSessionTypeEnum].
-  static const values = <MMUploadSessionTypeEnum>[
+  /// List of all possible values in this [enum][MmUploadSessionTypeEnum].
+  static const values = <MmUploadSessionTypeEnum>[
     attachment,
     import_,
   ];
 
-  static MMUploadSessionTypeEnum? fromJson(dynamic value) => MMUploadSessionTypeEnumTypeTransformer().decode(value);
+  static MmUploadSessionTypeEnum? fromJson(dynamic value) => MmUploadSessionTypeEnumTypeTransformer().decode(value);
 
-  static List<MMUploadSessionTypeEnum>? listFromJson(
+  static List<MmUploadSessionTypeEnum>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUploadSessionTypeEnum>[];
+    final result = <MmUploadSessionTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUploadSessionTypeEnum.fromJson(row);
+        final value = MmUploadSessionTypeEnum.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -275,16 +275,16 @@ class MMUploadSessionTypeEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [MMUploadSessionTypeEnum] to String,
-/// and [decode] dynamic data back to [MMUploadSessionTypeEnum].
-class MMUploadSessionTypeEnumTypeTransformer {
-  factory MMUploadSessionTypeEnumTypeTransformer() => _instance ??= const MMUploadSessionTypeEnumTypeTransformer._();
+/// Transformation class that can [encode] an instance of [MmUploadSessionTypeEnum] to String,
+/// and [decode] dynamic data back to [MmUploadSessionTypeEnum].
+class MmUploadSessionTypeEnumTypeTransformer {
+  factory MmUploadSessionTypeEnumTypeTransformer() => _instance ??= const MmUploadSessionTypeEnumTypeTransformer._();
 
-  const MMUploadSessionTypeEnumTypeTransformer._();
+  const MmUploadSessionTypeEnumTypeTransformer._();
 
-  String encode(MMUploadSessionTypeEnum data) => data.value;
+  String encode(MmUploadSessionTypeEnum data) => data.value;
 
-  /// Decodes a [dynamic value][data] to a MMUploadSessionTypeEnum.
+  /// Decodes a [dynamic value][data] to a MmUploadSessionTypeEnum.
   ///
   /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
   /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
@@ -292,13 +292,13 @@ class MMUploadSessionTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MMUploadSessionTypeEnum? decode(dynamic data, {bool allowNull = true}) {
+  MmUploadSessionTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'attachment':
-          return MMUploadSessionTypeEnum.attachment;
+          return MmUploadSessionTypeEnum.attachment;
         case r'import':
-          return MMUploadSessionTypeEnum.import_;
+          return MmUploadSessionTypeEnum.import_;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -308,6 +308,6 @@ class MMUploadSessionTypeEnumTypeTransformer {
     return null;
   }
 
-  /// Singleton [MMUploadSessionTypeEnumTypeTransformer] instance.
-  static MMUploadSessionTypeEnumTypeTransformer? _instance;
+  /// Singleton [MmUploadSessionTypeEnumTypeTransformer] instance.
+  static MmUploadSessionTypeEnumTypeTransformer? _instance;
 }

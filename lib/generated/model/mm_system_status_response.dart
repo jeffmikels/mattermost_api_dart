@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSystemStatusResponse {
-  /// Returns a new [MMSystemStatusResponse] instance.
-  MMSystemStatusResponse({
+class MmSystemStatusResponse {
+  /// Returns a new [MmSystemStatusResponse] instance.
+  MmSystemStatusResponse({
     this.androidLatestVersion,
     this.androidMinVersion,
     this.desktopLatestVersion,
@@ -118,7 +118,7 @@ class MMSystemStatusResponse {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSystemStatusResponse &&
+      other is MmSystemStatusResponse &&
           other.androidLatestVersion == androidLatestVersion &&
           other.androidMinVersion == androidMinVersion &&
           other.desktopLatestVersion == desktopLatestVersion &&
@@ -146,7 +146,7 @@ class MMSystemStatusResponse {
 
   @override
   String toString() =>
-      'MMSystemStatusResponse[androidLatestVersion=$androidLatestVersion, androidMinVersion=$androidMinVersion, desktopLatestVersion=$desktopLatestVersion, desktopMinVersion=$desktopMinVersion, iosLatestVersion=$iosLatestVersion, iosMinVersion=$iosMinVersion, databaseStatus=$databaseStatus, filestoreStatus=$filestoreStatus, status=$status, canReceiveNotifications=$canReceiveNotifications]';
+      'MmSystemStatusResponse[androidLatestVersion=$androidLatestVersion, androidMinVersion=$androidMinVersion, desktopLatestVersion=$desktopLatestVersion, desktopMinVersion=$desktopMinVersion, iosLatestVersion=$iosLatestVersion, iosMinVersion=$iosMinVersion, databaseStatus=$databaseStatus, filestoreStatus=$filestoreStatus, status=$status, canReceiveNotifications=$canReceiveNotifications]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -183,10 +183,10 @@ class MMSystemStatusResponse {
     return _json;
   }
 
-  /// Returns a new [MMSystemStatusResponse] instance and imports its values from
+  /// Returns a new [MmSystemStatusResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSystemStatusResponse? fromJson(dynamic value) {
+  static MmSystemStatusResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -195,13 +195,13 @@ class MMSystemStatusResponse {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSystemStatusResponse[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSystemStatusResponse[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSystemStatusResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSystemStatusResponse[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSystemStatusResponse(
+      return MmSystemStatusResponse(
         androidLatestVersion: mapValueOfType<String>(json, r'AndroidLatestVersion'),
         androidMinVersion: mapValueOfType<String>(json, r'AndroidMinVersion'),
         desktopLatestVersion: mapValueOfType<String>(json, r'DesktopLatestVersion'),
@@ -217,14 +217,14 @@ class MMSystemStatusResponse {
     return null;
   }
 
-  static List<MMSystemStatusResponse>? listFromJson(
+  static List<MmSystemStatusResponse>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSystemStatusResponse>[];
+    final result = <MmSystemStatusResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSystemStatusResponse.fromJson(row);
+        final value = MmSystemStatusResponse.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -233,12 +233,12 @@ class MMSystemStatusResponse {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSystemStatusResponse> mapFromJson(dynamic json) {
-    final map = <String, MMSystemStatusResponse>{};
+  static Map<String, MmSystemStatusResponse> mapFromJson(dynamic json) {
+    final map = <String, MmSystemStatusResponse>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSystemStatusResponse.fromJson(entry.value);
+        final value = MmSystemStatusResponse.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -247,16 +247,16 @@ class MMSystemStatusResponse {
     return map;
   }
 
-  // maps a json object with a list of MMSystemStatusResponse-objects as value to a dart map
-  static Map<String, List<MMSystemStatusResponse>> mapListFromJson(
+  // maps a json object with a list of MmSystemStatusResponse-objects as value to a dart map
+  static Map<String, List<MmSystemStatusResponse>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSystemStatusResponse>>{};
+    final map = <String, List<MmSystemStatusResponse>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSystemStatusResponse.listFromJson(
+        final value = MmSystemStatusResponse.listFromJson(
           entry.value,
           growable: growable,
         );

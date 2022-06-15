@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelMember
+// tests for MmChannelMember
 void main() {
-  // final instance = MMChannelMember();
+  // final instance = MmChannelMember();
 
-  group('test MMChannelMember', () {
+  group('test MmChannelMember', () {
     // String channelId
     test('to test the property `channelId`', () async {
       // TODO
@@ -47,7 +47,7 @@ void main() {
       // TODO
     });
 
-    // MMChannelNotifyProps notifyProps
+    // MmChannelNotifyProps notifyProps
     test('to test the property `notifyProps`', () async {
       // TODO
     });

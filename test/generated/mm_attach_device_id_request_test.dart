@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAttachDeviceIdRequest
+// tests for MmAttachDeviceIdRequest
 void main() {
-  // final instance = MMAttachDeviceIdRequest();
+  // final instance = MmAttachDeviceIdRequest();
 
-  group('test MMAttachDeviceIdRequest', () {
+  group('test MmAttachDeviceIdRequest', () {
     // Mobile device id. For Android prefix the id with `android:` and Apple with `apple:`
     // String deviceId
     test('to test the property `deviceId`', () async {

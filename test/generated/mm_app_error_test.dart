@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAppError
+// tests for MmAppError
 void main() {
-  // final instance = MMAppError();
+  // final instance = MmAppError();
 
-  group('test MMAppError', () {
+  group('test MmAppError', () {
     // int statusCode
     test('to test the property `statusCode`', () async {
       // TODO

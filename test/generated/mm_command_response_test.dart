@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCommandResponse
+// tests for MmCommandResponse
 void main() {
-  // final instance = MMCommandResponse();
+  // final instance = MmCommandResponse();
 
-  group('test MMCommandResponse', () {
+  group('test MmCommandResponse', () {
     // The response type either in_channel or ephemeral
     // String responseType
     test('to test the property `responseType`', () async {
@@ -42,7 +42,7 @@ void main() {
       // TODO
     });
 
-    // List<MMSlackAttachment> attachments (default value: const [])
+    // List<MmSlackAttachment> attachments (default value: const [])
     test('to test the property `attachments`', () async {
       // TODO
     });

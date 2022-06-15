@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMViewChannelRequest {
-  /// Returns a new [MMViewChannelRequest] instance.
-  MMViewChannelRequest({
+class MmViewChannelRequest {
+  /// Returns a new [MmViewChannelRequest] instance.
+  MmViewChannelRequest({
     required this.channelId,
     this.prevChannelId,
   });
@@ -32,7 +32,7 @@ class MMViewChannelRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMViewChannelRequest && other.channelId == channelId && other.prevChannelId == prevChannelId;
+      other is MmViewChannelRequest && other.channelId == channelId && other.prevChannelId == prevChannelId;
 
   @override
   int get hashCode =>
@@ -40,7 +40,7 @@ class MMViewChannelRequest {
       (channelId.hashCode) + (prevChannelId == null ? 0 : prevChannelId!.hashCode);
 
   @override
-  String toString() => 'MMViewChannelRequest[channelId=$channelId, prevChannelId=$prevChannelId]';
+  String toString() => 'MmViewChannelRequest[channelId=$channelId, prevChannelId=$prevChannelId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class MMViewChannelRequest {
     return _json;
   }
 
-  /// Returns a new [MMViewChannelRequest] instance and imports its values from
+  /// Returns a new [MmViewChannelRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMViewChannelRequest? fromJson(dynamic value) {
+  static MmViewChannelRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,13 +63,13 @@ class MMViewChannelRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMViewChannelRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMViewChannelRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmViewChannelRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmViewChannelRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMViewChannelRequest(
+      return MmViewChannelRequest(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         prevChannelId: mapValueOfType<String>(json, r'prev_channel_id'),
       );
@@ -77,14 +77,14 @@ class MMViewChannelRequest {
     return null;
   }
 
-  static List<MMViewChannelRequest>? listFromJson(
+  static List<MmViewChannelRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMViewChannelRequest>[];
+    final result = <MmViewChannelRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMViewChannelRequest.fromJson(row);
+        final value = MmViewChannelRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMViewChannelRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMViewChannelRequest> mapFromJson(dynamic json) {
-    final map = <String, MMViewChannelRequest>{};
+  static Map<String, MmViewChannelRequest> mapFromJson(dynamic json) {
+    final map = <String, MmViewChannelRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMViewChannelRequest.fromJson(entry.value);
+        final value = MmViewChannelRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMViewChannelRequest {
     return map;
   }
 
-  // maps a json object with a list of MMViewChannelRequest-objects as value to a dart map
-  static Map<String, List<MMViewChannelRequest>> mapListFromJson(
+  // maps a json object with a list of MmViewChannelRequest-objects as value to a dart map
+  static Map<String, List<MmViewChannelRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMViewChannelRequest>>{};
+    final map = <String, List<MmViewChannelRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMViewChannelRequest.listFromJson(
+        final value = MmViewChannelRequest.listFromJson(
           entry.value,
           growable: growable,
         );

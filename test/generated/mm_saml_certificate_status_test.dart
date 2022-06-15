@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSamlCertificateStatus
+// tests for MmSamlCertificateStatus
 void main() {
-  // final instance = MMSamlCertificateStatus();
+  // final instance = MmSamlCertificateStatus();
 
-  group('test MMSamlCertificateStatus', () {
+  group('test MmSamlCertificateStatus', () {
     // Status is good when `true`
     // bool idpCertificateFile
     test('to test the property `idpCertificateFile`', () async {

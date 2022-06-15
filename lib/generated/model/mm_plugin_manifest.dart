@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPluginManifest {
-  /// Returns a new [MMPluginManifest] instance.
-  MMPluginManifest({
+class MmPluginManifest {
+  /// Returns a new [MmPluginManifest] instance.
+  MmPluginManifest({
     this.id,
     this.name,
     this.description,
@@ -75,7 +75,7 @@ class MMPluginManifest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPluginManifestBackend? backend;
+  MmPluginManifestBackend? backend;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -83,7 +83,7 @@ class MMPluginManifest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPluginManifestServer? server;
+  MmPluginManifestServer? server;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -91,7 +91,7 @@ class MMPluginManifest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPluginManifestWebapp? webapp;
+  MmPluginManifestWebapp? webapp;
 
   /// Settings schema used to define the System Console UI for the plugin.
   ///
@@ -105,7 +105,7 @@ class MMPluginManifest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPluginManifest &&
+      other is MmPluginManifest &&
           other.id == id &&
           other.name == name &&
           other.description == description &&
@@ -131,7 +131,7 @@ class MMPluginManifest {
 
   @override
   String toString() =>
-      'MMPluginManifest[id=$id, name=$name, description=$description, version=$version, minServerVersion=$minServerVersion, backend=$backend, server=$server, webapp=$webapp, settingsSchema=$settingsSchema]';
+      'MmPluginManifest[id=$id, name=$name, description=$description, version=$version, minServerVersion=$minServerVersion, backend=$backend, server=$server, webapp=$webapp, settingsSchema=$settingsSchema]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -165,10 +165,10 @@ class MMPluginManifest {
     return _json;
   }
 
-  /// Returns a new [MMPluginManifest] instance and imports its values from
+  /// Returns a new [MmPluginManifest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPluginManifest? fromJson(dynamic value) {
+  static MmPluginManifest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -177,35 +177,35 @@ class MMPluginManifest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPluginManifest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPluginManifest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPluginManifest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPluginManifest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPluginManifest(
+      return MmPluginManifest(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         description: mapValueOfType<String>(json, r'description'),
         version: mapValueOfType<String>(json, r'version'),
         minServerVersion: mapValueOfType<String>(json, r'min_server_version'),
-        backend: MMPluginManifestBackend.fromJson(json[r'backend']),
-        server: MMPluginManifestServer.fromJson(json[r'server']),
-        webapp: MMPluginManifestWebapp.fromJson(json[r'webapp']),
+        backend: MmPluginManifestBackend.fromJson(json[r'backend']),
+        server: MmPluginManifestServer.fromJson(json[r'server']),
+        webapp: MmPluginManifestWebapp.fromJson(json[r'webapp']),
         settingsSchema: mapValueOfType<Map>(json, r'settings_schema'),
       );
     }
     return null;
   }
 
-  static List<MMPluginManifest>? listFromJson(
+  static List<MmPluginManifest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginManifest>[];
+    final result = <MmPluginManifest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginManifest.fromJson(row);
+        final value = MmPluginManifest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -214,12 +214,12 @@ class MMPluginManifest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPluginManifest> mapFromJson(dynamic json) {
-    final map = <String, MMPluginManifest>{};
+  static Map<String, MmPluginManifest> mapFromJson(dynamic json) {
+    final map = <String, MmPluginManifest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifest.fromJson(entry.value);
+        final value = MmPluginManifest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -228,16 +228,16 @@ class MMPluginManifest {
     return map;
   }
 
-  // maps a json object with a list of MMPluginManifest-objects as value to a dart map
-  static Map<String, List<MMPluginManifest>> mapListFromJson(
+  // maps a json object with a list of MmPluginManifest-objects as value to a dart map
+  static Map<String, List<MmPluginManifest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPluginManifest>>{};
+    final map = <String, List<MmPluginManifest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifest.listFromJson(
+        final value = MmPluginManifest.listFromJson(
           entry.value,
           growable: growable,
         );

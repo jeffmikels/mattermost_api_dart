@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPost {
-  /// Returns a new [MMPost] instance.
-  MMPost({
+class MmPost {
+  /// Returns a new [MmPost] instance.
+  MmPost({
     this.id,
     this.createAt,
     this.updateAt,
@@ -154,12 +154,12 @@ class MMPost {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPostMetadata? metadata;
+  MmPostMetadata? metadata;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPost &&
+      other is MmPost &&
           other.id == id &&
           other.createAt == createAt &&
           other.updateAt == updateAt &&
@@ -199,7 +199,7 @@ class MMPost {
 
   @override
   String toString() =>
-      'MMPost[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, editAt=$editAt, userId=$userId, channelId=$channelId, rootId=$rootId, originalId=$originalId, message=$message, type=$type, props=$props, hashtag=$hashtag, fileIds=$fileIds, pendingPostId=$pendingPostId, metadata=$metadata]';
+      'MmPost[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, editAt=$editAt, userId=$userId, channelId=$channelId, rootId=$rootId, originalId=$originalId, message=$message, type=$type, props=$props, hashtag=$hashtag, fileIds=$fileIds, pendingPostId=$pendingPostId, metadata=$metadata]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -252,10 +252,10 @@ class MMPost {
     return _json;
   }
 
-  /// Returns a new [MMPost] instance and imports its values from
+  /// Returns a new [MmPost] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPost? fromJson(dynamic value) {
+  static MmPost? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -264,13 +264,13 @@ class MMPost {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPost[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPost[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPost[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPost[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPost(
+      return MmPost(
         id: mapValueOfType<String>(json, r'id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         updateAt: mapValueOfType<int>(json, r'update_at'),
@@ -286,20 +286,20 @@ class MMPost {
         hashtag: mapValueOfType<String>(json, r'hashtag'),
         fileIds: json[r'file_ids'] is List ? (json[r'file_ids'] as List).cast<String>() : const [],
         pendingPostId: mapValueOfType<String>(json, r'pending_post_id'),
-        metadata: MMPostMetadata.fromJson(json[r'metadata']),
+        metadata: MmPostMetadata.fromJson(json[r'metadata']),
       );
     }
     return null;
   }
 
-  static List<MMPost>? listFromJson(
+  static List<MmPost>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPost>[];
+    final result = <MmPost>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPost.fromJson(row);
+        final value = MmPost.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -308,12 +308,12 @@ class MMPost {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPost> mapFromJson(dynamic json) {
-    final map = <String, MMPost>{};
+  static Map<String, MmPost> mapFromJson(dynamic json) {
+    final map = <String, MmPost>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPost.fromJson(entry.value);
+        final value = MmPost.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -322,16 +322,16 @@ class MMPost {
     return map;
   }
 
-  // maps a json object with a list of MMPost-objects as value to a dart map
-  static Map<String, List<MMPost>> mapListFromJson(
+  // maps a json object with a list of MmPost-objects as value to a dart map
+  static Map<String, List<MmPost>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPost>>{};
+    final map = <String, List<MmPost>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPost.listFromJson(
+        final value = MmPost.listFromJson(
           entry.value,
           growable: growable,
         );

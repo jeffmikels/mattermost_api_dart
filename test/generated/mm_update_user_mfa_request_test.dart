@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateUserMfaRequest
+// tests for MmUpdateUserMfaRequest
 void main() {
-  // final instance = MMUpdateUserMfaRequest();
+  // final instance = MmUpdateUserMfaRequest();
 
-  group('test MMUpdateUserMfaRequest', () {
+  group('test MmUpdateUserMfaRequest', () {
     // Use `true` to activate, `false` to deactivate
     // bool activate
     test('to test the property `activate`', () async {

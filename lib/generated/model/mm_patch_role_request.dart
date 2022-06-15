@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPatchRoleRequest {
-  /// Returns a new [MMPatchRoleRequest] instance.
-  MMPatchRoleRequest({
+class MmPatchRoleRequest {
+  /// Returns a new [MmPatchRoleRequest] instance.
+  MmPatchRoleRequest({
     this.permissions = const [],
   });
 
@@ -21,7 +21,7 @@ class MMPatchRoleRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPatchRoleRequest && other.permissions == permissions;
+      identical(this, other) || other is MmPatchRoleRequest && other.permissions == permissions;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMPatchRoleRequest {
       (permissions.hashCode);
 
   @override
-  String toString() => 'MMPatchRoleRequest[permissions=$permissions]';
+  String toString() => 'MmPatchRoleRequest[permissions=$permissions]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMPatchRoleRequest {
     return _json;
   }
 
-  /// Returns a new [MMPatchRoleRequest] instance and imports its values from
+  /// Returns a new [MmPatchRoleRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPatchRoleRequest? fromJson(dynamic value) {
+  static MmPatchRoleRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMPatchRoleRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPatchRoleRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPatchRoleRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPatchRoleRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPatchRoleRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPatchRoleRequest(
+      return MmPatchRoleRequest(
         permissions: json[r'permissions'] is List ? (json[r'permissions'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MMPatchRoleRequest>? listFromJson(
+  static List<MmPatchRoleRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPatchRoleRequest>[];
+    final result = <MmPatchRoleRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPatchRoleRequest.fromJson(row);
+        final value = MmPatchRoleRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMPatchRoleRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPatchRoleRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPatchRoleRequest>{};
+  static Map<String, MmPatchRoleRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPatchRoleRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchRoleRequest.fromJson(entry.value);
+        final value = MmPatchRoleRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMPatchRoleRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPatchRoleRequest-objects as value to a dart map
-  static Map<String, List<MMPatchRoleRequest>> mapListFromJson(
+  // maps a json object with a list of MmPatchRoleRequest-objects as value to a dart map
+  static Map<String, List<MmPatchRoleRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPatchRoleRequest>>{};
+    final map = <String, List<MmPatchRoleRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchRoleRequest.listFromJson(
+        final value = MmPatchRoleRequest.listFromJson(
           entry.value,
           growable: growable,
         );

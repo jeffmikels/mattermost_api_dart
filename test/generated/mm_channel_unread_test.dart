@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelUnread
+// tests for MmChannelUnread
 void main() {
-  // final instance = MMChannelUnread();
+  // final instance = MmChannelUnread();
 
-  group('test MMChannelUnread', () {
+  group('test MmChannelUnread', () {
     // String teamId
     test('to test the property `teamId`', () async {
       // TODO

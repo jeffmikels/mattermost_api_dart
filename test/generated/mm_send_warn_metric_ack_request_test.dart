@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSendWarnMetricAckRequest
+// tests for MmSendWarnMetricAckRequest
 void main() {
-  // final instance = MMSendWarnMetricAckRequest();
+  // final instance = MmSendWarnMetricAckRequest();
 
-  group('test MMSendWarnMetricAckRequest', () {
+  group('test MmSendWarnMetricAckRequest', () {
     // Flag which determines if the ack for the metric warning should be directly stored (without trying to send email first) or not
     // bool forceAck
     test('to test the property `forceAck`', () async {

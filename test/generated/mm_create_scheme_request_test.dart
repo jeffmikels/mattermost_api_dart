@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateSchemeRequest
+// tests for MmCreateSchemeRequest
 void main() {
-  // final instance = MMCreateSchemeRequest();
+  // final instance = MmCreateSchemeRequest();
 
-  group('test MMCreateSchemeRequest', () {
+  group('test MmCreateSchemeRequest', () {
     // The name of the scheme
     // String name
     test('to test the property `name`', () async {

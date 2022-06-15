@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchChannelRequest
+// tests for MmPatchChannelRequest
 void main() {
-  // final instance = MMPatchChannelRequest();
+  // final instance = MmPatchChannelRequest();
 
-  group('test MMPatchChannelRequest', () {
+  group('test MmPatchChannelRequest', () {
     // The unique handle for the channel, will be present in the channel URL
     // String name
     test('to test the property `name`', () async {

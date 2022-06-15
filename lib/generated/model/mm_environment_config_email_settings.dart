@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigEmailSettings {
-  /// Returns a new [MMEnvironmentConfigEmailSettings] instance.
-  MMEnvironmentConfigEmailSettings({
+class MmEnvironmentConfigEmailSettings {
+  /// Returns a new [MmEnvironmentConfigEmailSettings] instance.
+  MmEnvironmentConfigEmailSettings({
     this.enableSignUpWithEmail,
     this.enableSignInWithEmail,
     this.enableSignInWithUsername,
@@ -207,7 +207,7 @@ class MMEnvironmentConfigEmailSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigEmailSettings &&
+      other is MmEnvironmentConfigEmailSettings &&
           other.enableSignUpWithEmail == enableSignUpWithEmail &&
           other.enableSignInWithEmail == enableSignInWithEmail &&
           other.enableSignInWithUsername == enableSignInWithUsername &&
@@ -257,7 +257,7 @@ class MMEnvironmentConfigEmailSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigEmailSettings[enableSignUpWithEmail=$enableSignUpWithEmail, enableSignInWithEmail=$enableSignInWithEmail, enableSignInWithUsername=$enableSignInWithUsername, sendEmailNotifications=$sendEmailNotifications, requireEmailVerification=$requireEmailVerification, feedbackName=$feedbackName, feedbackEmail=$feedbackEmail, feedbackOrganization=$feedbackOrganization, sMTPUsername=$sMTPUsername, sMTPPassword=$sMTPPassword, sMTPServer=$sMTPServer, sMTPPort=$sMTPPort, connectionSecurity=$connectionSecurity, inviteSalt=$inviteSalt, passwordResetSalt=$passwordResetSalt, sendPushNotifications=$sendPushNotifications, pushNotificationServer=$pushNotificationServer, pushNotificationContents=$pushNotificationContents, enableEmailBatching=$enableEmailBatching, emailBatchingBufferSize=$emailBatchingBufferSize, emailBatchingInterval=$emailBatchingInterval]';
+      'MmEnvironmentConfigEmailSettings[enableSignUpWithEmail=$enableSignUpWithEmail, enableSignInWithEmail=$enableSignInWithEmail, enableSignInWithUsername=$enableSignInWithUsername, sendEmailNotifications=$sendEmailNotifications, requireEmailVerification=$requireEmailVerification, feedbackName=$feedbackName, feedbackEmail=$feedbackEmail, feedbackOrganization=$feedbackOrganization, sMTPUsername=$sMTPUsername, sMTPPassword=$sMTPPassword, sMTPServer=$sMTPServer, sMTPPort=$sMTPPort, connectionSecurity=$connectionSecurity, inviteSalt=$inviteSalt, passwordResetSalt=$passwordResetSalt, sendPushNotifications=$sendPushNotifications, pushNotificationServer=$pushNotificationServer, pushNotificationContents=$pushNotificationContents, enableEmailBatching=$enableEmailBatching, emailBatchingBufferSize=$emailBatchingBufferSize, emailBatchingInterval=$emailBatchingInterval]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -327,10 +327,10 @@ class MMEnvironmentConfigEmailSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigEmailSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigEmailSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigEmailSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigEmailSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -339,13 +339,13 @@ class MMEnvironmentConfigEmailSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigEmailSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigEmailSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigEmailSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigEmailSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigEmailSettings(
+      return MmEnvironmentConfigEmailSettings(
         enableSignUpWithEmail: mapValueOfType<bool>(json, r'EnableSignUpWithEmail'),
         enableSignInWithEmail: mapValueOfType<bool>(json, r'EnableSignInWithEmail'),
         enableSignInWithUsername: mapValueOfType<bool>(json, r'EnableSignInWithUsername'),
@@ -372,14 +372,14 @@ class MMEnvironmentConfigEmailSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigEmailSettings>? listFromJson(
+  static List<MmEnvironmentConfigEmailSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigEmailSettings>[];
+    final result = <MmEnvironmentConfigEmailSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigEmailSettings.fromJson(row);
+        final value = MmEnvironmentConfigEmailSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -388,12 +388,12 @@ class MMEnvironmentConfigEmailSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigEmailSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigEmailSettings>{};
+  static Map<String, MmEnvironmentConfigEmailSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigEmailSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigEmailSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigEmailSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -402,16 +402,16 @@ class MMEnvironmentConfigEmailSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigEmailSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigEmailSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigEmailSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigEmailSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigEmailSettings>>{};
+    final map = <String, List<MmEnvironmentConfigEmailSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigEmailSettings.listFromJson(
+        final value = MmEnvironmentConfigEmailSettings.listFromJson(
           entry.value,
           growable: growable,
         );

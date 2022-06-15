@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMMarketplacePlugin {
-  /// Returns a new [MMMarketplacePlugin] instance.
-  MMMarketplacePlugin({
+class MmMarketplacePlugin {
+  /// Returns a new [MmMarketplacePlugin] instance.
+  MmMarketplacePlugin({
     this.homepageUrl,
     this.iconData,
     this.downloadUrl,
@@ -77,7 +77,7 @@ class MMMarketplacePlugin {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPluginManifest? manifest;
+  MmPluginManifest? manifest;
 
   /// Version number of the already installed plugin, if any.
   ///
@@ -91,7 +91,7 @@ class MMMarketplacePlugin {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMMarketplacePlugin &&
+      other is MmMarketplacePlugin &&
           other.homepageUrl == homepageUrl &&
           other.iconData == iconData &&
           other.downloadUrl == downloadUrl &&
@@ -115,7 +115,7 @@ class MMMarketplacePlugin {
 
   @override
   String toString() =>
-      'MMMarketplacePlugin[homepageUrl=$homepageUrl, iconData=$iconData, downloadUrl=$downloadUrl, releaseNotesUrl=$releaseNotesUrl, labels=$labels, signature=$signature, manifest=$manifest, installedVersion=$installedVersion]';
+      'MmMarketplacePlugin[homepageUrl=$homepageUrl, iconData=$iconData, downloadUrl=$downloadUrl, releaseNotesUrl=$releaseNotesUrl, labels=$labels, signature=$signature, manifest=$manifest, installedVersion=$installedVersion]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -144,10 +144,10 @@ class MMMarketplacePlugin {
     return _json;
   }
 
-  /// Returns a new [MMMarketplacePlugin] instance and imports its values from
+  /// Returns a new [MmMarketplacePlugin] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMMarketplacePlugin? fromJson(dynamic value) {
+  static MmMarketplacePlugin? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -156,34 +156,34 @@ class MMMarketplacePlugin {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMMarketplacePlugin[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMMarketplacePlugin[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmMarketplacePlugin[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmMarketplacePlugin[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMMarketplacePlugin(
+      return MmMarketplacePlugin(
         homepageUrl: mapValueOfType<String>(json, r'homepage_url'),
         iconData: mapValueOfType<String>(json, r'icon_data'),
         downloadUrl: mapValueOfType<String>(json, r'download_url'),
         releaseNotesUrl: mapValueOfType<String>(json, r'release_notes_url'),
         labels: json[r'labels'] is List ? (json[r'labels'] as List).cast<String>() : const [],
         signature: mapValueOfType<String>(json, r'signature'),
-        manifest: MMPluginManifest.fromJson(json[r'manifest']),
+        manifest: MmPluginManifest.fromJson(json[r'manifest']),
         installedVersion: mapValueOfType<String>(json, r'installed_version'),
       );
     }
     return null;
   }
 
-  static List<MMMarketplacePlugin>? listFromJson(
+  static List<MmMarketplacePlugin>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMMarketplacePlugin>[];
+    final result = <MmMarketplacePlugin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMMarketplacePlugin.fromJson(row);
+        final value = MmMarketplacePlugin.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -192,12 +192,12 @@ class MMMarketplacePlugin {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMMarketplacePlugin> mapFromJson(dynamic json) {
-    final map = <String, MMMarketplacePlugin>{};
+  static Map<String, MmMarketplacePlugin> mapFromJson(dynamic json) {
+    final map = <String, MmMarketplacePlugin>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMarketplacePlugin.fromJson(entry.value);
+        final value = MmMarketplacePlugin.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -206,16 +206,16 @@ class MMMarketplacePlugin {
     return map;
   }
 
-  // maps a json object with a list of MMMarketplacePlugin-objects as value to a dart map
-  static Map<String, List<MMMarketplacePlugin>> mapListFromJson(
+  // maps a json object with a list of MmMarketplacePlugin-objects as value to a dart map
+  static Map<String, List<MmMarketplacePlugin>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMMarketplacePlugin>>{};
+    final map = <String, List<MmMarketplacePlugin>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMarketplacePlugin.listFromJson(
+        final value = MmMarketplacePlugin.listFromJson(
           entry.value,
           growable: growable,
         );

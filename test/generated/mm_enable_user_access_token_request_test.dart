@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnableUserAccessTokenRequest
+// tests for MmEnableUserAccessTokenRequest
 void main() {
-  // final instance = MMEnableUserAccessTokenRequest();
+  // final instance = MmEnableUserAccessTokenRequest();
 
-  group('test MMEnableUserAccessTokenRequest', () {
+  group('test MmEnableUserAccessTokenRequest', () {
     // The personal access token GUID to enable
     // String tokenId
     test('to test the property `tokenId`', () async {

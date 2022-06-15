@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSendPasswordResetEmailRequest
+// tests for MmSendPasswordResetEmailRequest
 void main() {
-  // final instance = MMSendPasswordResetEmailRequest();
+  // final instance = MmSendPasswordResetEmailRequest();
 
-  group('test MMSendPasswordResetEmailRequest', () {
+  group('test MmSendPasswordResetEmailRequest', () {
     // The email of the user
     // String email
     test('to test the property `email`', () async {

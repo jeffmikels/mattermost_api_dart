@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMImportTeam200Response
+// tests for MmImportTeam200Response
 void main() {
-  // final instance = MMImportTeam200Response();
+  // final instance = MmImportTeam200Response();
 
-  group('test MMImportTeam200Response', () {
+  group('test MmImportTeam200Response', () {
     // String results
     test('to test the property `results`', () async {
       // TODO

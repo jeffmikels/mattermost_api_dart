@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSharedChannel {
-  /// Returns a new [MMSharedChannel] instance.
-  MMSharedChannel({
+class MmSharedChannel {
+  /// Returns a new [MmSharedChannel] instance.
+  MmSharedChannel({
     this.id,
     this.teamId,
     this.home,
@@ -135,7 +135,7 @@ class MMSharedChannel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSharedChannel &&
+      other is MmSharedChannel &&
           other.id == id &&
           other.teamId == teamId &&
           other.home == home &&
@@ -167,7 +167,7 @@ class MMSharedChannel {
 
   @override
   String toString() =>
-      'MMSharedChannel[id=$id, teamId=$teamId, home=$home, readonly=$readonly, name=$name, displayName=$displayName, purpose=$purpose, header=$header, creatorId=$creatorId, createAt=$createAt, updateAt=$updateAt, remoteId=$remoteId]';
+      'MmSharedChannel[id=$id, teamId=$teamId, home=$home, readonly=$readonly, name=$name, displayName=$displayName, purpose=$purpose, header=$header, creatorId=$creatorId, createAt=$createAt, updateAt=$updateAt, remoteId=$remoteId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -210,10 +210,10 @@ class MMSharedChannel {
     return _json;
   }
 
-  /// Returns a new [MMSharedChannel] instance and imports its values from
+  /// Returns a new [MmSharedChannel] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSharedChannel? fromJson(dynamic value) {
+  static MmSharedChannel? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -222,13 +222,13 @@ class MMSharedChannel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSharedChannel[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSharedChannel[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSharedChannel[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSharedChannel[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSharedChannel(
+      return MmSharedChannel(
         id: mapValueOfType<String>(json, r'id'),
         teamId: mapValueOfType<String>(json, r'team_id'),
         home: mapValueOfType<bool>(json, r'home'),
@@ -246,14 +246,14 @@ class MMSharedChannel {
     return null;
   }
 
-  static List<MMSharedChannel>? listFromJson(
+  static List<MmSharedChannel>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSharedChannel>[];
+    final result = <MmSharedChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSharedChannel.fromJson(row);
+        final value = MmSharedChannel.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -262,12 +262,12 @@ class MMSharedChannel {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSharedChannel> mapFromJson(dynamic json) {
-    final map = <String, MMSharedChannel>{};
+  static Map<String, MmSharedChannel> mapFromJson(dynamic json) {
+    final map = <String, MmSharedChannel>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSharedChannel.fromJson(entry.value);
+        final value = MmSharedChannel.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -276,16 +276,16 @@ class MMSharedChannel {
     return map;
   }
 
-  // maps a json object with a list of MMSharedChannel-objects as value to a dart map
-  static Map<String, List<MMSharedChannel>> mapListFromJson(
+  // maps a json object with a list of MmSharedChannel-objects as value to a dart map
+  static Map<String, List<MmSharedChannel>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSharedChannel>>{};
+    final map = <String, List<MmSharedChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSharedChannel.listFromJson(
+        final value = MmSharedChannel.listFromJson(
           entry.value,
           growable: growable,
         );

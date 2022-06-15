@@ -36,7 +36,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -65,7 +65,7 @@ class MattermostFilesApi {
   Future<void> getFile(String fileId,) async {
     final response = await getFileWithHttpInfo(fileId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -87,7 +87,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -113,16 +113,16 @@ class MattermostFilesApi {
   ///
   /// * [String] fileId (required):
   ///   The ID of the file info to get
-  Future<MMFileInfo?> getFileInfo(String fileId,) async {
+  Future<MmFileInfo?> getFileInfo(String fileId,) async {
     final response = await getFileInfoWithHttpInfo(fileId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMFileInfo',) as MMFileInfo;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmFileInfo',) as MmFileInfo;
     
     }
     return null;
@@ -146,7 +146,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -172,16 +172,16 @@ class MattermostFilesApi {
   ///
   /// * [String] fileId (required):
   ///   The ID of the file to get a link for
-  Future<MMGetFileLink200Response?> getFileLink(String fileId,) async {
+  Future<MmGetFileLink200Response?> getFileLink(String fileId,) async {
     final response = await getFileLinkWithHttpInfo(fileId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMGetFileLink200Response',) as MMGetFileLink200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmGetFileLink200Response',) as MmGetFileLink200Response;
     
     }
     return null;
@@ -205,7 +205,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -234,7 +234,7 @@ class MattermostFilesApi {
   Future<void> getFilePreview(String fileId,) async {
     final response = await getFilePreviewWithHttpInfo(fileId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -259,7 +259,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -293,7 +293,7 @@ class MattermostFilesApi {
   Future<void> getFilePublic(String fileId, String h,) async {
     final response = await getFilePublicWithHttpInfo(fileId, h,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -315,7 +315,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -344,7 +344,7 @@ class MattermostFilesApi {
   Future<void> getFileThumbnail(String fileId,) async {
     final response = await getFileThumbnailWithHttpInfo(fileId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -384,7 +384,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -457,16 +457,16 @@ class MattermostFilesApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page. (Only works with Elasticsearch)
-  Future<MMFileInfoList?> searchFiles(String teamId, String terms, bool isOrSearch, { int? timeZoneOffset, bool? includeDeletedChannels, int? page, int? perPage, }) async {
+  Future<MmFileInfoList?> searchFiles(String teamId, String terms, bool isOrSearch, { int? timeZoneOffset, bool? includeDeletedChannels, int? page, int? perPage, }) async {
     final response = await searchFilesWithHttpInfo(teamId, terms, isOrSearch,  timeZoneOffset: timeZoneOffset, includeDeletedChannels: includeDeletedChannels, page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMFileInfoList',) as MMFileInfoList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmFileInfoList',) as MmFileInfoList;
     
     }
     return null;
@@ -501,7 +501,7 @@ class MattermostFilesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -564,16 +564,16 @@ class MattermostFilesApi {
   ///
   /// * [String] clientIds:
   ///   A unique identifier for the file that will be returned in the response
-  Future<MMUploadFile201Response?> uploadFile({ String? channelId, String? filename, MultipartFile? files, String? channelId2, String? clientIds, }) async {
+  Future<MmUploadFile201Response?> uploadFile({ String? channelId, String? filename, MultipartFile? files, String? channelId2, String? clientIds, }) async {
     final response = await uploadFileWithHttpInfo( channelId: channelId, filename: filename, files: files, channelId2: channelId2, clientIds: clientIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUploadFile201Response',) as MMUploadFile201Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmUploadFile201Response',) as MmUploadFile201Response;
     
     }
     return null;

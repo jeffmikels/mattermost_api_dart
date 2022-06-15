@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMExecuteCommandRequest {
-  /// Returns a new [MMExecuteCommandRequest] instance.
-  MMExecuteCommandRequest({
+class MmExecuteCommandRequest {
+  /// Returns a new [MmExecuteCommandRequest] instance.
+  MmExecuteCommandRequest({
     required this.channelId,
     required this.command,
   });
@@ -26,7 +26,7 @@ class MMExecuteCommandRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMExecuteCommandRequest && other.channelId == channelId && other.command == command;
+      other is MmExecuteCommandRequest && other.channelId == channelId && other.command == command;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMExecuteCommandRequest {
       (channelId.hashCode) + (command.hashCode);
 
   @override
-  String toString() => 'MMExecuteCommandRequest[channelId=$channelId, command=$command]';
+  String toString() => 'MmExecuteCommandRequest[channelId=$channelId, command=$command]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMExecuteCommandRequest {
     return _json;
   }
 
-  /// Returns a new [MMExecuteCommandRequest] instance and imports its values from
+  /// Returns a new [MmExecuteCommandRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMExecuteCommandRequest? fromJson(dynamic value) {
+  static MmExecuteCommandRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,13 +55,13 @@ class MMExecuteCommandRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMExecuteCommandRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMExecuteCommandRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmExecuteCommandRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmExecuteCommandRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMExecuteCommandRequest(
+      return MmExecuteCommandRequest(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         command: mapValueOfType<String>(json, r'command')!,
       );
@@ -69,14 +69,14 @@ class MMExecuteCommandRequest {
     return null;
   }
 
-  static List<MMExecuteCommandRequest>? listFromJson(
+  static List<MmExecuteCommandRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMExecuteCommandRequest>[];
+    final result = <MmExecuteCommandRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMExecuteCommandRequest.fromJson(row);
+        final value = MmExecuteCommandRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMExecuteCommandRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMExecuteCommandRequest> mapFromJson(dynamic json) {
-    final map = <String, MMExecuteCommandRequest>{};
+  static Map<String, MmExecuteCommandRequest> mapFromJson(dynamic json) {
+    final map = <String, MmExecuteCommandRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMExecuteCommandRequest.fromJson(entry.value);
+        final value = MmExecuteCommandRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMExecuteCommandRequest {
     return map;
   }
 
-  // maps a json object with a list of MMExecuteCommandRequest-objects as value to a dart map
-  static Map<String, List<MMExecuteCommandRequest>> mapListFromJson(
+  // maps a json object with a list of MmExecuteCommandRequest-objects as value to a dart map
+  static Map<String, List<MmExecuteCommandRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMExecuteCommandRequest>>{};
+    final map = <String, List<MmExecuteCommandRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMExecuteCommandRequest.listFromJson(
+        final value = MmExecuteCommandRequest.listFromJson(
           entry.value,
           growable: growable,
         );

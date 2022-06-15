@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetTeamInviteInfo200Response
+// tests for MmGetTeamInviteInfo200Response
 void main() {
-  // final instance = MMGetTeamInviteInfo200Response();
+  // final instance = MmGetTeamInviteInfo200Response();
 
-  group('test MMGetTeamInviteInfo200Response', () {
+  group('test MmGetTeamInviteInfo200Response', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

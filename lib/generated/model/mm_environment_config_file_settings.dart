@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigFileSettings {
-  /// Returns a new [MMEnvironmentConfigFileSettings] instance.
-  MMEnvironmentConfigFileSettings({
+class MmEnvironmentConfigFileSettings {
+  /// Returns a new [MmEnvironmentConfigFileSettings] instance.
+  MmEnvironmentConfigFileSettings({
     this.maxFileSize,
     this.driverName,
     this.directory,
@@ -180,7 +180,7 @@ class MMEnvironmentConfigFileSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigFileSettings &&
+      other is MmEnvironmentConfigFileSettings &&
           other.maxFileSize == maxFileSize &&
           other.driverName == driverName &&
           other.directory == directory &&
@@ -224,7 +224,7 @@ class MMEnvironmentConfigFileSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
+      'MmEnvironmentConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -285,10 +285,10 @@ class MMEnvironmentConfigFileSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigFileSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigFileSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigFileSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigFileSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -297,13 +297,13 @@ class MMEnvironmentConfigFileSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigFileSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigFileSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigFileSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigFileSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigFileSettings(
+      return MmEnvironmentConfigFileSettings(
         maxFileSize: mapValueOfType<bool>(json, r'MaxFileSize'),
         driverName: mapValueOfType<bool>(json, r'DriverName'),
         directory: mapValueOfType<bool>(json, r'Directory'),
@@ -327,14 +327,14 @@ class MMEnvironmentConfigFileSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigFileSettings>? listFromJson(
+  static List<MmEnvironmentConfigFileSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigFileSettings>[];
+    final result = <MmEnvironmentConfigFileSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigFileSettings.fromJson(row);
+        final value = MmEnvironmentConfigFileSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -343,12 +343,12 @@ class MMEnvironmentConfigFileSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigFileSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigFileSettings>{};
+  static Map<String, MmEnvironmentConfigFileSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigFileSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigFileSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigFileSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -357,16 +357,16 @@ class MMEnvironmentConfigFileSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigFileSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigFileSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigFileSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigFileSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigFileSettings>>{};
+    final map = <String, List<MmEnvironmentConfigFileSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigFileSettings.listFromJson(
+        final value = MmEnvironmentConfigFileSettings.listFromJson(
           entry.value,
           growable: growable,
         );

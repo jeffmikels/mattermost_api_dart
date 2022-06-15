@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRequestTrialLicenseRequest {
-  /// Returns a new [MMRequestTrialLicenseRequest] instance.
-  MMRequestTrialLicenseRequest({
+class MmRequestTrialLicenseRequest {
+  /// Returns a new [MmRequestTrialLicenseRequest] instance.
+  MmRequestTrialLicenseRequest({
     required this.users,
   });
 
@@ -21,7 +21,7 @@ class MMRequestTrialLicenseRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMRequestTrialLicenseRequest && other.users == users;
+      identical(this, other) || other is MmRequestTrialLicenseRequest && other.users == users;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMRequestTrialLicenseRequest {
       (users.hashCode);
 
   @override
-  String toString() => 'MMRequestTrialLicenseRequest[users=$users]';
+  String toString() => 'MmRequestTrialLicenseRequest[users=$users]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMRequestTrialLicenseRequest {
     return _json;
   }
 
-  /// Returns a new [MMRequestTrialLicenseRequest] instance and imports its values from
+  /// Returns a new [MmRequestTrialLicenseRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRequestTrialLicenseRequest? fromJson(dynamic value) {
+  static MmRequestTrialLicenseRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMRequestTrialLicenseRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRequestTrialLicenseRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRequestTrialLicenseRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRequestTrialLicenseRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRequestTrialLicenseRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRequestTrialLicenseRequest(
+      return MmRequestTrialLicenseRequest(
         users: mapValueOfType<int>(json, r'users')!,
       );
     }
     return null;
   }
 
-  static List<MMRequestTrialLicenseRequest>? listFromJson(
+  static List<MmRequestTrialLicenseRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRequestTrialLicenseRequest>[];
+    final result = <MmRequestTrialLicenseRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRequestTrialLicenseRequest.fromJson(row);
+        final value = MmRequestTrialLicenseRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMRequestTrialLicenseRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRequestTrialLicenseRequest> mapFromJson(dynamic json) {
-    final map = <String, MMRequestTrialLicenseRequest>{};
+  static Map<String, MmRequestTrialLicenseRequest> mapFromJson(dynamic json) {
+    final map = <String, MmRequestTrialLicenseRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRequestTrialLicenseRequest.fromJson(entry.value);
+        final value = MmRequestTrialLicenseRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMRequestTrialLicenseRequest {
     return map;
   }
 
-  // maps a json object with a list of MMRequestTrialLicenseRequest-objects as value to a dart map
-  static Map<String, List<MMRequestTrialLicenseRequest>> mapListFromJson(
+  // maps a json object with a list of MmRequestTrialLicenseRequest-objects as value to a dart map
+  static Map<String, List<MmRequestTrialLicenseRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRequestTrialLicenseRequest>>{};
+    final map = <String, List<MmRequestTrialLicenseRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRequestTrialLicenseRequest.listFromJson(
+        final value = MmRequestTrialLicenseRequest.listFromJson(
           entry.value,
           growable: growable,
         );

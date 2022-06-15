@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAudit {
-  /// Returns a new [MMAudit] instance.
-  MMAudit({
+class MmAudit {
+  /// Returns a new [MmAudit] instance.
+  MmAudit({
     this.id,
     this.createAt,
     this.userId,
@@ -82,7 +82,7 @@ class MMAudit {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMAudit &&
+      other is MmAudit &&
           other.id == id &&
           other.createAt == createAt &&
           other.userId == userId &&
@@ -104,7 +104,7 @@ class MMAudit {
 
   @override
   String toString() =>
-      'MMAudit[id=$id, createAt=$createAt, userId=$userId, action=$action, extraInfo=$extraInfo, ipAddress=$ipAddress, sessionId=$sessionId]';
+      'MmAudit[id=$id, createAt=$createAt, userId=$userId, action=$action, extraInfo=$extraInfo, ipAddress=$ipAddress, sessionId=$sessionId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -132,10 +132,10 @@ class MMAudit {
     return _json;
   }
 
-  /// Returns a new [MMAudit] instance and imports its values from
+  /// Returns a new [MmAudit] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAudit? fromJson(dynamic value) {
+  static MmAudit? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -144,13 +144,13 @@ class MMAudit {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAudit[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAudit[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAudit[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAudit[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAudit(
+      return MmAudit(
         id: mapValueOfType<String>(json, r'id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         userId: mapValueOfType<String>(json, r'user_id'),
@@ -163,14 +163,14 @@ class MMAudit {
     return null;
   }
 
-  static List<MMAudit>? listFromJson(
+  static List<MmAudit>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAudit>[];
+    final result = <MmAudit>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAudit.fromJson(row);
+        final value = MmAudit.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -179,12 +179,12 @@ class MMAudit {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAudit> mapFromJson(dynamic json) {
-    final map = <String, MMAudit>{};
+  static Map<String, MmAudit> mapFromJson(dynamic json) {
+    final map = <String, MmAudit>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAudit.fromJson(entry.value);
+        final value = MmAudit.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -193,16 +193,16 @@ class MMAudit {
     return map;
   }
 
-  // maps a json object with a list of MMAudit-objects as value to a dart map
-  static Map<String, List<MMAudit>> mapListFromJson(
+  // maps a json object with a list of MmAudit-objects as value to a dart map
+  static Map<String, List<MmAudit>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAudit>>{};
+    final map = <String, List<MmAudit>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAudit.listFromJson(
+        final value = MmAudit.listFromJson(
           entry.value,
           growable: growable,
         );

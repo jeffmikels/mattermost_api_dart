@@ -21,7 +21,7 @@ void main() {
     //
     // Adds members to a custom group.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
     //
-    //Future<MMStatusOK> addGroupMembers(String groupId, MMAddGroupMembersRequest mMAddGroupMembersRequest) async
+    //Future<MmStatusOK> addGroupMembers(String groupId, MmAddGroupMembersRequest mmAddGroupMembersRequest) async
     test('test addGroupMembers', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Create a `custom` type group.  #### Permission Must have `create_custom_group` permission.  __Minimum server version__: 6.3 
     //
-    //Future createGroup(MMCreateGroupRequest mMCreateGroupRequest) async
+    //Future createGroup(MmCreateGroupRequest mmCreateGroupRequest) async
     test('test createGroup', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` permission for the given group.  __Minimum server version__: 6.3 
     //
-    //Future<MMStatusOK> deleteGroup(String groupId) async
+    //Future<MmStatusOK> deleteGroup(String groupId) async
     test('test deleteGroup', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Soft deletes a custom group members.  ##### Permissions Must have `custom_group_manage_members` permission for the given group.  __Minimum server version__: 6.3 
     //
-    //Future<MMStatusOK> deleteGroupMembers(String groupId, MMDeleteGroupMembersRequest mMDeleteGroupMembersRequest) async
+    //Future<MmStatusOK> deleteGroupMembers(String groupId, MmDeleteGroupMembersRequest mmDeleteGroupMembersRequest) async
     test('test deleteGroupMembers', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Get group from the provided group id string  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroup> getGroup(String groupId) async
+    //Future<MmGroup> getGroup(String groupId) async
     test('test getGroup', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Retrieve the stats of a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.26 
     //
-    //Future<MMGetGroupStats200Response> getGroupStats(String groupId) async
+    //Future<MmGetGroupStats200Response> getGroupStats(String groupId) async
     test('test getGroupStats', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get the GroupSyncable object with group_id and channel_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableChannel> getGroupSyncableForChannelId(String groupId, String channelId) async
+    //Future<MmGroupSyncableChannel> getGroupSyncableForChannelId(String groupId, String channelId) async
     test('test getGroupSyncableForChannelId', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Get the GroupSyncable object with group_id and team_id from params ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableTeam> getGroupSyncableForTeamId(String groupId, String teamId) async
+    //Future<MmGroupSyncableTeam> getGroupSyncableForTeamId(String groupId, String teamId) async
     test('test getGroupSyncableForTeamId', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Retrieve the list of channels associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<List<MMGroupSyncableChannels>> getGroupSyncablesChannels(String groupId) async
+    //Future<List<MmGroupSyncableChannels>> getGroupSyncablesChannels(String groupId) async
     test('test getGroupSyncablesChannels', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Retrieve the list of teams associated to the group ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<List<MMGroupSyncableTeams>> getGroupSyncablesTeams(String groupId) async
+    //Future<List<MmGroupSyncableTeams>> getGroupSyncablesTeams(String groupId) async
     test('test getGroupSyncablesTeams', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Retrieve the list of users associated with a given group.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGetGroupUsers200Response> getGroupUsers(String groupId, { int page, int perPage }) async
+    //Future<MmGetGroupUsers200Response> getGroupUsers(String groupId, { int page, int perPage }) async
     test('test getGroupUsers', () async {
       // TODO
     });
@@ -120,7 +120,7 @@ void main() {
     //
     // Retrieve a list of all groups not associated to a particular channel or team.  `not_associated_to_team` **OR** `not_associated_to_channel` is required.  If you use `not_associated_to_team`, you must be a team admin for that particular team (permission to manage that team).  If you use `not_associated_to_channel`, you must be a channel admin for that particular channel (permission to manage that channel).  __Minimum server version__: 5.11 
     //
-    //Future<List<MMGroup>> getGroups(String notAssociatedToTeam, String notAssociatedToChannel, { int page, int perPage, String q, bool includeMemberCount, int since, bool filterAllowReference }) async
+    //Future<List<MmGroup>> getGroups(String notAssociatedToTeam, String notAssociatedToChannel, { int page, int perPage, String q, bool includeMemberCount, int since, bool filterAllowReference }) async
     test('test getGroups', () async {
       // TODO
     });
@@ -129,7 +129,7 @@ void main() {
     //
     // Retrieve the set of groups associated with the channels in the given team grouped by channel.  ##### Permissions Must have `manage_system` permission or can access only for current user  __Minimum server version__: 5.11 
     //
-    //Future<List<Map<String, List<MMGroupWithSchemeAdmin>>>> getGroupsAssociatedToChannelsByTeam(String teamId, { int page, int perPage, bool filterAllowReference, bool paginate }) async
+    //Future<List<Map<String, List<MmGroupWithSchemeAdmin>>>> getGroupsAssociatedToChannelsByTeam(String teamId, { int page, int perPage, bool filterAllowReference, bool paginate }) async
     test('test getGroupsAssociatedToChannelsByTeam', () async {
       // TODO
     });
@@ -138,7 +138,7 @@ void main() {
     //
     // Retrieve the list of groups associated with a given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<List<MMGroup>> getGroupsByChannel(String channelId, { int page, int perPage, bool filterAllowReference }) async
+    //Future<List<MmGroup>> getGroupsByChannel(String channelId, { int page, int perPage, bool filterAllowReference }) async
     test('test getGroupsByChannel', () async {
       // TODO
     });
@@ -147,7 +147,7 @@ void main() {
     //
     // Retrieve the list of groups associated with a given team.  __Minimum server version__: 5.11 
     //
-    //Future<List<MMGroup>> getGroupsByTeam(String teamId, { int page, int perPage, bool filterAllowReference }) async
+    //Future<List<MmGroup>> getGroupsByTeam(String teamId, { int page, int perPage, bool filterAllowReference }) async
     test('test getGroupsByTeam', () async {
       // TODO
     });
@@ -156,7 +156,7 @@ void main() {
     //
     // Retrieve the list of groups associated to the user  __Minimum server version__: 5.24 
     //
-    //Future<List<MMGroup>> getGroupsByUserId(String userId) async
+    //Future<List<MmGroup>> getGroupsByUserId(String userId) async
     test('test getGroupsByUserId', () async {
       // TODO
     });
@@ -165,7 +165,7 @@ void main() {
     //
     // Link a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableChannel> linkGroupSyncableForChannel(String groupId, String channelId) async
+    //Future<MmGroupSyncableChannel> linkGroupSyncableForChannel(String groupId, String channelId) async
     test('test linkGroupSyncableForChannel', () async {
       // TODO
     });
@@ -174,7 +174,7 @@ void main() {
     //
     // Link a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableTeam> linkGroupSyncableForTeam(String groupId, String teamId) async
+    //Future<MmGroupSyncableTeam> linkGroupSyncableForTeam(String groupId, String teamId) async
     test('test linkGroupSyncableForTeam', () async {
       // TODO
     });
@@ -183,7 +183,7 @@ void main() {
     //
     // Partially update a group by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroup> patchGroup(String groupId, MMPatchGroupRequest mMPatchGroupRequest) async
+    //Future<MmGroup> patchGroup(String groupId, MmPatchGroupRequest mmPatchGroupRequest) async
     test('test patchGroup', () async {
       // TODO
     });
@@ -192,7 +192,7 @@ void main() {
     //
     // Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableChannel> patchGroupSyncableForChannel(String groupId, String channelId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest) async
+    //Future<MmGroupSyncableChannel> patchGroupSyncableForChannel(String groupId, String channelId, MmPatchGroupSyncableForTeamRequest mmPatchGroupSyncableForTeamRequest) async
     test('test patchGroupSyncableForChannel', () async {
       // TODO
     });
@@ -201,7 +201,7 @@ void main() {
     //
     // Partially update a GroupSyncable by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMGroupSyncableTeam> patchGroupSyncableForTeam(String groupId, String teamId, MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest) async
+    //Future<MmGroupSyncableTeam> patchGroupSyncableForTeam(String groupId, String teamId, MmPatchGroupSyncableForTeamRequest mmPatchGroupSyncableForTeamRequest) async
     test('test patchGroupSyncableForTeam', () async {
       // TODO
     });
@@ -210,7 +210,7 @@ void main() {
     //
     // Delete a link from a channel to a group ##### Permissions If the channel is private, you must have `manage_private_channel_members` permission. Otherwise, you must have the `manage_public_channel_members` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMStatusOK> unlinkGroupSyncableForChannel(String groupId, String channelId) async
+    //Future<MmStatusOK> unlinkGroupSyncableForChannel(String groupId, String channelId) async
     test('test unlinkGroupSyncableForChannel', () async {
       // TODO
     });
@@ -219,7 +219,7 @@ void main() {
     //
     // Delete a link from a team to a group ##### Permissions Must have `manage_team` permission.  __Minimum server version__: 5.11 
     //
-    //Future<MMStatusOK> unlinkGroupSyncableForTeam(String groupId, String teamId) async
+    //Future<MmStatusOK> unlinkGroupSyncableForTeam(String groupId, String teamId) async
     test('test unlinkGroupSyncableForTeam', () async {
       // TODO
     });
@@ -228,7 +228,7 @@ void main() {
     //
     // ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
     //
-    //Future<MMStatusOK> unlinkLdapGroup(String remoteId) async
+    //Future<MmStatusOK> unlinkLdapGroup(String remoteId) async
     test('test unlinkLdapGroup', () async {
       // TODO
     });

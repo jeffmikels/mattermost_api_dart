@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreatePostEphemeralRequestPost {
-  /// Returns a new [MMCreatePostEphemeralRequestPost] instance.
-  MMCreatePostEphemeralRequestPost({
+class MmCreatePostEphemeralRequestPost {
+  /// Returns a new [MmCreatePostEphemeralRequestPost] instance.
+  MmCreatePostEphemeralRequestPost({
     required this.channelId,
     required this.message,
   });
@@ -26,7 +26,7 @@ class MMCreatePostEphemeralRequestPost {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreatePostEphemeralRequestPost && other.channelId == channelId && other.message == message;
+      other is MmCreatePostEphemeralRequestPost && other.channelId == channelId && other.message == message;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMCreatePostEphemeralRequestPost {
       (channelId.hashCode) + (message.hashCode);
 
   @override
-  String toString() => 'MMCreatePostEphemeralRequestPost[channelId=$channelId, message=$message]';
+  String toString() => 'MmCreatePostEphemeralRequestPost[channelId=$channelId, message=$message]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMCreatePostEphemeralRequestPost {
     return _json;
   }
 
-  /// Returns a new [MMCreatePostEphemeralRequestPost] instance and imports its values from
+  /// Returns a new [MmCreatePostEphemeralRequestPost] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreatePostEphemeralRequestPost? fromJson(dynamic value) {
+  static MmCreatePostEphemeralRequestPost? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,13 +55,13 @@ class MMCreatePostEphemeralRequestPost {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreatePostEphemeralRequestPost[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreatePostEphemeralRequestPost[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreatePostEphemeralRequestPost[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreatePostEphemeralRequestPost[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreatePostEphemeralRequestPost(
+      return MmCreatePostEphemeralRequestPost(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         message: mapValueOfType<String>(json, r'message')!,
       );
@@ -69,14 +69,14 @@ class MMCreatePostEphemeralRequestPost {
     return null;
   }
 
-  static List<MMCreatePostEphemeralRequestPost>? listFromJson(
+  static List<MmCreatePostEphemeralRequestPost>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreatePostEphemeralRequestPost>[];
+    final result = <MmCreatePostEphemeralRequestPost>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreatePostEphemeralRequestPost.fromJson(row);
+        final value = MmCreatePostEphemeralRequestPost.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMCreatePostEphemeralRequestPost {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreatePostEphemeralRequestPost> mapFromJson(dynamic json) {
-    final map = <String, MMCreatePostEphemeralRequestPost>{};
+  static Map<String, MmCreatePostEphemeralRequestPost> mapFromJson(dynamic json) {
+    final map = <String, MmCreatePostEphemeralRequestPost>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreatePostEphemeralRequestPost.fromJson(entry.value);
+        final value = MmCreatePostEphemeralRequestPost.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMCreatePostEphemeralRequestPost {
     return map;
   }
 
-  // maps a json object with a list of MMCreatePostEphemeralRequestPost-objects as value to a dart map
-  static Map<String, List<MMCreatePostEphemeralRequestPost>> mapListFromJson(
+  // maps a json object with a list of MmCreatePostEphemeralRequestPost-objects as value to a dart map
+  static Map<String, List<MmCreatePostEphemeralRequestPost>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreatePostEphemeralRequestPost>>{};
+    final map = <String, List<MmCreatePostEphemeralRequestPost>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreatePostEphemeralRequestPost.listFromJson(
+        final value = MmCreatePostEphemeralRequestPost.listFromJson(
           entry.value,
           growable: growable,
         );

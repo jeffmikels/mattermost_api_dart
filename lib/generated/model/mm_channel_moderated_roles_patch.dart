@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelModeratedRolesPatch {
-  /// Returns a new [MMChannelModeratedRolesPatch] instance.
-  MMChannelModeratedRolesPatch({
+class MmChannelModeratedRolesPatch {
+  /// Returns a new [MmChannelModeratedRolesPatch] instance.
+  MmChannelModeratedRolesPatch({
     this.guests,
     this.members,
   });
@@ -36,7 +36,7 @@ class MMChannelModeratedRolesPatch {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMChannelModeratedRolesPatch && other.guests == guests && other.members == members;
+      other is MmChannelModeratedRolesPatch && other.guests == guests && other.members == members;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMChannelModeratedRolesPatch {
       (guests == null ? 0 : guests!.hashCode) + (members == null ? 0 : members!.hashCode);
 
   @override
-  String toString() => 'MMChannelModeratedRolesPatch[guests=$guests, members=$members]';
+  String toString() => 'MmChannelModeratedRolesPatch[guests=$guests, members=$members]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMChannelModeratedRolesPatch {
     return _json;
   }
 
-  /// Returns a new [MMChannelModeratedRolesPatch] instance and imports its values from
+  /// Returns a new [MmChannelModeratedRolesPatch] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelModeratedRolesPatch? fromJson(dynamic value) {
+  static MmChannelModeratedRolesPatch? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,13 +69,13 @@ class MMChannelModeratedRolesPatch {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelModeratedRolesPatch[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelModeratedRolesPatch[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelModeratedRolesPatch[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelModeratedRolesPatch[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelModeratedRolesPatch(
+      return MmChannelModeratedRolesPatch(
         guests: mapValueOfType<bool>(json, r'guests'),
         members: mapValueOfType<bool>(json, r'members'),
       );
@@ -83,14 +83,14 @@ class MMChannelModeratedRolesPatch {
     return null;
   }
 
-  static List<MMChannelModeratedRolesPatch>? listFromJson(
+  static List<MmChannelModeratedRolesPatch>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelModeratedRolesPatch>[];
+    final result = <MmChannelModeratedRolesPatch>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelModeratedRolesPatch.fromJson(row);
+        final value = MmChannelModeratedRolesPatch.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMChannelModeratedRolesPatch {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelModeratedRolesPatch> mapFromJson(dynamic json) {
-    final map = <String, MMChannelModeratedRolesPatch>{};
+  static Map<String, MmChannelModeratedRolesPatch> mapFromJson(dynamic json) {
+    final map = <String, MmChannelModeratedRolesPatch>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeratedRolesPatch.fromJson(entry.value);
+        final value = MmChannelModeratedRolesPatch.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMChannelModeratedRolesPatch {
     return map;
   }
 
-  // maps a json object with a list of MMChannelModeratedRolesPatch-objects as value to a dart map
-  static Map<String, List<MMChannelModeratedRolesPatch>> mapListFromJson(
+  // maps a json object with a list of MmChannelModeratedRolesPatch-objects as value to a dart map
+  static Map<String, List<MmChannelModeratedRolesPatch>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelModeratedRolesPatch>>{};
+    final map = <String, List<MmChannelModeratedRolesPatch>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeratedRolesPatch.listFromJson(
+        final value = MmChannelModeratedRolesPatch.listFromJson(
           entry.value,
           growable: growable,
         );

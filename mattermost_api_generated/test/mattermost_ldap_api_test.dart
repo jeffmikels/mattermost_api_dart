@@ -21,7 +21,7 @@ void main() {
     //
     // Delete the current private key being used with your TLS verification. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> deleteLdapPrivateCertificate() async
+    //Future<MmStatusOK> deleteLdapPrivateCertificate() async
     test('test deleteLdapPrivateCertificate', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Delete the current public certificate being used for TLS verification. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> deleteLdapPublicCertificate() async
+    //Future<MmStatusOK> deleteLdapPublicCertificate() async
     test('test deleteLdapPublicCertificate', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
     //
-    //Future<List<MMLDAPGroupsPaged>> getLdapGroups({ String q, int page, int perPage }) async
+    //Future<List<MmLDAPGroupsPaged>> getLdapGroups({ String q, int page, int perPage }) async
     test('test getLdapGroups', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.11 
     //
-    //Future<MMStatusOK> linkLdapGroup(String remoteId) async
+    //Future<MmStatusOK> linkLdapGroup(String remoteId) async
     test('test linkLdapGroup', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to LDAP. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future migrateAuthToLdap({ MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest }) async
+    //Future migrateAuthToLdap({ MmMigrateAuthToLdapRequest mmMigrateAuthToLdapRequest }) async
     test('test migrateAuthToLdap', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Migrate LDAP IdAttribute to new value. ##### Permissions Must have `manage_system` permission. __Minimum server version__: 5.26 
     //
-    //Future<MMStatusOK> migrateIdLdap(MMMigrateIdLdapRequest mMMigrateIdLdapRequest) async
+    //Future<MmStatusOK> migrateIdLdap(MmMigrateIdLdapRequest mmMigrateIdLdapRequest) async
     test('test migrateIdLdap', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Synchronize any user attribute changes in the configured AD/LDAP server with Mattermost. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> syncLdap() async
+    //Future<MmStatusOK> syncLdap() async
     test('test syncLdap', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Test the current AD/LDAP configuration to see if the AD/LDAP server can be contacted successfully. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> testLdap() async
+    //Future<MmStatusOK> testLdap() async
     test('test testLdap', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Upload the private key to be used for TLS verification. The server will pick a hard-coded filename for the PrivateKeyFile setting in your `config.json`. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> uploadLdapPrivateCertificate(MultipartFile certificate) async
+    //Future<MmStatusOK> uploadLdapPrivateCertificate(MultipartFile certificate) async
     test('test uploadLdapPrivateCertificate', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Upload the public certificate to be used for TLS verification. The server will pick a hard-coded filename for the PublicCertificateFile setting in your `config.json`. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> uploadLdapPublicCertificate(MultipartFile certificate) async
+    //Future<MmStatusOK> uploadLdapPublicCertificate(MultipartFile certificate) async
     test('test uploadLdapPublicCertificate', () async {
       // TODO
     });

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMViewChannel200Response
+// tests for MmViewChannel200Response
 void main() {
-  // final instance = MMViewChannel200Response();
+  // final instance = MmViewChannel200Response();
 
-  group('test MMViewChannel200Response', () {
+  group('test MmViewChannel200Response', () {
     // Value should be \"OK\" if successful
     // String status
     test('to test the property `status`', () async {

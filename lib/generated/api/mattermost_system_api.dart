@@ -27,7 +27,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -47,18 +47,18 @@ class MattermostSystemApi {
   /// Perform a database integrity check
   ///
   /// Performs a database integrity check.   __Note__: This check may temporarily harm system performance.   __Minimum server version__: 5.28.0   __Local mode only__: This endpoint is only available through [local mode](https://docs.mattermost.com/administration/mmctl-cli-tool.html#local-mode).
-  Future<List<MMIntegrityCheckResult>?> checkIntegrity() async {
+  Future<List<MmIntegrityCheckResult>?> checkIntegrity() async {
     final response = await checkIntegrityWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMIntegrityCheckResult>') as List)
-          .cast<MMIntegrityCheckResult>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmIntegrityCheckResult>') as List)
+          .cast<MmIntegrityCheckResult>()
           .toList();
     }
     return null;
@@ -76,7 +76,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -96,10 +96,10 @@ class MattermostSystemApi {
   /// Clears the server busy (high load) flag
   ///
   /// Marks the server as not having high load which re-enables non-critical services such as search, statuses and typing notifications.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
-  Future<MMStatusOK?> clearServerBusy() async {
+  Future<MmStatusOK?> clearServerBusy() async {
     final response = await clearServerBusyWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -107,8 +107,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -125,7 +125,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -145,10 +145,10 @@ class MattermostSystemApi {
   /// Recycle database connections
   ///
   /// Recycle database connections by closing and reconnecting all connections to master and read replica databases. ##### Permissions Must have `manage_system` permission.
-  Future<MMStatusOK?> databaseRecycle() async {
+  Future<MmStatusOK?> databaseRecycle() async {
     final response = await databaseRecycleWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -156,8 +156,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -174,7 +174,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -197,7 +197,7 @@ class MattermostSystemApi {
   Future<void> generateSupportPacket() async {
     final response = await generateSupportPacketWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -224,7 +224,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -268,7 +268,7 @@ class MattermostSystemApi {
       teamId: teamId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -295,7 +295,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -330,7 +330,7 @@ class MattermostSystemApi {
   ///
   /// * [int] perPage:
   ///   The number of audits per page.
-  Future<List<MMAudit>?> getAudits({
+  Future<List<MmAudit>?> getAudits({
     int? page,
     int? perPage,
   }) async {
@@ -339,14 +339,14 @@ class MattermostSystemApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMAudit>') as List).cast<MMAudit>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmAudit>') as List).cast<MmAudit>().toList();
     }
     return null;
   }
@@ -370,7 +370,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -404,7 +404,7 @@ class MattermostSystemApi {
       format,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -427,7 +427,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -461,7 +461,7 @@ class MattermostSystemApi {
       format,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -477,7 +477,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -497,10 +497,10 @@ class MattermostSystemApi {
   /// Get configuration
   ///
   /// Retrieve the current server configuration ##### Permissions Must have `manage_system` permission.
-  Future<MMConfig?> getConfig() async {
+  Future<MmConfig?> getConfig() async {
     final response = await getConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -508,8 +508,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMConfig',
-      ) as MMConfig;
+        'MmConfig',
+      ) as MmConfig;
     }
     return null;
   }
@@ -526,7 +526,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -546,10 +546,10 @@ class MattermostSystemApi {
   /// Get configuration made through environment variables
   ///
   /// Retrieve a json object mirroring the server configuration where fields are set to true if the corresponding config setting is set through an environment variable. Settings that haven't been set through environment variables will be missing from the object.  __Minimum server version__: 4.10  ##### Permissions Must have `manage_system` permission.
-  Future<MMEnvironmentConfig?> getEnvironmentConfig() async {
+  Future<MmEnvironmentConfig?> getEnvironmentConfig() async {
     final response = await getEnvironmentConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -557,8 +557,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMEnvironmentConfig',
-      ) as MMEnvironmentConfig;
+        'MmEnvironmentConfig',
+      ) as MmEnvironmentConfig;
     }
     return null;
   }
@@ -575,7 +575,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -598,7 +598,7 @@ class MattermostSystemApi {
   Future<MultipartFile?> getImageByUrl() async {
     final response = await getImageByUrlWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -635,7 +635,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -679,7 +679,7 @@ class MattermostSystemApi {
       logsPerPage: logsPerPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -722,7 +722,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -762,7 +762,7 @@ class MattermostSystemApi {
   ///
   /// * [String] locale:
   ///   Client locale
-  Future<List<MMNotice>?> getNotices(
+  Future<List<MmNotice>?> getNotices(
     String clientVersion,
     String client,
     String teamId, {
@@ -775,14 +775,14 @@ class MattermostSystemApi {
       locale: locale,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMNotice>') as List).cast<MMNotice>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmNotice>') as List).cast<MmNotice>().toList();
     }
     return null;
   }
@@ -810,7 +810,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -845,7 +845,7 @@ class MattermostSystemApi {
   ///
   /// * [String] deviceId:
   ///   Check whether this device id can receive push notifications
-  Future<MMSystemStatusResponse?> getPing({
+  Future<MmSystemStatusResponse?> getPing({
     bool? getServerStatus,
     String? deviceId,
   }) async {
@@ -854,7 +854,7 @@ class MattermostSystemApi {
       deviceId: deviceId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -862,8 +862,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMSystemStatusResponse',
-      ) as MMSystemStatusResponse;
+        'MmSystemStatusResponse',
+      ) as MmSystemStatusResponse;
     }
     return null;
   }
@@ -887,7 +887,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -914,14 +914,14 @@ class MattermostSystemApi {
   ///
   /// * [String] url (required):
   ///   Url to check
-  Future<MMGetRedirectLocation200Response?> getRedirectLocation(
+  Future<MmGetRedirectLocation200Response?> getRedirectLocation(
     String url,
   ) async {
     final response = await getRedirectLocationWithHttpInfo(
       url,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -929,8 +929,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMGetRedirectLocation200Response',
-      ) as MMGetRedirectLocation200Response;
+        'MmGetRedirectLocation200Response',
+      ) as MmGetRedirectLocation200Response;
     }
     return null;
   }
@@ -947,7 +947,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -967,10 +967,10 @@ class MattermostSystemApi {
   /// Get server busy expiry time.
   ///
   /// Gets the timestamp corresponding to when the server busy flag will be automatically cleared.  __Minimum server version__: 5.20  ##### Permissions Must have `manage_system` permission.
-  Future<MMServerBusy?> getServerBusyExpires() async {
+  Future<MmServerBusy?> getServerBusyExpires() async {
     final response = await getServerBusyExpiresWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -978,8 +978,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMServerBusy',
-      ) as MMServerBusy;
+        'MmServerBusy',
+      ) as MmServerBusy;
     }
     return null;
   }
@@ -996,7 +996,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1019,7 +1019,7 @@ class MattermostSystemApi {
   Future<List<String>?> getSupportedTimezone() async {
     final response = await getSupportedTimezoneWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1043,7 +1043,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1063,10 +1063,10 @@ class MattermostSystemApi {
   /// Get the warn metrics status (enabled or disabled)
   ///
   /// Get the status of a set of metrics (enabled or disabled) from the Systems table.  The returned JSON contains the metrics that we need to warn the admin on with regard to their status (we return the ones whose status is \"true\", which means that they are in a \"warnable\" state - e.g. a threshold has been crossed or some other condition has been fulfilled).  __Minimum server version__: 5.26  ##### Permissions  Must have `manage_system` permission.
-  Future<MMStatusOK?> getWarnMetricsStatus() async {
+  Future<MmStatusOK?> getWarnMetricsStatus() async {
     final response = await getWarnMetricsStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1074,8 +1074,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1092,7 +1092,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1112,10 +1112,10 @@ class MattermostSystemApi {
   /// Invalidate all the caches
   ///
   /// Purge all the in-memory caches for the Mattermost server. This can have a temporary negative effect on performance while the caches are re-populated. ##### Permissions Must have `manage_system` permission.
-  Future<MMStatusOK?> invalidateCaches() async {
+  Future<MmStatusOK?> invalidateCaches() async {
     final response = await invalidateCachesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1123,8 +1123,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1148,7 +1148,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1173,14 +1173,14 @@ class MattermostSystemApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   Array of notice IDs
-  Future<MMStatusOK?> markNoticesViewed(
+  Future<MmStatusOK?> markNoticesViewed(
     List<String> requestBody,
   ) async {
     final response = await markNoticesViewedWithHttpInfo(
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1188,8 +1188,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1202,18 +1202,18 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
   Future<Response> patchConfigWithHttpInfo(
-    MMConfig mMConfig,
+    MmConfig mmConfig,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/config/patch';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMConfig;
+    Object? postBody = mmConfig;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1236,16 +1236,16 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
-  Future<MMConfig?> patchConfig(
-    MMConfig mMConfig,
+  Future<MmConfig?> patchConfig(
+    MmConfig mmConfig,
   ) async {
     final response = await patchConfigWithHttpInfo(
-      mMConfig,
+      mmConfig,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1253,8 +1253,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMConfig',
-      ) as MMConfig;
+        'MmConfig',
+      ) as MmConfig;
     }
     return null;
   }
@@ -1267,17 +1267,17 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMPostLogRequest] mMPostLogRequest (required):
+  /// * [MmPostLogRequest] mmPostLogRequest (required):
   Future<Response> postLogWithHttpInfo(
-    MMPostLogRequest mMPostLogRequest,
+    MmPostLogRequest mmPostLogRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/logs';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMPostLogRequest;
+    Object? postBody = mmPostLogRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1300,15 +1300,15 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMPostLogRequest] mMPostLogRequest (required):
+  /// * [MmPostLogRequest] mmPostLogRequest (required):
   Future<List<String>?> postLog(
-    MMPostLogRequest mMPostLogRequest,
+    MmPostLogRequest mmPostLogRequest,
   ) async {
     final response = await postLogWithHttpInfo(
-      mMPostLogRequest,
+      mmPostLogRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1332,7 +1332,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1352,10 +1352,10 @@ class MattermostSystemApi {
   /// Reload configuration
   ///
   /// Reload the configuration file to pick up on any changes made to it. ##### Permissions Must have `manage_system` permission.
-  Future<MMStatusOK?> reloadConfig() async {
+  Future<MmStatusOK?> reloadConfig() async {
     final response = await reloadConfigWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1363,8 +1363,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1381,7 +1381,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1404,7 +1404,7 @@ class MattermostSystemApi {
   Future<void> removeLicenseFile() async {
     final response = await removeLicenseFileWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -1420,7 +1420,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1440,10 +1440,10 @@ class MattermostSystemApi {
   /// Request the license renewal link
   ///
   /// Request the renewal link that would be used to start the license renewal process __Minimum server version__: 5.32 ##### Permissions Must have `sysconsole_write_about` permission.
-  Future<MMLicenseRenewalLink?> requestLicenseRenewalLink() async {
+  Future<MmLicenseRenewalLink?> requestLicenseRenewalLink() async {
     final response = await requestLicenseRenewalLinkWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1451,8 +1451,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMLicenseRenewalLink',
-      ) as MMLicenseRenewalLink;
+        'MmLicenseRenewalLink',
+      ) as MmLicenseRenewalLink;
     }
     return null;
   }
@@ -1465,18 +1465,18 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMRequestTrialLicenseRequest] mMRequestTrialLicenseRequest (required):
+  /// * [MmRequestTrialLicenseRequest] mmRequestTrialLicenseRequest (required):
   ///   License request
   Future<Response> requestTrialLicenseWithHttpInfo(
-    MMRequestTrialLicenseRequest mMRequestTrialLicenseRequest,
+    MmRequestTrialLicenseRequest mmRequestTrialLicenseRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/trial-license';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMRequestTrialLicenseRequest;
+    Object? postBody = mmRequestTrialLicenseRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1499,16 +1499,16 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMRequestTrialLicenseRequest] mMRequestTrialLicenseRequest (required):
+  /// * [MmRequestTrialLicenseRequest] mmRequestTrialLicenseRequest (required):
   ///   License request
   Future<void> requestTrialLicense(
-    MMRequestTrialLicenseRequest mMRequestTrialLicenseRequest,
+    MmRequestTrialLicenseRequest mmRequestTrialLicenseRequest,
   ) async {
     final response = await requestTrialLicenseWithHttpInfo(
-      mMRequestTrialLicenseRequest,
+      mmRequestTrialLicenseRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -1524,7 +1524,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1544,10 +1544,10 @@ class MattermostSystemApi {
   /// Restart the system after an upgrade from Team Edition to Enterprise Edition
   ///
   /// It restarts the current running mattermost instance to execute the new Enterprise binary. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
-  Future<MMStatusOK?> restartServer() async {
+  Future<MmStatusOK?> restartServer() async {
     final response = await restartServerWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1555,8 +1555,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1580,7 +1580,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1605,14 +1605,14 @@ class MattermostSystemApi {
   ///
   /// * [String] warnMetricId (required):
   ///   Warn Metric Id.
-  Future<MMStatusOK?> sendTrialLicenseWarnMetricAck(
+  Future<MmStatusOK?> sendTrialLicenseWarnMetricAck(
     String warnMetricId,
   ) async {
     final response = await sendTrialLicenseWarnMetricAckWithHttpInfo(
       warnMetricId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1620,8 +1620,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1637,19 +1637,19 @@ class MattermostSystemApi {
   /// * [String] warnMetricId (required):
   ///   Warn Metric Id.
   ///
-  /// * [MMSendWarnMetricAckRequest] mMSendWarnMetricAckRequest (required):
+  /// * [MmSendWarnMetricAckRequest] mmSendWarnMetricAckRequest (required):
   ///   payload that contains the ack flag
   Future<Response> sendWarnMetricAckWithHttpInfo(
     String warnMetricId,
-    MMSendWarnMetricAckRequest mMSendWarnMetricAckRequest,
+    MmSendWarnMetricAckRequest mmSendWarnMetricAckRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/warn_metrics/ack/{warn_metric_id}'.replaceAll('{warn_metric_id}', warnMetricId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSendWarnMetricAckRequest;
+    Object? postBody = mmSendWarnMetricAckRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1675,18 +1675,18 @@ class MattermostSystemApi {
   /// * [String] warnMetricId (required):
   ///   Warn Metric Id.
   ///
-  /// * [MMSendWarnMetricAckRequest] mMSendWarnMetricAckRequest (required):
+  /// * [MmSendWarnMetricAckRequest] mmSendWarnMetricAckRequest (required):
   ///   payload that contains the ack flag
-  Future<MMStatusOK?> sendWarnMetricAck(
+  Future<MmStatusOK?> sendWarnMetricAck(
     String warnMetricId,
-    MMSendWarnMetricAckRequest mMSendWarnMetricAckRequest,
+    MmSendWarnMetricAckRequest mmSendWarnMetricAckRequest,
   ) async {
     final response = await sendWarnMetricAckWithHttpInfo(
       warnMetricId,
-      mMSendWarnMetricAckRequest,
+      mmSendWarnMetricAckRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1694,8 +1694,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1719,7 +1719,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1748,14 +1748,14 @@ class MattermostSystemApi {
   ///
   /// * [String] seconds:
   ///   Number of seconds until server is automatically marked as not busy.
-  Future<MMStatusOK?> setServerBusy({
+  Future<MmStatusOK?> setServerBusy({
     String? seconds,
   }) async {
     final response = await setServerBusyWithHttpInfo(
       seconds: seconds,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1763,8 +1763,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1777,18 +1777,18 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
   Future<Response> testEmailWithHttpInfo(
-    MMConfig mMConfig,
+    MmConfig mmConfig,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/email/test';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMConfig;
+    Object? postBody = mmConfig;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1811,16 +1811,16 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
-  Future<MMStatusOK?> testEmail(
-    MMConfig mMConfig,
+  Future<MmStatusOK?> testEmail(
+    MmConfig mmConfig,
   ) async {
     final response = await testEmailWithHttpInfo(
-      mMConfig,
+      mmConfig,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1828,8 +1828,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1842,18 +1842,18 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
   Future<Response> testS3ConnectionWithHttpInfo(
-    MMConfig mMConfig,
+    MmConfig mmConfig,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/file/s3_test';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMConfig;
+    Object? postBody = mmConfig;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1876,16 +1876,16 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
-  Future<MMStatusOK?> testS3Connection(
-    MMConfig mMConfig,
+  Future<MmStatusOK?> testS3Connection(
+    MmConfig mmConfig,
   ) async {
     final response = await testS3ConnectionWithHttpInfo(
-      mMConfig,
+      mmConfig,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1893,8 +1893,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1907,17 +1907,17 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMTestSiteURLRequest] mMTestSiteURLRequest (required):
+  /// * [MmTestSiteURLRequest] mmTestSiteURLRequest (required):
   Future<Response> testSiteURLWithHttpInfo(
-    MMTestSiteURLRequest mMTestSiteURLRequest,
+    MmTestSiteURLRequest mmTestSiteURLRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/site_url/test';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMTestSiteURLRequest;
+    Object? postBody = mmTestSiteURLRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1940,15 +1940,15 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMTestSiteURLRequest] mMTestSiteURLRequest (required):
-  Future<MMStatusOK?> testSiteURL(
-    MMTestSiteURLRequest mMTestSiteURLRequest,
+  /// * [MmTestSiteURLRequest] mmTestSiteURLRequest (required):
+  Future<MmStatusOK?> testSiteURL(
+    MmTestSiteURLRequest mmTestSiteURLRequest,
   ) async {
     final response = await testSiteURLWithHttpInfo(
-      mMTestSiteURLRequest,
+      mmTestSiteURLRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1956,8 +1956,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1974,7 +1974,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1997,7 +1997,7 @@ class MattermostSystemApi {
   Future<void> trialLicensePrevGet() async {
     final response = await trialLicensePrevGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -2009,18 +2009,18 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
   Future<Response> updateConfigWithHttpInfo(
-    MMConfig mMConfig,
+    MmConfig mmConfig,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/config';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMConfig;
+    Object? postBody = mmConfig;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2043,16 +2043,16 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMConfig] mMConfig (required):
+  /// * [MmConfig] mmConfig (required):
   ///   Mattermost configuration
-  Future<MMConfig?> updateConfig(
-    MMConfig mMConfig,
+  Future<MmConfig?> updateConfig(
+    MmConfig mmConfig,
   ) async {
     final response = await updateConfigWithHttpInfo(
-      mMConfig,
+      mmConfig,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2060,8 +2060,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMConfig',
-      ) as MMConfig;
+        'MmConfig',
+      ) as MmConfig;
     }
     return null;
   }
@@ -2074,17 +2074,17 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSystem] mMSystem (required):
+  /// * [MmSystem] mmSystem (required):
   Future<Response> updateMarketplaceVisitedByAdminWithHttpInfo(
-    MMSystem mMSystem,
+    MmSystem mmSystem,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/plugins/marketplace/first_admin_visit';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSystem;
+    Object? postBody = mmSystem;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2107,15 +2107,15 @@ class MattermostSystemApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSystem] mMSystem (required):
-  Future<MMStatusOK?> updateMarketplaceVisitedByAdmin(
-    MMSystem mMSystem,
+  /// * [MmSystem] mmSystem (required):
+  Future<MmStatusOK?> updateMarketplaceVisitedByAdmin(
+    MmSystem mmSystem,
   ) async {
     final response = await updateMarketplaceVisitedByAdminWithHttpInfo(
-      mMSystem,
+      mmSystem,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2123,8 +2123,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -2141,7 +2141,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2161,10 +2161,10 @@ class MattermostSystemApi {
   /// Executes an inplace upgrade from Team Edition to Enterprise Edition
   ///
   /// It downloads the Mattermost Enterprise Edition of your current version and replace your current version with it. After the upgrade you need to restart the Mattermost server. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
-  Future<MMPushNotification?> upgradeToEnterprise() async {
+  Future<MmPushNotification?> upgradeToEnterprise() async {
     final response = await upgradeToEnterpriseWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2172,8 +2172,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPushNotification',
-      ) as MMPushNotification;
+        'MmPushNotification',
+      ) as MmPushNotification;
     }
     return null;
   }
@@ -2190,7 +2190,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2210,10 +2210,10 @@ class MattermostSystemApi {
   /// Get the current status for the inplace upgrade from Team Edition to Enterprise Edition
   ///
   /// It returns the percentage of completion of the current upgrade or the error if there is any. __Minimum server version__: 5.27 ##### Permissions Must have `manage_system` permission.
-  Future<MMUpgradeToEnterpriseStatus200Response?> upgradeToEnterpriseStatus() async {
+  Future<MmUpgradeToEnterpriseStatus200Response?> upgradeToEnterpriseStatus() async {
     final response = await upgradeToEnterpriseStatusWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2221,8 +2221,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMUpgradeToEnterpriseStatus200Response',
-      ) as MMUpgradeToEnterpriseStatus200Response;
+        'MmUpgradeToEnterpriseStatus200Response',
+      ) as MmUpgradeToEnterpriseStatus200Response;
     }
     return null;
   }
@@ -2246,7 +2246,7 @@ class MattermostSystemApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2282,14 +2282,14 @@ class MattermostSystemApi {
   ///
   /// * [MultipartFile] license (required):
   ///   The license to be uploaded
-  Future<MMStatusOK?> uploadLicenseFile(
+  Future<MmStatusOK?> uploadLicenseFile(
     MultipartFile license,
   ) async {
     final response = await uploadLicenseFileWithHttpInfo(
       license,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2297,8 +2297,8 @@ class MattermostSystemApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSubscriptionStats {
-  /// Returns a new [MMSubscriptionStats] instance.
-  MMSubscriptionStats({
+class MmSubscriptionStats {
+  /// Returns a new [MmSubscriptionStats] instance.
+  MmSubscriptionStats({
     this.remainingSeats,
     this.isPaidTier,
   });
@@ -36,7 +36,7 @@ class MMSubscriptionStats {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSubscriptionStats && other.remainingSeats == remainingSeats && other.isPaidTier == isPaidTier;
+      other is MmSubscriptionStats && other.remainingSeats == remainingSeats && other.isPaidTier == isPaidTier;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMSubscriptionStats {
       (remainingSeats == null ? 0 : remainingSeats!.hashCode) + (isPaidTier == null ? 0 : isPaidTier!.hashCode);
 
   @override
-  String toString() => 'MMSubscriptionStats[remainingSeats=$remainingSeats, isPaidTier=$isPaidTier]';
+  String toString() => 'MmSubscriptionStats[remainingSeats=$remainingSeats, isPaidTier=$isPaidTier]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMSubscriptionStats {
     return _json;
   }
 
-  /// Returns a new [MMSubscriptionStats] instance and imports its values from
+  /// Returns a new [MmSubscriptionStats] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSubscriptionStats? fromJson(dynamic value) {
+  static MmSubscriptionStats? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,13 +69,13 @@ class MMSubscriptionStats {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSubscriptionStats[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSubscriptionStats[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSubscriptionStats[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSubscriptionStats[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSubscriptionStats(
+      return MmSubscriptionStats(
         remainingSeats: mapValueOfType<int>(json, r'remaining_seats'),
         isPaidTier: mapValueOfType<String>(json, r'is_paid_tier'),
       );
@@ -83,14 +83,14 @@ class MMSubscriptionStats {
     return null;
   }
 
-  static List<MMSubscriptionStats>? listFromJson(
+  static List<MmSubscriptionStats>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSubscriptionStats>[];
+    final result = <MmSubscriptionStats>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSubscriptionStats.fromJson(row);
+        final value = MmSubscriptionStats.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMSubscriptionStats {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSubscriptionStats> mapFromJson(dynamic json) {
-    final map = <String, MMSubscriptionStats>{};
+  static Map<String, MmSubscriptionStats> mapFromJson(dynamic json) {
+    final map = <String, MmSubscriptionStats>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSubscriptionStats.fromJson(entry.value);
+        final value = MmSubscriptionStats.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMSubscriptionStats {
     return map;
   }
 
-  // maps a json object with a list of MMSubscriptionStats-objects as value to a dart map
-  static Map<String, List<MMSubscriptionStats>> mapListFromJson(
+  // maps a json object with a list of MmSubscriptionStats-objects as value to a dart map
+  static Map<String, List<MmSubscriptionStats>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSubscriptionStats>>{};
+    final map = <String, List<MmSubscriptionStats>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSubscriptionStats.listFromJson(
+        final value = MmSubscriptionStats.listFromJson(
           entry.value,
           growable: growable,
         );

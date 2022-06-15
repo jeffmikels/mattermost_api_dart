@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTopReactionList {
-  /// Returns a new [MMTopReactionList] instance.
-  MMTopReactionList({
+class MmTopReactionList {
+  /// Returns a new [MmTopReactionList] instance.
+  MmTopReactionList({
     this.hasNext,
     this.items = const [],
   });
@@ -27,11 +27,11 @@ class MMTopReactionList {
   bool? hasNext;
 
   /// List of reactions.
-  List<MMTopReaction> items;
+  List<MmTopReaction> items;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMTopReactionList && other.hasNext == hasNext && other.items == items;
+      identical(this, other) || other is MmTopReactionList && other.hasNext == hasNext && other.items == items;
 
   @override
   int get hashCode =>
@@ -39,7 +39,7 @@ class MMTopReactionList {
       (hasNext == null ? 0 : hasNext!.hashCode) + (items.hashCode);
 
   @override
-  String toString() => 'MMTopReactionList[hasNext=$hasNext, items=$items]';
+  String toString() => 'MmTopReactionList[hasNext=$hasNext, items=$items]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMTopReactionList {
     return _json;
   }
 
-  /// Returns a new [MMTopReactionList] instance and imports its values from
+  /// Returns a new [MmTopReactionList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTopReactionList? fromJson(dynamic value) {
+  static MmTopReactionList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,28 +62,28 @@ class MMTopReactionList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTopReactionList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTopReactionList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTopReactionList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTopReactionList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTopReactionList(
+      return MmTopReactionList(
         hasNext: mapValueOfType<bool>(json, r'has_next'),
-        items: MMTopReaction.listFromJson(json[r'items']) ?? const [],
+        items: MmTopReaction.listFromJson(json[r'items']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMTopReactionList>? listFromJson(
+  static List<MmTopReactionList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTopReactionList>[];
+    final result = <MmTopReactionList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTopReactionList.fromJson(row);
+        final value = MmTopReactionList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -92,12 +92,12 @@ class MMTopReactionList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTopReactionList> mapFromJson(dynamic json) {
-    final map = <String, MMTopReactionList>{};
+  static Map<String, MmTopReactionList> mapFromJson(dynamic json) {
+    final map = <String, MmTopReactionList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopReactionList.fromJson(entry.value);
+        final value = MmTopReactionList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,16 +106,16 @@ class MMTopReactionList {
     return map;
   }
 
-  // maps a json object with a list of MMTopReactionList-objects as value to a dart map
-  static Map<String, List<MMTopReactionList>> mapListFromJson(
+  // maps a json object with a list of MmTopReactionList-objects as value to a dart map
+  static Map<String, List<MmTopReactionList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTopReactionList>>{};
+    final map = <String, List<MmTopReactionList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopReactionList.listFromJson(
+        final value = MmTopReactionList.listFromJson(
           entry.value,
           growable: growable,
         );

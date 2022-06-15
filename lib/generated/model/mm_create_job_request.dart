@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateJobRequest {
-  /// Returns a new [MMCreateJobRequest] instance.
-  MMCreateJobRequest({
+class MmCreateJobRequest {
+  /// Returns a new [MmCreateJobRequest] instance.
+  MmCreateJobRequest({
     required this.type,
     this.data,
   });
@@ -31,7 +31,7 @@ class MMCreateJobRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMCreateJobRequest && other.type == type && other.data == data;
+      identical(this, other) || other is MmCreateJobRequest && other.type == type && other.data == data;
 
   @override
   int get hashCode =>
@@ -39,7 +39,7 @@ class MMCreateJobRequest {
       (type.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'MMCreateJobRequest[type=$type, data=$data]';
+  String toString() => 'MmCreateJobRequest[type=$type, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMCreateJobRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateJobRequest] instance and imports its values from
+  /// Returns a new [MmCreateJobRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateJobRequest? fromJson(dynamic value) {
+  static MmCreateJobRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,13 +62,13 @@ class MMCreateJobRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateJobRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateJobRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateJobRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateJobRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateJobRequest(
+      return MmCreateJobRequest(
         type: mapValueOfType<String>(json, r'type')!,
         data: mapValueOfType<Map>(json, r'data'),
       );
@@ -76,14 +76,14 @@ class MMCreateJobRequest {
     return null;
   }
 
-  static List<MMCreateJobRequest>? listFromJson(
+  static List<MmCreateJobRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateJobRequest>[];
+    final result = <MmCreateJobRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateJobRequest.fromJson(row);
+        final value = MmCreateJobRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -92,12 +92,12 @@ class MMCreateJobRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateJobRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateJobRequest>{};
+  static Map<String, MmCreateJobRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateJobRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateJobRequest.fromJson(entry.value);
+        final value = MmCreateJobRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,16 +106,16 @@ class MMCreateJobRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateJobRequest-objects as value to a dart map
-  static Map<String, List<MMCreateJobRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateJobRequest-objects as value to a dart map
+  static Map<String, List<MmCreateJobRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateJobRequest>>{};
+    final map = <String, List<MmCreateJobRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateJobRequest.listFromJson(
+        final value = MmCreateJobRequest.listFromJson(
           entry.value,
           growable: growable,
         );

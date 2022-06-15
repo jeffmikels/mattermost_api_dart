@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMMigrateAuthToSamlRequest {
-  /// Returns a new [MMMigrateAuthToSamlRequest] instance.
-  MMMigrateAuthToSamlRequest({
+class MmMigrateAuthToSamlRequest {
+  /// Returns a new [MmMigrateAuthToSamlRequest] instance.
+  MmMigrateAuthToSamlRequest({
     required this.from,
     required this.matches,
     required this.auto,
@@ -29,7 +29,7 @@ class MMMigrateAuthToSamlRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMMigrateAuthToSamlRequest && other.from == from && other.matches == matches && other.auto == auto;
+      other is MmMigrateAuthToSamlRequest && other.from == from && other.matches == matches && other.auto == auto;
 
   @override
   int get hashCode =>
@@ -37,7 +37,7 @@ class MMMigrateAuthToSamlRequest {
       (from.hashCode) + (matches.hashCode) + (auto.hashCode);
 
   @override
-  String toString() => 'MMMigrateAuthToSamlRequest[from=$from, matches=$matches, auto=$auto]';
+  String toString() => 'MmMigrateAuthToSamlRequest[from=$from, matches=$matches, auto=$auto]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -47,10 +47,10 @@ class MMMigrateAuthToSamlRequest {
     return _json;
   }
 
-  /// Returns a new [MMMigrateAuthToSamlRequest] instance and imports its values from
+  /// Returns a new [MmMigrateAuthToSamlRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMMigrateAuthToSamlRequest? fromJson(dynamic value) {
+  static MmMigrateAuthToSamlRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -59,13 +59,13 @@ class MMMigrateAuthToSamlRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMMigrateAuthToSamlRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMMigrateAuthToSamlRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmMigrateAuthToSamlRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmMigrateAuthToSamlRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMMigrateAuthToSamlRequest(
+      return MmMigrateAuthToSamlRequest(
         from: mapValueOfType<String>(json, r'from')!,
         matches: mapValueOfType<Map>(json, r'matches')!,
         auto: mapValueOfType<bool>(json, r'auto')!,
@@ -74,14 +74,14 @@ class MMMigrateAuthToSamlRequest {
     return null;
   }
 
-  static List<MMMigrateAuthToSamlRequest>? listFromJson(
+  static List<MmMigrateAuthToSamlRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMMigrateAuthToSamlRequest>[];
+    final result = <MmMigrateAuthToSamlRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMMigrateAuthToSamlRequest.fromJson(row);
+        final value = MmMigrateAuthToSamlRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -90,12 +90,12 @@ class MMMigrateAuthToSamlRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMMigrateAuthToSamlRequest> mapFromJson(dynamic json) {
-    final map = <String, MMMigrateAuthToSamlRequest>{};
+  static Map<String, MmMigrateAuthToSamlRequest> mapFromJson(dynamic json) {
+    final map = <String, MmMigrateAuthToSamlRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMigrateAuthToSamlRequest.fromJson(entry.value);
+        final value = MmMigrateAuthToSamlRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -104,16 +104,16 @@ class MMMigrateAuthToSamlRequest {
     return map;
   }
 
-  // maps a json object with a list of MMMigrateAuthToSamlRequest-objects as value to a dart map
-  static Map<String, List<MMMigrateAuthToSamlRequest>> mapListFromJson(
+  // maps a json object with a list of MmMigrateAuthToSamlRequest-objects as value to a dart map
+  static Map<String, List<MmMigrateAuthToSamlRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMMigrateAuthToSamlRequest>>{};
+    final map = <String, List<MmMigrateAuthToSamlRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMigrateAuthToSamlRequest.listFromJson(
+        final value = MmMigrateAuthToSamlRequest.listFromJson(
           entry.value,
           growable: growable,
         );

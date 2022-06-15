@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSystem
+// tests for MmSystem
 void main() {
-  // final instance = MMSystem();
+  // final instance = MmSystem();
 
-  group('test MMSystem', () {
+  group('test MmSystem', () {
     // System property name
     // String name
     test('to test the property `name`', () async {

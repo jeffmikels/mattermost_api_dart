@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **deleteLdapPrivateCertificate**
-> MMStatusOK deleteLdapPrivateCertificate()
+> MmStatusOK deleteLdapPrivateCertificate()
 
 Remove private key
 
@@ -37,24 +37,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.lDAP.deleteLdapPrivateCertificate(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.deleteLdapPrivateCertificate(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
@@ -67,7 +67,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteLdapPublicCertificate**
-> MMStatusOK deleteLdapPublicCertificate()
+> MmStatusOK deleteLdapPublicCertificate()
 
 Remove public certificate
 
@@ -96,24 +96,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.lDAP.deleteLdapPublicCertificate(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.deleteLdapPublicCertificate(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
@@ -126,7 +126,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getLdapGroups**
-> List<MMLDAPGroupsPaged> getLdapGroups(q, page, perPage)
+> List<MmLDAPGroupsPaged> getLdapGroups(q, page, perPage)
 
 Returns a list of LDAP groups
 
@@ -155,18 +155,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -175,7 +175,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 
 try {
-  final List&lt;MMLDAPGroupsPaged&gt;? result = await client.lDAP.getLdapGroups(q, page, perPage); // await the Future<List&lt;MMLDAPGroupsPaged&gt;?>
+  final List&lt;MmLDAPGroupsPaged&gt;? result = await client.lDAP.getLdapGroups(q, page, perPage); // await the Future<List&lt;MmLDAPGroupsPaged&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMLDAPGroupsPaged>**](MMLDAPGroupsPaged.md)
+[**List<MmLDAPGroupsPaged>**](MmLDAPGroupsPaged.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **linkLdapGroup**
-> MMStatusOK linkLdapGroup(remoteId)
+> MmStatusOK linkLdapGroup(remoteId)
 
 Link a LDAP group
 
@@ -222,25 +222,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
-  final MMStatusOK? result = await client.lDAP.linkLdapGroup(remoteId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.linkLdapGroup(remoteId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **migrateAuthToLdap**
-> migrateAuthToLdap(mMMigrateAuthToLdapRequest)
+> migrateAuthToLdap(mmMigrateAuthToLdapRequest)
 
 Migrate user accounts authentication type to LDAP.
 
@@ -285,25 +285,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest = MMMigrateAuthToLdapRequest(); // MMMigrateAuthToLdapRequest | 
+final MmMigrateAuthToLdapRequest mmMigrateAuthToLdapRequest = MmMigrateAuthToLdapRequest(); // MmMigrateAuthToLdapRequest | 
 
 try {
-  await client.lDAP.migrateAuthToLdap(mMMigrateAuthToLdapRequest); 
+  await client.lDAP.migrateAuthToLdap(mmMigrateAuthToLdapRequest); 
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->migrateAuthToLdap: $e\n');
 }
@@ -314,7 +314,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMMigrateAuthToLdapRequest** | [**MMMigrateAuthToLdapRequest**](MMMigrateAuthToLdapRequest.md)|  | [optional] 
+ **mmMigrateAuthToLdapRequest** | [**MmMigrateAuthToLdapRequest**](MmMigrateAuthToLdapRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -332,7 +332,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **migrateIdLdap**
-> MMStatusOK migrateIdLdap(mMMigrateIdLdapRequest)
+> MmStatusOK migrateIdLdap(mmMigrateIdLdapRequest)
 
 Migrate Id LDAP
 
@@ -347,25 +347,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMMigrateIdLdapRequest mMMigrateIdLdapRequest = MMMigrateIdLdapRequest(); // MMMigrateIdLdapRequest | 
+final MmMigrateIdLdapRequest mmMigrateIdLdapRequest = MmMigrateIdLdapRequest(); // MmMigrateIdLdapRequest | 
 
 try {
-  final MMStatusOK? result = await client.lDAP.migrateIdLdap(mMMigrateIdLdapRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.migrateIdLdap(mmMigrateIdLdapRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
@@ -377,11 +377,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMMigrateIdLdapRequest** | [**MMMigrateIdLdapRequest**](MMMigrateIdLdapRequest.md)|  | 
+ **mmMigrateIdLdapRequest** | [**MmMigrateIdLdapRequest**](MmMigrateIdLdapRequest.md)|  | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **syncLdap**
-> MMStatusOK syncLdap()
+> MmStatusOK syncLdap()
 
 Sync with LDAP
 
@@ -410,24 +410,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.lDAP.syncLdap(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.syncLdap(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
@@ -440,7 +440,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -454,7 +454,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **testLdap**
-> MMStatusOK testLdap()
+> MmStatusOK testLdap()
 
 Test LDAP configuration
 
@@ -469,24 +469,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.lDAP.testLdap(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.testLdap(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
@@ -499,7 +499,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadLdapPrivateCertificate**
-> MMStatusOK uploadLdapPrivateCertificate(certificate)
+> MmStatusOK uploadLdapPrivateCertificate(certificate)
 
 Upload private key
 
@@ -528,25 +528,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-  final MMStatusOK? result = await client.lDAP.uploadLdapPrivateCertificate(certificate); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.uploadLdapPrivateCertificate(certificate); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadLdapPublicCertificate**
-> MMStatusOK uploadLdapPublicCertificate(certificate)
+> MmStatusOK uploadLdapPublicCertificate(certificate)
 
 Upload public certificate
 
@@ -591,25 +591,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-  final MMStatusOK? result = await client.lDAP.uploadLdapPublicCertificate(certificate); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.lDAP.uploadLdapPublicCertificate(certificate); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

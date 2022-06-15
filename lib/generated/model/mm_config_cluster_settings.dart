@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigClusterSettings {
-  /// Returns a new [MMConfigClusterSettings] instance.
-  MMConfigClusterSettings({
+class MmConfigClusterSettings {
+  /// Returns a new [MmConfigClusterSettings] instance.
+  MmConfigClusterSettings({
     this.enable,
     this.interNodeListenAddress,
     this.interNodeUrls = const [],
@@ -39,7 +39,7 @@ class MMConfigClusterSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigClusterSettings &&
+      other is MmConfigClusterSettings &&
           other.enable == enable &&
           other.interNodeListenAddress == interNodeListenAddress &&
           other.interNodeUrls == interNodeUrls;
@@ -53,7 +53,7 @@ class MMConfigClusterSettings {
 
   @override
   String toString() =>
-      'MMConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
+      'MmConfigClusterSettings[enable=$enable, interNodeListenAddress=$interNodeListenAddress, interNodeUrls=$interNodeUrls]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -67,10 +67,10 @@ class MMConfigClusterSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigClusterSettings] instance and imports its values from
+  /// Returns a new [MmConfigClusterSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigClusterSettings? fromJson(dynamic value) {
+  static MmConfigClusterSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -79,13 +79,13 @@ class MMConfigClusterSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigClusterSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigClusterSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigClusterSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigClusterSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigClusterSettings(
+      return MmConfigClusterSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         interNodeListenAddress: mapValueOfType<String>(json, r'InterNodeListenAddress'),
         interNodeUrls: json[r'InterNodeUrls'] is List ? (json[r'InterNodeUrls'] as List).cast<String>() : const [],
@@ -94,14 +94,14 @@ class MMConfigClusterSettings {
     return null;
   }
 
-  static List<MMConfigClusterSettings>? listFromJson(
+  static List<MmConfigClusterSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigClusterSettings>[];
+    final result = <MmConfigClusterSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigClusterSettings.fromJson(row);
+        final value = MmConfigClusterSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -110,12 +110,12 @@ class MMConfigClusterSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigClusterSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigClusterSettings>{};
+  static Map<String, MmConfigClusterSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigClusterSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigClusterSettings.fromJson(entry.value);
+        final value = MmConfigClusterSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,16 +124,16 @@ class MMConfigClusterSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigClusterSettings-objects as value to a dart map
-  static Map<String, List<MMConfigClusterSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigClusterSettings-objects as value to a dart map
+  static Map<String, List<MmConfigClusterSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigClusterSettings>>{};
+    final map = <String, List<MmConfigClusterSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigClusterSettings.listFromJson(
+        final value = MmConfigClusterSettings.listFromJson(
           entry.value,
           growable: growable,
         );

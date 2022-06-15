@@ -10,15 +10,15 @@
 
 part of mattermost.api;
 
-class MMRetentionPolicyForChannelList {
-  /// Returns a new [MMRetentionPolicyForChannelList] instance.
-  MMRetentionPolicyForChannelList({
+class MmRetentionPolicyForChannelList {
+  /// Returns a new [MmRetentionPolicyForChannelList] instance.
+  MmRetentionPolicyForChannelList({
     this.policies = const [],
     this.totalCount,
   });
 
   /// The list of channel policies.
-  List<MMDataRetentionPolicyForChannel> policies;
+  List<MmDataRetentionPolicyForChannel> policies;
 
   /// The total number of channel policies.
   ///
@@ -32,7 +32,7 @@ class MMRetentionPolicyForChannelList {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRetentionPolicyForChannelList && other.policies == policies && other.totalCount == totalCount;
+      other is MmRetentionPolicyForChannelList && other.policies == policies && other.totalCount == totalCount;
 
   @override
   int get hashCode =>
@@ -40,7 +40,7 @@ class MMRetentionPolicyForChannelList {
       (policies.hashCode) + (totalCount == null ? 0 : totalCount!.hashCode);
 
   @override
-  String toString() => 'MMRetentionPolicyForChannelList[policies=$policies, totalCount=$totalCount]';
+  String toString() => 'MmRetentionPolicyForChannelList[policies=$policies, totalCount=$totalCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class MMRetentionPolicyForChannelList {
     return _json;
   }
 
-  /// Returns a new [MMRetentionPolicyForChannelList] instance and imports its values from
+  /// Returns a new [MmRetentionPolicyForChannelList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRetentionPolicyForChannelList? fromJson(dynamic value) {
+  static MmRetentionPolicyForChannelList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,28 +63,28 @@ class MMRetentionPolicyForChannelList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRetentionPolicyForChannelList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRetentionPolicyForChannelList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRetentionPolicyForChannelList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRetentionPolicyForChannelList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRetentionPolicyForChannelList(
-        policies: MMDataRetentionPolicyForChannel.listFromJson(json[r'policies']) ?? const [],
+      return MmRetentionPolicyForChannelList(
+        policies: MmDataRetentionPolicyForChannel.listFromJson(json[r'policies']) ?? const [],
         totalCount: mapValueOfType<int>(json, r'total_count'),
       );
     }
     return null;
   }
 
-  static List<MMRetentionPolicyForChannelList>? listFromJson(
+  static List<MmRetentionPolicyForChannelList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRetentionPolicyForChannelList>[];
+    final result = <MmRetentionPolicyForChannelList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRetentionPolicyForChannelList.fromJson(row);
+        final value = MmRetentionPolicyForChannelList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMRetentionPolicyForChannelList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRetentionPolicyForChannelList> mapFromJson(dynamic json) {
-    final map = <String, MMRetentionPolicyForChannelList>{};
+  static Map<String, MmRetentionPolicyForChannelList> mapFromJson(dynamic json) {
+    final map = <String, MmRetentionPolicyForChannelList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRetentionPolicyForChannelList.fromJson(entry.value);
+        final value = MmRetentionPolicyForChannelList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMRetentionPolicyForChannelList {
     return map;
   }
 
-  // maps a json object with a list of MMRetentionPolicyForChannelList-objects as value to a dart map
-  static Map<String, List<MMRetentionPolicyForChannelList>> mapListFromJson(
+  // maps a json object with a list of MmRetentionPolicyForChannelList-objects as value to a dart map
+  static Map<String, List<MmRetentionPolicyForChannelList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRetentionPolicyForChannelList>>{};
+    final map = <String, List<MmRetentionPolicyForChannelList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRetentionPolicyForChannelList.listFromJson(
+        final value = MmRetentionPolicyForChannelList.listFromJson(
           entry.value,
           growable: growable,
         );

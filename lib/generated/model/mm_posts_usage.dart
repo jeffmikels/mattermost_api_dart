@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPostsUsage {
-  /// Returns a new [MMPostsUsage] instance.
-  MMPostsUsage({
+class MmPostsUsage {
+  /// Returns a new [MmPostsUsage] instance.
+  MmPostsUsage({
     this.count,
   });
 
@@ -26,7 +26,7 @@ class MMPostsUsage {
   num? count;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMPostsUsage && other.count == count;
+  bool operator ==(Object other) => identical(this, other) || other is MmPostsUsage && other.count == count;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMPostsUsage {
       (count == null ? 0 : count!.hashCode);
 
   @override
-  String toString() => 'MMPostsUsage[count=$count]';
+  String toString() => 'MmPostsUsage[count=$count]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMPostsUsage {
     return _json;
   }
 
-  /// Returns a new [MMPostsUsage] instance and imports its values from
+  /// Returns a new [MmPostsUsage] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostsUsage? fromJson(dynamic value) {
+  static MmPostsUsage? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,27 +56,27 @@ class MMPostsUsage {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostsUsage[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostsUsage[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostsUsage[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostsUsage[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostsUsage(
+      return MmPostsUsage(
         count: json[r'count'] == null ? null : num.parse(json[r'count'].toString()),
       );
     }
     return null;
   }
 
-  static List<MMPostsUsage>? listFromJson(
+  static List<MmPostsUsage>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostsUsage>[];
+    final result = <MmPostsUsage>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostsUsage.fromJson(row);
+        final value = MmPostsUsage.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMPostsUsage {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostsUsage> mapFromJson(dynamic json) {
-    final map = <String, MMPostsUsage>{};
+  static Map<String, MmPostsUsage> mapFromJson(dynamic json) {
+    final map = <String, MmPostsUsage>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostsUsage.fromJson(entry.value);
+        final value = MmPostsUsage.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMPostsUsage {
     return map;
   }
 
-  // maps a json object with a list of MMPostsUsage-objects as value to a dart map
-  static Map<String, List<MMPostsUsage>> mapListFromJson(
+  // maps a json object with a list of MmPostsUsage-objects as value to a dart map
+  static Map<String, List<MmPostsUsage>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostsUsage>>{};
+    final map = <String, List<MmPostsUsage>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostsUsage.listFromJson(
+        final value = MmPostsUsage.listFromJson(
           entry.value,
           growable: growable,
         );

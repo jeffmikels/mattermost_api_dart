@@ -10,16 +10,16 @@
 
 part of mattermost.api;
 
-class MMIntegrationsLimits {
-  /// Returns a new [MMIntegrationsLimits] instance.
-  MMIntegrationsLimits({
+class MmIntegrationsLimits {
+  /// Returns a new [MmIntegrationsLimits] instance.
+  MmIntegrationsLimits({
     this.enabled,
   });
 
   int? enabled;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMIntegrationsLimits && other.enabled == enabled;
+  bool operator ==(Object other) => identical(this, other) || other is MmIntegrationsLimits && other.enabled == enabled;
 
   @override
   int get hashCode =>
@@ -27,7 +27,7 @@ class MMIntegrationsLimits {
       (enabled == null ? 0 : enabled!.hashCode);
 
   @override
-  String toString() => 'MMIntegrationsLimits[enabled=$enabled]';
+  String toString() => 'MmIntegrationsLimits[enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMIntegrationsLimits {
     return _json;
   }
 
-  /// Returns a new [MMIntegrationsLimits] instance and imports its values from
+  /// Returns a new [MmIntegrationsLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMIntegrationsLimits? fromJson(dynamic value) {
+  static MmIntegrationsLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMIntegrationsLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMIntegrationsLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMIntegrationsLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmIntegrationsLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmIntegrationsLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMIntegrationsLimits(
+      return MmIntegrationsLimits(
         enabled: mapValueOfType<int>(json, r'enabled'),
       );
     }
     return null;
   }
 
-  static List<MMIntegrationsLimits>? listFromJson(
+  static List<MmIntegrationsLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMIntegrationsLimits>[];
+    final result = <MmIntegrationsLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMIntegrationsLimits.fromJson(row);
+        final value = MmIntegrationsLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMIntegrationsLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMIntegrationsLimits> mapFromJson(dynamic json) {
-    final map = <String, MMIntegrationsLimits>{};
+  static Map<String, MmIntegrationsLimits> mapFromJson(dynamic json) {
+    final map = <String, MmIntegrationsLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMIntegrationsLimits.fromJson(entry.value);
+        final value = MmIntegrationsLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMIntegrationsLimits {
     return map;
   }
 
-  // maps a json object with a list of MMIntegrationsLimits-objects as value to a dart map
-  static Map<String, List<MMIntegrationsLimits>> mapListFromJson(
+  // maps a json object with a list of MmIntegrationsLimits-objects as value to a dart map
+  static Map<String, List<MmIntegrationsLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMIntegrationsLimits>>{};
+    final map = <String, List<MmIntegrationsLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMIntegrationsLimits.listFromJson(
+        final value = MmIntegrationsLimits.listFromJson(
           entry.value,
           growable: growable,
         );

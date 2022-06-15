@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMResetPasswordRequest {
-  /// Returns a new [MMResetPasswordRequest] instance.
-  MMResetPasswordRequest({
+class MmResetPasswordRequest {
+  /// Returns a new [MmResetPasswordRequest] instance.
+  MmResetPasswordRequest({
     required this.code,
     required this.newPassword,
   });
@@ -26,7 +26,7 @@ class MMResetPasswordRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMResetPasswordRequest && other.code == code && other.newPassword == newPassword;
+      other is MmResetPasswordRequest && other.code == code && other.newPassword == newPassword;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMResetPasswordRequest {
       (code.hashCode) + (newPassword.hashCode);
 
   @override
-  String toString() => 'MMResetPasswordRequest[code=$code, newPassword=$newPassword]';
+  String toString() => 'MmResetPasswordRequest[code=$code, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMResetPasswordRequest {
     return _json;
   }
 
-  /// Returns a new [MMResetPasswordRequest] instance and imports its values from
+  /// Returns a new [MmResetPasswordRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMResetPasswordRequest? fromJson(dynamic value) {
+  static MmResetPasswordRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,13 +55,13 @@ class MMResetPasswordRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMResetPasswordRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMResetPasswordRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmResetPasswordRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmResetPasswordRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMResetPasswordRequest(
+      return MmResetPasswordRequest(
         code: mapValueOfType<String>(json, r'code')!,
         newPassword: mapValueOfType<String>(json, r'new_password')!,
       );
@@ -69,14 +69,14 @@ class MMResetPasswordRequest {
     return null;
   }
 
-  static List<MMResetPasswordRequest>? listFromJson(
+  static List<MmResetPasswordRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMResetPasswordRequest>[];
+    final result = <MmResetPasswordRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMResetPasswordRequest.fromJson(row);
+        final value = MmResetPasswordRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMResetPasswordRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMResetPasswordRequest> mapFromJson(dynamic json) {
-    final map = <String, MMResetPasswordRequest>{};
+  static Map<String, MmResetPasswordRequest> mapFromJson(dynamic json) {
+    final map = <String, MmResetPasswordRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMResetPasswordRequest.fromJson(entry.value);
+        final value = MmResetPasswordRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMResetPasswordRequest {
     return map;
   }
 
-  // maps a json object with a list of MMResetPasswordRequest-objects as value to a dart map
-  static Map<String, List<MMResetPasswordRequest>> mapListFromJson(
+  // maps a json object with a list of MmResetPasswordRequest-objects as value to a dart map
+  static Map<String, List<MmResetPasswordRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMResetPasswordRequest>>{};
+    final map = <String, List<MmResetPasswordRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMResetPasswordRequest.listFromJson(
+        final value = MmResetPasswordRequest.listFromJson(
           entry.value,
           growable: growable,
         );

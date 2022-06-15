@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGenerateMfaSecret200Response
+// tests for MmGenerateMfaSecret200Response
 void main() {
-  // final instance = MMGenerateMfaSecret200Response();
+  // final instance = MmGenerateMfaSecret200Response();
 
-  group('test MMGenerateMfaSecret200Response', () {
+  group('test MmGenerateMfaSecret200Response', () {
     // The MFA secret as a string
     // String secret
     test('to test the property `secret`', () async {

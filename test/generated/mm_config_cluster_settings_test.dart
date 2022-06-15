@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigClusterSettings
+// tests for MmConfigClusterSettings
 void main() {
-  // final instance = MMConfigClusterSettings();
+  // final instance = MmConfigClusterSettings();
 
-  group('test MMConfigClusterSettings', () {
+  group('test MmConfigClusterSettings', () {
     // bool enable
     test('to test the property `enable`', () async {
       // TODO

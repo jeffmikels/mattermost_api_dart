@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGetGroupStats200Response {
-  /// Returns a new [MMGetGroupStats200Response] instance.
-  MMGetGroupStats200Response({
+class MmGetGroupStats200Response {
+  /// Returns a new [MmGetGroupStats200Response] instance.
+  MmGetGroupStats200Response({
     this.groupId,
     this.totalMemberCount,
   });
@@ -36,7 +36,7 @@ class MMGetGroupStats200Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGetGroupStats200Response && other.groupId == groupId && other.totalMemberCount == totalMemberCount;
+      other is MmGetGroupStats200Response && other.groupId == groupId && other.totalMemberCount == totalMemberCount;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMGetGroupStats200Response {
       (groupId == null ? 0 : groupId!.hashCode) + (totalMemberCount == null ? 0 : totalMemberCount!.hashCode);
 
   @override
-  String toString() => 'MMGetGroupStats200Response[groupId=$groupId, totalMemberCount=$totalMemberCount]';
+  String toString() => 'MmGetGroupStats200Response[groupId=$groupId, totalMemberCount=$totalMemberCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMGetGroupStats200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetGroupStats200Response] instance and imports its values from
+  /// Returns a new [MmGetGroupStats200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetGroupStats200Response? fromJson(dynamic value) {
+  static MmGetGroupStats200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,13 +69,13 @@ class MMGetGroupStats200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGetGroupStats200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGetGroupStats200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGetGroupStats200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGetGroupStats200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetGroupStats200Response(
+      return MmGetGroupStats200Response(
         groupId: mapValueOfType<String>(json, r'group_id'),
         totalMemberCount: mapValueOfType<int>(json, r'total_member_count'),
       );
@@ -83,14 +83,14 @@ class MMGetGroupStats200Response {
     return null;
   }
 
-  static List<MMGetGroupStats200Response>? listFromJson(
+  static List<MmGetGroupStats200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetGroupStats200Response>[];
+    final result = <MmGetGroupStats200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetGroupStats200Response.fromJson(row);
+        final value = MmGetGroupStats200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMGetGroupStats200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetGroupStats200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetGroupStats200Response>{};
+  static Map<String, MmGetGroupStats200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetGroupStats200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetGroupStats200Response.fromJson(entry.value);
+        final value = MmGetGroupStats200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMGetGroupStats200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetGroupStats200Response-objects as value to a dart map
-  static Map<String, List<MMGetGroupStats200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetGroupStats200Response-objects as value to a dart map
+  static Map<String, List<MmGetGroupStats200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetGroupStats200Response>>{};
+    final map = <String, List<MmGetGroupStats200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetGroupStats200Response.listFromJson(
+        final value = MmGetGroupStats200Response.listFromJson(
           entry.value,
           growable: growable,
         );

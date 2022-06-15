@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostsUsage
+// tests for MmPostsUsage
 void main() {
-  // final instance = MMPostsUsage();
+  // final instance = MmPostsUsage();
 
-  group('test MMPostsUsage', () {
+  group('test MmPostsUsage', () {
     // Total no. of posts
     // num count
     test('to test the property `count`', () async {

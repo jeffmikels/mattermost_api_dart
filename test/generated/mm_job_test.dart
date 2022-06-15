@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMJob
+// tests for MmJob
 void main() {
-  // final instance = MMJob();
+  // final instance = MmJob();
 
-  group('test MMJob', () {
+  group('test MmJob', () {
     // The unique id of the job
     // String id
     test('to test the property `id`', () async {

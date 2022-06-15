@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTopChannel
+// tests for MmTopChannel
 void main() {
-  // final instance = MMTopChannel();
+  // final instance = MmTopChannel();
 
-  group('test MMTopChannel', () {
+  group('test MmTopChannel', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMMigrateIdLdapRequest {
-  /// Returns a new [MMMigrateIdLdapRequest] instance.
-  MMMigrateIdLdapRequest({
+class MmMigrateIdLdapRequest {
+  /// Returns a new [MmMigrateIdLdapRequest] instance.
+  MmMigrateIdLdapRequest({
     required this.toAttribute,
   });
 
@@ -21,7 +21,7 @@ class MMMigrateIdLdapRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMMigrateIdLdapRequest && other.toAttribute == toAttribute;
+      identical(this, other) || other is MmMigrateIdLdapRequest && other.toAttribute == toAttribute;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMMigrateIdLdapRequest {
       (toAttribute.hashCode);
 
   @override
-  String toString() => 'MMMigrateIdLdapRequest[toAttribute=$toAttribute]';
+  String toString() => 'MmMigrateIdLdapRequest[toAttribute=$toAttribute]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMMigrateIdLdapRequest {
     return _json;
   }
 
-  /// Returns a new [MMMigrateIdLdapRequest] instance and imports its values from
+  /// Returns a new [MmMigrateIdLdapRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMMigrateIdLdapRequest? fromJson(dynamic value) {
+  static MmMigrateIdLdapRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMMigrateIdLdapRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMMigrateIdLdapRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMMigrateIdLdapRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmMigrateIdLdapRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmMigrateIdLdapRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMMigrateIdLdapRequest(
+      return MmMigrateIdLdapRequest(
         toAttribute: mapValueOfType<String>(json, r'toAttribute')!,
       );
     }
     return null;
   }
 
-  static List<MMMigrateIdLdapRequest>? listFromJson(
+  static List<MmMigrateIdLdapRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMMigrateIdLdapRequest>[];
+    final result = <MmMigrateIdLdapRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMMigrateIdLdapRequest.fromJson(row);
+        final value = MmMigrateIdLdapRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMMigrateIdLdapRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMMigrateIdLdapRequest> mapFromJson(dynamic json) {
-    final map = <String, MMMigrateIdLdapRequest>{};
+  static Map<String, MmMigrateIdLdapRequest> mapFromJson(dynamic json) {
+    final map = <String, MmMigrateIdLdapRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMigrateIdLdapRequest.fromJson(entry.value);
+        final value = MmMigrateIdLdapRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMMigrateIdLdapRequest {
     return map;
   }
 
-  // maps a json object with a list of MMMigrateIdLdapRequest-objects as value to a dart map
-  static Map<String, List<MMMigrateIdLdapRequest>> mapListFromJson(
+  // maps a json object with a list of MmMigrateIdLdapRequest-objects as value to a dart map
+  static Map<String, List<MmMigrateIdLdapRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMMigrateIdLdapRequest>>{};
+    final map = <String, List<MmMigrateIdLdapRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMigrateIdLdapRequest.listFromJson(
+        final value = MmMigrateIdLdapRequest.listFromJson(
           entry.value,
           growable: growable,
         );

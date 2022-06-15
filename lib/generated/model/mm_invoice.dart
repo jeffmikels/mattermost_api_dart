@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMInvoice {
-  /// Returns a new [MMInvoice] instance.
-  MMInvoice({
+class MmInvoice {
+  /// Returns a new [MmInvoice] instance.
+  MmInvoice({
     this.id,
     this.number,
     this.createAt,
@@ -97,12 +97,12 @@ class MMInvoice {
   ///
   String? subscriptionId;
 
-  List<MMInvoiceLineItem> item;
+  List<MmInvoiceLineItem> item;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMInvoice &&
+      other is MmInvoice &&
           other.id == id &&
           other.number == number &&
           other.createAt == createAt &&
@@ -130,7 +130,7 @@ class MMInvoice {
 
   @override
   String toString() =>
-      'MMInvoice[id=$id, number=$number, createAt=$createAt, total=$total, tax=$tax, status=$status, periodStart=$periodStart, periodEnd=$periodEnd, subscriptionId=$subscriptionId, item=$item]';
+      'MmInvoice[id=$id, number=$number, createAt=$createAt, total=$total, tax=$tax, status=$status, periodStart=$periodStart, periodEnd=$periodEnd, subscriptionId=$subscriptionId, item=$item]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -165,10 +165,10 @@ class MMInvoice {
     return _json;
   }
 
-  /// Returns a new [MMInvoice] instance and imports its values from
+  /// Returns a new [MmInvoice] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMInvoice? fromJson(dynamic value) {
+  static MmInvoice? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -177,13 +177,13 @@ class MMInvoice {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMInvoice[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMInvoice[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmInvoice[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmInvoice[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMInvoice(
+      return MmInvoice(
         id: mapValueOfType<String>(json, r'id'),
         number: mapValueOfType<String>(json, r'number'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -193,20 +193,20 @@ class MMInvoice {
         periodStart: mapValueOfType<int>(json, r'period_start'),
         periodEnd: mapValueOfType<int>(json, r'period_end'),
         subscriptionId: mapValueOfType<String>(json, r'subscription_id'),
-        item: MMInvoiceLineItem.listFromJson(json[r'item']) ?? const [],
+        item: MmInvoiceLineItem.listFromJson(json[r'item']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMInvoice>? listFromJson(
+  static List<MmInvoice>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMInvoice>[];
+    final result = <MmInvoice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMInvoice.fromJson(row);
+        final value = MmInvoice.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -215,12 +215,12 @@ class MMInvoice {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMInvoice> mapFromJson(dynamic json) {
-    final map = <String, MMInvoice>{};
+  static Map<String, MmInvoice> mapFromJson(dynamic json) {
+    final map = <String, MmInvoice>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInvoice.fromJson(entry.value);
+        final value = MmInvoice.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -229,16 +229,16 @@ class MMInvoice {
     return map;
   }
 
-  // maps a json object with a list of MMInvoice-objects as value to a dart map
-  static Map<String, List<MMInvoice>> mapListFromJson(
+  // maps a json object with a list of MmInvoice-objects as value to a dart map
+  static Map<String, List<MmInvoice>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMInvoice>>{};
+    final map = <String, List<MmInvoice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInvoice.listFromJson(
+        final value = MmInvoice.listFromJson(
           entry.value,
           growable: growable,
         );

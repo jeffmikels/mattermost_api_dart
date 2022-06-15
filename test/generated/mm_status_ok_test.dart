@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMStatusOK
+// tests for MmStatusOK
 void main() {
-  // final instance = MMStatusOK();
+  // final instance = MmStatusOK();
 
-  group('test MMStatusOK', () {
+  group('test MmStatusOK', () {
     // Will contain \"ok\" if the request was successful and there was nothing else to return
     // String status
     test('to test the property `status`', () async {

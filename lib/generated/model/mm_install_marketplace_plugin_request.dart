@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMInstallMarketplacePluginRequest {
-  /// Returns a new [MMInstallMarketplacePluginRequest] instance.
-  MMInstallMarketplacePluginRequest({
+class MmInstallMarketplacePluginRequest {
+  /// Returns a new [MmInstallMarketplacePluginRequest] instance.
+  MmInstallMarketplacePluginRequest({
     required this.id,
   });
 
@@ -21,7 +21,7 @@ class MMInstallMarketplacePluginRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMInstallMarketplacePluginRequest && other.id == id;
+      identical(this, other) || other is MmInstallMarketplacePluginRequest && other.id == id;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMInstallMarketplacePluginRequest {
       (id.hashCode);
 
   @override
-  String toString() => 'MMInstallMarketplacePluginRequest[id=$id]';
+  String toString() => 'MmInstallMarketplacePluginRequest[id=$id]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMInstallMarketplacePluginRequest {
     return _json;
   }
 
-  /// Returns a new [MMInstallMarketplacePluginRequest] instance and imports its values from
+  /// Returns a new [MmInstallMarketplacePluginRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMInstallMarketplacePluginRequest? fromJson(dynamic value) {
+  static MmInstallMarketplacePluginRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMInstallMarketplacePluginRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMInstallMarketplacePluginRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMInstallMarketplacePluginRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmInstallMarketplacePluginRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmInstallMarketplacePluginRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMInstallMarketplacePluginRequest(
+      return MmInstallMarketplacePluginRequest(
         id: mapValueOfType<String>(json, r'id')!,
       );
     }
     return null;
   }
 
-  static List<MMInstallMarketplacePluginRequest>? listFromJson(
+  static List<MmInstallMarketplacePluginRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMInstallMarketplacePluginRequest>[];
+    final result = <MmInstallMarketplacePluginRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMInstallMarketplacePluginRequest.fromJson(row);
+        final value = MmInstallMarketplacePluginRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMInstallMarketplacePluginRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMInstallMarketplacePluginRequest> mapFromJson(dynamic json) {
-    final map = <String, MMInstallMarketplacePluginRequest>{};
+  static Map<String, MmInstallMarketplacePluginRequest> mapFromJson(dynamic json) {
+    final map = <String, MmInstallMarketplacePluginRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInstallMarketplacePluginRequest.fromJson(entry.value);
+        final value = MmInstallMarketplacePluginRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMInstallMarketplacePluginRequest {
     return map;
   }
 
-  // maps a json object with a list of MMInstallMarketplacePluginRequest-objects as value to a dart map
-  static Map<String, List<MMInstallMarketplacePluginRequest>> mapListFromJson(
+  // maps a json object with a list of MmInstallMarketplacePluginRequest-objects as value to a dart map
+  static Map<String, List<MmInstallMarketplacePluginRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMInstallMarketplacePluginRequest>>{};
+    final map = <String, List<MmInstallMarketplacePluginRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInstallMarketplacePluginRequest.listFromJson(
+        final value = MmInstallMarketplacePluginRequest.listFromJson(
           entry.value,
           growable: growable,
         );

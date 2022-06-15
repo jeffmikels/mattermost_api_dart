@@ -23,17 +23,17 @@ class MattermostOpenGraphApi {
   ///
   /// Parameters:
   ///
-  /// * [MMOpenGraphRequest] mMOpenGraphRequest (required):
+  /// * [MmOpenGraphRequest] mmOpenGraphRequest (required):
   Future<Response> openGraphWithHttpInfo(
-    MMOpenGraphRequest mMOpenGraphRequest,
+    MmOpenGraphRequest mmOpenGraphRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/opengraph';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMOpenGraphRequest;
+    Object? postBody = mmOpenGraphRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -56,15 +56,15 @@ class MattermostOpenGraphApi {
   ///
   /// Parameters:
   ///
-  /// * [MMOpenGraphRequest] mMOpenGraphRequest (required):
-  Future<MMOpenGraph?> openGraph(
-    MMOpenGraphRequest mMOpenGraphRequest,
+  /// * [MmOpenGraphRequest] mmOpenGraphRequest (required):
+  Future<MmOpenGraph?> openGraph(
+    MmOpenGraphRequest mmOpenGraphRequest,
   ) async {
     final response = await openGraphWithHttpInfo(
-      mMOpenGraphRequest,
+      mmOpenGraphRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -72,8 +72,8 @@ class MattermostOpenGraphApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMOpenGraph',
-      ) as MMOpenGraph;
+        'MmOpenGraph',
+      ) as MmOpenGraph;
     }
     return null;
   }

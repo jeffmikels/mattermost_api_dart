@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateUserRequest {
-  /// Returns a new [MMCreateUserRequest] instance.
-  MMCreateUserRequest({
+class MmCreateUserRequest {
+  /// Returns a new [MmCreateUserRequest] instance.
+  MmCreateUserRequest({
     required this.email,
     required this.username,
     this.firstName,
@@ -103,12 +103,12 @@ class MMCreateUserRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMUserNotifyProps? notifyProps;
+  MmUserNotifyProps? notifyProps;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreateUserRequest &&
+      other is MmCreateUserRequest &&
           other.email == email &&
           other.username == username &&
           other.firstName == firstName &&
@@ -138,7 +138,7 @@ class MMCreateUserRequest {
 
   @override
   String toString() =>
-      'MMCreateUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, authData=$authData, authService=$authService, password=$password, locale=$locale, props=$props, notifyProps=$notifyProps]';
+      'MmCreateUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, authData=$authData, authService=$authService, password=$password, locale=$locale, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -174,10 +174,10 @@ class MMCreateUserRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateUserRequest] instance and imports its values from
+  /// Returns a new [MmCreateUserRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateUserRequest? fromJson(dynamic value) {
+  static MmCreateUserRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -186,13 +186,13 @@ class MMCreateUserRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateUserRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateUserRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateUserRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateUserRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateUserRequest(
+      return MmCreateUserRequest(
         email: mapValueOfType<String>(json, r'email')!,
         username: mapValueOfType<String>(json, r'username')!,
         firstName: mapValueOfType<String>(json, r'first_name'),
@@ -203,20 +203,20 @@ class MMCreateUserRequest {
         password: mapValueOfType<String>(json, r'password'),
         locale: mapValueOfType<String>(json, r'locale'),
         props: mapValueOfType<Map>(json, r'props'),
-        notifyProps: MMUserNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmUserNotifyProps.fromJson(json[r'notify_props']),
       );
     }
     return null;
   }
 
-  static List<MMCreateUserRequest>? listFromJson(
+  static List<MmCreateUserRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateUserRequest>[];
+    final result = <MmCreateUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateUserRequest.fromJson(row);
+        final value = MmCreateUserRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -225,12 +225,12 @@ class MMCreateUserRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateUserRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateUserRequest>{};
+  static Map<String, MmCreateUserRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateUserRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateUserRequest.fromJson(entry.value);
+        final value = MmCreateUserRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -239,16 +239,16 @@ class MMCreateUserRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateUserRequest-objects as value to a dart map
-  static Map<String, List<MMCreateUserRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateUserRequest-objects as value to a dart map
+  static Map<String, List<MmCreateUserRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateUserRequest>>{};
+    final map = <String, List<MmCreateUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateUserRequest.listFromJson(
+        final value = MmCreateUserRequest.listFromJson(
           entry.value,
           growable: growable,
         );

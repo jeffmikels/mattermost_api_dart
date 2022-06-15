@@ -1,4 +1,4 @@
-# mattermost_api.model.MMGetTeamInviteInfo200Response
+# mattermost_api.model.MmGetTeamInviteInfo200Response
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMGetTeamInviteInfo200Response example = await client.getTeamInviteInfo200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmGetTeamInviteInfo200Response example = await client.getTeamInviteInfo200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

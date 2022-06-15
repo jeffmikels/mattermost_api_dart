@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMVerifyUserEmailRequest {
-  /// Returns a new [MMVerifyUserEmailRequest] instance.
-  MMVerifyUserEmailRequest({
+class MmVerifyUserEmailRequest {
+  /// Returns a new [MmVerifyUserEmailRequest] instance.
+  MmVerifyUserEmailRequest({
     required this.token,
   });
 
@@ -20,7 +20,7 @@ class MMVerifyUserEmailRequest {
   String token;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMVerifyUserEmailRequest && other.token == token;
+  bool operator ==(Object other) => identical(this, other) || other is MmVerifyUserEmailRequest && other.token == token;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMVerifyUserEmailRequest {
       (token.hashCode);
 
   @override
-  String toString() => 'MMVerifyUserEmailRequest[token=$token]';
+  String toString() => 'MmVerifyUserEmailRequest[token=$token]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class MMVerifyUserEmailRequest {
     return _json;
   }
 
-  /// Returns a new [MMVerifyUserEmailRequest] instance and imports its values from
+  /// Returns a new [MmVerifyUserEmailRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMVerifyUserEmailRequest? fromJson(dynamic value) {
+  static MmVerifyUserEmailRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,27 +48,27 @@ class MMVerifyUserEmailRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMVerifyUserEmailRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMVerifyUserEmailRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmVerifyUserEmailRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmVerifyUserEmailRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMVerifyUserEmailRequest(
+      return MmVerifyUserEmailRequest(
         token: mapValueOfType<String>(json, r'token')!,
       );
     }
     return null;
   }
 
-  static List<MMVerifyUserEmailRequest>? listFromJson(
+  static List<MmVerifyUserEmailRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMVerifyUserEmailRequest>[];
+    final result = <MmVerifyUserEmailRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMVerifyUserEmailRequest.fromJson(row);
+        final value = MmVerifyUserEmailRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -77,12 +77,12 @@ class MMVerifyUserEmailRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMVerifyUserEmailRequest> mapFromJson(dynamic json) {
-    final map = <String, MMVerifyUserEmailRequest>{};
+  static Map<String, MmVerifyUserEmailRequest> mapFromJson(dynamic json) {
+    final map = <String, MmVerifyUserEmailRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMVerifyUserEmailRequest.fromJson(entry.value);
+        final value = MmVerifyUserEmailRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -91,16 +91,16 @@ class MMVerifyUserEmailRequest {
     return map;
   }
 
-  // maps a json object with a list of MMVerifyUserEmailRequest-objects as value to a dart map
-  static Map<String, List<MMVerifyUserEmailRequest>> mapListFromJson(
+  // maps a json object with a list of MmVerifyUserEmailRequest-objects as value to a dart map
+  static Map<String, List<MmVerifyUserEmailRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMVerifyUserEmailRequest>>{};
+    final map = <String, List<MmVerifyUserEmailRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMVerifyUserEmailRequest.listFromJson(
+        final value = MmVerifyUserEmailRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCommand
+// tests for MmCommand
 void main() {
-  // final instance = MMCommand();
+  // final instance = MmCommand();
 
-  group('test MMCommand', () {
+  group('test MmCommand', () {
     // The ID of the slash command
     // String id
     test('to test the property `id`', () async {

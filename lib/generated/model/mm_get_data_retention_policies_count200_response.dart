@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGetDataRetentionPoliciesCount200Response {
-  /// Returns a new [MMGetDataRetentionPoliciesCount200Response] instance.
-  MMGetDataRetentionPoliciesCount200Response({
+class MmGetDataRetentionPoliciesCount200Response {
+  /// Returns a new [MmGetDataRetentionPoliciesCount200Response] instance.
+  MmGetDataRetentionPoliciesCount200Response({
     this.totalCount,
   });
 
@@ -27,7 +27,7 @@ class MMGetDataRetentionPoliciesCount200Response {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMGetDataRetentionPoliciesCount200Response && other.totalCount == totalCount;
+      identical(this, other) || other is MmGetDataRetentionPoliciesCount200Response && other.totalCount == totalCount;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMGetDataRetentionPoliciesCount200Response {
       (totalCount == null ? 0 : totalCount!.hashCode);
 
   @override
-  String toString() => 'MMGetDataRetentionPoliciesCount200Response[totalCount=$totalCount]';
+  String toString() => 'MmGetDataRetentionPoliciesCount200Response[totalCount=$totalCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMGetDataRetentionPoliciesCount200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetDataRetentionPoliciesCount200Response] instance and imports its values from
+  /// Returns a new [MmGetDataRetentionPoliciesCount200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetDataRetentionPoliciesCount200Response? fromJson(dynamic value) {
+  static MmGetDataRetentionPoliciesCount200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,28 +58,28 @@ class MMGetDataRetentionPoliciesCount200Response {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMGetDataRetentionPoliciesCount200Response[$key]" is missing from JSON.');
+              'Required key "MmGetDataRetentionPoliciesCount200Response[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMGetDataRetentionPoliciesCount200Response[$key]" has a null value in JSON.');
+              'Required key "MmGetDataRetentionPoliciesCount200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetDataRetentionPoliciesCount200Response(
+      return MmGetDataRetentionPoliciesCount200Response(
         totalCount: mapValueOfType<int>(json, r'total_count'),
       );
     }
     return null;
   }
 
-  static List<MMGetDataRetentionPoliciesCount200Response>? listFromJson(
+  static List<MmGetDataRetentionPoliciesCount200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetDataRetentionPoliciesCount200Response>[];
+    final result = <MmGetDataRetentionPoliciesCount200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetDataRetentionPoliciesCount200Response.fromJson(row);
+        final value = MmGetDataRetentionPoliciesCount200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -88,12 +88,12 @@ class MMGetDataRetentionPoliciesCount200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetDataRetentionPoliciesCount200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetDataRetentionPoliciesCount200Response>{};
+  static Map<String, MmGetDataRetentionPoliciesCount200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetDataRetentionPoliciesCount200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetDataRetentionPoliciesCount200Response.fromJson(entry.value);
+        final value = MmGetDataRetentionPoliciesCount200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -102,16 +102,16 @@ class MMGetDataRetentionPoliciesCount200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetDataRetentionPoliciesCount200Response-objects as value to a dart map
-  static Map<String, List<MMGetDataRetentionPoliciesCount200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetDataRetentionPoliciesCount200Response-objects as value to a dart map
+  static Map<String, List<MmGetDataRetentionPoliciesCount200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetDataRetentionPoliciesCount200Response>>{};
+    final map = <String, List<MmGetDataRetentionPoliciesCount200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetDataRetentionPoliciesCount200Response.listFromJson(
+        final value = MmGetDataRetentionPoliciesCount200Response.listFromJson(
           entry.value,
           growable: growable,
         );

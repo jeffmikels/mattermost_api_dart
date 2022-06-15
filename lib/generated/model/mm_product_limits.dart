@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMProductLimits {
-  /// Returns a new [MMProductLimits] instance.
-  MMProductLimits({
+class MmProductLimits {
+  /// Returns a new [MmProductLimits] instance.
+  MmProductLimits({
     this.boards,
     this.files,
     this.integrations,
@@ -26,7 +26,7 @@ class MMProductLimits {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMBoardsLimits? boards;
+  MmBoardsLimits? boards;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -34,7 +34,7 @@ class MMProductLimits {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMFilesLimits? files;
+  MmFilesLimits? files;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -42,7 +42,7 @@ class MMProductLimits {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMIntegrationsLimits? integrations;
+  MmIntegrationsLimits? integrations;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -50,7 +50,7 @@ class MMProductLimits {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMMessagesLimits? messages;
+  MmMessagesLimits? messages;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -58,12 +58,12 @@ class MMProductLimits {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMTeamsLimits? teams;
+  MmTeamsLimits? teams;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMProductLimits &&
+      other is MmProductLimits &&
           other.boards == boards &&
           other.files == files &&
           other.integrations == integrations &&
@@ -81,7 +81,7 @@ class MMProductLimits {
 
   @override
   String toString() =>
-      'MMProductLimits[boards=$boards, files=$files, integrations=$integrations, messages=$messages, teams=$teams]';
+      'MmProductLimits[boards=$boards, files=$files, integrations=$integrations, messages=$messages, teams=$teams]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMProductLimits {
     return _json;
   }
 
-  /// Returns a new [MMProductLimits] instance and imports its values from
+  /// Returns a new [MmProductLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMProductLimits? fromJson(dynamic value) {
+  static MmProductLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,31 +115,31 @@ class MMProductLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMProductLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMProductLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmProductLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmProductLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMProductLimits(
-        boards: MMBoardsLimits.fromJson(json[r'boards']),
-        files: MMFilesLimits.fromJson(json[r'files']),
-        integrations: MMIntegrationsLimits.fromJson(json[r'integrations']),
-        messages: MMMessagesLimits.fromJson(json[r'messages']),
-        teams: MMTeamsLimits.fromJson(json[r'teams']),
+      return MmProductLimits(
+        boards: MmBoardsLimits.fromJson(json[r'boards']),
+        files: MmFilesLimits.fromJson(json[r'files']),
+        integrations: MmIntegrationsLimits.fromJson(json[r'integrations']),
+        messages: MmMessagesLimits.fromJson(json[r'messages']),
+        teams: MmTeamsLimits.fromJson(json[r'teams']),
       );
     }
     return null;
   }
 
-  static List<MMProductLimits>? listFromJson(
+  static List<MmProductLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMProductLimits>[];
+    final result = <MmProductLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMProductLimits.fromJson(row);
+        final value = MmProductLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -148,12 +148,12 @@ class MMProductLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMProductLimits> mapFromJson(dynamic json) {
-    final map = <String, MMProductLimits>{};
+  static Map<String, MmProductLimits> mapFromJson(dynamic json) {
+    final map = <String, MmProductLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMProductLimits.fromJson(entry.value);
+        final value = MmProductLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -162,16 +162,16 @@ class MMProductLimits {
     return map;
   }
 
-  // maps a json object with a list of MMProductLimits-objects as value to a dart map
-  static Map<String, List<MMProductLimits>> mapListFromJson(
+  // maps a json object with a list of MmProductLimits-objects as value to a dart map
+  static Map<String, List<MmProductLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMProductLimits>>{};
+    final map = <String, List<MmProductLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMProductLimits.listFromJson(
+        final value = MmProductLimits.listFromJson(
           entry.value,
           growable: growable,
         );

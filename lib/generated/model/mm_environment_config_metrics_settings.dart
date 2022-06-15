@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigMetricsSettings {
-  /// Returns a new [MMEnvironmentConfigMetricsSettings] instance.
-  MMEnvironmentConfigMetricsSettings({
+class MmEnvironmentConfigMetricsSettings {
+  /// Returns a new [MmEnvironmentConfigMetricsSettings] instance.
+  MmEnvironmentConfigMetricsSettings({
     this.enable,
     this.blockProfileRate,
     this.listenAddress,
@@ -45,7 +45,7 @@ class MMEnvironmentConfigMetricsSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigMetricsSettings &&
+      other is MmEnvironmentConfigMetricsSettings &&
           other.enable == enable &&
           other.blockProfileRate == blockProfileRate &&
           other.listenAddress == listenAddress;
@@ -59,7 +59,7 @@ class MMEnvironmentConfigMetricsSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
+      'MmEnvironmentConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -75,10 +75,10 @@ class MMEnvironmentConfigMetricsSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigMetricsSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigMetricsSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigMetricsSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigMetricsSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -88,14 +88,14 @@ class MMEnvironmentConfigMetricsSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigMetricsSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigMetricsSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigMetricsSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigMetricsSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigMetricsSettings(
+      return MmEnvironmentConfigMetricsSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         blockProfileRate: mapValueOfType<bool>(json, r'BlockProfileRate'),
         listenAddress: mapValueOfType<bool>(json, r'ListenAddress'),
@@ -104,14 +104,14 @@ class MMEnvironmentConfigMetricsSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigMetricsSettings>? listFromJson(
+  static List<MmEnvironmentConfigMetricsSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigMetricsSettings>[];
+    final result = <MmEnvironmentConfigMetricsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigMetricsSettings.fromJson(row);
+        final value = MmEnvironmentConfigMetricsSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -120,12 +120,12 @@ class MMEnvironmentConfigMetricsSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigMetricsSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigMetricsSettings>{};
+  static Map<String, MmEnvironmentConfigMetricsSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigMetricsSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigMetricsSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigMetricsSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,16 +134,16 @@ class MMEnvironmentConfigMetricsSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigMetricsSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigMetricsSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigMetricsSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigMetricsSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigMetricsSettings>>{};
+    final map = <String, List<MmEnvironmentConfigMetricsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigMetricsSettings.listFromJson(
+        final value = MmEnvironmentConfigMetricsSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMFilesLimits {
-  /// Returns a new [MMFilesLimits] instance.
-  MMFilesLimits({
+class MmFilesLimits {
+  /// Returns a new [MmFilesLimits] instance.
+  MmFilesLimits({
     this.totalStorage,
   });
 
@@ -20,7 +20,7 @@ class MMFilesLimits {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMFilesLimits && other.totalStorage == totalStorage;
+      identical(this, other) || other is MmFilesLimits && other.totalStorage == totalStorage;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMFilesLimits {
       (totalStorage == null ? 0 : totalStorage!.hashCode);
 
   @override
-  String toString() => 'MMFilesLimits[totalStorage=$totalStorage]';
+  String toString() => 'MmFilesLimits[totalStorage=$totalStorage]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -38,10 +38,10 @@ class MMFilesLimits {
     return _json;
   }
 
-  /// Returns a new [MMFilesLimits] instance and imports its values from
+  /// Returns a new [MmFilesLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMFilesLimits? fromJson(dynamic value) {
+  static MmFilesLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -50,27 +50,27 @@ class MMFilesLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMFilesLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMFilesLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmFilesLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmFilesLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMFilesLimits(
+      return MmFilesLimits(
         totalStorage: mapValueOfType<int>(json, r'total_storage'),
       );
     }
     return null;
   }
 
-  static List<MMFilesLimits>? listFromJson(
+  static List<MmFilesLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMFilesLimits>[];
+    final result = <MmFilesLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMFilesLimits.fromJson(row);
+        final value = MmFilesLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -79,12 +79,12 @@ class MMFilesLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMFilesLimits> mapFromJson(dynamic json) {
-    final map = <String, MMFilesLimits>{};
+  static Map<String, MmFilesLimits> mapFromJson(dynamic json) {
+    final map = <String, MmFilesLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMFilesLimits.fromJson(entry.value);
+        final value = MmFilesLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -93,16 +93,16 @@ class MMFilesLimits {
     return map;
   }
 
-  // maps a json object with a list of MMFilesLimits-objects as value to a dart map
-  static Map<String, List<MMFilesLimits>> mapListFromJson(
+  // maps a json object with a list of MmFilesLimits-objects as value to a dart map
+  static Map<String, List<MmFilesLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMFilesLimits>>{};
+    final map = <String, List<MmFilesLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMFilesLimits.listFromJson(
+        final value = MmFilesLimits.listFromJson(
           entry.value,
           growable: growable,
         );

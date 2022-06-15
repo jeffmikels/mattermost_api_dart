@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigNativeAppSettings {
-  /// Returns a new [MMConfigNativeAppSettings] instance.
-  MMConfigNativeAppSettings({
+class MmConfigNativeAppSettings {
+  /// Returns a new [MmConfigNativeAppSettings] instance.
+  MmConfigNativeAppSettings({
     this.appDownloadLink,
     this.androidAppDownloadLink,
     this.iosAppDownloadLink,
@@ -45,7 +45,7 @@ class MMConfigNativeAppSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigNativeAppSettings &&
+      other is MmConfigNativeAppSettings &&
           other.appDownloadLink == appDownloadLink &&
           other.androidAppDownloadLink == androidAppDownloadLink &&
           other.iosAppDownloadLink == iosAppDownloadLink;
@@ -59,7 +59,7 @@ class MMConfigNativeAppSettings {
 
   @override
   String toString() =>
-      'MMConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
+      'MmConfigNativeAppSettings[appDownloadLink=$appDownloadLink, androidAppDownloadLink=$androidAppDownloadLink, iosAppDownloadLink=$iosAppDownloadLink]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -75,10 +75,10 @@ class MMConfigNativeAppSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigNativeAppSettings] instance and imports its values from
+  /// Returns a new [MmConfigNativeAppSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigNativeAppSettings? fromJson(dynamic value) {
+  static MmConfigNativeAppSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -87,13 +87,13 @@ class MMConfigNativeAppSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigNativeAppSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigNativeAppSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigNativeAppSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigNativeAppSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigNativeAppSettings(
+      return MmConfigNativeAppSettings(
         appDownloadLink: mapValueOfType<String>(json, r'AppDownloadLink'),
         androidAppDownloadLink: mapValueOfType<String>(json, r'AndroidAppDownloadLink'),
         iosAppDownloadLink: mapValueOfType<String>(json, r'IosAppDownloadLink'),
@@ -102,14 +102,14 @@ class MMConfigNativeAppSettings {
     return null;
   }
 
-  static List<MMConfigNativeAppSettings>? listFromJson(
+  static List<MmConfigNativeAppSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigNativeAppSettings>[];
+    final result = <MmConfigNativeAppSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigNativeAppSettings.fromJson(row);
+        final value = MmConfigNativeAppSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -118,12 +118,12 @@ class MMConfigNativeAppSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigNativeAppSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigNativeAppSettings>{};
+  static Map<String, MmConfigNativeAppSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigNativeAppSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigNativeAppSettings.fromJson(entry.value);
+        final value = MmConfigNativeAppSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -132,16 +132,16 @@ class MMConfigNativeAppSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigNativeAppSettings-objects as value to a dart map
-  static Map<String, List<MMConfigNativeAppSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigNativeAppSettings-objects as value to a dart map
+  static Map<String, List<MmConfigNativeAppSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigNativeAppSettings>>{};
+    final map = <String, List<MmConfigNativeAppSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigNativeAppSettings.listFromJson(
+        final value = MmConfigNativeAppSettings.listFromJson(
           entry.value,
           growable: growable,
         );

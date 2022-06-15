@@ -10,16 +10,16 @@
 
 part of mattermost.api;
 
-class MMTeamsLimits {
-  /// Returns a new [MMTeamsLimits] instance.
-  MMTeamsLimits({
+class MmTeamsLimits {
+  /// Returns a new [MmTeamsLimits] instance.
+  MmTeamsLimits({
     this.active,
   });
 
   int? active;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMTeamsLimits && other.active == active;
+  bool operator ==(Object other) => identical(this, other) || other is MmTeamsLimits && other.active == active;
 
   @override
   int get hashCode =>
@@ -27,7 +27,7 @@ class MMTeamsLimits {
       (active == null ? 0 : active!.hashCode);
 
   @override
-  String toString() => 'MMTeamsLimits[active=$active]';
+  String toString() => 'MmTeamsLimits[active=$active]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMTeamsLimits {
     return _json;
   }
 
-  /// Returns a new [MMTeamsLimits] instance and imports its values from
+  /// Returns a new [MmTeamsLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTeamsLimits? fromJson(dynamic value) {
+  static MmTeamsLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMTeamsLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTeamsLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTeamsLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTeamsLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTeamsLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTeamsLimits(
+      return MmTeamsLimits(
         active: mapValueOfType<int>(json, r'active'),
       );
     }
     return null;
   }
 
-  static List<MMTeamsLimits>? listFromJson(
+  static List<MmTeamsLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTeamsLimits>[];
+    final result = <MmTeamsLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTeamsLimits.fromJson(row);
+        final value = MmTeamsLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMTeamsLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTeamsLimits> mapFromJson(dynamic json) {
-    final map = <String, MMTeamsLimits>{};
+  static Map<String, MmTeamsLimits> mapFromJson(dynamic json) {
+    final map = <String, MmTeamsLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamsLimits.fromJson(entry.value);
+        final value = MmTeamsLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMTeamsLimits {
     return map;
   }
 
-  // maps a json object with a list of MMTeamsLimits-objects as value to a dart map
-  static Map<String, List<MMTeamsLimits>> mapListFromJson(
+  // maps a json object with a list of MmTeamsLimits-objects as value to a dart map
+  static Map<String, List<MmTeamsLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTeamsLimits>>{};
+    final map = <String, List<MmTeamsLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamsLimits.listFromJson(
+        final value = MmTeamsLimits.listFromJson(
           entry.value,
           growable: growable,
         );

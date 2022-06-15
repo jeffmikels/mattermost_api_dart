@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginManifestBackend
+// tests for MmPluginManifestBackend
 void main() {
-  // final instance = MMPluginManifestBackend();
+  // final instance = MmPluginManifestBackend();
 
-  group('test MMPluginManifestBackend', () {
+  group('test MmPluginManifestBackend', () {
     // Path to the executable binary.
     // String executable
     test('to test the property `executable`', () async {

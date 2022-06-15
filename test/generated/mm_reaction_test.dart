@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMReaction
+// tests for MmReaction
 void main() {
-  // final instance = MMReaction();
+  // final instance = MmReaction();
 
-  group('test MMReaction', () {
+  group('test MmReaction', () {
     // The ID of the user that made this reaction
     // String userId
     test('to test the property `userId`', () async {

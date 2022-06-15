@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMServerBusy {
-  /// Returns a new [MMServerBusy] instance.
-  MMServerBusy({
+class MmServerBusy {
+  /// Returns a new [MmServerBusy] instance.
+  MmServerBusy({
     this.busy,
     this.expires,
   });
@@ -37,7 +37,7 @@ class MMServerBusy {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMServerBusy && other.busy == busy && other.expires == expires;
+      identical(this, other) || other is MmServerBusy && other.busy == busy && other.expires == expires;
 
   @override
   int get hashCode =>
@@ -45,7 +45,7 @@ class MMServerBusy {
       (busy == null ? 0 : busy!.hashCode) + (expires == null ? 0 : expires!.hashCode);
 
   @override
-  String toString() => 'MMServerBusy[busy=$busy, expires=$expires]';
+  String toString() => 'MmServerBusy[busy=$busy, expires=$expires]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class MMServerBusy {
     return _json;
   }
 
-  /// Returns a new [MMServerBusy] instance and imports its values from
+  /// Returns a new [MmServerBusy] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMServerBusy? fromJson(dynamic value) {
+  static MmServerBusy? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,13 +70,13 @@ class MMServerBusy {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMServerBusy[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMServerBusy[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmServerBusy[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmServerBusy[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMServerBusy(
+      return MmServerBusy(
         busy: mapValueOfType<bool>(json, r'busy'),
         expires: mapValueOfType<int>(json, r'expires'),
       );
@@ -84,14 +84,14 @@ class MMServerBusy {
     return null;
   }
 
-  static List<MMServerBusy>? listFromJson(
+  static List<MmServerBusy>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMServerBusy>[];
+    final result = <MmServerBusy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMServerBusy.fromJson(row);
+        final value = MmServerBusy.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +100,12 @@ class MMServerBusy {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMServerBusy> mapFromJson(dynamic json) {
-    final map = <String, MMServerBusy>{};
+  static Map<String, MmServerBusy> mapFromJson(dynamic json) {
+    final map = <String, MmServerBusy>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMServerBusy.fromJson(entry.value);
+        final value = MmServerBusy.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,16 +114,16 @@ class MMServerBusy {
     return map;
   }
 
-  // maps a json object with a list of MMServerBusy-objects as value to a dart map
-  static Map<String, List<MMServerBusy>> mapListFromJson(
+  // maps a json object with a list of MmServerBusy-objects as value to a dart map
+  static Map<String, List<MmServerBusy>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMServerBusy>>{};
+    final map = <String, List<MmServerBusy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMServerBusy.listFromJson(
+        final value = MmServerBusy.listFromJson(
           entry.value,
           growable: growable,
         );

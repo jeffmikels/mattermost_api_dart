@@ -10,8 +10,8 @@
 
 part of mattermost.api;
 
-class MMQueryParam {
-  const MMQueryParam(this.name, this.value);
+class MmQueryParam {
+  const MmQueryParam(this.name, this.value);
 
   final String name;
   final String value;
@@ -21,15 +21,15 @@ class MMQueryParam {
 }
 
 // Ported from the Java version.
-Iterable<MMQueryParam> _queryParams(String collectionFormat, String name, dynamic value,) {
+Iterable<MmQueryParam> _queryParams(String collectionFormat, String name, dynamic value,) {
   // Assertions to run in debug mode only.
   assert(name.isNotEmpty, 'Parameter cannot be an empty string.');
 
-  final params = <MMQueryParam>[];
+  final params = <MmQueryParam>[];
 
   if (value is List) {
     if (collectionFormat == 'multi') {
-      return value.map((dynamic v) => MMQueryParam(name, parameterToString(v)),);
+      return value.map((dynamic v) => MmQueryParam(name, parameterToString(v)),);
     }
 
     // Default collection format is 'csv'.
@@ -39,9 +39,9 @@ Iterable<MMQueryParam> _queryParams(String collectionFormat, String name, dynami
 
     final delimiter = _delimiters[collectionFormat] ?? ',';
 
-    params.add(MMQueryParam(name, value.map<dynamic>(parameterToString).join(delimiter),));
+    params.add(MmQueryParam(name, value.map<dynamic>(parameterToString).join(delimiter),));
   } else if (value != null) {
-    params.add(MMQueryParam(name, parameterToString(value)));
+    params.add(MmQueryParam(name, parameterToString(value)));
   }
 
   return params;

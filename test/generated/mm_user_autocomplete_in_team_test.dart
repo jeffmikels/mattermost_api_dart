@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserAutocompleteInTeam
+// tests for MmUserAutocompleteInTeam
 void main() {
-  // final instance = MMUserAutocompleteInTeam();
+  // final instance = MmUserAutocompleteInTeam();
 
-  group('test MMUserAutocompleteInTeam', () {
+  group('test MmUserAutocompleteInTeam', () {
     // A list of user objects in the team
-    // List<MMUser> inTeam (default value: const [])
+    // List<MmUser> inTeam (default value: const [])
     test('to test the property `inTeam`', () async {
       // TODO
     });

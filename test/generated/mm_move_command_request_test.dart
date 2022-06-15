@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMoveCommandRequest
+// tests for MmMoveCommandRequest
 void main() {
-  // final instance = MMMoveCommandRequest();
+  // final instance = MmMoveCommandRequest();
 
-  group('test MMMoveCommandRequest', () {
+  group('test MmMoveCommandRequest', () {
     // Destination teamId
     // String teamId
     test('to test the property `teamId`', () async {

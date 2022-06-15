@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCloudCustomer
+// tests for MmCloudCustomer
 void main() {
-  // final instance = MMCloudCustomer();
+  // final instance = MmCloudCustomer();
 
-  group('test MMCloudCustomer', () {
+  group('test MmCloudCustomer', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -56,17 +56,17 @@ void main() {
       // TODO
     });
 
-    // MMAddress billingAddress
+    // MmAddress billingAddress
     test('to test the property `billingAddress`', () async {
       // TODO
     });
 
-    // MMAddress companyAddress
+    // MmAddress companyAddress
     test('to test the property `companyAddress`', () async {
       // TODO
     });
 
-    // MMPaymentMethod paymentMethod
+    // MmPaymentMethod paymentMethod
     test('to test the property `paymentMethod`', () async {
       // TODO
     });

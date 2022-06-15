@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenInteractiveDialogRequest
+// tests for MmOpenInteractiveDialogRequest
 void main() {
-  // final instance = MMOpenInteractiveDialogRequest();
+  // final instance = MmOpenInteractiveDialogRequest();
 
-  group('test MMOpenInteractiveDialogRequest', () {
+  group('test MmOpenInteractiveDialogRequest', () {
     // Trigger ID provided by other action
     // String triggerId
     test('to test the property `triggerId`', () async {
@@ -28,7 +28,7 @@ void main() {
       // TODO
     });
 
-    // MMOpenInteractiveDialogRequestDialog dialog
+    // MmOpenInteractiveDialogRequestDialog dialog
     test('to test the property `dialog`', () async {
       // TODO
     });

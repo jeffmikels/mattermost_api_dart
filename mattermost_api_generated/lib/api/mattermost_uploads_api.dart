@@ -26,15 +26,15 @@ class MattermostUploadsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateUploadRequest] mMCreateUploadRequest (required):
-  Future<Response> createUploadWithHttpInfo(MMCreateUploadRequest mMCreateUploadRequest,) async {
+  /// * [MmCreateUploadRequest] mmCreateUploadRequest (required):
+  Future<Response> createUploadWithHttpInfo(MmCreateUploadRequest mmCreateUploadRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/uploads';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateUploadRequest;
+    Object? postBody = mmCreateUploadRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -58,17 +58,17 @@ class MattermostUploadsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateUploadRequest] mMCreateUploadRequest (required):
-  Future<MMUploadSession?> createUpload(MMCreateUploadRequest mMCreateUploadRequest,) async {
-    final response = await createUploadWithHttpInfo(mMCreateUploadRequest,);
+  /// * [MmCreateUploadRequest] mmCreateUploadRequest (required):
+  Future<MmUploadSession?> createUpload(MmCreateUploadRequest mmCreateUploadRequest,) async {
+    final response = await createUploadWithHttpInfo(mmCreateUploadRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMUploadSession',) as MMUploadSession;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmUploadSession',) as MmUploadSession;
     
     }
     return null;
@@ -92,7 +92,7 @@ class MattermostUploadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -121,7 +121,7 @@ class MattermostUploadsApi {
   Future<void> getUpload(String uploadId,) async {
     final response = await getUploadWithHttpInfo(uploadId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -143,7 +143,7 @@ class MattermostUploadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -169,16 +169,16 @@ class MattermostUploadsApi {
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session the data belongs to.
-  Future<MMFileInfo?> uploadData(String uploadId,) async {
+  Future<MmFileInfo?> uploadData(String uploadId,) async {
     final response = await uploadDataWithHttpInfo(uploadId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMFileInfo',) as MMFileInfo;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmFileInfo',) as MmFileInfo;
     
     }
     return null;

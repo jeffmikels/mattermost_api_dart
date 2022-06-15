@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCompliance {
-  /// Returns a new [MMCompliance] instance.
-  MMCompliance({
+class MmCompliance {
+  /// Returns a new [MmCompliance] instance.
+  MmCompliance({
     this.id,
     this.createAt,
     this.userId,
@@ -117,7 +117,7 @@ class MMCompliance {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCompliance &&
+      other is MmCompliance &&
           other.id == id &&
           other.createAt == createAt &&
           other.userId == userId &&
@@ -147,7 +147,7 @@ class MMCompliance {
 
   @override
   String toString() =>
-      'MMCompliance[id=$id, createAt=$createAt, userId=$userId, status=$status, count=$count, desc=$desc, type=$type, startAt=$startAt, endAt=$endAt, keywords=$keywords, emails=$emails]';
+      'MmCompliance[id=$id, createAt=$createAt, userId=$userId, status=$status, count=$count, desc=$desc, type=$type, startAt=$startAt, endAt=$endAt, keywords=$keywords, emails=$emails]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -187,10 +187,10 @@ class MMCompliance {
     return _json;
   }
 
-  /// Returns a new [MMCompliance] instance and imports its values from
+  /// Returns a new [MmCompliance] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCompliance? fromJson(dynamic value) {
+  static MmCompliance? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -199,13 +199,13 @@ class MMCompliance {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCompliance[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCompliance[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCompliance[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCompliance[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCompliance(
+      return MmCompliance(
         id: mapValueOfType<String>(json, r'id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         userId: mapValueOfType<String>(json, r'user_id'),
@@ -222,14 +222,14 @@ class MMCompliance {
     return null;
   }
 
-  static List<MMCompliance>? listFromJson(
+  static List<MmCompliance>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCompliance>[];
+    final result = <MmCompliance>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCompliance.fromJson(row);
+        final value = MmCompliance.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -238,12 +238,12 @@ class MMCompliance {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCompliance> mapFromJson(dynamic json) {
-    final map = <String, MMCompliance>{};
+  static Map<String, MmCompliance> mapFromJson(dynamic json) {
+    final map = <String, MmCompliance>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCompliance.fromJson(entry.value);
+        final value = MmCompliance.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -252,16 +252,16 @@ class MMCompliance {
     return map;
   }
 
-  // maps a json object with a list of MMCompliance-objects as value to a dart map
-  static Map<String, List<MMCompliance>> mapListFromJson(
+  // maps a json object with a list of MmCompliance-objects as value to a dart map
+  static Map<String, List<MmCompliance>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCompliance>>{};
+    final map = <String, List<MmCompliance>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCompliance.listFromJson(
+        final value = MmCompliance.listFromJson(
           entry.value,
           growable: growable,
         );

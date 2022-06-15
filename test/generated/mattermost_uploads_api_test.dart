@@ -21,7 +21,7 @@ void main() {
     //
     // Creates a new upload session.  __Minimum server version__: 5.28 ##### Permissions Must have `upload_file` permission. 
     //
-    //Future<MMUploadSession> createUpload(MMCreateUploadRequest mMCreateUploadRequest) async
+    //Future<MmUploadSession> createUpload(MmCreateUploadRequest mmCreateUploadRequest) async
     test('test createUpload', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Starts or resumes a file upload.   To resume an existing (incomplete) upload, data should be sent starting from the offset specified in the upload session object.  The request body can be in one of two formats: - Binary file content streamed in request's body - multipart/form-data  ##### Permissions Must be logged in as the user who created the upload session. 
     //
-    //Future<MMFileInfo> uploadData(String uploadId) async
+    //Future<MmFileInfo> uploadData(String uploadId) async
     test('test uploadData', () async {
       // TODO
     });

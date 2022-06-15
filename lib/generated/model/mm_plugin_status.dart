@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPluginStatus {
-  /// Returns a new [MMPluginStatus] instance.
-  MMPluginStatus({
+class MmPluginStatus {
+  /// Returns a new [MmPluginStatus] instance.
+  MmPluginStatus({
     this.pluginId,
     this.name,
     this.description,
@@ -77,12 +77,12 @@ class MMPluginStatus {
   String? pluginPath;
 
   /// State of the plugin
-  MMPluginStatusStateEnum? state;
+  MmPluginStatusStateEnum? state;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPluginStatus &&
+      other is MmPluginStatus &&
           other.pluginId == pluginId &&
           other.name == name &&
           other.description == description &&
@@ -104,7 +104,7 @@ class MMPluginStatus {
 
   @override
   String toString() =>
-      'MMPluginStatus[pluginId=$pluginId, name=$name, description=$description, version=$version, clusterId=$clusterId, pluginPath=$pluginPath, state=$state]';
+      'MmPluginStatus[pluginId=$pluginId, name=$name, description=$description, version=$version, clusterId=$clusterId, pluginPath=$pluginPath, state=$state]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -132,10 +132,10 @@ class MMPluginStatus {
     return _json;
   }
 
-  /// Returns a new [MMPluginStatus] instance and imports its values from
+  /// Returns a new [MmPluginStatus] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPluginStatus? fromJson(dynamic value) {
+  static MmPluginStatus? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -144,33 +144,33 @@ class MMPluginStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPluginStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPluginStatus[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPluginStatus[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPluginStatus[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPluginStatus(
+      return MmPluginStatus(
         pluginId: mapValueOfType<String>(json, r'plugin_id'),
         name: mapValueOfType<String>(json, r'name'),
         description: mapValueOfType<String>(json, r'description'),
         version: mapValueOfType<String>(json, r'version'),
         clusterId: mapValueOfType<String>(json, r'cluster_id'),
         pluginPath: mapValueOfType<String>(json, r'plugin_path'),
-        state: MMPluginStatusStateEnum.fromJson(json[r'state']),
+        state: MmPluginStatusStateEnum.fromJson(json[r'state']),
       );
     }
     return null;
   }
 
-  static List<MMPluginStatus>? listFromJson(
+  static List<MmPluginStatus>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginStatus>[];
+    final result = <MmPluginStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginStatus.fromJson(row);
+        final value = MmPluginStatus.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -179,12 +179,12 @@ class MMPluginStatus {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPluginStatus> mapFromJson(dynamic json) {
-    final map = <String, MMPluginStatus>{};
+  static Map<String, MmPluginStatus> mapFromJson(dynamic json) {
+    final map = <String, MmPluginStatus>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginStatus.fromJson(entry.value);
+        final value = MmPluginStatus.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -193,16 +193,16 @@ class MMPluginStatus {
     return map;
   }
 
-  // maps a json object with a list of MMPluginStatus-objects as value to a dart map
-  static Map<String, List<MMPluginStatus>> mapListFromJson(
+  // maps a json object with a list of MmPluginStatus-objects as value to a dart map
+  static Map<String, List<MmPluginStatus>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPluginStatus>>{};
+    final map = <String, List<MmPluginStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginStatus.listFromJson(
+        final value = MmPluginStatus.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -219,9 +219,9 @@ class MMPluginStatus {
 }
 
 /// State of the plugin
-class MMPluginStatusStateEnum {
+class MmPluginStatusStateEnum {
   /// Instantiate a new enum with the provided [value].
-  const MMPluginStatusStateEnum._(this.value);
+  const MmPluginStatusStateEnum._(this.value);
 
   /// The underlying value of this enum member.
   final String value;
@@ -231,15 +231,15 @@ class MMPluginStatusStateEnum {
 
   String toJson() => value;
 
-  static const notRunning = MMPluginStatusStateEnum._(r'NotRunning');
-  static const starting = MMPluginStatusStateEnum._(r'Starting');
-  static const running = MMPluginStatusStateEnum._(r'Running');
-  static const failedToStart = MMPluginStatusStateEnum._(r'FailedToStart');
-  static const failedToStayRunning = MMPluginStatusStateEnum._(r'FailedToStayRunning');
-  static const stopping = MMPluginStatusStateEnum._(r'Stopping');
+  static const notRunning = MmPluginStatusStateEnum._(r'NotRunning');
+  static const starting = MmPluginStatusStateEnum._(r'Starting');
+  static const running = MmPluginStatusStateEnum._(r'Running');
+  static const failedToStart = MmPluginStatusStateEnum._(r'FailedToStart');
+  static const failedToStayRunning = MmPluginStatusStateEnum._(r'FailedToStayRunning');
+  static const stopping = MmPluginStatusStateEnum._(r'Stopping');
 
-  /// List of all possible values in this [enum][MMPluginStatusStateEnum].
-  static const values = <MMPluginStatusStateEnum>[
+  /// List of all possible values in this [enum][MmPluginStatusStateEnum].
+  static const values = <MmPluginStatusStateEnum>[
     notRunning,
     starting,
     running,
@@ -248,16 +248,16 @@ class MMPluginStatusStateEnum {
     stopping,
   ];
 
-  static MMPluginStatusStateEnum? fromJson(dynamic value) => MMPluginStatusStateEnumTypeTransformer().decode(value);
+  static MmPluginStatusStateEnum? fromJson(dynamic value) => MmPluginStatusStateEnumTypeTransformer().decode(value);
 
-  static List<MMPluginStatusStateEnum>? listFromJson(
+  static List<MmPluginStatusStateEnum>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginStatusStateEnum>[];
+    final result = <MmPluginStatusStateEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginStatusStateEnum.fromJson(row);
+        final value = MmPluginStatusStateEnum.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -267,16 +267,16 @@ class MMPluginStatusStateEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [MMPluginStatusStateEnum] to String,
-/// and [decode] dynamic data back to [MMPluginStatusStateEnum].
-class MMPluginStatusStateEnumTypeTransformer {
-  factory MMPluginStatusStateEnumTypeTransformer() => _instance ??= const MMPluginStatusStateEnumTypeTransformer._();
+/// Transformation class that can [encode] an instance of [MmPluginStatusStateEnum] to String,
+/// and [decode] dynamic data back to [MmPluginStatusStateEnum].
+class MmPluginStatusStateEnumTypeTransformer {
+  factory MmPluginStatusStateEnumTypeTransformer() => _instance ??= const MmPluginStatusStateEnumTypeTransformer._();
 
-  const MMPluginStatusStateEnumTypeTransformer._();
+  const MmPluginStatusStateEnumTypeTransformer._();
 
-  String encode(MMPluginStatusStateEnum data) => data.value;
+  String encode(MmPluginStatusStateEnum data) => data.value;
 
-  /// Decodes a [dynamic value][data] to a MMPluginStatusStateEnum.
+  /// Decodes a [dynamic value][data] to a MmPluginStatusStateEnum.
   ///
   /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
   /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
@@ -284,21 +284,21 @@ class MMPluginStatusStateEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MMPluginStatusStateEnum? decode(dynamic data, {bool allowNull = true}) {
+  MmPluginStatusStateEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'NotRunning':
-          return MMPluginStatusStateEnum.notRunning;
+          return MmPluginStatusStateEnum.notRunning;
         case r'Starting':
-          return MMPluginStatusStateEnum.starting;
+          return MmPluginStatusStateEnum.starting;
         case r'Running':
-          return MMPluginStatusStateEnum.running;
+          return MmPluginStatusStateEnum.running;
         case r'FailedToStart':
-          return MMPluginStatusStateEnum.failedToStart;
+          return MmPluginStatusStateEnum.failedToStart;
         case r'FailedToStayRunning':
-          return MMPluginStatusStateEnum.failedToStayRunning;
+          return MmPluginStatusStateEnum.failedToStayRunning;
         case r'Stopping':
-          return MMPluginStatusStateEnum.stopping;
+          return MmPluginStatusStateEnum.stopping;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -308,6 +308,6 @@ class MMPluginStatusStateEnumTypeTransformer {
     return null;
   }
 
-  /// Singleton [MMPluginStatusStateEnumTypeTransformer] instance.
-  static MMPluginStatusStateEnumTypeTransformer? _instance;
+  /// Singleton [MmPluginStatusStateEnumTypeTransformer] instance.
+  static MmPluginStatusStateEnumTypeTransformer? _instance;
 }

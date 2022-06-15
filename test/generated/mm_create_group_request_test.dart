@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateGroupRequest
+// tests for MmCreateGroupRequest
 void main() {
-  // final instance = MMCreateGroupRequest();
+  // final instance = MmCreateGroupRequest();
 
-  group('test MMCreateGroupRequest', () {
-    // MMCreateGroupRequestGroup group
+  group('test MmCreateGroupRequest', () {
+    // MmCreateGroupRequestGroup group
     test('to test the property `group`', () async {
       // TODO
     });

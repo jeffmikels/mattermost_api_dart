@@ -205,8 +205,8 @@ part 'model/mm_invite_guests_to_team_request.dart';
 part 'model/mm_invoice.dart';
 part 'model/mm_invoice_line_item.dart';
 part 'model/mm_job.dart';
-part 'model/mmldap_group.dart';
-part 'model/mmldap_groups_paged.dart';
+part 'model/mm_ldap_group.dart';
+part 'model/mm_ldap_groups_paged.dart';
 part 'model/mm_license_renewal_link.dart';
 part 'model/mm_login_by_cws_token_request.dart';
 part 'model/mm_login_request.dart';
@@ -218,7 +218,7 @@ part 'model/mm_migrate_id_ldap_request.dart';
 part 'model/mm_move_channel_request.dart';
 part 'model/mm_move_command_request.dart';
 part 'model/mm_notice.dart';
-part 'model/mmo_auth_app.dart';
+part 'model/mm_o_auth_app.dart';
 part 'model/mm_open_graph.dart';
 part 'model/mm_open_graph_article.dart';
 part 'model/mm_open_graph_article_authors_inner.dart';
@@ -367,4 +367,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-enum MMHttpLocation { header, query, cookie }
+enum MmHttpLocation { header, query, cookie }

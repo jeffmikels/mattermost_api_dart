@@ -1,4 +1,4 @@
-# mattermost_api.model.MMDataRetentionPolicyWithTeamAndChannelIdsAllOf
+# mattermost_api.model.MmDataRetentionPolicyWithTeamAndChannelIdsAllOf
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMDataRetentionPolicyWithTeamAndChannelIdsAllOf example = await client.dataRetentionPolicyWithTeamAndChannelIdsAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmDataRetentionPolicyWithTeamAndChannelIdsAllOf example = await client.dataRetentionPolicyWithTeamAndChannelIdsAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMIntegrityCheckResult
+// tests for MmIntegrityCheckResult
 void main() {
-  // final instance = MMIntegrityCheckResult();
+  // final instance = MmIntegrityCheckResult();
 
-  group('test MMIntegrityCheckResult', () {
-    // MMRelationalIntegrityCheckData data
+  group('test MmIntegrityCheckResult', () {
+    // MmRelationalIntegrityCheckData data
     test('to test the property `data`', () async {
       // TODO
     });

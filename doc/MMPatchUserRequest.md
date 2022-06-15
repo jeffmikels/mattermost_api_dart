@@ -1,4 +1,4 @@
-# mattermost_api.model.MMPatchUserRequest
+# mattermost_api.model.MmPatchUserRequest
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMPatchUserRequest example = await client.patchUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmPatchUserRequest example = await client.patchUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **locale** | **String** |  | [optional] 
 **position** | **String** |  | [optional] 
 **props** | [**Map**](.md) |  | [optional] 
-**notifyProps** | [**MMUserNotifyProps**](MMUserNotifyProps.md) |  | [optional] 
+**notifyProps** | [**MmUserNotifyProps**](MmUserNotifyProps.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

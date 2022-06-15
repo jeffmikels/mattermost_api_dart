@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateCloudCustomerRequest
+// tests for MmUpdateCloudCustomerRequest
 void main() {
-  // final instance = MMUpdateCloudCustomerRequest();
+  // final instance = MmUpdateCloudCustomerRequest();
 
-  group('test MMUpdateCloudCustomerRequest', () {
+  group('test MmUpdateCloudCustomerRequest', () {
     // String name
     test('to test the property `name`', () async {
       // TODO

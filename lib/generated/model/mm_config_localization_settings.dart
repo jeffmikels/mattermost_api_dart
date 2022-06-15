@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigLocalizationSettings {
-  /// Returns a new [MMConfigLocalizationSettings] instance.
-  MMConfigLocalizationSettings({
+class MmConfigLocalizationSettings {
+  /// Returns a new [MmConfigLocalizationSettings] instance.
+  MmConfigLocalizationSettings({
     this.defaultServerLocale,
     this.defaultClientLocale,
     this.availableLocales,
@@ -45,7 +45,7 @@ class MMConfigLocalizationSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigLocalizationSettings &&
+      other is MmConfigLocalizationSettings &&
           other.defaultServerLocale == defaultServerLocale &&
           other.defaultClientLocale == defaultClientLocale &&
           other.availableLocales == availableLocales;
@@ -59,7 +59,7 @@ class MMConfigLocalizationSettings {
 
   @override
   String toString() =>
-      'MMConfigLocalizationSettings[defaultServerLocale=$defaultServerLocale, defaultClientLocale=$defaultClientLocale, availableLocales=$availableLocales]';
+      'MmConfigLocalizationSettings[defaultServerLocale=$defaultServerLocale, defaultClientLocale=$defaultClientLocale, availableLocales=$availableLocales]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -75,10 +75,10 @@ class MMConfigLocalizationSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigLocalizationSettings] instance and imports its values from
+  /// Returns a new [MmConfigLocalizationSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigLocalizationSettings? fromJson(dynamic value) {
+  static MmConfigLocalizationSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -87,13 +87,13 @@ class MMConfigLocalizationSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigLocalizationSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigLocalizationSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigLocalizationSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigLocalizationSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigLocalizationSettings(
+      return MmConfigLocalizationSettings(
         defaultServerLocale: mapValueOfType<String>(json, r'DefaultServerLocale'),
         defaultClientLocale: mapValueOfType<String>(json, r'DefaultClientLocale'),
         availableLocales: mapValueOfType<String>(json, r'AvailableLocales'),
@@ -102,14 +102,14 @@ class MMConfigLocalizationSettings {
     return null;
   }
 
-  static List<MMConfigLocalizationSettings>? listFromJson(
+  static List<MmConfigLocalizationSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigLocalizationSettings>[];
+    final result = <MmConfigLocalizationSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigLocalizationSettings.fromJson(row);
+        final value = MmConfigLocalizationSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -118,12 +118,12 @@ class MMConfigLocalizationSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigLocalizationSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigLocalizationSettings>{};
+  static Map<String, MmConfigLocalizationSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigLocalizationSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigLocalizationSettings.fromJson(entry.value);
+        final value = MmConfigLocalizationSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -132,16 +132,16 @@ class MMConfigLocalizationSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigLocalizationSettings-objects as value to a dart map
-  static Map<String, List<MMConfigLocalizationSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigLocalizationSettings-objects as value to a dart map
+  static Map<String, List<MmConfigLocalizationSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigLocalizationSettings>>{};
+    final map = <String, List<MmConfigLocalizationSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigLocalizationSettings.listFromJson(
+        final value = MmConfigLocalizationSettings.listFromJson(
           entry.value,
           growable: growable,
         );

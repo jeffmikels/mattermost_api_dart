@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGroup {
-  /// Returns a new [MMGroup] instance.
-  MMGroup({
+class MmGroup {
+  /// Returns a new [MmGroup] instance.
+  MmGroup({
     this.id,
     this.name,
     this.displayName,
@@ -108,7 +108,7 @@ class MMGroup {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGroup &&
+      other is MmGroup &&
           other.id == id &&
           other.name == name &&
           other.displayName == displayName &&
@@ -136,7 +136,7 @@ class MMGroup {
 
   @override
   String toString() =>
-      'MMGroup[id=$id, name=$name, displayName=$displayName, description=$description, source_=$source_, remoteId=$remoteId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, hasSyncables=$hasSyncables]';
+      'MmGroup[id=$id, name=$name, displayName=$displayName, description=$description, source_=$source_, remoteId=$remoteId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, hasSyncables=$hasSyncables]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -173,10 +173,10 @@ class MMGroup {
     return _json;
   }
 
-  /// Returns a new [MMGroup] instance and imports its values from
+  /// Returns a new [MmGroup] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGroup? fromJson(dynamic value) {
+  static MmGroup? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -185,13 +185,13 @@ class MMGroup {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGroup[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGroup[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGroup[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGroup[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGroup(
+      return MmGroup(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         displayName: mapValueOfType<String>(json, r'display_name'),
@@ -207,14 +207,14 @@ class MMGroup {
     return null;
   }
 
-  static List<MMGroup>? listFromJson(
+  static List<MmGroup>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGroup>[];
+    final result = <MmGroup>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGroup.fromJson(row);
+        final value = MmGroup.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -223,12 +223,12 @@ class MMGroup {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGroup> mapFromJson(dynamic json) {
-    final map = <String, MMGroup>{};
+  static Map<String, MmGroup> mapFromJson(dynamic json) {
+    final map = <String, MmGroup>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroup.fromJson(entry.value);
+        final value = MmGroup.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -237,16 +237,16 @@ class MMGroup {
     return map;
   }
 
-  // maps a json object with a list of MMGroup-objects as value to a dart map
-  static Map<String, List<MMGroup>> mapListFromJson(
+  // maps a json object with a list of MmGroup-objects as value to a dart map
+  static Map<String, List<MmGroup>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGroup>>{};
+    final map = <String, List<MmGroup>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroup.listFromJson(
+        final value = MmGroup.listFromJson(
           entry.value,
           growable: growable,
         );

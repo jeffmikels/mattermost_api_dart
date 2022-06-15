@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraphVideosInner {
-  /// Returns a new [MMOpenGraphVideosInner] instance.
-  MMOpenGraphVideosInner({
+class MmOpenGraphVideosInner {
+  /// Returns a new [MmOpenGraphVideosInner] instance.
+  MmOpenGraphVideosInner({
     this.url,
     this.secureUrl,
     this.type,
@@ -63,7 +63,7 @@ class MMOpenGraphVideosInner {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenGraphVideosInner &&
+      other is MmOpenGraphVideosInner &&
           other.url == url &&
           other.secureUrl == secureUrl &&
           other.type == type &&
@@ -81,7 +81,7 @@ class MMOpenGraphVideosInner {
 
   @override
   String toString() =>
-      'MMOpenGraphVideosInner[url=$url, secureUrl=$secureUrl, type=$type, width=$width, height=$height]';
+      'MmOpenGraphVideosInner[url=$url, secureUrl=$secureUrl, type=$type, width=$width, height=$height]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMOpenGraphVideosInner {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraphVideosInner] instance and imports its values from
+  /// Returns a new [MmOpenGraphVideosInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraphVideosInner? fromJson(dynamic value) {
+  static MmOpenGraphVideosInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,13 +115,13 @@ class MMOpenGraphVideosInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraphVideosInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraphVideosInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraphVideosInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraphVideosInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraphVideosInner(
+      return MmOpenGraphVideosInner(
         url: mapValueOfType<String>(json, r'url'),
         secureUrl: mapValueOfType<String>(json, r'secure_url'),
         type: mapValueOfType<String>(json, r'type'),
@@ -132,14 +132,14 @@ class MMOpenGraphVideosInner {
     return null;
   }
 
-  static List<MMOpenGraphVideosInner>? listFromJson(
+  static List<MmOpenGraphVideosInner>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraphVideosInner>[];
+    final result = <MmOpenGraphVideosInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraphVideosInner.fromJson(row);
+        final value = MmOpenGraphVideosInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -148,12 +148,12 @@ class MMOpenGraphVideosInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraphVideosInner> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraphVideosInner>{};
+  static Map<String, MmOpenGraphVideosInner> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraphVideosInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphVideosInner.fromJson(entry.value);
+        final value = MmOpenGraphVideosInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -162,16 +162,16 @@ class MMOpenGraphVideosInner {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraphVideosInner-objects as value to a dart map
-  static Map<String, List<MMOpenGraphVideosInner>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraphVideosInner-objects as value to a dart map
+  static Map<String, List<MmOpenGraphVideosInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraphVideosInner>>{};
+    final map = <String, List<MmOpenGraphVideosInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphVideosInner.listFromJson(
+        final value = MmOpenGraphVideosInner.listFromJson(
           entry.value,
           growable: growable,
         );

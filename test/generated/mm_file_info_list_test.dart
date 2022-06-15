@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMFileInfoList
+// tests for MmFileInfoList
 void main() {
-  // final instance = MMFileInfoList();
+  // final instance = MmFileInfoList();
 
-  group('test MMFileInfoList', () {
+  group('test MmFileInfoList', () {
     // List<String> order (default value: const [])
     test('to test the property `order`', () async {
       // TODO
     });
 
-    // Map<String, MMFileInfo> fileInfos (default value: const {})
+    // Map<String, MmFileInfo> fileInfos (default value: const {})
     test('to test the property `fileInfos`', () async {
       // TODO
     });

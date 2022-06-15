@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deletePreferences**
-> MMStatusOK deletePreferences(userId, mMPreference)
+> MmStatusOK deletePreferences(userId, mmPreference)
 
 Delete user's preferences
 
@@ -32,26 +32,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
-final List&lt;MMPreference&gt; mMPreference = [List<MMPreference>()]; // List<MMPreference> | List of preference objects
+final List&lt;MmPreference&gt; mmPreference = [List<MmPreference>()]; // List<MmPreference> | List of preference objects
 
 try {
-  final MMStatusOK? result = await client.preferences.deletePreferences(userId, mMPreference); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.preferences.deletePreferences(userId, mmPreference); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->deletePreferences: $e\n');
@@ -64,11 +64,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User GUID | 
- **mMPreference** | [**List<MMPreference>**](MMPreference.md)| List of preference objects | 
+ **mmPreference** | [**List<MmPreference>**](MmPreference.md)| List of preference objects | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPreferences**
-> List<MMPreference> getPreferences(userId)
+> List<MmPreference> getPreferences(userId)
 
 Get the user's preferences
 
@@ -97,25 +97,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMPreference&gt;? result = await client.preferences.getPreferences(userId); // await the Future<List&lt;MMPreference&gt;?>
+  final List&lt;MmPreference&gt;? result = await client.preferences.getPreferences(userId); // await the Future<List&lt;MmPreference&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferences: $e\n');
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMPreference>**](MMPreference.md)
+[**List<MmPreference>**](MmPreference.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPreferencesByCategory**
-> List<MMPreference> getPreferencesByCategory(userId, category)
+> List<MmPreference> getPreferencesByCategory(userId, category)
 
 List a user's preferences by category
 
@@ -160,18 +160,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -179,7 +179,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String category = 'category_example'; // String | The category of a group of preferences
 
 try {
-  final List&lt;MMPreference&gt;? result = await client.preferences.getPreferencesByCategory(userId, category); // await the Future<List&lt;MMPreference&gt;?>
+  final List&lt;MmPreference&gt;? result = await client.preferences.getPreferencesByCategory(userId, category); // await the Future<List&lt;MmPreference&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferencesByCategory: $e\n');
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMPreference>**](MMPreference.md)
+[**List<MmPreference>**](MmPreference.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPreferencesByCategoryByName**
-> MMPreference getPreferencesByCategoryByName(userId, category, preferenceName)
+> MmPreference getPreferencesByCategoryByName(userId, category, preferenceName)
 
 Get a specific user preference
 
@@ -225,18 +225,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -245,7 +245,7 @@ final String category = 'category_example'; // String | The category of a group 
 final String preferenceName = 'preferenceName_example'; // String | The name of the preference
 
 try {
-  final MMPreference? result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName); // await the Future<MMPreference?>
+  final MmPreference? result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName); // await the Future<MmPreference?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferencesByCategoryByName: $e\n');
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPreference**](MMPreference.md)
+[**MmPreference**](MmPreference.md)
 
 ### Authorization
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updatePreferences**
-> MMStatusOK updatePreferences(userId, mMPreference)
+> MmStatusOK updatePreferences(userId, mmPreference)
 
 Save the user's preferences
 
@@ -292,26 +292,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
-final List&lt;MMPreference&gt; mMPreference = [List<MMPreference>()]; // List<MMPreference> | List of preference objects
+final List&lt;MmPreference&gt; mmPreference = [List<MmPreference>()]; // List<MmPreference> | List of preference objects
 
 try {
-  final MMStatusOK? result = await client.preferences.updatePreferences(userId, mMPreference); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.preferences.updatePreferences(userId, mmPreference); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->updatePreferences: $e\n');
@@ -324,11 +324,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User GUID | 
- **mMPreference** | [**List<MMPreference>**](MMPreference.md)| List of preference objects | 
+ **mmPreference** | [**List<MmPreference>**](MmPreference.md)| List of preference objects | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

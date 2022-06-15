@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSwitchAccountTypeRequest
+// tests for MmSwitchAccountTypeRequest
 void main() {
-  // final instance = MMSwitchAccountTypeRequest();
+  // final instance = MmSwitchAccountTypeRequest();
 
-  group('test MMSwitchAccountTypeRequest', () {
+  group('test MmSwitchAccountTypeRequest', () {
     // The service the user currently uses to login
     // String currentService
     test('to test the property `currentService`', () async {

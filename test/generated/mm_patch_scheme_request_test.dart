@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchSchemeRequest
+// tests for MmPatchSchemeRequest
 void main() {
-  // final instance = MMPatchSchemeRequest();
+  // final instance = MmPatchSchemeRequest();
 
-  group('test MMPatchSchemeRequest', () {
+  group('test MmPatchSchemeRequest', () {
     // The human readable name of the scheme
     // String name
     test('to test the property `name`', () async {

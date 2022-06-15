@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMIntegrationsLimits
+// tests for MmIntegrationsLimits
 void main() {
-  // final instance = MMIntegrationsLimits();
+  // final instance = MmIntegrationsLimits();
 
-  group('test MMIntegrationsLimits', () {
+  group('test MmIntegrationsLimits', () {
     // int enabled
     test('to test the property `enabled`', () async {
       // TODO

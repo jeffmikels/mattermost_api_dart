@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUserAuthData {
-  /// Returns a new [MMUserAuthData] instance.
-  MMUserAuthData({
+class MmUserAuthData {
+  /// Returns a new [MmUserAuthData] instance.
+  MmUserAuthData({
     required this.authData,
     required this.authService,
   });
@@ -26,7 +26,7 @@ class MMUserAuthData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUserAuthData && other.authData == authData && other.authService == authService;
+      other is MmUserAuthData && other.authData == authData && other.authService == authService;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMUserAuthData {
       (authData.hashCode) + (authService.hashCode);
 
   @override
-  String toString() => 'MMUserAuthData[authData=$authData, authService=$authService]';
+  String toString() => 'MmUserAuthData[authData=$authData, authService=$authService]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMUserAuthData {
     return _json;
   }
 
-  /// Returns a new [MMUserAuthData] instance and imports its values from
+  /// Returns a new [MmUserAuthData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserAuthData? fromJson(dynamic value) {
+  static MmUserAuthData? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,13 +55,13 @@ class MMUserAuthData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserAuthData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserAuthData[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserAuthData[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserAuthData[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserAuthData(
+      return MmUserAuthData(
         authData: mapValueOfType<String>(json, r'auth_data')!,
         authService: mapValueOfType<String>(json, r'auth_service')!,
       );
@@ -69,14 +69,14 @@ class MMUserAuthData {
     return null;
   }
 
-  static List<MMUserAuthData>? listFromJson(
+  static List<MmUserAuthData>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserAuthData>[];
+    final result = <MmUserAuthData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserAuthData.fromJson(row);
+        final value = MmUserAuthData.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMUserAuthData {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserAuthData> mapFromJson(dynamic json) {
-    final map = <String, MMUserAuthData>{};
+  static Map<String, MmUserAuthData> mapFromJson(dynamic json) {
+    final map = <String, MmUserAuthData>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAuthData.fromJson(entry.value);
+        final value = MmUserAuthData.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMUserAuthData {
     return map;
   }
 
-  // maps a json object with a list of MMUserAuthData-objects as value to a dart map
-  static Map<String, List<MMUserAuthData>> mapListFromJson(
+  // maps a json object with a list of MmUserAuthData-objects as value to a dart map
+  static Map<String, List<MmUserAuthData>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserAuthData>>{};
+    final map = <String, List<MmUserAuthData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAuthData.listFromJson(
+        final value = MmUserAuthData.listFromJson(
           entry.value,
           growable: growable,
         );

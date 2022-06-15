@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelNotifyProps {
-  /// Returns a new [MMChannelNotifyProps] instance.
-  MMChannelNotifyProps({
+class MmChannelNotifyProps {
+  /// Returns a new [MmChannelNotifyProps] instance.
+  MmChannelNotifyProps({
     this.email,
     this.push,
     this.desktop,
@@ -58,7 +58,7 @@ class MMChannelNotifyProps {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMChannelNotifyProps &&
+      other is MmChannelNotifyProps &&
           other.email == email &&
           other.push == push &&
           other.desktop == desktop &&
@@ -73,7 +73,7 @@ class MMChannelNotifyProps {
       (markUnread == null ? 0 : markUnread!.hashCode);
 
   @override
-  String toString() => 'MMChannelNotifyProps[email=$email, push=$push, desktop=$desktop, markUnread=$markUnread]';
+  String toString() => 'MmChannelNotifyProps[email=$email, push=$push, desktop=$desktop, markUnread=$markUnread]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -92,10 +92,10 @@ class MMChannelNotifyProps {
     return _json;
   }
 
-  /// Returns a new [MMChannelNotifyProps] instance and imports its values from
+  /// Returns a new [MmChannelNotifyProps] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelNotifyProps? fromJson(dynamic value) {
+  static MmChannelNotifyProps? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -104,13 +104,13 @@ class MMChannelNotifyProps {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelNotifyProps[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelNotifyProps[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelNotifyProps[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelNotifyProps[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelNotifyProps(
+      return MmChannelNotifyProps(
         email: mapValueOfType<bool>(json, r'email'),
         push: mapValueOfType<String>(json, r'push'),
         desktop: mapValueOfType<String>(json, r'desktop'),
@@ -120,14 +120,14 @@ class MMChannelNotifyProps {
     return null;
   }
 
-  static List<MMChannelNotifyProps>? listFromJson(
+  static List<MmChannelNotifyProps>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelNotifyProps>[];
+    final result = <MmChannelNotifyProps>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelNotifyProps.fromJson(row);
+        final value = MmChannelNotifyProps.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -136,12 +136,12 @@ class MMChannelNotifyProps {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelNotifyProps> mapFromJson(dynamic json) {
-    final map = <String, MMChannelNotifyProps>{};
+  static Map<String, MmChannelNotifyProps> mapFromJson(dynamic json) {
+    final map = <String, MmChannelNotifyProps>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelNotifyProps.fromJson(entry.value);
+        final value = MmChannelNotifyProps.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -150,16 +150,16 @@ class MMChannelNotifyProps {
     return map;
   }
 
-  // maps a json object with a list of MMChannelNotifyProps-objects as value to a dart map
-  static Map<String, List<MMChannelNotifyProps>> mapListFromJson(
+  // maps a json object with a list of MmChannelNotifyProps-objects as value to a dart map
+  static Map<String, List<MmChannelNotifyProps>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelNotifyProps>>{};
+    final map = <String, List<MmChannelNotifyProps>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelNotifyProps.listFromJson(
+        final value = MmChannelNotifyProps.listFromJson(
           entry.value,
           growable: growable,
         );

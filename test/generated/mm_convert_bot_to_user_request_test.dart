@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConvertBotToUserRequest
+// tests for MmConvertBotToUserRequest
 void main() {
-  // final instance = MMConvertBotToUserRequest();
+  // final instance = MmConvertBotToUserRequest();
 
-  group('test MMConvertBotToUserRequest', () {
+  group('test MmConvertBotToUserRequest', () {
     // String email
     test('to test the property `email`', () async {
       // TODO
@@ -61,7 +61,7 @@ void main() {
       // TODO
     });
 
-    // MMUserNotifyProps notifyProps
+    // MmUserNotifyProps notifyProps
     test('to test the property `notifyProps`', () async {
       // TODO
     });

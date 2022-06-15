@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMBot {
-  /// Returns a new [MMBot] instance.
-  MMBot({
+class MmBot {
+  /// Returns a new [MmBot] instance.
+  MmBot({
     this.userId,
     this.createAt,
     this.updateAt,
@@ -95,7 +95,7 @@ class MMBot {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMBot &&
+      other is MmBot &&
           other.userId == userId &&
           other.createAt == createAt &&
           other.updateAt == updateAt &&
@@ -119,7 +119,7 @@ class MMBot {
 
   @override
   String toString() =>
-      'MMBot[userId=$userId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, displayName=$displayName, description=$description, ownerId=$ownerId]';
+      'MmBot[userId=$userId, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, displayName=$displayName, description=$description, ownerId=$ownerId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -150,10 +150,10 @@ class MMBot {
     return _json;
   }
 
-  /// Returns a new [MMBot] instance and imports its values from
+  /// Returns a new [MmBot] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMBot? fromJson(dynamic value) {
+  static MmBot? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -162,13 +162,13 @@ class MMBot {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMBot[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMBot[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmBot[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmBot[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMBot(
+      return MmBot(
         userId: mapValueOfType<String>(json, r'user_id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         updateAt: mapValueOfType<int>(json, r'update_at'),
@@ -182,14 +182,14 @@ class MMBot {
     return null;
   }
 
-  static List<MMBot>? listFromJson(
+  static List<MmBot>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMBot>[];
+    final result = <MmBot>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMBot.fromJson(row);
+        final value = MmBot.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -198,12 +198,12 @@ class MMBot {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMBot> mapFromJson(dynamic json) {
-    final map = <String, MMBot>{};
+  static Map<String, MmBot> mapFromJson(dynamic json) {
+    final map = <String, MmBot>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMBot.fromJson(entry.value);
+        final value = MmBot.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -212,16 +212,16 @@ class MMBot {
     return map;
   }
 
-  // maps a json object with a list of MMBot-objects as value to a dart map
-  static Map<String, List<MMBot>> mapListFromJson(
+  // maps a json object with a list of MmBot-objects as value to a dart map
+  static Map<String, List<MmBot>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMBot>>{};
+    final map = <String, List<MmBot>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMBot.listFromJson(
+        final value = MmBot.listFromJson(
           entry.value,
           growable: growable,
         );

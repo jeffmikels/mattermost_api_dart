@@ -10,15 +10,15 @@
 
 part of mattermost.api;
 
-class MMUploadFile201Response {
-  /// Returns a new [MMUploadFile201Response] instance.
-  MMUploadFile201Response({
+class MmUploadFile201Response {
+  /// Returns a new [MmUploadFile201Response] instance.
+  MmUploadFile201Response({
     this.fileInfos = const [],
     this.clientIds = const [],
   });
 
   /// A list of file metadata that has been stored in the database
-  List<MMFileInfo> fileInfos;
+  List<MmFileInfo> fileInfos;
 
   /// A list of the client_ids that were provided in the request
   List<String> clientIds;
@@ -26,7 +26,7 @@ class MMUploadFile201Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUploadFile201Response && other.fileInfos == fileInfos && other.clientIds == clientIds;
+      other is MmUploadFile201Response && other.fileInfos == fileInfos && other.clientIds == clientIds;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMUploadFile201Response {
       (fileInfos.hashCode) + (clientIds.hashCode);
 
   @override
-  String toString() => 'MMUploadFile201Response[fileInfos=$fileInfos, clientIds=$clientIds]';
+  String toString() => 'MmUploadFile201Response[fileInfos=$fileInfos, clientIds=$clientIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMUploadFile201Response {
     return _json;
   }
 
-  /// Returns a new [MMUploadFile201Response] instance and imports its values from
+  /// Returns a new [MmUploadFile201Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUploadFile201Response? fromJson(dynamic value) {
+  static MmUploadFile201Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,28 +55,28 @@ class MMUploadFile201Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUploadFile201Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUploadFile201Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUploadFile201Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUploadFile201Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUploadFile201Response(
-        fileInfos: MMFileInfo.listFromJson(json[r'file_infos']) ?? const [],
+      return MmUploadFile201Response(
+        fileInfos: MmFileInfo.listFromJson(json[r'file_infos']) ?? const [],
         clientIds: json[r'client_ids'] is List ? (json[r'client_ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MMUploadFile201Response>? listFromJson(
+  static List<MmUploadFile201Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUploadFile201Response>[];
+    final result = <MmUploadFile201Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUploadFile201Response.fromJson(row);
+        final value = MmUploadFile201Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMUploadFile201Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUploadFile201Response> mapFromJson(dynamic json) {
-    final map = <String, MMUploadFile201Response>{};
+  static Map<String, MmUploadFile201Response> mapFromJson(dynamic json) {
+    final map = <String, MmUploadFile201Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUploadFile201Response.fromJson(entry.value);
+        final value = MmUploadFile201Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMUploadFile201Response {
     return map;
   }
 
-  // maps a json object with a list of MMUploadFile201Response-objects as value to a dart map
-  static Map<String, List<MMUploadFile201Response>> mapListFromJson(
+  // maps a json object with a list of MmUploadFile201Response-objects as value to a dart map
+  static Map<String, List<MmUploadFile201Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUploadFile201Response>>{};
+    final map = <String, List<MmUploadFile201Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUploadFile201Response.listFromJson(
+        final value = MmUploadFile201Response.listFromJson(
           entry.value,
           growable: growable,
         );

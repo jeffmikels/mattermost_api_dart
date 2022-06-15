@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMClusterInfo {
-  /// Returns a new [MMClusterInfo] instance.
-  MMClusterInfo({
+class MmClusterInfo {
+  /// Returns a new [MmClusterInfo] instance.
+  MmClusterInfo({
     this.id,
     this.version,
     this.configHash,
@@ -88,7 +88,7 @@ class MMClusterInfo {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMClusterInfo &&
+      other is MmClusterInfo &&
           other.id == id &&
           other.version == version &&
           other.configHash == configHash &&
@@ -110,7 +110,7 @@ class MMClusterInfo {
 
   @override
   String toString() =>
-      'MMClusterInfo[id=$id, version=$version, configHash=$configHash, internodeUrl=$internodeUrl, hostname=$hostname, lastPing=$lastPing, isAlive=$isAlive]';
+      'MmClusterInfo[id=$id, version=$version, configHash=$configHash, internodeUrl=$internodeUrl, hostname=$hostname, lastPing=$lastPing, isAlive=$isAlive]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -138,10 +138,10 @@ class MMClusterInfo {
     return _json;
   }
 
-  /// Returns a new [MMClusterInfo] instance and imports its values from
+  /// Returns a new [MmClusterInfo] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMClusterInfo? fromJson(dynamic value) {
+  static MmClusterInfo? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -150,13 +150,13 @@ class MMClusterInfo {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMClusterInfo[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMClusterInfo[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmClusterInfo[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmClusterInfo[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMClusterInfo(
+      return MmClusterInfo(
         id: mapValueOfType<String>(json, r'id'),
         version: mapValueOfType<String>(json, r'version'),
         configHash: mapValueOfType<String>(json, r'config_hash'),
@@ -169,14 +169,14 @@ class MMClusterInfo {
     return null;
   }
 
-  static List<MMClusterInfo>? listFromJson(
+  static List<MmClusterInfo>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMClusterInfo>[];
+    final result = <MmClusterInfo>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMClusterInfo.fromJson(row);
+        final value = MmClusterInfo.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -185,12 +185,12 @@ class MMClusterInfo {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMClusterInfo> mapFromJson(dynamic json) {
-    final map = <String, MMClusterInfo>{};
+  static Map<String, MmClusterInfo> mapFromJson(dynamic json) {
+    final map = <String, MmClusterInfo>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMClusterInfo.fromJson(entry.value);
+        final value = MmClusterInfo.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -199,16 +199,16 @@ class MMClusterInfo {
     return map;
   }
 
-  // maps a json object with a list of MMClusterInfo-objects as value to a dart map
-  static Map<String, List<MMClusterInfo>> mapListFromJson(
+  // maps a json object with a list of MmClusterInfo-objects as value to a dart map
+  static Map<String, List<MmClusterInfo>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMClusterInfo>>{};
+    final map = <String, List<MmClusterInfo>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMClusterInfo.listFromJson(
+        final value = MmClusterInfo.listFromJson(
           entry.value,
           growable: growable,
         );

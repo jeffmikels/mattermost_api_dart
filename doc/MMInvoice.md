@@ -1,4 +1,4 @@
-# mattermost_api.model.MMInvoice
+# mattermost_api.model.MmInvoice
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMInvoice example = await client.invoice.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmInvoice example = await client.invoice.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **periodStart** | **int** |  | [optional] 
 **periodEnd** | **int** |  | [optional] 
 **subscriptionId** | **String** |  | [optional] 
-**item** | [**List<MMInvoiceLineItem>**](MMInvoiceLineItem.md) |  | [optional] [default to const []]
+**item** | [**List<MmInvoiceLineItem>**](MmInvoiceLineItem.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetDataRetentionPoliciesCount200Response
+// tests for MmGetDataRetentionPoliciesCount200Response
 void main() {
-  // final instance = MMGetDataRetentionPoliciesCount200Response();
+  // final instance = MmGetDataRetentionPoliciesCount200Response();
 
-  group('test MMGetDataRetentionPoliciesCount200Response', () {
+  group('test MmGetDataRetentionPoliciesCount200Response', () {
     // The number of granular retention policies.
     // int totalCount
     test('to test the property `totalCount`', () async {

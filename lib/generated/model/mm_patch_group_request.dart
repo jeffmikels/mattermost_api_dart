@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPatchGroupRequest {
-  /// Returns a new [MMPatchGroupRequest] instance.
-  MMPatchGroupRequest({
+class MmPatchGroupRequest {
+  /// Returns a new [MmPatchGroupRequest] instance.
+  MmPatchGroupRequest({
     this.name,
     this.displayName,
     this.description,
@@ -45,7 +45,7 @@ class MMPatchGroupRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPatchGroupRequest &&
+      other is MmPatchGroupRequest &&
           other.name == name &&
           other.displayName == displayName &&
           other.description == description;
@@ -58,7 +58,7 @@ class MMPatchGroupRequest {
       (description == null ? 0 : description!.hashCode);
 
   @override
-  String toString() => 'MMPatchGroupRequest[name=$name, displayName=$displayName, description=$description]';
+  String toString() => 'MmPatchGroupRequest[name=$name, displayName=$displayName, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -74,10 +74,10 @@ class MMPatchGroupRequest {
     return _json;
   }
 
-  /// Returns a new [MMPatchGroupRequest] instance and imports its values from
+  /// Returns a new [MmPatchGroupRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPatchGroupRequest? fromJson(dynamic value) {
+  static MmPatchGroupRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -86,13 +86,13 @@ class MMPatchGroupRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPatchGroupRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPatchGroupRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPatchGroupRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPatchGroupRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPatchGroupRequest(
+      return MmPatchGroupRequest(
         name: mapValueOfType<String>(json, r'name'),
         displayName: mapValueOfType<String>(json, r'display_name'),
         description: mapValueOfType<String>(json, r'description'),
@@ -101,14 +101,14 @@ class MMPatchGroupRequest {
     return null;
   }
 
-  static List<MMPatchGroupRequest>? listFromJson(
+  static List<MmPatchGroupRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPatchGroupRequest>[];
+    final result = <MmPatchGroupRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPatchGroupRequest.fromJson(row);
+        final value = MmPatchGroupRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -117,12 +117,12 @@ class MMPatchGroupRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPatchGroupRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPatchGroupRequest>{};
+  static Map<String, MmPatchGroupRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPatchGroupRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchGroupRequest.fromJson(entry.value);
+        final value = MmPatchGroupRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -131,16 +131,16 @@ class MMPatchGroupRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPatchGroupRequest-objects as value to a dart map
-  static Map<String, List<MMPatchGroupRequest>> mapListFromJson(
+  // maps a json object with a list of MmPatchGroupRequest-objects as value to a dart map
+  static Map<String, List<MmPatchGroupRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPatchGroupRequest>>{};
+    final map = <String, List<MmPatchGroupRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchGroupRequest.listFromJson(
+        final value = MmPatchGroupRequest.listFromJson(
           entry.value,
           growable: growable,
         );

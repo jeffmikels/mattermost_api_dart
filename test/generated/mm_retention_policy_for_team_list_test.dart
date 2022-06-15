@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRetentionPolicyForTeamList
+// tests for MmRetentionPolicyForTeamList
 void main() {
-  // final instance = MMRetentionPolicyForTeamList();
+  // final instance = MmRetentionPolicyForTeamList();
 
-  group('test MMRetentionPolicyForTeamList', () {
+  group('test MmRetentionPolicyForTeamList', () {
     // The list of team policies.
-    // List<MMDataRetentionPolicyForTeam> policies (default value: const [])
+    // List<MmDataRetentionPolicyForTeam> policies (default value: const [])
     test('to test the property `policies`', () async {
       // TODO
     });

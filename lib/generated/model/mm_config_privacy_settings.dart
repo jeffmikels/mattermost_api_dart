@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigPrivacySettings {
-  /// Returns a new [MMConfigPrivacySettings] instance.
-  MMConfigPrivacySettings({
+class MmConfigPrivacySettings {
+  /// Returns a new [MmConfigPrivacySettings] instance.
+  MmConfigPrivacySettings({
     this.showEmailAddress,
     this.showFullName,
   });
@@ -36,7 +36,7 @@ class MMConfigPrivacySettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigPrivacySettings &&
+      other is MmConfigPrivacySettings &&
           other.showEmailAddress == showEmailAddress &&
           other.showFullName == showFullName;
 
@@ -46,7 +46,7 @@ class MMConfigPrivacySettings {
       (showEmailAddress == null ? 0 : showEmailAddress!.hashCode) + (showFullName == null ? 0 : showFullName!.hashCode);
 
   @override
-  String toString() => 'MMConfigPrivacySettings[showEmailAddress=$showEmailAddress, showFullName=$showFullName]';
+  String toString() => 'MmConfigPrivacySettings[showEmailAddress=$showEmailAddress, showFullName=$showFullName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -59,10 +59,10 @@ class MMConfigPrivacySettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigPrivacySettings] instance and imports its values from
+  /// Returns a new [MmConfigPrivacySettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigPrivacySettings? fromJson(dynamic value) {
+  static MmConfigPrivacySettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,13 +71,13 @@ class MMConfigPrivacySettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigPrivacySettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigPrivacySettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigPrivacySettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigPrivacySettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigPrivacySettings(
+      return MmConfigPrivacySettings(
         showEmailAddress: mapValueOfType<bool>(json, r'ShowEmailAddress'),
         showFullName: mapValueOfType<bool>(json, r'ShowFullName'),
       );
@@ -85,14 +85,14 @@ class MMConfigPrivacySettings {
     return null;
   }
 
-  static List<MMConfigPrivacySettings>? listFromJson(
+  static List<MmConfigPrivacySettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigPrivacySettings>[];
+    final result = <MmConfigPrivacySettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigPrivacySettings.fromJson(row);
+        final value = MmConfigPrivacySettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -101,12 +101,12 @@ class MMConfigPrivacySettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigPrivacySettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigPrivacySettings>{};
+  static Map<String, MmConfigPrivacySettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigPrivacySettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigPrivacySettings.fromJson(entry.value);
+        final value = MmConfigPrivacySettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,16 +115,16 @@ class MMConfigPrivacySettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigPrivacySettings-objects as value to a dart map
-  static Map<String, List<MMConfigPrivacySettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigPrivacySettings-objects as value to a dart map
+  static Map<String, List<MmConfigPrivacySettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigPrivacySettings>>{};
+    final map = <String, List<MmConfigPrivacySettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigPrivacySettings.listFromJson(
+        final value = MmConfigPrivacySettings.listFromJson(
           entry.value,
           growable: growable,
         );

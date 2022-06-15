@@ -1,4 +1,4 @@
-# mattermost_api.model.MMRequestTrialLicenseRequest
+# mattermost_api.model.MmRequestTrialLicenseRequest
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMRequestTrialLicenseRequest example = await client.requestTrialLicenseRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmRequestTrialLicenseRequest example = await client.requestTrialLicenseRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

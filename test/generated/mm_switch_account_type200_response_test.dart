@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSwitchAccountType200Response
+// tests for MmSwitchAccountType200Response
 void main() {
-  // final instance = MMSwitchAccountType200Response();
+  // final instance = MmSwitchAccountType200Response();
 
-  group('test MMSwitchAccountType200Response', () {
+  group('test MmSwitchAccountType200Response', () {
     // The link for the user to follow to login or to complete the account switching when the current service is OAuth2/SAML
     // String followLink
     test('to test the property `followLink`', () async {

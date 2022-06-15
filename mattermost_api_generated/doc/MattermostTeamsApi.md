@@ -49,7 +49,7 @@ Method | HTTP request | Description
 
 
 # **addTeamMember**
-> MMTeamMember addTeamMember(teamId, mMAddTeamMemberRequest)
+> MmTeamMember addTeamMember(teamId, mmAddTeamMemberRequest)
 
 Add user to team
 
@@ -64,26 +64,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMAddTeamMemberRequest mMAddTeamMemberRequest = MMAddTeamMemberRequest(); // MMAddTeamMemberRequest | 
+final MmAddTeamMemberRequest mmAddTeamMemberRequest = MmAddTeamMemberRequest(); // MmAddTeamMemberRequest | 
 
 try {
-  final MMTeamMember? result = await client.teams.addTeamMember(teamId, mMAddTeamMemberRequest); // await the Future<MMTeamMember?>
+  final MmTeamMember? result = await client.teams.addTeamMember(teamId, mmAddTeamMemberRequest); // await the Future<MmTeamMember?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMember: $e\n');
@@ -96,11 +96,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMAddTeamMemberRequest** | [**MMAddTeamMemberRequest**](MMAddTeamMemberRequest.md)|  | 
+ **mmAddTeamMemberRequest** | [**MmAddTeamMemberRequest**](MmAddTeamMemberRequest.md)|  | 
 
 ### Return type
 
-[**MMTeamMember**](MMTeamMember.md)
+[**MmTeamMember**](MmTeamMember.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **addTeamMemberFromInvite**
-> MMTeamMember addTeamMemberFromInvite(token)
+> MmTeamMember addTeamMemberFromInvite(token)
 
 Add user to team from invite
 
@@ -129,25 +129,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String token = 'token_example'; // String | Token id from the invitation
 
 try {
-  final MMTeamMember? result = await client.teams.addTeamMemberFromInvite(token); // await the Future<MMTeamMember?>
+  final MmTeamMember? result = await client.teams.addTeamMemberFromInvite(token); // await the Future<MmTeamMember?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMemberFromInvite: $e\n');
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeamMember**](MMTeamMember.md)
+[**MmTeamMember**](MmTeamMember.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **addTeamMembers**
-> List<MMTeamMember> addTeamMembers(teamId, mMTeamMember, graceful)
+> List<MmTeamMember> addTeamMembers(teamId, mmTeamMember, graceful)
 
 Add multiple users to team
 
@@ -192,27 +192,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final List&lt;MMTeamMember&gt; mMTeamMember = [List<MMTeamMember>()]; // List<MMTeamMember> | 
+final List&lt;MmTeamMember&gt; mmTeamMember = [List<MmTeamMember>()]; // List<MmTeamMember> | 
 final bool graceful = true; // bool | Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]`
 
 try {
-  final List&lt;MMTeamMember&gt;? result = await client.teams.addTeamMembers(teamId, mMTeamMember, graceful); // await the Future<List&lt;MMTeamMember&gt;?>
+  final List&lt;MmTeamMember&gt;? result = await client.teams.addTeamMembers(teamId, mmTeamMember, graceful); // await the Future<List&lt;MmTeamMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMembers: $e\n');
@@ -225,12 +225,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMTeamMember** | [**List<MMTeamMember>**](MMTeamMember.md)|  | 
+ **mmTeamMember** | [**List<MmTeamMember>**](MmTeamMember.md)|  | 
  **graceful** | **bool**| Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]` | [optional] 
 
 ### Return type
 
-[**List<MMTeamMember>**](MMTeamMember.md)
+[**List<MmTeamMember>**](MmTeamMember.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createTeam**
-> MMTeam createTeam(mMCreateTeamRequest)
+> MmTeam createTeam(mmCreateTeamRequest)
 
 Create a team
 
@@ -259,25 +259,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateTeamRequest mMCreateTeamRequest = MMCreateTeamRequest(); // MMCreateTeamRequest | Team that is to be created
+final MmCreateTeamRequest mmCreateTeamRequest = MmCreateTeamRequest(); // MmCreateTeamRequest | Team that is to be created
 
 try {
-  final MMTeam? result = await client.teams.createTeam(mMCreateTeamRequest); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.createTeam(mmCreateTeamRequest); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->createTeam: $e\n');
@@ -289,11 +289,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateTeamRequest** | [**MMCreateTeamRequest**](MMCreateTeamRequest.md)| Team that is to be created | 
+ **mmCreateTeamRequest** | [**MmCreateTeamRequest**](MmCreateTeamRequest.md)| Team that is to be created | 
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getAllTeams**
-> List<MMTeam> getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained)
+> List<MmTeam> getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained)
 
 Get teams
 
@@ -322,18 +322,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -343,7 +343,7 @@ final bool includeTotalCount = true; // bool |
 final bool excludePolicyConstrained = true; // bool | If set to true, teams which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-  final List&lt;MMTeam&gt;? result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained); // await the Future<List&lt;MMTeam&gt;?>
+  final List&lt;MmTeam&gt;? result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained); // await the Future<List&lt;MmTeam&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getAllTeams: $e\n');
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeam>**](MMTeam.md)
+[**List<MmTeam>**](MmTeam.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeam**
-> MMTeam getTeam(teamId)
+> MmTeam getTeam(teamId)
 
 Get a team
 
@@ -391,25 +391,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam? result = await client.teams.getTeam(teamId); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.getTeam(teamId); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeam: $e\n');
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamByName**
-> MMTeam getTeamByName(name)
+> MmTeam getTeamByName(name)
 
 Get a team by name
 
@@ -454,25 +454,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String name = 'name_example'; // String | Team Name
 
 try {
-  final MMTeam? result = await client.teams.getTeamByName(name); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.getTeamByName(name); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamByName: $e\n');
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -517,18 +517,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -564,7 +564,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamInviteInfo**
-> MMGetTeamInviteInfo200Response getTeamInviteInfo(inviteId)
+> MmGetTeamInviteInfo200Response getTeamInviteInfo(inviteId)
 
 Get invite info for a team
 
@@ -579,25 +579,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String inviteId = 'inviteId_example'; // String | Invite id for a team
 
 try {
-  final MMGetTeamInviteInfo200Response? result = await client.teams.getTeamInviteInfo(inviteId); // await the Future<MMGetTeamInviteInfo200Response?>
+  final MmGetTeamInviteInfo200Response? result = await client.teams.getTeamInviteInfo(inviteId); // await the Future<MmGetTeamInviteInfo200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamInviteInfo: $e\n');
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGetTeamInviteInfo200Response**](MMGetTeamInviteInfo200Response.md)
+[**MmGetTeamInviteInfo200Response**](MmGetTeamInviteInfo200Response.md)
 
 ### Authorization
 
@@ -627,7 +627,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamMember**
-> MMTeamMember getTeamMember(teamId, userId)
+> MmTeamMember getTeamMember(teamId, userId)
 
 Get a team member
 
@@ -642,18 +642,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -661,7 +661,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMTeamMember? result = await client.teams.getTeamMember(teamId, userId); // await the Future<MMTeamMember?>
+  final MmTeamMember? result = await client.teams.getTeamMember(teamId, userId); // await the Future<MmTeamMember?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMember: $e\n');
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeamMember**](MMTeamMember.md)
+[**MmTeamMember**](MmTeamMember.md)
 
 ### Authorization
 
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamMembers**
-> List<MMTeamMember> getTeamMembers(teamId, page, perPage)
+> List<MmTeamMember> getTeamMembers(teamId, page, perPage)
 
 Get team members
 
@@ -707,18 +707,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -727,7 +727,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page.
 
 try {
-  final List&lt;MMTeamMember&gt;? result = await client.teams.getTeamMembers(teamId, page, perPage); // await the Future<List&lt;MMTeamMember&gt;?>
+  final List&lt;MmTeamMember&gt;? result = await client.teams.getTeamMembers(teamId, page, perPage); // await the Future<List&lt;MmTeamMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembers: $e\n');
@@ -745,7 +745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeamMember>**](MMTeamMember.md)
+[**List<MmTeamMember>**](MmTeamMember.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamMembersByIds**
-> List<MMTeamMember> getTeamMembersByIds(teamId, requestBody)
+> List<MmTeamMember> getTeamMembersByIds(teamId, requestBody)
 
 Get team members by ids
 
@@ -774,18 +774,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -793,7 +793,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-  final List&lt;MMTeamMember&gt;? result = await client.teams.getTeamMembersByIds(teamId, requestBody); // await the Future<List&lt;MMTeamMember&gt;?>
+  final List&lt;MmTeamMember&gt;? result = await client.teams.getTeamMembersByIds(teamId, requestBody); // await the Future<List&lt;MmTeamMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembersByIds: $e\n');
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeamMember>**](MMTeamMember.md)
+[**List<MmTeamMember>**](MmTeamMember.md)
 
 ### Authorization
 
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamMembersForUser**
-> List<MMTeamMember> getTeamMembersForUser(userId)
+> List<MmTeamMember> getTeamMembersForUser(userId)
 
 Get team members for a user
 
@@ -839,25 +839,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMTeamMember&gt;? result = await client.teams.getTeamMembersForUser(userId); // await the Future<List&lt;MMTeamMember&gt;?>
+  final List&lt;MmTeamMember&gt;? result = await client.teams.getTeamMembersForUser(userId); // await the Future<List&lt;MmTeamMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembersForUser: $e\n');
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeamMember>**](MMTeamMember.md)
+[**List<MmTeamMember>**](MmTeamMember.md)
 
 ### Authorization
 
@@ -887,7 +887,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamStats**
-> MMTeamStats getTeamStats(teamId)
+> MmTeamStats getTeamStats(teamId)
 
 Get a team stats
 
@@ -902,25 +902,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeamStats? result = await client.teams.getTeamStats(teamId); // await the Future<MMTeamStats?>
+  final MmTeamStats? result = await client.teams.getTeamStats(teamId); // await the Future<MmTeamStats?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamStats: $e\n');
@@ -936,7 +936,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeamStats**](MMTeamStats.md)
+[**MmTeamStats**](MmTeamStats.md)
 
 ### Authorization
 
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamUnread**
-> MMTeamUnread getTeamUnread(userId, teamId)
+> MmTeamUnread getTeamUnread(userId, teamId)
 
 Get unreads for a team
 
@@ -965,18 +965,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -984,7 +984,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeamUnread? result = await client.teams.getTeamUnread(userId, teamId); // await the Future<MMTeamUnread?>
+  final MmTeamUnread? result = await client.teams.getTeamUnread(userId, teamId); // await the Future<MmTeamUnread?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamUnread: $e\n');
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeamUnread**](MMTeamUnread.md)
+[**MmTeamUnread**](MmTeamUnread.md)
 
 ### Authorization
 
@@ -1015,7 +1015,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamsForUser**
-> List<MMTeam> getTeamsForUser(userId)
+> List<MmTeam> getTeamsForUser(userId)
 
 Get a user's teams
 
@@ -1030,25 +1030,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMTeam&gt;? result = await client.teams.getTeamsForUser(userId); // await the Future<List&lt;MMTeam&gt;?>
+  final List&lt;MmTeam&gt;? result = await client.teams.getTeamsForUser(userId); // await the Future<List&lt;MmTeam&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamsForUser: $e\n');
@@ -1064,7 +1064,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeam>**](MMTeam.md)
+[**List<MmTeam>**](MmTeam.md)
 
 ### Authorization
 
@@ -1078,7 +1078,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamsUnreadForUser**
-> List<MMTeamUnread> getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads)
+> List<MmTeamUnread> getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads)
 
 Get team unreads for a user
 
@@ -1093,18 +1093,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1113,7 +1113,7 @@ final String excludeTeam = 'excludeTeam_example'; // String | Optional team id t
 final bool includeCollapsedThreads = true; // bool | Boolean to determine whether the collapsed threads should be included or not
 
 try {
-  final List&lt;MMTeamUnread&gt;? result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads); // await the Future<List&lt;MMTeamUnread&gt;?>
+  final List&lt;MmTeamUnread&gt;? result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads); // await the Future<List&lt;MmTeamUnread&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamsUnreadForUser: $e\n');
@@ -1131,7 +1131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeamUnread>**](MMTeamUnread.md)
+[**List<MmTeamUnread>**](MmTeamUnread.md)
 
 ### Authorization
 
@@ -1145,7 +1145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **importTeam**
-> MMImportTeam200Response importTeam(teamId, file, filesize, importFrom)
+> MmImportTeam200Response importTeam(teamId, file, filesize, importFrom)
 
 Import a Team from other application
 
@@ -1160,18 +1160,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1181,7 +1181,7 @@ final int filesize = 56; // int | The size of the zip file to be imported.
 final String importFrom = 'importFrom_example'; // String | String that defines from which application the team was exported to be imported into Mattermost.
 
 try {
-  final MMImportTeam200Response? result = await client.teams.importTeam(teamId, file, filesize, importFrom); // await the Future<MMImportTeam200Response?>
+  final MmImportTeam200Response? result = await client.teams.importTeam(teamId, file, filesize, importFrom); // await the Future<MmImportTeam200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->importTeam: $e\n');
@@ -1200,7 +1200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMImportTeam200Response**](MMImportTeam200Response.md)
+[**MmImportTeam200Response**](MmImportTeam200Response.md)
 
 ### Authorization
 
@@ -1214,7 +1214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **invalidateEmailInvites**
-> MMStatusOK invalidateEmailInvites()
+> MmStatusOK invalidateEmailInvites()
 
 Invalidate active email invitations
 
@@ -1229,24 +1229,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.teams.invalidateEmailInvites(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.invalidateEmailInvites(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->invalidateEmailInvites: $e\n');
@@ -1259,7 +1259,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1273,7 +1273,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **inviteGuestsToTeam**
-> MMStatusOK inviteGuestsToTeam(teamId, mMInviteGuestsToTeamRequest)
+> MmStatusOK inviteGuestsToTeam(teamId, mmInviteGuestsToTeamRequest)
 
 Invite guests to the team by email
 
@@ -1288,26 +1288,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMInviteGuestsToTeamRequest mMInviteGuestsToTeamRequest = MMInviteGuestsToTeamRequest(); // MMInviteGuestsToTeamRequest | Guests invite information
+final MmInviteGuestsToTeamRequest mmInviteGuestsToTeamRequest = MmInviteGuestsToTeamRequest(); // MmInviteGuestsToTeamRequest | Guests invite information
 
 try {
-  final MMStatusOK? result = await client.teams.inviteGuestsToTeam(teamId, mMInviteGuestsToTeamRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.inviteGuestsToTeam(teamId, mmInviteGuestsToTeamRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->inviteGuestsToTeam: $e\n');
@@ -1320,11 +1320,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMInviteGuestsToTeamRequest** | [**MMInviteGuestsToTeamRequest**](MMInviteGuestsToTeamRequest.md)| Guests invite information | 
+ **mmInviteGuestsToTeamRequest** | [**MmInviteGuestsToTeamRequest**](MmInviteGuestsToTeamRequest.md)| Guests invite information | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1338,7 +1338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **inviteUsersToTeam**
-> MMStatusOK inviteUsersToTeam(teamId, requestBody)
+> MmStatusOK inviteUsersToTeam(teamId, requestBody)
 
 Invite users to the team by email
 
@@ -1353,18 +1353,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1372,7 +1372,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user's email
 
 try {
-  final MMStatusOK? result = await client.teams.inviteUsersToTeam(teamId, requestBody); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.inviteUsersToTeam(teamId, requestBody); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->inviteUsersToTeam: $e\n');
@@ -1389,7 +1389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1403,7 +1403,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchTeam**
-> MMTeam patchTeam(teamId, mMPatchTeamRequest)
+> MmTeam patchTeam(teamId, mmPatchTeamRequest)
 
 Patch a team
 
@@ -1418,26 +1418,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMPatchTeamRequest mMPatchTeamRequest = MMPatchTeamRequest(); // MMPatchTeamRequest | Team object that is to be updated
+final MmPatchTeamRequest mmPatchTeamRequest = MmPatchTeamRequest(); // MmPatchTeamRequest | Team object that is to be updated
 
 try {
-  final MMTeam? result = await client.teams.patchTeam(teamId, mMPatchTeamRequest); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.patchTeam(teamId, mmPatchTeamRequest); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->patchTeam: $e\n');
@@ -1450,11 +1450,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMPatchTeamRequest** | [**MMPatchTeamRequest**](MMPatchTeamRequest.md)| Team object that is to be updated | 
+ **mmPatchTeamRequest** | [**MmPatchTeamRequest**](MmPatchTeamRequest.md)| Team object that is to be updated | 
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -1468,7 +1468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **regenerateTeamInviteId**
-> MMTeam regenerateTeamInviteId(teamId)
+> MmTeam regenerateTeamInviteId(teamId)
 
 Regenerate the Invite ID from a Team
 
@@ -1483,25 +1483,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam? result = await client.teams.regenerateTeamInviteId(teamId); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.regenerateTeamInviteId(teamId); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->regenerateTeamInviteId: $e\n');
@@ -1517,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -1531,7 +1531,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeTeamIcon**
-> MMStatusOK removeTeamIcon(teamId)
+> MmStatusOK removeTeamIcon(teamId)
 
 Remove the team icon
 
@@ -1546,25 +1546,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMStatusOK? result = await client.teams.removeTeamIcon(teamId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.removeTeamIcon(teamId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->removeTeamIcon: $e\n');
@@ -1580,7 +1580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1594,7 +1594,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeTeamMember**
-> MMStatusOK removeTeamMember(teamId, userId)
+> MmStatusOK removeTeamMember(teamId, userId)
 
 Remove user from team
 
@@ -1609,18 +1609,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1628,7 +1628,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK? result = await client.teams.removeTeamMember(teamId, userId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.removeTeamMember(teamId, userId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->removeTeamMember: $e\n');
@@ -1645,7 +1645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1659,7 +1659,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **restoreTeam**
-> MMTeam restoreTeam(teamId)
+> MmTeam restoreTeam(teamId)
 
 Restore a team
 
@@ -1674,25 +1674,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam? result = await client.teams.restoreTeam(teamId); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.restoreTeam(teamId); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->restoreTeam: $e\n');
@@ -1708,7 +1708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -1722,7 +1722,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchFiles**
-> MMFileInfoList searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage)
+> MmFileInfoList searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage)
 
 Search files in a team
 
@@ -1737,18 +1737,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1761,7 +1761,7 @@ final int page = 56; // int | The page to select. (Only works with Elasticsearch
 final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-  final MMFileInfoList? result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // await the Future<MMFileInfoList?>
+  final MmFileInfoList? result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // await the Future<MmFileInfoList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->searchFiles: $e\n');
@@ -1783,7 +1783,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMFileInfoList**](MMFileInfoList.md)
+[**MmFileInfoList**](MmFileInfoList.md)
 
 ### Authorization
 
@@ -1797,7 +1797,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchTeams**
-> MMSearchTeams200Response searchTeams(mMSearchTeamsRequest)
+> MmSearchTeams200Response searchTeams(mmSearchTeamsRequest)
 
 Search teams
 
@@ -1812,25 +1812,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMSearchTeamsRequest mMSearchTeamsRequest = MMSearchTeamsRequest(); // MMSearchTeamsRequest | Search criteria
+final MmSearchTeamsRequest mmSearchTeamsRequest = MmSearchTeamsRequest(); // MmSearchTeamsRequest | Search criteria
 
 try {
-  final MMSearchTeams200Response? result = await client.teams.searchTeams(mMSearchTeamsRequest); // await the Future<MMSearchTeams200Response?>
+  final MmSearchTeams200Response? result = await client.teams.searchTeams(mmSearchTeamsRequest); // await the Future<MmSearchTeams200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->searchTeams: $e\n');
@@ -1842,11 +1842,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMSearchTeamsRequest** | [**MMSearchTeamsRequest**](MMSearchTeamsRequest.md)| Search criteria | 
+ **mmSearchTeamsRequest** | [**MmSearchTeamsRequest**](MmSearchTeamsRequest.md)| Search criteria | 
 
 ### Return type
 
-[**MMSearchTeams200Response**](MMSearchTeams200Response.md)
+[**MmSearchTeams200Response**](MmSearchTeams200Response.md)
 
 ### Authorization
 
@@ -1860,7 +1860,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **setTeamIcon**
-> MMStatusOK setTeamIcon(teamId, image)
+> MmStatusOK setTeamIcon(teamId, image)
 
 Sets the team icon
 
@@ -1875,18 +1875,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1894,7 +1894,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-  final MMStatusOK? result = await client.teams.setTeamIcon(teamId, image); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.setTeamIcon(teamId, image); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->setTeamIcon: $e\n');
@@ -1911,7 +1911,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1925,7 +1925,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **softDeleteTeam**
-> MMStatusOK softDeleteTeam(teamId, permanent)
+> MmStatusOK softDeleteTeam(teamId, permanent)
 
 Delete a team
 
@@ -1940,18 +1940,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1959,7 +1959,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final bool permanent = true; // bool | Permanently delete the team, to be used for compliance reasons only. As of server version 5.0, `ServiceSettings.EnableAPITeamDeletion` must be set to `true` in the server's configuration.
 
 try {
-  final MMStatusOK? result = await client.teams.softDeleteTeam(teamId, permanent); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.softDeleteTeam(teamId, permanent); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->softDeleteTeam: $e\n');
@@ -1976,7 +1976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1990,7 +1990,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **teamExists**
-> MMTeamExists teamExists(name)
+> MmTeamExists teamExists(name)
 
 Check if team exists
 
@@ -2005,25 +2005,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String name = 'name_example'; // String | Team Name
 
 try {
-  final MMTeamExists? result = await client.teams.teamExists(name); // await the Future<MMTeamExists?>
+  final MmTeamExists? result = await client.teams.teamExists(name); // await the Future<MmTeamExists?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->teamExists: $e\n');
@@ -2039,7 +2039,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTeamExists**](MMTeamExists.md)
+[**MmTeamExists**](MmTeamExists.md)
 
 ### Authorization
 
@@ -2068,18 +2068,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -2121,7 +2121,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateTeam**
-> MMTeam updateTeam(teamId, mMUpdateTeamRequest)
+> MmTeam updateTeam(teamId, mmUpdateTeamRequest)
 
 Update a team
 
@@ -2136,26 +2136,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMUpdateTeamRequest mMUpdateTeamRequest = MMUpdateTeamRequest(); // MMUpdateTeamRequest | Team to update
+final MmUpdateTeamRequest mmUpdateTeamRequest = MmUpdateTeamRequest(); // MmUpdateTeamRequest | Team to update
 
 try {
-  final MMTeam? result = await client.teams.updateTeam(teamId, mMUpdateTeamRequest); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.updateTeam(teamId, mmUpdateTeamRequest); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeam: $e\n');
@@ -2168,11 +2168,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMUpdateTeamRequest** | [**MMUpdateTeamRequest**](MMUpdateTeamRequest.md)| Team to update | 
+ **mmUpdateTeamRequest** | [**MmUpdateTeamRequest**](MmUpdateTeamRequest.md)| Team to update | 
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -2186,7 +2186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateTeamMemberRoles**
-> MMStatusOK updateTeamMemberRoles(teamId, userId, mMUpdateUserRolesRequest)
+> MmStatusOK updateTeamMemberRoles(teamId, userId, mmUpdateUserRolesRequest)
 
 Update a team member roles
 
@@ -2201,27 +2201,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited team roles to assign to the user
+final MmUpdateUserRolesRequest mmUpdateUserRolesRequest = MmUpdateUserRolesRequest(); // MmUpdateUserRolesRequest | Space-delimited team roles to assign to the user
 
 try {
-  final MMStatusOK? result = await client.teams.updateTeamMemberRoles(teamId, userId, mMUpdateUserRolesRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.updateTeamMemberRoles(teamId, userId, mmUpdateUserRolesRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamMemberRoles: $e\n');
@@ -2235,11 +2235,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
  **userId** | **String**| User GUID | 
- **mMUpdateUserRolesRequest** | [**MMUpdateUserRolesRequest**](MMUpdateUserRolesRequest.md)| Space-delimited team roles to assign to the user | 
+ **mmUpdateUserRolesRequest** | [**MmUpdateUserRolesRequest**](MmUpdateUserRolesRequest.md)| Space-delimited team roles to assign to the user | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -2253,7 +2253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateTeamMemberSchemeRoles**
-> MMStatusOK updateTeamMemberSchemeRoles(teamId, userId, mMUpdateTeamMemberSchemeRolesRequest)
+> MmStatusOK updateTeamMemberSchemeRoles(teamId, userId, mmUpdateTeamMemberSchemeRolesRequest)
 
 Update the scheme-derived roles of a team member.
 
@@ -2268,27 +2268,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest = MMUpdateTeamMemberSchemeRolesRequest(); // MMUpdateTeamMemberSchemeRolesRequest | Scheme properties.
+final MmUpdateTeamMemberSchemeRolesRequest mmUpdateTeamMemberSchemeRolesRequest = MmUpdateTeamMemberSchemeRolesRequest(); // MmUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-  final MMStatusOK? result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mMUpdateTeamMemberSchemeRolesRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mmUpdateTeamMemberSchemeRolesRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamMemberSchemeRoles: $e\n');
@@ -2302,11 +2302,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
  **userId** | **String**| User GUID | 
- **mMUpdateTeamMemberSchemeRolesRequest** | [**MMUpdateTeamMemberSchemeRolesRequest**](MMUpdateTeamMemberSchemeRolesRequest.md)| Scheme properties. | 
+ **mmUpdateTeamMemberSchemeRolesRequest** | [**MmUpdateTeamMemberSchemeRolesRequest**](MmUpdateTeamMemberSchemeRolesRequest.md)| Scheme properties. | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -2320,7 +2320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateTeamPrivacy**
-> MMTeam updateTeamPrivacy(teamId, mMUpdateTeamPrivacyRequest)
+> MmTeam updateTeamPrivacy(teamId, mmUpdateTeamPrivacyRequest)
 
 Update teams's privacy
 
@@ -2335,26 +2335,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMUpdateTeamPrivacyRequest mMUpdateTeamPrivacyRequest = MMUpdateTeamPrivacyRequest(); // MMUpdateTeamPrivacyRequest | 
+final MmUpdateTeamPrivacyRequest mmUpdateTeamPrivacyRequest = MmUpdateTeamPrivacyRequest(); // MmUpdateTeamPrivacyRequest | 
 
 try {
-  final MMTeam? result = await client.teams.updateTeamPrivacy(teamId, mMUpdateTeamPrivacyRequest); // await the Future<MMTeam?>
+  final MmTeam? result = await client.teams.updateTeamPrivacy(teamId, mmUpdateTeamPrivacyRequest); // await the Future<MmTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamPrivacy: $e\n');
@@ -2367,11 +2367,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMUpdateTeamPrivacyRequest** | [**MMUpdateTeamPrivacyRequest**](MMUpdateTeamPrivacyRequest.md)|  | 
+ **mmUpdateTeamPrivacyRequest** | [**MmUpdateTeamPrivacyRequest**](MmUpdateTeamPrivacyRequest.md)|  | 
 
 ### Return type
 
-[**MMTeam**](MMTeam.md)
+[**MmTeam**](MmTeam.md)
 
 ### Authorization
 
@@ -2385,7 +2385,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateTeamScheme**
-> MMStatusOK updateTeamScheme(teamId, mMUpdateTeamSchemeRequest)
+> MmStatusOK updateTeamScheme(teamId, mmUpdateTeamSchemeRequest)
 
 Set a team's scheme
 
@@ -2400,26 +2400,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest = MMUpdateTeamSchemeRequest(); // MMUpdateTeamSchemeRequest | Scheme GUID
+final MmUpdateTeamSchemeRequest mmUpdateTeamSchemeRequest = MmUpdateTeamSchemeRequest(); // MmUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-  final MMStatusOK? result = await client.teams.updateTeamScheme(teamId, mMUpdateTeamSchemeRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.teams.updateTeamScheme(teamId, mmUpdateTeamSchemeRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamScheme: $e\n');
@@ -2432,11 +2432,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMUpdateTeamSchemeRequest** | [**MMUpdateTeamSchemeRequest**](MMUpdateTeamSchemeRequest.md)| Scheme GUID | 
+ **mmUpdateTeamSchemeRequest** | [**MmUpdateTeamSchemeRequest**](MmUpdateTeamSchemeRequest.md)| Scheme GUID | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

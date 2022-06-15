@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTeamMap {
-  /// Returns a new [MMTeamMap] instance.
-  MMTeamMap({
+class MmTeamMap {
+  /// Returns a new [MmTeamMap] instance.
+  MmTeamMap({
     this.teamId,
   });
 
@@ -22,10 +22,10 @@ class MMTeamMap {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMTeam? teamId;
+  MmTeam? teamId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMTeamMap && other.teamId == teamId;
+  bool operator ==(Object other) => identical(this, other) || other is MmTeamMap && other.teamId == teamId;
 
   @override
   int get hashCode =>
@@ -33,7 +33,7 @@ class MMTeamMap {
       (teamId == null ? 0 : teamId!.hashCode);
 
   @override
-  String toString() => 'MMTeamMap[teamId=$teamId]';
+  String toString() => 'MmTeamMap[teamId=$teamId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMTeamMap {
     return _json;
   }
 
-  /// Returns a new [MMTeamMap] instance and imports its values from
+  /// Returns a new [MmTeamMap] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTeamMap? fromJson(dynamic value) {
+  static MmTeamMap? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,27 +55,27 @@ class MMTeamMap {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTeamMap[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTeamMap[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTeamMap[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTeamMap[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTeamMap(
-        teamId: MMTeam.fromJson(json[r'team_id']),
+      return MmTeamMap(
+        teamId: MmTeam.fromJson(json[r'team_id']),
       );
     }
     return null;
   }
 
-  static List<MMTeamMap>? listFromJson(
+  static List<MmTeamMap>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTeamMap>[];
+    final result = <MmTeamMap>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTeamMap.fromJson(row);
+        final value = MmTeamMap.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -84,12 +84,12 @@ class MMTeamMap {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTeamMap> mapFromJson(dynamic json) {
-    final map = <String, MMTeamMap>{};
+  static Map<String, MmTeamMap> mapFromJson(dynamic json) {
+    final map = <String, MmTeamMap>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamMap.fromJson(entry.value);
+        final value = MmTeamMap.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -98,16 +98,16 @@ class MMTeamMap {
     return map;
   }
 
-  // maps a json object with a list of MMTeamMap-objects as value to a dart map
-  static Map<String, List<MMTeamMap>> mapListFromJson(
+  // maps a json object with a list of MmTeamMap-objects as value to a dart map
+  static Map<String, List<MmTeamMap>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTeamMap>>{};
+    final map = <String, List<MmTeamMap>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamMap.listFromJson(
+        final value = MmTeamMap.listFromJson(
           entry.value,
           growable: growable,
         );

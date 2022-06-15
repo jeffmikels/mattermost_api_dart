@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRole
+// tests for MmRole
 void main() {
-  // final instance = MMRole();
+  // final instance = MmRole();
 
-  group('test MMRole', () {
+  group('test MmRole', () {
     // The unique identifier of the role.
     // String id
     test('to test the property `id`', () async {

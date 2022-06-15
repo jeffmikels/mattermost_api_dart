@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGroupSyncableChannel
+// tests for MmGroupSyncableChannel
 void main() {
-  // final instance = MMGroupSyncableChannel();
+  // final instance = MmGroupSyncableChannel();
 
-  group('test MMGroupSyncableChannel', () {
+  group('test MmGroupSyncableChannel', () {
     // String channelId
     test('to test the property `channelId`', () async {
       // TODO

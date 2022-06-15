@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigComplianceSettings {
-  /// Returns a new [MMConfigComplianceSettings] instance.
-  MMConfigComplianceSettings({
+class MmConfigComplianceSettings {
+  /// Returns a new [MmConfigComplianceSettings] instance.
+  MmConfigComplianceSettings({
     this.enable,
     this.directory,
     this.enableDaily,
@@ -45,7 +45,7 @@ class MMConfigComplianceSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigComplianceSettings &&
+      other is MmConfigComplianceSettings &&
           other.enable == enable &&
           other.directory == directory &&
           other.enableDaily == enableDaily;
@@ -58,7 +58,7 @@ class MMConfigComplianceSettings {
       (enableDaily == null ? 0 : enableDaily!.hashCode);
 
   @override
-  String toString() => 'MMConfigComplianceSettings[enable=$enable, directory=$directory, enableDaily=$enableDaily]';
+  String toString() => 'MmConfigComplianceSettings[enable=$enable, directory=$directory, enableDaily=$enableDaily]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -74,10 +74,10 @@ class MMConfigComplianceSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigComplianceSettings] instance and imports its values from
+  /// Returns a new [MmConfigComplianceSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigComplianceSettings? fromJson(dynamic value) {
+  static MmConfigComplianceSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -86,13 +86,13 @@ class MMConfigComplianceSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigComplianceSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigComplianceSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigComplianceSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigComplianceSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigComplianceSettings(
+      return MmConfigComplianceSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         directory: mapValueOfType<String>(json, r'Directory'),
         enableDaily: mapValueOfType<bool>(json, r'EnableDaily'),
@@ -101,14 +101,14 @@ class MMConfigComplianceSettings {
     return null;
   }
 
-  static List<MMConfigComplianceSettings>? listFromJson(
+  static List<MmConfigComplianceSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigComplianceSettings>[];
+    final result = <MmConfigComplianceSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigComplianceSettings.fromJson(row);
+        final value = MmConfigComplianceSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -117,12 +117,12 @@ class MMConfigComplianceSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigComplianceSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigComplianceSettings>{};
+  static Map<String, MmConfigComplianceSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigComplianceSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigComplianceSettings.fromJson(entry.value);
+        final value = MmConfigComplianceSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -131,16 +131,16 @@ class MMConfigComplianceSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigComplianceSettings-objects as value to a dart map
-  static Map<String, List<MMConfigComplianceSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigComplianceSettings-objects as value to a dart map
+  static Map<String, List<MmConfigComplianceSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigComplianceSettings>>{};
+    final map = <String, List<MmConfigComplianceSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigComplianceSettings.listFromJson(
+        final value = MmConfigComplianceSettings.listFromJson(
           entry.value,
           growable: growable,
         );

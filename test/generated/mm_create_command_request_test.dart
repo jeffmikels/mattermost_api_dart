@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateCommandRequest
+// tests for MmCreateCommandRequest
 void main() {
-  // final instance = MMCreateCommandRequest();
+  // final instance = MmCreateCommandRequest();
 
-  group('test MMCreateCommandRequest', () {
+  group('test MmCreateCommandRequest', () {
     // Team ID to where the command should be created
     // String teamId
     test('to test the property `teamId`', () async {

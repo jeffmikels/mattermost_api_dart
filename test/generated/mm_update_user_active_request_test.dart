@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateUserActiveRequest
+// tests for MmUpdateUserActiveRequest
 void main() {
-  // final instance = MMUpdateUserActiveRequest();
+  // final instance = MmUpdateUserActiveRequest();
 
-  group('test MMUpdateUserActiveRequest', () {
+  group('test MmUpdateUserActiveRequest', () {
     // bool active
     test('to test the property `active`', () async {
       // TODO

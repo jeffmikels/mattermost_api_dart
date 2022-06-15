@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateTeamPrivacyRequest
+// tests for MmUpdateTeamPrivacyRequest
 void main() {
-  // final instance = MMUpdateTeamPrivacyRequest();
+  // final instance = MmUpdateTeamPrivacyRequest();
 
-  group('test MMUpdateTeamPrivacyRequest', () {
+  group('test MmUpdateTeamPrivacyRequest', () {
     // Team privacy setting: 'O' for a public (open) team, 'I' for a private (invitation only) team
     // String privacy
     test('to test the property `privacy`', () async {

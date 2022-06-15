@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **deleteSamlIdpCertificate**
-> MMStatusOK deleteSamlIdpCertificate()
+> MmStatusOK deleteSamlIdpCertificate()
 
 Remove IDP certificate
 
@@ -38,24 +38,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.sAML.deleteSamlIdpCertificate(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.deleteSamlIdpCertificate(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlIdpCertificate: $e\n');
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteSamlPrivateCertificate**
-> MMStatusOK deleteSamlPrivateCertificate()
+> MmStatusOK deleteSamlPrivateCertificate()
 
 Remove private key
 
@@ -97,24 +97,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.sAML.deleteSamlPrivateCertificate(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.deleteSamlPrivateCertificate(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlPrivateCertificate: $e\n');
@@ -127,7 +127,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteSamlPublicCertificate**
-> MMStatusOK deleteSamlPublicCertificate()
+> MmStatusOK deleteSamlPublicCertificate()
 
 Remove public certificate
 
@@ -156,24 +156,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMStatusOK? result = await client.sAML.deleteSamlPublicCertificate(); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.deleteSamlPublicCertificate(); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlPublicCertificate: $e\n');
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSamlCertificateStatus**
-> MMSamlCertificateStatus getSamlCertificateStatus()
+> MmSamlCertificateStatus getSamlCertificateStatus()
 
 Get certificate status
 
@@ -215,24 +215,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMSamlCertificateStatus? result = await client.sAML.getSamlCertificateStatus(); // await the Future<MMSamlCertificateStatus?>
+  final MmSamlCertificateStatus? result = await client.sAML.getSamlCertificateStatus(); // await the Future<MmSamlCertificateStatus?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->getSamlCertificateStatus: $e\n');
@@ -245,7 +245,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMSamlCertificateStatus**](MMSamlCertificateStatus.md)
+[**MmSamlCertificateStatus**](MmSamlCertificateStatus.md)
 
 ### Authorization
 
@@ -274,18 +274,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -318,7 +318,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSamlMetadataFromIdp**
-> String getSamlMetadataFromIdp(mMGetSamlMetadataFromIdpRequest)
+> String getSamlMetadataFromIdp(mmGetSamlMetadataFromIdpRequest)
 
 Get metadata from Identity Provider
 
@@ -333,25 +333,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMGetSamlMetadataFromIdpRequest mMGetSamlMetadataFromIdpRequest = MMGetSamlMetadataFromIdpRequest(); // MMGetSamlMetadataFromIdpRequest | 
+final MmGetSamlMetadataFromIdpRequest mmGetSamlMetadataFromIdpRequest = MmGetSamlMetadataFromIdpRequest(); // MmGetSamlMetadataFromIdpRequest | 
 
 try {
-  final String? result = await client.sAML.getSamlMetadataFromIdp(mMGetSamlMetadataFromIdpRequest); // await the Future<String?>
+  final String? result = await client.sAML.getSamlMetadataFromIdp(mmGetSamlMetadataFromIdpRequest); // await the Future<String?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->getSamlMetadataFromIdp: $e\n');
@@ -363,7 +363,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMGetSamlMetadataFromIdpRequest** | [**MMGetSamlMetadataFromIdpRequest**](MMGetSamlMetadataFromIdpRequest.md)|  | [optional] 
+ **mmGetSamlMetadataFromIdpRequest** | [**MmGetSamlMetadataFromIdpRequest**](MmGetSamlMetadataFromIdpRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **migrateAuthToSaml**
-> migrateAuthToSaml(mMMigrateAuthToSamlRequest)
+> migrateAuthToSaml(mmMigrateAuthToSamlRequest)
 
 Migrate user accounts authentication type to SAML.
 
@@ -396,25 +396,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMMigrateAuthToSamlRequest mMMigrateAuthToSamlRequest = MMMigrateAuthToSamlRequest(); // MMMigrateAuthToSamlRequest | 
+final MmMigrateAuthToSamlRequest mmMigrateAuthToSamlRequest = MmMigrateAuthToSamlRequest(); // MmMigrateAuthToSamlRequest | 
 
 try {
-  await client.sAML.migrateAuthToSaml(mMMigrateAuthToSamlRequest); 
+  await client.sAML.migrateAuthToSaml(mmMigrateAuthToSamlRequest); 
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->migrateAuthToSaml: $e\n');
 }
@@ -425,7 +425,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMMigrateAuthToSamlRequest** | [**MMMigrateAuthToSamlRequest**](MMMigrateAuthToSamlRequest.md)|  | [optional] 
+ **mmMigrateAuthToSamlRequest** | [**MmMigrateAuthToSamlRequest**](MmMigrateAuthToSamlRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -443,7 +443,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **resetSamlAuthDataToEmail**
-> MMResetSamlAuthDataToEmail200Response resetSamlAuthDataToEmail(mMResetSamlAuthDataToEmailRequest)
+> MmResetSamlAuthDataToEmail200Response resetSamlAuthDataToEmail(mmResetSamlAuthDataToEmailRequest)
 
 Reset AuthData to Email
 
@@ -458,25 +458,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMResetSamlAuthDataToEmailRequest mMResetSamlAuthDataToEmailRequest = MMResetSamlAuthDataToEmailRequest(); // MMResetSamlAuthDataToEmailRequest | 
+final MmResetSamlAuthDataToEmailRequest mmResetSamlAuthDataToEmailRequest = MmResetSamlAuthDataToEmailRequest(); // MmResetSamlAuthDataToEmailRequest | 
 
 try {
-  final MMResetSamlAuthDataToEmail200Response? result = await client.sAML.resetSamlAuthDataToEmail(mMResetSamlAuthDataToEmailRequest); // await the Future<MMResetSamlAuthDataToEmail200Response?>
+  final MmResetSamlAuthDataToEmail200Response? result = await client.sAML.resetSamlAuthDataToEmail(mmResetSamlAuthDataToEmailRequest); // await the Future<MmResetSamlAuthDataToEmail200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->resetSamlAuthDataToEmail: $e\n');
@@ -488,11 +488,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMResetSamlAuthDataToEmailRequest** | [**MMResetSamlAuthDataToEmailRequest**](MMResetSamlAuthDataToEmailRequest.md)|  | [optional] 
+ **mmResetSamlAuthDataToEmailRequest** | [**MmResetSamlAuthDataToEmailRequest**](MmResetSamlAuthDataToEmailRequest.md)|  | [optional] 
 
 ### Return type
 
-[**MMResetSamlAuthDataToEmail200Response**](MMResetSamlAuthDataToEmail200Response.md)
+[**MmResetSamlAuthDataToEmail200Response**](MmResetSamlAuthDataToEmail200Response.md)
 
 ### Authorization
 
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadSamlIdpCertificate**
-> MMStatusOK uploadSamlIdpCertificate(certificate)
+> MmStatusOK uploadSamlIdpCertificate(certificate)
 
 Upload IDP certificate
 
@@ -521,25 +521,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The IDP certificate file
 
 try {
-  final MMStatusOK? result = await client.sAML.uploadSamlIdpCertificate(certificate); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.uploadSamlIdpCertificate(certificate); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlIdpCertificate: $e\n');
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadSamlPrivateCertificate**
-> MMStatusOK uploadSamlPrivateCertificate(certificate)
+> MmStatusOK uploadSamlPrivateCertificate(certificate)
 
 Upload private key
 
@@ -584,25 +584,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-  final MMStatusOK? result = await client.sAML.uploadSamlPrivateCertificate(certificate); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.uploadSamlPrivateCertificate(certificate); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlPrivateCertificate: $e\n');
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadSamlPublicCertificate**
-> MMStatusOK uploadSamlPublicCertificate(certificate)
+> MmStatusOK uploadSamlPublicCertificate(certificate)
 
 Upload public certificate
 
@@ -647,25 +647,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-  final MMStatusOK? result = await client.sAML.uploadSamlPublicCertificate(certificate); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.sAML.uploadSamlPublicCertificate(certificate); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlPublicCertificate: $e\n');
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

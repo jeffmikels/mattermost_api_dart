@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllSharedChannels**
-> List<MMSharedChannel> getAllSharedChannels(teamId, page, perPage)
+> List<MmSharedChannel> getAllSharedChannels(teamId, page, perPage)
 
 Get all shared channels for team.
 
@@ -29,18 +29,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -49,7 +49,7 @@ final int page = 56; // int |
 final int perPage = 56; // int | 
 
 try {
-  final List&lt;MMSharedChannel&gt;? result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage); // await the Future<List&lt;MMSharedChannel&gt;?>
+  final List&lt;MmSharedChannel&gt;? result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage); // await the Future<List&lt;MmSharedChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSharedChannelsApi->getAllSharedChannels: $e\n');
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMSharedChannel>**](MMSharedChannel.md)
+[**List<MmSharedChannel>**](MmSharedChannel.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getRemoteClusterInfo**
-> MMRemoteClusterInfo getRemoteClusterInfo(remoteId)
+> MmRemoteClusterInfo getRemoteClusterInfo(remoteId)
 
 Get remote cluster info by ID for user.
 
@@ -96,25 +96,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String remoteId = 'remoteId_example'; // String | Remote Cluster GUID
 
 try {
-  final MMRemoteClusterInfo? result = await client.sharedChannels.getRemoteClusterInfo(remoteId); // await the Future<MMRemoteClusterInfo?>
+  final MmRemoteClusterInfo? result = await client.sharedChannels.getRemoteClusterInfo(remoteId); // await the Future<MmRemoteClusterInfo?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSharedChannelsApi->getRemoteClusterInfo: $e\n');
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRemoteClusterInfo**](MMRemoteClusterInfo.md)
+[**MmRemoteClusterInfo**](MmRemoteClusterInfo.md)
 
 ### Authorization
 

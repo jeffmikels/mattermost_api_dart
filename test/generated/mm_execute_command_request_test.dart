@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMExecuteCommandRequest
+// tests for MmExecuteCommandRequest
 void main() {
-  // final instance = MMExecuteCommandRequest();
+  // final instance = MmExecuteCommandRequest();
 
-  group('test MMExecuteCommandRequest', () {
+  group('test MmExecuteCommandRequest', () {
     // Channel Id where the command will execute
     // String channelId
     test('to test the property `channelId`', () async {

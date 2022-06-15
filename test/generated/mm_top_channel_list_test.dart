@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTopChannelList
+// tests for MmTopChannelList
 void main() {
-  // final instance = MMTopChannelList();
+  // final instance = MmTopChannelList();
 
-  group('test MMTopChannelList', () {
+  group('test MmTopChannelList', () {
     // Indicates if there is another page of channels that can be fetched.
     // bool hasNext
     test('to test the property `hasNext`', () async {
@@ -23,7 +23,7 @@ void main() {
     });
 
     // List of channels.
-    // List<MMTopChannel> items (default value: const [])
+    // List<MmTopChannel> items (default value: const [])
     test('to test the property `items`', () async {
       // TODO
     });

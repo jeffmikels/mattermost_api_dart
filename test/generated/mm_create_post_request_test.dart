@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreatePostRequest
+// tests for MmCreatePostRequest
 void main() {
-  // final instance = MMCreatePostRequest();
+  // final instance = MmCreatePostRequest();
 
-  group('test MMCreatePostRequest', () {
+  group('test MmCreatePostRequest', () {
     // The channel ID to post in
     // String channelId
     test('to test the property `channelId`', () async {

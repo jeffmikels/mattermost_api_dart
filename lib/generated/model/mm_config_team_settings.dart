@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigTeamSettings {
-  /// Returns a new [MMConfigTeamSettings] instance.
-  MMConfigTeamSettings({
+class MmConfigTeamSettings {
+  /// Returns a new [MmConfigTeamSettings] instance.
+  MmConfigTeamSettings({
     this.siteName,
     this.maxUsersPerTeam,
     this.enableTeamCreation,
@@ -198,7 +198,7 @@ class MMConfigTeamSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigTeamSettings &&
+      other is MmConfigTeamSettings &&
           other.siteName == siteName &&
           other.maxUsersPerTeam == maxUsersPerTeam &&
           other.enableTeamCreation == enableTeamCreation &&
@@ -246,7 +246,7 @@ class MMConfigTeamSettings {
 
   @override
   String toString() =>
-      'MMConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
+      'MmConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -313,10 +313,10 @@ class MMConfigTeamSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigTeamSettings] instance and imports its values from
+  /// Returns a new [MmConfigTeamSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigTeamSettings? fromJson(dynamic value) {
+  static MmConfigTeamSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -325,13 +325,13 @@ class MMConfigTeamSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigTeamSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigTeamSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigTeamSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigTeamSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigTeamSettings(
+      return MmConfigTeamSettings(
         siteName: mapValueOfType<String>(json, r'SiteName'),
         maxUsersPerTeam: mapValueOfType<int>(json, r'MaxUsersPerTeam'),
         enableTeamCreation: mapValueOfType<bool>(json, r'EnableTeamCreation'),
@@ -357,14 +357,14 @@ class MMConfigTeamSettings {
     return null;
   }
 
-  static List<MMConfigTeamSettings>? listFromJson(
+  static List<MmConfigTeamSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigTeamSettings>[];
+    final result = <MmConfigTeamSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigTeamSettings.fromJson(row);
+        final value = MmConfigTeamSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -373,12 +373,12 @@ class MMConfigTeamSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigTeamSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigTeamSettings>{};
+  static Map<String, MmConfigTeamSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigTeamSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigTeamSettings.fromJson(entry.value);
+        final value = MmConfigTeamSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -387,16 +387,16 @@ class MMConfigTeamSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigTeamSettings-objects as value to a dart map
-  static Map<String, List<MMConfigTeamSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigTeamSettings-objects as value to a dart map
+  static Map<String, List<MmConfigTeamSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigTeamSettings>>{};
+    final map = <String, List<MmConfigTeamSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigTeamSettings.listFromJson(
+        final value = MmConfigTeamSettings.listFromJson(
           entry.value,
           growable: growable,
         );

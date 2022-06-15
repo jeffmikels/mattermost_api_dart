@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSharedChannel
+// tests for MmSharedChannel
 void main() {
-  // final instance = MMSharedChannel();
+  // final instance = MmSharedChannel();
 
-  group('test MMSharedChannel', () {
+  group('test MmSharedChannel', () {
     // Channel id of the shared channel
     // String id
     test('to test the property `id`', () async {

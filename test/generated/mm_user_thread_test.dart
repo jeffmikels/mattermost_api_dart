@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserThread
+// tests for MmUserThread
 void main() {
-  // final instance = MMUserThread();
+  // final instance = MmUserThread();
 
-  group('test MMUserThread', () {
+  group('test MmUserThread', () {
     // ID of the post that is this thread's root
     // String id
     test('to test the property `id`', () async {
@@ -41,12 +41,12 @@ void main() {
     });
 
     // list of users participating in this thread. only includes IDs unless 'extended' was set to 'true'
-    // List<MMPost> participants (default value: const [])
+    // List<MmPost> participants (default value: const [])
     test('to test the property `participants`', () async {
       // TODO
     });
 
-    // MMPost post
+    // MmPost post
     test('to test the property `post`', () async {
       // TODO
     });

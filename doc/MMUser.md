@@ -1,4 +1,4 @@
-# mattermost_api.model.MMUser
+# mattermost_api.model.MmUser
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMUser example = await client.user.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmUser example = await client.user.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -34,13 +34,13 @@ Name | Type | Description | Notes
 **authService** | **String** |  | [optional] 
 **roles** | **String** |  | [optional] 
 **locale** | **String** |  | [optional] 
-**notifyProps** | [**MMUserNotifyProps**](MMUserNotifyProps.md) |  | [optional] 
+**notifyProps** | [**MmUserNotifyProps**](MmUserNotifyProps.md) |  | [optional] 
 **props** | [**Map**](.md) |  | [optional] 
 **lastPasswordUpdate** | **int** |  | [optional] 
 **lastPictureUpdate** | **int** |  | [optional] 
 **failedAttempts** | **int** |  | [optional] 
 **mfaActive** | **bool** |  | [optional] 
-**timezone** | [**MMTimezone**](MMTimezone.md) |  | [optional] 
+**timezone** | [**MmTimezone**](MmTimezone.md) |  | [optional] 
 **termsOfServiceId** | **String** | ID of accepted terms of service, if any. This field is not present if empty. | [optional] 
 **termsOfServiceCreateAt** | **int** | The time in milliseconds the user accepted the terms of service | [optional] 
 

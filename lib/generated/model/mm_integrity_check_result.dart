@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMIntegrityCheckResult {
-  /// Returns a new [MMIntegrityCheckResult] instance.
-  MMIntegrityCheckResult({
+class MmIntegrityCheckResult {
+  /// Returns a new [MmIntegrityCheckResult] instance.
+  MmIntegrityCheckResult({
     this.data,
     this.err,
   });
@@ -23,7 +23,7 @@ class MMIntegrityCheckResult {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMRelationalIntegrityCheckData? data;
+  MmRelationalIntegrityCheckData? data;
 
   /// a string value set in case of error.
   ///
@@ -36,7 +36,7 @@ class MMIntegrityCheckResult {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMIntegrityCheckResult && other.data == data && other.err == err;
+      identical(this, other) || other is MmIntegrityCheckResult && other.data == data && other.err == err;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMIntegrityCheckResult {
       (data == null ? 0 : data!.hashCode) + (err == null ? 0 : err!.hashCode);
 
   @override
-  String toString() => 'MMIntegrityCheckResult[data=$data, err=$err]';
+  String toString() => 'MmIntegrityCheckResult[data=$data, err=$err]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMIntegrityCheckResult {
     return _json;
   }
 
-  /// Returns a new [MMIntegrityCheckResult] instance and imports its values from
+  /// Returns a new [MmIntegrityCheckResult] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMIntegrityCheckResult? fromJson(dynamic value) {
+  static MmIntegrityCheckResult? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,28 +69,28 @@ class MMIntegrityCheckResult {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMIntegrityCheckResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMIntegrityCheckResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmIntegrityCheckResult[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmIntegrityCheckResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMIntegrityCheckResult(
-        data: MMRelationalIntegrityCheckData.fromJson(json[r'data']),
+      return MmIntegrityCheckResult(
+        data: MmRelationalIntegrityCheckData.fromJson(json[r'data']),
         err: mapValueOfType<String>(json, r'err'),
       );
     }
     return null;
   }
 
-  static List<MMIntegrityCheckResult>? listFromJson(
+  static List<MmIntegrityCheckResult>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMIntegrityCheckResult>[];
+    final result = <MmIntegrityCheckResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMIntegrityCheckResult.fromJson(row);
+        final value = MmIntegrityCheckResult.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMIntegrityCheckResult {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMIntegrityCheckResult> mapFromJson(dynamic json) {
-    final map = <String, MMIntegrityCheckResult>{};
+  static Map<String, MmIntegrityCheckResult> mapFromJson(dynamic json) {
+    final map = <String, MmIntegrityCheckResult>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMIntegrityCheckResult.fromJson(entry.value);
+        final value = MmIntegrityCheckResult.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMIntegrityCheckResult {
     return map;
   }
 
-  // maps a json object with a list of MMIntegrityCheckResult-objects as value to a dart map
-  static Map<String, List<MMIntegrityCheckResult>> mapListFromJson(
+  // maps a json object with a list of MmIntegrityCheckResult-objects as value to a dart map
+  static Map<String, List<MmIntegrityCheckResult>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMIntegrityCheckResult>>{};
+    final map = <String, List<MmIntegrityCheckResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMIntegrityCheckResult.listFromJson(
+        final value = MmIntegrityCheckResult.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMBoardsLimits
+// tests for MmBoardsLimits
 void main() {
-  // final instance = MMBoardsLimits();
+  // final instance = MmBoardsLimits();
 
-  group('test MMBoardsLimits', () {
+  group('test MmBoardsLimits', () {
     // int cards
     test('to test the property `cards`', () async {
       // TODO

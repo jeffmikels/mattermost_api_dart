@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelMemberWithTeamDataAllOf {
-  /// Returns a new [MMChannelMemberWithTeamDataAllOf] instance.
-  MMChannelMemberWithTeamDataAllOf({
+class MmChannelMemberWithTeamDataAllOf {
+  /// Returns a new [MmChannelMemberWithTeamDataAllOf] instance.
+  MmChannelMemberWithTeamDataAllOf({
     this.teamDisplayName,
     this.teamName,
     this.teamUpdateAt,
@@ -48,7 +48,7 @@ class MMChannelMemberWithTeamDataAllOf {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMChannelMemberWithTeamDataAllOf &&
+      other is MmChannelMemberWithTeamDataAllOf &&
           other.teamDisplayName == teamDisplayName &&
           other.teamName == teamName &&
           other.teamUpdateAt == teamUpdateAt;
@@ -62,7 +62,7 @@ class MMChannelMemberWithTeamDataAllOf {
 
   @override
   String toString() =>
-      'MMChannelMemberWithTeamDataAllOf[teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
+      'MmChannelMemberWithTeamDataAllOf[teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -78,10 +78,10 @@ class MMChannelMemberWithTeamDataAllOf {
     return _json;
   }
 
-  /// Returns a new [MMChannelMemberWithTeamDataAllOf] instance and imports its values from
+  /// Returns a new [MmChannelMemberWithTeamDataAllOf] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelMemberWithTeamDataAllOf? fromJson(dynamic value) {
+  static MmChannelMemberWithTeamDataAllOf? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -90,13 +90,13 @@ class MMChannelMemberWithTeamDataAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelMemberWithTeamDataAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelMemberWithTeamDataAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelMemberWithTeamDataAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelMemberWithTeamDataAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelMemberWithTeamDataAllOf(
+      return MmChannelMemberWithTeamDataAllOf(
         teamDisplayName: mapValueOfType<String>(json, r'team_display_name'),
         teamName: mapValueOfType<String>(json, r'team_name'),
         teamUpdateAt: mapValueOfType<int>(json, r'team_update_at'),
@@ -105,14 +105,14 @@ class MMChannelMemberWithTeamDataAllOf {
     return null;
   }
 
-  static List<MMChannelMemberWithTeamDataAllOf>? listFromJson(
+  static List<MmChannelMemberWithTeamDataAllOf>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelMemberWithTeamDataAllOf>[];
+    final result = <MmChannelMemberWithTeamDataAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelMemberWithTeamDataAllOf.fromJson(row);
+        final value = MmChannelMemberWithTeamDataAllOf.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -121,12 +121,12 @@ class MMChannelMemberWithTeamDataAllOf {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelMemberWithTeamDataAllOf> mapFromJson(dynamic json) {
-    final map = <String, MMChannelMemberWithTeamDataAllOf>{};
+  static Map<String, MmChannelMemberWithTeamDataAllOf> mapFromJson(dynamic json) {
+    final map = <String, MmChannelMemberWithTeamDataAllOf>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberWithTeamDataAllOf.fromJson(entry.value);
+        final value = MmChannelMemberWithTeamDataAllOf.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -135,16 +135,16 @@ class MMChannelMemberWithTeamDataAllOf {
     return map;
   }
 
-  // maps a json object with a list of MMChannelMemberWithTeamDataAllOf-objects as value to a dart map
-  static Map<String, List<MMChannelMemberWithTeamDataAllOf>> mapListFromJson(
+  // maps a json object with a list of MmChannelMemberWithTeamDataAllOf-objects as value to a dart map
+  static Map<String, List<MmChannelMemberWithTeamDataAllOf>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelMemberWithTeamDataAllOf>>{};
+    final map = <String, List<MmChannelMemberWithTeamDataAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberWithTeamDataAllOf.listFromJson(
+        final value = MmChannelMemberWithTeamDataAllOf.listFromJson(
           entry.value,
           growable: growable,
         );

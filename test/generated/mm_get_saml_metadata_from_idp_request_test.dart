@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetSamlMetadataFromIdpRequest
+// tests for MmGetSamlMetadataFromIdpRequest
 void main() {
-  // final instance = MMGetSamlMetadataFromIdpRequest();
+  // final instance = MmGetSamlMetadataFromIdpRequest();
 
-  group('test MMGetSamlMetadataFromIdpRequest', () {
+  group('test MmGetSamlMetadataFromIdpRequest', () {
     // The URL from which to retrieve the SAML IDP data.
     // String samlMetadataUrl
     test('to test the property `samlMetadataUrl`', () async {

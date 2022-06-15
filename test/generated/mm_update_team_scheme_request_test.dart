@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateTeamSchemeRequest
+// tests for MmUpdateTeamSchemeRequest
 void main() {
-  // final instance = MMUpdateTeamSchemeRequest();
+  // final instance = MmUpdateTeamSchemeRequest();
 
-  group('test MMUpdateTeamSchemeRequest', () {
+  group('test MmUpdateTeamSchemeRequest', () {
     // The ID of the scheme.
     // String schemeId
     test('to test the property `schemeId`', () async {

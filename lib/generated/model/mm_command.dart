@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCommand {
-  /// Returns a new [MMCommand] instance.
-  MMCommand({
+class MmCommand {
+  /// Returns a new [MmCommand] instance.
+  MmCommand({
     this.id,
     this.token,
     this.createAt,
@@ -188,7 +188,7 @@ class MMCommand {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCommand &&
+      other is MmCommand &&
           other.id == id &&
           other.token == token &&
           other.createAt == createAt &&
@@ -230,7 +230,7 @@ class MMCommand {
 
   @override
   String toString() =>
-      'MMCommand[id=$id, token=$token, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, trigger=$trigger, method=$method, username=$username, iconUrl=$iconUrl, autoComplete=$autoComplete, autoCompleteDesc=$autoCompleteDesc, autoCompleteHint=$autoCompleteHint, displayName=$displayName, description=$description, url=$url]';
+      'MmCommand[id=$id, token=$token, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, trigger=$trigger, method=$method, username=$username, iconUrl=$iconUrl, autoComplete=$autoComplete, autoCompleteDesc=$autoCompleteDesc, autoCompleteHint=$autoCompleteHint, displayName=$displayName, description=$description, url=$url]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -288,10 +288,10 @@ class MMCommand {
     return _json;
   }
 
-  /// Returns a new [MMCommand] instance and imports its values from
+  /// Returns a new [MmCommand] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCommand? fromJson(dynamic value) {
+  static MmCommand? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -300,13 +300,13 @@ class MMCommand {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCommand[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCommand[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCommand[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCommand[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCommand(
+      return MmCommand(
         id: mapValueOfType<String>(json, r'id'),
         token: mapValueOfType<String>(json, r'token'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -329,14 +329,14 @@ class MMCommand {
     return null;
   }
 
-  static List<MMCommand>? listFromJson(
+  static List<MmCommand>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCommand>[];
+    final result = <MmCommand>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCommand.fromJson(row);
+        final value = MmCommand.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -345,12 +345,12 @@ class MMCommand {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCommand> mapFromJson(dynamic json) {
-    final map = <String, MMCommand>{};
+  static Map<String, MmCommand> mapFromJson(dynamic json) {
+    final map = <String, MmCommand>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCommand.fromJson(entry.value);
+        final value = MmCommand.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -359,16 +359,16 @@ class MMCommand {
     return map;
   }
 
-  // maps a json object with a list of MMCommand-objects as value to a dart map
-  static Map<String, List<MMCommand>> mapListFromJson(
+  // maps a json object with a list of MmCommand-objects as value to a dart map
+  static Map<String, List<MmCommand>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCommand>>{};
+    final map = <String, List<MmCommand>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCommand.listFromJson(
+        final value = MmCommand.listFromJson(
           entry.value,
           growable: growable,
         );

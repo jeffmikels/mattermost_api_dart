@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateChannelRequest
+// tests for MmCreateChannelRequest
 void main() {
-  // final instance = MMCreateChannelRequest();
+  // final instance = MmCreateChannelRequest();
 
-  group('test MMCreateChannelRequest', () {
+  group('test MmCreateChannelRequest', () {
     // The team ID of the team to create the channel on
     // String teamId
     test('to test the property `teamId`', () async {

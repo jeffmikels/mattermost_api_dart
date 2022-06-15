@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenInteractiveDialogRequestDialog
+// tests for MmOpenInteractiveDialogRequestDialog
 void main() {
-  // final instance = MMOpenInteractiveDialogRequestDialog();
+  // final instance = MmOpenInteractiveDialogRequestDialog();
 
-  group('test MMOpenInteractiveDialogRequestDialog', () {
+  group('test MmOpenInteractiveDialogRequestDialog', () {
     // Set an ID that will be included when the dialog is submitted
     // String callbackId
     test('to test the property `callbackId`', () async {

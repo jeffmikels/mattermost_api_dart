@@ -21,7 +21,7 @@ void main() {
     //
     // Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated. 
     //
-    //Future<List<MMSharedChannel>> getAllSharedChannels(String teamId, { int page, int perPage }) async
+    //Future<List<MmSharedChannel>> getAllSharedChannels(String teamId, { int page, int perPage }) async
     test('test getAllSharedChannels', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##### Permissions Must be authenticated and user must belong to at least one channel shared with the remote cluster. 
     //
-    //Future<MMRemoteClusterInfo> getRemoteClusterInfo(String remoteId) async
+    //Future<MmRemoteClusterInfo> getRemoteClusterInfo(String remoteId) async
     test('test getRemoteClusterInfo', () async {
       // TODO
     });

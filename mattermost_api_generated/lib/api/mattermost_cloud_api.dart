@@ -34,7 +34,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -71,7 +71,7 @@ class MattermostCloudApi {
   Future<void> confirmCustomerPayment({ String? stripeSetupIntentId, }) async {
     final response = await confirmCustomerPaymentWithHttpInfo( stripeSetupIntentId: stripeSetupIntentId, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -87,7 +87,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -108,16 +108,16 @@ class MattermostCloudApi {
   /// Create a customer setup payment intent
   ///
   /// Creates a customer setup payment intent for the given Mattermost cloud installation.  ##### Permissions  Must have `manage_system` permission and be licensed for Cloud.  __Minimum server version__: 5.28 __Note:__: This is intended for internal use and is subject to change. 
-  Future<MMPaymentSetupIntent?> createCustomerPayment() async {
+  Future<MmPaymentSetupIntent?> createCustomerPayment() async {
     final response = await createCustomerPaymentWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPaymentSetupIntent',) as MMPaymentSetupIntent;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmPaymentSetupIntent',) as MmPaymentSetupIntent;
     
     }
     return null;
@@ -135,7 +135,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -156,16 +156,16 @@ class MattermostCloudApi {
   /// Get cloud customer
   ///
   /// Retrieves the customer information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
-  Future<MMCloudCustomer?> getCloudCustomer() async {
+  Future<MmCloudCustomer?> getCloudCustomer() async {
     final response = await getCloudCustomerWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMCloudCustomer',) as MMCloudCustomer;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmCloudCustomer',) as MmCloudCustomer;
     
     }
     return null;
@@ -183,7 +183,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -204,16 +204,16 @@ class MattermostCloudApi {
   /// Get cloud workspace limits
   ///
   /// Retrieve any cloud workspace limits applicable to this instance. ##### Permissions Must be authenticated and be licensed for Cloud. __Minimum server version__: 7.0 __Note:__ This is intended for internal use and is subject to change. 
-  Future<MMProductLimits?> getCloudLimits() async {
+  Future<MmProductLimits?> getCloudLimits() async {
     final response = await getCloudLimitsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMProductLimits',) as MMProductLimits;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmProductLimits',) as MmProductLimits;
     
     }
     return null;
@@ -231,7 +231,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -252,18 +252,18 @@ class MattermostCloudApi {
   /// Get cloud products
   ///
   /// Retrieve a list of all products that are offered for Mattermost Cloud. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
-  Future<List<MMProduct>?> getCloudProducts() async {
+  Future<List<MmProduct>?> getCloudProducts() async {
     final response = await getCloudProductsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMProduct>') as List)
-        .cast<MMProduct>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmProduct>') as List)
+        .cast<MmProduct>()
         .toList();
 
     }
@@ -288,7 +288,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -317,7 +317,7 @@ class MattermostCloudApi {
   Future<void> getInvoiceForSubscriptionAsPdf(String invoiceId,) async {
     final response = await getInvoiceForSubscriptionAsPdfWithHttpInfo(invoiceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -333,7 +333,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -354,18 +354,18 @@ class MattermostCloudApi {
   /// Get cloud subscription invoices
   ///
   /// Retrieves the invoices for the subscription bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.30 __Note:__ This is intended for internal use and is subject to change. 
-  Future<List<MMInvoice>?> getInvoicesForSubscription() async {
+  Future<List<MmInvoice>?> getInvoicesForSubscription() async {
     final response = await getInvoicesForSubscriptionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMInvoice>') as List)
-        .cast<MMInvoice>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmInvoice>') as List)
+        .cast<MmInvoice>()
         .toList();
 
     }
@@ -384,7 +384,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -405,16 +405,16 @@ class MattermostCloudApi {
   /// Get cloud subscription
   ///
   /// Retrieves the subscription information for the Mattermost Cloud customer bound to this installation. ##### Permissions Must have `manage_system` permission and be licensed for Cloud. __Minimum server version__: 5.28 __Note:__ This is intended for internal use and is subject to change. 
-  Future<MMSubscription?> getSubscription() async {
+  Future<MmSubscription?> getSubscription() async {
     final response = await getSubscriptionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSubscription',) as MMSubscription;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSubscription',) as MmSubscription;
     
     }
     return null;
@@ -432,7 +432,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -453,16 +453,16 @@ class MattermostCloudApi {
   /// GET endpoint for cloud subscription stats
   ///
   /// An endpoint that returns stats about a user's subscription. For example remaining seats on a free tier ##### Permissions This endpoint should only be accessed in a Mattermost Cloud instance __Minimum server version__: 5.34 __Note:__ This is intended for internal use and is subject to change. 
-  Future<MMSubscriptionStats?> getSubscriptionStats() async {
+  Future<MmSubscriptionStats?> getSubscriptionStats() async {
     final response = await getSubscriptionStatsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSubscriptionStats',) as MMSubscriptionStats;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSubscriptionStats',) as MmSubscriptionStats;
     
     }
     return null;
@@ -480,7 +480,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -504,7 +504,7 @@ class MattermostCloudApi {
   Future<void> postEndpointForCwsWebhooks() async {
     final response = await postEndpointForCwsWebhooksWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -520,7 +520,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -544,7 +544,7 @@ class MattermostCloudApi {
   Future<void> sendAdminUpgradeRequestEmail() async {
     final response = await sendAdminUpgradeRequestEmailWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -560,7 +560,7 @@ class MattermostCloudApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -584,7 +584,7 @@ class MattermostCloudApi {
   Future<void> sendAdminUpgradeRequestEmailOnJoin() async {
     final response = await sendAdminUpgradeRequestEmailOnJoinWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -596,16 +596,16 @@ class MattermostCloudApi {
   ///
   /// Parameters:
   ///
-  /// * [MMUpdateCloudCustomerRequest] mMUpdateCloudCustomerRequest (required):
+  /// * [MmUpdateCloudCustomerRequest] mmUpdateCloudCustomerRequest (required):
   ///   Customer patch including information to update
-  Future<Response> updateCloudCustomerWithHttpInfo(MMUpdateCloudCustomerRequest mMUpdateCloudCustomerRequest,) async {
+  Future<Response> updateCloudCustomerWithHttpInfo(MmUpdateCloudCustomerRequest mmUpdateCloudCustomerRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/cloud/customer';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateCloudCustomerRequest;
+    Object? postBody = mmUpdateCloudCustomerRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -629,18 +629,18 @@ class MattermostCloudApi {
   ///
   /// Parameters:
   ///
-  /// * [MMUpdateCloudCustomerRequest] mMUpdateCloudCustomerRequest (required):
+  /// * [MmUpdateCloudCustomerRequest] mmUpdateCloudCustomerRequest (required):
   ///   Customer patch including information to update
-  Future<MMCloudCustomer?> updateCloudCustomer(MMUpdateCloudCustomerRequest mMUpdateCloudCustomerRequest,) async {
-    final response = await updateCloudCustomerWithHttpInfo(mMUpdateCloudCustomerRequest,);
+  Future<MmCloudCustomer?> updateCloudCustomer(MmUpdateCloudCustomerRequest mmUpdateCloudCustomerRequest,) async {
+    final response = await updateCloudCustomerWithHttpInfo(mmUpdateCloudCustomerRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMCloudCustomer',) as MMCloudCustomer;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmCloudCustomer',) as MmCloudCustomer;
     
     }
     return null;
@@ -654,16 +654,16 @@ class MattermostCloudApi {
   ///
   /// Parameters:
   ///
-  /// * [MMAddress] mMAddress (required):
+  /// * [MmAddress] mmAddress (required):
   ///   Company address information to update
-  Future<Response> updateCloudCustomerAddressWithHttpInfo(MMAddress mMAddress,) async {
+  Future<Response> updateCloudCustomerAddressWithHttpInfo(MmAddress mmAddress,) async {
     // ignore: prefer_const_declarations
     final path = r'/cloud/customer/address';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMAddress;
+    Object? postBody = mmAddress;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -687,18 +687,18 @@ class MattermostCloudApi {
   ///
   /// Parameters:
   ///
-  /// * [MMAddress] mMAddress (required):
+  /// * [MmAddress] mmAddress (required):
   ///   Company address information to update
-  Future<MMCloudCustomer?> updateCloudCustomerAddress(MMAddress mMAddress,) async {
-    final response = await updateCloudCustomerAddressWithHttpInfo(mMAddress,);
+  Future<MmCloudCustomer?> updateCloudCustomerAddress(MmAddress mmAddress,) async {
+    final response = await updateCloudCustomerAddressWithHttpInfo(mmAddress,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMCloudCustomer',) as MMCloudCustomer;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmCloudCustomer',) as MmCloudCustomer;
     
     }
     return null;

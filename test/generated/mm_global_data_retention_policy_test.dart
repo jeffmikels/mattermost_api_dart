@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGlobalDataRetentionPolicy
+// tests for MmGlobalDataRetentionPolicy
 void main() {
-  // final instance = MMGlobalDataRetentionPolicy();
+  // final instance = MmGlobalDataRetentionPolicy();
 
-  group('test MMGlobalDataRetentionPolicy', () {
+  group('test MmGlobalDataRetentionPolicy', () {
     // Indicates whether data retention policy deletion of messages is enabled globally.
     // bool messageDeletionEnabled
     test('to test the property `messageDeletionEnabled`', () async {

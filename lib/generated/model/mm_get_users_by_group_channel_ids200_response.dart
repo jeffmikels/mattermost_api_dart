@@ -10,18 +10,18 @@
 
 part of mattermost.api;
 
-class MMGetUsersByGroupChannelIds200Response {
-  /// Returns a new [MMGetUsersByGroupChannelIds200Response] instance.
-  MMGetUsersByGroupChannelIds200Response({
+class MmGetUsersByGroupChannelIds200Response {
+  /// Returns a new [MmGetUsersByGroupChannelIds200Response] instance.
+  MmGetUsersByGroupChannelIds200Response({
     this.lessThanCHANNELIDGreaterThan = const [],
   });
 
-  List<MMUser> lessThanCHANNELIDGreaterThan;
+  List<MmUser> lessThanCHANNELIDGreaterThan;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGetUsersByGroupChannelIds200Response &&
+      other is MmGetUsersByGroupChannelIds200Response &&
           other.lessThanCHANNELIDGreaterThan == lessThanCHANNELIDGreaterThan;
 
   @override
@@ -31,7 +31,7 @@ class MMGetUsersByGroupChannelIds200Response {
 
   @override
   String toString() =>
-      'MMGetUsersByGroupChannelIds200Response[lessThanCHANNELIDGreaterThan=$lessThanCHANNELIDGreaterThan]';
+      'MmGetUsersByGroupChannelIds200Response[lessThanCHANNELIDGreaterThan=$lessThanCHANNELIDGreaterThan]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -39,10 +39,10 @@ class MMGetUsersByGroupChannelIds200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetUsersByGroupChannelIds200Response] instance and imports its values from
+  /// Returns a new [MmGetUsersByGroupChannelIds200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetUsersByGroupChannelIds200Response? fromJson(dynamic value) {
+  static MmGetUsersByGroupChannelIds200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -52,28 +52,28 @@ class MMGetUsersByGroupChannelIds200Response {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMGetUsersByGroupChannelIds200Response[$key]" is missing from JSON.');
+              'Required key "MmGetUsersByGroupChannelIds200Response[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMGetUsersByGroupChannelIds200Response[$key]" has a null value in JSON.');
+              'Required key "MmGetUsersByGroupChannelIds200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetUsersByGroupChannelIds200Response(
-        lessThanCHANNELIDGreaterThan: MMUser.listFromJson(json[r'<CHANNEL_ID>']) ?? const [],
+      return MmGetUsersByGroupChannelIds200Response(
+        lessThanCHANNELIDGreaterThan: MmUser.listFromJson(json[r'<CHANNEL_ID>']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMGetUsersByGroupChannelIds200Response>? listFromJson(
+  static List<MmGetUsersByGroupChannelIds200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetUsersByGroupChannelIds200Response>[];
+    final result = <MmGetUsersByGroupChannelIds200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetUsersByGroupChannelIds200Response.fromJson(row);
+        final value = MmGetUsersByGroupChannelIds200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -82,12 +82,12 @@ class MMGetUsersByGroupChannelIds200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetUsersByGroupChannelIds200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetUsersByGroupChannelIds200Response>{};
+  static Map<String, MmGetUsersByGroupChannelIds200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetUsersByGroupChannelIds200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetUsersByGroupChannelIds200Response.fromJson(entry.value);
+        final value = MmGetUsersByGroupChannelIds200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -96,16 +96,16 @@ class MMGetUsersByGroupChannelIds200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetUsersByGroupChannelIds200Response-objects as value to a dart map
-  static Map<String, List<MMGetUsersByGroupChannelIds200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetUsersByGroupChannelIds200Response-objects as value to a dart map
+  static Map<String, List<MmGetUsersByGroupChannelIds200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetUsersByGroupChannelIds200Response>>{};
+    final map = <String, List<MmGetUsersByGroupChannelIds200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetUsersByGroupChannelIds200Response.listFromJson(
+        final value = MmGetUsersByGroupChannelIds200Response.listFromJson(
           entry.value,
           growable: growable,
         );

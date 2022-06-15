@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateOAuthAppRequest
+// tests for MmUpdateOAuthAppRequest
 void main() {
-  // final instance = MMUpdateOAuthAppRequest();
+  // final instance = MmUpdateOAuthAppRequest();
 
-  group('test MMUpdateOAuthAppRequest', () {
+  group('test MmUpdateOAuthAppRequest', () {
     // The id of the client application
     // String id
     test('to test the property `id`', () async {

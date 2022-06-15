@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelMemberWithTeamData {
-  /// Returns a new [MMChannelMemberWithTeamData] instance.
-  MMChannelMemberWithTeamData({
+class MmChannelMemberWithTeamData {
+  /// Returns a new [MmChannelMemberWithTeamData] instance.
+  MmChannelMemberWithTeamData({
     this.channelId,
     this.userId,
     this.roles,
@@ -81,7 +81,7 @@ class MMChannelMemberWithTeamData {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMChannelNotifyProps? notifyProps;
+  MmChannelNotifyProps? notifyProps;
 
   /// The time in milliseconds the channel member was last updated
   ///
@@ -122,7 +122,7 @@ class MMChannelMemberWithTeamData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMChannelMemberWithTeamData &&
+      other is MmChannelMemberWithTeamData &&
           other.channelId == channelId &&
           other.userId == userId &&
           other.roles == roles &&
@@ -152,7 +152,7 @@ class MMChannelMemberWithTeamData {
 
   @override
   String toString() =>
-      'MMChannelMemberWithTeamData[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt, teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
+      'MmChannelMemberWithTeamData[channelId=$channelId, userId=$userId, roles=$roles, lastViewedAt=$lastViewedAt, msgCount=$msgCount, mentionCount=$mentionCount, notifyProps=$notifyProps, lastUpdateAt=$lastUpdateAt, teamDisplayName=$teamDisplayName, teamName=$teamName, teamUpdateAt=$teamUpdateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -192,10 +192,10 @@ class MMChannelMemberWithTeamData {
     return _json;
   }
 
-  /// Returns a new [MMChannelMemberWithTeamData] instance and imports its values from
+  /// Returns a new [MmChannelMemberWithTeamData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelMemberWithTeamData? fromJson(dynamic value) {
+  static MmChannelMemberWithTeamData? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -204,20 +204,20 @@ class MMChannelMemberWithTeamData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelMemberWithTeamData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelMemberWithTeamData[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelMemberWithTeamData[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelMemberWithTeamData[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelMemberWithTeamData(
+      return MmChannelMemberWithTeamData(
         channelId: mapValueOfType<String>(json, r'channel_id'),
         userId: mapValueOfType<String>(json, r'user_id'),
         roles: mapValueOfType<String>(json, r'roles'),
         lastViewedAt: mapValueOfType<int>(json, r'last_viewed_at'),
         msgCount: mapValueOfType<int>(json, r'msg_count'),
         mentionCount: mapValueOfType<int>(json, r'mention_count'),
-        notifyProps: MMChannelNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmChannelNotifyProps.fromJson(json[r'notify_props']),
         lastUpdateAt: mapValueOfType<int>(json, r'last_update_at'),
         teamDisplayName: mapValueOfType<String>(json, r'team_display_name'),
         teamName: mapValueOfType<String>(json, r'team_name'),
@@ -227,14 +227,14 @@ class MMChannelMemberWithTeamData {
     return null;
   }
 
-  static List<MMChannelMemberWithTeamData>? listFromJson(
+  static List<MmChannelMemberWithTeamData>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelMemberWithTeamData>[];
+    final result = <MmChannelMemberWithTeamData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelMemberWithTeamData.fromJson(row);
+        final value = MmChannelMemberWithTeamData.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -243,12 +243,12 @@ class MMChannelMemberWithTeamData {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelMemberWithTeamData> mapFromJson(dynamic json) {
-    final map = <String, MMChannelMemberWithTeamData>{};
+  static Map<String, MmChannelMemberWithTeamData> mapFromJson(dynamic json) {
+    final map = <String, MmChannelMemberWithTeamData>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberWithTeamData.fromJson(entry.value);
+        final value = MmChannelMemberWithTeamData.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -257,16 +257,16 @@ class MMChannelMemberWithTeamData {
     return map;
   }
 
-  // maps a json object with a list of MMChannelMemberWithTeamData-objects as value to a dart map
-  static Map<String, List<MMChannelMemberWithTeamData>> mapListFromJson(
+  // maps a json object with a list of MmChannelMemberWithTeamData-objects as value to a dart map
+  static Map<String, List<MmChannelMemberWithTeamData>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelMemberWithTeamData>>{};
+    final map = <String, List<MmChannelMemberWithTeamData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberWithTeamData.listFromJson(
+        final value = MmChannelMemberWithTeamData.listFromJson(
           entry.value,
           growable: growable,
         );

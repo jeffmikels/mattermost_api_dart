@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPluginManifestServer {
-  /// Returns a new [MMPluginManifestServer] instance.
-  MMPluginManifestServer({
+class MmPluginManifestServer {
+  /// Returns a new [MmPluginManifestServer] instance.
+  MmPluginManifestServer({
     this.executables,
     this.executable,
   });
@@ -23,7 +23,7 @@ class MMPluginManifestServer {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPluginManifestServerExecutables? executables;
+  MmPluginManifestServerExecutables? executables;
 
   /// Path to the executable binary.
   ///
@@ -37,7 +37,7 @@ class MMPluginManifestServer {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPluginManifestServer && other.executables == executables && other.executable == executable;
+      other is MmPluginManifestServer && other.executables == executables && other.executable == executable;
 
   @override
   int get hashCode =>
@@ -45,7 +45,7 @@ class MMPluginManifestServer {
       (executables == null ? 0 : executables!.hashCode) + (executable == null ? 0 : executable!.hashCode);
 
   @override
-  String toString() => 'MMPluginManifestServer[executables=$executables, executable=$executable]';
+  String toString() => 'MmPluginManifestServer[executables=$executables, executable=$executable]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class MMPluginManifestServer {
     return _json;
   }
 
-  /// Returns a new [MMPluginManifestServer] instance and imports its values from
+  /// Returns a new [MmPluginManifestServer] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPluginManifestServer? fromJson(dynamic value) {
+  static MmPluginManifestServer? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,28 +70,28 @@ class MMPluginManifestServer {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPluginManifestServer[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPluginManifestServer[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPluginManifestServer[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPluginManifestServer[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPluginManifestServer(
-        executables: MMPluginManifestServerExecutables.fromJson(json[r'executables']),
+      return MmPluginManifestServer(
+        executables: MmPluginManifestServerExecutables.fromJson(json[r'executables']),
         executable: mapValueOfType<String>(json, r'executable'),
       );
     }
     return null;
   }
 
-  static List<MMPluginManifestServer>? listFromJson(
+  static List<MmPluginManifestServer>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginManifestServer>[];
+    final result = <MmPluginManifestServer>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginManifestServer.fromJson(row);
+        final value = MmPluginManifestServer.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +100,12 @@ class MMPluginManifestServer {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPluginManifestServer> mapFromJson(dynamic json) {
-    final map = <String, MMPluginManifestServer>{};
+  static Map<String, MmPluginManifestServer> mapFromJson(dynamic json) {
+    final map = <String, MmPluginManifestServer>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestServer.fromJson(entry.value);
+        final value = MmPluginManifestServer.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,16 +114,16 @@ class MMPluginManifestServer {
     return map;
   }
 
-  // maps a json object with a list of MMPluginManifestServer-objects as value to a dart map
-  static Map<String, List<MMPluginManifestServer>> mapListFromJson(
+  // maps a json object with a list of MmPluginManifestServer-objects as value to a dart map
+  static Map<String, List<MmPluginManifestServer>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPluginManifestServer>>{};
+    final map = <String, List<MmPluginManifestServer>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestServer.listFromJson(
+        final value = MmPluginManifestServer.listFromJson(
           entry.value,
           growable: growable,
         );

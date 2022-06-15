@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMLoginRequest {
-  /// Returns a new [MMLoginRequest] instance.
-  MMLoginRequest({
+class MmLoginRequest {
+  /// Returns a new [MmLoginRequest] instance.
+  MmLoginRequest({
     this.id,
     this.loginId,
     this.token,
@@ -73,7 +73,7 @@ class MMLoginRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMLoginRequest &&
+      other is MmLoginRequest &&
           other.id == id &&
           other.loginId == loginId &&
           other.token == token &&
@@ -93,7 +93,7 @@ class MMLoginRequest {
 
   @override
   String toString() =>
-      'MMLoginRequest[id=$id, loginId=$loginId, token=$token, deviceId=$deviceId, ldapOnly=$ldapOnly, password=$password]';
+      'MmLoginRequest[id=$id, loginId=$loginId, token=$token, deviceId=$deviceId, ldapOnly=$ldapOnly, password=$password]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -118,10 +118,10 @@ class MMLoginRequest {
     return _json;
   }
 
-  /// Returns a new [MMLoginRequest] instance and imports its values from
+  /// Returns a new [MmLoginRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMLoginRequest? fromJson(dynamic value) {
+  static MmLoginRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -130,13 +130,13 @@ class MMLoginRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMLoginRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMLoginRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmLoginRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmLoginRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMLoginRequest(
+      return MmLoginRequest(
         id: mapValueOfType<String>(json, r'id'),
         loginId: mapValueOfType<String>(json, r'login_id'),
         token: mapValueOfType<String>(json, r'token'),
@@ -148,14 +148,14 @@ class MMLoginRequest {
     return null;
   }
 
-  static List<MMLoginRequest>? listFromJson(
+  static List<MmLoginRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMLoginRequest>[];
+    final result = <MmLoginRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMLoginRequest.fromJson(row);
+        final value = MmLoginRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -164,12 +164,12 @@ class MMLoginRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMLoginRequest> mapFromJson(dynamic json) {
-    final map = <String, MMLoginRequest>{};
+  static Map<String, MmLoginRequest> mapFromJson(dynamic json) {
+    final map = <String, MmLoginRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLoginRequest.fromJson(entry.value);
+        final value = MmLoginRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -178,16 +178,16 @@ class MMLoginRequest {
     return map;
   }
 
-  // maps a json object with a list of MMLoginRequest-objects as value to a dart map
-  static Map<String, List<MMLoginRequest>> mapListFromJson(
+  // maps a json object with a list of MmLoginRequest-objects as value to a dart map
+  static Map<String, List<MmLoginRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMLoginRequest>>{};
+    final map = <String, List<MmLoginRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLoginRequest.listFromJson(
+        final value = MmLoginRequest.listFromJson(
           entry.value,
           growable: growable,
         );

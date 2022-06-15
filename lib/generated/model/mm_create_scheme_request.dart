@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateSchemeRequest {
-  /// Returns a new [MMCreateSchemeRequest] instance.
-  MMCreateSchemeRequest({
+class MmCreateSchemeRequest {
+  /// Returns a new [MmCreateSchemeRequest] instance.
+  MmCreateSchemeRequest({
     required this.name,
     this.description,
     required this.scope,
@@ -36,7 +36,7 @@ class MMCreateSchemeRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreateSchemeRequest && other.name == name && other.description == description && other.scope == scope;
+      other is MmCreateSchemeRequest && other.name == name && other.description == description && other.scope == scope;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMCreateSchemeRequest {
       (name.hashCode) + (description == null ? 0 : description!.hashCode) + (scope.hashCode);
 
   @override
-  String toString() => 'MMCreateSchemeRequest[name=$name, description=$description, scope=$scope]';
+  String toString() => 'MmCreateSchemeRequest[name=$name, description=$description, scope=$scope]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -56,10 +56,10 @@ class MMCreateSchemeRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateSchemeRequest] instance and imports its values from
+  /// Returns a new [MmCreateSchemeRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateSchemeRequest? fromJson(dynamic value) {
+  static MmCreateSchemeRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,13 +68,13 @@ class MMCreateSchemeRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateSchemeRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateSchemeRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateSchemeRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateSchemeRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateSchemeRequest(
+      return MmCreateSchemeRequest(
         name: mapValueOfType<String>(json, r'name')!,
         description: mapValueOfType<String>(json, r'description'),
         scope: mapValueOfType<String>(json, r'scope')!,
@@ -83,14 +83,14 @@ class MMCreateSchemeRequest {
     return null;
   }
 
-  static List<MMCreateSchemeRequest>? listFromJson(
+  static List<MmCreateSchemeRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateSchemeRequest>[];
+    final result = <MmCreateSchemeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateSchemeRequest.fromJson(row);
+        final value = MmCreateSchemeRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMCreateSchemeRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateSchemeRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateSchemeRequest>{};
+  static Map<String, MmCreateSchemeRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateSchemeRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateSchemeRequest.fromJson(entry.value);
+        final value = MmCreateSchemeRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMCreateSchemeRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateSchemeRequest-objects as value to a dart map
-  static Map<String, List<MMCreateSchemeRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateSchemeRequest-objects as value to a dart map
+  static Map<String, List<MmCreateSchemeRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateSchemeRequest>>{};
+    final map = <String, List<MmCreateSchemeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateSchemeRequest.listFromJson(
+        final value = MmCreateSchemeRequest.listFromJson(
           entry.value,
           growable: growable,
         );

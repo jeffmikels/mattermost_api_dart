@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraph {
-  /// Returns a new [MMOpenGraph] instance.
-  MMOpenGraph({
+class MmOpenGraph {
+  /// Returns a new [MmOpenGraph] instance.
+  MmOpenGraph({
     this.type,
     this.url,
     this.title,
@@ -87,19 +87,11 @@ class MMOpenGraph {
 
   List<String> localesAlternate;
 
-  List<MMOpenGraphImagesInner> images;
+  List<MmOpenGraphImagesInner> images;
 
-  List<MMOpenGraphVideosInner> videos;
+  List<MmOpenGraphVideosInner> videos;
 
-  List<MMOpenGraphAudiosInner> audios;
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  MMOpenGraphArticle? article;
+  List<MmOpenGraphAudiosInner> audios;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -107,7 +99,7 @@ class MMOpenGraph {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMOpenGraphBook? book;
+  MmOpenGraphArticle? article;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -115,12 +107,20 @@ class MMOpenGraph {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMOpenGraphArticleAuthorsInner? profile;
+  MmOpenGraphBook? book;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MmOpenGraphArticleAuthorsInner? profile;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenGraph &&
+      other is MmOpenGraph &&
           other.type == type &&
           other.url == url &&
           other.title == title &&
@@ -156,7 +156,7 @@ class MMOpenGraph {
 
   @override
   String toString() =>
-      'MMOpenGraph[type=$type, url=$url, title=$title, description=$description, determiner=$determiner, siteName=$siteName, locale=$locale, localesAlternate=$localesAlternate, images=$images, videos=$videos, audios=$audios, article=$article, book=$book, profile=$profile]';
+      'MmOpenGraph[type=$type, url=$url, title=$title, description=$description, determiner=$determiner, siteName=$siteName, locale=$locale, localesAlternate=$localesAlternate, images=$images, videos=$videos, audios=$audios, article=$article, book=$book, profile=$profile]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -197,10 +197,10 @@ class MMOpenGraph {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraph] instance and imports its values from
+  /// Returns a new [MmOpenGraph] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraph? fromJson(dynamic value) {
+  static MmOpenGraph? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -209,13 +209,13 @@ class MMOpenGraph {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraph[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraph[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraph[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraph[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraph(
+      return MmOpenGraph(
         type: mapValueOfType<String>(json, r'type'),
         url: mapValueOfType<String>(json, r'url'),
         title: mapValueOfType<String>(json, r'title'),
@@ -225,25 +225,25 @@ class MMOpenGraph {
         locale: mapValueOfType<String>(json, r'locale'),
         localesAlternate:
             json[r'locales_alternate'] is List ? (json[r'locales_alternate'] as List).cast<String>() : const [],
-        images: MMOpenGraphImagesInner.listFromJson(json[r'images']) ?? const [],
-        videos: MMOpenGraphVideosInner.listFromJson(json[r'videos']) ?? const [],
-        audios: MMOpenGraphAudiosInner.listFromJson(json[r'audios']) ?? const [],
-        article: MMOpenGraphArticle.fromJson(json[r'article']),
-        book: MMOpenGraphBook.fromJson(json[r'book']),
-        profile: MMOpenGraphArticleAuthorsInner.fromJson(json[r'profile']),
+        images: MmOpenGraphImagesInner.listFromJson(json[r'images']) ?? const [],
+        videos: MmOpenGraphVideosInner.listFromJson(json[r'videos']) ?? const [],
+        audios: MmOpenGraphAudiosInner.listFromJson(json[r'audios']) ?? const [],
+        article: MmOpenGraphArticle.fromJson(json[r'article']),
+        book: MmOpenGraphBook.fromJson(json[r'book']),
+        profile: MmOpenGraphArticleAuthorsInner.fromJson(json[r'profile']),
       );
     }
     return null;
   }
 
-  static List<MMOpenGraph>? listFromJson(
+  static List<MmOpenGraph>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraph>[];
+    final result = <MmOpenGraph>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraph.fromJson(row);
+        final value = MmOpenGraph.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -252,12 +252,12 @@ class MMOpenGraph {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraph> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraph>{};
+  static Map<String, MmOpenGraph> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraph>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraph.fromJson(entry.value);
+        final value = MmOpenGraph.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -266,16 +266,16 @@ class MMOpenGraph {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraph-objects as value to a dart map
-  static Map<String, List<MMOpenGraph>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraph-objects as value to a dart map
+  static Map<String, List<MmOpenGraph>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraph>>{};
+    final map = <String, List<MmOpenGraph>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraph.listFromJson(
+        final value = MmOpenGraph.listFromJson(
           entry.value,
           growable: growable,
         );

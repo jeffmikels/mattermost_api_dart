@@ -1,4 +1,4 @@
-# mattermost_api.model.MMUserAuthData
+# mattermost_api.model.MmUserAuthData
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMUserAuthData example = await client.userAuthData.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmUserAuthData example = await client.userAuthData.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

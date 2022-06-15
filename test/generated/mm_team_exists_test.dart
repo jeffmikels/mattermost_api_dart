@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTeamExists
+// tests for MmTeamExists
 void main() {
-  // final instance = MMTeamExists();
+  // final instance = MmTeamExists();
 
-  group('test MMTeamExists', () {
+  group('test MmTeamExists', () {
     // bool exists
     test('to test the property `exists`', () async {
       // TODO

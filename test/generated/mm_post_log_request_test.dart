@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostLogRequest
+// tests for MmPostLogRequest
 void main() {
-  // final instance = MMPostLogRequest();
+  // final instance = MmPostLogRequest();
 
-  group('test MMPostLogRequest', () {
+  group('test MmPostLogRequest', () {
     // The error level, ERROR or DEBUG
     // String level
     test('to test the property `level`', () async {

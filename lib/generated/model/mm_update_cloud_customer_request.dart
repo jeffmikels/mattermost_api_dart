@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateCloudCustomerRequest {
-  /// Returns a new [MMUpdateCloudCustomerRequest] instance.
-  MMUpdateCloudCustomerRequest({
+class MmUpdateCloudCustomerRequest {
+  /// Returns a new [MmUpdateCloudCustomerRequest] instance.
+  MmUpdateCloudCustomerRequest({
     this.name,
     this.email,
     this.contactFirstName,
@@ -63,7 +63,7 @@ class MMUpdateCloudCustomerRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateCloudCustomerRequest &&
+      other is MmUpdateCloudCustomerRequest &&
           other.name == name &&
           other.email == email &&
           other.contactFirstName == contactFirstName &&
@@ -81,7 +81,7 @@ class MMUpdateCloudCustomerRequest {
 
   @override
   String toString() =>
-      'MMUpdateCloudCustomerRequest[name=$name, email=$email, contactFirstName=$contactFirstName, contactLastName=$contactLastName, numEmployees=$numEmployees]';
+      'MmUpdateCloudCustomerRequest[name=$name, email=$email, contactFirstName=$contactFirstName, contactLastName=$contactLastName, numEmployees=$numEmployees]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMUpdateCloudCustomerRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateCloudCustomerRequest] instance and imports its values from
+  /// Returns a new [MmUpdateCloudCustomerRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateCloudCustomerRequest? fromJson(dynamic value) {
+  static MmUpdateCloudCustomerRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,13 +115,13 @@ class MMUpdateCloudCustomerRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateCloudCustomerRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateCloudCustomerRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateCloudCustomerRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateCloudCustomerRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateCloudCustomerRequest(
+      return MmUpdateCloudCustomerRequest(
         name: mapValueOfType<String>(json, r'name'),
         email: mapValueOfType<String>(json, r'email'),
         contactFirstName: mapValueOfType<String>(json, r'contact_first_name'),
@@ -132,14 +132,14 @@ class MMUpdateCloudCustomerRequest {
     return null;
   }
 
-  static List<MMUpdateCloudCustomerRequest>? listFromJson(
+  static List<MmUpdateCloudCustomerRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateCloudCustomerRequest>[];
+    final result = <MmUpdateCloudCustomerRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateCloudCustomerRequest.fromJson(row);
+        final value = MmUpdateCloudCustomerRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -148,12 +148,12 @@ class MMUpdateCloudCustomerRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateCloudCustomerRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateCloudCustomerRequest>{};
+  static Map<String, MmUpdateCloudCustomerRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateCloudCustomerRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateCloudCustomerRequest.fromJson(entry.value);
+        final value = MmUpdateCloudCustomerRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -162,16 +162,16 @@ class MMUpdateCloudCustomerRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateCloudCustomerRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateCloudCustomerRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateCloudCustomerRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateCloudCustomerRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateCloudCustomerRequest>>{};
+    final map = <String, List<MmUpdateCloudCustomerRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateCloudCustomerRequest.listFromJson(
+        final value = MmUpdateCloudCustomerRequest.listFromJson(
           entry.value,
           growable: growable,
         );

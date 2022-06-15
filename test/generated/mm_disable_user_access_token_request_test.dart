@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDisableUserAccessTokenRequest
+// tests for MmDisableUserAccessTokenRequest
 void main() {
-  // final instance = MMDisableUserAccessTokenRequest();
+  // final instance = MmDisableUserAccessTokenRequest();
 
-  group('test MMDisableUserAccessTokenRequest', () {
+  group('test MmDisableUserAccessTokenRequest', () {
     // The personal access token GUID to disable
     // String tokenId
     test('to test the property `tokenId`', () async {

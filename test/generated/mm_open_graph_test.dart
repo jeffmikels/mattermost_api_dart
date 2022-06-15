@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraph
+// tests for MmOpenGraph
 void main() {
-  // final instance = MMOpenGraph();
+  // final instance = MmOpenGraph();
 
-  group('test MMOpenGraph', () {
+  group('test MmOpenGraph', () {
     // String type
     test('to test the property `type`', () async {
       // TODO
@@ -56,32 +56,32 @@ void main() {
       // TODO
     });
 
-    // List<MMOpenGraphImagesInner> images (default value: const [])
+    // List<MmOpenGraphImagesInner> images (default value: const [])
     test('to test the property `images`', () async {
       // TODO
     });
 
-    // List<MMOpenGraphVideosInner> videos (default value: const [])
+    // List<MmOpenGraphVideosInner> videos (default value: const [])
     test('to test the property `videos`', () async {
       // TODO
     });
 
-    // List<MMOpenGraphAudiosInner> audios (default value: const [])
+    // List<MmOpenGraphAudiosInner> audios (default value: const [])
     test('to test the property `audios`', () async {
       // TODO
     });
 
-    // MMOpenGraphArticle article
+    // MmOpenGraphArticle article
     test('to test the property `article`', () async {
       // TODO
     });
 
-    // MMOpenGraphBook book
+    // MmOpenGraphBook book
     test('to test the property `book`', () async {
       // TODO
     });
 
-    // MMOpenGraphArticleAuthorsInner profile
+    // MmOpenGraphArticleAuthorsInner profile
     test('to test the property `profile`', () async {
       // TODO
     });

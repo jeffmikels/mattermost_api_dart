@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAudit
+// tests for MmAudit
 void main() {
-  // final instance = MMAudit();
+  // final instance = MmAudit();
 
-  group('test MMAudit', () {
+  group('test MmAudit', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelMemberCountByGroup
+// tests for MmChannelMemberCountByGroup
 void main() {
-  // final instance = MMChannelMemberCountByGroup();
+  // final instance = MmChannelMemberCountByGroup();
 
-  group('test MMChannelMemberCountByGroup', () {
+  group('test MmChannelMemberCountByGroup', () {
     // ID of the group
     // String groupId
     test('to test the property `groupId`', () async {

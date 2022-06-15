@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPaymentMethod {
-  /// Returns a new [MMPaymentMethod] instance.
-  MMPaymentMethod({
+class MmPaymentMethod {
+  /// Returns a new [MmPaymentMethod] instance.
+  MmPaymentMethod({
     this.type,
     this.lastFour,
     this.expMonth,
@@ -72,7 +72,7 @@ class MMPaymentMethod {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPaymentMethod &&
+      other is MmPaymentMethod &&
           other.type == type &&
           other.lastFour == lastFour &&
           other.expMonth == expMonth &&
@@ -92,7 +92,7 @@ class MMPaymentMethod {
 
   @override
   String toString() =>
-      'MMPaymentMethod[type=$type, lastFour=$lastFour, expMonth=$expMonth, expYear=$expYear, cardBrand=$cardBrand, name=$name]';
+      'MmPaymentMethod[type=$type, lastFour=$lastFour, expMonth=$expMonth, expYear=$expYear, cardBrand=$cardBrand, name=$name]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMPaymentMethod {
     return _json;
   }
 
-  /// Returns a new [MMPaymentMethod] instance and imports its values from
+  /// Returns a new [MmPaymentMethod] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPaymentMethod? fromJson(dynamic value) {
+  static MmPaymentMethod? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -129,13 +129,13 @@ class MMPaymentMethod {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPaymentMethod[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPaymentMethod[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPaymentMethod[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPaymentMethod[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPaymentMethod(
+      return MmPaymentMethod(
         type: mapValueOfType<String>(json, r'type'),
         lastFour: mapValueOfType<int>(json, r'last_four'),
         expMonth: mapValueOfType<int>(json, r'exp_month'),
@@ -147,14 +147,14 @@ class MMPaymentMethod {
     return null;
   }
 
-  static List<MMPaymentMethod>? listFromJson(
+  static List<MmPaymentMethod>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPaymentMethod>[];
+    final result = <MmPaymentMethod>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPaymentMethod.fromJson(row);
+        final value = MmPaymentMethod.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -163,12 +163,12 @@ class MMPaymentMethod {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPaymentMethod> mapFromJson(dynamic json) {
-    final map = <String, MMPaymentMethod>{};
+  static Map<String, MmPaymentMethod> mapFromJson(dynamic json) {
+    final map = <String, MmPaymentMethod>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPaymentMethod.fromJson(entry.value);
+        final value = MmPaymentMethod.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,16 +177,16 @@ class MMPaymentMethod {
     return map;
   }
 
-  // maps a json object with a list of MMPaymentMethod-objects as value to a dart map
-  static Map<String, List<MMPaymentMethod>> mapListFromJson(
+  // maps a json object with a list of MmPaymentMethod-objects as value to a dart map
+  static Map<String, List<MmPaymentMethod>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPaymentMethod>>{};
+    final map = <String, List<MmPaymentMethod>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPaymentMethod.listFromJson(
+        final value = MmPaymentMethod.listFromJson(
           entry.value,
           growable: growable,
         );

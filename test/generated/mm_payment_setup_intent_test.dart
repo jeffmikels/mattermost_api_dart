@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPaymentSetupIntent
+// tests for MmPaymentSetupIntent
 void main() {
-  // final instance = MMPaymentSetupIntent();
+  // final instance = MmPaymentSetupIntent();
 
-  group('test MMPaymentSetupIntent', () {
+  group('test MmPaymentSetupIntent', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

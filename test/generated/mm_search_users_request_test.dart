@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchUsersRequest
+// tests for MmSearchUsersRequest
 void main() {
-  // final instance = MMSearchUsersRequest();
+  // final instance = MmSearchUsersRequest();
 
-  group('test MMSearchUsersRequest', () {
+  group('test MmSearchUsersRequest', () {
     // The term to match against username, full name, nickname and email
     // String term
     test('to test the property `term`', () async {

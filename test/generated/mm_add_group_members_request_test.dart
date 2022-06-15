@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAddGroupMembersRequest
+// tests for MmAddGroupMembersRequest
 void main() {
-  // final instance = MMAddGroupMembersRequest();
+  // final instance = MmAddGroupMembersRequest();
 
-  group('test MMAddGroupMembersRequest', () {
+  group('test MmAddGroupMembersRequest', () {
     // List<int> userIds (default value: const [])
     test('to test the property `userIds`', () async {
       // TODO

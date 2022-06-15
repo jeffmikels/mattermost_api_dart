@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetUsersByGroupChannelIds200Response
+// tests for MmGetUsersByGroupChannelIds200Response
 void main() {
-  // final instance = MMGetUsersByGroupChannelIds200Response();
+  // final instance = MmGetUsersByGroupChannelIds200Response();
 
-  group('test MMGetUsersByGroupChannelIds200Response', () {
-    // List<MMUser> lessThanCHANNELIDGreaterThan (default value: const [])
+  group('test MmGetUsersByGroupChannelIds200Response', () {
+    // List<MmUser> lessThanCHANNELIDGreaterThan (default value: const [])
     test('to test the property `lessThanCHANNELIDGreaterThan`', () async {
       // TODO
     });

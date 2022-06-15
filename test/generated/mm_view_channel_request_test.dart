@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMViewChannelRequest
+// tests for MmViewChannelRequest
 void main() {
-  // final instance = MMViewChannelRequest();
+  // final instance = MmViewChannelRequest();
 
-  group('test MMViewChannelRequest', () {
+  group('test MmViewChannelRequest', () {
     // The channel ID that is being viewed. Use a blank string to indicate that all channels have lost focus.
     // String channelId
     test('to test the property `channelId`', () async {

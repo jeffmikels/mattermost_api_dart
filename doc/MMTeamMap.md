@@ -1,4 +1,4 @@
-# mattermost_api.model.MMTeamMap
+# mattermost_api.model.MmTeamMap
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,18 +10,18 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMTeamMap example = await client.teamMap.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmTeamMap example = await client.teamMap.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**teamId** | [**MMTeam**](MMTeam.md) |  | [optional] 
+**teamId** | [**MmTeam**](MmTeam.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

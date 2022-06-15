@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMDataRetentionPolicy {
-  /// Returns a new [MMDataRetentionPolicy] instance.
-  MMDataRetentionPolicy({
+class MmDataRetentionPolicy {
+  /// Returns a new [MmDataRetentionPolicy] instance.
+  MmDataRetentionPolicy({
     this.displayName,
     this.postDuration,
     this.id,
@@ -48,7 +48,7 @@ class MMDataRetentionPolicy {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMDataRetentionPolicy &&
+      other is MmDataRetentionPolicy &&
           other.displayName == displayName &&
           other.postDuration == postDuration &&
           other.id == id;
@@ -61,7 +61,7 @@ class MMDataRetentionPolicy {
       (id == null ? 0 : id!.hashCode);
 
   @override
-  String toString() => 'MMDataRetentionPolicy[displayName=$displayName, postDuration=$postDuration, id=$id]';
+  String toString() => 'MmDataRetentionPolicy[displayName=$displayName, postDuration=$postDuration, id=$id]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -77,10 +77,10 @@ class MMDataRetentionPolicy {
     return _json;
   }
 
-  /// Returns a new [MMDataRetentionPolicy] instance and imports its values from
+  /// Returns a new [MmDataRetentionPolicy] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMDataRetentionPolicy? fromJson(dynamic value) {
+  static MmDataRetentionPolicy? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -89,13 +89,13 @@ class MMDataRetentionPolicy {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMDataRetentionPolicy[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMDataRetentionPolicy[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmDataRetentionPolicy[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmDataRetentionPolicy[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMDataRetentionPolicy(
+      return MmDataRetentionPolicy(
         displayName: mapValueOfType<String>(json, r'display_name'),
         postDuration: mapValueOfType<int>(json, r'post_duration'),
         id: mapValueOfType<String>(json, r'id'),
@@ -104,14 +104,14 @@ class MMDataRetentionPolicy {
     return null;
   }
 
-  static List<MMDataRetentionPolicy>? listFromJson(
+  static List<MmDataRetentionPolicy>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMDataRetentionPolicy>[];
+    final result = <MmDataRetentionPolicy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMDataRetentionPolicy.fromJson(row);
+        final value = MmDataRetentionPolicy.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -120,12 +120,12 @@ class MMDataRetentionPolicy {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMDataRetentionPolicy> mapFromJson(dynamic json) {
-    final map = <String, MMDataRetentionPolicy>{};
+  static Map<String, MmDataRetentionPolicy> mapFromJson(dynamic json) {
+    final map = <String, MmDataRetentionPolicy>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMDataRetentionPolicy.fromJson(entry.value);
+        final value = MmDataRetentionPolicy.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,16 +134,16 @@ class MMDataRetentionPolicy {
     return map;
   }
 
-  // maps a json object with a list of MMDataRetentionPolicy-objects as value to a dart map
-  static Map<String, List<MMDataRetentionPolicy>> mapListFromJson(
+  // maps a json object with a list of MmDataRetentionPolicy-objects as value to a dart map
+  static Map<String, List<MmDataRetentionPolicy>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMDataRetentionPolicy>>{};
+    final map = <String, List<MmDataRetentionPolicy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMDataRetentionPolicy.listFromJson(
+        final value = MmDataRetentionPolicy.listFromJson(
           entry.value,
           growable: growable,
         );

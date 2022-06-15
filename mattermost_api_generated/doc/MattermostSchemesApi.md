@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **createScheme**
-> MMScheme createScheme(mMCreateSchemeRequest)
+> MmScheme createScheme(mmCreateSchemeRequest)
 
 Create a scheme
 
@@ -34,25 +34,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateSchemeRequest mMCreateSchemeRequest = MMCreateSchemeRequest(); // MMCreateSchemeRequest | Scheme object to create
+final MmCreateSchemeRequest mmCreateSchemeRequest = MmCreateSchemeRequest(); // MmCreateSchemeRequest | Scheme object to create
 
 try {
-  final MMScheme? result = await client.schemes.createScheme(mMCreateSchemeRequest); // await the Future<MMScheme?>
+  final MmScheme? result = await client.schemes.createScheme(mmCreateSchemeRequest); // await the Future<MmScheme?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->createScheme: $e\n');
@@ -64,11 +64,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateSchemeRequest** | [**MMCreateSchemeRequest**](MMCreateSchemeRequest.md)| Scheme object to create | 
+ **mmCreateSchemeRequest** | [**MmCreateSchemeRequest**](MmCreateSchemeRequest.md)| Scheme object to create | 
 
 ### Return type
 
-[**MMScheme**](MMScheme.md)
+[**MmScheme**](MmScheme.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteScheme**
-> MMStatusOK deleteScheme(schemeId)
+> MmStatusOK deleteScheme(schemeId)
 
 Delete a scheme
 
@@ -97,25 +97,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String schemeId = 'schemeId_example'; // String | ID of the scheme to delete
 
 try {
-  final MMStatusOK? result = await client.schemes.deleteScheme(schemeId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.schemes.deleteScheme(schemeId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->deleteScheme: $e\n');
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelsForScheme**
-> List<MMChannel> getChannelsForScheme(schemeId, page, perPage)
+> List<MmChannel> getChannelsForScheme(schemeId, page, perPage)
 
 Get a page of channels which use this scheme.
 
@@ -160,18 +160,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -180,7 +180,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of channels per page.
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.schemes.getChannelsForScheme(schemeId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.schemes.getChannelsForScheme(schemeId, page, perPage); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getChannelsForScheme: $e\n');
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getScheme**
-> MMScheme getScheme(schemeId)
+> MmScheme getScheme(schemeId)
 
 Get a scheme
 
@@ -227,25 +227,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String schemeId = 'schemeId_example'; // String | Scheme GUID
 
 try {
-  final MMScheme? result = await client.schemes.getScheme(schemeId); // await the Future<MMScheme?>
+  final MmScheme? result = await client.schemes.getScheme(schemeId); // await the Future<MmScheme?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getScheme: $e\n');
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMScheme**](MMScheme.md)
+[**MmScheme**](MmScheme.md)
 
 ### Authorization
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSchemes**
-> List<MMScheme> getSchemes(scope, page, perPage)
+> List<MmScheme> getSchemes(scope, page, perPage)
 
 Get the schemes.
 
@@ -290,18 +290,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -310,7 +310,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of schemes per page.
 
 try {
-  final List&lt;MMScheme&gt;? result = await client.schemes.getSchemes(scope, page, perPage); // await the Future<List&lt;MMScheme&gt;?>
+  final List&lt;MmScheme&gt;? result = await client.schemes.getSchemes(scope, page, perPage); // await the Future<List&lt;MmScheme&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getSchemes: $e\n');
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMScheme>**](MMScheme.md)
+[**List<MmScheme>**](MmScheme.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamsForScheme**
-> List<MMTeam> getTeamsForScheme(schemeId, page, perPage)
+> List<MmTeam> getTeamsForScheme(schemeId, page, perPage)
 
 Get a page of teams which use this scheme.
 
@@ -357,18 +357,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -377,7 +377,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of teams per page.
 
 try {
-  final List&lt;MMTeam&gt;? result = await client.schemes.getTeamsForScheme(schemeId, page, perPage); // await the Future<List&lt;MMTeam&gt;?>
+  final List&lt;MmTeam&gt;? result = await client.schemes.getTeamsForScheme(schemeId, page, perPage); // await the Future<List&lt;MmTeam&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getTeamsForScheme: $e\n');
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeam>**](MMTeam.md)
+[**List<MmTeam>**](MmTeam.md)
 
 ### Authorization
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchScheme**
-> MMScheme patchScheme(schemeId, mMPatchSchemeRequest)
+> MmScheme patchScheme(schemeId, mmPatchSchemeRequest)
 
 Patch a scheme
 
@@ -424,26 +424,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String schemeId = 'schemeId_example'; // String | Scheme GUID
-final MMPatchSchemeRequest mMPatchSchemeRequest = MMPatchSchemeRequest(); // MMPatchSchemeRequest | Scheme object to be updated
+final MmPatchSchemeRequest mmPatchSchemeRequest = MmPatchSchemeRequest(); // MmPatchSchemeRequest | Scheme object to be updated
 
 try {
-  final MMScheme? result = await client.schemes.patchScheme(schemeId, mMPatchSchemeRequest); // await the Future<MMScheme?>
+  final MmScheme? result = await client.schemes.patchScheme(schemeId, mmPatchSchemeRequest); // await the Future<MmScheme?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->patchScheme: $e\n');
@@ -456,11 +456,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schemeId** | **String**| Scheme GUID | 
- **mMPatchSchemeRequest** | [**MMPatchSchemeRequest**](MMPatchSchemeRequest.md)| Scheme object to be updated | 
+ **mmPatchSchemeRequest** | [**MmPatchSchemeRequest**](MmPatchSchemeRequest.md)| Scheme object to be updated | 
 
 ### Return type
 
-[**MMScheme**](MMScheme.md)
+[**MmScheme**](MmScheme.md)
 
 ### Authorization
 

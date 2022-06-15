@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPushNotification
+// tests for MmPushNotification
 void main() {
-  // final instance = MMPushNotification();
+  // final instance = MmPushNotification();
 
-  group('test MMPushNotification', () {
+  group('test MmPushNotification', () {
     // String ackId
     test('to test the property `ackId`', () async {
       // TODO

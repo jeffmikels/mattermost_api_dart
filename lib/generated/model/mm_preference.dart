@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPreference {
-  /// Returns a new [MMPreference] instance.
-  MMPreference({
+class MmPreference {
+  /// Returns a new [MmPreference] instance.
+  MmPreference({
     this.userId,
     this.category,
     this.name,
@@ -55,7 +55,7 @@ class MMPreference {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPreference &&
+      other is MmPreference &&
           other.userId == userId &&
           other.category == category &&
           other.name == name &&
@@ -70,7 +70,7 @@ class MMPreference {
       (value == null ? 0 : value!.hashCode);
 
   @override
-  String toString() => 'MMPreference[userId=$userId, category=$category, name=$name, value=$value]';
+  String toString() => 'MmPreference[userId=$userId, category=$category, name=$name, value=$value]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -89,10 +89,10 @@ class MMPreference {
     return _json;
   }
 
-  /// Returns a new [MMPreference] instance and imports its values from
+  /// Returns a new [MmPreference] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPreference? fromJson(dynamic value) {
+  static MmPreference? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -101,13 +101,13 @@ class MMPreference {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPreference[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPreference[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPreference[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPreference[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPreference(
+      return MmPreference(
         userId: mapValueOfType<String>(json, r'user_id'),
         category: mapValueOfType<String>(json, r'category'),
         name: mapValueOfType<String>(json, r'name'),
@@ -117,14 +117,14 @@ class MMPreference {
     return null;
   }
 
-  static List<MMPreference>? listFromJson(
+  static List<MmPreference>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPreference>[];
+    final result = <MmPreference>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPreference.fromJson(row);
+        final value = MmPreference.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -133,12 +133,12 @@ class MMPreference {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPreference> mapFromJson(dynamic json) {
-    final map = <String, MMPreference>{};
+  static Map<String, MmPreference> mapFromJson(dynamic json) {
+    final map = <String, MmPreference>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPreference.fromJson(entry.value);
+        final value = MmPreference.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -147,16 +147,16 @@ class MMPreference {
     return map;
   }
 
-  // maps a json object with a list of MMPreference-objects as value to a dart map
-  static Map<String, List<MMPreference>> mapListFromJson(
+  // maps a json object with a list of MmPreference-objects as value to a dart map
+  static Map<String, List<MmPreference>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPreference>>{};
+    final map = <String, List<MmPreference>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPreference.listFromJson(
+        final value = MmPreference.listFromJson(
           entry.value,
           growable: growable,
         );

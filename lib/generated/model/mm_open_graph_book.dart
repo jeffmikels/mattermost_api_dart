@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraphBook {
-  /// Returns a new [MMOpenGraphBook] instance.
-  MMOpenGraphBook({
+class MmOpenGraphBook {
+  /// Returns a new [MmOpenGraphBook] instance.
+  MmOpenGraphBook({
     this.isbn,
     this.releaseDate,
     this.tags = const [],
@@ -37,12 +37,12 @@ class MMOpenGraphBook {
 
   List<String> tags;
 
-  List<MMOpenGraphArticleAuthorsInner> authors;
+  List<MmOpenGraphArticleAuthorsInner> authors;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenGraphBook &&
+      other is MmOpenGraphBook &&
           other.isbn == isbn &&
           other.releaseDate == releaseDate &&
           other.tags == tags &&
@@ -57,7 +57,7 @@ class MMOpenGraphBook {
       (authors.hashCode);
 
   @override
-  String toString() => 'MMOpenGraphBook[isbn=$isbn, releaseDate=$releaseDate, tags=$tags, authors=$authors]';
+  String toString() => 'MmOpenGraphBook[isbn=$isbn, releaseDate=$releaseDate, tags=$tags, authors=$authors]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -72,10 +72,10 @@ class MMOpenGraphBook {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraphBook] instance and imports its values from
+  /// Returns a new [MmOpenGraphBook] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraphBook? fromJson(dynamic value) {
+  static MmOpenGraphBook? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -84,30 +84,30 @@ class MMOpenGraphBook {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraphBook[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraphBook[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraphBook[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraphBook[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraphBook(
+      return MmOpenGraphBook(
         isbn: mapValueOfType<String>(json, r'isbn'),
         releaseDate: mapValueOfType<String>(json, r'release_date'),
         tags: json[r'tags'] is List ? (json[r'tags'] as List).cast<String>() : const [],
-        authors: MMOpenGraphArticleAuthorsInner.listFromJson(json[r'authors']) ?? const [],
+        authors: MmOpenGraphArticleAuthorsInner.listFromJson(json[r'authors']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMOpenGraphBook>? listFromJson(
+  static List<MmOpenGraphBook>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraphBook>[];
+    final result = <MmOpenGraphBook>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraphBook.fromJson(row);
+        final value = MmOpenGraphBook.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -116,12 +116,12 @@ class MMOpenGraphBook {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraphBook> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraphBook>{};
+  static Map<String, MmOpenGraphBook> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraphBook>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphBook.fromJson(entry.value);
+        final value = MmOpenGraphBook.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -130,16 +130,16 @@ class MMOpenGraphBook {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraphBook-objects as value to a dart map
-  static Map<String, List<MMOpenGraphBook>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraphBook-objects as value to a dart map
+  static Map<String, List<MmOpenGraphBook>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraphBook>>{};
+    final map = <String, List<MmOpenGraphBook>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphBook.listFromJson(
+        final value = MmOpenGraphBook.listFromJson(
           entry.value,
           growable: growable,
         );

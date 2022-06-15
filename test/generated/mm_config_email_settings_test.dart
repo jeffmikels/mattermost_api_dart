@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigEmailSettings
+// tests for MmConfigEmailSettings
 void main() {
-  // final instance = MMConfigEmailSettings();
+  // final instance = MmConfigEmailSettings();
 
-  group('test MMConfigEmailSettings', () {
+  group('test MmConfigEmailSettings', () {
     // bool enableSignUpWithEmail
     test('to test the property `enableSignUpWithEmail`', () async {
       // TODO

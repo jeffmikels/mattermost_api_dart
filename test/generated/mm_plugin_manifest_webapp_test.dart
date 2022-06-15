@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginManifestWebapp
+// tests for MmPluginManifestWebapp
 void main() {
-  // final instance = MMPluginManifestWebapp();
+  // final instance = MmPluginManifestWebapp();
 
-  group('test MMPluginManifestWebapp', () {
+  group('test MmPluginManifestWebapp', () {
     // Path to the webapp JavaScript bundle.
     // String bundlePath
     test('to test the property `bundlePath`', () async {

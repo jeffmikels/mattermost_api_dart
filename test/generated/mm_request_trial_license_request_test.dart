@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRequestTrialLicenseRequest
+// tests for MmRequestTrialLicenseRequest
 void main() {
-  // final instance = MMRequestTrialLicenseRequest();
+  // final instance = MmRequestTrialLicenseRequest();
 
-  group('test MMRequestTrialLicenseRequest', () {
+  group('test MmRequestTrialLicenseRequest', () {
     // Number of users requested (20% extra is going to be added)
     // int users
     test('to test the property `users`', () async {

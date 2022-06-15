@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMessagesLimits
+// tests for MmMessagesLimits
 void main() {
-  // final instance = MMMessagesLimits();
+  // final instance = MmMessagesLimits();
 
-  group('test MMMessagesLimits', () {
+  group('test MmMessagesLimits', () {
     // int history
     test('to test the property `history`', () async {
       // TODO

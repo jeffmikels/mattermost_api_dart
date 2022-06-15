@@ -1,4 +1,4 @@
-# mattermost_api.model.MMChannelModeration
+# mattermost_api.model.MmChannelModeration
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMChannelModeration example = await client.channelModeration.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmChannelModeration example = await client.channelModeration.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -22,7 +22,7 @@ MMChannelModeration example = await client.channelModeration.FUNCTION_THAT_RETUR
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**roles** | [**MMChannelModeratedRoles**](MMChannelModeratedRoles.md) |  | [optional] 
+**roles** | [**MmChannelModeratedRoles**](MmChannelModeratedRoles.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

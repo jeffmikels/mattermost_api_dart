@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSidebarCategoryWithChannels {
-  /// Returns a new [MMSidebarCategoryWithChannels] instance.
-  MMSidebarCategoryWithChannels({
+class MmSidebarCategoryWithChannels {
+  /// Returns a new [MmSidebarCategoryWithChannels] instance.
+  MmSidebarCategoryWithChannels({
     this.id,
     this.userId,
     this.teamId,
@@ -53,14 +53,14 @@ class MMSidebarCategoryWithChannels {
   ///
   String? displayName;
 
-  MMSidebarCategoryWithChannelsTypeEnum? type;
+  MmSidebarCategoryWithChannelsTypeEnum? type;
 
   List<String> channelIds;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSidebarCategoryWithChannels &&
+      other is MmSidebarCategoryWithChannels &&
           other.id == id &&
           other.userId == userId &&
           other.teamId == teamId &&
@@ -80,7 +80,7 @@ class MMSidebarCategoryWithChannels {
 
   @override
   String toString() =>
-      'MMSidebarCategoryWithChannels[id=$id, userId=$userId, teamId=$teamId, displayName=$displayName, type=$type, channelIds=$channelIds]';
+      'MmSidebarCategoryWithChannels[id=$id, userId=$userId, teamId=$teamId, displayName=$displayName, type=$type, channelIds=$channelIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMSidebarCategoryWithChannels {
     return _json;
   }
 
-  /// Returns a new [MMSidebarCategoryWithChannels] instance and imports its values from
+  /// Returns a new [MmSidebarCategoryWithChannels] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSidebarCategoryWithChannels? fromJson(dynamic value) {
+  static MmSidebarCategoryWithChannels? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,32 +115,32 @@ class MMSidebarCategoryWithChannels {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSidebarCategoryWithChannels[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSidebarCategoryWithChannels[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSidebarCategoryWithChannels[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSidebarCategoryWithChannels[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSidebarCategoryWithChannels(
+      return MmSidebarCategoryWithChannels(
         id: mapValueOfType<String>(json, r'id'),
         userId: mapValueOfType<String>(json, r'user_id'),
         teamId: mapValueOfType<String>(json, r'team_id'),
         displayName: mapValueOfType<String>(json, r'display_name'),
-        type: MMSidebarCategoryWithChannelsTypeEnum.fromJson(json[r'type']),
+        type: MmSidebarCategoryWithChannelsTypeEnum.fromJson(json[r'type']),
         channelIds: json[r'channel_ids'] is List ? (json[r'channel_ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<MMSidebarCategoryWithChannels>? listFromJson(
+  static List<MmSidebarCategoryWithChannels>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSidebarCategoryWithChannels>[];
+    final result = <MmSidebarCategoryWithChannels>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSidebarCategoryWithChannels.fromJson(row);
+        final value = MmSidebarCategoryWithChannels.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -149,12 +149,12 @@ class MMSidebarCategoryWithChannels {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSidebarCategoryWithChannels> mapFromJson(dynamic json) {
-    final map = <String, MMSidebarCategoryWithChannels>{};
+  static Map<String, MmSidebarCategoryWithChannels> mapFromJson(dynamic json) {
+    final map = <String, MmSidebarCategoryWithChannels>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSidebarCategoryWithChannels.fromJson(entry.value);
+        final value = MmSidebarCategoryWithChannels.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -163,16 +163,16 @@ class MMSidebarCategoryWithChannels {
     return map;
   }
 
-  // maps a json object with a list of MMSidebarCategoryWithChannels-objects as value to a dart map
-  static Map<String, List<MMSidebarCategoryWithChannels>> mapListFromJson(
+  // maps a json object with a list of MmSidebarCategoryWithChannels-objects as value to a dart map
+  static Map<String, List<MmSidebarCategoryWithChannels>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSidebarCategoryWithChannels>>{};
+    final map = <String, List<MmSidebarCategoryWithChannels>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSidebarCategoryWithChannels.listFromJson(
+        final value = MmSidebarCategoryWithChannels.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -188,9 +188,9 @@ class MMSidebarCategoryWithChannels {
   static const requiredKeys = <String>{};
 }
 
-class MMSidebarCategoryWithChannelsTypeEnum {
+class MmSidebarCategoryWithChannelsTypeEnum {
   /// Instantiate a new enum with the provided [value].
-  const MMSidebarCategoryWithChannelsTypeEnum._(this.value);
+  const MmSidebarCategoryWithChannelsTypeEnum._(this.value);
 
   /// The underlying value of this enum member.
   final String value;
@@ -200,30 +200,30 @@ class MMSidebarCategoryWithChannelsTypeEnum {
 
   String toJson() => value;
 
-  static const channels = MMSidebarCategoryWithChannelsTypeEnum._(r'channels');
-  static const custom = MMSidebarCategoryWithChannelsTypeEnum._(r'custom');
-  static const directMessages = MMSidebarCategoryWithChannelsTypeEnum._(r'direct_messages');
-  static const favorites = MMSidebarCategoryWithChannelsTypeEnum._(r'favorites');
+  static const channels = MmSidebarCategoryWithChannelsTypeEnum._(r'channels');
+  static const custom = MmSidebarCategoryWithChannelsTypeEnum._(r'custom');
+  static const directMessages = MmSidebarCategoryWithChannelsTypeEnum._(r'direct_messages');
+  static const favorites = MmSidebarCategoryWithChannelsTypeEnum._(r'favorites');
 
-  /// List of all possible values in this [enum][MMSidebarCategoryWithChannelsTypeEnum].
-  static const values = <MMSidebarCategoryWithChannelsTypeEnum>[
+  /// List of all possible values in this [enum][MmSidebarCategoryWithChannelsTypeEnum].
+  static const values = <MmSidebarCategoryWithChannelsTypeEnum>[
     channels,
     custom,
     directMessages,
     favorites,
   ];
 
-  static MMSidebarCategoryWithChannelsTypeEnum? fromJson(dynamic value) =>
-      MMSidebarCategoryWithChannelsTypeEnumTypeTransformer().decode(value);
+  static MmSidebarCategoryWithChannelsTypeEnum? fromJson(dynamic value) =>
+      MmSidebarCategoryWithChannelsTypeEnumTypeTransformer().decode(value);
 
-  static List<MMSidebarCategoryWithChannelsTypeEnum>? listFromJson(
+  static List<MmSidebarCategoryWithChannelsTypeEnum>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSidebarCategoryWithChannelsTypeEnum>[];
+    final result = <MmSidebarCategoryWithChannelsTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSidebarCategoryWithChannelsTypeEnum.fromJson(row);
+        final value = MmSidebarCategoryWithChannelsTypeEnum.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -233,17 +233,17 @@ class MMSidebarCategoryWithChannelsTypeEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [MMSidebarCategoryWithChannelsTypeEnum] to String,
-/// and [decode] dynamic data back to [MMSidebarCategoryWithChannelsTypeEnum].
-class MMSidebarCategoryWithChannelsTypeEnumTypeTransformer {
-  factory MMSidebarCategoryWithChannelsTypeEnumTypeTransformer() =>
-      _instance ??= const MMSidebarCategoryWithChannelsTypeEnumTypeTransformer._();
+/// Transformation class that can [encode] an instance of [MmSidebarCategoryWithChannelsTypeEnum] to String,
+/// and [decode] dynamic data back to [MmSidebarCategoryWithChannelsTypeEnum].
+class MmSidebarCategoryWithChannelsTypeEnumTypeTransformer {
+  factory MmSidebarCategoryWithChannelsTypeEnumTypeTransformer() =>
+      _instance ??= const MmSidebarCategoryWithChannelsTypeEnumTypeTransformer._();
 
-  const MMSidebarCategoryWithChannelsTypeEnumTypeTransformer._();
+  const MmSidebarCategoryWithChannelsTypeEnumTypeTransformer._();
 
-  String encode(MMSidebarCategoryWithChannelsTypeEnum data) => data.value;
+  String encode(MmSidebarCategoryWithChannelsTypeEnum data) => data.value;
 
-  /// Decodes a [dynamic value][data] to a MMSidebarCategoryWithChannelsTypeEnum.
+  /// Decodes a [dynamic value][data] to a MmSidebarCategoryWithChannelsTypeEnum.
   ///
   /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
   /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
@@ -251,17 +251,17 @@ class MMSidebarCategoryWithChannelsTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MMSidebarCategoryWithChannelsTypeEnum? decode(dynamic data, {bool allowNull = true}) {
+  MmSidebarCategoryWithChannelsTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'channels':
-          return MMSidebarCategoryWithChannelsTypeEnum.channels;
+          return MmSidebarCategoryWithChannelsTypeEnum.channels;
         case r'custom':
-          return MMSidebarCategoryWithChannelsTypeEnum.custom;
+          return MmSidebarCategoryWithChannelsTypeEnum.custom;
         case r'direct_messages':
-          return MMSidebarCategoryWithChannelsTypeEnum.directMessages;
+          return MmSidebarCategoryWithChannelsTypeEnum.directMessages;
         case r'favorites':
-          return MMSidebarCategoryWithChannelsTypeEnum.favorites;
+          return MmSidebarCategoryWithChannelsTypeEnum.favorites;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -271,6 +271,6 @@ class MMSidebarCategoryWithChannelsTypeEnumTypeTransformer {
     return null;
   }
 
-  /// Singleton [MMSidebarCategoryWithChannelsTypeEnumTypeTransformer] instance.
-  static MMSidebarCategoryWithChannelsTypeEnumTypeTransformer? _instance;
+  /// Singleton [MmSidebarCategoryWithChannelsTypeEnumTypeTransformer] instance.
+  static MmSidebarCategoryWithChannelsTypeEnumTypeTransformer? _instance;
 }

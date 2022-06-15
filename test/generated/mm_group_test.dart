@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGroup
+// tests for MmGroup
 void main() {
-  // final instance = MMGroup();
+  // final instance = MmGroup();
 
-  group('test MMGroup', () {
+  group('test MmGroup', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

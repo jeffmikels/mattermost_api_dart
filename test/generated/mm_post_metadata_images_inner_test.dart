@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostMetadataImagesInner
+// tests for MmPostMetadataImagesInner
 void main() {
-  // final instance = MMPostMetadataImagesInner();
+  // final instance = MmPostMetadataImagesInner();
 
-  group('test MMPostMetadataImagesInner', () {
+  group('test MmPostMetadataImagesInner', () {
     // int height
     test('to test the property `height`', () async {
       // TODO

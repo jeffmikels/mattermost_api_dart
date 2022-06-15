@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAutocompleteSuggestion {
-  /// Returns a new [MMAutocompleteSuggestion] instance.
-  MMAutocompleteSuggestion({
+class MmAutocompleteSuggestion {
+  /// Returns a new [MmAutocompleteSuggestion] instance.
+  MmAutocompleteSuggestion({
     this.complete,
     this.suggestion,
     this.hint,
@@ -68,7 +68,7 @@ class MMAutocompleteSuggestion {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMAutocompleteSuggestion &&
+      other is MmAutocompleteSuggestion &&
           other.complete == complete &&
           other.suggestion == suggestion &&
           other.hint == hint &&
@@ -86,7 +86,7 @@ class MMAutocompleteSuggestion {
 
   @override
   String toString() =>
-      'MMAutocompleteSuggestion[complete=$complete, suggestion=$suggestion, hint=$hint, description=$description, iconData=$iconData]';
+      'MmAutocompleteSuggestion[complete=$complete, suggestion=$suggestion, hint=$hint, description=$description, iconData=$iconData]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -108,10 +108,10 @@ class MMAutocompleteSuggestion {
     return _json;
   }
 
-  /// Returns a new [MMAutocompleteSuggestion] instance and imports its values from
+  /// Returns a new [MmAutocompleteSuggestion] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAutocompleteSuggestion? fromJson(dynamic value) {
+  static MmAutocompleteSuggestion? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,13 +120,13 @@ class MMAutocompleteSuggestion {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAutocompleteSuggestion[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAutocompleteSuggestion[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAutocompleteSuggestion[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAutocompleteSuggestion[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAutocompleteSuggestion(
+      return MmAutocompleteSuggestion(
         complete: mapValueOfType<String>(json, r'Complete'),
         suggestion: mapValueOfType<String>(json, r'Suggestion'),
         hint: mapValueOfType<String>(json, r'Hint'),
@@ -137,14 +137,14 @@ class MMAutocompleteSuggestion {
     return null;
   }
 
-  static List<MMAutocompleteSuggestion>? listFromJson(
+  static List<MmAutocompleteSuggestion>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAutocompleteSuggestion>[];
+    final result = <MmAutocompleteSuggestion>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAutocompleteSuggestion.fromJson(row);
+        final value = MmAutocompleteSuggestion.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -153,12 +153,12 @@ class MMAutocompleteSuggestion {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAutocompleteSuggestion> mapFromJson(dynamic json) {
-    final map = <String, MMAutocompleteSuggestion>{};
+  static Map<String, MmAutocompleteSuggestion> mapFromJson(dynamic json) {
+    final map = <String, MmAutocompleteSuggestion>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAutocompleteSuggestion.fromJson(entry.value);
+        final value = MmAutocompleteSuggestion.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -167,16 +167,16 @@ class MMAutocompleteSuggestion {
     return map;
   }
 
-  // maps a json object with a list of MMAutocompleteSuggestion-objects as value to a dart map
-  static Map<String, List<MMAutocompleteSuggestion>> mapListFromJson(
+  // maps a json object with a list of MmAutocompleteSuggestion-objects as value to a dart map
+  static Map<String, List<MmAutocompleteSuggestion>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAutocompleteSuggestion>>{};
+    final map = <String, List<MmAutocompleteSuggestion>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAutocompleteSuggestion.listFromJson(
+        final value = MmAutocompleteSuggestion.listFromJson(
           entry.value,
           growable: growable,
         );

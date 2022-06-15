@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUserNotifyProps {
-  /// Returns a new [MMUserNotifyProps] instance.
-  MMUserNotifyProps({
+class MmUserNotifyProps {
+  /// Returns a new [MmUserNotifyProps] instance.
+  MmUserNotifyProps({
     this.email,
     this.push,
     this.desktop,
@@ -88,7 +88,7 @@ class MMUserNotifyProps {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUserNotifyProps &&
+      other is MmUserNotifyProps &&
           other.email == email &&
           other.push == push &&
           other.desktop == desktop &&
@@ -110,7 +110,7 @@ class MMUserNotifyProps {
 
   @override
   String toString() =>
-      'MMUserNotifyProps[email=$email, push=$push, desktop=$desktop, desktopSound=$desktopSound, mentionKeys=$mentionKeys, channel=$channel, firstName=$firstName]';
+      'MmUserNotifyProps[email=$email, push=$push, desktop=$desktop, desktopSound=$desktopSound, mentionKeys=$mentionKeys, channel=$channel, firstName=$firstName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -138,10 +138,10 @@ class MMUserNotifyProps {
     return _json;
   }
 
-  /// Returns a new [MMUserNotifyProps] instance and imports its values from
+  /// Returns a new [MmUserNotifyProps] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserNotifyProps? fromJson(dynamic value) {
+  static MmUserNotifyProps? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -150,13 +150,13 @@ class MMUserNotifyProps {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserNotifyProps[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserNotifyProps[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserNotifyProps[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserNotifyProps[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserNotifyProps(
+      return MmUserNotifyProps(
         email: mapValueOfType<bool>(json, r'email'),
         push: mapValueOfType<String>(json, r'push'),
         desktop: mapValueOfType<String>(json, r'desktop'),
@@ -169,14 +169,14 @@ class MMUserNotifyProps {
     return null;
   }
 
-  static List<MMUserNotifyProps>? listFromJson(
+  static List<MmUserNotifyProps>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserNotifyProps>[];
+    final result = <MmUserNotifyProps>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserNotifyProps.fromJson(row);
+        final value = MmUserNotifyProps.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -185,12 +185,12 @@ class MMUserNotifyProps {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserNotifyProps> mapFromJson(dynamic json) {
-    final map = <String, MMUserNotifyProps>{};
+  static Map<String, MmUserNotifyProps> mapFromJson(dynamic json) {
+    final map = <String, MmUserNotifyProps>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserNotifyProps.fromJson(entry.value);
+        final value = MmUserNotifyProps.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -199,16 +199,16 @@ class MMUserNotifyProps {
     return map;
   }
 
-  // maps a json object with a list of MMUserNotifyProps-objects as value to a dart map
-  static Map<String, List<MMUserNotifyProps>> mapListFromJson(
+  // maps a json object with a list of MmUserNotifyProps-objects as value to a dart map
+  static Map<String, List<MmUserNotifyProps>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserNotifyProps>>{};
+    final map = <String, List<MmUserNotifyProps>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserNotifyProps.listFromJson(
+        final value = MmUserNotifyProps.listFromJson(
           entry.value,
           growable: growable,
         );

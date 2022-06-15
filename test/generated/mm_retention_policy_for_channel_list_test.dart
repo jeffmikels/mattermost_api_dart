@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRetentionPolicyForChannelList
+// tests for MmRetentionPolicyForChannelList
 void main() {
-  // final instance = MMRetentionPolicyForChannelList();
+  // final instance = MmRetentionPolicyForChannelList();
 
-  group('test MMRetentionPolicyForChannelList', () {
+  group('test MmRetentionPolicyForChannelList', () {
     // The list of channel policies.
-    // List<MMDataRetentionPolicyForChannel> policies (default value: const [])
+    // List<MmDataRetentionPolicyForChannel> policies (default value: const [])
     test('to test the property `policies`', () async {
       // TODO
     });

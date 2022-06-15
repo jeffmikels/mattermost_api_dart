@@ -10,11 +10,11 @@
 
 part of mattermost.api;
 
-class MMApiKeyAuthentication implements MMAuthentication {
-  MMApiKeyAuthentication(this.location, this.paramName, this.apiKey, {this.apiKeyPrefix = ''});
+class MmApiKeyAuthentication implements MmAuthentication {
+  MmApiKeyAuthentication(this.location, this.paramName, this.apiKey, {this.apiKeyPrefix = ''});
 
   /// `location` can be 'query', 'header', or 'cookie'
-  final MMHttpLocation location;
+  final MmHttpLocation location;
 
   /// `paramName` is the name of the parameter to use for sending the api key
   final String paramName;
@@ -26,15 +26,15 @@ class MMApiKeyAuthentication implements MMAuthentication {
   String apiKey = '';
 
   @override
-  void applyToParams(List<MMQueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MmQueryParam> queryParams, Map<String, String> headerParams) {
     final paramValue = apiKeyPrefix.isEmpty ? apiKey : '$apiKeyPrefix $apiKey';
 
     if (paramValue.isNotEmpty) {
-      if (location == MMHttpLocation.query) {
-        queryParams.add(MMQueryParam(paramName, paramValue));
-      } else if (location == MMHttpLocation.header) {
+      if (location == MmHttpLocation.query) {
+        queryParams.add(MmQueryParam(paramName, paramValue));
+      } else if (location == MmHttpLocation.header) {
         headerParams[paramName] = paramValue;
-      } else if (location == MMHttpLocation.cookie) {
+      } else if (location == MmHttpLocation.cookie) {
         headerParams.update(
           'Cookie',
           (existingCookie) => '$existingCookie; $paramName=$paramValue',

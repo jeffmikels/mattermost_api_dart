@@ -23,18 +23,18 @@ class MattermostSchemesApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateSchemeRequest] mMCreateSchemeRequest (required):
+  /// * [MmCreateSchemeRequest] mmCreateSchemeRequest (required):
   ///   Scheme object to create
   Future<Response> createSchemeWithHttpInfo(
-    MMCreateSchemeRequest mMCreateSchemeRequest,
+    MmCreateSchemeRequest mmCreateSchemeRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/schemes';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateSchemeRequest;
+    Object? postBody = mmCreateSchemeRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -57,16 +57,16 @@ class MattermostSchemesApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateSchemeRequest] mMCreateSchemeRequest (required):
+  /// * [MmCreateSchemeRequest] mmCreateSchemeRequest (required):
   ///   Scheme object to create
-  Future<MMScheme?> createScheme(
-    MMCreateSchemeRequest mMCreateSchemeRequest,
+  Future<MmScheme?> createScheme(
+    MmCreateSchemeRequest mmCreateSchemeRequest,
   ) async {
     final response = await createSchemeWithHttpInfo(
-      mMCreateSchemeRequest,
+      mmCreateSchemeRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMScheme',
-      ) as MMScheme;
+        'MmScheme',
+      ) as MmScheme;
     }
     return null;
   }
@@ -99,7 +99,7 @@ class MattermostSchemesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -124,14 +124,14 @@ class MattermostSchemesApi {
   ///
   /// * [String] schemeId (required):
   ///   ID of the scheme to delete
-  Future<MMStatusOK?> deleteScheme(
+  Future<MmStatusOK?> deleteScheme(
     String schemeId,
   ) async {
     final response = await deleteSchemeWithHttpInfo(
       schemeId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -139,8 +139,8 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -172,7 +172,7 @@ class MattermostSchemesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -210,7 +210,7 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of channels per page.
-  Future<List<MMChannel>?> getChannelsForScheme(
+  Future<List<MmChannel>?> getChannelsForScheme(
     String schemeId, {
     int? page,
     int? perPage,
@@ -221,14 +221,14 @@ class MattermostSchemesApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List).cast<MMChannel>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List).cast<MmChannel>().toList();
     }
     return null;
   }
@@ -252,7 +252,7 @@ class MattermostSchemesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -277,14 +277,14 @@ class MattermostSchemesApi {
   ///
   /// * [String] schemeId (required):
   ///   Scheme GUID
-  Future<MMScheme?> getScheme(
+  Future<MmScheme?> getScheme(
     String schemeId,
   ) async {
     final response = await getSchemeWithHttpInfo(
       schemeId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -292,8 +292,8 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMScheme',
-      ) as MMScheme;
+        'MmScheme',
+      ) as MmScheme;
     }
     return null;
   }
@@ -325,7 +325,7 @@ class MattermostSchemesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -366,7 +366,7 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of schemes per page.
-  Future<List<MMScheme>?> getSchemes({
+  Future<List<MmScheme>?> getSchemes({
     String? scope,
     int? page,
     int? perPage,
@@ -377,14 +377,14 @@ class MattermostSchemesApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMScheme>') as List).cast<MMScheme>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmScheme>') as List).cast<MmScheme>().toList();
     }
     return null;
   }
@@ -416,7 +416,7 @@ class MattermostSchemesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -454,7 +454,7 @@ class MattermostSchemesApi {
   ///
   /// * [int] perPage:
   ///   The number of teams per page.
-  Future<List<MMTeam>?> getTeamsForScheme(
+  Future<List<MmTeam>?> getTeamsForScheme(
     String schemeId, {
     int? page,
     int? perPage,
@@ -465,14 +465,14 @@ class MattermostSchemesApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMTeam>') as List).cast<MMTeam>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmTeam>') as List).cast<MmTeam>().toList();
     }
     return null;
   }
@@ -488,19 +488,19 @@ class MattermostSchemesApi {
   /// * [String] schemeId (required):
   ///   Scheme GUID
   ///
-  /// * [MMPatchSchemeRequest] mMPatchSchemeRequest (required):
+  /// * [MmPatchSchemeRequest] mmPatchSchemeRequest (required):
   ///   Scheme object to be updated
   Future<Response> patchSchemeWithHttpInfo(
     String schemeId,
-    MMPatchSchemeRequest mMPatchSchemeRequest,
+    MmPatchSchemeRequest mmPatchSchemeRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/schemes/{scheme_id}/patch'.replaceAll('{scheme_id}', schemeId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMPatchSchemeRequest;
+    Object? postBody = mmPatchSchemeRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -526,18 +526,18 @@ class MattermostSchemesApi {
   /// * [String] schemeId (required):
   ///   Scheme GUID
   ///
-  /// * [MMPatchSchemeRequest] mMPatchSchemeRequest (required):
+  /// * [MmPatchSchemeRequest] mmPatchSchemeRequest (required):
   ///   Scheme object to be updated
-  Future<MMScheme?> patchScheme(
+  Future<MmScheme?> patchScheme(
     String schemeId,
-    MMPatchSchemeRequest mMPatchSchemeRequest,
+    MmPatchSchemeRequest mmPatchSchemeRequest,
   ) async {
     final response = await patchSchemeWithHttpInfo(
       schemeId,
-      mMPatchSchemeRequest,
+      mmPatchSchemeRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -545,8 +545,8 @@ class MattermostSchemesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMScheme',
-      ) as MMScheme;
+        'MmScheme',
+      ) as MmScheme;
     }
     return null;
   }

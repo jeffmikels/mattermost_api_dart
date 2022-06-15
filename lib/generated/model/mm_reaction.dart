@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMReaction {
-  /// Returns a new [MMReaction] instance.
-  MMReaction({
+class MmReaction {
+  /// Returns a new [MmReaction] instance.
+  MmReaction({
     this.userId,
     this.postId,
     this.emojiName,
@@ -58,7 +58,7 @@ class MMReaction {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMReaction &&
+      other is MmReaction &&
           other.userId == userId &&
           other.postId == postId &&
           other.emojiName == emojiName &&
@@ -73,7 +73,7 @@ class MMReaction {
       (createAt == null ? 0 : createAt!.hashCode);
 
   @override
-  String toString() => 'MMReaction[userId=$userId, postId=$postId, emojiName=$emojiName, createAt=$createAt]';
+  String toString() => 'MmReaction[userId=$userId, postId=$postId, emojiName=$emojiName, createAt=$createAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -92,10 +92,10 @@ class MMReaction {
     return _json;
   }
 
-  /// Returns a new [MMReaction] instance and imports its values from
+  /// Returns a new [MmReaction] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMReaction? fromJson(dynamic value) {
+  static MmReaction? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -104,13 +104,13 @@ class MMReaction {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMReaction[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMReaction[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmReaction[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmReaction[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMReaction(
+      return MmReaction(
         userId: mapValueOfType<String>(json, r'user_id'),
         postId: mapValueOfType<String>(json, r'post_id'),
         emojiName: mapValueOfType<String>(json, r'emoji_name'),
@@ -120,14 +120,14 @@ class MMReaction {
     return null;
   }
 
-  static List<MMReaction>? listFromJson(
+  static List<MmReaction>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMReaction>[];
+    final result = <MmReaction>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMReaction.fromJson(row);
+        final value = MmReaction.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -136,12 +136,12 @@ class MMReaction {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMReaction> mapFromJson(dynamic json) {
-    final map = <String, MMReaction>{};
+  static Map<String, MmReaction> mapFromJson(dynamic json) {
+    final map = <String, MmReaction>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMReaction.fromJson(entry.value);
+        final value = MmReaction.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -150,16 +150,16 @@ class MMReaction {
     return map;
   }
 
-  // maps a json object with a list of MMReaction-objects as value to a dart map
-  static Map<String, List<MMReaction>> mapListFromJson(
+  // maps a json object with a list of MmReaction-objects as value to a dart map
+  static Map<String, List<MmReaction>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMReaction>>{};
+    final map = <String, List<MmReaction>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMReaction.listFromJson(
+        final value = MmReaction.listFromJson(
           entry.value,
           growable: growable,
         );

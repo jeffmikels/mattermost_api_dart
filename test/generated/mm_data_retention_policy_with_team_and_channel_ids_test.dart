@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyWithTeamAndChannelIds
+// tests for MmDataRetentionPolicyWithTeamAndChannelIds
 void main() {
-  // final instance = MMDataRetentionPolicyWithTeamAndChannelIds();
+  // final instance = MmDataRetentionPolicyWithTeamAndChannelIds();
 
-  group('test MMDataRetentionPolicyWithTeamAndChannelIds', () {
+  group('test MmDataRetentionPolicyWithTeamAndChannelIds', () {
     // The display name for this retention policy.
     // String displayName
     test('to test the property `displayName`', () async {

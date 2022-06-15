@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateChannelPrivacyRequest
+// tests for MmUpdateChannelPrivacyRequest
 void main() {
-  // final instance = MMUpdateChannelPrivacyRequest();
+  // final instance = MmUpdateChannelPrivacyRequest();
 
-  group('test MMUpdateChannelPrivacyRequest', () {
+  group('test MmUpdateChannelPrivacyRequest', () {
     // Channel privacy setting: 'O' for a public channel, 'P' for a private channel
     // String privacy
     test('to test the property `privacy`', () async {

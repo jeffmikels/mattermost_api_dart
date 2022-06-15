@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigAnalyticsSettings
+// tests for MmEnvironmentConfigAnalyticsSettings
 void main() {
-  // final instance = MMEnvironmentConfigAnalyticsSettings();
+  // final instance = MmEnvironmentConfigAnalyticsSettings();
 
-  group('test MMEnvironmentConfigAnalyticsSettings', () {
+  group('test MmEnvironmentConfigAnalyticsSettings', () {
     // bool maxUsersForStatistics
     test('to test the property `maxUsersForStatistics`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTestSiteURLRequest {
-  /// Returns a new [MMTestSiteURLRequest] instance.
-  MMTestSiteURLRequest({
+class MmTestSiteURLRequest {
+  /// Returns a new [MmTestSiteURLRequest] instance.
+  MmTestSiteURLRequest({
     required this.siteUrl,
   });
 
@@ -20,7 +20,7 @@ class MMTestSiteURLRequest {
   String siteUrl;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMTestSiteURLRequest && other.siteUrl == siteUrl;
+  bool operator ==(Object other) => identical(this, other) || other is MmTestSiteURLRequest && other.siteUrl == siteUrl;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMTestSiteURLRequest {
       (siteUrl.hashCode);
 
   @override
-  String toString() => 'MMTestSiteURLRequest[siteUrl=$siteUrl]';
+  String toString() => 'MmTestSiteURLRequest[siteUrl=$siteUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class MMTestSiteURLRequest {
     return _json;
   }
 
-  /// Returns a new [MMTestSiteURLRequest] instance and imports its values from
+  /// Returns a new [MmTestSiteURLRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTestSiteURLRequest? fromJson(dynamic value) {
+  static MmTestSiteURLRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,27 +48,27 @@ class MMTestSiteURLRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTestSiteURLRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTestSiteURLRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTestSiteURLRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTestSiteURLRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTestSiteURLRequest(
+      return MmTestSiteURLRequest(
         siteUrl: mapValueOfType<String>(json, r'site_url')!,
       );
     }
     return null;
   }
 
-  static List<MMTestSiteURLRequest>? listFromJson(
+  static List<MmTestSiteURLRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTestSiteURLRequest>[];
+    final result = <MmTestSiteURLRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTestSiteURLRequest.fromJson(row);
+        final value = MmTestSiteURLRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -77,12 +77,12 @@ class MMTestSiteURLRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTestSiteURLRequest> mapFromJson(dynamic json) {
-    final map = <String, MMTestSiteURLRequest>{};
+  static Map<String, MmTestSiteURLRequest> mapFromJson(dynamic json) {
+    final map = <String, MmTestSiteURLRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTestSiteURLRequest.fromJson(entry.value);
+        final value = MmTestSiteURLRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -91,16 +91,16 @@ class MMTestSiteURLRequest {
     return map;
   }
 
-  // maps a json object with a list of MMTestSiteURLRequest-objects as value to a dart map
-  static Map<String, List<MMTestSiteURLRequest>> mapListFromJson(
+  // maps a json object with a list of MmTestSiteURLRequest-objects as value to a dart map
+  static Map<String, List<MmTestSiteURLRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTestSiteURLRequest>>{};
+    final map = <String, List<MmTestSiteURLRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTestSiteURLRequest.listFromJson(
+        final value = MmTestSiteURLRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,16 +10,16 @@
 
 part of mattermost.api;
 
-class MMPostMetadataEmbedsInner {
-  /// Returns a new [MMPostMetadataEmbedsInner] instance.
-  MMPostMetadataEmbedsInner({
+class MmPostMetadataEmbedsInner {
+  /// Returns a new [MmPostMetadataEmbedsInner] instance.
+  MmPostMetadataEmbedsInner({
     this.type,
     this.url,
     this.data,
   });
 
   /// The type of content that is embedded in this point.
-  MMPostMetadataEmbedsInnerTypeEnum? type;
+  MmPostMetadataEmbedsInnerTypeEnum? type;
 
   /// The URL of the embedded content, if one exists.
   ///
@@ -42,7 +42,7 @@ class MMPostMetadataEmbedsInner {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPostMetadataEmbedsInner && other.type == type && other.url == url && other.data == data;
+      other is MmPostMetadataEmbedsInner && other.type == type && other.url == url && other.data == data;
 
   @override
   int get hashCode =>
@@ -50,7 +50,7 @@ class MMPostMetadataEmbedsInner {
       (type == null ? 0 : type!.hashCode) + (url == null ? 0 : url!.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'MMPostMetadataEmbedsInner[type=$type, url=$url, data=$data]';
+  String toString() => 'MmPostMetadataEmbedsInner[type=$type, url=$url, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -66,10 +66,10 @@ class MMPostMetadataEmbedsInner {
     return _json;
   }
 
-  /// Returns a new [MMPostMetadataEmbedsInner] instance and imports its values from
+  /// Returns a new [MmPostMetadataEmbedsInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostMetadataEmbedsInner? fromJson(dynamic value) {
+  static MmPostMetadataEmbedsInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -78,14 +78,14 @@ class MMPostMetadataEmbedsInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostMetadataEmbedsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostMetadataEmbedsInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostMetadataEmbedsInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostMetadataEmbedsInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostMetadataEmbedsInner(
-        type: MMPostMetadataEmbedsInnerTypeEnum.fromJson(json[r'type']),
+      return MmPostMetadataEmbedsInner(
+        type: MmPostMetadataEmbedsInnerTypeEnum.fromJson(json[r'type']),
         url: mapValueOfType<String>(json, r'url'),
         data: mapValueOfType<Map>(json, r'data'),
       );
@@ -93,14 +93,14 @@ class MMPostMetadataEmbedsInner {
     return null;
   }
 
-  static List<MMPostMetadataEmbedsInner>? listFromJson(
+  static List<MmPostMetadataEmbedsInner>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostMetadataEmbedsInner>[];
+    final result = <MmPostMetadataEmbedsInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostMetadataEmbedsInner.fromJson(row);
+        final value = MmPostMetadataEmbedsInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -109,12 +109,12 @@ class MMPostMetadataEmbedsInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostMetadataEmbedsInner> mapFromJson(dynamic json) {
-    final map = <String, MMPostMetadataEmbedsInner>{};
+  static Map<String, MmPostMetadataEmbedsInner> mapFromJson(dynamic json) {
+    final map = <String, MmPostMetadataEmbedsInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostMetadataEmbedsInner.fromJson(entry.value);
+        final value = MmPostMetadataEmbedsInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,16 +123,16 @@ class MMPostMetadataEmbedsInner {
     return map;
   }
 
-  // maps a json object with a list of MMPostMetadataEmbedsInner-objects as value to a dart map
-  static Map<String, List<MMPostMetadataEmbedsInner>> mapListFromJson(
+  // maps a json object with a list of MmPostMetadataEmbedsInner-objects as value to a dart map
+  static Map<String, List<MmPostMetadataEmbedsInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostMetadataEmbedsInner>>{};
+    final map = <String, List<MmPostMetadataEmbedsInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostMetadataEmbedsInner.listFromJson(
+        final value = MmPostMetadataEmbedsInner.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -149,9 +149,9 @@ class MMPostMetadataEmbedsInner {
 }
 
 /// The type of content that is embedded in this point.
-class MMPostMetadataEmbedsInnerTypeEnum {
+class MmPostMetadataEmbedsInnerTypeEnum {
   /// Instantiate a new enum with the provided [value].
-  const MMPostMetadataEmbedsInnerTypeEnum._(this.value);
+  const MmPostMetadataEmbedsInnerTypeEnum._(this.value);
 
   /// The underlying value of this enum member.
   final String value;
@@ -161,30 +161,30 @@ class MMPostMetadataEmbedsInnerTypeEnum {
 
   String toJson() => value;
 
-  static const image = MMPostMetadataEmbedsInnerTypeEnum._(r'image');
-  static const messageAttachment = MMPostMetadataEmbedsInnerTypeEnum._(r'message_attachment');
-  static const opengraph = MMPostMetadataEmbedsInnerTypeEnum._(r'opengraph');
-  static const link = MMPostMetadataEmbedsInnerTypeEnum._(r'link');
+  static const image = MmPostMetadataEmbedsInnerTypeEnum._(r'image');
+  static const messageAttachment = MmPostMetadataEmbedsInnerTypeEnum._(r'message_attachment');
+  static const opengraph = MmPostMetadataEmbedsInnerTypeEnum._(r'opengraph');
+  static const link = MmPostMetadataEmbedsInnerTypeEnum._(r'link');
 
-  /// List of all possible values in this [enum][MMPostMetadataEmbedsInnerTypeEnum].
-  static const values = <MMPostMetadataEmbedsInnerTypeEnum>[
+  /// List of all possible values in this [enum][MmPostMetadataEmbedsInnerTypeEnum].
+  static const values = <MmPostMetadataEmbedsInnerTypeEnum>[
     image,
     messageAttachment,
     opengraph,
     link,
   ];
 
-  static MMPostMetadataEmbedsInnerTypeEnum? fromJson(dynamic value) =>
-      MMPostMetadataEmbedsInnerTypeEnumTypeTransformer().decode(value);
+  static MmPostMetadataEmbedsInnerTypeEnum? fromJson(dynamic value) =>
+      MmPostMetadataEmbedsInnerTypeEnumTypeTransformer().decode(value);
 
-  static List<MMPostMetadataEmbedsInnerTypeEnum>? listFromJson(
+  static List<MmPostMetadataEmbedsInnerTypeEnum>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostMetadataEmbedsInnerTypeEnum>[];
+    final result = <MmPostMetadataEmbedsInnerTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostMetadataEmbedsInnerTypeEnum.fromJson(row);
+        final value = MmPostMetadataEmbedsInnerTypeEnum.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -194,17 +194,17 @@ class MMPostMetadataEmbedsInnerTypeEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [MMPostMetadataEmbedsInnerTypeEnum] to String,
-/// and [decode] dynamic data back to [MMPostMetadataEmbedsInnerTypeEnum].
-class MMPostMetadataEmbedsInnerTypeEnumTypeTransformer {
-  factory MMPostMetadataEmbedsInnerTypeEnumTypeTransformer() =>
-      _instance ??= const MMPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
+/// Transformation class that can [encode] an instance of [MmPostMetadataEmbedsInnerTypeEnum] to String,
+/// and [decode] dynamic data back to [MmPostMetadataEmbedsInnerTypeEnum].
+class MmPostMetadataEmbedsInnerTypeEnumTypeTransformer {
+  factory MmPostMetadataEmbedsInnerTypeEnumTypeTransformer() =>
+      _instance ??= const MmPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
 
-  const MMPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
+  const MmPostMetadataEmbedsInnerTypeEnumTypeTransformer._();
 
-  String encode(MMPostMetadataEmbedsInnerTypeEnum data) => data.value;
+  String encode(MmPostMetadataEmbedsInnerTypeEnum data) => data.value;
 
-  /// Decodes a [dynamic value][data] to a MMPostMetadataEmbedsInnerTypeEnum.
+  /// Decodes a [dynamic value][data] to a MmPostMetadataEmbedsInnerTypeEnum.
   ///
   /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
   /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
@@ -212,17 +212,17 @@ class MMPostMetadataEmbedsInnerTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MMPostMetadataEmbedsInnerTypeEnum? decode(dynamic data, {bool allowNull = true}) {
+  MmPostMetadataEmbedsInnerTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'image':
-          return MMPostMetadataEmbedsInnerTypeEnum.image;
+          return MmPostMetadataEmbedsInnerTypeEnum.image;
         case r'message_attachment':
-          return MMPostMetadataEmbedsInnerTypeEnum.messageAttachment;
+          return MmPostMetadataEmbedsInnerTypeEnum.messageAttachment;
         case r'opengraph':
-          return MMPostMetadataEmbedsInnerTypeEnum.opengraph;
+          return MmPostMetadataEmbedsInnerTypeEnum.opengraph;
         case r'link':
-          return MMPostMetadataEmbedsInnerTypeEnum.link;
+          return MmPostMetadataEmbedsInnerTypeEnum.link;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -232,6 +232,6 @@ class MMPostMetadataEmbedsInnerTypeEnumTypeTransformer {
     return null;
   }
 
-  /// Singleton [MMPostMetadataEmbedsInnerTypeEnumTypeTransformer] instance.
-  static MMPostMetadataEmbedsInnerTypeEnumTypeTransformer? _instance;
+  /// Singleton [MmPostMetadataEmbedsInnerTypeEnumTypeTransformer] instance.
+  static MmPostMetadataEmbedsInnerTypeEnumTypeTransformer? _instance;
 }

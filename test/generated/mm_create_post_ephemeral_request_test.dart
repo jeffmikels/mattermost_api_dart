@@ -11,18 +11,18 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreatePostEphemeralRequest
+// tests for MmCreatePostEphemeralRequest
 void main() {
-  // final instance = MMCreatePostEphemeralRequest();
+  // final instance = MmCreatePostEphemeralRequest();
 
-  group('test MMCreatePostEphemeralRequest', () {
+  group('test MmCreatePostEphemeralRequest', () {
     // The target user id for the ephemeral post
     // String userId
     test('to test the property `userId`', () async {
       // TODO
     });
 
-    // MMCreatePostEphemeralRequestPost post
+    // MmCreatePostEphemeralRequestPost post
     test('to test the property `post`', () async {
       // TODO
     });

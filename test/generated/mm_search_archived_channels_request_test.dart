@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchArchivedChannelsRequest
+// tests for MmSearchArchivedChannelsRequest
 void main() {
-  // final instance = MMSearchArchivedChannelsRequest();
+  // final instance = MmSearchArchivedChannelsRequest();
 
-  group('test MMSearchArchivedChannelsRequest', () {
+  group('test MmSearchArchivedChannelsRequest', () {
     // The search term to match against the name or display name of archived channels
     // String term
     test('to test the property `term`', () async {

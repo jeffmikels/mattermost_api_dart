@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMBoardsLimits {
-  /// Returns a new [MMBoardsLimits] instance.
-  MMBoardsLimits({
+class MmBoardsLimits {
+  /// Returns a new [MmBoardsLimits] instance.
+  MmBoardsLimits({
     this.cards,
     this.views,
   });
@@ -23,7 +23,7 @@ class MMBoardsLimits {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMBoardsLimits && other.cards == cards && other.views == views;
+      identical(this, other) || other is MmBoardsLimits && other.cards == cards && other.views == views;
 
   @override
   int get hashCode =>
@@ -31,7 +31,7 @@ class MMBoardsLimits {
       (cards == null ? 0 : cards!.hashCode) + (views == null ? 0 : views!.hashCode);
 
   @override
-  String toString() => 'MMBoardsLimits[cards=$cards, views=$views]';
+  String toString() => 'MmBoardsLimits[cards=$cards, views=$views]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMBoardsLimits {
     return _json;
   }
 
-  /// Returns a new [MMBoardsLimits] instance and imports its values from
+  /// Returns a new [MmBoardsLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMBoardsLimits? fromJson(dynamic value) {
+  static MmBoardsLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,13 +56,13 @@ class MMBoardsLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMBoardsLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMBoardsLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmBoardsLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmBoardsLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMBoardsLimits(
+      return MmBoardsLimits(
         cards: mapValueOfType<int>(json, r'cards'),
         views: mapValueOfType<int>(json, r'views'),
       );
@@ -70,14 +70,14 @@ class MMBoardsLimits {
     return null;
   }
 
-  static List<MMBoardsLimits>? listFromJson(
+  static List<MmBoardsLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMBoardsLimits>[];
+    final result = <MmBoardsLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMBoardsLimits.fromJson(row);
+        final value = MmBoardsLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMBoardsLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMBoardsLimits> mapFromJson(dynamic json) {
-    final map = <String, MMBoardsLimits>{};
+  static Map<String, MmBoardsLimits> mapFromJson(dynamic json) {
+    final map = <String, MmBoardsLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMBoardsLimits.fromJson(entry.value);
+        final value = MmBoardsLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMBoardsLimits {
     return map;
   }
 
-  // maps a json object with a list of MMBoardsLimits-objects as value to a dart map
-  static Map<String, List<MMBoardsLimits>> mapListFromJson(
+  // maps a json object with a list of MmBoardsLimits-objects as value to a dart map
+  static Map<String, List<MmBoardsLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMBoardsLimits>>{};
+    final map = <String, List<MmBoardsLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMBoardsLimits.listFromJson(
+        final value = MmBoardsLimits.listFromJson(
           entry.value,
           growable: growable,
         );

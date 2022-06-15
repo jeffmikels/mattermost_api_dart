@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigSamlSettings {
-  /// Returns a new [MMEnvironmentConfigSamlSettings] instance.
-  MMEnvironmentConfigSamlSettings({
+class MmEnvironmentConfigSamlSettings {
+  /// Returns a new [MmEnvironmentConfigSamlSettings] instance.
+  MmEnvironmentConfigSamlSettings({
     this.enable,
     this.verify,
     this.encrypt,
@@ -171,7 +171,7 @@ class MMEnvironmentConfigSamlSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigSamlSettings &&
+      other is MmEnvironmentConfigSamlSettings &&
           other.enable == enable &&
           other.verify == verify &&
           other.encrypt == encrypt &&
@@ -213,7 +213,7 @@ class MMEnvironmentConfigSamlSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
+      'MmEnvironmentConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -271,10 +271,10 @@ class MMEnvironmentConfigSamlSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigSamlSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigSamlSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigSamlSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigSamlSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -283,13 +283,13 @@ class MMEnvironmentConfigSamlSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigSamlSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigSamlSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigSamlSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigSamlSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigSamlSettings(
+      return MmEnvironmentConfigSamlSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         verify: mapValueOfType<bool>(json, r'Verify'),
         encrypt: mapValueOfType<bool>(json, r'Encrypt'),
@@ -312,14 +312,14 @@ class MMEnvironmentConfigSamlSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigSamlSettings>? listFromJson(
+  static List<MmEnvironmentConfigSamlSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigSamlSettings>[];
+    final result = <MmEnvironmentConfigSamlSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigSamlSettings.fromJson(row);
+        final value = MmEnvironmentConfigSamlSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -328,12 +328,12 @@ class MMEnvironmentConfigSamlSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigSamlSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigSamlSettings>{};
+  static Map<String, MmEnvironmentConfigSamlSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigSamlSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigSamlSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigSamlSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -342,16 +342,16 @@ class MMEnvironmentConfigSamlSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigSamlSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigSamlSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigSamlSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigSamlSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigSamlSettings>>{};
+    final map = <String, List<MmEnvironmentConfigSamlSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigSamlSettings.listFromJson(
+        final value = MmEnvironmentConfigSamlSettings.listFromJson(
           entry.value,
           growable: growable,
         );

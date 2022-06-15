@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTopReactionList
+// tests for MmTopReactionList
 void main() {
-  // final instance = MMTopReactionList();
+  // final instance = MmTopReactionList();
 
-  group('test MMTopReactionList', () {
+  group('test MmTopReactionList', () {
     // Indicates if there is another page of reactions that can be fetched.
     // bool hasNext
     test('to test the property `hasNext`', () async {
@@ -23,7 +23,7 @@ void main() {
     });
 
     // List of reactions.
-    // List<MMTopReaction> items (default value: const [])
+    // List<MmTopReaction> items (default value: const [])
     test('to test the property `items`', () async {
       // TODO
     });

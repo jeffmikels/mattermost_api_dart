@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSwitchAccountType200Response {
-  /// Returns a new [MMSwitchAccountType200Response] instance.
-  MMSwitchAccountType200Response({
+class MmSwitchAccountType200Response {
+  /// Returns a new [MmSwitchAccountType200Response] instance.
+  MmSwitchAccountType200Response({
     this.followLink,
   });
 
@@ -27,7 +27,7 @@ class MMSwitchAccountType200Response {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMSwitchAccountType200Response && other.followLink == followLink;
+      identical(this, other) || other is MmSwitchAccountType200Response && other.followLink == followLink;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMSwitchAccountType200Response {
       (followLink == null ? 0 : followLink!.hashCode);
 
   @override
-  String toString() => 'MMSwitchAccountType200Response[followLink=$followLink]';
+  String toString() => 'MmSwitchAccountType200Response[followLink=$followLink]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMSwitchAccountType200Response {
     return _json;
   }
 
-  /// Returns a new [MMSwitchAccountType200Response] instance and imports its values from
+  /// Returns a new [MmSwitchAccountType200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSwitchAccountType200Response? fromJson(dynamic value) {
+  static MmSwitchAccountType200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMSwitchAccountType200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSwitchAccountType200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSwitchAccountType200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSwitchAccountType200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSwitchAccountType200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSwitchAccountType200Response(
+      return MmSwitchAccountType200Response(
         followLink: mapValueOfType<String>(json, r'follow_link'),
       );
     }
     return null;
   }
 
-  static List<MMSwitchAccountType200Response>? listFromJson(
+  static List<MmSwitchAccountType200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSwitchAccountType200Response>[];
+    final result = <MmSwitchAccountType200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSwitchAccountType200Response.fromJson(row);
+        final value = MmSwitchAccountType200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMSwitchAccountType200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSwitchAccountType200Response> mapFromJson(dynamic json) {
-    final map = <String, MMSwitchAccountType200Response>{};
+  static Map<String, MmSwitchAccountType200Response> mapFromJson(dynamic json) {
+    final map = <String, MmSwitchAccountType200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSwitchAccountType200Response.fromJson(entry.value);
+        final value = MmSwitchAccountType200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMSwitchAccountType200Response {
     return map;
   }
 
-  // maps a json object with a list of MMSwitchAccountType200Response-objects as value to a dart map
-  static Map<String, List<MMSwitchAccountType200Response>> mapListFromJson(
+  // maps a json object with a list of MmSwitchAccountType200Response-objects as value to a dart map
+  static Map<String, List<MmSwitchAccountType200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSwitchAccountType200Response>>{};
+    final map = <String, List<MmSwitchAccountType200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSwitchAccountType200Response.listFromJson(
+        final value = MmSwitchAccountType200Response.listFromJson(
           entry.value,
           growable: growable,
         );

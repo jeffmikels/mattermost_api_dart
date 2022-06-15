@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCheckUserMfaRequest {
-  /// Returns a new [MMCheckUserMfaRequest] instance.
-  MMCheckUserMfaRequest({
+class MmCheckUserMfaRequest {
+  /// Returns a new [MmCheckUserMfaRequest] instance.
+  MmCheckUserMfaRequest({
     required this.loginId,
   });
 
@@ -21,7 +21,7 @@ class MMCheckUserMfaRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMCheckUserMfaRequest && other.loginId == loginId;
+      identical(this, other) || other is MmCheckUserMfaRequest && other.loginId == loginId;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMCheckUserMfaRequest {
       (loginId.hashCode);
 
   @override
-  String toString() => 'MMCheckUserMfaRequest[loginId=$loginId]';
+  String toString() => 'MmCheckUserMfaRequest[loginId=$loginId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMCheckUserMfaRequest {
     return _json;
   }
 
-  /// Returns a new [MMCheckUserMfaRequest] instance and imports its values from
+  /// Returns a new [MmCheckUserMfaRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCheckUserMfaRequest? fromJson(dynamic value) {
+  static MmCheckUserMfaRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMCheckUserMfaRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCheckUserMfaRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCheckUserMfaRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCheckUserMfaRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCheckUserMfaRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCheckUserMfaRequest(
+      return MmCheckUserMfaRequest(
         loginId: mapValueOfType<String>(json, r'login_id')!,
       );
     }
     return null;
   }
 
-  static List<MMCheckUserMfaRequest>? listFromJson(
+  static List<MmCheckUserMfaRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCheckUserMfaRequest>[];
+    final result = <MmCheckUserMfaRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCheckUserMfaRequest.fromJson(row);
+        final value = MmCheckUserMfaRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMCheckUserMfaRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCheckUserMfaRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCheckUserMfaRequest>{};
+  static Map<String, MmCheckUserMfaRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCheckUserMfaRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCheckUserMfaRequest.fromJson(entry.value);
+        final value = MmCheckUserMfaRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMCheckUserMfaRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCheckUserMfaRequest-objects as value to a dart map
-  static Map<String, List<MMCheckUserMfaRequest>> mapListFromJson(
+  // maps a json object with a list of MmCheckUserMfaRequest-objects as value to a dart map
+  static Map<String, List<MmCheckUserMfaRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCheckUserMfaRequest>>{};
+    final map = <String, List<MmCheckUserMfaRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCheckUserMfaRequest.listFromJson(
+        final value = MmCheckUserMfaRequest.listFromJson(
           entry.value,
           growable: growable,
         );

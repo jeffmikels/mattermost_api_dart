@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **createUpload**
-> MMUploadSession createUpload(mMCreateUploadRequest)
+> MmUploadSession createUpload(mmCreateUploadRequest)
 
 Create an upload
 
@@ -30,25 +30,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateUploadRequest mMCreateUploadRequest = MMCreateUploadRequest(); // MMCreateUploadRequest | 
+final MmCreateUploadRequest mmCreateUploadRequest = MmCreateUploadRequest(); // MmCreateUploadRequest | 
 
 try {
-  final MMUploadSession? result = await client.uploads.createUpload(mMCreateUploadRequest); // await the Future<MMUploadSession?>
+  final MmUploadSession? result = await client.uploads.createUpload(mmCreateUploadRequest); // await the Future<MmUploadSession?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostUploadsApi->createUpload: $e\n');
@@ -60,11 +60,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateUploadRequest** | [**MMCreateUploadRequest**](MMCreateUploadRequest.md)|  | 
+ **mmCreateUploadRequest** | [**MmCreateUploadRequest**](MmCreateUploadRequest.md)|  | 
 
 ### Return type
 
-[**MMUploadSession**](MMUploadSession.md)
+[**MmUploadSession**](MmUploadSession.md)
 
 ### Authorization
 
@@ -93,18 +93,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -140,7 +140,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadData**
-> MMFileInfo uploadData(uploadId)
+> MmFileInfo uploadData(uploadId)
 
 Perform a file upload
 
@@ -155,25 +155,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String uploadId = 'uploadId_example'; // String | The ID of the upload session the data belongs to.
 
 try {
-  final MMFileInfo? result = await client.uploads.uploadData(uploadId); // await the Future<MMFileInfo?>
+  final MmFileInfo? result = await client.uploads.uploadData(uploadId); // await the Future<MmFileInfo?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostUploadsApi->uploadData: $e\n');
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMFileInfo**](MMFileInfo.md)
+[**MmFileInfo**](MmFileInfo.md)
 
 ### Authorization
 

@@ -21,7 +21,7 @@ void main() {
     //
     // Create a new scheme.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
     //
-    //Future<MMScheme> createScheme(MMCreateSchemeRequest mMCreateSchemeRequest) async
+    //Future<MmScheme> createScheme(MmCreateSchemeRequest mmCreateSchemeRequest) async
     test('test createScheme', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
     //
-    //Future<MMStatusOK> deleteScheme(String schemeId) async
+    //Future<MmStatusOK> deleteScheme(String schemeId) async
     test('test deleteScheme', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
     //
-    //Future<List<MMChannel>> getChannelsForScheme(String schemeId, { int page, int perPage }) async
+    //Future<List<MmChannel>> getChannelsForScheme(String schemeId, { int page, int perPage }) async
     test('test getChannelsForScheme', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
     //
-    //Future<MMScheme> getScheme(String schemeId) async
+    //Future<MmScheme> getScheme(String schemeId) async
     test('test getScheme', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
     //
-    //Future<List<MMScheme>> getSchemes({ String scope, int page, int perPage }) async
+    //Future<List<MmScheme>> getSchemes({ String scope, int page, int perPage }) async
     test('test getSchemes', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
     //
-    //Future<List<MMTeam>> getTeamsForScheme(String schemeId, { int page, int perPage }) async
+    //Future<List<MmTeam>> getTeamsForScheme(String schemeId, { int page, int perPage }) async
     test('test getTeamsForScheme', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Partially update a scheme by providing only the fields you want to update. Omitted fields will not be updated. The fields that can be updated are defined in the request body, all other provided fields will be ignored.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
     //
-    //Future<MMScheme> patchScheme(String schemeId, MMPatchSchemeRequest mMPatchSchemeRequest) async
+    //Future<MmScheme> patchScheme(String schemeId, MmPatchSchemeRequest mmPatchSchemeRequest) async
     test('test patchScheme', () async {
       // TODO
     });

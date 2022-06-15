@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchGroupChannelsRequest
+// tests for MmSearchGroupChannelsRequest
 void main() {
-  // final instance = MMSearchGroupChannelsRequest();
+  // final instance = MmSearchGroupChannelsRequest();
 
-  group('test MMSearchGroupChannelsRequest', () {
+  group('test MmSearchGroupChannelsRequest', () {
     // The search term to match against the members' usernames of the group channels
     // String term
     test('to test the property `term`', () async {

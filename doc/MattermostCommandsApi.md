@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **createCommand**
-> MMCommand createCommand(mMCreateCommandRequest)
+> MmCommand createCommand(mmCreateCommandRequest)
 
 Create a command
 
@@ -37,25 +37,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateCommandRequest mMCreateCommandRequest = MMCreateCommandRequest(); // MMCreateCommandRequest | command to be created
+final MmCreateCommandRequest mmCreateCommandRequest = MmCreateCommandRequest(); // MmCreateCommandRequest | command to be created
 
 try {
-  final MMCommand? result = await client.commands.createCommand(mMCreateCommandRequest); // await the Future<MMCommand?>
+  final MmCommand? result = await client.commands.createCommand(mmCreateCommandRequest); // await the Future<MmCommand?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->createCommand: $e\n');
@@ -67,11 +67,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateCommandRequest** | [**MMCreateCommandRequest**](MMCreateCommandRequest.md)| command to be created | 
+ **mmCreateCommandRequest** | [**MmCreateCommandRequest**](MmCreateCommandRequest.md)| command to be created | 
 
 ### Return type
 
-[**MMCommand**](MMCommand.md)
+[**MmCommand**](MmCommand.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteCommand**
-> MMStatusOK deleteCommand(commandId)
+> MmStatusOK deleteCommand(commandId)
 
 Delete a command
 
@@ -100,25 +100,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String commandId = 'commandId_example'; // String | ID of the command to delete
 
 try {
-  final MMStatusOK? result = await client.commands.deleteCommand(commandId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.commands.deleteCommand(commandId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->deleteCommand: $e\n');
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **executeCommand**
-> MMCommandResponse executeCommand(mMExecuteCommandRequest)
+> MmCommandResponse executeCommand(mmExecuteCommandRequest)
 
 Execute a command
 
@@ -163,25 +163,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMExecuteCommandRequest mMExecuteCommandRequest = MMExecuteCommandRequest(); // MMExecuteCommandRequest | command to be executed
+final MmExecuteCommandRequest mmExecuteCommandRequest = MmExecuteCommandRequest(); // MmExecuteCommandRequest | command to be executed
 
 try {
-  final MMCommandResponse? result = await client.commands.executeCommand(mMExecuteCommandRequest); // await the Future<MMCommandResponse?>
+  final MmCommandResponse? result = await client.commands.executeCommand(mmExecuteCommandRequest); // await the Future<MmCommandResponse?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->executeCommand: $e\n');
@@ -193,11 +193,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMExecuteCommandRequest** | [**MMExecuteCommandRequest**](MMExecuteCommandRequest.md)| command to be executed | 
+ **mmExecuteCommandRequest** | [**MmExecuteCommandRequest**](MmExecuteCommandRequest.md)| command to be executed | 
 
 ### Return type
 
-[**MMCommandResponse**](MMCommandResponse.md)
+[**MmCommandResponse**](MmCommandResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getCommandById**
-> MMCommand getCommandById(commandId)
+> MmCommand getCommandById(commandId)
 
 Get a command
 
@@ -226,25 +226,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String commandId = 'commandId_example'; // String | ID of the command to get
 
 try {
-  final MMCommand? result = await client.commands.getCommandById(commandId); // await the Future<MMCommand?>
+  final MmCommand? result = await client.commands.getCommandById(commandId); // await the Future<MmCommand?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->getCommandById: $e\n');
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMCommand**](MMCommand.md)
+[**MmCommand**](MmCommand.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **listAutocompleteCommands**
-> List<MMCommand> listAutocompleteCommands(teamId)
+> List<MmCommand> listAutocompleteCommands(teamId)
 
 List autocomplete commands
 
@@ -289,25 +289,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final List&lt;MMCommand&gt;? result = await client.commands.listAutocompleteCommands(teamId); // await the Future<List&lt;MMCommand&gt;?>
+  final List&lt;MmCommand&gt;? result = await client.commands.listAutocompleteCommands(teamId); // await the Future<List&lt;MmCommand&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listAutocompleteCommands: $e\n');
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMCommand>**](MMCommand.md)
+[**List<MmCommand>**](MmCommand.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **listCommandAutocompleteSuggestions**
-> List<MMAutocompleteSuggestion> listCommandAutocompleteSuggestions(teamId, userInput)
+> List<MmAutocompleteSuggestion> listCommandAutocompleteSuggestions(teamId, userInput)
 
 List commands' autocomplete data
 
@@ -352,18 +352,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -371,7 +371,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userInput = 'userInput_example'; // String | String inputted by the user.
 
 try {
-  final List&lt;MMAutocompleteSuggestion&gt;? result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput); // await the Future<List&lt;MMAutocompleteSuggestion&gt;?>
+  final List&lt;MmAutocompleteSuggestion&gt;? result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput); // await the Future<List&lt;MmAutocompleteSuggestion&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listCommandAutocompleteSuggestions: $e\n');
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMAutocompleteSuggestion>**](MMAutocompleteSuggestion.md)
+[**List<MmAutocompleteSuggestion>**](MmAutocompleteSuggestion.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **listCommands**
-> List<MMCommand> listCommands(teamId, customOnly)
+> List<MmCommand> listCommands(teamId, customOnly)
 
 List commands for a team
 
@@ -417,18 +417,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -436,7 +436,7 @@ final String teamId = 'teamId_example'; // String | The team id.
 final bool customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
 
 try {
-  final List&lt;MMCommand&gt;? result = await client.commands.listCommands(teamId, customOnly); // await the Future<List&lt;MMCommand&gt;?>
+  final List&lt;MmCommand&gt;? result = await client.commands.listCommands(teamId, customOnly); // await the Future<List&lt;MmCommand&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->listCommands: $e\n');
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMCommand>**](MMCommand.md)
+[**List<MmCommand>**](MmCommand.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **moveCommand**
-> MMStatusOK moveCommand(commandId, mMMoveCommandRequest)
+> MmStatusOK moveCommand(commandId, mmMoveCommandRequest)
 
 Move a command
 
@@ -482,26 +482,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String commandId = 'commandId_example'; // String | ID of the command to move
-final MMMoveCommandRequest mMMoveCommandRequest = MMMoveCommandRequest(); // MMMoveCommandRequest | 
+final MmMoveCommandRequest mmMoveCommandRequest = MmMoveCommandRequest(); // MmMoveCommandRequest | 
 
 try {
-  final MMStatusOK? result = await client.commands.moveCommand(commandId, mMMoveCommandRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.commands.moveCommand(commandId, mmMoveCommandRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->moveCommand: $e\n');
@@ -514,11 +514,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **commandId** | **String**| ID of the command to move | 
- **mMMoveCommandRequest** | [**MMMoveCommandRequest**](MMMoveCommandRequest.md)|  | 
+ **mmMoveCommandRequest** | [**MmMoveCommandRequest**](MmMoveCommandRequest.md)|  | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **regenCommandToken**
-> MMRegenCommandToken200Response regenCommandToken(commandId)
+> MmRegenCommandToken200Response regenCommandToken(commandId)
 
 Generate a new token
 
@@ -547,25 +547,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String commandId = 'commandId_example'; // String | ID of the command to generate the new token
 
 try {
-  final MMRegenCommandToken200Response? result = await client.commands.regenCommandToken(commandId); // await the Future<MMRegenCommandToken200Response?>
+  final MmRegenCommandToken200Response? result = await client.commands.regenCommandToken(commandId); // await the Future<MmRegenCommandToken200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->regenCommandToken: $e\n');
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRegenCommandToken200Response**](MMRegenCommandToken200Response.md)
+[**MmRegenCommandToken200Response**](MmRegenCommandToken200Response.md)
 
 ### Authorization
 
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateCommand**
-> MMCommand updateCommand(commandId, mMCommand)
+> MmCommand updateCommand(commandId, mmCommand)
 
 Update a command
 
@@ -610,26 +610,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String commandId = 'commandId_example'; // String | ID of the command to update
-final MMCommand mMCommand = MMCommand(); // MMCommand | 
+final MmCommand mmCommand = MmCommand(); // MmCommand | 
 
 try {
-  final MMCommand? result = await client.commands.updateCommand(commandId, mMCommand); // await the Future<MMCommand?>
+  final MmCommand? result = await client.commands.updateCommand(commandId, mmCommand); // await the Future<MmCommand?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCommandsApi->updateCommand: $e\n');
@@ -642,11 +642,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **commandId** | **String**| ID of the command to update | 
- **mMCommand** | [**MMCommand**](MMCommand.md)|  | 
+ **mmCommand** | [**MmCommand**](MmCommand.md)|  | 
 
 ### Return type
 
-[**MMCommand**](MMCommand.md)
+[**MmCommand**](MmCommand.md)
 
 ### Authorization
 

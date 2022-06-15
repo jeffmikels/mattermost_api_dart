@@ -21,7 +21,7 @@ void main() {
     //
     // Delete a list of the user's preferences. ##### Permissions Must be logged in as the user being updated or have the `edit_other_users` permission. 
     //
-    //Future<MMStatusOK> deletePreferences(String userId, List<MMPreference> mMPreference) async
+    //Future<MmStatusOK> deletePreferences(String userId, List<MmPreference> mmPreference) async
     test('test deletePreferences', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get a list of the user's preferences. ##### Permissions Must be logged in as the user being updated or have the `edit_other_users` permission. 
     //
-    //Future<List<MMPreference>> getPreferences(String userId) async
+    //Future<List<MmPreference>> getPreferences(String userId) async
     test('test getPreferences', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Lists the current user's stored preferences in the given category. ##### Permissions Must be logged in as the user being updated or have the `edit_other_users` permission. 
     //
-    //Future<List<MMPreference>> getPreferencesByCategory(String userId, String category) async
+    //Future<List<MmPreference>> getPreferencesByCategory(String userId, String category) async
     test('test getPreferencesByCategory', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Gets a single preference for the current user with the given category and name. ##### Permissions Must be logged in as the user being updated or have the `edit_other_users` permission. 
     //
-    //Future<MMPreference> getPreferencesByCategoryByName(String userId, String category, String preferenceName) async
+    //Future<MmPreference> getPreferencesByCategoryByName(String userId, String category, String preferenceName) async
     test('test getPreferencesByCategoryByName', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Save a list of the user's preferences. ##### Permissions Must be logged in as the user being updated or have the `edit_other_users` permission. 
     //
-    //Future<MMStatusOK> updatePreferences(String userId, List<MMPreference> mMPreference) async
+    //Future<MmStatusOK> updatePreferences(String userId, List<MmPreference> mmPreference) async
     test('test updatePreferences', () async {
       // TODO
     });

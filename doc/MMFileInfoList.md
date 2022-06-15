@@ -1,4 +1,4 @@
-# mattermost_api.model.MMFileInfoList
+# mattermost_api.model.MmFileInfoList
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMFileInfoList example = await client.fileInfoList.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmFileInfoList example = await client.fileInfoList.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -22,7 +22,7 @@ MMFileInfoList example = await client.fileInfoList.FUNCTION_THAT_RETURNS_THIS_CL
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order** | **List<String>** |  | [optional] [default to const []]
-**fileInfos** | [**Map<String, MMFileInfo>**](MMFileInfo.md) |  | [optional] [default to const {}]
+**fileInfos** | [**Map<String, MmFileInfo>**](MmFileInfo.md) |  | [optional] [default to const {}]
 **nextFileId** | **String** | The ID of next file info. Not omitted when empty or not relevant. | [optional] 
 **prevFileId** | **String** | The ID of previous file info. Not omitted when empty or not relevant. | [optional] 
 

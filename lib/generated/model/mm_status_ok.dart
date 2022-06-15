@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMStatusOK {
-  /// Returns a new [MMStatusOK] instance.
-  MMStatusOK({
+class MmStatusOK {
+  /// Returns a new [MmStatusOK] instance.
+  MmStatusOK({
     this.status,
   });
 
@@ -26,7 +26,7 @@ class MMStatusOK {
   String? status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMStatusOK && other.status == status;
+  bool operator ==(Object other) => identical(this, other) || other is MmStatusOK && other.status == status;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMStatusOK {
       (status == null ? 0 : status!.hashCode);
 
   @override
-  String toString() => 'MMStatusOK[status=$status]';
+  String toString() => 'MmStatusOK[status=$status]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMStatusOK {
     return _json;
   }
 
-  /// Returns a new [MMStatusOK] instance and imports its values from
+  /// Returns a new [MmStatusOK] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMStatusOK? fromJson(dynamic value) {
+  static MmStatusOK? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,27 +56,27 @@ class MMStatusOK {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMStatusOK[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMStatusOK[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmStatusOK[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmStatusOK[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMStatusOK(
+      return MmStatusOK(
         status: mapValueOfType<String>(json, r'status'),
       );
     }
     return null;
   }
 
-  static List<MMStatusOK>? listFromJson(
+  static List<MmStatusOK>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMStatusOK>[];
+    final result = <MmStatusOK>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMStatusOK.fromJson(row);
+        final value = MmStatusOK.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMStatusOK {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMStatusOK> mapFromJson(dynamic json) {
-    final map = <String, MMStatusOK>{};
+  static Map<String, MmStatusOK> mapFromJson(dynamic json) {
+    final map = <String, MmStatusOK>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMStatusOK.fromJson(entry.value);
+        final value = MmStatusOK.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMStatusOK {
     return map;
   }
 
-  // maps a json object with a list of MMStatusOK-objects as value to a dart map
-  static Map<String, List<MMStatusOK>> mapListFromJson(
+  // maps a json object with a list of MmStatusOK-objects as value to a dart map
+  static Map<String, List<MmStatusOK>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMStatusOK>>{};
+    final map = <String, List<MmStatusOK>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMStatusOK.listFromJson(
+        final value = MmStatusOK.listFromJson(
           entry.value,
           growable: growable,
         );

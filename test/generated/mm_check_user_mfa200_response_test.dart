@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCheckUserMfa200Response
+// tests for MmCheckUserMfa200Response
 void main() {
-  // final instance = MMCheckUserMfa200Response();
+  // final instance = MmCheckUserMfa200Response();
 
-  group('test MMCheckUserMfa200Response', () {
+  group('test MmCheckUserMfa200Response', () {
     // Value will `true` if MFA is active, `false` otherwise
     // bool mfaRequired
     test('to test the property `mfaRequired`', () async {

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigMetricsSettings {
-  /// Returns a new [MMConfigMetricsSettings] instance.
-  MMConfigMetricsSettings({
+class MmConfigMetricsSettings {
+  /// Returns a new [MmConfigMetricsSettings] instance.
+  MmConfigMetricsSettings({
     this.enable,
     this.blockProfileRate,
     this.listenAddress,
@@ -45,7 +45,7 @@ class MMConfigMetricsSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigMetricsSettings &&
+      other is MmConfigMetricsSettings &&
           other.enable == enable &&
           other.blockProfileRate == blockProfileRate &&
           other.listenAddress == listenAddress;
@@ -59,7 +59,7 @@ class MMConfigMetricsSettings {
 
   @override
   String toString() =>
-      'MMConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
+      'MmConfigMetricsSettings[enable=$enable, blockProfileRate=$blockProfileRate, listenAddress=$listenAddress]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -75,10 +75,10 @@ class MMConfigMetricsSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigMetricsSettings] instance and imports its values from
+  /// Returns a new [MmConfigMetricsSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigMetricsSettings? fromJson(dynamic value) {
+  static MmConfigMetricsSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -87,13 +87,13 @@ class MMConfigMetricsSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigMetricsSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigMetricsSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigMetricsSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigMetricsSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigMetricsSettings(
+      return MmConfigMetricsSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         blockProfileRate: mapValueOfType<int>(json, r'BlockProfileRate'),
         listenAddress: mapValueOfType<String>(json, r'ListenAddress'),
@@ -102,14 +102,14 @@ class MMConfigMetricsSettings {
     return null;
   }
 
-  static List<MMConfigMetricsSettings>? listFromJson(
+  static List<MmConfigMetricsSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigMetricsSettings>[];
+    final result = <MmConfigMetricsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigMetricsSettings.fromJson(row);
+        final value = MmConfigMetricsSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -118,12 +118,12 @@ class MMConfigMetricsSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigMetricsSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigMetricsSettings>{};
+  static Map<String, MmConfigMetricsSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigMetricsSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigMetricsSettings.fromJson(entry.value);
+        final value = MmConfigMetricsSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -132,16 +132,16 @@ class MMConfigMetricsSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigMetricsSettings-objects as value to a dart map
-  static Map<String, List<MMConfigMetricsSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigMetricsSettings-objects as value to a dart map
+  static Map<String, List<MmConfigMetricsSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigMetricsSettings>>{};
+    final map = <String, List<MmConfigMetricsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigMetricsSettings.listFromJson(
+        final value = MmConfigMetricsSettings.listFromJson(
           entry.value,
           growable: growable,
         );

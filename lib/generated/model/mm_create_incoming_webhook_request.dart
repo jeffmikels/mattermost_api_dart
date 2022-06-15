@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateIncomingWebhookRequest {
-  /// Returns a new [MMCreateIncomingWebhookRequest] instance.
-  MMCreateIncomingWebhookRequest({
+class MmCreateIncomingWebhookRequest {
+  /// Returns a new [MmCreateIncomingWebhookRequest] instance.
+  MmCreateIncomingWebhookRequest({
     required this.channelId,
     this.userId,
     this.displayName,
@@ -72,7 +72,7 @@ class MMCreateIncomingWebhookRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreateIncomingWebhookRequest &&
+      other is MmCreateIncomingWebhookRequest &&
           other.channelId == channelId &&
           other.userId == userId &&
           other.displayName == displayName &&
@@ -92,7 +92,7 @@ class MMCreateIncomingWebhookRequest {
 
   @override
   String toString() =>
-      'MMCreateIncomingWebhookRequest[channelId=$channelId, userId=$userId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
+      'MmCreateIncomingWebhookRequest[channelId=$channelId, userId=$userId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -115,10 +115,10 @@ class MMCreateIncomingWebhookRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateIncomingWebhookRequest] instance and imports its values from
+  /// Returns a new [MmCreateIncomingWebhookRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateIncomingWebhookRequest? fromJson(dynamic value) {
+  static MmCreateIncomingWebhookRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -127,13 +127,13 @@ class MMCreateIncomingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateIncomingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateIncomingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateIncomingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateIncomingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateIncomingWebhookRequest(
+      return MmCreateIncomingWebhookRequest(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         userId: mapValueOfType<String>(json, r'user_id'),
         displayName: mapValueOfType<String>(json, r'display_name'),
@@ -145,14 +145,14 @@ class MMCreateIncomingWebhookRequest {
     return null;
   }
 
-  static List<MMCreateIncomingWebhookRequest>? listFromJson(
+  static List<MmCreateIncomingWebhookRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateIncomingWebhookRequest>[];
+    final result = <MmCreateIncomingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateIncomingWebhookRequest.fromJson(row);
+        final value = MmCreateIncomingWebhookRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -161,12 +161,12 @@ class MMCreateIncomingWebhookRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateIncomingWebhookRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateIncomingWebhookRequest>{};
+  static Map<String, MmCreateIncomingWebhookRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateIncomingWebhookRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateIncomingWebhookRequest.fromJson(entry.value);
+        final value = MmCreateIncomingWebhookRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -175,16 +175,16 @@ class MMCreateIncomingWebhookRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateIncomingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MMCreateIncomingWebhookRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateIncomingWebhookRequest-objects as value to a dart map
+  static Map<String, List<MmCreateIncomingWebhookRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateIncomingWebhookRequest>>{};
+    final map = <String, List<MmCreateIncomingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateIncomingWebhookRequest.listFromJson(
+        final value = MmCreateIncomingWebhookRequest.listFromJson(
           entry.value,
           growable: growable,
         );

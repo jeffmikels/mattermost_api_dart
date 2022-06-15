@@ -27,7 +27,7 @@ class MattermostRolesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -47,17 +47,17 @@ class MattermostRolesApi {
   /// Get a list of all the roles
   ///
   /// ##### Permissions  `manage_system` permission is required.  __Minimum server version__: 5.33
-  Future<List<MMRole>?> getAllRoles() async {
+  Future<List<MmRole>?> getAllRoles() async {
     final response = await getAllRolesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMRole>') as List).cast<MMRole>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmRole>') as List).cast<MmRole>().toList();
     }
     return null;
   }
@@ -81,7 +81,7 @@ class MattermostRolesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -106,14 +106,14 @@ class MattermostRolesApi {
   ///
   /// * [String] roleId (required):
   ///   Role GUID
-  Future<MMRole?> getRole(
+  Future<MmRole?> getRole(
     String roleId,
   ) async {
     final response = await getRoleWithHttpInfo(
       roleId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -121,8 +121,8 @@ class MattermostRolesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMRole',
-      ) as MMRole;
+        'MmRole',
+      ) as MmRole;
     }
     return null;
   }
@@ -146,7 +146,7 @@ class MattermostRolesApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -171,14 +171,14 @@ class MattermostRolesApi {
   ///
   /// * [String] roleName (required):
   ///   Role Name
-  Future<MMRole?> getRoleByName(
+  Future<MmRole?> getRoleByName(
     String roleName,
   ) async {
     final response = await getRoleByNameWithHttpInfo(
       roleName,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -186,8 +186,8 @@ class MattermostRolesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMRole',
-      ) as MMRole;
+        'MmRole',
+      ) as MmRole;
     }
     return null;
   }
@@ -211,7 +211,7 @@ class MattermostRolesApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -236,21 +236,21 @@ class MattermostRolesApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of role names
-  Future<List<MMRole>?> getRolesByNames(
+  Future<List<MmRole>?> getRolesByNames(
     List<String> requestBody,
   ) async {
     final response = await getRolesByNamesWithHttpInfo(
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMRole>') as List).cast<MMRole>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmRole>') as List).cast<MmRole>().toList();
     }
     return null;
   }
@@ -266,19 +266,19 @@ class MattermostRolesApi {
   /// * [String] roleId (required):
   ///   Role GUID
   ///
-  /// * [MMPatchRoleRequest] mMPatchRoleRequest (required):
+  /// * [MmPatchRoleRequest] mmPatchRoleRequest (required):
   ///   Role object to be updated
   Future<Response> patchRoleWithHttpInfo(
     String roleId,
-    MMPatchRoleRequest mMPatchRoleRequest,
+    MmPatchRoleRequest mmPatchRoleRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/roles/{role_id}/patch'.replaceAll('{role_id}', roleId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMPatchRoleRequest;
+    Object? postBody = mmPatchRoleRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -304,18 +304,18 @@ class MattermostRolesApi {
   /// * [String] roleId (required):
   ///   Role GUID
   ///
-  /// * [MMPatchRoleRequest] mMPatchRoleRequest (required):
+  /// * [MmPatchRoleRequest] mmPatchRoleRequest (required):
   ///   Role object to be updated
-  Future<MMRole?> patchRole(
+  Future<MmRole?> patchRole(
     String roleId,
-    MMPatchRoleRequest mMPatchRoleRequest,
+    MmPatchRoleRequest mmPatchRoleRequest,
   ) async {
     final response = await patchRoleWithHttpInfo(
       roleId,
-      mMPatchRoleRequest,
+      mmPatchRoleRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -323,8 +323,8 @@ class MattermostRolesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMRole',
-      ) as MMRole;
+        'MmRole',
+      ) as MmRole;
     }
     return null;
   }

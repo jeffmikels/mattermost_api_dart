@@ -21,7 +21,7 @@ void main() {
     //
     // Deletes all Elasticsearch indexes and their contents. After calling this endpoint, it is necessary to schedule a new Elasticsearch indexing job to repopulate the indexes. __Minimum server version__: 4.1 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> purgeElasticsearchIndexes() async
+    //Future<MmStatusOK> purgeElasticsearchIndexes() async
     test('test purgeElasticsearchIndexes', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Test the current Elasticsearch configuration to see if the Elasticsearch server can be contacted successfully. Optionally provide a configuration in the request body to test. If no valid configuration is present in the request body the current server configuration will be tested.  __Minimum server version__: 4.1 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> testElasticsearch() async
+    //Future<MmStatusOK> testElasticsearch() async
     test('test testElasticsearch', () async {
       // TODO
     });

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPaymentSetupIntent {
-  /// Returns a new [MMPaymentSetupIntent] instance.
-  MMPaymentSetupIntent({
+class MmPaymentSetupIntent {
+  /// Returns a new [MmPaymentSetupIntent] instance.
+  MmPaymentSetupIntent({
     this.id,
     this.clientSecret,
   });
@@ -35,7 +35,7 @@ class MMPaymentSetupIntent {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPaymentSetupIntent && other.id == id && other.clientSecret == clientSecret;
+      identical(this, other) || other is MmPaymentSetupIntent && other.id == id && other.clientSecret == clientSecret;
 
   @override
   int get hashCode =>
@@ -43,7 +43,7 @@ class MMPaymentSetupIntent {
       (id == null ? 0 : id!.hashCode) + (clientSecret == null ? 0 : clientSecret!.hashCode);
 
   @override
-  String toString() => 'MMPaymentSetupIntent[id=$id, clientSecret=$clientSecret]';
+  String toString() => 'MmPaymentSetupIntent[id=$id, clientSecret=$clientSecret]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -56,10 +56,10 @@ class MMPaymentSetupIntent {
     return _json;
   }
 
-  /// Returns a new [MMPaymentSetupIntent] instance and imports its values from
+  /// Returns a new [MmPaymentSetupIntent] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPaymentSetupIntent? fromJson(dynamic value) {
+  static MmPaymentSetupIntent? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,13 +68,13 @@ class MMPaymentSetupIntent {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPaymentSetupIntent[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPaymentSetupIntent[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPaymentSetupIntent[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPaymentSetupIntent[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPaymentSetupIntent(
+      return MmPaymentSetupIntent(
         id: mapValueOfType<String>(json, r'id'),
         clientSecret: mapValueOfType<String>(json, r'client_secret'),
       );
@@ -82,14 +82,14 @@ class MMPaymentSetupIntent {
     return null;
   }
 
-  static List<MMPaymentSetupIntent>? listFromJson(
+  static List<MmPaymentSetupIntent>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPaymentSetupIntent>[];
+    final result = <MmPaymentSetupIntent>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPaymentSetupIntent.fromJson(row);
+        final value = MmPaymentSetupIntent.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -98,12 +98,12 @@ class MMPaymentSetupIntent {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPaymentSetupIntent> mapFromJson(dynamic json) {
-    final map = <String, MMPaymentSetupIntent>{};
+  static Map<String, MmPaymentSetupIntent> mapFromJson(dynamic json) {
+    final map = <String, MmPaymentSetupIntent>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPaymentSetupIntent.fromJson(entry.value);
+        final value = MmPaymentSetupIntent.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,16 +112,16 @@ class MMPaymentSetupIntent {
     return map;
   }
 
-  // maps a json object with a list of MMPaymentSetupIntent-objects as value to a dart map
-  static Map<String, List<MMPaymentSetupIntent>> mapListFromJson(
+  // maps a json object with a list of MmPaymentSetupIntent-objects as value to a dart map
+  static Map<String, List<MmPaymentSetupIntent>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPaymentSetupIntent>>{};
+    final map = <String, List<MmPaymentSetupIntent>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPaymentSetupIntent.listFromJson(
+        final value = MmPaymentSetupIntent.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdatePostRequest
+// tests for MmUpdatePostRequest
 void main() {
-  // final instance = MMUpdatePostRequest();
+  // final instance = MmUpdatePostRequest();
 
-  group('test MMUpdatePostRequest', () {
+  group('test MmUpdatePostRequest', () {
     // ID of the post to update
     // String id
     test('to test the property `id`', () async {

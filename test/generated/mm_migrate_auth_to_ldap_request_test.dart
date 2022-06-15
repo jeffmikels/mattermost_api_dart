@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMigrateAuthToLdapRequest
+// tests for MmMigrateAuthToLdapRequest
 void main() {
-  // final instance = MMMigrateAuthToLdapRequest();
+  // final instance = MmMigrateAuthToLdapRequest();
 
-  group('test MMMigrateAuthToLdapRequest', () {
+  group('test MmMigrateAuthToLdapRequest', () {
     // The current authentication type for the matched users.
     // String from
     test('to test the property `from`', () async {

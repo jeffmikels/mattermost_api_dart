@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateTeamPrivacyRequest {
-  /// Returns a new [MMUpdateTeamPrivacyRequest] instance.
-  MMUpdateTeamPrivacyRequest({
+class MmUpdateTeamPrivacyRequest {
+  /// Returns a new [MmUpdateTeamPrivacyRequest] instance.
+  MmUpdateTeamPrivacyRequest({
     required this.privacy,
   });
 
@@ -21,7 +21,7 @@ class MMUpdateTeamPrivacyRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMUpdateTeamPrivacyRequest && other.privacy == privacy;
+      identical(this, other) || other is MmUpdateTeamPrivacyRequest && other.privacy == privacy;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMUpdateTeamPrivacyRequest {
       (privacy.hashCode);
 
   @override
-  String toString() => 'MMUpdateTeamPrivacyRequest[privacy=$privacy]';
+  String toString() => 'MmUpdateTeamPrivacyRequest[privacy=$privacy]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMUpdateTeamPrivacyRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateTeamPrivacyRequest] instance and imports its values from
+  /// Returns a new [MmUpdateTeamPrivacyRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateTeamPrivacyRequest? fromJson(dynamic value) {
+  static MmUpdateTeamPrivacyRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMUpdateTeamPrivacyRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateTeamPrivacyRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateTeamPrivacyRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateTeamPrivacyRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateTeamPrivacyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateTeamPrivacyRequest(
+      return MmUpdateTeamPrivacyRequest(
         privacy: mapValueOfType<String>(json, r'privacy')!,
       );
     }
     return null;
   }
 
-  static List<MMUpdateTeamPrivacyRequest>? listFromJson(
+  static List<MmUpdateTeamPrivacyRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateTeamPrivacyRequest>[];
+    final result = <MmUpdateTeamPrivacyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateTeamPrivacyRequest.fromJson(row);
+        final value = MmUpdateTeamPrivacyRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMUpdateTeamPrivacyRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateTeamPrivacyRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateTeamPrivacyRequest>{};
+  static Map<String, MmUpdateTeamPrivacyRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateTeamPrivacyRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateTeamPrivacyRequest.fromJson(entry.value);
+        final value = MmUpdateTeamPrivacyRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMUpdateTeamPrivacyRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateTeamPrivacyRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateTeamPrivacyRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateTeamPrivacyRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateTeamPrivacyRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateTeamPrivacyRequest>>{};
+    final map = <String, List<MmUpdateTeamPrivacyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateTeamPrivacyRequest.listFromJson(
+        final value = MmUpdateTeamPrivacyRequest.listFromJson(
           entry.value,
           growable: growable,
         );

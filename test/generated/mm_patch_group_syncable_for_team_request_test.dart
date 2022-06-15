@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchGroupSyncableForTeamRequest
+// tests for MmPatchGroupSyncableForTeamRequest
 void main() {
-  // final instance = MMPatchGroupSyncableForTeamRequest();
+  // final instance = MmPatchGroupSyncableForTeamRequest();
 
-  group('test MMPatchGroupSyncableForTeamRequest', () {
+  group('test MmPatchGroupSyncableForTeamRequest', () {
     // bool autoAdd
     test('to test the property `autoAdd`', () async {
       // TODO

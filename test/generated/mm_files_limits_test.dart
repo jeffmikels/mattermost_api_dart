@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMFilesLimits
+// tests for MmFilesLimits
 void main() {
-  // final instance = MMFilesLimits();
+  // final instance = MmFilesLimits();
 
-  group('test MMFilesLimits', () {
+  group('test MmFilesLimits', () {
     // int totalStorage
     test('to test the property `totalStorage`', () async {
       // TODO

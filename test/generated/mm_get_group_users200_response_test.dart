@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetGroupUsers200Response
+// tests for MmGetGroupUsers200Response
 void main() {
-  // final instance = MMGetGroupUsers200Response();
+  // final instance = MmGetGroupUsers200Response();
 
-  group('test MMGetGroupUsers200Response', () {
-    // List<MMUser> members (default value: const [])
+  group('test MmGetGroupUsers200Response', () {
+    // List<MmUser> members (default value: const [])
     test('to test the property `members`', () async {
       // TODO
     });

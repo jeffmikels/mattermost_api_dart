@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEmoji {
-  /// Returns a new [MMEmoji] instance.
-  MMEmoji({
+class MmEmoji {
+  /// Returns a new [MmEmoji] instance.
+  MmEmoji({
     this.id,
     this.creatorId,
     this.name,
@@ -78,7 +78,7 @@ class MMEmoji {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEmoji &&
+      other is MmEmoji &&
           other.id == id &&
           other.creatorId == creatorId &&
           other.name == name &&
@@ -98,7 +98,7 @@ class MMEmoji {
 
   @override
   String toString() =>
-      'MMEmoji[id=$id, creatorId=$creatorId, name=$name, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt]';
+      'MmEmoji[id=$id, creatorId=$creatorId, name=$name, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -123,10 +123,10 @@ class MMEmoji {
     return _json;
   }
 
-  /// Returns a new [MMEmoji] instance and imports its values from
+  /// Returns a new [MmEmoji] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEmoji? fromJson(dynamic value) {
+  static MmEmoji? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -135,13 +135,13 @@ class MMEmoji {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEmoji[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEmoji[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEmoji[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEmoji[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEmoji(
+      return MmEmoji(
         id: mapValueOfType<String>(json, r'id'),
         creatorId: mapValueOfType<String>(json, r'creator_id'),
         name: mapValueOfType<String>(json, r'name'),
@@ -153,14 +153,14 @@ class MMEmoji {
     return null;
   }
 
-  static List<MMEmoji>? listFromJson(
+  static List<MmEmoji>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEmoji>[];
+    final result = <MmEmoji>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEmoji.fromJson(row);
+        final value = MmEmoji.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -169,12 +169,12 @@ class MMEmoji {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEmoji> mapFromJson(dynamic json) {
-    final map = <String, MMEmoji>{};
+  static Map<String, MmEmoji> mapFromJson(dynamic json) {
+    final map = <String, MmEmoji>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEmoji.fromJson(entry.value);
+        final value = MmEmoji.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -183,16 +183,16 @@ class MMEmoji {
     return map;
   }
 
-  // maps a json object with a list of MMEmoji-objects as value to a dart map
-  static Map<String, List<MMEmoji>> mapListFromJson(
+  // maps a json object with a list of MmEmoji-objects as value to a dart map
+  static Map<String, List<MmEmoji>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEmoji>>{};
+    final map = <String, List<MmEmoji>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEmoji.listFromJson(
+        final value = MmEmoji.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMNotice {
-  /// Returns a new [MMNotice] instance.
-  MMNotice({
+class MmNotice {
+  /// Returns a new [MmNotice] instance.
+  MmNotice({
     this.id,
     this.sysAdminOnly,
     this.teamAdminOnly,
@@ -108,7 +108,7 @@ class MMNotice {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMNotice &&
+      other is MmNotice &&
           other.id == id &&
           other.sysAdminOnly == sysAdminOnly &&
           other.teamAdminOnly == teamAdminOnly &&
@@ -134,7 +134,7 @@ class MMNotice {
 
   @override
   String toString() =>
-      'MMNotice[id=$id, sysAdminOnly=$sysAdminOnly, teamAdminOnly=$teamAdminOnly, action=$action, actionParam=$actionParam, actionText=$actionText, description=$description, image=$image, title=$title]';
+      'MmNotice[id=$id, sysAdminOnly=$sysAdminOnly, teamAdminOnly=$teamAdminOnly, action=$action, actionParam=$actionParam, actionText=$actionText, description=$description, image=$image, title=$title]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -168,10 +168,10 @@ class MMNotice {
     return _json;
   }
 
-  /// Returns a new [MMNotice] instance and imports its values from
+  /// Returns a new [MmNotice] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMNotice? fromJson(dynamic value) {
+  static MmNotice? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -180,13 +180,13 @@ class MMNotice {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMNotice[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMNotice[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmNotice[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmNotice[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMNotice(
+      return MmNotice(
         id: mapValueOfType<String>(json, r'id'),
         sysAdminOnly: mapValueOfType<bool>(json, r'sysAdminOnly'),
         teamAdminOnly: mapValueOfType<bool>(json, r'teamAdminOnly'),
@@ -201,14 +201,14 @@ class MMNotice {
     return null;
   }
 
-  static List<MMNotice>? listFromJson(
+  static List<MmNotice>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMNotice>[];
+    final result = <MmNotice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMNotice.fromJson(row);
+        final value = MmNotice.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -217,12 +217,12 @@ class MMNotice {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMNotice> mapFromJson(dynamic json) {
-    final map = <String, MMNotice>{};
+  static Map<String, MmNotice> mapFromJson(dynamic json) {
+    final map = <String, MmNotice>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMNotice.fromJson(entry.value);
+        final value = MmNotice.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -231,16 +231,16 @@ class MMNotice {
     return map;
   }
 
-  // maps a json object with a list of MMNotice-objects as value to a dart map
-  static Map<String, List<MMNotice>> mapListFromJson(
+  // maps a json object with a list of MmNotice-objects as value to a dart map
+  static Map<String, List<MmNotice>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMNotice>>{};
+    final map = <String, List<MmNotice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMNotice.listFromJson(
+        final value = MmNotice.listFromJson(
           entry.value,
           growable: growable,
         );

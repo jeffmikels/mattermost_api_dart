@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpgradeToEnterpriseStatus200Response {
-  /// Returns a new [MMUpgradeToEnterpriseStatus200Response] instance.
-  MMUpgradeToEnterpriseStatus200Response({
+class MmUpgradeToEnterpriseStatus200Response {
+  /// Returns a new [MmUpgradeToEnterpriseStatus200Response] instance.
+  MmUpgradeToEnterpriseStatus200Response({
     this.percentage,
     this.error,
   });
@@ -38,7 +38,7 @@ class MMUpgradeToEnterpriseStatus200Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpgradeToEnterpriseStatus200Response && other.percentage == percentage && other.error == error;
+      other is MmUpgradeToEnterpriseStatus200Response && other.percentage == percentage && other.error == error;
 
   @override
   int get hashCode =>
@@ -46,7 +46,7 @@ class MMUpgradeToEnterpriseStatus200Response {
       (percentage == null ? 0 : percentage!.hashCode) + (error == null ? 0 : error!.hashCode);
 
   @override
-  String toString() => 'MMUpgradeToEnterpriseStatus200Response[percentage=$percentage, error=$error]';
+  String toString() => 'MmUpgradeToEnterpriseStatus200Response[percentage=$percentage, error=$error]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -59,10 +59,10 @@ class MMUpgradeToEnterpriseStatus200Response {
     return _json;
   }
 
-  /// Returns a new [MMUpgradeToEnterpriseStatus200Response] instance and imports its values from
+  /// Returns a new [MmUpgradeToEnterpriseStatus200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpgradeToEnterpriseStatus200Response? fromJson(dynamic value) {
+  static MmUpgradeToEnterpriseStatus200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -72,14 +72,14 @@ class MMUpgradeToEnterpriseStatus200Response {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMUpgradeToEnterpriseStatus200Response[$key]" is missing from JSON.');
+              'Required key "MmUpgradeToEnterpriseStatus200Response[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMUpgradeToEnterpriseStatus200Response[$key]" has a null value in JSON.');
+              'Required key "MmUpgradeToEnterpriseStatus200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpgradeToEnterpriseStatus200Response(
+      return MmUpgradeToEnterpriseStatus200Response(
         percentage: mapValueOfType<int>(json, r'percentage'),
         error: mapValueOfType<String>(json, r'error'),
       );
@@ -87,14 +87,14 @@ class MMUpgradeToEnterpriseStatus200Response {
     return null;
   }
 
-  static List<MMUpgradeToEnterpriseStatus200Response>? listFromJson(
+  static List<MmUpgradeToEnterpriseStatus200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpgradeToEnterpriseStatus200Response>[];
+    final result = <MmUpgradeToEnterpriseStatus200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpgradeToEnterpriseStatus200Response.fromJson(row);
+        final value = MmUpgradeToEnterpriseStatus200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -103,12 +103,12 @@ class MMUpgradeToEnterpriseStatus200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpgradeToEnterpriseStatus200Response> mapFromJson(dynamic json) {
-    final map = <String, MMUpgradeToEnterpriseStatus200Response>{};
+  static Map<String, MmUpgradeToEnterpriseStatus200Response> mapFromJson(dynamic json) {
+    final map = <String, MmUpgradeToEnterpriseStatus200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpgradeToEnterpriseStatus200Response.fromJson(entry.value);
+        final value = MmUpgradeToEnterpriseStatus200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -117,16 +117,16 @@ class MMUpgradeToEnterpriseStatus200Response {
     return map;
   }
 
-  // maps a json object with a list of MMUpgradeToEnterpriseStatus200Response-objects as value to a dart map
-  static Map<String, List<MMUpgradeToEnterpriseStatus200Response>> mapListFromJson(
+  // maps a json object with a list of MmUpgradeToEnterpriseStatus200Response-objects as value to a dart map
+  static Map<String, List<MmUpgradeToEnterpriseStatus200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpgradeToEnterpriseStatus200Response>>{};
+    final map = <String, List<MmUpgradeToEnterpriseStatus200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpgradeToEnterpriseStatus200Response.listFromJson(
+        final value = MmUpgradeToEnterpriseStatus200Response.listFromJson(
           entry.value,
           growable: growable,
         );

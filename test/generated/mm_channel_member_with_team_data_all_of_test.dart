@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelMemberWithTeamDataAllOf
+// tests for MmChannelMemberWithTeamDataAllOf
 void main() {
-  // final instance = MMChannelMemberWithTeamDataAllOf();
+  // final instance = MmChannelMemberWithTeamDataAllOf();
 
-  group('test MMChannelMemberWithTeamDataAllOf', () {
+  group('test MmChannelMemberWithTeamDataAllOf', () {
     // The display name of the team to which this channel belongs.
     // String teamDisplayName
     test('to test the property `teamDisplayName`', () async {

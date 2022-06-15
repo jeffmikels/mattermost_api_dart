@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMServerBusy
+// tests for MmServerBusy
 void main() {
-  // final instance = MMServerBusy();
+  // final instance = MmServerBusy();
 
-  group('test MMServerBusy', () {
+  group('test MmServerBusy', () {
     // True if the server is marked as busy (under high load)
     // bool busy
     test('to test the property `busy`', () async {

@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0 
     //
-    //Future<MMPostsUsage> getPostsUsage() async
+    //Future<MmPostsUsage> getPostsUsage() async
     test('test getPostsUsage', () async {
       // TODO
     });

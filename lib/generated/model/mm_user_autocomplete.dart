@@ -10,23 +10,23 @@
 
 part of mattermost.api;
 
-class MMUserAutocomplete {
-  /// Returns a new [MMUserAutocomplete] instance.
-  MMUserAutocomplete({
+class MmUserAutocomplete {
+  /// Returns a new [MmUserAutocomplete] instance.
+  MmUserAutocomplete({
     this.users = const [],
     this.outOfChannel = const [],
   });
 
   /// A list of users that are the main result of the query
-  List<MMUser> users;
+  List<MmUser> users;
 
   /// A special case list of users returned when autocompleting in a specific channel. Omitted when empty or not relevant
-  List<MMUser> outOfChannel;
+  List<MmUser> outOfChannel;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUserAutocomplete && other.users == users && other.outOfChannel == outOfChannel;
+      other is MmUserAutocomplete && other.users == users && other.outOfChannel == outOfChannel;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMUserAutocomplete {
       (users.hashCode) + (outOfChannel.hashCode);
 
   @override
-  String toString() => 'MMUserAutocomplete[users=$users, outOfChannel=$outOfChannel]';
+  String toString() => 'MmUserAutocomplete[users=$users, outOfChannel=$outOfChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -43,10 +43,10 @@ class MMUserAutocomplete {
     return _json;
   }
 
-  /// Returns a new [MMUserAutocomplete] instance and imports its values from
+  /// Returns a new [MmUserAutocomplete] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserAutocomplete? fromJson(dynamic value) {
+  static MmUserAutocomplete? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -55,28 +55,28 @@ class MMUserAutocomplete {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserAutocomplete[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserAutocomplete[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserAutocomplete[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserAutocomplete[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserAutocomplete(
-        users: MMUser.listFromJson(json[r'users']) ?? const [],
-        outOfChannel: MMUser.listFromJson(json[r'out_of_channel']) ?? const [],
+      return MmUserAutocomplete(
+        users: MmUser.listFromJson(json[r'users']) ?? const [],
+        outOfChannel: MmUser.listFromJson(json[r'out_of_channel']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMUserAutocomplete>? listFromJson(
+  static List<MmUserAutocomplete>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserAutocomplete>[];
+    final result = <MmUserAutocomplete>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserAutocomplete.fromJson(row);
+        final value = MmUserAutocomplete.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMUserAutocomplete {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserAutocomplete> mapFromJson(dynamic json) {
-    final map = <String, MMUserAutocomplete>{};
+  static Map<String, MmUserAutocomplete> mapFromJson(dynamic json) {
+    final map = <String, MmUserAutocomplete>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAutocomplete.fromJson(entry.value);
+        final value = MmUserAutocomplete.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMUserAutocomplete {
     return map;
   }
 
-  // maps a json object with a list of MMUserAutocomplete-objects as value to a dart map
-  static Map<String, List<MMUserAutocomplete>> mapListFromJson(
+  // maps a json object with a list of MmUserAutocomplete-objects as value to a dart map
+  static Map<String, List<MmUserAutocomplete>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserAutocomplete>>{};
+    final map = <String, List<MmUserAutocomplete>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAutocomplete.listFromJson(
+        final value = MmUserAutocomplete.listFromJson(
           entry.value,
           growable: growable,
         );

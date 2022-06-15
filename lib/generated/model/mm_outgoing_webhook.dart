@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOutgoingWebhook {
-  /// Returns a new [MMOutgoingWebhook] instance.
-  MMOutgoingWebhook({
+class MmOutgoingWebhook {
+  /// Returns a new [MmOutgoingWebhook] instance.
+  MmOutgoingWebhook({
     this.id,
     this.createAt,
     this.updateAt,
@@ -130,7 +130,7 @@ class MMOutgoingWebhook {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOutgoingWebhook &&
+      other is MmOutgoingWebhook &&
           other.id == id &&
           other.createAt == createAt &&
           other.updateAt == updateAt &&
@@ -164,7 +164,7 @@ class MMOutgoingWebhook {
 
   @override
   String toString() =>
-      'MMOutgoingWebhook[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, channelId=$channelId, description=$description, displayName=$displayName, triggerWords=$triggerWords, triggerWhen=$triggerWhen, callbackUrls=$callbackUrls, contentType=$contentType]';
+      'MmOutgoingWebhook[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, creatorId=$creatorId, teamId=$teamId, channelId=$channelId, description=$description, displayName=$displayName, triggerWords=$triggerWords, triggerWhen=$triggerWhen, callbackUrls=$callbackUrls, contentType=$contentType]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -204,10 +204,10 @@ class MMOutgoingWebhook {
     return _json;
   }
 
-  /// Returns a new [MMOutgoingWebhook] instance and imports its values from
+  /// Returns a new [MmOutgoingWebhook] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOutgoingWebhook? fromJson(dynamic value) {
+  static MmOutgoingWebhook? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -216,13 +216,13 @@ class MMOutgoingWebhook {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOutgoingWebhook[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOutgoingWebhook[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOutgoingWebhook[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOutgoingWebhook[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOutgoingWebhook(
+      return MmOutgoingWebhook(
         id: mapValueOfType<String>(json, r'id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         updateAt: mapValueOfType<int>(json, r'update_at'),
@@ -241,14 +241,14 @@ class MMOutgoingWebhook {
     return null;
   }
 
-  static List<MMOutgoingWebhook>? listFromJson(
+  static List<MmOutgoingWebhook>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOutgoingWebhook>[];
+    final result = <MmOutgoingWebhook>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOutgoingWebhook.fromJson(row);
+        final value = MmOutgoingWebhook.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -257,12 +257,12 @@ class MMOutgoingWebhook {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOutgoingWebhook> mapFromJson(dynamic json) {
-    final map = <String, MMOutgoingWebhook>{};
+  static Map<String, MmOutgoingWebhook> mapFromJson(dynamic json) {
+    final map = <String, MmOutgoingWebhook>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOutgoingWebhook.fromJson(entry.value);
+        final value = MmOutgoingWebhook.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -271,16 +271,16 @@ class MMOutgoingWebhook {
     return map;
   }
 
-  // maps a json object with a list of MMOutgoingWebhook-objects as value to a dart map
-  static Map<String, List<MMOutgoingWebhook>> mapListFromJson(
+  // maps a json object with a list of MmOutgoingWebhook-objects as value to a dart map
+  static Map<String, List<MmOutgoingWebhook>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOutgoingWebhook>>{};
+    final map = <String, List<MmOutgoingWebhook>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOutgoingWebhook.listFromJson(
+        final value = MmOutgoingWebhook.listFromJson(
           entry.value,
           growable: growable,
         );

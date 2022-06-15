@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOrderedSidebarCategories
+// tests for MmOrderedSidebarCategories
 void main() {
-  // final instance = MMOrderedSidebarCategories();
+  // final instance = MmOrderedSidebarCategories();
 
-  group('test MMOrderedSidebarCategories', () {
+  group('test MmOrderedSidebarCategories', () {
     // List<String> order (default value: const [])
     test('to test the property `order`', () async {
       // TODO
     });
 
-    // List<MMSidebarCategoryWithChannels> categories (default value: const [])
+    // List<MmSidebarCategoryWithChannels> categories (default value: const [])
     test('to test the property `categories`', () async {
       // TODO
     });

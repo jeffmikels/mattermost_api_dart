@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGroupSyncableTeam
+// tests for MmGroupSyncableTeam
 void main() {
-  // final instance = MMGroupSyncableTeam();
+  // final instance = MmGroupSyncableTeam();
 
-  group('test MMGroupSyncableTeam', () {
+  group('test MmGroupSyncableTeam', () {
     // String teamId
     test('to test the property `teamId`', () async {
       // TODO

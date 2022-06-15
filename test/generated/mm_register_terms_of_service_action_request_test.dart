@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRegisterTermsOfServiceActionRequest
+// tests for MmRegisterTermsOfServiceActionRequest
 void main() {
-  // final instance = MMRegisterTermsOfServiceActionRequest();
+  // final instance = MmRegisterTermsOfServiceActionRequest();
 
-  group('test MMRegisterTermsOfServiceActionRequest', () {
+  group('test MmRegisterTermsOfServiceActionRequest', () {
     // terms of service ID on which the user is acting on
     // String serviceTermsId
     test('to test the property `serviceTermsId`', () async {

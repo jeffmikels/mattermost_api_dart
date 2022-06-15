@@ -11,32 +11,32 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMProductLimits
+// tests for MmProductLimits
 void main() {
-  // final instance = MMProductLimits();
+  // final instance = MmProductLimits();
 
-  group('test MMProductLimits', () {
-    // MMBoardsLimits boards
+  group('test MmProductLimits', () {
+    // MmBoardsLimits boards
     test('to test the property `boards`', () async {
       // TODO
     });
 
-    // MMFilesLimits files
+    // MmFilesLimits files
     test('to test the property `files`', () async {
       // TODO
     });
 
-    // MMIntegrationsLimits integrations
+    // MmIntegrationsLimits integrations
     test('to test the property `integrations`', () async {
       // TODO
     });
 
-    // MMMessagesLimits messages
+    // MmMessagesLimits messages
     test('to test the property `messages`', () async {
       // TODO
     });
 
-    // MMTeamsLimits teams
+    // MmTeamsLimits teams
     test('to test the property `teams`', () async {
       // TODO
     });

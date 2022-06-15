@@ -11,19 +11,19 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserAutocomplete
+// tests for MmUserAutocomplete
 void main() {
-  // final instance = MMUserAutocomplete();
+  // final instance = MmUserAutocomplete();
 
-  group('test MMUserAutocomplete', () {
+  group('test MmUserAutocomplete', () {
     // A list of users that are the main result of the query
-    // List<MMUser> users (default value: const [])
+    // List<MmUser> users (default value: const [])
     test('to test the property `users`', () async {
       // TODO
     });
 
     // A special case list of users returned when autocompleting in a specific channel. Omitted when empty or not relevant
-    // List<MMUser> outOfChannel (default value: const [])
+    // List<MmUser> outOfChannel (default value: const [])
     test('to test the property `outOfChannel`', () async {
       // TODO
     });

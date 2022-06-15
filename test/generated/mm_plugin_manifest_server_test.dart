@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginManifestServer
+// tests for MmPluginManifestServer
 void main() {
-  // final instance = MMPluginManifestServer();
+  // final instance = MmPluginManifestServer();
 
-  group('test MMPluginManifestServer', () {
-    // MMPluginManifestServerExecutables executables
+  group('test MmPluginManifestServer', () {
+    // MmPluginManifestServerExecutables executables
     test('to test the property `executables`', () async {
       // TODO
     });

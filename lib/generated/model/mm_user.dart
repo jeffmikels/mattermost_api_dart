@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUser {
-  /// Returns a new [MMUser] instance.
-  MMUser({
+class MmUser {
+  /// Returns a new [MmUser] instance.
+  MmUser({
     this.id,
     this.createAt,
     this.updateAt,
@@ -150,7 +150,7 @@ class MMUser {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMUserNotifyProps? notifyProps;
+  MmUserNotifyProps? notifyProps;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -198,7 +198,7 @@ class MMUser {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMTimezone? timezone;
+  MmTimezone? timezone;
 
   /// ID of accepted terms of service, if any. This field is not present if empty.
   ///
@@ -221,7 +221,7 @@ class MMUser {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUser &&
+      other is MmUser &&
           other.id == id &&
           other.createAt == createAt &&
           other.updateAt == updateAt &&
@@ -273,7 +273,7 @@ class MMUser {
 
   @override
   String toString() =>
-      'MMUser[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, email=$email, emailVerified=$emailVerified, authService=$authService, roles=$roles, locale=$locale, notifyProps=$notifyProps, props=$props, lastPasswordUpdate=$lastPasswordUpdate, lastPictureUpdate=$lastPictureUpdate, failedAttempts=$failedAttempts, mfaActive=$mfaActive, timezone=$timezone, termsOfServiceId=$termsOfServiceId, termsOfServiceCreateAt=$termsOfServiceCreateAt]';
+      'MmUser[id=$id, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, email=$email, emailVerified=$emailVerified, authService=$authService, roles=$roles, locale=$locale, notifyProps=$notifyProps, props=$props, lastPasswordUpdate=$lastPasswordUpdate, lastPictureUpdate=$lastPictureUpdate, failedAttempts=$failedAttempts, mfaActive=$mfaActive, timezone=$timezone, termsOfServiceId=$termsOfServiceId, termsOfServiceCreateAt=$termsOfServiceCreateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -346,10 +346,10 @@ class MMUser {
     return _json;
   }
 
-  /// Returns a new [MMUser] instance and imports its values from
+  /// Returns a new [MmUser] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUser? fromJson(dynamic value) {
+  static MmUser? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -358,13 +358,13 @@ class MMUser {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUser[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUser[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUser[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUser[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUser(
+      return MmUser(
         id: mapValueOfType<String>(json, r'id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         updateAt: mapValueOfType<int>(json, r'update_at'),
@@ -378,13 +378,13 @@ class MMUser {
         authService: mapValueOfType<String>(json, r'auth_service'),
         roles: mapValueOfType<String>(json, r'roles'),
         locale: mapValueOfType<String>(json, r'locale'),
-        notifyProps: MMUserNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmUserNotifyProps.fromJson(json[r'notify_props']),
         props: mapValueOfType<Map>(json, r'props'),
         lastPasswordUpdate: mapValueOfType<int>(json, r'last_password_update'),
         lastPictureUpdate: mapValueOfType<int>(json, r'last_picture_update'),
         failedAttempts: mapValueOfType<int>(json, r'failed_attempts'),
         mfaActive: mapValueOfType<bool>(json, r'mfa_active'),
-        timezone: MMTimezone.fromJson(json[r'timezone']),
+        timezone: MmTimezone.fromJson(json[r'timezone']),
         termsOfServiceId: mapValueOfType<String>(json, r'terms_of_service_id'),
         termsOfServiceCreateAt: mapValueOfType<int>(json, r'terms_of_service_create_at'),
       );
@@ -392,14 +392,14 @@ class MMUser {
     return null;
   }
 
-  static List<MMUser>? listFromJson(
+  static List<MmUser>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUser>[];
+    final result = <MmUser>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUser.fromJson(row);
+        final value = MmUser.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -408,12 +408,12 @@ class MMUser {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUser> mapFromJson(dynamic json) {
-    final map = <String, MMUser>{};
+  static Map<String, MmUser> mapFromJson(dynamic json) {
+    final map = <String, MmUser>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUser.fromJson(entry.value);
+        final value = MmUser.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -422,16 +422,16 @@ class MMUser {
     return map;
   }
 
-  // maps a json object with a list of MMUser-objects as value to a dart map
-  static Map<String, List<MMUser>> mapListFromJson(
+  // maps a json object with a list of MmUser-objects as value to a dart map
+  static Map<String, List<MmUser>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUser>>{};
+    final map = <String, List<MmUser>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUser.listFromJson(
+        final value = MmUser.listFromJson(
           entry.value,
           growable: growable,
         );

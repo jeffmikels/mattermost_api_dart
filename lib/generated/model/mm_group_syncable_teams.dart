@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGroupSyncableTeams {
-  /// Returns a new [MMGroupSyncableTeams] instance.
-  MMGroupSyncableTeams({
+class MmGroupSyncableTeams {
+  /// Returns a new [MmGroupSyncableTeams] instance.
+  MmGroupSyncableTeams({
     this.teamId,
     this.teamDisplayName,
     this.teamType,
@@ -90,7 +90,7 @@ class MMGroupSyncableTeams {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGroupSyncableTeams &&
+      other is MmGroupSyncableTeams &&
           other.teamId == teamId &&
           other.teamDisplayName == teamDisplayName &&
           other.teamType == teamType &&
@@ -114,7 +114,7 @@ class MMGroupSyncableTeams {
 
   @override
   String toString() =>
-      'MMGroupSyncableTeams[teamId=$teamId, teamDisplayName=$teamDisplayName, teamType=$teamType, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
+      'MmGroupSyncableTeams[teamId=$teamId, teamDisplayName=$teamDisplayName, teamType=$teamType, groupId=$groupId, autoAdd=$autoAdd, createAt=$createAt, deleteAt=$deleteAt, updateAt=$updateAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -145,10 +145,10 @@ class MMGroupSyncableTeams {
     return _json;
   }
 
-  /// Returns a new [MMGroupSyncableTeams] instance and imports its values from
+  /// Returns a new [MmGroupSyncableTeams] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGroupSyncableTeams? fromJson(dynamic value) {
+  static MmGroupSyncableTeams? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -157,13 +157,13 @@ class MMGroupSyncableTeams {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGroupSyncableTeams[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGroupSyncableTeams[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGroupSyncableTeams[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGroupSyncableTeams[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGroupSyncableTeams(
+      return MmGroupSyncableTeams(
         teamId: mapValueOfType<String>(json, r'team_id'),
         teamDisplayName: mapValueOfType<String>(json, r'team_display_name'),
         teamType: mapValueOfType<String>(json, r'team_type'),
@@ -177,14 +177,14 @@ class MMGroupSyncableTeams {
     return null;
   }
 
-  static List<MMGroupSyncableTeams>? listFromJson(
+  static List<MmGroupSyncableTeams>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGroupSyncableTeams>[];
+    final result = <MmGroupSyncableTeams>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGroupSyncableTeams.fromJson(row);
+        final value = MmGroupSyncableTeams.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -193,12 +193,12 @@ class MMGroupSyncableTeams {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGroupSyncableTeams> mapFromJson(dynamic json) {
-    final map = <String, MMGroupSyncableTeams>{};
+  static Map<String, MmGroupSyncableTeams> mapFromJson(dynamic json) {
+    final map = <String, MmGroupSyncableTeams>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroupSyncableTeams.fromJson(entry.value);
+        final value = MmGroupSyncableTeams.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -207,16 +207,16 @@ class MMGroupSyncableTeams {
     return map;
   }
 
-  // maps a json object with a list of MMGroupSyncableTeams-objects as value to a dart map
-  static Map<String, List<MMGroupSyncableTeams>> mapListFromJson(
+  // maps a json object with a list of MmGroupSyncableTeams-objects as value to a dart map
+  static Map<String, List<MmGroupSyncableTeams>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGroupSyncableTeams>>{};
+    final map = <String, List<MmGroupSyncableTeams>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroupSyncableTeams.listFromJson(
+        final value = MmGroupSyncableTeams.listFromJson(
           entry.value,
           growable: growable,
         );

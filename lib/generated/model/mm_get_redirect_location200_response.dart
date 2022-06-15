@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGetRedirectLocation200Response {
-  /// Returns a new [MMGetRedirectLocation200Response] instance.
-  MMGetRedirectLocation200Response({
+class MmGetRedirectLocation200Response {
+  /// Returns a new [MmGetRedirectLocation200Response] instance.
+  MmGetRedirectLocation200Response({
     this.location,
   });
 
@@ -26,7 +26,7 @@ class MMGetRedirectLocation200Response {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMGetRedirectLocation200Response && other.location == location;
+      identical(this, other) || other is MmGetRedirectLocation200Response && other.location == location;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMGetRedirectLocation200Response {
       (location == null ? 0 : location!.hashCode);
 
   @override
-  String toString() => 'MMGetRedirectLocation200Response[location=$location]';
+  String toString() => 'MmGetRedirectLocation200Response[location=$location]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMGetRedirectLocation200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetRedirectLocation200Response] instance and imports its values from
+  /// Returns a new [MmGetRedirectLocation200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetRedirectLocation200Response? fromJson(dynamic value) {
+  static MmGetRedirectLocation200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,27 +56,27 @@ class MMGetRedirectLocation200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGetRedirectLocation200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGetRedirectLocation200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGetRedirectLocation200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGetRedirectLocation200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetRedirectLocation200Response(
+      return MmGetRedirectLocation200Response(
         location: mapValueOfType<String>(json, r'location'),
       );
     }
     return null;
   }
 
-  static List<MMGetRedirectLocation200Response>? listFromJson(
+  static List<MmGetRedirectLocation200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetRedirectLocation200Response>[];
+    final result = <MmGetRedirectLocation200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetRedirectLocation200Response.fromJson(row);
+        final value = MmGetRedirectLocation200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMGetRedirectLocation200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetRedirectLocation200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetRedirectLocation200Response>{};
+  static Map<String, MmGetRedirectLocation200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetRedirectLocation200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetRedirectLocation200Response.fromJson(entry.value);
+        final value = MmGetRedirectLocation200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMGetRedirectLocation200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetRedirectLocation200Response-objects as value to a dart map
-  static Map<String, List<MMGetRedirectLocation200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetRedirectLocation200Response-objects as value to a dart map
+  static Map<String, List<MmGetRedirectLocation200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetRedirectLocation200Response>>{};
+    final map = <String, List<MmGetRedirectLocation200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetRedirectLocation200Response.listFromJson(
+        final value = MmGetRedirectLocation200Response.listFromJson(
           entry.value,
           growable: growable,
         );

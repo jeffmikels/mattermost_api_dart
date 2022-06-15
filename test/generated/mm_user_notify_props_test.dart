@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserNotifyProps
+// tests for MmUserNotifyProps
 void main() {
-  // final instance = MMUserNotifyProps();
+  // final instance = MmUserNotifyProps();
 
-  group('test MMUserNotifyProps', () {
+  group('test MmUserNotifyProps', () {
     // Set to \"true\" to enable email notifications, \"false\" to disable. Defaults to \"true\".
     // bool email
     test('to test the property `email`', () async {

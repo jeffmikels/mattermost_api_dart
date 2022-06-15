@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPreference
+// tests for MmPreference
 void main() {
-  // final instance = MMPreference();
+  // final instance = MmPreference();
 
-  group('test MMPreference', () {
+  group('test MmPreference', () {
     // The ID of the user that owns this preference
     // String userId
     test('to test the property `userId`', () async {

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTeamUnread {
-  /// Returns a new [MMTeamUnread] instance.
-  MMTeamUnread({
+class MmTeamUnread {
+  /// Returns a new [MmTeamUnread] instance.
+  MmTeamUnread({
     this.teamId,
     this.msgCount,
     this.mentionCount,
@@ -45,7 +45,7 @@ class MMTeamUnread {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMTeamUnread &&
+      other is MmTeamUnread &&
           other.teamId == teamId &&
           other.msgCount == msgCount &&
           other.mentionCount == mentionCount;
@@ -58,7 +58,7 @@ class MMTeamUnread {
       (mentionCount == null ? 0 : mentionCount!.hashCode);
 
   @override
-  String toString() => 'MMTeamUnread[teamId=$teamId, msgCount=$msgCount, mentionCount=$mentionCount]';
+  String toString() => 'MmTeamUnread[teamId=$teamId, msgCount=$msgCount, mentionCount=$mentionCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -74,10 +74,10 @@ class MMTeamUnread {
     return _json;
   }
 
-  /// Returns a new [MMTeamUnread] instance and imports its values from
+  /// Returns a new [MmTeamUnread] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTeamUnread? fromJson(dynamic value) {
+  static MmTeamUnread? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -86,13 +86,13 @@ class MMTeamUnread {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTeamUnread[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTeamUnread[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTeamUnread[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTeamUnread[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTeamUnread(
+      return MmTeamUnread(
         teamId: mapValueOfType<String>(json, r'team_id'),
         msgCount: mapValueOfType<int>(json, r'msg_count'),
         mentionCount: mapValueOfType<int>(json, r'mention_count'),
@@ -101,14 +101,14 @@ class MMTeamUnread {
     return null;
   }
 
-  static List<MMTeamUnread>? listFromJson(
+  static List<MmTeamUnread>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTeamUnread>[];
+    final result = <MmTeamUnread>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTeamUnread.fromJson(row);
+        final value = MmTeamUnread.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -117,12 +117,12 @@ class MMTeamUnread {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTeamUnread> mapFromJson(dynamic json) {
-    final map = <String, MMTeamUnread>{};
+  static Map<String, MmTeamUnread> mapFromJson(dynamic json) {
+    final map = <String, MmTeamUnread>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamUnread.fromJson(entry.value);
+        final value = MmTeamUnread.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -131,16 +131,16 @@ class MMTeamUnread {
     return map;
   }
 
-  // maps a json object with a list of MMTeamUnread-objects as value to a dart map
-  static Map<String, List<MMTeamUnread>> mapListFromJson(
+  // maps a json object with a list of MmTeamUnread-objects as value to a dart map
+  static Map<String, List<MmTeamUnread>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTeamUnread>>{};
+    final map = <String, List<MmTeamUnread>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTeamUnread.listFromJson(
+        final value = MmTeamUnread.listFromJson(
           entry.value,
           growable: growable,
         );

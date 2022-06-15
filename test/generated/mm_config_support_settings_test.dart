@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigSupportSettings
+// tests for MmConfigSupportSettings
 void main() {
-  // final instance = MMConfigSupportSettings();
+  // final instance = MmConfigSupportSettings();
 
-  group('test MMConfigSupportSettings', () {
+  group('test MmConfigSupportSettings', () {
     // String termsOfServiceLink
     test('to test the property `termsOfServiceLink`', () async {
       // TODO

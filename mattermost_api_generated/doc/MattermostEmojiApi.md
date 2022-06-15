@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **autocompleteEmoji**
-> MMEmoji autocompleteEmoji(name)
+> MmEmoji autocompleteEmoji(name)
 
 Autocomplete custom emoji
 
@@ -35,25 +35,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String name = 'name_example'; // String | The emoji name to search.
 
 try {
-  final MMEmoji? result = await client.emoji.autocompleteEmoji(name); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.autocompleteEmoji(name); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->autocompleteEmoji: $e\n');
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createEmoji**
-> MMEmoji createEmoji(image, emoji)
+> MmEmoji createEmoji(image, emoji)
 
 Create a custom emoji
 
@@ -98,18 +98,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -117,7 +117,7 @@ final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | A file to be up
 final String emoji = 'emoji_example'; // String | A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
 
 try {
-  final MMEmoji? result = await client.emoji.createEmoji(image, emoji); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.createEmoji(image, emoji); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->createEmoji: $e\n');
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteEmoji**
-> MMEmoji deleteEmoji(emojiId)
+> MmEmoji deleteEmoji(emojiId)
 
 Delete a custom emoji
 
@@ -163,25 +163,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String emojiId = 'emojiId_example'; // String | Emoji GUID
 
 try {
-  final MMEmoji? result = await client.emoji.deleteEmoji(emojiId); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.deleteEmoji(emojiId); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->deleteEmoji: $e\n');
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getEmoji**
-> MMEmoji getEmoji(emojiId)
+> MmEmoji getEmoji(emojiId)
 
 Get a custom emoji
 
@@ -226,25 +226,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String emojiId = 'emojiId_example'; // String | Emoji GUID
 
 try {
-  final MMEmoji? result = await client.emoji.getEmoji(emojiId); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.getEmoji(emojiId); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmoji: $e\n');
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getEmojiByName**
-> MMEmoji getEmojiByName(emojiName)
+> MmEmoji getEmojiByName(emojiName)
 
 Get a custom emoji by name
 
@@ -289,25 +289,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String emojiName = 'emojiName_example'; // String | Emoji name
 
 try {
-  final MMEmoji? result = await client.emoji.getEmojiByName(emojiName); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.getEmojiByName(emojiName); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmojiByName: $e\n');
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -352,18 +352,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -399,7 +399,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getEmojiList**
-> MMEmoji getEmojiList(page, perPage, sort)
+> MmEmoji getEmojiList(page, perPage, sort)
 
 Get a list of custom emoji
 
@@ -414,18 +414,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -434,7 +434,7 @@ final int perPage = 56; // int | The number of emojis per page.
 final String sort = 'sort_example'; // String | Either blank for no sorting or \"name\" to sort by emoji names. Minimum server version for sorting is 4.7.
 
 try {
-  final MMEmoji? result = await client.emoji.getEmojiList(page, perPage, sort); // await the Future<MMEmoji?>
+  final MmEmoji? result = await client.emoji.getEmojiList(page, perPage, sort); // await the Future<MmEmoji?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->getEmojiList: $e\n');
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMEmoji**](MMEmoji.md)
+[**MmEmoji**](MmEmoji.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchEmoji**
-> List<MMEmoji> searchEmoji(mMSearchEmojiRequest)
+> List<MmEmoji> searchEmoji(mmSearchEmojiRequest)
 
 Search custom emoji
 
@@ -481,25 +481,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMSearchEmojiRequest mMSearchEmojiRequest = MMSearchEmojiRequest(); // MMSearchEmojiRequest | Search criteria
+final MmSearchEmojiRequest mmSearchEmojiRequest = MmSearchEmojiRequest(); // MmSearchEmojiRequest | Search criteria
 
 try {
-  final List&lt;MMEmoji&gt;? result = await client.emoji.searchEmoji(mMSearchEmojiRequest); // await the Future<List&lt;MMEmoji&gt;?>
+  final List&lt;MmEmoji&gt;? result = await client.emoji.searchEmoji(mmSearchEmojiRequest); // await the Future<List&lt;MmEmoji&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostEmojiApi->searchEmoji: $e\n');
@@ -511,11 +511,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMSearchEmojiRequest** | [**MMSearchEmojiRequest**](MMSearchEmojiRequest.md)| Search criteria | 
+ **mmSearchEmojiRequest** | [**MmSearchEmojiRequest**](MmSearchEmojiRequest.md)| Search criteria | 
 
 ### Return type
 
-[**List<MMEmoji>**](MMEmoji.md)
+[**List<MmEmoji>**](MmEmoji.md)
 
 ### Authorization
 

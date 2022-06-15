@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMInviteGuestsToTeamRequest
+// tests for MmInviteGuestsToTeamRequest
 void main() {
-  // final instance = MMInviteGuestsToTeamRequest();
+  // final instance = MmInviteGuestsToTeamRequest();
 
-  group('test MMInviteGuestsToTeamRequest', () {
+  group('test MmInviteGuestsToTeamRequest', () {
     // List of emails
     // List<String> emails (default value: const [])
     test('to test the property `emails`', () async {

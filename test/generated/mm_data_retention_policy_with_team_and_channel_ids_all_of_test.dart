@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyWithTeamAndChannelIdsAllOf
+// tests for MmDataRetentionPolicyWithTeamAndChannelIdsAllOf
 void main() {
-  // final instance = MMDataRetentionPolicyWithTeamAndChannelIdsAllOf();
+  // final instance = MmDataRetentionPolicyWithTeamAndChannelIdsAllOf();
 
-  group('test MMDataRetentionPolicyWithTeamAndChannelIdsAllOf', () {
+  group('test MmDataRetentionPolicyWithTeamAndChannelIdsAllOf', () {
     // The IDs of the teams to which this policy should be applied.
     // List<String> teamIds (default value: const [])
     test('to test the property `teamIds`', () async {

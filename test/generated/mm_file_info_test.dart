@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMFileInfo
+// tests for MmFileInfo
 void main() {
-  // final instance = MMFileInfo();
+  // final instance = MmFileInfo();
 
-  group('test MMFileInfo', () {
+  group('test MmFileInfo', () {
     // The unique identifier for this file
     // String id
     test('to test the property `id`', () async {

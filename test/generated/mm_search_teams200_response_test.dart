@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchTeams200Response
+// tests for MmSearchTeams200Response
 void main() {
-  // final instance = MMSearchTeams200Response();
+  // final instance = MmSearchTeams200Response();
 
-  group('test MMSearchTeams200Response', () {
+  group('test MmSearchTeams200Response', () {
     // The teams that matched the query.
-    // List<MMTeam> teams (default value: const [])
+    // List<MmTeam> teams (default value: const [])
     test('to test the property `teams`', () async {
       // TODO
     });

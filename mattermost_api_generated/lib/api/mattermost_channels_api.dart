@@ -29,16 +29,16 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   The channel ID
   ///
-  /// * [MMAddChannelMemberRequest] mMAddChannelMemberRequest (required):
-  Future<Response> addChannelMemberWithHttpInfo(String channelId, MMAddChannelMemberRequest mMAddChannelMemberRequest,) async {
+  /// * [MmAddChannelMemberRequest] mmAddChannelMemberRequest (required):
+  Future<Response> addChannelMemberWithHttpInfo(String channelId, MmAddChannelMemberRequest mmAddChannelMemberRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMAddChannelMemberRequest;
+    Object? postBody = mmAddChannelMemberRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -65,17 +65,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   The channel ID
   ///
-  /// * [MMAddChannelMemberRequest] mMAddChannelMemberRequest (required):
-  Future<MMChannelMember?> addChannelMember(String channelId, MMAddChannelMemberRequest mMAddChannelMemberRequest,) async {
-    final response = await addChannelMemberWithHttpInfo(channelId, mMAddChannelMemberRequest,);
+  /// * [MmAddChannelMemberRequest] mmAddChannelMemberRequest (required):
+  Future<MmChannelMember?> addChannelMember(String channelId, MmAddChannelMemberRequest mmAddChannelMemberRequest,) async {
+    final response = await addChannelMemberWithHttpInfo(channelId, mmAddChannelMemberRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannelMember',) as MMChannelMember;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannelMember',) as MmChannelMember;
     
     }
     return null;
@@ -102,7 +102,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -133,18 +133,18 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<List<MMChannel>?> autocompleteChannelsForTeam(String teamId, String name,) async {
+  Future<List<MmChannel>?> autocompleteChannelsForTeam(String teamId, String name,) async {
     final response = await autocompleteChannelsForTeamWithHttpInfo(teamId, name,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -172,7 +172,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -203,18 +203,18 @@ class MattermostChannelsApi {
   ///
   /// * [String] name (required):
   ///   Name or display name
-  Future<List<MMChannel>?> autocompleteChannelsForTeamForSearch(String teamId, String name,) async {
+  Future<List<MmChannel>?> autocompleteChannelsForTeamForSearch(String teamId, String name,) async {
     final response = await autocompleteChannelsForTeamForSearchWithHttpInfo(teamId, name,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -248,7 +248,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -294,7 +294,7 @@ class MattermostChannelsApi {
   Future<void> channelMembersMinusGroupMembers(String channelId, String groupIds, { int? page, int? perPage, }) async {
     final response = await channelMembersMinusGroupMembersWithHttpInfo(channelId, groupIds,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -306,16 +306,16 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateChannelRequest] mMCreateChannelRequest (required):
+  /// * [MmCreateChannelRequest] mmCreateChannelRequest (required):
   ///   Channel object to be created
-  Future<Response> createChannelWithHttpInfo(MMCreateChannelRequest mMCreateChannelRequest,) async {
+  Future<Response> createChannelWithHttpInfo(MmCreateChannelRequest mmCreateChannelRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateChannelRequest;
+    Object? postBody = mmCreateChannelRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -339,18 +339,18 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateChannelRequest] mMCreateChannelRequest (required):
+  /// * [MmCreateChannelRequest] mmCreateChannelRequest (required):
   ///   Channel object to be created
-  Future<MMChannel?> createChannel(MMCreateChannelRequest mMCreateChannelRequest,) async {
-    final response = await createChannelWithHttpInfo(mMCreateChannelRequest,);
+  Future<MmChannel?> createChannel(MmCreateChannelRequest mmCreateChannelRequest,) async {
+    final response = await createChannelWithHttpInfo(mmCreateChannelRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -373,7 +373,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -399,16 +399,16 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   The two user ids to be in the direct message
-  Future<MMChannel?> createDirectChannel(List<String> requestBody,) async {
+  Future<MmChannel?> createDirectChannel(List<String> requestBody,) async {
     final response = await createDirectChannelWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -431,7 +431,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -457,16 +457,16 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   User ids to be in the group message channel
-  Future<MMChannel?> createGroupChannel(List<String> requestBody,) async {
+  Future<MmChannel?> createGroupChannel(List<String> requestBody,) async {
     final response = await createGroupChannelWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -486,17 +486,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMSidebarCategory] mMSidebarCategory (required):
-  Future<Response> createSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, MMSidebarCategory mMSidebarCategory,) async {
+  /// * [MmSidebarCategory] mmSidebarCategory (required):
+  Future<Response> createSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, MmSidebarCategory mmSidebarCategory,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories'
       .replaceAll('{team_id}', teamId)
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSidebarCategory;
+    Object? postBody = mmSidebarCategory;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -526,17 +526,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMSidebarCategory] mMSidebarCategory (required):
-  Future<MMSidebarCategory?> createSidebarCategoryForTeamForUser(String teamId, String userId, MMSidebarCategory mMSidebarCategory,) async {
-    final response = await createSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, mMSidebarCategory,);
+  /// * [MmSidebarCategory] mmSidebarCategory (required):
+  Future<MmSidebarCategory?> createSidebarCategoryForTeamForUser(String teamId, String userId, MmSidebarCategory mmSidebarCategory,) async {
+    final response = await createSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, mmSidebarCategory,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSidebarCategory',) as MMSidebarCategory;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSidebarCategory',) as MmSidebarCategory;
     
     }
     return null;
@@ -560,7 +560,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -586,16 +586,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMStatusOK?> deleteChannel(String channelId,) async {
+  Future<MmStatusOK?> deleteChannel(String channelId,) async {
     final response = await deleteChannelWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -634,7 +634,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -698,18 +698,18 @@ class MattermostChannelsApi {
   ///
   /// * [bool] excludePolicyConstrained:
   ///   If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
-  Future<List<MMChannelWithTeamData>?> getAllChannels({ String? notAssociatedToGroup, int? page, int? perPage, bool? excludeDefaultChannels, bool? includeDeleted, bool? includeTotalCount, bool? excludePolicyConstrained, }) async {
+  Future<List<MmChannelWithTeamData>?> getAllChannels({ String? notAssociatedToGroup, int? page, int? perPage, bool? excludeDefaultChannels, bool? includeDeleted, bool? includeTotalCount, bool? excludePolicyConstrained, }) async {
     final response = await getAllChannelsWithHttpInfo( notAssociatedToGroup: notAssociatedToGroup, page: page, perPage: perPage, excludeDefaultChannels: excludeDefaultChannels, includeDeleted: includeDeleted, includeTotalCount: includeTotalCount, excludePolicyConstrained: excludePolicyConstrained, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelWithTeamData>') as List)
-        .cast<MMChannelWithTeamData>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelWithTeamData>') as List)
+        .cast<MmChannelWithTeamData>()
         .toList();
 
     }
@@ -734,7 +734,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -760,16 +760,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMChannel?> getChannel(String channelId,) async {
+  Future<MmChannel?> getChannel(String channelId,) async {
     final response = await getChannelWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -800,7 +800,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -836,16 +836,16 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<MMChannel?> getChannelByName(String teamId, String channelName, { bool? includeDeleted, }) async {
+  Future<MmChannel?> getChannelByName(String teamId, String channelName, { bool? includeDeleted, }) async {
     final response = await getChannelByNameWithHttpInfo(teamId, channelName,  includeDeleted: includeDeleted, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -876,7 +876,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -912,16 +912,16 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
-  Future<MMChannel?> getChannelByNameForTeamName(String teamName, String channelName, { bool? includeDeleted, }) async {
+  Future<MmChannel?> getChannelByNameForTeamName(String teamName, String channelName, { bool? includeDeleted, }) async {
     final response = await getChannelByNameForTeamNameWithHttpInfo(teamName, channelName,  includeDeleted: includeDeleted, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -949,7 +949,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -978,16 +978,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MMChannelMember?> getChannelMember(String channelId, String userId,) async {
+  Future<MmChannelMember?> getChannelMember(String channelId, String userId,) async {
     final response = await getChannelMemberWithHttpInfo(channelId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannelMember',) as MMChannelMember;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannelMember',) as MmChannelMember;
     
     }
     return null;
@@ -1014,7 +1014,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1050,7 +1050,7 @@ class MattermostChannelsApi {
   Future<void> getChannelMemberCountsByGroup(String channelId, { bool? includeTimezones, }) async {
     final response = await getChannelMemberCountsByGroupWithHttpInfo(channelId,  includeTimezones: includeTimezones, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -1078,7 +1078,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1117,18 +1117,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of members per page. There is a maximum limit of 200 members.
-  Future<List<MMChannelMember>?> getChannelMembers(String channelId, { int? page, int? perPage, }) async {
+  Future<List<MmChannelMember>?> getChannelMembers(String channelId, { int? page, int? perPage, }) async {
     final response = await getChannelMembersWithHttpInfo(channelId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelMember>') as List)
-        .cast<MMChannelMember>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelMember>') as List)
+        .cast<MmChannelMember>()
         .toList();
 
     }
@@ -1156,7 +1156,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1185,18 +1185,18 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of user ids
-  Future<List<MMChannelMember>?> getChannelMembersByIds(String channelId, List<String> requestBody,) async {
+  Future<List<MmChannelMember>?> getChannelMembersByIds(String channelId, List<String> requestBody,) async {
     final response = await getChannelMembersByIdsWithHttpInfo(channelId, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelMember>') as List)
-        .cast<MMChannelMember>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelMember>') as List)
+        .cast<MmChannelMember>()
         .toList();
 
     }
@@ -1225,7 +1225,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1254,18 +1254,18 @@ class MattermostChannelsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<List<MMChannelMember>?> getChannelMembersForUser(String userId, String teamId,) async {
+  Future<List<MmChannelMember>?> getChannelMembersForUser(String userId, String teamId,) async {
     final response = await getChannelMembersForUserWithHttpInfo(userId, teamId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelMember>') as List)
-        .cast<MMChannelMember>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelMember>') as List)
+        .cast<MmChannelMember>()
         .toList();
 
     }
@@ -1290,7 +1290,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1319,7 +1319,7 @@ class MattermostChannelsApi {
   Future<List<String>?> getChannelMembersTimezones(String channelId,) async {
     final response = await getChannelMembersTimezonesWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1352,7 +1352,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1378,18 +1378,18 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<List<MMChannelModeration>?> getChannelModerations(String channelId,) async {
+  Future<List<MmChannelModeration>?> getChannelModerations(String channelId,) async {
     final response = await getChannelModerationsWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelModeration>') as List)
-        .cast<MMChannelModeration>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelModeration>') as List)
+        .cast<MmChannelModeration>()
         .toList();
 
     }
@@ -1414,7 +1414,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1440,16 +1440,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMChannelStats?> getChannelStats(String channelId,) async {
+  Future<MmChannelStats?> getChannelStats(String channelId,) async {
     final response = await getChannelStatsWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannelStats',) as MMChannelStats;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannelStats',) as MmChannelStats;
     
     }
     return null;
@@ -1477,7 +1477,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1506,16 +1506,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMChannelUnread?> getChannelUnread(String userId, String channelId,) async {
+  Future<MmChannelUnread?> getChannelUnread(String userId, String channelId,) async {
     final response = await getChannelUnreadWithHttpInfo(userId, channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannelUnread',) as MMChannelUnread;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannelUnread',) as MmChannelUnread;
     
     }
     return null;
@@ -1549,7 +1549,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1591,18 +1591,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] lastDeleteAt:
   ///   Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
-  Future<List<MMChannel>?> getChannelsForTeamForUser(String userId, String teamId, { bool? includeDeleted, int? lastDeleteAt, }) async {
+  Future<List<MmChannel>?> getChannelsForTeamForUser(String userId, String teamId, { bool? includeDeleted, int? lastDeleteAt, }) async {
     final response = await getChannelsForTeamForUserWithHttpInfo(userId, teamId,  includeDeleted: includeDeleted, lastDeleteAt: lastDeleteAt, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -1633,7 +1633,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1672,18 +1672,18 @@ class MattermostChannelsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if deleted channels should be returned or not
-  Future<List<MMChannel>?> getChannelsForUser(String userId, { int? lastDeleteAt, bool? includeDeleted, }) async {
+  Future<List<MmChannel>?> getChannelsForUser(String userId, { int? lastDeleteAt, bool? includeDeleted, }) async {
     final response = await getChannelsForUserWithHttpInfo(userId,  lastDeleteAt: lastDeleteAt, includeDeleted: includeDeleted, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -1714,7 +1714,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1753,18 +1753,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<List<MMChannel>?> getDeletedChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
+  Future<List<MmChannel>?> getDeletedChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
     final response = await getDeletedChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -1789,7 +1789,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1815,16 +1815,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMPostList?> getPinnedPosts(String channelId,) async {
+  Future<MmPostList?> getPinnedPosts(String channelId,) async {
     final response = await getPinnedPostsWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMPostList',) as MMPostList;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmPostList',) as MmPostList;
     
     }
     return null;
@@ -1854,7 +1854,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1893,18 +1893,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of private channels per page.
-  Future<List<MMChannel>?> getPrivateChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
+  Future<List<MmChannel>?> getPrivateChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
     final response = await getPrivateChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -1932,7 +1932,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1961,18 +1961,18 @@ class MattermostChannelsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of channel ids
-  Future<List<MMChannel>?> getPublicChannelsByIdsForTeam(String teamId, List<String> requestBody,) async {
+  Future<List<MmChannel>?> getPublicChannelsByIdsForTeam(String teamId, List<String> requestBody,) async {
     final response = await getPublicChannelsByIdsForTeamWithHttpInfo(teamId, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -2003,7 +2003,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2042,18 +2042,18 @@ class MattermostChannelsApi {
   ///
   /// * [int] perPage:
   ///   The number of public channels per page.
-  Future<List<MMChannel>?> getPublicChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
+  Future<List<MmChannel>?> getPublicChannelsForTeam(String teamId, { int? page, int? perPage, }) async {
     final response = await getPublicChannelsForTeamWithHttpInfo(teamId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -2082,7 +2082,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2111,18 +2111,18 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<List<MMOrderedSidebarCategories>?> getSidebarCategoriesForTeamForUser(String teamId, String userId,) async {
+  Future<List<MmOrderedSidebarCategories>?> getSidebarCategoriesForTeamForUser(String teamId, String userId,) async {
     final response = await getSidebarCategoriesForTeamForUserWithHttpInfo(teamId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMOrderedSidebarCategories>') as List)
-        .cast<MMOrderedSidebarCategories>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmOrderedSidebarCategories>') as List)
+        .cast<MmOrderedSidebarCategories>()
         .toList();
 
     }
@@ -2155,7 +2155,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2187,16 +2187,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<MMSidebarCategory?> getSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
+  Future<MmSidebarCategory?> getSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
     final response = await getSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSidebarCategory',) as MMSidebarCategory;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSidebarCategory',) as MmSidebarCategory;
     
     }
     return null;
@@ -2224,7 +2224,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2256,7 +2256,7 @@ class MattermostChannelsApi {
   Future<List<String>?> getSidebarCategoryOrderForTeamForUser(String teamId, String userId,) async {
     final response = await getSidebarCategoryOrderForTeamForUserWithHttpInfo(teamId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2282,16 +2282,16 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMMoveChannelRequest] mMMoveChannelRequest (required):
-  Future<Response> moveChannelWithHttpInfo(String channelId, MMMoveChannelRequest mMMoveChannelRequest,) async {
+  /// * [MmMoveChannelRequest] mmMoveChannelRequest (required):
+  Future<Response> moveChannelWithHttpInfo(String channelId, MmMoveChannelRequest mmMoveChannelRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/move'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMMoveChannelRequest;
+    Object? postBody = mmMoveChannelRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2318,17 +2318,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMMoveChannelRequest] mMMoveChannelRequest (required):
-  Future<MMChannel?> moveChannel(String channelId, MMMoveChannelRequest mMMoveChannelRequest,) async {
-    final response = await moveChannelWithHttpInfo(channelId, mMMoveChannelRequest,);
+  /// * [MmMoveChannelRequest] mmMoveChannelRequest (required):
+  Future<MmChannel?> moveChannel(String channelId, MmMoveChannelRequest mmMoveChannelRequest,) async {
+    final response = await moveChannelWithHttpInfo(channelId, mmMoveChannelRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -2345,17 +2345,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMPatchChannelRequest] mMPatchChannelRequest (required):
+  /// * [MmPatchChannelRequest] mmPatchChannelRequest (required):
   ///   Channel object to be updated
-  Future<Response> patchChannelWithHttpInfo(String channelId, MMPatchChannelRequest mMPatchChannelRequest,) async {
+  Future<Response> patchChannelWithHttpInfo(String channelId, MmPatchChannelRequest mmPatchChannelRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/patch'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMPatchChannelRequest;
+    Object? postBody = mmPatchChannelRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2382,18 +2382,18 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMPatchChannelRequest] mMPatchChannelRequest (required):
+  /// * [MmPatchChannelRequest] mmPatchChannelRequest (required):
   ///   Channel object to be updated
-  Future<MMChannel?> patchChannel(String channelId, MMPatchChannelRequest mMPatchChannelRequest,) async {
-    final response = await patchChannelWithHttpInfo(channelId, mMPatchChannelRequest,);
+  Future<MmChannel?> patchChannel(String channelId, MmPatchChannelRequest mmPatchChannelRequest,) async {
+    final response = await patchChannelWithHttpInfo(channelId, mmPatchChannelRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -2410,16 +2410,16 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMChannelModerationPatch] mMChannelModerationPatch (required):
-  Future<Response> patchChannelModerationsWithHttpInfo(String channelId, MMChannelModerationPatch mMChannelModerationPatch,) async {
+  /// * [MmChannelModerationPatch] mmChannelModerationPatch (required):
+  Future<Response> patchChannelModerationsWithHttpInfo(String channelId, MmChannelModerationPatch mmChannelModerationPatch,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/moderations/patch'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMChannelModerationPatch;
+    Object? postBody = mmChannelModerationPatch;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2446,19 +2446,19 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMChannelModerationPatch] mMChannelModerationPatch (required):
-  Future<List<MMChannelModeration>?> patchChannelModerations(String channelId, MMChannelModerationPatch mMChannelModerationPatch,) async {
-    final response = await patchChannelModerationsWithHttpInfo(channelId, mMChannelModerationPatch,);
+  /// * [MmChannelModerationPatch] mmChannelModerationPatch (required):
+  Future<List<MmChannelModeration>?> patchChannelModerations(String channelId, MmChannelModerationPatch mmChannelModerationPatch,) async {
+    final response = await patchChannelModerationsWithHttpInfo(channelId, mmChannelModerationPatch,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannelModeration>') as List)
-        .cast<MMChannelModeration>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannelModeration>') as List)
+        .cast<MmChannelModeration>()
         .toList();
 
     }
@@ -2491,7 +2491,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2523,16 +2523,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] categoryId (required):
   ///   Category GUID
-  Future<MMSidebarCategory?> removeSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
+  Future<MmSidebarCategory?> removeSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId,) async {
     final response = await removeSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSidebarCategory',) as MMSidebarCategory;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSidebarCategory',) as MmSidebarCategory;
     
     }
     return null;
@@ -2560,7 +2560,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2589,16 +2589,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MMStatusOK?> removeUserFromChannel(String channelId, String userId,) async {
+  Future<MmStatusOK?> removeUserFromChannel(String channelId, String userId,) async {
     final response = await removeUserFromChannelWithHttpInfo(channelId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -2622,7 +2622,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2648,16 +2648,16 @@ class MattermostChannelsApi {
   ///
   /// * [String] channelId (required):
   ///   Channel GUID
-  Future<MMChannel?> restoreChannel(String channelId,) async {
+  Future<MmChannel?> restoreChannel(String channelId,) async {
     final response = await restoreChannelWithHttpInfo(channelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -2671,19 +2671,19 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSearchAllChannelsRequest] mMSearchAllChannelsRequest (required):
+  /// * [MmSearchAllChannelsRequest] mmSearchAllChannelsRequest (required):
   ///   The search terms and logic to use in the search.
   ///
   /// * [bool] systemConsole:
   ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
-  Future<Response> searchAllChannelsWithHttpInfo(MMSearchAllChannelsRequest mMSearchAllChannelsRequest, { bool? systemConsole, }) async {
+  Future<Response> searchAllChannelsWithHttpInfo(MmSearchAllChannelsRequest mmSearchAllChannelsRequest, { bool? systemConsole, }) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/search';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSearchAllChannelsRequest;
+    Object? postBody = mmSearchAllChannelsRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2711,21 +2711,21 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSearchAllChannelsRequest] mMSearchAllChannelsRequest (required):
+  /// * [MmSearchAllChannelsRequest] mmSearchAllChannelsRequest (required):
   ///   The search terms and logic to use in the search.
   ///
   /// * [bool] systemConsole:
   ///   Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
-  Future<MMSearchAllChannels200Response?> searchAllChannels(MMSearchAllChannelsRequest mMSearchAllChannelsRequest, { bool? systemConsole, }) async {
-    final response = await searchAllChannelsWithHttpInfo(mMSearchAllChannelsRequest,  systemConsole: systemConsole, );
+  Future<MmSearchAllChannels200Response?> searchAllChannels(MmSearchAllChannelsRequest mmSearchAllChannelsRequest, { bool? systemConsole, }) async {
+    final response = await searchAllChannelsWithHttpInfo(mmSearchAllChannelsRequest,  systemConsole: systemConsole, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSearchAllChannels200Response',) as MMSearchAllChannels200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSearchAllChannels200Response',) as MmSearchAllChannels200Response;
     
     }
     return null;
@@ -2742,17 +2742,17 @@ class MattermostChannelsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchArchivedChannelsRequest] mMSearchArchivedChannelsRequest (required):
+  /// * [MmSearchArchivedChannelsRequest] mmSearchArchivedChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchArchivedChannelsWithHttpInfo(String teamId, MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest,) async {
+  Future<Response> searchArchivedChannelsWithHttpInfo(String teamId, MmSearchArchivedChannelsRequest mmSearchArchivedChannelsRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/teams/{team_id}/channels/search_archived'
       .replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSearchArchivedChannelsRequest;
+    Object? postBody = mmSearchArchivedChannelsRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2779,20 +2779,20 @@ class MattermostChannelsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchArchivedChannelsRequest] mMSearchArchivedChannelsRequest (required):
+  /// * [MmSearchArchivedChannelsRequest] mmSearchArchivedChannelsRequest (required):
   ///   Search criteria
-  Future<List<MMChannel>?> searchArchivedChannels(String teamId, MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest,) async {
-    final response = await searchArchivedChannelsWithHttpInfo(teamId, mMSearchArchivedChannelsRequest,);
+  Future<List<MmChannel>?> searchArchivedChannels(String teamId, MmSearchArchivedChannelsRequest mmSearchArchivedChannelsRequest,) async {
+    final response = await searchArchivedChannelsWithHttpInfo(teamId, mmSearchArchivedChannelsRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -2810,17 +2810,17 @@ class MattermostChannelsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchChannelsRequest] mMSearchChannelsRequest (required):
+  /// * [MmSearchChannelsRequest] mmSearchChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchChannelsWithHttpInfo(String teamId, MMSearchChannelsRequest mMSearchChannelsRequest,) async {
+  Future<Response> searchChannelsWithHttpInfo(String teamId, MmSearchChannelsRequest mmSearchChannelsRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/teams/{team_id}/channels/search'
       .replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSearchChannelsRequest;
+    Object? postBody = mmSearchChannelsRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2847,20 +2847,20 @@ class MattermostChannelsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchChannelsRequest] mMSearchChannelsRequest (required):
+  /// * [MmSearchChannelsRequest] mmSearchChannelsRequest (required):
   ///   Search criteria
-  Future<List<MMChannel>?> searchChannels(String teamId, MMSearchChannelsRequest mMSearchChannelsRequest,) async {
-    final response = await searchChannelsWithHttpInfo(teamId, mMSearchChannelsRequest,);
+  Future<List<MmChannel>?> searchChannels(String teamId, MmSearchChannelsRequest mmSearchChannelsRequest,) async {
+    final response = await searchChannelsWithHttpInfo(teamId, mmSearchChannelsRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -2875,16 +2875,16 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSearchGroupChannelsRequest] mMSearchGroupChannelsRequest (required):
+  /// * [MmSearchGroupChannelsRequest] mmSearchGroupChannelsRequest (required):
   ///   Search criteria
-  Future<Response> searchGroupChannelsWithHttpInfo(MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest,) async {
+  Future<Response> searchGroupChannelsWithHttpInfo(MmSearchGroupChannelsRequest mmSearchGroupChannelsRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/group/search';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSearchGroupChannelsRequest;
+    Object? postBody = mmSearchGroupChannelsRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2908,20 +2908,20 @@ class MattermostChannelsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMSearchGroupChannelsRequest] mMSearchGroupChannelsRequest (required):
+  /// * [MmSearchGroupChannelsRequest] mmSearchGroupChannelsRequest (required):
   ///   Search criteria
-  Future<List<MMChannel>?> searchGroupChannels(MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest,) async {
-    final response = await searchGroupChannelsWithHttpInfo(mMSearchGroupChannelsRequest,);
+  Future<List<MmChannel>?> searchGroupChannels(MmSearchGroupChannelsRequest mmSearchGroupChannelsRequest,) async {
+    final response = await searchGroupChannelsWithHttpInfo(mmSearchGroupChannelsRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMChannel>') as List)
-        .cast<MMChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmChannel>') as List)
+        .cast<MmChannel>()
         .toList();
 
     }
@@ -2939,17 +2939,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateChannelRequest] mMUpdateChannelRequest (required):
+  /// * [MmUpdateChannelRequest] mmUpdateChannelRequest (required):
   ///   Channel object to be updated
-  Future<Response> updateChannelWithHttpInfo(String channelId, MMUpdateChannelRequest mMUpdateChannelRequest,) async {
+  Future<Response> updateChannelWithHttpInfo(String channelId, MmUpdateChannelRequest mmUpdateChannelRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateChannelRequest;
+    Object? postBody = mmUpdateChannelRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -2976,18 +2976,18 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateChannelRequest] mMUpdateChannelRequest (required):
+  /// * [MmUpdateChannelRequest] mmUpdateChannelRequest (required):
   ///   Channel object to be updated
-  Future<MMChannel?> updateChannel(String channelId, MMUpdateChannelRequest mMUpdateChannelRequest,) async {
-    final response = await updateChannelWithHttpInfo(channelId, mMUpdateChannelRequest,);
+  Future<MmChannel?> updateChannel(String channelId, MmUpdateChannelRequest mmUpdateChannelRequest,) async {
+    final response = await updateChannelWithHttpInfo(channelId, mmUpdateChannelRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -3007,18 +3007,18 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMUpdateTeamMemberSchemeRolesRequest] mMUpdateTeamMemberSchemeRolesRequest (required):
+  /// * [MmUpdateTeamMemberSchemeRolesRequest] mmUpdateTeamMemberSchemeRolesRequest (required):
   ///   Scheme properties.
-  Future<Response> updateChannelMemberSchemeRolesWithHttpInfo(String channelId, String userId, MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest,) async {
+  Future<Response> updateChannelMemberSchemeRolesWithHttpInfo(String channelId, String userId, MmUpdateTeamMemberSchemeRolesRequest mmUpdateTeamMemberSchemeRolesRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/schemeRoles'
       .replaceAll('{channel_id}', channelId)
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateTeamMemberSchemeRolesRequest;
+    Object? postBody = mmUpdateTeamMemberSchemeRolesRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3048,18 +3048,18 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMUpdateTeamMemberSchemeRolesRequest] mMUpdateTeamMemberSchemeRolesRequest (required):
+  /// * [MmUpdateTeamMemberSchemeRolesRequest] mmUpdateTeamMemberSchemeRolesRequest (required):
   ///   Scheme properties.
-  Future<MMStatusOK?> updateChannelMemberSchemeRoles(String channelId, String userId, MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest,) async {
-    final response = await updateChannelMemberSchemeRolesWithHttpInfo(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest,);
+  Future<MmStatusOK?> updateChannelMemberSchemeRoles(String channelId, String userId, MmUpdateTeamMemberSchemeRolesRequest mmUpdateTeamMemberSchemeRolesRequest,) async {
+    final response = await updateChannelMemberSchemeRolesWithHttpInfo(channelId, userId, mmUpdateTeamMemberSchemeRolesRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -3079,17 +3079,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMChannelNotifyProps] mMChannelNotifyProps (required):
-  Future<Response> updateChannelNotifyPropsWithHttpInfo(String channelId, String userId, MMChannelNotifyProps mMChannelNotifyProps,) async {
+  /// * [MmChannelNotifyProps] mmChannelNotifyProps (required):
+  Future<Response> updateChannelNotifyPropsWithHttpInfo(String channelId, String userId, MmChannelNotifyProps mmChannelNotifyProps,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/notify_props'
       .replaceAll('{channel_id}', channelId)
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMChannelNotifyProps;
+    Object? postBody = mmChannelNotifyProps;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3119,17 +3119,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMChannelNotifyProps] mMChannelNotifyProps (required):
-  Future<MMStatusOK?> updateChannelNotifyProps(String channelId, String userId, MMChannelNotifyProps mMChannelNotifyProps,) async {
-    final response = await updateChannelNotifyPropsWithHttpInfo(channelId, userId, mMChannelNotifyProps,);
+  /// * [MmChannelNotifyProps] mmChannelNotifyProps (required):
+  Future<MmStatusOK?> updateChannelNotifyProps(String channelId, String userId, MmChannelNotifyProps mmChannelNotifyProps,) async {
+    final response = await updateChannelNotifyPropsWithHttpInfo(channelId, userId, mmChannelNotifyProps,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -3146,16 +3146,16 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateChannelPrivacyRequest] mMUpdateChannelPrivacyRequest (required):
-  Future<Response> updateChannelPrivacyWithHttpInfo(String channelId, MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest,) async {
+  /// * [MmUpdateChannelPrivacyRequest] mmUpdateChannelPrivacyRequest (required):
+  Future<Response> updateChannelPrivacyWithHttpInfo(String channelId, MmUpdateChannelPrivacyRequest mmUpdateChannelPrivacyRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/privacy'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateChannelPrivacyRequest;
+    Object? postBody = mmUpdateChannelPrivacyRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3182,17 +3182,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateChannelPrivacyRequest] mMUpdateChannelPrivacyRequest (required):
-  Future<MMChannel?> updateChannelPrivacy(String channelId, MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest,) async {
-    final response = await updateChannelPrivacyWithHttpInfo(channelId, mMUpdateChannelPrivacyRequest,);
+  /// * [MmUpdateChannelPrivacyRequest] mmUpdateChannelPrivacyRequest (required):
+  Future<MmChannel?> updateChannelPrivacy(String channelId, MmUpdateChannelPrivacyRequest mmUpdateChannelPrivacyRequest,) async {
+    final response = await updateChannelPrivacyWithHttpInfo(channelId, mmUpdateChannelPrivacyRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMChannel',) as MMChannel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmChannel',) as MmChannel;
     
     }
     return null;
@@ -3212,18 +3212,18 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMUpdateUserRolesRequest] mMUpdateUserRolesRequest (required):
+  /// * [MmUpdateUserRolesRequest] mmUpdateUserRolesRequest (required):
   ///   Space-delimited channel roles to assign to the user
-  Future<Response> updateChannelRolesWithHttpInfo(String channelId, String userId, MMUpdateUserRolesRequest mMUpdateUserRolesRequest,) async {
+  Future<Response> updateChannelRolesWithHttpInfo(String channelId, String userId, MmUpdateUserRolesRequest mmUpdateUserRolesRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/members/{user_id}/roles'
       .replaceAll('{channel_id}', channelId)
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateUserRolesRequest;
+    Object? postBody = mmUpdateUserRolesRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3253,18 +3253,18 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [MMUpdateUserRolesRequest] mMUpdateUserRolesRequest (required):
+  /// * [MmUpdateUserRolesRequest] mmUpdateUserRolesRequest (required):
   ///   Space-delimited channel roles to assign to the user
-  Future<MMStatusOK?> updateChannelRoles(String channelId, String userId, MMUpdateUserRolesRequest mMUpdateUserRolesRequest,) async {
-    final response = await updateChannelRolesWithHttpInfo(channelId, userId, mMUpdateUserRolesRequest,);
+  Future<MmStatusOK?> updateChannelRoles(String channelId, String userId, MmUpdateUserRolesRequest mmUpdateUserRolesRequest,) async {
+    final response = await updateChannelRolesWithHttpInfo(channelId, userId, mmUpdateUserRolesRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -3281,17 +3281,17 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateTeamSchemeRequest] mMUpdateTeamSchemeRequest (required):
+  /// * [MmUpdateTeamSchemeRequest] mmUpdateTeamSchemeRequest (required):
   ///   Scheme GUID
-  Future<Response> updateChannelSchemeWithHttpInfo(String channelId, MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest,) async {
+  Future<Response> updateChannelSchemeWithHttpInfo(String channelId, MmUpdateTeamSchemeRequest mmUpdateTeamSchemeRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/{channel_id}/scheme'
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateTeamSchemeRequest;
+    Object? postBody = mmUpdateTeamSchemeRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3318,18 +3318,18 @@ class MattermostChannelsApi {
   /// * [String] channelId (required):
   ///   Channel GUID
   ///
-  /// * [MMUpdateTeamSchemeRequest] mMUpdateTeamSchemeRequest (required):
+  /// * [MmUpdateTeamSchemeRequest] mmUpdateTeamSchemeRequest (required):
   ///   Scheme GUID
-  Future<MMStatusOK?> updateChannelScheme(String channelId, MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest,) async {
-    final response = await updateChannelSchemeWithHttpInfo(channelId, mMUpdateTeamSchemeRequest,);
+  Future<MmStatusOK?> updateChannelScheme(String channelId, MmUpdateTeamSchemeRequest mmUpdateTeamSchemeRequest,) async {
+    final response = await updateChannelSchemeWithHttpInfo(channelId, mmUpdateTeamSchemeRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMStatusOK',) as MMStatusOK;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmStatusOK',) as MmStatusOK;
     
     }
     return null;
@@ -3349,17 +3349,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MMSidebarCategory>] mMSidebarCategory (required):
-  Future<Response> updateSidebarCategoriesForTeamForUserWithHttpInfo(String teamId, String userId, List<MMSidebarCategory> mMSidebarCategory,) async {
+  /// * [List<MmSidebarCategory>] mmSidebarCategory (required):
+  Future<Response> updateSidebarCategoriesForTeamForUserWithHttpInfo(String teamId, String userId, List<MmSidebarCategory> mmSidebarCategory,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories'
       .replaceAll('{team_id}', teamId)
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSidebarCategory;
+    Object? postBody = mmSidebarCategory;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3389,17 +3389,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User GUID
   ///
-  /// * [List<MMSidebarCategory>] mMSidebarCategory (required):
-  Future<MMSidebarCategory?> updateSidebarCategoriesForTeamForUser(String teamId, String userId, List<MMSidebarCategory> mMSidebarCategory,) async {
-    final response = await updateSidebarCategoriesForTeamForUserWithHttpInfo(teamId, userId, mMSidebarCategory,);
+  /// * [List<MmSidebarCategory>] mmSidebarCategory (required):
+  Future<MmSidebarCategory?> updateSidebarCategoriesForTeamForUser(String teamId, String userId, List<MmSidebarCategory> mmSidebarCategory,) async {
+    final response = await updateSidebarCategoriesForTeamForUserWithHttpInfo(teamId, userId, mmSidebarCategory,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSidebarCategory',) as MMSidebarCategory;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSidebarCategory',) as MmSidebarCategory;
     
     }
     return null;
@@ -3422,8 +3422,8 @@ class MattermostChannelsApi {
   /// * [String] categoryId (required):
   ///   Category GUID
   ///
-  /// * [MMSidebarCategory] mMSidebarCategory (required):
-  Future<Response> updateSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, String categoryId, MMSidebarCategory mMSidebarCategory,) async {
+  /// * [MmSidebarCategory] mmSidebarCategory (required):
+  Future<Response> updateSidebarCategoryForTeamForUserWithHttpInfo(String teamId, String userId, String categoryId, MmSidebarCategory mmSidebarCategory,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/{user_id}/teams/{team_id}/channels/categories/{category_id}'
       .replaceAll('{team_id}', teamId)
@@ -3431,9 +3431,9 @@ class MattermostChannelsApi {
       .replaceAll('{category_id}', categoryId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSidebarCategory;
+    Object? postBody = mmSidebarCategory;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3466,17 +3466,17 @@ class MattermostChannelsApi {
   /// * [String] categoryId (required):
   ///   Category GUID
   ///
-  /// * [MMSidebarCategory] mMSidebarCategory (required):
-  Future<MMSidebarCategory?> updateSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId, MMSidebarCategory mMSidebarCategory,) async {
-    final response = await updateSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId, mMSidebarCategory,);
+  /// * [MmSidebarCategory] mmSidebarCategory (required):
+  Future<MmSidebarCategory?> updateSidebarCategoryForTeamForUser(String teamId, String userId, String categoryId, MmSidebarCategory mmSidebarCategory,) async {
+    final response = await updateSidebarCategoryForTeamForUserWithHttpInfo(teamId, userId, categoryId, mmSidebarCategory,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMSidebarCategory',) as MMSidebarCategory;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmSidebarCategory',) as MmSidebarCategory;
     
     }
     return null;
@@ -3506,7 +3506,7 @@ class MattermostChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3540,7 +3540,7 @@ class MattermostChannelsApi {
   Future<List<String>?> updateSidebarCategoryOrderForTeamForUser(String teamId, String userId, List<String> requestBody,) async {
     final response = await updateSidebarCategoryOrderForTeamForUserWithHttpInfo(teamId, userId, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -3566,17 +3566,17 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User ID to perform the view action for
   ///
-  /// * [MMViewChannelRequest] mMViewChannelRequest (required):
+  /// * [MmViewChannelRequest] mmViewChannelRequest (required):
   ///   Paremeters affecting how and which channels to view
-  Future<Response> viewChannelWithHttpInfo(String userId, MMViewChannelRequest mMViewChannelRequest,) async {
+  Future<Response> viewChannelWithHttpInfo(String userId, MmViewChannelRequest mmViewChannelRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/channels/members/{user_id}/view'
       .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMViewChannelRequest;
+    Object? postBody = mmViewChannelRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -3603,18 +3603,18 @@ class MattermostChannelsApi {
   /// * [String] userId (required):
   ///   User ID to perform the view action for
   ///
-  /// * [MMViewChannelRequest] mMViewChannelRequest (required):
+  /// * [MmViewChannelRequest] mmViewChannelRequest (required):
   ///   Paremeters affecting how and which channels to view
-  Future<MMViewChannel200Response?> viewChannel(String userId, MMViewChannelRequest mMViewChannelRequest,) async {
-    final response = await viewChannelWithHttpInfo(userId, mMViewChannelRequest,);
+  Future<MmViewChannel200Response?> viewChannel(String userId, MmViewChannelRequest mmViewChannelRequest,) async {
+    final response = await viewChannelWithHttpInfo(userId, mmViewChannelRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMViewChannel200Response',) as MMViewChannel200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmViewChannel200Response',) as MmViewChannel200Response;
     
     }
     return null;

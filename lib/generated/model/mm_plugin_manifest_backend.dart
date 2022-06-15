@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPluginManifestBackend {
-  /// Returns a new [MMPluginManifestBackend] instance.
-  MMPluginManifestBackend({
+class MmPluginManifestBackend {
+  /// Returns a new [MmPluginManifestBackend] instance.
+  MmPluginManifestBackend({
     this.executable,
   });
 
@@ -27,7 +27,7 @@ class MMPluginManifestBackend {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPluginManifestBackend && other.executable == executable;
+      identical(this, other) || other is MmPluginManifestBackend && other.executable == executable;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMPluginManifestBackend {
       (executable == null ? 0 : executable!.hashCode);
 
   @override
-  String toString() => 'MMPluginManifestBackend[executable=$executable]';
+  String toString() => 'MmPluginManifestBackend[executable=$executable]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMPluginManifestBackend {
     return _json;
   }
 
-  /// Returns a new [MMPluginManifestBackend] instance and imports its values from
+  /// Returns a new [MmPluginManifestBackend] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPluginManifestBackend? fromJson(dynamic value) {
+  static MmPluginManifestBackend? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMPluginManifestBackend {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPluginManifestBackend[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPluginManifestBackend[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPluginManifestBackend[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPluginManifestBackend[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPluginManifestBackend(
+      return MmPluginManifestBackend(
         executable: mapValueOfType<String>(json, r'executable'),
       );
     }
     return null;
   }
 
-  static List<MMPluginManifestBackend>? listFromJson(
+  static List<MmPluginManifestBackend>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginManifestBackend>[];
+    final result = <MmPluginManifestBackend>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginManifestBackend.fromJson(row);
+        final value = MmPluginManifestBackend.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMPluginManifestBackend {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPluginManifestBackend> mapFromJson(dynamic json) {
-    final map = <String, MMPluginManifestBackend>{};
+  static Map<String, MmPluginManifestBackend> mapFromJson(dynamic json) {
+    final map = <String, MmPluginManifestBackend>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestBackend.fromJson(entry.value);
+        final value = MmPluginManifestBackend.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMPluginManifestBackend {
     return map;
   }
 
-  // maps a json object with a list of MMPluginManifestBackend-objects as value to a dart map
-  static Map<String, List<MMPluginManifestBackend>> mapListFromJson(
+  // maps a json object with a list of MmPluginManifestBackend-objects as value to a dart map
+  static Map<String, List<MmPluginManifestBackend>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPluginManifestBackend>>{};
+    final map = <String, List<MmPluginManifestBackend>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestBackend.listFromJson(
+        final value = MmPluginManifestBackend.listFromJson(
           entry.value,
           growable: growable,
         );

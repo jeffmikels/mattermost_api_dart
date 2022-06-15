@@ -21,7 +21,7 @@ void main() {
     //
     // Deletes the previously uploaded brand image. Returns 404 if no brand image has been uploaded. ##### Permissions Must have `manage_system` permission. __Minimum server version: 5.6__ 
     //
-    //Future<MMStatusOK> deleteBrandImage() async
+    //Future<MmStatusOK> deleteBrandImage() async
     test('test deleteBrandImage', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Uploads a brand image. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<MMStatusOK> uploadBrandImage(MultipartFile image) async
+    //Future<MmStatusOK> uploadBrandImage(MultipartFile image) async
     test('test uploadBrandImage', () async {
       // TODO
     });

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigPrivacySettings
+// tests for MmConfigPrivacySettings
 void main() {
-  // final instance = MMConfigPrivacySettings();
+  // final instance = MmConfigPrivacySettings();
 
-  group('test MMConfigPrivacySettings', () {
+  group('test MmConfigPrivacySettings', () {
     // bool showEmailAddress
     test('to test the property `showEmailAddress`', () async {
       // TODO

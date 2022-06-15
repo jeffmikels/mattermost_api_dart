@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createOAuthApp**
-> MMOAuthApp createOAuthApp(mMCreateOAuthAppRequest)
+> MmOAuthApp createOAuthApp(mmCreateOAuthAppRequest)
 
 Register OAuth app
 
@@ -35,25 +35,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateOAuthAppRequest mMCreateOAuthAppRequest = MMCreateOAuthAppRequest(); // MMCreateOAuthAppRequest | OAuth application to register
+final MmCreateOAuthAppRequest mmCreateOAuthAppRequest = MmCreateOAuthAppRequest(); // MmCreateOAuthAppRequest | OAuth application to register
 
 try {
-  final MMOAuthApp? result = await client.oAuth.createOAuthApp(mMCreateOAuthAppRequest); // await the Future<MMOAuthApp?>
+  final MmOAuthApp? result = await client.oAuth.createOAuthApp(mmCreateOAuthAppRequest); // await the Future<MmOAuthApp?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->createOAuthApp: $e\n');
@@ -65,11 +65,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateOAuthAppRequest** | [**MMCreateOAuthAppRequest**](MMCreateOAuthAppRequest.md)| OAuth application to register | 
+ **mmCreateOAuthAppRequest** | [**MmCreateOAuthAppRequest**](MmCreateOAuthAppRequest.md)| OAuth application to register | 
 
 ### Return type
 
-[**MMOAuthApp**](MMOAuthApp.md)
+[**MmOAuthApp**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteOAuthApp**
-> MMStatusOK deleteOAuthApp(appId)
+> MmStatusOK deleteOAuthApp(appId)
 
 Delete an OAuth app
 
@@ -98,25 +98,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMStatusOK? result = await client.oAuth.deleteOAuthApp(appId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.oAuth.deleteOAuthApp(appId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->deleteOAuthApp: $e\n');
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getAuthorizedOAuthAppsForUser**
-> List<MMOAuthApp> getAuthorizedOAuthAppsForUser(userId, page, perPage)
+> List<MmOAuthApp> getAuthorizedOAuthAppsForUser(userId, page, perPage)
 
 Get authorized OAuth apps
 
@@ -161,18 +161,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -181,7 +181,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of apps per page.
 
 try {
-  final List&lt;MMOAuthApp&gt;? result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage); // await the Future<List&lt;MMOAuthApp&gt;?>
+  final List&lt;MmOAuthApp&gt;? result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage); // await the Future<List&lt;MmOAuthApp&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getAuthorizedOAuthAppsForUser: $e\n');
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMOAuthApp>**](MMOAuthApp.md)
+[**List<MmOAuthApp>**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getOAuthApp**
-> MMOAuthApp getOAuthApp(appId)
+> MmOAuthApp getOAuthApp(appId)
 
 Get an OAuth app
 
@@ -228,25 +228,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp? result = await client.oAuth.getOAuthApp(appId); // await the Future<MMOAuthApp?>
+  final MmOAuthApp? result = await client.oAuth.getOAuthApp(appId); // await the Future<MmOAuthApp?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthApp: $e\n');
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMOAuthApp**](MMOAuthApp.md)
+[**MmOAuthApp**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getOAuthAppInfo**
-> MMOAuthApp getOAuthAppInfo(appId)
+> MmOAuthApp getOAuthAppInfo(appId)
 
 Get info on an OAuth app
 
@@ -291,25 +291,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp? result = await client.oAuth.getOAuthAppInfo(appId); // await the Future<MMOAuthApp?>
+  final MmOAuthApp? result = await client.oAuth.getOAuthAppInfo(appId); // await the Future<MmOAuthApp?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthAppInfo: $e\n');
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMOAuthApp**](MMOAuthApp.md)
+[**MmOAuthApp**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getOAuthApps**
-> List<MMOAuthApp> getOAuthApps(page, perPage)
+> List<MmOAuthApp> getOAuthApps(page, perPage)
 
 Get OAuth apps
 
@@ -354,18 +354,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -373,7 +373,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of apps per page.
 
 try {
-  final List&lt;MMOAuthApp&gt;? result = await client.oAuth.getOAuthApps(page, perPage); // await the Future<List&lt;MMOAuthApp&gt;?>
+  final List&lt;MmOAuthApp&gt;? result = await client.oAuth.getOAuthApps(page, perPage); // await the Future<List&lt;MmOAuthApp&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthApps: $e\n');
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMOAuthApp>**](MMOAuthApp.md)
+[**List<MmOAuthApp>**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **regenerateOAuthAppSecret**
-> MMOAuthApp regenerateOAuthAppSecret(appId)
+> MmOAuthApp regenerateOAuthAppSecret(appId)
 
 Regenerate OAuth app secret
 
@@ -419,25 +419,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp? result = await client.oAuth.regenerateOAuthAppSecret(appId); // await the Future<MMOAuthApp?>
+  final MmOAuthApp? result = await client.oAuth.regenerateOAuthAppSecret(appId); // await the Future<MmOAuthApp?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->regenerateOAuthAppSecret: $e\n');
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMOAuthApp**](MMOAuthApp.md)
+[**MmOAuthApp**](MmOAuthApp.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateOAuthApp**
-> MMOAuthApp updateOAuthApp(appId, mMUpdateOAuthAppRequest)
+> MmOAuthApp updateOAuthApp(appId, mmUpdateOAuthAppRequest)
 
 Update an OAuth app
 
@@ -482,26 +482,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String appId = 'appId_example'; // String | Application client id
-final MMUpdateOAuthAppRequest mMUpdateOAuthAppRequest = MMUpdateOAuthAppRequest(); // MMUpdateOAuthAppRequest | OAuth application to update
+final MmUpdateOAuthAppRequest mmUpdateOAuthAppRequest = MmUpdateOAuthAppRequest(); // MmUpdateOAuthAppRequest | OAuth application to update
 
 try {
-  final MMOAuthApp? result = await client.oAuth.updateOAuthApp(appId, mMUpdateOAuthAppRequest); // await the Future<MMOAuthApp?>
+  final MmOAuthApp? result = await client.oAuth.updateOAuthApp(appId, mmUpdateOAuthAppRequest); // await the Future<MmOAuthApp?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->updateOAuthApp: $e\n');
@@ -514,11 +514,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Application client id | 
- **mMUpdateOAuthAppRequest** | [**MMUpdateOAuthAppRequest**](MMUpdateOAuthAppRequest.md)| OAuth application to update | 
+ **mmUpdateOAuthAppRequest** | [**MmUpdateOAuthAppRequest**](MmUpdateOAuthAppRequest.md)| OAuth application to update | 
 
 ### Return type
 
-[**MMOAuthApp**](MMOAuthApp.md)
+[**MmOAuthApp**](MmOAuthApp.md)
 
 ### Authorization
 

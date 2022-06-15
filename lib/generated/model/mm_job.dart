@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMJob {
-  /// Returns a new [MMJob] instance.
-  MMJob({
+class MmJob {
+  /// Returns a new [MmJob] instance.
+  MmJob({
     this.id,
     this.type,
     this.createAt,
@@ -98,7 +98,7 @@ class MMJob {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMJob &&
+      other is MmJob &&
           other.id == id &&
           other.type == type &&
           other.createAt == createAt &&
@@ -122,7 +122,7 @@ class MMJob {
 
   @override
   String toString() =>
-      'MMJob[id=$id, type=$type, createAt=$createAt, startAt=$startAt, lastActivityAt=$lastActivityAt, status=$status, progress=$progress, data=$data]';
+      'MmJob[id=$id, type=$type, createAt=$createAt, startAt=$startAt, lastActivityAt=$lastActivityAt, status=$status, progress=$progress, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -153,10 +153,10 @@ class MMJob {
     return _json;
   }
 
-  /// Returns a new [MMJob] instance and imports its values from
+  /// Returns a new [MmJob] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMJob? fromJson(dynamic value) {
+  static MmJob? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -165,13 +165,13 @@ class MMJob {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMJob[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMJob[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmJob[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmJob[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMJob(
+      return MmJob(
         id: mapValueOfType<String>(json, r'id'),
         type: mapValueOfType<String>(json, r'type'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -185,14 +185,14 @@ class MMJob {
     return null;
   }
 
-  static List<MMJob>? listFromJson(
+  static List<MmJob>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMJob>[];
+    final result = <MmJob>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMJob.fromJson(row);
+        final value = MmJob.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -201,12 +201,12 @@ class MMJob {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMJob> mapFromJson(dynamic json) {
-    final map = <String, MMJob>{};
+  static Map<String, MmJob> mapFromJson(dynamic json) {
+    final map = <String, MmJob>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMJob.fromJson(entry.value);
+        final value = MmJob.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -215,16 +215,16 @@ class MMJob {
     return map;
   }
 
-  // maps a json object with a list of MMJob-objects as value to a dart map
-  static Map<String, List<MMJob>> mapListFromJson(
+  // maps a json object with a list of MmJob-objects as value to a dart map
+  static Map<String, List<MmJob>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMJob>>{};
+    final map = <String, List<MmJob>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMJob.listFromJson(
+        final value = MmJob.listFromJson(
           entry.value,
           growable: growable,
         );

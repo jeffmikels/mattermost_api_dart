@@ -21,7 +21,7 @@ void main() {
     //
     // Deletes a reaction made by a user from the given post. ##### Permissions Must be user or have `manage_system` permission. 
     //
-    //Future<MMStatusOK> deleteReaction(String userId, String postId, String emojiName) async
+    //Future<MmStatusOK> deleteReaction(String userId, String postId, String emojiName) async
     test('test deleteReaction', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in.  __Minimum server version__: 5.8 
     //
-    //Future<Map<String, List<MMReaction>>> getBulkReactions(List<String> requestBody) async
+    //Future<Map<String, List<MmReaction>>> getBulkReactions(List<String> requestBody) async
     test('test getBulkReactions', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get a list of reactions made by all users to a given post. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
     //
-    //Future<List<MMReaction>> getReactions(String postId) async
+    //Future<List<MmReaction>> getReactions(String postId) async
     test('test getReactions', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Create a reaction. ##### Permissions Must have `read_channel` permission for the channel the post is in. 
     //
-    //Future<MMReaction> saveReaction(MMReaction mMReaction) async
+    //Future<MmReaction> saveReaction(MmReaction mmReaction) async
     test('test saveReaction', () async {
       // TODO
     });

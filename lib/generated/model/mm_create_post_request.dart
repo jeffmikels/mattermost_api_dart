@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreatePostRequest {
-  /// Returns a new [MMCreatePostRequest] instance.
-  MMCreatePostRequest({
+class MmCreatePostRequest {
+  /// Returns a new [MmCreatePostRequest] instance.
+  MmCreatePostRequest({
     required this.channelId,
     required this.message,
     this.rootId,
@@ -50,7 +50,7 @@ class MMCreatePostRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreatePostRequest &&
+      other is MmCreatePostRequest &&
           other.channelId == channelId &&
           other.message == message &&
           other.rootId == rootId &&
@@ -68,7 +68,7 @@ class MMCreatePostRequest {
 
   @override
   String toString() =>
-      'MMCreatePostRequest[channelId=$channelId, message=$message, rootId=$rootId, fileIds=$fileIds, props=$props]';
+      'MmCreatePostRequest[channelId=$channelId, message=$message, rootId=$rootId, fileIds=$fileIds, props=$props]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -84,10 +84,10 @@ class MMCreatePostRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreatePostRequest] instance and imports its values from
+  /// Returns a new [MmCreatePostRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreatePostRequest? fromJson(dynamic value) {
+  static MmCreatePostRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -96,13 +96,13 @@ class MMCreatePostRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreatePostRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreatePostRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreatePostRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreatePostRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreatePostRequest(
+      return MmCreatePostRequest(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         message: mapValueOfType<String>(json, r'message')!,
         rootId: mapValueOfType<String>(json, r'root_id'),
@@ -113,14 +113,14 @@ class MMCreatePostRequest {
     return null;
   }
 
-  static List<MMCreatePostRequest>? listFromJson(
+  static List<MmCreatePostRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreatePostRequest>[];
+    final result = <MmCreatePostRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreatePostRequest.fromJson(row);
+        final value = MmCreatePostRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -129,12 +129,12 @@ class MMCreatePostRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreatePostRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreatePostRequest>{};
+  static Map<String, MmCreatePostRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreatePostRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreatePostRequest.fromJson(entry.value);
+        final value = MmCreatePostRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,16 +143,16 @@ class MMCreatePostRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreatePostRequest-objects as value to a dart map
-  static Map<String, List<MMCreatePostRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreatePostRequest-objects as value to a dart map
+  static Map<String, List<MmCreatePostRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreatePostRequest>>{};
+    final map = <String, List<MmCreatePostRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreatePostRequest.listFromJson(
+        final value = MmCreatePostRequest.listFromJson(
           entry.value,
           growable: growable,
         );

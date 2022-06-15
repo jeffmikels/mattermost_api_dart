@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMInvoice
+// tests for MmInvoice
 void main() {
-  // final instance = MMInvoice();
+  // final instance = MmInvoice();
 
-  group('test MMInvoice', () {
+  group('test MmInvoice', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -61,7 +61,7 @@ void main() {
       // TODO
     });
 
-    // List<MMInvoiceLineItem> item (default value: const [])
+    // List<MmInvoiceLineItem> item (default value: const [])
     test('to test the property `item`', () async {
       // TODO
     });

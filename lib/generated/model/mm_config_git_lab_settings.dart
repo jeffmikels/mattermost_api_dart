@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigGitLabSettings {
-  /// Returns a new [MMConfigGitLabSettings] instance.
-  MMConfigGitLabSettings({
+class MmConfigGitLabSettings {
+  /// Returns a new [MmConfigGitLabSettings] instance.
+  MmConfigGitLabSettings({
     this.enable,
     this.secret,
     this.id,
@@ -81,7 +81,7 @@ class MMConfigGitLabSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigGitLabSettings &&
+      other is MmConfigGitLabSettings &&
           other.enable == enable &&
           other.secret == secret &&
           other.id == id &&
@@ -103,7 +103,7 @@ class MMConfigGitLabSettings {
 
   @override
   String toString() =>
-      'MMConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
+      'MmConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -131,10 +131,10 @@ class MMConfigGitLabSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigGitLabSettings] instance and imports its values from
+  /// Returns a new [MmConfigGitLabSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigGitLabSettings? fromJson(dynamic value) {
+  static MmConfigGitLabSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -143,13 +143,13 @@ class MMConfigGitLabSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigGitLabSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigGitLabSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigGitLabSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigGitLabSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigGitLabSettings(
+      return MmConfigGitLabSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         secret: mapValueOfType<String>(json, r'Secret'),
         id: mapValueOfType<String>(json, r'Id'),
@@ -162,14 +162,14 @@ class MMConfigGitLabSettings {
     return null;
   }
 
-  static List<MMConfigGitLabSettings>? listFromJson(
+  static List<MmConfigGitLabSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigGitLabSettings>[];
+    final result = <MmConfigGitLabSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigGitLabSettings.fromJson(row);
+        final value = MmConfigGitLabSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -178,12 +178,12 @@ class MMConfigGitLabSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigGitLabSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigGitLabSettings>{};
+  static Map<String, MmConfigGitLabSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigGitLabSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigGitLabSettings.fromJson(entry.value);
+        final value = MmConfigGitLabSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -192,16 +192,16 @@ class MMConfigGitLabSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigGitLabSettings-objects as value to a dart map
-  static Map<String, List<MMConfigGitLabSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigGitLabSettings-objects as value to a dart map
+  static Map<String, List<MmConfigGitLabSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigGitLabSettings>>{};
+    final map = <String, List<MmConfigGitLabSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigGitLabSettings.listFromJson(
+        final value = MmConfigGitLabSettings.listFromJson(
           entry.value,
           growable: growable,
         );

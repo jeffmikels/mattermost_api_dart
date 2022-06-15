@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEmoji
+// tests for MmEmoji
 void main() {
-  // final instance = MMEmoji();
+  // final instance = MmEmoji();
 
-  group('test MMEmoji', () {
+  group('test MmEmoji', () {
     // The ID of the emoji
     // String id
     test('to test the property `id`', () async {

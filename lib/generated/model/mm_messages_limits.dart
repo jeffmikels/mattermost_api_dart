@@ -10,16 +10,16 @@
 
 part of mattermost.api;
 
-class MMMessagesLimits {
-  /// Returns a new [MMMessagesLimits] instance.
-  MMMessagesLimits({
+class MmMessagesLimits {
+  /// Returns a new [MmMessagesLimits] instance.
+  MmMessagesLimits({
     this.history,
   });
 
   int? history;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMMessagesLimits && other.history == history;
+  bool operator ==(Object other) => identical(this, other) || other is MmMessagesLimits && other.history == history;
 
   @override
   int get hashCode =>
@@ -27,7 +27,7 @@ class MMMessagesLimits {
       (history == null ? 0 : history!.hashCode);
 
   @override
-  String toString() => 'MMMessagesLimits[history=$history]';
+  String toString() => 'MmMessagesLimits[history=$history]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMMessagesLimits {
     return _json;
   }
 
-  /// Returns a new [MMMessagesLimits] instance and imports its values from
+  /// Returns a new [MmMessagesLimits] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMMessagesLimits? fromJson(dynamic value) {
+  static MmMessagesLimits? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMMessagesLimits {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMMessagesLimits[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMMessagesLimits[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmMessagesLimits[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmMessagesLimits[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMMessagesLimits(
+      return MmMessagesLimits(
         history: mapValueOfType<int>(json, r'history'),
       );
     }
     return null;
   }
 
-  static List<MMMessagesLimits>? listFromJson(
+  static List<MmMessagesLimits>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMMessagesLimits>[];
+    final result = <MmMessagesLimits>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMMessagesLimits.fromJson(row);
+        final value = MmMessagesLimits.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMMessagesLimits {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMMessagesLimits> mapFromJson(dynamic json) {
-    final map = <String, MMMessagesLimits>{};
+  static Map<String, MmMessagesLimits> mapFromJson(dynamic json) {
+    final map = <String, MmMessagesLimits>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMessagesLimits.fromJson(entry.value);
+        final value = MmMessagesLimits.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMMessagesLimits {
     return map;
   }
 
-  // maps a json object with a list of MMMessagesLimits-objects as value to a dart map
-  static Map<String, List<MMMessagesLimits>> mapListFromJson(
+  // maps a json object with a list of MmMessagesLimits-objects as value to a dart map
+  static Map<String, List<MmMessagesLimits>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMMessagesLimits>>{};
+    final map = <String, List<MmMessagesLimits>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMessagesLimits.listFromJson(
+        final value = MmMessagesLimits.listFromJson(
           entry.value,
           growable: growable,
         );

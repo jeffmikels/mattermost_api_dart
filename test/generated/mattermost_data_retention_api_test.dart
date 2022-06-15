@@ -21,7 +21,7 @@ void main() {
     //
     // Adds channels to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMStatusOK> addChannelsToRetentionPolicy(String policyId, List<String> requestBody) async
+    //Future<MmStatusOK> addChannelsToRetentionPolicy(String policyId, List<String> requestBody) async
     test('test addChannelsToRetentionPolicy', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Adds teams to a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMStatusOK> addTeamsToRetentionPolicy(String policyId, List<String> requestBody) async
+    //Future<MmStatusOK> addTeamsToRetentionPolicy(String policyId, List<String> requestBody) async
     test('test addTeamsToRetentionPolicy', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Creates a new granular data retention policy with the specified display name and post duration.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMDataRetentionPolicyWithTeamAndChannelCounts> createDataRetentionPolicy(MMDataRetentionPolicyCreate mMDataRetentionPolicyCreate) async
+    //Future<MmDataRetentionPolicyWithTeamAndChannelCounts> createDataRetentionPolicy(MmDataRetentionPolicyCreate mmDataRetentionPolicyCreate) async
     test('test createDataRetentionPolicy', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Deletes a granular data retention policy.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMStatusOK> deleteDataRetentionPolicy(String policyId) async
+    //Future<MmStatusOK> deleteDataRetentionPolicy(String policyId) async
     test('test deleteDataRetentionPolicy', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Gets the policies which are applied to the all of the channels to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMRetentionPolicyForChannelList> getChannelPoliciesForUser(String userId, { int page, int perPage }) async
+    //Future<MmRetentionPolicyForChannelList> getChannelPoliciesForUser(String userId, { int page, int perPage }) async
     test('test getChannelPoliciesForUser', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Gets the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<List<MMChannelWithTeamData>> getChannelsForRetentionPolicy(String policyId, { int page, int perPage }) async
+    //Future<List<MmChannelWithTeamData>> getChannelsForRetentionPolicy(String policyId, { int page, int perPage }) async
     test('test getChannelsForRetentionPolicy', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Gets details about the granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<List<MMDataRetentionPolicyWithTeamAndChannelCounts>> getDataRetentionPolicies({ int page, int perPage }) async
+    //Future<List<MmDataRetentionPolicyWithTeamAndChannelCounts>> getDataRetentionPolicies({ int page, int perPage }) async
     test('test getDataRetentionPolicies', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Gets the number of granular (i.e. team or channel-specific) data retention policies from the server.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMGetDataRetentionPoliciesCount200Response> getDataRetentionPoliciesCount() async
+    //Future<MmGetDataRetentionPoliciesCount200Response> getDataRetentionPoliciesCount() async
     test('test getDataRetentionPoliciesCount', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Gets the current global data retention policy details from the server, including what data should be purged and the cutoff times for each data type that should be purged.  __Minimum server version__: 4.3  ##### Permissions Requires an active session but no other permissions.  ##### License Requires an E20 license. 
     //
-    //Future<MMGlobalDataRetentionPolicy> getDataRetentionPolicy() async
+    //Future<MmGlobalDataRetentionPolicy> getDataRetentionPolicy() async
     test('test getDataRetentionPolicy', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Gets details about a granular data retention policies by ID.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMDataRetentionPolicyWithTeamAndChannelCounts> getDataRetentionPolicyByID(String policyId) async
+    //Future<MmDataRetentionPolicyWithTeamAndChannelCounts> getDataRetentionPolicyByID(String policyId) async
     test('test getDataRetentionPolicyByID', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Gets the policies which are applied to the all of the teams to which a user belongs.  __Minimum server version__: 5.35  ##### Permissions Must be logged in as the user or have the `manage_system` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMRetentionPolicyForTeamList> getTeamPoliciesForUser(String userId, { int page, int perPage }) async
+    //Future<MmRetentionPolicyForTeamList> getTeamPoliciesForUser(String userId, { int page, int perPage }) async
     test('test getTeamPoliciesForUser', () async {
       // TODO
     });
@@ -120,7 +120,7 @@ void main() {
     //
     // Gets the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<List<MMTeam>> getTeamsForRetentionPolicy(String policyId, { int page, int perPage }) async
+    //Future<List<MmTeam>> getTeamsForRetentionPolicy(String policyId, { int page, int perPage }) async
     test('test getTeamsForRetentionPolicy', () async {
       // TODO
     });
@@ -129,7 +129,7 @@ void main() {
     //
     // Patches (i.e. replaces the fields of) a granular data retention policy. If any fields are omitted, they will not be changed.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMDataRetentionPolicyWithTeamAndChannelCounts> patchDataRetentionPolicy(String policyId, MMDataRetentionPolicyWithTeamAndChannelIds mMDataRetentionPolicyWithTeamAndChannelIds) async
+    //Future<MmDataRetentionPolicyWithTeamAndChannelCounts> patchDataRetentionPolicy(String policyId, MmDataRetentionPolicyWithTeamAndChannelIds mmDataRetentionPolicyWithTeamAndChannelIds) async
     test('test patchDataRetentionPolicy', () async {
       // TODO
     });
@@ -138,7 +138,7 @@ void main() {
     //
     // Delete channels from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMStatusOK> removeChannelsFromRetentionPolicy(String policyId, List<String> requestBody) async
+    //Future<MmStatusOK> removeChannelsFromRetentionPolicy(String policyId, List<String> requestBody) async
     test('test removeChannelsFromRetentionPolicy', () async {
       // TODO
     });
@@ -147,7 +147,7 @@ void main() {
     //
     // Delete teams from a granular data retention policy.   __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_write_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<MMStatusOK> removeTeamsFromRetentionPolicy(String policyId, List<String> requestBody) async
+    //Future<MmStatusOK> removeTeamsFromRetentionPolicy(String policyId, List<String> requestBody) async
     test('test removeTeamsFromRetentionPolicy', () async {
       // TODO
     });
@@ -156,7 +156,7 @@ void main() {
     //
     // Searches for the channels to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<List<MMChannelWithTeamData>> searchChannelsForRetentionPolicy(String policyId, MMSearchChannelsForRetentionPolicyRequest mMSearchChannelsForRetentionPolicyRequest) async
+    //Future<List<MmChannelWithTeamData>> searchChannelsForRetentionPolicy(String policyId, MmSearchChannelsForRetentionPolicyRequest mmSearchChannelsForRetentionPolicyRequest) async
     test('test searchChannelsForRetentionPolicy', () async {
       // TODO
     });
@@ -165,7 +165,7 @@ void main() {
     //
     // Searches for the teams to which a granular data retention policy is applied.  __Minimum server version__: 5.35  ##### Permissions Must have the `sysconsole_read_compliance_data_retention` permission.  ##### License Requires an E20 license. 
     //
-    //Future<List<MMTeam>> searchTeamsForRetentionPolicy(String policyId, MMSearchTeamsForRetentionPolicyRequest mMSearchTeamsForRetentionPolicyRequest) async
+    //Future<List<MmTeam>> searchTeamsForRetentionPolicy(String policyId, MmSearchTeamsForRetentionPolicyRequest mmSearchTeamsForRetentionPolicyRequest) async
     test('test searchTeamsForRetentionPolicy', () async {
       // TODO
     });

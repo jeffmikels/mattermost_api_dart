@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMigrateAuthToSamlRequest
+// tests for MmMigrateAuthToSamlRequest
 void main() {
-  // final instance = MMMigrateAuthToSamlRequest();
+  // final instance = MmMigrateAuthToSamlRequest();
 
-  group('test MMMigrateAuthToSamlRequest', () {
+  group('test MmMigrateAuthToSamlRequest', () {
     // The current authentication type for the matched users.
     // String from
     test('to test the property `from`', () async {

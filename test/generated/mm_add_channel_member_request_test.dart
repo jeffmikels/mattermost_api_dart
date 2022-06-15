@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAddChannelMemberRequest
+// tests for MmAddChannelMemberRequest
 void main() {
-  // final instance = MMAddChannelMemberRequest();
+  // final instance = MmAddChannelMemberRequest();
 
-  group('test MMAddChannelMemberRequest', () {
+  group('test MmAddChannelMemberRequest', () {
     // The ID of user to add into the channel
     // String userId
     test('to test the property `userId`', () async {

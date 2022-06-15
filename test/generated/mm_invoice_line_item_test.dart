@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMInvoiceLineItem
+// tests for MmInvoiceLineItem
 void main() {
-  // final instance = MMInvoiceLineItem();
+  // final instance = MmInvoiceLineItem();
 
-  group('test MMInvoiceLineItem', () {
+  group('test MmInvoiceLineItem', () {
     // String priceId
     test('to test the property `priceId`', () async {
       // TODO

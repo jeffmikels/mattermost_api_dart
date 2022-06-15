@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigPasswordSettings {
-  /// Returns a new [MMEnvironmentConfigPasswordSettings] instance.
-  MMEnvironmentConfigPasswordSettings({
+class MmEnvironmentConfigPasswordSettings {
+  /// Returns a new [MmEnvironmentConfigPasswordSettings] instance.
+  MmEnvironmentConfigPasswordSettings({
     this.minimumLength,
     this.lowercase,
     this.number,
@@ -63,7 +63,7 @@ class MMEnvironmentConfigPasswordSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigPasswordSettings &&
+      other is MmEnvironmentConfigPasswordSettings &&
           other.minimumLength == minimumLength &&
           other.lowercase == lowercase &&
           other.number == number &&
@@ -81,7 +81,7 @@ class MMEnvironmentConfigPasswordSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
+      'MmEnvironmentConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMEnvironmentConfigPasswordSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigPasswordSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigPasswordSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigPasswordSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigPasswordSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -116,14 +116,14 @@ class MMEnvironmentConfigPasswordSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigPasswordSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigPasswordSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigPasswordSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigPasswordSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigPasswordSettings(
+      return MmEnvironmentConfigPasswordSettings(
         minimumLength: mapValueOfType<bool>(json, r'MinimumLength'),
         lowercase: mapValueOfType<bool>(json, r'Lowercase'),
         number: mapValueOfType<bool>(json, r'Number'),
@@ -134,14 +134,14 @@ class MMEnvironmentConfigPasswordSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigPasswordSettings>? listFromJson(
+  static List<MmEnvironmentConfigPasswordSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigPasswordSettings>[];
+    final result = <MmEnvironmentConfigPasswordSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigPasswordSettings.fromJson(row);
+        final value = MmEnvironmentConfigPasswordSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -150,12 +150,12 @@ class MMEnvironmentConfigPasswordSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigPasswordSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigPasswordSettings>{};
+  static Map<String, MmEnvironmentConfigPasswordSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigPasswordSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigPasswordSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigPasswordSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -164,16 +164,16 @@ class MMEnvironmentConfigPasswordSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigPasswordSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigPasswordSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigPasswordSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigPasswordSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigPasswordSettings>>{};
+    final map = <String, List<MmEnvironmentConfigPasswordSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigPasswordSettings.listFromJson(
+        final value = MmEnvironmentConfigPasswordSettings.listFromJson(
           entry.value,
           growable: growable,
         );

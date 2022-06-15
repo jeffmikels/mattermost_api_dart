@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMResetSamlAuthDataToEmailRequest
+// tests for MmResetSamlAuthDataToEmailRequest
 void main() {
-  // final instance = MMResetSamlAuthDataToEmailRequest();
+  // final instance = MmResetSamlAuthDataToEmailRequest();
 
-  group('test MMResetSamlAuthDataToEmailRequest', () {
+  group('test MmResetSamlAuthDataToEmailRequest', () {
     // Whether to include deleted users.
     // bool includeDeleted (default value: false)
     test('to test the property `includeDeleted`', () async {

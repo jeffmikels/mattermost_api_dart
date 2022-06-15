@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetPlugins200Response
+// tests for MmGetPlugins200Response
 void main() {
-  // final instance = MMGetPlugins200Response();
+  // final instance = MmGetPlugins200Response();
 
-  group('test MMGetPlugins200Response', () {
-    // List<MMPluginManifest> active (default value: const [])
+  group('test MmGetPlugins200Response', () {
+    // List<MmPluginManifest> active (default value: const [])
     test('to test the property `active`', () async {
       // TODO
     });
 
-    // List<MMPluginManifest> inactive (default value: const [])
+    // List<MmPluginManifest> inactive (default value: const [])
     test('to test the property `inactive`', () async {
       // TODO
     });

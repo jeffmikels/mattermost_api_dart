@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSubmitInteractiveDialogRequest
+// tests for MmSubmitInteractiveDialogRequest
 void main() {
-  // final instance = MMSubmitInteractiveDialogRequest();
+  // final instance = MmSubmitInteractiveDialogRequest();
 
-  group('test MMSubmitInteractiveDialogRequest', () {
+  group('test MmSubmitInteractiveDialogRequest', () {
     // The URL to send the submitted dialog payload to
     // String url
     test('to test the property `url`', () async {

@@ -23,17 +23,17 @@ class MattermostUploadsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateUploadRequest] mMCreateUploadRequest (required):
+  /// * [MmCreateUploadRequest] mmCreateUploadRequest (required):
   Future<Response> createUploadWithHttpInfo(
-    MMCreateUploadRequest mMCreateUploadRequest,
+    MmCreateUploadRequest mmCreateUploadRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/uploads';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateUploadRequest;
+    Object? postBody = mmCreateUploadRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -56,15 +56,15 @@ class MattermostUploadsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateUploadRequest] mMCreateUploadRequest (required):
-  Future<MMUploadSession?> createUpload(
-    MMCreateUploadRequest mMCreateUploadRequest,
+  /// * [MmCreateUploadRequest] mmCreateUploadRequest (required):
+  Future<MmUploadSession?> createUpload(
+    MmCreateUploadRequest mmCreateUploadRequest,
   ) async {
     final response = await createUploadWithHttpInfo(
-      mMCreateUploadRequest,
+      mmCreateUploadRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -72,8 +72,8 @@ class MattermostUploadsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMUploadSession',
-      ) as MMUploadSession;
+        'MmUploadSession',
+      ) as MmUploadSession;
     }
     return null;
   }
@@ -97,7 +97,7 @@ class MattermostUploadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -129,7 +129,7 @@ class MattermostUploadsApi {
       uploadId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -152,7 +152,7 @@ class MattermostUploadsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -177,14 +177,14 @@ class MattermostUploadsApi {
   ///
   /// * [String] uploadId (required):
   ///   The ID of the upload session the data belongs to.
-  Future<MMFileInfo?> uploadData(
+  Future<MmFileInfo?> uploadData(
     String uploadId,
   ) async {
     final response = await uploadDataWithHttpInfo(
       uploadId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -192,8 +192,8 @@ class MattermostUploadsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMFileInfo',
-      ) as MMFileInfo;
+        'MmFileInfo',
+      ) as MmFileInfo;
     }
     return null;
   }

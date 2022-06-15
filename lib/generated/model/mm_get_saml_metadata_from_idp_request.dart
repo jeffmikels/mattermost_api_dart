@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGetSamlMetadataFromIdpRequest {
-  /// Returns a new [MMGetSamlMetadataFromIdpRequest] instance.
-  MMGetSamlMetadataFromIdpRequest({
+class MmGetSamlMetadataFromIdpRequest {
+  /// Returns a new [MmGetSamlMetadataFromIdpRequest] instance.
+  MmGetSamlMetadataFromIdpRequest({
     this.samlMetadataUrl,
   });
 
@@ -27,7 +27,7 @@ class MMGetSamlMetadataFromIdpRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMGetSamlMetadataFromIdpRequest && other.samlMetadataUrl == samlMetadataUrl;
+      identical(this, other) || other is MmGetSamlMetadataFromIdpRequest && other.samlMetadataUrl == samlMetadataUrl;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMGetSamlMetadataFromIdpRequest {
       (samlMetadataUrl == null ? 0 : samlMetadataUrl!.hashCode);
 
   @override
-  String toString() => 'MMGetSamlMetadataFromIdpRequest[samlMetadataUrl=$samlMetadataUrl]';
+  String toString() => 'MmGetSamlMetadataFromIdpRequest[samlMetadataUrl=$samlMetadataUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMGetSamlMetadataFromIdpRequest {
     return _json;
   }
 
-  /// Returns a new [MMGetSamlMetadataFromIdpRequest] instance and imports its values from
+  /// Returns a new [MmGetSamlMetadataFromIdpRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetSamlMetadataFromIdpRequest? fromJson(dynamic value) {
+  static MmGetSamlMetadataFromIdpRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMGetSamlMetadataFromIdpRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGetSamlMetadataFromIdpRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGetSamlMetadataFromIdpRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGetSamlMetadataFromIdpRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGetSamlMetadataFromIdpRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetSamlMetadataFromIdpRequest(
+      return MmGetSamlMetadataFromIdpRequest(
         samlMetadataUrl: mapValueOfType<String>(json, r'saml_metadata_url'),
       );
     }
     return null;
   }
 
-  static List<MMGetSamlMetadataFromIdpRequest>? listFromJson(
+  static List<MmGetSamlMetadataFromIdpRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetSamlMetadataFromIdpRequest>[];
+    final result = <MmGetSamlMetadataFromIdpRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetSamlMetadataFromIdpRequest.fromJson(row);
+        final value = MmGetSamlMetadataFromIdpRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMGetSamlMetadataFromIdpRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetSamlMetadataFromIdpRequest> mapFromJson(dynamic json) {
-    final map = <String, MMGetSamlMetadataFromIdpRequest>{};
+  static Map<String, MmGetSamlMetadataFromIdpRequest> mapFromJson(dynamic json) {
+    final map = <String, MmGetSamlMetadataFromIdpRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetSamlMetadataFromIdpRequest.fromJson(entry.value);
+        final value = MmGetSamlMetadataFromIdpRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMGetSamlMetadataFromIdpRequest {
     return map;
   }
 
-  // maps a json object with a list of MMGetSamlMetadataFromIdpRequest-objects as value to a dart map
-  static Map<String, List<MMGetSamlMetadataFromIdpRequest>> mapListFromJson(
+  // maps a json object with a list of MmGetSamlMetadataFromIdpRequest-objects as value to a dart map
+  static Map<String, List<MmGetSamlMetadataFromIdpRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetSamlMetadataFromIdpRequest>>{};
+    final map = <String, List<MmGetSamlMetadataFromIdpRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetSamlMetadataFromIdpRequest.listFromJson(
+        final value = MmGetSamlMetadataFromIdpRequest.listFromJson(
           entry.value,
           growable: growable,
         );

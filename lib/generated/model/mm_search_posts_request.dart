@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSearchPostsRequest {
-  /// Returns a new [MMSearchPostsRequest] instance.
-  MMSearchPostsRequest({
+class MmSearchPostsRequest {
+  /// Returns a new [MmSearchPostsRequest] instance.
+  MmSearchPostsRequest({
     required this.terms,
     required this.isOrSearch,
     this.timeZoneOffset = 0,
@@ -48,7 +48,7 @@ class MMSearchPostsRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSearchPostsRequest &&
+      other is MmSearchPostsRequest &&
           other.terms == terms &&
           other.isOrSearch == isOrSearch &&
           other.timeZoneOffset == timeZoneOffset &&
@@ -68,7 +68,7 @@ class MMSearchPostsRequest {
 
   @override
   String toString() =>
-      'MMSearchPostsRequest[terms=$terms, isOrSearch=$isOrSearch, timeZoneOffset=$timeZoneOffset, includeDeletedChannels=$includeDeletedChannels, page=$page, perPage=$perPage]';
+      'MmSearchPostsRequest[terms=$terms, isOrSearch=$isOrSearch, timeZoneOffset=$timeZoneOffset, includeDeletedChannels=$includeDeletedChannels, page=$page, perPage=$perPage]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -83,10 +83,10 @@ class MMSearchPostsRequest {
     return _json;
   }
 
-  /// Returns a new [MMSearchPostsRequest] instance and imports its values from
+  /// Returns a new [MmSearchPostsRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchPostsRequest? fromJson(dynamic value) {
+  static MmSearchPostsRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -95,13 +95,13 @@ class MMSearchPostsRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSearchPostsRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSearchPostsRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSearchPostsRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSearchPostsRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchPostsRequest(
+      return MmSearchPostsRequest(
         terms: mapValueOfType<String>(json, r'terms')!,
         isOrSearch: mapValueOfType<bool>(json, r'is_or_search')!,
         timeZoneOffset: mapValueOfType<int>(json, r'time_zone_offset') ?? 0,
@@ -113,14 +113,14 @@ class MMSearchPostsRequest {
     return null;
   }
 
-  static List<MMSearchPostsRequest>? listFromJson(
+  static List<MmSearchPostsRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchPostsRequest>[];
+    final result = <MmSearchPostsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchPostsRequest.fromJson(row);
+        final value = MmSearchPostsRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -129,12 +129,12 @@ class MMSearchPostsRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchPostsRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSearchPostsRequest>{};
+  static Map<String, MmSearchPostsRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSearchPostsRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchPostsRequest.fromJson(entry.value);
+        final value = MmSearchPostsRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,16 +143,16 @@ class MMSearchPostsRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSearchPostsRequest-objects as value to a dart map
-  static Map<String, List<MMSearchPostsRequest>> mapListFromJson(
+  // maps a json object with a list of MmSearchPostsRequest-objects as value to a dart map
+  static Map<String, List<MmSearchPostsRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchPostsRequest>>{};
+    final map = <String, List<MmSearchPostsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchPostsRequest.listFromJson(
+        final value = MmSearchPostsRequest.listFromJson(
           entry.value,
           growable: growable,
         );

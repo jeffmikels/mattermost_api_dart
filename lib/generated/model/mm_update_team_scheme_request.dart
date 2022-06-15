@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateTeamSchemeRequest {
-  /// Returns a new [MMUpdateTeamSchemeRequest] instance.
-  MMUpdateTeamSchemeRequest({
+class MmUpdateTeamSchemeRequest {
+  /// Returns a new [MmUpdateTeamSchemeRequest] instance.
+  MmUpdateTeamSchemeRequest({
     required this.schemeId,
   });
 
@@ -21,7 +21,7 @@ class MMUpdateTeamSchemeRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMUpdateTeamSchemeRequest && other.schemeId == schemeId;
+      identical(this, other) || other is MmUpdateTeamSchemeRequest && other.schemeId == schemeId;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMUpdateTeamSchemeRequest {
       (schemeId.hashCode);
 
   @override
-  String toString() => 'MMUpdateTeamSchemeRequest[schemeId=$schemeId]';
+  String toString() => 'MmUpdateTeamSchemeRequest[schemeId=$schemeId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMUpdateTeamSchemeRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateTeamSchemeRequest] instance and imports its values from
+  /// Returns a new [MmUpdateTeamSchemeRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateTeamSchemeRequest? fromJson(dynamic value) {
+  static MmUpdateTeamSchemeRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMUpdateTeamSchemeRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateTeamSchemeRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateTeamSchemeRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateTeamSchemeRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateTeamSchemeRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateTeamSchemeRequest(
+      return MmUpdateTeamSchemeRequest(
         schemeId: mapValueOfType<String>(json, r'scheme_id')!,
       );
     }
     return null;
   }
 
-  static List<MMUpdateTeamSchemeRequest>? listFromJson(
+  static List<MmUpdateTeamSchemeRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateTeamSchemeRequest>[];
+    final result = <MmUpdateTeamSchemeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateTeamSchemeRequest.fromJson(row);
+        final value = MmUpdateTeamSchemeRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMUpdateTeamSchemeRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateTeamSchemeRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateTeamSchemeRequest>{};
+  static Map<String, MmUpdateTeamSchemeRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateTeamSchemeRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateTeamSchemeRequest.fromJson(entry.value);
+        final value = MmUpdateTeamSchemeRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMUpdateTeamSchemeRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateTeamSchemeRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateTeamSchemeRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateTeamSchemeRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateTeamSchemeRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateTeamSchemeRequest>>{};
+    final map = <String, List<MmUpdateTeamSchemeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateTeamSchemeRequest.listFromJson(
+        final value = MmUpdateTeamSchemeRequest.listFromJson(
           entry.value,
           growable: growable,
         );

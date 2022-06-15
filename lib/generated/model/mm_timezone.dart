@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTimezone {
-  /// Returns a new [MMTimezone] instance.
-  MMTimezone({
+class MmTimezone {
+  /// Returns a new [MmTimezone] instance.
+  MmTimezone({
     this.useAutomaticTimezone,
     this.manualTimezone,
     this.automaticTimezone,
@@ -48,7 +48,7 @@ class MMTimezone {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMTimezone &&
+      other is MmTimezone &&
           other.useAutomaticTimezone == useAutomaticTimezone &&
           other.manualTimezone == manualTimezone &&
           other.automaticTimezone == automaticTimezone;
@@ -62,7 +62,7 @@ class MMTimezone {
 
   @override
   String toString() =>
-      'MMTimezone[useAutomaticTimezone=$useAutomaticTimezone, manualTimezone=$manualTimezone, automaticTimezone=$automaticTimezone]';
+      'MmTimezone[useAutomaticTimezone=$useAutomaticTimezone, manualTimezone=$manualTimezone, automaticTimezone=$automaticTimezone]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -78,10 +78,10 @@ class MMTimezone {
     return _json;
   }
 
-  /// Returns a new [MMTimezone] instance and imports its values from
+  /// Returns a new [MmTimezone] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTimezone? fromJson(dynamic value) {
+  static MmTimezone? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -90,13 +90,13 @@ class MMTimezone {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTimezone[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTimezone[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTimezone[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTimezone[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTimezone(
+      return MmTimezone(
         useAutomaticTimezone: mapValueOfType<bool>(json, r'useAutomaticTimezone'),
         manualTimezone: mapValueOfType<String>(json, r'manualTimezone'),
         automaticTimezone: mapValueOfType<String>(json, r'automaticTimezone'),
@@ -105,14 +105,14 @@ class MMTimezone {
     return null;
   }
 
-  static List<MMTimezone>? listFromJson(
+  static List<MmTimezone>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTimezone>[];
+    final result = <MmTimezone>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTimezone.fromJson(row);
+        final value = MmTimezone.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -121,12 +121,12 @@ class MMTimezone {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTimezone> mapFromJson(dynamic json) {
-    final map = <String, MMTimezone>{};
+  static Map<String, MmTimezone> mapFromJson(dynamic json) {
+    final map = <String, MmTimezone>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTimezone.fromJson(entry.value);
+        final value = MmTimezone.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -135,16 +135,16 @@ class MMTimezone {
     return map;
   }
 
-  // maps a json object with a list of MMTimezone-objects as value to a dart map
-  static Map<String, List<MMTimezone>> mapListFromJson(
+  // maps a json object with a list of MmTimezone-objects as value to a dart map
+  static Map<String, List<MmTimezone>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTimezone>>{};
+    final map = <String, List<MmTimezone>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTimezone.listFromJson(
+        final value = MmTimezone.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRevokeSessionRequest {
-  /// Returns a new [MMRevokeSessionRequest] instance.
-  MMRevokeSessionRequest({
+class MmRevokeSessionRequest {
+  /// Returns a new [MmRevokeSessionRequest] instance.
+  MmRevokeSessionRequest({
     required this.sessionId,
   });
 
@@ -21,7 +21,7 @@ class MMRevokeSessionRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMRevokeSessionRequest && other.sessionId == sessionId;
+      identical(this, other) || other is MmRevokeSessionRequest && other.sessionId == sessionId;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMRevokeSessionRequest {
       (sessionId.hashCode);
 
   @override
-  String toString() => 'MMRevokeSessionRequest[sessionId=$sessionId]';
+  String toString() => 'MmRevokeSessionRequest[sessionId=$sessionId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMRevokeSessionRequest {
     return _json;
   }
 
-  /// Returns a new [MMRevokeSessionRequest] instance and imports its values from
+  /// Returns a new [MmRevokeSessionRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRevokeSessionRequest? fromJson(dynamic value) {
+  static MmRevokeSessionRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMRevokeSessionRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRevokeSessionRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRevokeSessionRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRevokeSessionRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRevokeSessionRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRevokeSessionRequest(
+      return MmRevokeSessionRequest(
         sessionId: mapValueOfType<String>(json, r'session_id')!,
       );
     }
     return null;
   }
 
-  static List<MMRevokeSessionRequest>? listFromJson(
+  static List<MmRevokeSessionRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRevokeSessionRequest>[];
+    final result = <MmRevokeSessionRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRevokeSessionRequest.fromJson(row);
+        final value = MmRevokeSessionRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMRevokeSessionRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRevokeSessionRequest> mapFromJson(dynamic json) {
-    final map = <String, MMRevokeSessionRequest>{};
+  static Map<String, MmRevokeSessionRequest> mapFromJson(dynamic json) {
+    final map = <String, MmRevokeSessionRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRevokeSessionRequest.fromJson(entry.value);
+        final value = MmRevokeSessionRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMRevokeSessionRequest {
     return map;
   }
 
-  // maps a json object with a list of MMRevokeSessionRequest-objects as value to a dart map
-  static Map<String, List<MMRevokeSessionRequest>> mapListFromJson(
+  // maps a json object with a list of MmRevokeSessionRequest-objects as value to a dart map
+  static Map<String, List<MmRevokeSessionRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRevokeSessionRequest>>{};
+    final map = <String, List<MmRevokeSessionRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRevokeSessionRequest.listFromJson(
+        final value = MmRevokeSessionRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateUserPasswordRequest {
-  /// Returns a new [MMUpdateUserPasswordRequest] instance.
-  MMUpdateUserPasswordRequest({
+class MmUpdateUserPasswordRequest {
+  /// Returns a new [MmUpdateUserPasswordRequest] instance.
+  MmUpdateUserPasswordRequest({
     this.currentPassword,
     required this.newPassword,
   });
@@ -32,7 +32,7 @@ class MMUpdateUserPasswordRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateUserPasswordRequest &&
+      other is MmUpdateUserPasswordRequest &&
           other.currentPassword == currentPassword &&
           other.newPassword == newPassword;
 
@@ -42,7 +42,7 @@ class MMUpdateUserPasswordRequest {
       (currentPassword == null ? 0 : currentPassword!.hashCode) + (newPassword.hashCode);
 
   @override
-  String toString() => 'MMUpdateUserPasswordRequest[currentPassword=$currentPassword, newPassword=$newPassword]';
+  String toString() => 'MmUpdateUserPasswordRequest[currentPassword=$currentPassword, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -53,10 +53,10 @@ class MMUpdateUserPasswordRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateUserPasswordRequest] instance and imports its values from
+  /// Returns a new [MmUpdateUserPasswordRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateUserPasswordRequest? fromJson(dynamic value) {
+  static MmUpdateUserPasswordRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -65,13 +65,13 @@ class MMUpdateUserPasswordRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateUserPasswordRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateUserPasswordRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateUserPasswordRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateUserPasswordRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateUserPasswordRequest(
+      return MmUpdateUserPasswordRequest(
         currentPassword: mapValueOfType<String>(json, r'current_password'),
         newPassword: mapValueOfType<String>(json, r'new_password')!,
       );
@@ -79,14 +79,14 @@ class MMUpdateUserPasswordRequest {
     return null;
   }
 
-  static List<MMUpdateUserPasswordRequest>? listFromJson(
+  static List<MmUpdateUserPasswordRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateUserPasswordRequest>[];
+    final result = <MmUpdateUserPasswordRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateUserPasswordRequest.fromJson(row);
+        final value = MmUpdateUserPasswordRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -95,12 +95,12 @@ class MMUpdateUserPasswordRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateUserPasswordRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateUserPasswordRequest>{};
+  static Map<String, MmUpdateUserPasswordRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateUserPasswordRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserPasswordRequest.fromJson(entry.value);
+        final value = MmUpdateUserPasswordRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,16 +109,16 @@ class MMUpdateUserPasswordRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateUserPasswordRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateUserPasswordRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateUserPasswordRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateUserPasswordRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateUserPasswordRequest>>{};
+    final map = <String, List<MmUpdateUserPasswordRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserPasswordRequest.listFromJson(
+        final value = MmUpdateUserPasswordRequest.listFromJson(
           entry.value,
           growable: growable,
         );

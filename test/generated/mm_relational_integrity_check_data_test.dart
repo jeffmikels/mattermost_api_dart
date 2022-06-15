@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRelationalIntegrityCheckData
+// tests for MmRelationalIntegrityCheckData
 void main() {
-  // final instance = MMRelationalIntegrityCheckData();
+  // final instance = MmRelationalIntegrityCheckData();
 
-  group('test MMRelationalIntegrityCheckData', () {
+  group('test MmRelationalIntegrityCheckData', () {
     // the name of the parent relation (table).
     // String parentName
     test('to test the property `parentName`', () async {
@@ -41,7 +41,7 @@ void main() {
     });
 
     // the list of orphaned records found.
-    // List<MMOrphanedRecord> records (default value: const [])
+    // List<MmOrphanedRecord> records (default value: const [])
     test('to test the property `records`', () async {
       // TODO
     });

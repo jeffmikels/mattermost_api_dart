@@ -40,7 +40,7 @@ class MattermostSharedChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -77,18 +77,18 @@ class MattermostSharedChannelsApi {
   /// * [int] page:
   ///
   /// * [int] perPage:
-  Future<List<MMSharedChannel>?> getAllSharedChannels(String teamId, { int? page, int? perPage, }) async {
+  Future<List<MmSharedChannel>?> getAllSharedChannels(String teamId, { int? page, int? perPage, }) async {
     final response = await getAllSharedChannelsWithHttpInfo(teamId,  page: page, perPage: perPage, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMSharedChannel>') as List)
-        .cast<MMSharedChannel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmSharedChannel>') as List)
+        .cast<MmSharedChannel>()
         .toList();
 
     }
@@ -113,7 +113,7 @@ class MattermostSharedChannelsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -139,16 +139,16 @@ class MattermostSharedChannelsApi {
   ///
   /// * [String] remoteId (required):
   ///   Remote Cluster GUID
-  Future<MMRemoteClusterInfo?> getRemoteClusterInfo(String remoteId,) async {
+  Future<MmRemoteClusterInfo?> getRemoteClusterInfo(String remoteId,) async {
     final response = await getRemoteClusterInfoWithHttpInfo(remoteId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MMRemoteClusterInfo',) as MMRemoteClusterInfo;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MmRemoteClusterInfo',) as MmRemoteClusterInfo;
     
     }
     return null;

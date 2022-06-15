@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateIncomingWebhookRequest
+// tests for MmCreateIncomingWebhookRequest
 void main() {
-  // final instance = MMCreateIncomingWebhookRequest();
+  // final instance = MmCreateIncomingWebhookRequest();
 
-  group('test MMCreateIncomingWebhookRequest', () {
+  group('test MmCreateIncomingWebhookRequest', () {
     // The ID of a public channel or private group that receives the webhook payloads.
     // String channelId
     test('to test the property `channelId`', () async {

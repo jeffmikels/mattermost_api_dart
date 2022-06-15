@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchPostsRequest
+// tests for MmSearchPostsRequest
 void main() {
-  // final instance = MMSearchPostsRequest();
+  // final instance = MmSearchPostsRequest();
 
-  group('test MMSearchPostsRequest', () {
+  group('test MmSearchPostsRequest', () {
     // The search terms as inputed by the user. To search for posts from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name).
     // String terms
     test('to test the property `terms`', () async {

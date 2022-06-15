@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPostListWithSearchMatches {
-  /// Returns a new [MMPostListWithSearchMatches] instance.
-  MMPostListWithSearchMatches({
+class MmPostListWithSearchMatches {
+  /// Returns a new [MmPostListWithSearchMatches] instance.
+  MmPostListWithSearchMatches({
     this.order = const [],
     this.posts = const {},
     this.matches = const {},
@@ -20,7 +20,7 @@ class MMPostListWithSearchMatches {
 
   List<String> order;
 
-  Map<String, MMPost> posts;
+  Map<String, MmPost> posts;
 
   /// A mapping of post IDs to a list of matched terms within the post. This field will only be populated on servers running version 5.1 or greater with Elasticsearch enabled.
   Map<String, List<String>> matches;
@@ -28,7 +28,7 @@ class MMPostListWithSearchMatches {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPostListWithSearchMatches && other.order == order && other.posts == posts && other.matches == matches;
+      other is MmPostListWithSearchMatches && other.order == order && other.posts == posts && other.matches == matches;
 
   @override
   int get hashCode =>
@@ -36,7 +36,7 @@ class MMPostListWithSearchMatches {
       (order.hashCode) + (posts.hashCode) + (matches.hashCode);
 
   @override
-  String toString() => 'MMPostListWithSearchMatches[order=$order, posts=$posts, matches=$matches]';
+  String toString() => 'MmPostListWithSearchMatches[order=$order, posts=$posts, matches=$matches]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -46,10 +46,10 @@ class MMPostListWithSearchMatches {
     return _json;
   }
 
-  /// Returns a new [MMPostListWithSearchMatches] instance and imports its values from
+  /// Returns a new [MmPostListWithSearchMatches] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostListWithSearchMatches? fromJson(dynamic value) {
+  static MmPostListWithSearchMatches? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,29 +58,29 @@ class MMPostListWithSearchMatches {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostListWithSearchMatches[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostListWithSearchMatches[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostListWithSearchMatches[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostListWithSearchMatches[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostListWithSearchMatches(
+      return MmPostListWithSearchMatches(
         order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
-        posts: MMPost.mapFromJson(json[r'posts'] ?? const {}),
+        posts: MmPost.mapFromJson(json[r'posts'] ?? const {}),
         matches: json[r'matches'] == null ? const {} : mapCastOfType<String, List<String>>(json, r'matches')!,
       );
     }
     return null;
   }
 
-  static List<MMPostListWithSearchMatches>? listFromJson(
+  static List<MmPostListWithSearchMatches>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostListWithSearchMatches>[];
+    final result = <MmPostListWithSearchMatches>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostListWithSearchMatches.fromJson(row);
+        final value = MmPostListWithSearchMatches.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -89,12 +89,12 @@ class MMPostListWithSearchMatches {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostListWithSearchMatches> mapFromJson(dynamic json) {
-    final map = <String, MMPostListWithSearchMatches>{};
+  static Map<String, MmPostListWithSearchMatches> mapFromJson(dynamic json) {
+    final map = <String, MmPostListWithSearchMatches>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostListWithSearchMatches.fromJson(entry.value);
+        final value = MmPostListWithSearchMatches.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -103,16 +103,16 @@ class MMPostListWithSearchMatches {
     return map;
   }
 
-  // maps a json object with a list of MMPostListWithSearchMatches-objects as value to a dart map
-  static Map<String, List<MMPostListWithSearchMatches>> mapListFromJson(
+  // maps a json object with a list of MmPostListWithSearchMatches-objects as value to a dart map
+  static Map<String, List<MmPostListWithSearchMatches>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostListWithSearchMatches>>{};
+    final map = <String, List<MmPostListWithSearchMatches>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostListWithSearchMatches.listFromJson(
+        final value = MmPostListWithSearchMatches.listFromJson(
           entry.value,
           growable: growable,
         );

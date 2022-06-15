@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraphArticleAuthorsInner {
-  /// Returns a new [MMOpenGraphArticleAuthorsInner] instance.
-  MMOpenGraphArticleAuthorsInner({
+class MmOpenGraphArticleAuthorsInner {
+  /// Returns a new [MmOpenGraphArticleAuthorsInner] instance.
+  MmOpenGraphArticleAuthorsInner({
     this.firstName,
     this.lastName,
     this.username,
@@ -54,7 +54,7 @@ class MMOpenGraphArticleAuthorsInner {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenGraphArticleAuthorsInner &&
+      other is MmOpenGraphArticleAuthorsInner &&
           other.firstName == firstName &&
           other.lastName == lastName &&
           other.username == username &&
@@ -70,7 +70,7 @@ class MMOpenGraphArticleAuthorsInner {
 
   @override
   String toString() =>
-      'MMOpenGraphArticleAuthorsInner[firstName=$firstName, lastName=$lastName, username=$username, gender=$gender]';
+      'MmOpenGraphArticleAuthorsInner[firstName=$firstName, lastName=$lastName, username=$username, gender=$gender]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -89,10 +89,10 @@ class MMOpenGraphArticleAuthorsInner {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraphArticleAuthorsInner] instance and imports its values from
+  /// Returns a new [MmOpenGraphArticleAuthorsInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraphArticleAuthorsInner? fromJson(dynamic value) {
+  static MmOpenGraphArticleAuthorsInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -101,13 +101,13 @@ class MMOpenGraphArticleAuthorsInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraphArticleAuthorsInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraphArticleAuthorsInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraphArticleAuthorsInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraphArticleAuthorsInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraphArticleAuthorsInner(
+      return MmOpenGraphArticleAuthorsInner(
         firstName: mapValueOfType<String>(json, r'first_name'),
         lastName: mapValueOfType<String>(json, r'last_name'),
         username: mapValueOfType<String>(json, r'username'),
@@ -117,14 +117,14 @@ class MMOpenGraphArticleAuthorsInner {
     return null;
   }
 
-  static List<MMOpenGraphArticleAuthorsInner>? listFromJson(
+  static List<MmOpenGraphArticleAuthorsInner>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraphArticleAuthorsInner>[];
+    final result = <MmOpenGraphArticleAuthorsInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraphArticleAuthorsInner.fromJson(row);
+        final value = MmOpenGraphArticleAuthorsInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -133,12 +133,12 @@ class MMOpenGraphArticleAuthorsInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraphArticleAuthorsInner> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraphArticleAuthorsInner>{};
+  static Map<String, MmOpenGraphArticleAuthorsInner> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraphArticleAuthorsInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphArticleAuthorsInner.fromJson(entry.value);
+        final value = MmOpenGraphArticleAuthorsInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -147,16 +147,16 @@ class MMOpenGraphArticleAuthorsInner {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraphArticleAuthorsInner-objects as value to a dart map
-  static Map<String, List<MMOpenGraphArticleAuthorsInner>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraphArticleAuthorsInner-objects as value to a dart map
+  static Map<String, List<MmOpenGraphArticleAuthorsInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraphArticleAuthorsInner>>{};
+    final map = <String, List<MmOpenGraphArticleAuthorsInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphArticleAuthorsInner.listFromJson(
+        final value = MmOpenGraphArticleAuthorsInner.listFromJson(
           entry.value,
           growable: growable,
         );

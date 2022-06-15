@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginManifestServerExecutables
+// tests for MmPluginManifestServerExecutables
 void main() {
-  // final instance = MMPluginManifestServerExecutables();
+  // final instance = MmPluginManifestServerExecutables();
 
-  group('test MMPluginManifestServerExecutables', () {
+  group('test MmPluginManifestServerExecutables', () {
     // String linuxAmd64
     test('to test the property `linuxAmd64`', () async {
       // TODO

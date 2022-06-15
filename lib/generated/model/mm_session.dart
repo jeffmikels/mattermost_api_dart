@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSession {
-  /// Returns a new [MMSession] instance.
-  MMSession({
+class MmSession {
+  /// Returns a new [MmSession] instance.
+  MmSession({
     this.createAt,
     this.deviceId,
     this.expiresAt,
@@ -93,7 +93,7 @@ class MMSession {
   ///
   String? roles;
 
-  List<MMTeamMember> teamMembers;
+  List<MmTeamMember> teamMembers;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -114,7 +114,7 @@ class MMSession {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSession &&
+      other is MmSession &&
           other.createAt == createAt &&
           other.deviceId == deviceId &&
           other.expiresAt == expiresAt &&
@@ -144,7 +144,7 @@ class MMSession {
 
   @override
   String toString() =>
-      'MMSession[createAt=$createAt, deviceId=$deviceId, expiresAt=$expiresAt, id=$id, isOauth=$isOauth, lastActivityAt=$lastActivityAt, props=$props, roles=$roles, teamMembers=$teamMembers, token=$token, userId=$userId]';
+      'MmSession[createAt=$createAt, deviceId=$deviceId, expiresAt=$expiresAt, id=$id, isOauth=$isOauth, lastActivityAt=$lastActivityAt, props=$props, roles=$roles, teamMembers=$teamMembers, token=$token, userId=$userId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -182,10 +182,10 @@ class MMSession {
     return _json;
   }
 
-  /// Returns a new [MMSession] instance and imports its values from
+  /// Returns a new [MmSession] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSession? fromJson(dynamic value) {
+  static MmSession? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -194,13 +194,13 @@ class MMSession {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSession[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSession[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSession[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSession[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSession(
+      return MmSession(
         createAt: mapValueOfType<int>(json, r'create_at'),
         deviceId: mapValueOfType<String>(json, r'device_id'),
         expiresAt: mapValueOfType<int>(json, r'expires_at'),
@@ -209,7 +209,7 @@ class MMSession {
         lastActivityAt: mapValueOfType<int>(json, r'last_activity_at'),
         props: mapValueOfType<Map>(json, r'props'),
         roles: mapValueOfType<String>(json, r'roles'),
-        teamMembers: MMTeamMember.listFromJson(json[r'team_members']) ?? const [],
+        teamMembers: MmTeamMember.listFromJson(json[r'team_members']) ?? const [],
         token: mapValueOfType<String>(json, r'token'),
         userId: mapValueOfType<String>(json, r'user_id'),
       );
@@ -217,14 +217,14 @@ class MMSession {
     return null;
   }
 
-  static List<MMSession>? listFromJson(
+  static List<MmSession>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSession>[];
+    final result = <MmSession>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSession.fromJson(row);
+        final value = MmSession.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -233,12 +233,12 @@ class MMSession {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSession> mapFromJson(dynamic json) {
-    final map = <String, MMSession>{};
+  static Map<String, MmSession> mapFromJson(dynamic json) {
+    final map = <String, MmSession>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSession.fromJson(entry.value);
+        final value = MmSession.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -247,16 +247,16 @@ class MMSession {
     return map;
   }
 
-  // maps a json object with a list of MMSession-objects as value to a dart map
-  static Map<String, List<MMSession>> mapListFromJson(
+  // maps a json object with a list of MmSession-objects as value to a dart map
+  static Map<String, List<MmSession>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSession>>{};
+    final map = <String, List<MmSession>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSession.listFromJson(
+        final value = MmSession.listFromJson(
           entry.value,
           growable: growable,
         );

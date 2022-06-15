@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getPostsUsage**
-> MMPostsUsage getPostsUsage()
+> MmPostsUsage getPostsUsage()
 
 Get current usage of posts
 
@@ -28,24 +28,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMPostsUsage? result = await client.usage.getPostsUsage(); // await the Future<MMPostsUsage?>
+  final MmPostsUsage? result = await client.usage.getPostsUsage(); // await the Future<MmPostsUsage?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostUsageApi->getPostsUsage: $e\n');
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMPostsUsage**](MMPostsUsage.md)
+[**MmPostsUsage**](MmPostsUsage.md)
 
 ### Authorization
 

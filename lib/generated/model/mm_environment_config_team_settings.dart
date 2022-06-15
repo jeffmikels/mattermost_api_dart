@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigTeamSettings {
-  /// Returns a new [MMEnvironmentConfigTeamSettings] instance.
-  MMEnvironmentConfigTeamSettings({
+class MmEnvironmentConfigTeamSettings {
+  /// Returns a new [MmEnvironmentConfigTeamSettings] instance.
+  MmEnvironmentConfigTeamSettings({
     this.siteName,
     this.maxUsersPerTeam,
     this.enableTeamCreation,
@@ -198,7 +198,7 @@ class MMEnvironmentConfigTeamSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigTeamSettings &&
+      other is MmEnvironmentConfigTeamSettings &&
           other.siteName == siteName &&
           other.maxUsersPerTeam == maxUsersPerTeam &&
           other.enableTeamCreation == enableTeamCreation &&
@@ -246,7 +246,7 @@ class MMEnvironmentConfigTeamSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
+      'MmEnvironmentConfigTeamSettings[siteName=$siteName, maxUsersPerTeam=$maxUsersPerTeam, enableTeamCreation=$enableTeamCreation, enableUserCreation=$enableUserCreation, enableOpenServer=$enableOpenServer, restrictCreationToDomains=$restrictCreationToDomains, enableCustomBrand=$enableCustomBrand, customBrandText=$customBrandText, customDescriptionText=$customDescriptionText, restrictDirectMessage=$restrictDirectMessage, restrictTeamInvite=$restrictTeamInvite, restrictPublicChannelManagement=$restrictPublicChannelManagement, restrictPrivateChannelManagement=$restrictPrivateChannelManagement, restrictPublicChannelCreation=$restrictPublicChannelCreation, restrictPrivateChannelCreation=$restrictPrivateChannelCreation, restrictPublicChannelDeletion=$restrictPublicChannelDeletion, restrictPrivateChannelDeletion=$restrictPrivateChannelDeletion, userStatusAwayTimeout=$userStatusAwayTimeout, maxChannelsPerTeam=$maxChannelsPerTeam, maxNotificationsPerChannel=$maxNotificationsPerChannel]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -313,10 +313,10 @@ class MMEnvironmentConfigTeamSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigTeamSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigTeamSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigTeamSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigTeamSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -325,13 +325,13 @@ class MMEnvironmentConfigTeamSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigTeamSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigTeamSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigTeamSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigTeamSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigTeamSettings(
+      return MmEnvironmentConfigTeamSettings(
         siteName: mapValueOfType<bool>(json, r'SiteName'),
         maxUsersPerTeam: mapValueOfType<bool>(json, r'MaxUsersPerTeam'),
         enableTeamCreation: mapValueOfType<bool>(json, r'EnableTeamCreation'),
@@ -357,14 +357,14 @@ class MMEnvironmentConfigTeamSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigTeamSettings>? listFromJson(
+  static List<MmEnvironmentConfigTeamSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigTeamSettings>[];
+    final result = <MmEnvironmentConfigTeamSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigTeamSettings.fromJson(row);
+        final value = MmEnvironmentConfigTeamSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -373,12 +373,12 @@ class MMEnvironmentConfigTeamSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigTeamSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigTeamSettings>{};
+  static Map<String, MmEnvironmentConfigTeamSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigTeamSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigTeamSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigTeamSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -387,16 +387,16 @@ class MMEnvironmentConfigTeamSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigTeamSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigTeamSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigTeamSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigTeamSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigTeamSettings>>{};
+    final map = <String, List<MmEnvironmentConfigTeamSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigTeamSettings.listFromJson(
+        final value = MmEnvironmentConfigTeamSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigServiceSettings {
-  /// Returns a new [MMConfigServiceSettings] instance.
-  MMConfigServiceSettings({
+class MmConfigServiceSettings {
+  /// Returns a new [MmConfigServiceSettings] instance.
+  MmConfigServiceSettings({
     this.siteURL,
     this.listenAddress,
     this.connectionSecurity,
@@ -342,7 +342,7 @@ class MMConfigServiceSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigServiceSettings &&
+      other is MmConfigServiceSettings &&
           other.siteURL == siteURL &&
           other.listenAddress == listenAddress &&
           other.connectionSecurity == connectionSecurity &&
@@ -422,7 +422,7 @@ class MMConfigServiceSettings {
 
   @override
   String toString() =>
-      'MMConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
+      'MmConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -537,10 +537,10 @@ class MMConfigServiceSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigServiceSettings] instance and imports its values from
+  /// Returns a new [MmConfigServiceSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigServiceSettings? fromJson(dynamic value) {
+  static MmConfigServiceSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -549,13 +549,13 @@ class MMConfigServiceSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigServiceSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigServiceSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigServiceSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigServiceSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigServiceSettings(
+      return MmConfigServiceSettings(
         siteURL: mapValueOfType<String>(json, r'SiteURL'),
         listenAddress: mapValueOfType<String>(json, r'ListenAddress'),
         connectionSecurity: mapValueOfType<String>(json, r'ConnectionSecurity'),
@@ -597,14 +597,14 @@ class MMConfigServiceSettings {
     return null;
   }
 
-  static List<MMConfigServiceSettings>? listFromJson(
+  static List<MmConfigServiceSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigServiceSettings>[];
+    final result = <MmConfigServiceSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigServiceSettings.fromJson(row);
+        final value = MmConfigServiceSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -613,12 +613,12 @@ class MMConfigServiceSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigServiceSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigServiceSettings>{};
+  static Map<String, MmConfigServiceSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigServiceSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigServiceSettings.fromJson(entry.value);
+        final value = MmConfigServiceSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -627,16 +627,16 @@ class MMConfigServiceSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigServiceSettings-objects as value to a dart map
-  static Map<String, List<MMConfigServiceSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigServiceSettings-objects as value to a dart map
+  static Map<String, List<MmConfigServiceSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigServiceSettings>>{};
+    final map = <String, List<MmConfigServiceSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigServiceSettings.listFromJson(
+        final value = MmConfigServiceSettings.listFromJson(
           entry.value,
           growable: growable,
         );

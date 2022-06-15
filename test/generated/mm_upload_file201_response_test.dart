@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUploadFile201Response
+// tests for MmUploadFile201Response
 void main() {
-  // final instance = MMUploadFile201Response();
+  // final instance = MmUploadFile201Response();
 
-  group('test MMUploadFile201Response', () {
+  group('test MmUploadFile201Response', () {
     // A list of file metadata that has been stored in the database
-    // List<MMFileInfo> fileInfos (default value: const [])
+    // List<MmFileInfo> fileInfos (default value: const [])
     test('to test the property `fileInfos`', () async {
       // TODO
     });

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenInteractiveDialogRequest {
-  /// Returns a new [MMOpenInteractiveDialogRequest] instance.
-  MMOpenInteractiveDialogRequest({
+class MmOpenInteractiveDialogRequest {
+  /// Returns a new [MmOpenInteractiveDialogRequest] instance.
+  MmOpenInteractiveDialogRequest({
     required this.triggerId,
     required this.url,
     required this.dialog,
@@ -24,12 +24,12 @@ class MMOpenInteractiveDialogRequest {
   /// The URL to send the submitted dialog payload to
   String url;
 
-  MMOpenInteractiveDialogRequestDialog dialog;
+  MmOpenInteractiveDialogRequestDialog dialog;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenInteractiveDialogRequest &&
+      other is MmOpenInteractiveDialogRequest &&
           other.triggerId == triggerId &&
           other.url == url &&
           other.dialog == dialog;
@@ -40,7 +40,7 @@ class MMOpenInteractiveDialogRequest {
       (triggerId.hashCode) + (url.hashCode) + (dialog.hashCode);
 
   @override
-  String toString() => 'MMOpenInteractiveDialogRequest[triggerId=$triggerId, url=$url, dialog=$dialog]';
+  String toString() => 'MmOpenInteractiveDialogRequest[triggerId=$triggerId, url=$url, dialog=$dialog]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMOpenInteractiveDialogRequest {
     return _json;
   }
 
-  /// Returns a new [MMOpenInteractiveDialogRequest] instance and imports its values from
+  /// Returns a new [MmOpenInteractiveDialogRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenInteractiveDialogRequest? fromJson(dynamic value) {
+  static MmOpenInteractiveDialogRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,29 +62,29 @@ class MMOpenInteractiveDialogRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenInteractiveDialogRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenInteractiveDialogRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenInteractiveDialogRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenInteractiveDialogRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenInteractiveDialogRequest(
+      return MmOpenInteractiveDialogRequest(
         triggerId: mapValueOfType<String>(json, r'trigger_id')!,
         url: mapValueOfType<String>(json, r'url')!,
-        dialog: MMOpenInteractiveDialogRequestDialog.fromJson(json[r'dialog'])!,
+        dialog: MmOpenInteractiveDialogRequestDialog.fromJson(json[r'dialog'])!,
       );
     }
     return null;
   }
 
-  static List<MMOpenInteractiveDialogRequest>? listFromJson(
+  static List<MmOpenInteractiveDialogRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenInteractiveDialogRequest>[];
+    final result = <MmOpenInteractiveDialogRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenInteractiveDialogRequest.fromJson(row);
+        final value = MmOpenInteractiveDialogRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMOpenInteractiveDialogRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenInteractiveDialogRequest> mapFromJson(dynamic json) {
-    final map = <String, MMOpenInteractiveDialogRequest>{};
+  static Map<String, MmOpenInteractiveDialogRequest> mapFromJson(dynamic json) {
+    final map = <String, MmOpenInteractiveDialogRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenInteractiveDialogRequest.fromJson(entry.value);
+        final value = MmOpenInteractiveDialogRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMOpenInteractiveDialogRequest {
     return map;
   }
 
-  // maps a json object with a list of MMOpenInteractiveDialogRequest-objects as value to a dart map
-  static Map<String, List<MMOpenInteractiveDialogRequest>> mapListFromJson(
+  // maps a json object with a list of MmOpenInteractiveDialogRequest-objects as value to a dart map
+  static Map<String, List<MmOpenInteractiveDialogRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenInteractiveDialogRequest>>{};
+    final map = <String, List<MmOpenInteractiveDialogRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenInteractiveDialogRequest.listFromJson(
+        final value = MmOpenInteractiveDialogRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTermsOfService
+// tests for MmTermsOfService
 void main() {
-  // final instance = MMTermsOfService();
+  // final instance = MmTermsOfService();
 
-  group('test MMTermsOfService', () {
+  group('test MmTermsOfService', () {
     // The unique identifier of the terms of service.
     // String id
     test('to test the property `id`', () async {

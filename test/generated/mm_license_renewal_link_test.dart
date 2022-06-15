@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMLicenseRenewalLink
+// tests for MmLicenseRenewalLink
 void main() {
-  // final instance = MMLicenseRenewalLink();
+  // final instance = MmLicenseRenewalLink();
 
-  group('test MMLicenseRenewalLink', () {
+  group('test MmLicenseRenewalLink', () {
     // License renewal link
     // String renewalLink
     test('to test the property `renewalLink`', () async {

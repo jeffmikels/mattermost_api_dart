@@ -10,15 +10,15 @@
 
 part of mattermost.api;
 
-class MMSearchTeams200Response {
-  /// Returns a new [MMSearchTeams200Response] instance.
-  MMSearchTeams200Response({
+class MmSearchTeams200Response {
+  /// Returns a new [MmSearchTeams200Response] instance.
+  MmSearchTeams200Response({
     this.teams = const [],
     this.totalCount,
   });
 
   /// The teams that matched the query.
-  List<MMTeam> teams;
+  List<MmTeam> teams;
 
   /// The total number of results, regardless of page and per_page requested.
   ///
@@ -32,7 +32,7 @@ class MMSearchTeams200Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSearchTeams200Response && other.teams == teams && other.totalCount == totalCount;
+      other is MmSearchTeams200Response && other.teams == teams && other.totalCount == totalCount;
 
   @override
   int get hashCode =>
@@ -40,7 +40,7 @@ class MMSearchTeams200Response {
       (teams.hashCode) + (totalCount == null ? 0 : totalCount!.hashCode);
 
   @override
-  String toString() => 'MMSearchTeams200Response[teams=$teams, totalCount=$totalCount]';
+  String toString() => 'MmSearchTeams200Response[teams=$teams, totalCount=$totalCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class MMSearchTeams200Response {
     return _json;
   }
 
-  /// Returns a new [MMSearchTeams200Response] instance and imports its values from
+  /// Returns a new [MmSearchTeams200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchTeams200Response? fromJson(dynamic value) {
+  static MmSearchTeams200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,28 +63,28 @@ class MMSearchTeams200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSearchTeams200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSearchTeams200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSearchTeams200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSearchTeams200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchTeams200Response(
-        teams: MMTeam.listFromJson(json[r'teams']) ?? const [],
+      return MmSearchTeams200Response(
+        teams: MmTeam.listFromJson(json[r'teams']) ?? const [],
         totalCount: json[r'total_count'] == null ? null : num.parse(json[r'total_count'].toString()),
       );
     }
     return null;
   }
 
-  static List<MMSearchTeams200Response>? listFromJson(
+  static List<MmSearchTeams200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchTeams200Response>[];
+    final result = <MmSearchTeams200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchTeams200Response.fromJson(row);
+        final value = MmSearchTeams200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMSearchTeams200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchTeams200Response> mapFromJson(dynamic json) {
-    final map = <String, MMSearchTeams200Response>{};
+  static Map<String, MmSearchTeams200Response> mapFromJson(dynamic json) {
+    final map = <String, MmSearchTeams200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchTeams200Response.fromJson(entry.value);
+        final value = MmSearchTeams200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMSearchTeams200Response {
     return map;
   }
 
-  // maps a json object with a list of MMSearchTeams200Response-objects as value to a dart map
-  static Map<String, List<MMSearchTeams200Response>> mapListFromJson(
+  // maps a json object with a list of MmSearchTeams200Response-objects as value to a dart map
+  static Map<String, List<MmSearchTeams200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchTeams200Response>>{};
+    final map = <String, List<MmSearchTeams200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchTeams200Response.listFromJson(
+        final value = MmSearchTeams200Response.listFromJson(
           entry.value,
           growable: growable,
         );

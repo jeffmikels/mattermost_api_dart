@@ -10,13 +10,13 @@
 
 part of mattermost.api;
 
-class MMOAuth implements MMAuthentication {
-  MMOAuth({this.accessToken = ''});
+class MmOAuth implements MmAuthentication {
+  MmOAuth({this.accessToken = ''});
 
   String accessToken;
 
   @override
-  void applyToParams(List<MMQueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MmQueryParam> queryParams, Map<String, String> headerParams) {
     if (accessToken.isNotEmpty) {
       headerParams['Authorization'] = 'Bearer $accessToken';
     }

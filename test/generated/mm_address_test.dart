@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAddress
+// tests for MmAddress
 void main() {
-  // final instance = MMAddress();
+  // final instance = MmAddress();
 
-  group('test MMAddress', () {
+  group('test MmAddress', () {
     // String city
     test('to test the property `city`', () async {
       // TODO

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigLogSettings
+// tests for MmEnvironmentConfigLogSettings
 void main() {
-  // final instance = MMEnvironmentConfigLogSettings();
+  // final instance = MmEnvironmentConfigLogSettings();
 
-  group('test MMEnvironmentConfigLogSettings', () {
+  group('test MmEnvironmentConfigLogSettings', () {
     // bool enableConsole
     test('to test the property `enableConsole`', () async {
       // TODO

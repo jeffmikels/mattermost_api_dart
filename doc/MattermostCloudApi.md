@@ -41,18 +41,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -88,7 +88,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createCustomerPayment**
-> MMPaymentSetupIntent createCustomerPayment()
+> MmPaymentSetupIntent createCustomerPayment()
 
 Create a customer setup payment intent
 
@@ -103,24 +103,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMPaymentSetupIntent? result = await client.cloud.createCustomerPayment(); // await the Future<MMPaymentSetupIntent?>
+  final MmPaymentSetupIntent? result = await client.cloud.createCustomerPayment(); // await the Future<MmPaymentSetupIntent?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->createCustomerPayment: $e\n');
@@ -133,7 +133,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMPaymentSetupIntent**](MMPaymentSetupIntent.md)
+[**MmPaymentSetupIntent**](MmPaymentSetupIntent.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getCloudCustomer**
-> MMCloudCustomer getCloudCustomer()
+> MmCloudCustomer getCloudCustomer()
 
 Get cloud customer
 
@@ -162,24 +162,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMCloudCustomer? result = await client.cloud.getCloudCustomer(); // await the Future<MMCloudCustomer?>
+  final MmCloudCustomer? result = await client.cloud.getCloudCustomer(); // await the Future<MmCloudCustomer?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudCustomer: $e\n');
@@ -192,7 +192,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMCloudCustomer**](MMCloudCustomer.md)
+[**MmCloudCustomer**](MmCloudCustomer.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getCloudLimits**
-> MMProductLimits getCloudLimits()
+> MmProductLimits getCloudLimits()
 
 Get cloud workspace limits
 
@@ -221,24 +221,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMProductLimits? result = await client.cloud.getCloudLimits(); // await the Future<MMProductLimits?>
+  final MmProductLimits? result = await client.cloud.getCloudLimits(); // await the Future<MmProductLimits?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudLimits: $e\n');
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMProductLimits**](MMProductLimits.md)
+[**MmProductLimits**](MmProductLimits.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getCloudProducts**
-> List<MMProduct> getCloudProducts()
+> List<MmProduct> getCloudProducts()
 
 Get cloud products
 
@@ -280,24 +280,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMProduct&gt;? result = await client.cloud.getCloudProducts(); // await the Future<List&lt;MMProduct&gt;?>
+  final List&lt;MmProduct&gt;? result = await client.cloud.getCloudProducts(); // await the Future<List&lt;MmProduct&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudProducts: $e\n');
@@ -310,7 +310,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMProduct>**](MMProduct.md)
+[**List<MmProduct>**](MmProduct.md)
 
 ### Authorization
 
@@ -339,18 +339,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -386,7 +386,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getInvoicesForSubscription**
-> List<MMInvoice> getInvoicesForSubscription()
+> List<MmInvoice> getInvoicesForSubscription()
 
 Get cloud subscription invoices
 
@@ -401,24 +401,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMInvoice&gt;? result = await client.cloud.getInvoicesForSubscription(); // await the Future<List&lt;MMInvoice&gt;?>
+  final List&lt;MmInvoice&gt;? result = await client.cloud.getInvoicesForSubscription(); // await the Future<List&lt;MmInvoice&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getInvoicesForSubscription: $e\n');
@@ -431,7 +431,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMInvoice>**](MMInvoice.md)
+[**List<MmInvoice>**](MmInvoice.md)
 
 ### Authorization
 
@@ -445,7 +445,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSubscription**
-> MMSubscription getSubscription()
+> MmSubscription getSubscription()
 
 Get cloud subscription
 
@@ -460,24 +460,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMSubscription? result = await client.cloud.getSubscription(); // await the Future<MMSubscription?>
+  final MmSubscription? result = await client.cloud.getSubscription(); // await the Future<MmSubscription?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscription: $e\n');
@@ -490,7 +490,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMSubscription**](MMSubscription.md)
+[**MmSubscription**](MmSubscription.md)
 
 ### Authorization
 
@@ -504,7 +504,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSubscriptionStats**
-> MMSubscriptionStats getSubscriptionStats()
+> MmSubscriptionStats getSubscriptionStats()
 
 GET endpoint for cloud subscription stats
 
@@ -519,24 +519,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMSubscriptionStats? result = await client.cloud.getSubscriptionStats(); // await the Future<MMSubscriptionStats?>
+  final MmSubscriptionStats? result = await client.cloud.getSubscriptionStats(); // await the Future<MmSubscriptionStats?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscriptionStats: $e\n');
@@ -549,7 +549,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMSubscriptionStats**](MMSubscriptionStats.md)
+[**MmSubscriptionStats**](MmSubscriptionStats.md)
 
 ### Authorization
 
@@ -578,18 +578,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -636,18 +636,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -694,18 +694,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -737,7 +737,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateCloudCustomer**
-> MMCloudCustomer updateCloudCustomer(mMUpdateCloudCustomerRequest)
+> MmCloudCustomer updateCloudCustomer(mmUpdateCloudCustomerRequest)
 
 Update cloud customer
 
@@ -752,25 +752,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMUpdateCloudCustomerRequest mMUpdateCloudCustomerRequest = MMUpdateCloudCustomerRequest(); // MMUpdateCloudCustomerRequest | Customer patch including information to update
+final MmUpdateCloudCustomerRequest mmUpdateCloudCustomerRequest = MmUpdateCloudCustomerRequest(); // MmUpdateCloudCustomerRequest | Customer patch including information to update
 
 try {
-  final MMCloudCustomer? result = await client.cloud.updateCloudCustomer(mMUpdateCloudCustomerRequest); // await the Future<MMCloudCustomer?>
+  final MmCloudCustomer? result = await client.cloud.updateCloudCustomer(mmUpdateCloudCustomerRequest); // await the Future<MmCloudCustomer?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomer: $e\n');
@@ -782,11 +782,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMUpdateCloudCustomerRequest** | [**MMUpdateCloudCustomerRequest**](MMUpdateCloudCustomerRequest.md)| Customer patch including information to update | 
+ **mmUpdateCloudCustomerRequest** | [**MmUpdateCloudCustomerRequest**](MmUpdateCloudCustomerRequest.md)| Customer patch including information to update | 
 
 ### Return type
 
-[**MMCloudCustomer**](MMCloudCustomer.md)
+[**MmCloudCustomer**](MmCloudCustomer.md)
 
 ### Authorization
 
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateCloudCustomerAddress**
-> MMCloudCustomer updateCloudCustomerAddress(mMAddress)
+> MmCloudCustomer updateCloudCustomerAddress(mmAddress)
 
 Update cloud customer address
 
@@ -815,25 +815,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMAddress mMAddress = MMAddress(); // MMAddress | Company address information to update
+final MmAddress mmAddress = MmAddress(); // MmAddress | Company address information to update
 
 try {
-  final MMCloudCustomer? result = await client.cloud.updateCloudCustomerAddress(mMAddress); // await the Future<MMCloudCustomer?>
+  final MmCloudCustomer? result = await client.cloud.updateCloudCustomerAddress(mmAddress); // await the Future<MmCloudCustomer?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomerAddress: $e\n');
@@ -845,11 +845,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMAddress** | [**MMAddress**](MMAddress.md)| Company address information to update | 
+ **mmAddress** | [**MmAddress**](MmAddress.md)| Company address information to update | 
 
 ### Return type
 
-[**MMCloudCustomer**](MMCloudCustomer.md)
+[**MmCloudCustomer**](MmCloudCustomer.md)
 
 ### Authorization
 

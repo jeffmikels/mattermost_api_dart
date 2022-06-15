@@ -1,4 +1,4 @@
-# mattermost_api.model.MMCreateGroupRequest
+# mattermost_api.model.MmCreateGroupRequest
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,18 +10,18 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMCreateGroupRequest example = await client.createGroupRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmCreateGroupRequest example = await client.createGroupRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group** | [**MMCreateGroupRequestGroup**](MMCreateGroupRequestGroup.md) |  | 
+**group** | [**MmCreateGroupRequestGroup**](MmCreateGroupRequestGroup.md) |  | 
 **userIds** | **List<int>** | The user ids of the group members to add. | [default to const []]
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)

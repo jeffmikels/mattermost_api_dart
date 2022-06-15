@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMoveChannelRequest
+// tests for MmMoveChannelRequest
 void main() {
-  // final instance = MMMoveChannelRequest();
+  // final instance = MmMoveChannelRequest();
 
-  group('test MMMoveChannelRequest', () {
+  group('test MmMoveChannelRequest', () {
     // String teamId
     test('to test the property `teamId`', () async {
       // TODO

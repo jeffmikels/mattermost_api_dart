@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPost
+// tests for MmPost
 void main() {
-  // final instance = MMPost();
+  // final instance = MmPost();
 
-  group('test MMPost', () {
+  group('test MmPost', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -94,7 +94,7 @@ void main() {
       // TODO
     });
 
-    // MMPostMetadata metadata
+    // MmPostMetadata metadata
     test('to test the property `metadata`', () async {
       // TODO
     });

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRevokeSessionRequest
+// tests for MmRevokeSessionRequest
 void main() {
-  // final instance = MMRevokeSessionRequest();
+  // final instance = MmRevokeSessionRequest();
 
-  group('test MMRevokeSessionRequest', () {
+  group('test MmRevokeSessionRequest', () {
     // The session GUID to revoke.
     // String sessionId
     test('to test the property `sessionId`', () async {

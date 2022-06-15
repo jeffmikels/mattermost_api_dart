@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateOutgoingWebhookRequest
+// tests for MmUpdateOutgoingWebhookRequest
 void main() {
-  // final instance = MMUpdateOutgoingWebhookRequest();
+  // final instance = MmUpdateOutgoingWebhookRequest();
 
-  group('test MMUpdateOutgoingWebhookRequest', () {
+  group('test MmUpdateOutgoingWebhookRequest', () {
     // Outgoing webhook GUID
     // String hookId
     test('to test the property `hookId`', () async {

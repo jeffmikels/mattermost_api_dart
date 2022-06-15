@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchChannelsRequest
+// tests for MmSearchChannelsRequest
 void main() {
-  // final instance = MMSearchChannelsRequest();
+  // final instance = MmSearchChannelsRequest();
 
-  group('test MMSearchChannelsRequest', () {
+  group('test MmSearchChannelsRequest', () {
     // The search term to match against the name or display name of channels
     // String term
     test('to test the property `term`', () async {

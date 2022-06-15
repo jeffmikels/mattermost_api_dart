@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGlobalDataRetentionPolicy {
-  /// Returns a new [MMGlobalDataRetentionPolicy] instance.
-  MMGlobalDataRetentionPolicy({
+class MmGlobalDataRetentionPolicy {
+  /// Returns a new [MmGlobalDataRetentionPolicy] instance.
+  MmGlobalDataRetentionPolicy({
     this.messageDeletionEnabled,
     this.fileDeletionEnabled,
     this.messageRetentionCutoff,
@@ -58,7 +58,7 @@ class MMGlobalDataRetentionPolicy {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGlobalDataRetentionPolicy &&
+      other is MmGlobalDataRetentionPolicy &&
           other.messageDeletionEnabled == messageDeletionEnabled &&
           other.fileDeletionEnabled == fileDeletionEnabled &&
           other.messageRetentionCutoff == messageRetentionCutoff &&
@@ -74,7 +74,7 @@ class MMGlobalDataRetentionPolicy {
 
   @override
   String toString() =>
-      'MMGlobalDataRetentionPolicy[messageDeletionEnabled=$messageDeletionEnabled, fileDeletionEnabled=$fileDeletionEnabled, messageRetentionCutoff=$messageRetentionCutoff, fileRetentionCutoff=$fileRetentionCutoff]';
+      'MmGlobalDataRetentionPolicy[messageDeletionEnabled=$messageDeletionEnabled, fileDeletionEnabled=$fileDeletionEnabled, messageRetentionCutoff=$messageRetentionCutoff, fileRetentionCutoff=$fileRetentionCutoff]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -93,10 +93,10 @@ class MMGlobalDataRetentionPolicy {
     return _json;
   }
 
-  /// Returns a new [MMGlobalDataRetentionPolicy] instance and imports its values from
+  /// Returns a new [MmGlobalDataRetentionPolicy] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGlobalDataRetentionPolicy? fromJson(dynamic value) {
+  static MmGlobalDataRetentionPolicy? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -105,13 +105,13 @@ class MMGlobalDataRetentionPolicy {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGlobalDataRetentionPolicy[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGlobalDataRetentionPolicy[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGlobalDataRetentionPolicy[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGlobalDataRetentionPolicy[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGlobalDataRetentionPolicy(
+      return MmGlobalDataRetentionPolicy(
         messageDeletionEnabled: mapValueOfType<bool>(json, r'message_deletion_enabled'),
         fileDeletionEnabled: mapValueOfType<bool>(json, r'file_deletion_enabled'),
         messageRetentionCutoff: mapValueOfType<int>(json, r'message_retention_cutoff'),
@@ -121,14 +121,14 @@ class MMGlobalDataRetentionPolicy {
     return null;
   }
 
-  static List<MMGlobalDataRetentionPolicy>? listFromJson(
+  static List<MmGlobalDataRetentionPolicy>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGlobalDataRetentionPolicy>[];
+    final result = <MmGlobalDataRetentionPolicy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGlobalDataRetentionPolicy.fromJson(row);
+        final value = MmGlobalDataRetentionPolicy.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -137,12 +137,12 @@ class MMGlobalDataRetentionPolicy {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGlobalDataRetentionPolicy> mapFromJson(dynamic json) {
-    final map = <String, MMGlobalDataRetentionPolicy>{};
+  static Map<String, MmGlobalDataRetentionPolicy> mapFromJson(dynamic json) {
+    final map = <String, MmGlobalDataRetentionPolicy>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGlobalDataRetentionPolicy.fromJson(entry.value);
+        final value = MmGlobalDataRetentionPolicy.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -151,16 +151,16 @@ class MMGlobalDataRetentionPolicy {
     return map;
   }
 
-  // maps a json object with a list of MMGlobalDataRetentionPolicy-objects as value to a dart map
-  static Map<String, List<MMGlobalDataRetentionPolicy>> mapListFromJson(
+  // maps a json object with a list of MmGlobalDataRetentionPolicy-objects as value to a dart map
+  static Map<String, List<MmGlobalDataRetentionPolicy>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGlobalDataRetentionPolicy>>{};
+    final map = <String, List<MmGlobalDataRetentionPolicy>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGlobalDataRetentionPolicy.listFromJson(
+        final value = MmGlobalDataRetentionPolicy.listFromJson(
           entry.value,
           growable: growable,
         );

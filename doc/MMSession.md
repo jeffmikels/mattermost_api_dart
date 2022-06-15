@@ -1,4 +1,4 @@
-# mattermost_api.model.MMSession
+# mattermost_api.model.MmSession
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMSession example = await client.session.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmSession example = await client.session.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **lastActivityAt** | **int** | The time in milliseconds of the last activity of a session | [optional] 
 **props** | [**Map**](.md) |  | [optional] 
 **roles** | **String** |  | [optional] 
-**teamMembers** | [**List<MMTeamMember>**](MMTeamMember.md) |  | [optional] [default to const []]
+**teamMembers** | [**List<MmTeamMember>**](MmTeamMember.md) |  | [optional] [default to const []]
 **token** | **String** |  | [optional] 
 **userId** | **String** |  | [optional] 
 

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateUserRequest {
-  /// Returns a new [MMUpdateUserRequest] instance.
-  MMUpdateUserRequest({
+class MmUpdateUserRequest {
+  /// Returns a new [MmUpdateUserRequest] instance.
+  MmUpdateUserRequest({
     required this.id,
     required this.email,
     required this.username,
@@ -78,7 +78,7 @@ class MMUpdateUserRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMTimezone? timezone;
+  MmTimezone? timezone;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -94,12 +94,12 @@ class MMUpdateUserRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMUserNotifyProps? notifyProps;
+  MmUserNotifyProps? notifyProps;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateUserRequest &&
+      other is MmUpdateUserRequest &&
           other.id == id &&
           other.email == email &&
           other.username == username &&
@@ -129,7 +129,7 @@ class MMUpdateUserRequest {
 
   @override
   String toString() =>
-      'MMUpdateUserRequest[id=$id, email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, timezone=$timezone, props=$props, notifyProps=$notifyProps]';
+      'MmUpdateUserRequest[id=$id, email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, timezone=$timezone, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -163,10 +163,10 @@ class MMUpdateUserRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateUserRequest] instance and imports its values from
+  /// Returns a new [MmUpdateUserRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateUserRequest? fromJson(dynamic value) {
+  static MmUpdateUserRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -175,13 +175,13 @@ class MMUpdateUserRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateUserRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateUserRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateUserRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateUserRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateUserRequest(
+      return MmUpdateUserRequest(
         id: mapValueOfType<String>(json, r'id')!,
         email: mapValueOfType<String>(json, r'email')!,
         username: mapValueOfType<String>(json, r'username')!,
@@ -190,22 +190,22 @@ class MMUpdateUserRequest {
         nickname: mapValueOfType<String>(json, r'nickname'),
         locale: mapValueOfType<String>(json, r'locale'),
         position: mapValueOfType<String>(json, r'position'),
-        timezone: MMTimezone.fromJson(json[r'timezone']),
+        timezone: MmTimezone.fromJson(json[r'timezone']),
         props: mapValueOfType<Map>(json, r'props'),
-        notifyProps: MMUserNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmUserNotifyProps.fromJson(json[r'notify_props']),
       );
     }
     return null;
   }
 
-  static List<MMUpdateUserRequest>? listFromJson(
+  static List<MmUpdateUserRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateUserRequest>[];
+    final result = <MmUpdateUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateUserRequest.fromJson(row);
+        final value = MmUpdateUserRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -214,12 +214,12 @@ class MMUpdateUserRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateUserRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateUserRequest>{};
+  static Map<String, MmUpdateUserRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateUserRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserRequest.fromJson(entry.value);
+        final value = MmUpdateUserRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -228,16 +228,16 @@ class MMUpdateUserRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateUserRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateUserRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateUserRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateUserRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateUserRequest>>{};
+    final map = <String, List<MmUpdateUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserRequest.listFromJson(
+        final value = MmUpdateUserRequest.listFromJson(
           entry.value,
           growable: growable,
         );

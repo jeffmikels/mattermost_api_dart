@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPublishUserTypingRequest {
-  /// Returns a new [MMPublishUserTypingRequest] instance.
-  MMPublishUserTypingRequest({
+class MmPublishUserTypingRequest {
+  /// Returns a new [MmPublishUserTypingRequest] instance.
+  MmPublishUserTypingRequest({
     required this.channelId,
     this.parentId,
   });
@@ -32,7 +32,7 @@ class MMPublishUserTypingRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPublishUserTypingRequest && other.channelId == channelId && other.parentId == parentId;
+      other is MmPublishUserTypingRequest && other.channelId == channelId && other.parentId == parentId;
 
   @override
   int get hashCode =>
@@ -40,7 +40,7 @@ class MMPublishUserTypingRequest {
       (channelId.hashCode) + (parentId == null ? 0 : parentId!.hashCode);
 
   @override
-  String toString() => 'MMPublishUserTypingRequest[channelId=$channelId, parentId=$parentId]';
+  String toString() => 'MmPublishUserTypingRequest[channelId=$channelId, parentId=$parentId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class MMPublishUserTypingRequest {
     return _json;
   }
 
-  /// Returns a new [MMPublishUserTypingRequest] instance and imports its values from
+  /// Returns a new [MmPublishUserTypingRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPublishUserTypingRequest? fromJson(dynamic value) {
+  static MmPublishUserTypingRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,13 +63,13 @@ class MMPublishUserTypingRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPublishUserTypingRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPublishUserTypingRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPublishUserTypingRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPublishUserTypingRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPublishUserTypingRequest(
+      return MmPublishUserTypingRequest(
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         parentId: mapValueOfType<String>(json, r'parent_id'),
       );
@@ -77,14 +77,14 @@ class MMPublishUserTypingRequest {
     return null;
   }
 
-  static List<MMPublishUserTypingRequest>? listFromJson(
+  static List<MmPublishUserTypingRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPublishUserTypingRequest>[];
+    final result = <MmPublishUserTypingRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPublishUserTypingRequest.fromJson(row);
+        final value = MmPublishUserTypingRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMPublishUserTypingRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPublishUserTypingRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPublishUserTypingRequest>{};
+  static Map<String, MmPublishUserTypingRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPublishUserTypingRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPublishUserTypingRequest.fromJson(entry.value);
+        final value = MmPublishUserTypingRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMPublishUserTypingRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPublishUserTypingRequest-objects as value to a dart map
-  static Map<String, List<MMPublishUserTypingRequest>> mapListFromJson(
+  // maps a json object with a list of MmPublishUserTypingRequest-objects as value to a dart map
+  static Map<String, List<MmPublishUserTypingRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPublishUserTypingRequest>>{};
+    final map = <String, List<MmPublishUserTypingRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPublishUserTypingRequest.listFromJson(
+        final value = MmPublishUserTypingRequest.listFromJson(
           entry.value,
           growable: growable,
         );

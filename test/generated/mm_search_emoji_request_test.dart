@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchEmojiRequest
+// tests for MmSearchEmojiRequest
 void main() {
-  // final instance = MMSearchEmojiRequest();
+  // final instance = MmSearchEmojiRequest();
 
-  group('test MMSearchEmojiRequest', () {
+  group('test MmSearchEmojiRequest', () {
     // The term to match against the emoji name.
     // String term
     test('to test the property `term`', () async {

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelModeratedRoles {
-  /// Returns a new [MMChannelModeratedRoles] instance.
-  MMChannelModeratedRoles({
+class MmChannelModeratedRoles {
+  /// Returns a new [MmChannelModeratedRoles] instance.
+  MmChannelModeratedRoles({
     this.guests,
     this.members,
   });
@@ -23,7 +23,7 @@ class MMChannelModeratedRoles {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMChannelModeratedRole? guests;
+  MmChannelModeratedRole? guests;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -31,11 +31,11 @@ class MMChannelModeratedRoles {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMChannelModeratedRole? members;
+  MmChannelModeratedRole? members;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMChannelModeratedRoles && other.guests == guests && other.members == members;
+      identical(this, other) || other is MmChannelModeratedRoles && other.guests == guests && other.members == members;
 
   @override
   int get hashCode =>
@@ -43,7 +43,7 @@ class MMChannelModeratedRoles {
       (guests == null ? 0 : guests!.hashCode) + (members == null ? 0 : members!.hashCode);
 
   @override
-  String toString() => 'MMChannelModeratedRoles[guests=$guests, members=$members]';
+  String toString() => 'MmChannelModeratedRoles[guests=$guests, members=$members]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -56,10 +56,10 @@ class MMChannelModeratedRoles {
     return _json;
   }
 
-  /// Returns a new [MMChannelModeratedRoles] instance and imports its values from
+  /// Returns a new [MmChannelModeratedRoles] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelModeratedRoles? fromJson(dynamic value) {
+  static MmChannelModeratedRoles? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,28 +68,28 @@ class MMChannelModeratedRoles {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelModeratedRoles[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelModeratedRoles[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelModeratedRoles[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelModeratedRoles[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelModeratedRoles(
-        guests: MMChannelModeratedRole.fromJson(json[r'guests']),
-        members: MMChannelModeratedRole.fromJson(json[r'members']),
+      return MmChannelModeratedRoles(
+        guests: MmChannelModeratedRole.fromJson(json[r'guests']),
+        members: MmChannelModeratedRole.fromJson(json[r'members']),
       );
     }
     return null;
   }
 
-  static List<MMChannelModeratedRoles>? listFromJson(
+  static List<MmChannelModeratedRoles>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelModeratedRoles>[];
+    final result = <MmChannelModeratedRoles>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelModeratedRoles.fromJson(row);
+        final value = MmChannelModeratedRoles.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -98,12 +98,12 @@ class MMChannelModeratedRoles {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelModeratedRoles> mapFromJson(dynamic json) {
-    final map = <String, MMChannelModeratedRoles>{};
+  static Map<String, MmChannelModeratedRoles> mapFromJson(dynamic json) {
+    final map = <String, MmChannelModeratedRoles>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeratedRoles.fromJson(entry.value);
+        final value = MmChannelModeratedRoles.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,16 +112,16 @@ class MMChannelModeratedRoles {
     return map;
   }
 
-  // maps a json object with a list of MMChannelModeratedRoles-objects as value to a dart map
-  static Map<String, List<MMChannelModeratedRoles>> mapListFromJson(
+  // maps a json object with a list of MmChannelModeratedRoles-objects as value to a dart map
+  static Map<String, List<MmChannelModeratedRoles>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelModeratedRoles>>{};
+    final map = <String, List<MmChannelModeratedRoles>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeratedRoles.listFromJson(
+        final value = MmChannelModeratedRoles.listFromJson(
           entry.value,
           growable: growable,
         );

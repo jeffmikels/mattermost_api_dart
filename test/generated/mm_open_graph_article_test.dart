@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphArticle
+// tests for MmOpenGraphArticle
 void main() {
-  // final instance = MMOpenGraphArticle();
+  // final instance = MmOpenGraphArticle();
 
-  group('test MMOpenGraphArticle', () {
+  group('test MmOpenGraphArticle', () {
     // String publishedTime
     test('to test the property `publishedTime`', () async {
       // TODO
@@ -41,7 +41,7 @@ void main() {
       // TODO
     });
 
-    // List<MMOpenGraphArticleAuthorsInner> authors (default value: const [])
+    // List<MmOpenGraphArticleAuthorsInner> authors (default value: const [])
     test('to test the property `authors`', () async {
       // TODO
     });

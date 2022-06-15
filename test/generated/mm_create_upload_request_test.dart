@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateUploadRequest
+// tests for MmCreateUploadRequest
 void main() {
-  // final instance = MMCreateUploadRequest();
+  // final instance = MmCreateUploadRequest();
 
-  group('test MMCreateUploadRequest', () {
+  group('test MmCreateUploadRequest', () {
     // The ID of the channel to upload to.
     // String channelId
     test('to test the property `channelId`', () async {

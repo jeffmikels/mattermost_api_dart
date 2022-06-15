@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateUserCustomStatusRequest {
-  /// Returns a new [MMUpdateUserCustomStatusRequest] instance.
-  MMUpdateUserCustomStatusRequest({
+class MmUpdateUserCustomStatusRequest {
+  /// Returns a new [MmUpdateUserCustomStatusRequest] instance.
+  MmUpdateUserCustomStatusRequest({
     required this.emoji,
     required this.text,
     this.duration,
@@ -46,7 +46,7 @@ class MMUpdateUserCustomStatusRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateUserCustomStatusRequest &&
+      other is MmUpdateUserCustomStatusRequest &&
           other.emoji == emoji &&
           other.text == text &&
           other.duration == duration &&
@@ -62,7 +62,7 @@ class MMUpdateUserCustomStatusRequest {
 
   @override
   String toString() =>
-      'MMUpdateUserCustomStatusRequest[emoji=$emoji, text=$text, duration=$duration, expiresAt=$expiresAt]';
+      'MmUpdateUserCustomStatusRequest[emoji=$emoji, text=$text, duration=$duration, expiresAt=$expiresAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -77,10 +77,10 @@ class MMUpdateUserCustomStatusRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateUserCustomStatusRequest] instance and imports its values from
+  /// Returns a new [MmUpdateUserCustomStatusRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateUserCustomStatusRequest? fromJson(dynamic value) {
+  static MmUpdateUserCustomStatusRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -89,13 +89,13 @@ class MMUpdateUserCustomStatusRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateUserCustomStatusRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateUserCustomStatusRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateUserCustomStatusRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateUserCustomStatusRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateUserCustomStatusRequest(
+      return MmUpdateUserCustomStatusRequest(
         emoji: mapValueOfType<String>(json, r'emoji')!,
         text: mapValueOfType<String>(json, r'text')!,
         duration: mapValueOfType<String>(json, r'duration'),
@@ -105,14 +105,14 @@ class MMUpdateUserCustomStatusRequest {
     return null;
   }
 
-  static List<MMUpdateUserCustomStatusRequest>? listFromJson(
+  static List<MmUpdateUserCustomStatusRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateUserCustomStatusRequest>[];
+    final result = <MmUpdateUserCustomStatusRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateUserCustomStatusRequest.fromJson(row);
+        final value = MmUpdateUserCustomStatusRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -121,12 +121,12 @@ class MMUpdateUserCustomStatusRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateUserCustomStatusRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateUserCustomStatusRequest>{};
+  static Map<String, MmUpdateUserCustomStatusRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateUserCustomStatusRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserCustomStatusRequest.fromJson(entry.value);
+        final value = MmUpdateUserCustomStatusRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -135,16 +135,16 @@ class MMUpdateUserCustomStatusRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateUserCustomStatusRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateUserCustomStatusRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateUserCustomStatusRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateUserCustomStatusRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateUserCustomStatusRequest>>{};
+    final map = <String, List<MmUpdateUserCustomStatusRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateUserCustomStatusRequest.listFromJson(
+        final value = MmUpdateUserCustomStatusRequest.listFromJson(
           entry.value,
           growable: growable,
         );

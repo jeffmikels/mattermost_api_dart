@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPatchUserRequest {
-  /// Returns a new [MMPatchUserRequest] instance.
-  MMPatchUserRequest({
+class MmPatchUserRequest {
+  /// Returns a new [MmPatchUserRequest] instance.
+  MmPatchUserRequest({
     this.email,
     this.username,
     this.firstName,
@@ -94,12 +94,12 @@ class MMPatchUserRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMUserNotifyProps? notifyProps;
+  MmUserNotifyProps? notifyProps;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPatchUserRequest &&
+      other is MmPatchUserRequest &&
           other.email == email &&
           other.username == username &&
           other.firstName == firstName &&
@@ -125,7 +125,7 @@ class MMPatchUserRequest {
 
   @override
   String toString() =>
-      'MMPatchUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
+      'MmPatchUserRequest[email=$email, username=$username, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -159,10 +159,10 @@ class MMPatchUserRequest {
     return _json;
   }
 
-  /// Returns a new [MMPatchUserRequest] instance and imports its values from
+  /// Returns a new [MmPatchUserRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPatchUserRequest? fromJson(dynamic value) {
+  static MmPatchUserRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -171,13 +171,13 @@ class MMPatchUserRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPatchUserRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPatchUserRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPatchUserRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPatchUserRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPatchUserRequest(
+      return MmPatchUserRequest(
         email: mapValueOfType<String>(json, r'email'),
         username: mapValueOfType<String>(json, r'username'),
         firstName: mapValueOfType<String>(json, r'first_name'),
@@ -186,20 +186,20 @@ class MMPatchUserRequest {
         locale: mapValueOfType<String>(json, r'locale'),
         position: mapValueOfType<String>(json, r'position'),
         props: mapValueOfType<Map>(json, r'props'),
-        notifyProps: MMUserNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmUserNotifyProps.fromJson(json[r'notify_props']),
       );
     }
     return null;
   }
 
-  static List<MMPatchUserRequest>? listFromJson(
+  static List<MmPatchUserRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPatchUserRequest>[];
+    final result = <MmPatchUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPatchUserRequest.fromJson(row);
+        final value = MmPatchUserRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -208,12 +208,12 @@ class MMPatchUserRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPatchUserRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPatchUserRequest>{};
+  static Map<String, MmPatchUserRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPatchUserRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchUserRequest.fromJson(entry.value);
+        final value = MmPatchUserRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -222,16 +222,16 @@ class MMPatchUserRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPatchUserRequest-objects as value to a dart map
-  static Map<String, List<MMPatchUserRequest>> mapListFromJson(
+  // maps a json object with a list of MmPatchUserRequest-objects as value to a dart map
+  static Map<String, List<MmPatchUserRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPatchUserRequest>>{};
+    final map = <String, List<MmPatchUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchUserRequest.listFromJson(
+        final value = MmPatchUserRequest.listFromJson(
           entry.value,
           growable: growable,
         );

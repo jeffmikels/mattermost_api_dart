@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetFileLink200Response
+// tests for MmGetFileLink200Response
 void main() {
-  // final instance = MMGetFileLink200Response();
+  // final instance = MmGetFileLink200Response();
 
-  group('test MMGetFileLink200Response', () {
+  group('test MmGetFileLink200Response', () {
     // String link
     test('to test the property `link`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMScheme {
-  /// Returns a new [MMScheme] instance.
-  MMScheme({
+class MmScheme {
+  /// Returns a new [MmScheme] instance.
+  MmScheme({
     this.id,
     this.name,
     this.description,
@@ -128,7 +128,7 @@ class MMScheme {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMScheme &&
+      other is MmScheme &&
           other.id == id &&
           other.name == name &&
           other.description == description &&
@@ -158,7 +158,7 @@ class MMScheme {
 
   @override
   String toString() =>
-      'MMScheme[id=$id, name=$name, description=$description, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, scope=$scope, defaultTeamAdminRole=$defaultTeamAdminRole, defaultTeamUserRole=$defaultTeamUserRole, defaultChannelAdminRole=$defaultChannelAdminRole, defaultChannelUserRole=$defaultChannelUserRole]';
+      'MmScheme[id=$id, name=$name, description=$description, createAt=$createAt, updateAt=$updateAt, deleteAt=$deleteAt, scope=$scope, defaultTeamAdminRole=$defaultTeamAdminRole, defaultTeamUserRole=$defaultTeamUserRole, defaultChannelAdminRole=$defaultChannelAdminRole, defaultChannelUserRole=$defaultChannelUserRole]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -198,10 +198,10 @@ class MMScheme {
     return _json;
   }
 
-  /// Returns a new [MMScheme] instance and imports its values from
+  /// Returns a new [MmScheme] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMScheme? fromJson(dynamic value) {
+  static MmScheme? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -210,13 +210,13 @@ class MMScheme {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMScheme[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMScheme[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmScheme[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmScheme[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMScheme(
+      return MmScheme(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         description: mapValueOfType<String>(json, r'description'),
@@ -233,14 +233,14 @@ class MMScheme {
     return null;
   }
 
-  static List<MMScheme>? listFromJson(
+  static List<MmScheme>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMScheme>[];
+    final result = <MmScheme>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMScheme.fromJson(row);
+        final value = MmScheme.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -249,12 +249,12 @@ class MMScheme {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMScheme> mapFromJson(dynamic json) {
-    final map = <String, MMScheme>{};
+  static Map<String, MmScheme> mapFromJson(dynamic json) {
+    final map = <String, MmScheme>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMScheme.fromJson(entry.value);
+        final value = MmScheme.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -263,16 +263,16 @@ class MMScheme {
     return map;
   }
 
-  // maps a json object with a list of MMScheme-objects as value to a dart map
-  static Map<String, List<MMScheme>> mapListFromJson(
+  // maps a json object with a list of MmScheme-objects as value to a dart map
+  static Map<String, List<MmScheme>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMScheme>>{};
+    final map = <String, List<MmScheme>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMScheme.listFromJson(
+        final value = MmScheme.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMMoveCommandRequest {
-  /// Returns a new [MMMoveCommandRequest] instance.
-  MMMoveCommandRequest({
+class MmMoveCommandRequest {
+  /// Returns a new [MmMoveCommandRequest] instance.
+  MmMoveCommandRequest({
     this.teamId,
   });
 
@@ -26,7 +26,7 @@ class MMMoveCommandRequest {
   String? teamId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMMoveCommandRequest && other.teamId == teamId;
+  bool operator ==(Object other) => identical(this, other) || other is MmMoveCommandRequest && other.teamId == teamId;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMMoveCommandRequest {
       (teamId == null ? 0 : teamId!.hashCode);
 
   @override
-  String toString() => 'MMMoveCommandRequest[teamId=$teamId]';
+  String toString() => 'MmMoveCommandRequest[teamId=$teamId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMMoveCommandRequest {
     return _json;
   }
 
-  /// Returns a new [MMMoveCommandRequest] instance and imports its values from
+  /// Returns a new [MmMoveCommandRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMMoveCommandRequest? fromJson(dynamic value) {
+  static MmMoveCommandRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,27 +56,27 @@ class MMMoveCommandRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMMoveCommandRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMMoveCommandRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmMoveCommandRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmMoveCommandRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMMoveCommandRequest(
+      return MmMoveCommandRequest(
         teamId: mapValueOfType<String>(json, r'team_id'),
       );
     }
     return null;
   }
 
-  static List<MMMoveCommandRequest>? listFromJson(
+  static List<MmMoveCommandRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMMoveCommandRequest>[];
+    final result = <MmMoveCommandRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMMoveCommandRequest.fromJson(row);
+        final value = MmMoveCommandRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +85,12 @@ class MMMoveCommandRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMMoveCommandRequest> mapFromJson(dynamic json) {
-    final map = <String, MMMoveCommandRequest>{};
+  static Map<String, MmMoveCommandRequest> mapFromJson(dynamic json) {
+    final map = <String, MmMoveCommandRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMoveCommandRequest.fromJson(entry.value);
+        final value = MmMoveCommandRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,16 +99,16 @@ class MMMoveCommandRequest {
     return map;
   }
 
-  // maps a json object with a list of MMMoveCommandRequest-objects as value to a dart map
-  static Map<String, List<MMMoveCommandRequest>> mapListFromJson(
+  // maps a json object with a list of MmMoveCommandRequest-objects as value to a dart map
+  static Map<String, List<MmMoveCommandRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMMoveCommandRequest>>{};
+    final map = <String, List<MmMoveCommandRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMMoveCommandRequest.listFromJson(
+        final value = MmMoveCommandRequest.listFromJson(
           entry.value,
           growable: growable,
         );

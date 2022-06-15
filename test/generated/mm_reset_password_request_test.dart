@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMResetPasswordRequest
+// tests for MmResetPasswordRequest
 void main() {
-  // final instance = MMResetPasswordRequest();
+  // final instance = MmResetPasswordRequest();
 
-  group('test MMResetPasswordRequest', () {
+  group('test MmResetPasswordRequest', () {
     // The recovery code
     // String code
     test('to test the property `code`', () async {

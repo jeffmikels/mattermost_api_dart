@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAttachDeviceIdRequest {
-  /// Returns a new [MMAttachDeviceIdRequest] instance.
-  MMAttachDeviceIdRequest({
+class MmAttachDeviceIdRequest {
+  /// Returns a new [MmAttachDeviceIdRequest] instance.
+  MmAttachDeviceIdRequest({
     required this.deviceId,
   });
 
@@ -21,7 +21,7 @@ class MMAttachDeviceIdRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMAttachDeviceIdRequest && other.deviceId == deviceId;
+      identical(this, other) || other is MmAttachDeviceIdRequest && other.deviceId == deviceId;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMAttachDeviceIdRequest {
       (deviceId.hashCode);
 
   @override
-  String toString() => 'MMAttachDeviceIdRequest[deviceId=$deviceId]';
+  String toString() => 'MmAttachDeviceIdRequest[deviceId=$deviceId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMAttachDeviceIdRequest {
     return _json;
   }
 
-  /// Returns a new [MMAttachDeviceIdRequest] instance and imports its values from
+  /// Returns a new [MmAttachDeviceIdRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAttachDeviceIdRequest? fromJson(dynamic value) {
+  static MmAttachDeviceIdRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMAttachDeviceIdRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAttachDeviceIdRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAttachDeviceIdRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAttachDeviceIdRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAttachDeviceIdRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAttachDeviceIdRequest(
+      return MmAttachDeviceIdRequest(
         deviceId: mapValueOfType<String>(json, r'device_id')!,
       );
     }
     return null;
   }
 
-  static List<MMAttachDeviceIdRequest>? listFromJson(
+  static List<MmAttachDeviceIdRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAttachDeviceIdRequest>[];
+    final result = <MmAttachDeviceIdRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAttachDeviceIdRequest.fromJson(row);
+        final value = MmAttachDeviceIdRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMAttachDeviceIdRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAttachDeviceIdRequest> mapFromJson(dynamic json) {
-    final map = <String, MMAttachDeviceIdRequest>{};
+  static Map<String, MmAttachDeviceIdRequest> mapFromJson(dynamic json) {
+    final map = <String, MmAttachDeviceIdRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAttachDeviceIdRequest.fromJson(entry.value);
+        final value = MmAttachDeviceIdRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMAttachDeviceIdRequest {
     return map;
   }
 
-  // maps a json object with a list of MMAttachDeviceIdRequest-objects as value to a dart map
-  static Map<String, List<MMAttachDeviceIdRequest>> mapListFromJson(
+  // maps a json object with a list of MmAttachDeviceIdRequest-objects as value to a dart map
+  static Map<String, List<MmAttachDeviceIdRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAttachDeviceIdRequest>>{};
+    final map = <String, List<MmAttachDeviceIdRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAttachDeviceIdRequest.listFromJson(
+        final value = MmAttachDeviceIdRequest.listFromJson(
           entry.value,
           growable: growable,
         );

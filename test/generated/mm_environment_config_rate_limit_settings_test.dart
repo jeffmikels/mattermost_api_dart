@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigRateLimitSettings
+// tests for MmEnvironmentConfigRateLimitSettings
 void main() {
-  // final instance = MMEnvironmentConfigRateLimitSettings();
+  // final instance = MmEnvironmentConfigRateLimitSettings();
 
-  group('test MMEnvironmentConfigRateLimitSettings', () {
+  group('test MmEnvironmentConfigRateLimitSettings', () {
     // bool enable
     test('to test the property `enable`', () async {
       // TODO

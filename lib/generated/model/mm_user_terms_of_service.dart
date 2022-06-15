@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUserTermsOfService {
-  /// Returns a new [MMUserTermsOfService] instance.
-  MMUserTermsOfService({
+class MmUserTermsOfService {
+  /// Returns a new [MmUserTermsOfService] instance.
+  MmUserTermsOfService({
     this.userId,
     this.termsOfServiceId,
     this.createAt,
@@ -48,7 +48,7 @@ class MMUserTermsOfService {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUserTermsOfService &&
+      other is MmUserTermsOfService &&
           other.userId == userId &&
           other.termsOfServiceId == termsOfServiceId &&
           other.createAt == createAt;
@@ -61,7 +61,7 @@ class MMUserTermsOfService {
       (createAt == null ? 0 : createAt!.hashCode);
 
   @override
-  String toString() => 'MMUserTermsOfService[userId=$userId, termsOfServiceId=$termsOfServiceId, createAt=$createAt]';
+  String toString() => 'MmUserTermsOfService[userId=$userId, termsOfServiceId=$termsOfServiceId, createAt=$createAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -77,10 +77,10 @@ class MMUserTermsOfService {
     return _json;
   }
 
-  /// Returns a new [MMUserTermsOfService] instance and imports its values from
+  /// Returns a new [MmUserTermsOfService] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserTermsOfService? fromJson(dynamic value) {
+  static MmUserTermsOfService? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -89,13 +89,13 @@ class MMUserTermsOfService {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserTermsOfService[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserTermsOfService[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserTermsOfService[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserTermsOfService[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserTermsOfService(
+      return MmUserTermsOfService(
         userId: mapValueOfType<String>(json, r'user_id'),
         termsOfServiceId: mapValueOfType<String>(json, r'terms_of_service_id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -104,14 +104,14 @@ class MMUserTermsOfService {
     return null;
   }
 
-  static List<MMUserTermsOfService>? listFromJson(
+  static List<MmUserTermsOfService>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserTermsOfService>[];
+    final result = <MmUserTermsOfService>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserTermsOfService.fromJson(row);
+        final value = MmUserTermsOfService.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -120,12 +120,12 @@ class MMUserTermsOfService {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserTermsOfService> mapFromJson(dynamic json) {
-    final map = <String, MMUserTermsOfService>{};
+  static Map<String, MmUserTermsOfService> mapFromJson(dynamic json) {
+    final map = <String, MmUserTermsOfService>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserTermsOfService.fromJson(entry.value);
+        final value = MmUserTermsOfService.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,16 +134,16 @@ class MMUserTermsOfService {
     return map;
   }
 
-  // maps a json object with a list of MMUserTermsOfService-objects as value to a dart map
-  static Map<String, List<MMUserTermsOfService>> mapListFromJson(
+  // maps a json object with a list of MmUserTermsOfService-objects as value to a dart map
+  static Map<String, List<MmUserTermsOfService>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserTermsOfService>>{};
+    final map = <String, List<MmUserTermsOfService>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserTermsOfService.listFromJson(
+        final value = MmUserTermsOfService.listFromJson(
           entry.value,
           growable: growable,
         );

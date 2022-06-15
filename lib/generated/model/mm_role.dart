@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRole {
-  /// Returns a new [MMRole] instance.
-  MMRole({
+class MmRole {
+  /// Returns a new [MmRole] instance.
+  MmRole({
     this.id,
     this.name,
     this.displayName,
@@ -72,7 +72,7 @@ class MMRole {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRole &&
+      other is MmRole &&
           other.id == id &&
           other.name == name &&
           other.displayName == displayName &&
@@ -92,7 +92,7 @@ class MMRole {
 
   @override
   String toString() =>
-      'MMRole[id=$id, name=$name, displayName=$displayName, description=$description, permissions=$permissions, schemeManaged=$schemeManaged]';
+      'MmRole[id=$id, name=$name, displayName=$displayName, description=$description, permissions=$permissions, schemeManaged=$schemeManaged]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -115,10 +115,10 @@ class MMRole {
     return _json;
   }
 
-  /// Returns a new [MMRole] instance and imports its values from
+  /// Returns a new [MmRole] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRole? fromJson(dynamic value) {
+  static MmRole? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -127,13 +127,13 @@ class MMRole {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRole[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRole[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRole[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRole[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRole(
+      return MmRole(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         displayName: mapValueOfType<String>(json, r'display_name'),
@@ -145,14 +145,14 @@ class MMRole {
     return null;
   }
 
-  static List<MMRole>? listFromJson(
+  static List<MmRole>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRole>[];
+    final result = <MmRole>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRole.fromJson(row);
+        final value = MmRole.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -161,12 +161,12 @@ class MMRole {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRole> mapFromJson(dynamic json) {
-    final map = <String, MMRole>{};
+  static Map<String, MmRole> mapFromJson(dynamic json) {
+    final map = <String, MmRole>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRole.fromJson(entry.value);
+        final value = MmRole.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -175,16 +175,16 @@ class MMRole {
     return map;
   }
 
-  // maps a json object with a list of MMRole-objects as value to a dart map
-  static Map<String, List<MMRole>> mapListFromJson(
+  // maps a json object with a list of MmRole-objects as value to a dart map
+  static Map<String, List<MmRole>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRole>>{};
+    final map = <String, List<MmRole>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRole.listFromJson(
+        final value = MmRole.listFromJson(
           entry.value,
           growable: growable,
         );

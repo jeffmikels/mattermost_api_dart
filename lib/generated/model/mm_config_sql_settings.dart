@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigSqlSettings {
-  /// Returns a new [MMConfigSqlSettings] instance.
-  MMConfigSqlSettings({
+class MmConfigSqlSettings {
+  /// Returns a new [MmConfigSqlSettings] instance.
+  MmConfigSqlSettings({
     this.driverName,
     this.dataSource,
     this.dataSourceReplicas = const [],
@@ -75,7 +75,7 @@ class MMConfigSqlSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigSqlSettings &&
+      other is MmConfigSqlSettings &&
           other.driverName == driverName &&
           other.dataSource == dataSource &&
           other.dataSourceReplicas == dataSourceReplicas &&
@@ -97,7 +97,7 @@ class MMConfigSqlSettings {
 
   @override
   String toString() =>
-      'MMConfigSqlSettings[driverName=$driverName, dataSource=$dataSource, dataSourceReplicas=$dataSourceReplicas, maxIdleConns=$maxIdleConns, maxOpenConns=$maxOpenConns, trace=$trace, atRestEncryptKey=$atRestEncryptKey]';
+      'MmConfigSqlSettings[driverName=$driverName, dataSource=$dataSource, dataSourceReplicas=$dataSourceReplicas, maxIdleConns=$maxIdleConns, maxOpenConns=$maxOpenConns, trace=$trace, atRestEncryptKey=$atRestEncryptKey]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -123,10 +123,10 @@ class MMConfigSqlSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigSqlSettings] instance and imports its values from
+  /// Returns a new [MmConfigSqlSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigSqlSettings? fromJson(dynamic value) {
+  static MmConfigSqlSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -135,13 +135,13 @@ class MMConfigSqlSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigSqlSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigSqlSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigSqlSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigSqlSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigSqlSettings(
+      return MmConfigSqlSettings(
         driverName: mapValueOfType<String>(json, r'DriverName'),
         dataSource: mapValueOfType<String>(json, r'DataSource'),
         dataSourceReplicas:
@@ -155,14 +155,14 @@ class MMConfigSqlSettings {
     return null;
   }
 
-  static List<MMConfigSqlSettings>? listFromJson(
+  static List<MmConfigSqlSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigSqlSettings>[];
+    final result = <MmConfigSqlSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigSqlSettings.fromJson(row);
+        final value = MmConfigSqlSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -171,12 +171,12 @@ class MMConfigSqlSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigSqlSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigSqlSettings>{};
+  static Map<String, MmConfigSqlSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigSqlSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSqlSettings.fromJson(entry.value);
+        final value = MmConfigSqlSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -185,16 +185,16 @@ class MMConfigSqlSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigSqlSettings-objects as value to a dart map
-  static Map<String, List<MMConfigSqlSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigSqlSettings-objects as value to a dart map
+  static Map<String, List<MmConfigSqlSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigSqlSettings>>{};
+    final map = <String, List<MmConfigSqlSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSqlSettings.listFromJson(
+        final value = MmConfigSqlSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigSupportSettings {
-  /// Returns a new [MMEnvironmentConfigSupportSettings] instance.
-  MMEnvironmentConfigSupportSettings({
+class MmEnvironmentConfigSupportSettings {
+  /// Returns a new [MmEnvironmentConfigSupportSettings] instance.
+  MmEnvironmentConfigSupportSettings({
     this.termsOfServiceLink,
     this.privacyPolicyLink,
     this.aboutLink,
@@ -72,7 +72,7 @@ class MMEnvironmentConfigSupportSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigSupportSettings &&
+      other is MmEnvironmentConfigSupportSettings &&
           other.termsOfServiceLink == termsOfServiceLink &&
           other.privacyPolicyLink == privacyPolicyLink &&
           other.aboutLink == aboutLink &&
@@ -92,7 +92,7 @@ class MMEnvironmentConfigSupportSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
+      'MmEnvironmentConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMEnvironmentConfigSupportSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigSupportSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigSupportSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigSupportSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigSupportSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -130,14 +130,14 @@ class MMEnvironmentConfigSupportSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigSupportSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigSupportSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigSupportSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigSupportSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigSupportSettings(
+      return MmEnvironmentConfigSupportSettings(
         termsOfServiceLink: mapValueOfType<bool>(json, r'TermsOfServiceLink'),
         privacyPolicyLink: mapValueOfType<bool>(json, r'PrivacyPolicyLink'),
         aboutLink: mapValueOfType<bool>(json, r'AboutLink'),
@@ -149,14 +149,14 @@ class MMEnvironmentConfigSupportSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigSupportSettings>? listFromJson(
+  static List<MmEnvironmentConfigSupportSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigSupportSettings>[];
+    final result = <MmEnvironmentConfigSupportSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigSupportSettings.fromJson(row);
+        final value = MmEnvironmentConfigSupportSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -165,12 +165,12 @@ class MMEnvironmentConfigSupportSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigSupportSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigSupportSettings>{};
+  static Map<String, MmEnvironmentConfigSupportSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigSupportSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigSupportSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigSupportSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -179,16 +179,16 @@ class MMEnvironmentConfigSupportSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigSupportSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigSupportSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigSupportSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigSupportSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigSupportSettings>>{};
+    final map = <String, List<MmEnvironmentConfigSupportSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigSupportSettings.listFromJson(
+        final value = MmEnvironmentConfigSupportSettings.listFromJson(
           entry.value,
           growable: growable,
         );

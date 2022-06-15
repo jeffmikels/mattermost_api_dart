@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateOutgoingWebhookRequest
+// tests for MmCreateOutgoingWebhookRequest
 void main() {
-  // final instance = MMCreateOutgoingWebhookRequest();
+  // final instance = MmCreateOutgoingWebhookRequest();
 
-  group('test MMCreateOutgoingWebhookRequest', () {
+  group('test MmCreateOutgoingWebhookRequest', () {
     // The ID of the team that the webhook watchs
     // String teamId
     test('to test the property `teamId`', () async {

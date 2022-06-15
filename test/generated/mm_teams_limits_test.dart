@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTeamsLimits
+// tests for MmTeamsLimits
 void main() {
-  // final instance = MMTeamsLimits();
+  // final instance = MmTeamsLimits();
 
-  group('test MMTeamsLimits', () {
+  group('test MmTeamsLimits', () {
     // int active
     test('to test the property `active`', () async {
       // TODO

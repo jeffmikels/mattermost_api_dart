@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPublishUserTypingRequest
+// tests for MmPublishUserTypingRequest
 void main() {
-  // final instance = MMPublishUserTypingRequest();
+  // final instance = MmPublishUserTypingRequest();
 
-  group('test MMPublishUserTypingRequest', () {
+  group('test MmPublishUserTypingRequest', () {
     // The id of the channel to which to direct the typing event.
     // String channelId
     test('to test the property `channelId`', () async {

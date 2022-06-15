@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
-  /// Returns a new [MMDataRetentionPolicyWithTeamAndChannelIdsAllOf] instance.
-  MMDataRetentionPolicyWithTeamAndChannelIdsAllOf({
+class MmDataRetentionPolicyWithTeamAndChannelIdsAllOf {
+  /// Returns a new [MmDataRetentionPolicyWithTeamAndChannelIdsAllOf] instance.
+  MmDataRetentionPolicyWithTeamAndChannelIdsAllOf({
     this.teamIds = const [],
     this.channelIds = const [],
   });
@@ -26,7 +26,7 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMDataRetentionPolicyWithTeamAndChannelIdsAllOf &&
+      other is MmDataRetentionPolicyWithTeamAndChannelIdsAllOf &&
           other.teamIds == teamIds &&
           other.channelIds == channelIds;
 
@@ -36,7 +36,7 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
       (teamIds.hashCode) + (channelIds.hashCode);
 
   @override
-  String toString() => 'MMDataRetentionPolicyWithTeamAndChannelIdsAllOf[teamIds=$teamIds, channelIds=$channelIds]';
+  String toString() => 'MmDataRetentionPolicyWithTeamAndChannelIdsAllOf[teamIds=$teamIds, channelIds=$channelIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
     return _json;
   }
 
-  /// Returns a new [MMDataRetentionPolicyWithTeamAndChannelIdsAllOf] instance and imports its values from
+  /// Returns a new [MmDataRetentionPolicyWithTeamAndChannelIdsAllOf] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMDataRetentionPolicyWithTeamAndChannelIdsAllOf? fromJson(dynamic value) {
+  static MmDataRetentionPolicyWithTeamAndChannelIdsAllOf? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,14 +58,14 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" is missing from JSON.');
+              'Required key "MmDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" has a null value in JSON.');
+              'Required key "MmDataRetentionPolicyWithTeamAndChannelIdsAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMDataRetentionPolicyWithTeamAndChannelIdsAllOf(
+      return MmDataRetentionPolicyWithTeamAndChannelIdsAllOf(
         teamIds: json[r'team_ids'] is List ? (json[r'team_ids'] as List).cast<String>() : const [],
         channelIds: json[r'channel_ids'] is List ? (json[r'channel_ids'] as List).cast<String>() : const [],
       );
@@ -73,14 +73,14 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
     return null;
   }
 
-  static List<MMDataRetentionPolicyWithTeamAndChannelIdsAllOf>? listFromJson(
+  static List<MmDataRetentionPolicyWithTeamAndChannelIdsAllOf>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMDataRetentionPolicyWithTeamAndChannelIdsAllOf>[];
+    final result = <MmDataRetentionPolicyWithTeamAndChannelIdsAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(row);
+        final value = MmDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -89,12 +89,12 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMDataRetentionPolicyWithTeamAndChannelIdsAllOf> mapFromJson(dynamic json) {
-    final map = <String, MMDataRetentionPolicyWithTeamAndChannelIdsAllOf>{};
+  static Map<String, MmDataRetentionPolicyWithTeamAndChannelIdsAllOf> mapFromJson(dynamic json) {
+    final map = <String, MmDataRetentionPolicyWithTeamAndChannelIdsAllOf>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(entry.value);
+        final value = MmDataRetentionPolicyWithTeamAndChannelIdsAllOf.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -103,16 +103,16 @@ class MMDataRetentionPolicyWithTeamAndChannelIdsAllOf {
     return map;
   }
 
-  // maps a json object with a list of MMDataRetentionPolicyWithTeamAndChannelIdsAllOf-objects as value to a dart map
-  static Map<String, List<MMDataRetentionPolicyWithTeamAndChannelIdsAllOf>> mapListFromJson(
+  // maps a json object with a list of MmDataRetentionPolicyWithTeamAndChannelIdsAllOf-objects as value to a dart map
+  static Map<String, List<MmDataRetentionPolicyWithTeamAndChannelIdsAllOf>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMDataRetentionPolicyWithTeamAndChannelIdsAllOf>>{};
+    final map = <String, List<MmDataRetentionPolicyWithTeamAndChannelIdsAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMDataRetentionPolicyWithTeamAndChannelIdsAllOf.listFromJson(
+        final value = MmDataRetentionPolicyWithTeamAndChannelIdsAllOf.listFromJson(
           entry.value,
           growable: growable,
         );

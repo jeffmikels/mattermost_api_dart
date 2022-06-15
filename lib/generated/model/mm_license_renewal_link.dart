@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMLicenseRenewalLink {
-  /// Returns a new [MMLicenseRenewalLink] instance.
-  MMLicenseRenewalLink({
+class MmLicenseRenewalLink {
+  /// Returns a new [MmLicenseRenewalLink] instance.
+  MmLicenseRenewalLink({
     this.renewalLink,
   });
 
@@ -27,7 +27,7 @@ class MMLicenseRenewalLink {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMLicenseRenewalLink && other.renewalLink == renewalLink;
+      identical(this, other) || other is MmLicenseRenewalLink && other.renewalLink == renewalLink;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMLicenseRenewalLink {
       (renewalLink == null ? 0 : renewalLink!.hashCode);
 
   @override
-  String toString() => 'MMLicenseRenewalLink[renewalLink=$renewalLink]';
+  String toString() => 'MmLicenseRenewalLink[renewalLink=$renewalLink]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMLicenseRenewalLink {
     return _json;
   }
 
-  /// Returns a new [MMLicenseRenewalLink] instance and imports its values from
+  /// Returns a new [MmLicenseRenewalLink] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMLicenseRenewalLink? fromJson(dynamic value) {
+  static MmLicenseRenewalLink? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMLicenseRenewalLink {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMLicenseRenewalLink[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMLicenseRenewalLink[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmLicenseRenewalLink[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmLicenseRenewalLink[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMLicenseRenewalLink(
+      return MmLicenseRenewalLink(
         renewalLink: mapValueOfType<String>(json, r'renewal_link'),
       );
     }
     return null;
   }
 
-  static List<MMLicenseRenewalLink>? listFromJson(
+  static List<MmLicenseRenewalLink>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMLicenseRenewalLink>[];
+    final result = <MmLicenseRenewalLink>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMLicenseRenewalLink.fromJson(row);
+        final value = MmLicenseRenewalLink.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMLicenseRenewalLink {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMLicenseRenewalLink> mapFromJson(dynamic json) {
-    final map = <String, MMLicenseRenewalLink>{};
+  static Map<String, MmLicenseRenewalLink> mapFromJson(dynamic json) {
+    final map = <String, MmLicenseRenewalLink>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLicenseRenewalLink.fromJson(entry.value);
+        final value = MmLicenseRenewalLink.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMLicenseRenewalLink {
     return map;
   }
 
-  // maps a json object with a list of MMLicenseRenewalLink-objects as value to a dart map
-  static Map<String, List<MMLicenseRenewalLink>> mapListFromJson(
+  // maps a json object with a list of MmLicenseRenewalLink-objects as value to a dart map
+  static Map<String, List<MmLicenseRenewalLink>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMLicenseRenewalLink>>{};
+    final map = <String, List<MmLicenseRenewalLink>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLicenseRenewalLink.listFromJson(
+        final value = MmLicenseRenewalLink.listFromJson(
           entry.value,
           growable: growable,
         );

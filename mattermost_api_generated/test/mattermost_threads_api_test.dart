@@ -39,7 +39,7 @@ void main() {
     //
     // Get all threads that user is following  __Minimum server version__: 5.29  ##### Permissions Must be logged in as the user or have `edit_other_users` permission. 
     //
-    //Future<MMUserThreads> getUserThreads(String userId, String teamId, { int since, bool deleted, bool extended, int page, int pageSize, bool totalsOnly }) async
+    //Future<MmUserThreads> getUserThreads(String userId, String teamId, { int since, bool deleted, bool extended, int page, int pageSize, bool totalsOnly }) async
     test('test getUserThreads', () async {
       // TODO
     });

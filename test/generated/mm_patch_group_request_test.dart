@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchGroupRequest
+// tests for MmPatchGroupRequest
 void main() {
-  // final instance = MMPatchGroupRequest();
+  // final instance = MmPatchGroupRequest();
 
-  group('test MMPatchGroupRequest', () {
+  group('test MmPatchGroupRequest', () {
     // String name
     test('to test the property `name`', () async {
       // TODO

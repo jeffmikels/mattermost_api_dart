@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMViewChannel200Response {
-  /// Returns a new [MMViewChannel200Response] instance.
-  MMViewChannel200Response({
+class MmViewChannel200Response {
+  /// Returns a new [MmViewChannel200Response] instance.
+  MmViewChannel200Response({
     this.status,
     this.lastViewedAtTimes,
   });
@@ -38,7 +38,7 @@ class MMViewChannel200Response {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMViewChannel200Response && other.status == status && other.lastViewedAtTimes == lastViewedAtTimes;
+      other is MmViewChannel200Response && other.status == status && other.lastViewedAtTimes == lastViewedAtTimes;
 
   @override
   int get hashCode =>
@@ -46,7 +46,7 @@ class MMViewChannel200Response {
       (status == null ? 0 : status!.hashCode) + (lastViewedAtTimes == null ? 0 : lastViewedAtTimes!.hashCode);
 
   @override
-  String toString() => 'MMViewChannel200Response[status=$status, lastViewedAtTimes=$lastViewedAtTimes]';
+  String toString() => 'MmViewChannel200Response[status=$status, lastViewedAtTimes=$lastViewedAtTimes]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -59,10 +59,10 @@ class MMViewChannel200Response {
     return _json;
   }
 
-  /// Returns a new [MMViewChannel200Response] instance and imports its values from
+  /// Returns a new [MmViewChannel200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMViewChannel200Response? fromJson(dynamic value) {
+  static MmViewChannel200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,13 +71,13 @@ class MMViewChannel200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMViewChannel200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMViewChannel200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmViewChannel200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmViewChannel200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMViewChannel200Response(
+      return MmViewChannel200Response(
         status: mapValueOfType<String>(json, r'status'),
         lastViewedAtTimes: mapValueOfType<Map>(json, r'last_viewed_at_times'),
       );
@@ -85,14 +85,14 @@ class MMViewChannel200Response {
     return null;
   }
 
-  static List<MMViewChannel200Response>? listFromJson(
+  static List<MmViewChannel200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMViewChannel200Response>[];
+    final result = <MmViewChannel200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMViewChannel200Response.fromJson(row);
+        final value = MmViewChannel200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -101,12 +101,12 @@ class MMViewChannel200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMViewChannel200Response> mapFromJson(dynamic json) {
-    final map = <String, MMViewChannel200Response>{};
+  static Map<String, MmViewChannel200Response> mapFromJson(dynamic json) {
+    final map = <String, MmViewChannel200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMViewChannel200Response.fromJson(entry.value);
+        final value = MmViewChannel200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -115,16 +115,16 @@ class MMViewChannel200Response {
     return map;
   }
 
-  // maps a json object with a list of MMViewChannel200Response-objects as value to a dart map
-  static Map<String, List<MMViewChannel200Response>> mapListFromJson(
+  // maps a json object with a list of MmViewChannel200Response-objects as value to a dart map
+  static Map<String, List<MmViewChannel200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMViewChannel200Response>>{};
+    final map = <String, List<MmViewChannel200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMViewChannel200Response.listFromJson(
+        final value = MmViewChannel200Response.listFromJson(
           entry.value,
           growable: growable,
         );

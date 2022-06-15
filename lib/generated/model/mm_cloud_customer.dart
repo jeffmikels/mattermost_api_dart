@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCloudCustomer {
-  /// Returns a new [MMCloudCustomer] instance.
-  MMCloudCustomer({
+class MmCloudCustomer {
+  /// Returns a new [MmCloudCustomer] instance.
+  MmCloudCustomer({
     this.id,
     this.creatorId,
     this.createAt,
@@ -96,7 +96,7 @@ class MMCloudCustomer {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMAddress? billingAddress;
+  MmAddress? billingAddress;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -104,7 +104,7 @@ class MMCloudCustomer {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMAddress? companyAddress;
+  MmAddress? companyAddress;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -112,12 +112,12 @@ class MMCloudCustomer {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMPaymentMethod? paymentMethod;
+  MmPaymentMethod? paymentMethod;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCloudCustomer &&
+      other is MmCloudCustomer &&
           other.id == id &&
           other.creatorId == creatorId &&
           other.createAt == createAt &&
@@ -147,7 +147,7 @@ class MMCloudCustomer {
 
   @override
   String toString() =>
-      'MMCloudCustomer[id=$id, creatorId=$creatorId, createAt=$createAt, email=$email, name=$name, numEmployees=$numEmployees, contactFirstName=$contactFirstName, contactLastName=$contactLastName, billingAddress=$billingAddress, companyAddress=$companyAddress, paymentMethod=$paymentMethod]';
+      'MmCloudCustomer[id=$id, creatorId=$creatorId, createAt=$createAt, email=$email, name=$name, numEmployees=$numEmployees, contactFirstName=$contactFirstName, contactLastName=$contactLastName, billingAddress=$billingAddress, companyAddress=$companyAddress, paymentMethod=$paymentMethod]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -187,10 +187,10 @@ class MMCloudCustomer {
     return _json;
   }
 
-  /// Returns a new [MMCloudCustomer] instance and imports its values from
+  /// Returns a new [MmCloudCustomer] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCloudCustomer? fromJson(dynamic value) {
+  static MmCloudCustomer? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -199,13 +199,13 @@ class MMCloudCustomer {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCloudCustomer[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCloudCustomer[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCloudCustomer[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCloudCustomer[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCloudCustomer(
+      return MmCloudCustomer(
         id: mapValueOfType<String>(json, r'id'),
         creatorId: mapValueOfType<String>(json, r'creator_id'),
         createAt: mapValueOfType<int>(json, r'create_at'),
@@ -214,22 +214,22 @@ class MMCloudCustomer {
         numEmployees: mapValueOfType<String>(json, r'num_employees'),
         contactFirstName: mapValueOfType<String>(json, r'contact_first_name'),
         contactLastName: mapValueOfType<String>(json, r'contact_last_name'),
-        billingAddress: MMAddress.fromJson(json[r'billing_address']),
-        companyAddress: MMAddress.fromJson(json[r'company_address']),
-        paymentMethod: MMPaymentMethod.fromJson(json[r'payment_method']),
+        billingAddress: MmAddress.fromJson(json[r'billing_address']),
+        companyAddress: MmAddress.fromJson(json[r'company_address']),
+        paymentMethod: MmPaymentMethod.fromJson(json[r'payment_method']),
       );
     }
     return null;
   }
 
-  static List<MMCloudCustomer>? listFromJson(
+  static List<MmCloudCustomer>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCloudCustomer>[];
+    final result = <MmCloudCustomer>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCloudCustomer.fromJson(row);
+        final value = MmCloudCustomer.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -238,12 +238,12 @@ class MMCloudCustomer {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCloudCustomer> mapFromJson(dynamic json) {
-    final map = <String, MMCloudCustomer>{};
+  static Map<String, MmCloudCustomer> mapFromJson(dynamic json) {
+    final map = <String, MmCloudCustomer>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCloudCustomer.fromJson(entry.value);
+        final value = MmCloudCustomer.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -252,16 +252,16 @@ class MMCloudCustomer {
     return map;
   }
 
-  // maps a json object with a list of MMCloudCustomer-objects as value to a dart map
-  static Map<String, List<MMCloudCustomer>> mapListFromJson(
+  // maps a json object with a list of MmCloudCustomer-objects as value to a dart map
+  static Map<String, List<MmCloudCustomer>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCloudCustomer>>{};
+    final map = <String, List<MmCloudCustomer>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCloudCustomer.listFromJson(
+        final value = MmCloudCustomer.listFromJson(
           entry.value,
           growable: growable,
         );

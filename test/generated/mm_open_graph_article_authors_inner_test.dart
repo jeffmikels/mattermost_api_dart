@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphArticleAuthorsInner
+// tests for MmOpenGraphArticleAuthorsInner
 void main() {
-  // final instance = MMOpenGraphArticleAuthorsInner();
+  // final instance = MmOpenGraphArticleAuthorsInner();
 
-  group('test MMOpenGraphArticleAuthorsInner', () {
+  group('test MmOpenGraphArticleAuthorsInner', () {
     // String firstName
     test('to test the property `firstName`', () async {
       // TODO

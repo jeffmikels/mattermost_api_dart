@@ -35,7 +35,7 @@ class MattermostPermissionsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -68,7 +68,7 @@ class MattermostPermissionsApi {
   Future<List<String>?> getAncillaryPermissions({ String? subsectionPermissions, }) async {
     final response = await getAncillaryPermissionsWithHttpInfo( subsectionPermissions: subsectionPermissions, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

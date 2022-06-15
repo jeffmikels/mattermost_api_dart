@@ -21,7 +21,7 @@ void main() {
     //
     // Get a set of information for each node in the cluster, useful for checking the status and health of each node. ##### Permissions Must have `manage_system` permission. 
     //
-    //Future<List<MMClusterInfo>> getClusterStatus() async
+    //Future<List<MmClusterInfo>> getClusterStatus() async
     test('test getClusterStatus', () async {
       // TODO
     });

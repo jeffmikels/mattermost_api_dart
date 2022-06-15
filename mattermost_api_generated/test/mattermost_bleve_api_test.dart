@@ -21,7 +21,7 @@ void main() {
     //
     // Deletes all Bleve indexes and their contents. After calling this endpoint, it is necessary to schedule a new Bleve indexing job to repopulate the indexes. __Minimum server version__: 5.24 ##### Permissions Must have `sysconsole_write_experimental` permission. 
     //
-    //Future<MMStatusOK> purgeBleveIndexes() async
+    //Future<MmStatusOK> purgeBleveIndexes() async
     test('test purgeBleveIndexes', () async {
       // TODO
     });

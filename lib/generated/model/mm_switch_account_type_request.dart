@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSwitchAccountTypeRequest {
-  /// Returns a new [MMSwitchAccountTypeRequest] instance.
-  MMSwitchAccountTypeRequest({
+class MmSwitchAccountTypeRequest {
+  /// Returns a new [MmSwitchAccountTypeRequest] instance.
+  MmSwitchAccountTypeRequest({
     required this.currentService,
     required this.newService,
     this.email,
@@ -66,7 +66,7 @@ class MMSwitchAccountTypeRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSwitchAccountTypeRequest &&
+      other is MmSwitchAccountTypeRequest &&
           other.currentService == currentService &&
           other.newService == newService &&
           other.email == email &&
@@ -86,7 +86,7 @@ class MMSwitchAccountTypeRequest {
 
   @override
   String toString() =>
-      'MMSwitchAccountTypeRequest[currentService=$currentService, newService=$newService, email=$email, password=$password, mfaCode=$mfaCode, ldapId=$ldapId]';
+      'MmSwitchAccountTypeRequest[currentService=$currentService, newService=$newService, email=$email, password=$password, mfaCode=$mfaCode, ldapId=$ldapId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class MMSwitchAccountTypeRequest {
     return _json;
   }
 
-  /// Returns a new [MMSwitchAccountTypeRequest] instance and imports its values from
+  /// Returns a new [MmSwitchAccountTypeRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSwitchAccountTypeRequest? fromJson(dynamic value) {
+  static MmSwitchAccountTypeRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -119,13 +119,13 @@ class MMSwitchAccountTypeRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSwitchAccountTypeRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSwitchAccountTypeRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSwitchAccountTypeRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSwitchAccountTypeRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSwitchAccountTypeRequest(
+      return MmSwitchAccountTypeRequest(
         currentService: mapValueOfType<String>(json, r'current_service')!,
         newService: mapValueOfType<String>(json, r'new_service')!,
         email: mapValueOfType<String>(json, r'email'),
@@ -137,14 +137,14 @@ class MMSwitchAccountTypeRequest {
     return null;
   }
 
-  static List<MMSwitchAccountTypeRequest>? listFromJson(
+  static List<MmSwitchAccountTypeRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSwitchAccountTypeRequest>[];
+    final result = <MmSwitchAccountTypeRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSwitchAccountTypeRequest.fromJson(row);
+        final value = MmSwitchAccountTypeRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -153,12 +153,12 @@ class MMSwitchAccountTypeRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSwitchAccountTypeRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSwitchAccountTypeRequest>{};
+  static Map<String, MmSwitchAccountTypeRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSwitchAccountTypeRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSwitchAccountTypeRequest.fromJson(entry.value);
+        final value = MmSwitchAccountTypeRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -167,16 +167,16 @@ class MMSwitchAccountTypeRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSwitchAccountTypeRequest-objects as value to a dart map
-  static Map<String, List<MMSwitchAccountTypeRequest>> mapListFromJson(
+  // maps a json object with a list of MmSwitchAccountTypeRequest-objects as value to a dart map
+  static Map<String, List<MmSwitchAccountTypeRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSwitchAccountTypeRequest>>{};
+    final map = <String, List<MmSwitchAccountTypeRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSwitchAccountTypeRequest.listFromJson(
+        final value = MmSwitchAccountTypeRequest.listFromJson(
           entry.value,
           growable: growable,
         );

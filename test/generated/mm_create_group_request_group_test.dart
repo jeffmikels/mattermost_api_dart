@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateGroupRequestGroup
+// tests for MmCreateGroupRequestGroup
 void main() {
-  // final instance = MMCreateGroupRequestGroup();
+  // final instance = MmCreateGroupRequestGroup();
 
-  group('test MMCreateGroupRequestGroup', () {
+  group('test MmCreateGroupRequestGroup', () {
     // The unique group name used for at-mentioning.
     // String name
     test('to test the property `name`', () async {

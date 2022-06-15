@@ -21,7 +21,7 @@ void main() {
     //
     // Create a command for a team. ##### Permissions `manage_slash_commands` for the team the command is in. 
     //
-    //Future<MMCommand> createCommand(MMCreateCommandRequest mMCreateCommandRequest) async
+    //Future<MmCommand> createCommand(MmCreateCommandRequest mmCreateCommandRequest) async
     test('test createCommand', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Delete a command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
     //
-    //Future<MMStatusOK> deleteCommand(String commandId) async
+    //Future<MmStatusOK> deleteCommand(String commandId) async
     test('test deleteCommand', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Execute a command on a team. ##### Permissions Must have `use_slash_commands` permission for the team the command is in. 
     //
-    //Future<MMCommandResponse> executeCommand(MMExecuteCommandRequest mMExecuteCommandRequest) async
+    //Future<MmCommandResponse> executeCommand(MmExecuteCommandRequest mmExecuteCommandRequest) async
     test('test executeCommand', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get a command definition based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in.  __Minimum server version__: 5.22 
     //
-    //Future<MMCommand> getCommandById(String commandId) async
+    //Future<MmCommand> getCommandById(String commandId) async
     test('test getCommandById', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // List autocomplete commands in the team. ##### Permissions `view_team` for the team. 
     //
-    //Future<List<MMCommand>> listAutocompleteCommands(String teamId) async
+    //Future<List<MmCommand>> listAutocompleteCommands(String teamId) async
     test('test listAutocompleteCommands', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // List commands' autocomplete data for the team. ##### Permissions `view_team` for the team. __Minimum server version__: 5.24 
     //
-    //Future<List<MMAutocompleteSuggestion>> listCommandAutocompleteSuggestions(String teamId, String userInput) async
+    //Future<List<MmAutocompleteSuggestion>> listCommandAutocompleteSuggestions(String teamId, String userInput) async
     test('test listCommandAutocompleteSuggestions', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // List commands for a team. ##### Permissions `manage_slash_commands` if need list custom commands. 
     //
-    //Future<List<MMCommand>> listCommands({ String teamId, bool customOnly }) async
+    //Future<List<MmCommand>> listCommands({ String teamId, bool customOnly }) async
     test('test listCommands', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Move a command to a different team based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is currently in and the destination team.  __Minimum server version__: 5.22 
     //
-    //Future<MMStatusOK> moveCommand(String commandId, MMMoveCommandRequest mMMoveCommandRequest) async
+    //Future<MmStatusOK> moveCommand(String commandId, MmMoveCommandRequest mmMoveCommandRequest) async
     test('test moveCommand', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Generate a new token for the command based on command id string. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
     //
-    //Future<MMRegenCommandToken200Response> regenCommandToken(String commandId) async
+    //Future<MmRegenCommandToken200Response> regenCommandToken(String commandId) async
     test('test regenCommandToken', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Update a single command based on command id string and Command struct. ##### Permissions Must have `manage_slash_commands` permission for the team the command is in. 
     //
-    //Future<MMCommand> updateCommand(String commandId, MMCommand mMCommand) async
+    //Future<MmCommand> updateCommand(String commandId, MmCommand mmCommand) async
     test('test updateCommand', () async {
       // TODO
     });

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMInvoiceLineItem {
-  /// Returns a new [MMInvoiceLineItem] instance.
-  MMInvoiceLineItem({
+class MmInvoiceLineItem {
+  /// Returns a new [MmInvoiceLineItem] instance.
+  MmInvoiceLineItem({
     this.priceId,
     this.total,
     this.quantity,
@@ -66,7 +66,7 @@ class MMInvoiceLineItem {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMInvoiceLineItem &&
+      other is MmInvoiceLineItem &&
           other.priceId == priceId &&
           other.total == total &&
           other.quantity == quantity &&
@@ -86,7 +86,7 @@ class MMInvoiceLineItem {
 
   @override
   String toString() =>
-      'MMInvoiceLineItem[priceId=$priceId, total=$total, quantity=$quantity, pricePerUnit=$pricePerUnit, description=$description, metadata=$metadata]';
+      'MmInvoiceLineItem[priceId=$priceId, total=$total, quantity=$quantity, pricePerUnit=$pricePerUnit, description=$description, metadata=$metadata]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -109,10 +109,10 @@ class MMInvoiceLineItem {
     return _json;
   }
 
-  /// Returns a new [MMInvoiceLineItem] instance and imports its values from
+  /// Returns a new [MmInvoiceLineItem] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMInvoiceLineItem? fromJson(dynamic value) {
+  static MmInvoiceLineItem? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -121,13 +121,13 @@ class MMInvoiceLineItem {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMInvoiceLineItem[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMInvoiceLineItem[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmInvoiceLineItem[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmInvoiceLineItem[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMInvoiceLineItem(
+      return MmInvoiceLineItem(
         priceId: mapValueOfType<String>(json, r'price_id'),
         total: mapValueOfType<int>(json, r'total'),
         quantity: mapValueOfType<int>(json, r'quantity'),
@@ -139,14 +139,14 @@ class MMInvoiceLineItem {
     return null;
   }
 
-  static List<MMInvoiceLineItem>? listFromJson(
+  static List<MmInvoiceLineItem>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMInvoiceLineItem>[];
+    final result = <MmInvoiceLineItem>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMInvoiceLineItem.fromJson(row);
+        final value = MmInvoiceLineItem.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -155,12 +155,12 @@ class MMInvoiceLineItem {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMInvoiceLineItem> mapFromJson(dynamic json) {
-    final map = <String, MMInvoiceLineItem>{};
+  static Map<String, MmInvoiceLineItem> mapFromJson(dynamic json) {
+    final map = <String, MmInvoiceLineItem>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInvoiceLineItem.fromJson(entry.value);
+        final value = MmInvoiceLineItem.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -169,16 +169,16 @@ class MMInvoiceLineItem {
     return map;
   }
 
-  // maps a json object with a list of MMInvoiceLineItem-objects as value to a dart map
-  static Map<String, List<MMInvoiceLineItem>> mapListFromJson(
+  // maps a json object with a list of MmInvoiceLineItem-objects as value to a dart map
+  static Map<String, List<MmInvoiceLineItem>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMInvoiceLineItem>>{};
+    final map = <String, List<MmInvoiceLineItem>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInvoiceLineItem.listFromJson(
+        final value = MmInvoiceLineItem.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigAnalyticsSettings {
-  /// Returns a new [MMEnvironmentConfigAnalyticsSettings] instance.
-  MMEnvironmentConfigAnalyticsSettings({
+class MmEnvironmentConfigAnalyticsSettings {
+  /// Returns a new [MmEnvironmentConfigAnalyticsSettings] instance.
+  MmEnvironmentConfigAnalyticsSettings({
     this.maxUsersForStatistics,
   });
 
@@ -27,7 +27,7 @@ class MMEnvironmentConfigAnalyticsSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigAnalyticsSettings && other.maxUsersForStatistics == maxUsersForStatistics;
+      other is MmEnvironmentConfigAnalyticsSettings && other.maxUsersForStatistics == maxUsersForStatistics;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMEnvironmentConfigAnalyticsSettings {
       (maxUsersForStatistics == null ? 0 : maxUsersForStatistics!.hashCode);
 
   @override
-  String toString() => 'MMEnvironmentConfigAnalyticsSettings[maxUsersForStatistics=$maxUsersForStatistics]';
+  String toString() => 'MmEnvironmentConfigAnalyticsSettings[maxUsersForStatistics=$maxUsersForStatistics]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMEnvironmentConfigAnalyticsSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigAnalyticsSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigAnalyticsSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigAnalyticsSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigAnalyticsSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,28 +58,28 @@ class MMEnvironmentConfigAnalyticsSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigAnalyticsSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigAnalyticsSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigAnalyticsSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigAnalyticsSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigAnalyticsSettings(
+      return MmEnvironmentConfigAnalyticsSettings(
         maxUsersForStatistics: mapValueOfType<bool>(json, r'MaxUsersForStatistics'),
       );
     }
     return null;
   }
 
-  static List<MMEnvironmentConfigAnalyticsSettings>? listFromJson(
+  static List<MmEnvironmentConfigAnalyticsSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigAnalyticsSettings>[];
+    final result = <MmEnvironmentConfigAnalyticsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigAnalyticsSettings.fromJson(row);
+        final value = MmEnvironmentConfigAnalyticsSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -88,12 +88,12 @@ class MMEnvironmentConfigAnalyticsSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigAnalyticsSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigAnalyticsSettings>{};
+  static Map<String, MmEnvironmentConfigAnalyticsSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigAnalyticsSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigAnalyticsSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigAnalyticsSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -102,16 +102,16 @@ class MMEnvironmentConfigAnalyticsSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigAnalyticsSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigAnalyticsSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigAnalyticsSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigAnalyticsSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigAnalyticsSettings>>{};
+    final map = <String, List<MmEnvironmentConfigAnalyticsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigAnalyticsSettings.listFromJson(
+        final value = MmEnvironmentConfigAnalyticsSettings.listFromJson(
           entry.value,
           growable: growable,
         );

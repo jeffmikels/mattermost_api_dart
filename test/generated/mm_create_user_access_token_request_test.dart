@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateUserAccessTokenRequest
+// tests for MmCreateUserAccessTokenRequest
 void main() {
-  // final instance = MMCreateUserAccessTokenRequest();
+  // final instance = MmCreateUserAccessTokenRequest();
 
-  group('test MMCreateUserAccessTokenRequest', () {
+  group('test MmCreateUserAccessTokenRequest', () {
     // A description of the token usage
     // String description
     test('to test the property `description`', () async {

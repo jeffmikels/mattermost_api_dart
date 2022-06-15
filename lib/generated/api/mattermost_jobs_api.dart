@@ -34,7 +34,7 @@ class MattermostJobsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -59,14 +59,14 @@ class MattermostJobsApi {
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<MMStatusOK?> cancelJob(
+  Future<MmStatusOK?> cancelJob(
     String jobId,
   ) async {
     final response = await cancelJobWithHttpInfo(
       jobId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostJobsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -88,18 +88,18 @@ class MattermostJobsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateJobRequest] mMCreateJobRequest (required):
+  /// * [MmCreateJobRequest] mmCreateJobRequest (required):
   ///   Job object to be created
   Future<Response> createJobWithHttpInfo(
-    MMCreateJobRequest mMCreateJobRequest,
+    MmCreateJobRequest mmCreateJobRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/jobs';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateJobRequest;
+    Object? postBody = mmCreateJobRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -122,16 +122,16 @@ class MattermostJobsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateJobRequest] mMCreateJobRequest (required):
+  /// * [MmCreateJobRequest] mmCreateJobRequest (required):
   ///   Job object to be created
-  Future<MMJob?> createJob(
-    MMCreateJobRequest mMCreateJobRequest,
+  Future<MmJob?> createJob(
+    MmCreateJobRequest mmCreateJobRequest,
   ) async {
     final response = await createJobWithHttpInfo(
-      mMCreateJobRequest,
+      mmCreateJobRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -139,8 +139,8 @@ class MattermostJobsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMJob',
-      ) as MMJob;
+        'MmJob',
+      ) as MmJob;
     }
     return null;
   }
@@ -164,7 +164,7 @@ class MattermostJobsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -196,7 +196,7 @@ class MattermostJobsApi {
       jobId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -219,7 +219,7 @@ class MattermostJobsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -244,14 +244,14 @@ class MattermostJobsApi {
   ///
   /// * [String] jobId (required):
   ///   Job GUID
-  Future<MMJob?> getJob(
+  Future<MmJob?> getJob(
     String jobId,
   ) async {
     final response = await getJobWithHttpInfo(
       jobId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -259,8 +259,8 @@ class MattermostJobsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMJob',
-      ) as MMJob;
+        'MmJob',
+      ) as MmJob;
     }
     return null;
   }
@@ -288,7 +288,7 @@ class MattermostJobsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -323,7 +323,7 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<List<MMJob>?> getJobs({
+  Future<List<MmJob>?> getJobs({
     int? page,
     int? perPage,
   }) async {
@@ -332,14 +332,14 @@ class MattermostJobsApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMJob>') as List).cast<MMJob>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmJob>') as List).cast<MmJob>().toList();
     }
     return null;
   }
@@ -371,7 +371,7 @@ class MattermostJobsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -409,7 +409,7 @@ class MattermostJobsApi {
   ///
   /// * [int] perPage:
   ///   The number of jobs per page.
-  Future<List<MMJob>?> getJobsByType(
+  Future<List<MmJob>?> getJobsByType(
     String type, {
     int? page,
     int? perPage,
@@ -420,14 +420,14 @@ class MattermostJobsApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMJob>') as List).cast<MMJob>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmJob>') as List).cast<MmJob>().toList();
     }
     return null;
   }

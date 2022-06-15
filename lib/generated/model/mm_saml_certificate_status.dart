@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSamlCertificateStatus {
-  /// Returns a new [MMSamlCertificateStatus] instance.
-  MMSamlCertificateStatus({
+class MmSamlCertificateStatus {
+  /// Returns a new [MmSamlCertificateStatus] instance.
+  MmSamlCertificateStatus({
     this.idpCertificateFile,
     this.publicCertificateFile,
     this.privateKeyFile,
@@ -48,7 +48,7 @@ class MMSamlCertificateStatus {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSamlCertificateStatus &&
+      other is MmSamlCertificateStatus &&
           other.idpCertificateFile == idpCertificateFile &&
           other.publicCertificateFile == publicCertificateFile &&
           other.privateKeyFile == privateKeyFile;
@@ -62,7 +62,7 @@ class MMSamlCertificateStatus {
 
   @override
   String toString() =>
-      'MMSamlCertificateStatus[idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile]';
+      'MmSamlCertificateStatus[idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -78,10 +78,10 @@ class MMSamlCertificateStatus {
     return _json;
   }
 
-  /// Returns a new [MMSamlCertificateStatus] instance and imports its values from
+  /// Returns a new [MmSamlCertificateStatus] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSamlCertificateStatus? fromJson(dynamic value) {
+  static MmSamlCertificateStatus? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -90,13 +90,13 @@ class MMSamlCertificateStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSamlCertificateStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSamlCertificateStatus[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSamlCertificateStatus[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSamlCertificateStatus[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSamlCertificateStatus(
+      return MmSamlCertificateStatus(
         idpCertificateFile: mapValueOfType<bool>(json, r'idp_certificate_file'),
         publicCertificateFile: mapValueOfType<bool>(json, r'public_certificate_file'),
         privateKeyFile: mapValueOfType<bool>(json, r'private_key_file'),
@@ -105,14 +105,14 @@ class MMSamlCertificateStatus {
     return null;
   }
 
-  static List<MMSamlCertificateStatus>? listFromJson(
+  static List<MmSamlCertificateStatus>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSamlCertificateStatus>[];
+    final result = <MmSamlCertificateStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSamlCertificateStatus.fromJson(row);
+        final value = MmSamlCertificateStatus.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -121,12 +121,12 @@ class MMSamlCertificateStatus {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSamlCertificateStatus> mapFromJson(dynamic json) {
-    final map = <String, MMSamlCertificateStatus>{};
+  static Map<String, MmSamlCertificateStatus> mapFromJson(dynamic json) {
+    final map = <String, MmSamlCertificateStatus>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSamlCertificateStatus.fromJson(entry.value);
+        final value = MmSamlCertificateStatus.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -135,16 +135,16 @@ class MMSamlCertificateStatus {
     return map;
   }
 
-  // maps a json object with a list of MMSamlCertificateStatus-objects as value to a dart map
-  static Map<String, List<MMSamlCertificateStatus>> mapListFromJson(
+  // maps a json object with a list of MmSamlCertificateStatus-objects as value to a dart map
+  static Map<String, List<MmSamlCertificateStatus>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSamlCertificateStatus>>{};
+    final map = <String, List<MmSamlCertificateStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSamlCertificateStatus.listFromJson(
+        final value = MmSamlCertificateStatus.listFromJson(
           entry.value,
           growable: growable,
         );

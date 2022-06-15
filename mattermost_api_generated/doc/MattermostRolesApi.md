@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **getAllRoles**
-> List<MMRole> getAllRoles()
+> List<MmRole> getAllRoles()
 
 Get a list of all the roles
 
@@ -32,24 +32,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMRole&gt;? result = await client.roles.getAllRoles(); // await the Future<List&lt;MMRole&gt;?>
+  final List&lt;MmRole&gt;? result = await client.roles.getAllRoles(); // await the Future<List&lt;MmRole&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getAllRoles: $e\n');
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMRole>**](MMRole.md)
+[**List<MmRole>**](MmRole.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getRole**
-> MMRole getRole(roleId)
+> MmRole getRole(roleId)
 
 Get a role
 
@@ -91,25 +91,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String roleId = 'roleId_example'; // String | Role GUID
 
 try {
-  final MMRole? result = await client.roles.getRole(roleId); // await the Future<MMRole?>
+  final MmRole? result = await client.roles.getRole(roleId); // await the Future<MmRole?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRole: $e\n');
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRole**](MMRole.md)
+[**MmRole**](MmRole.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getRoleByName**
-> MMRole getRoleByName(roleName)
+> MmRole getRoleByName(roleName)
 
 Get a role
 
@@ -154,25 +154,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String roleName = 'roleName_example'; // String | Role Name
 
 try {
-  final MMRole? result = await client.roles.getRoleByName(roleName); // await the Future<MMRole?>
+  final MmRole? result = await client.roles.getRoleByName(roleName); // await the Future<MmRole?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRoleByName: $e\n');
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRole**](MMRole.md)
+[**MmRole**](MmRole.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getRolesByNames**
-> List<MMRole> getRolesByNames(requestBody)
+> List<MmRole> getRolesByNames(requestBody)
 
 Get a list of roles by name
 
@@ -217,25 +217,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of role names
 
 try {
-  final List&lt;MMRole&gt;? result = await client.roles.getRolesByNames(requestBody); // await the Future<List&lt;MMRole&gt;?>
+  final List&lt;MmRole&gt;? result = await client.roles.getRolesByNames(requestBody); // await the Future<List&lt;MmRole&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRolesApi->getRolesByNames: $e\n');
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMRole>**](MMRole.md)
+[**List<MmRole>**](MmRole.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchRole**
-> MMRole patchRole(roleId, mMPatchRoleRequest)
+> MmRole patchRole(roleId, mmPatchRoleRequest)
 
 Patch a role
 
@@ -280,26 +280,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String roleId = 'roleId_example'; // String | Role GUID
-final MMPatchRoleRequest mMPatchRoleRequest = MMPatchRoleRequest(); // MMPatchRoleRequest | Role object to be updated
+final MmPatchRoleRequest mmPatchRoleRequest = MmPatchRoleRequest(); // MmPatchRoleRequest | Role object to be updated
 
 try {
-  final MMRole? result = await client.roles.patchRole(roleId, mMPatchRoleRequest); // await the Future<MMRole?>
+  final MmRole? result = await client.roles.patchRole(roleId, mmPatchRoleRequest); // await the Future<MmRole?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRolesApi->patchRole: $e\n');
@@ -312,11 +312,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| Role GUID | 
- **mMPatchRoleRequest** | [**MMPatchRoleRequest**](MMPatchRoleRequest.md)| Role object to be updated | 
+ **mmPatchRoleRequest** | [**MmPatchRoleRequest**](MmPatchRoleRequest.md)| Role object to be updated | 
 
 ### Return type
 
-[**MMRole**](MMRole.md)
+[**MmRole**](MmRole.md)
 
 ### Authorization
 

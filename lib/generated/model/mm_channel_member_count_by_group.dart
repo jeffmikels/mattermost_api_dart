@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelMemberCountByGroup {
-  /// Returns a new [MMChannelMemberCountByGroup] instance.
-  MMChannelMemberCountByGroup({
+class MmChannelMemberCountByGroup {
+  /// Returns a new [MmChannelMemberCountByGroup] instance.
+  MmChannelMemberCountByGroup({
     this.groupId,
     this.channelMemberCount,
     this.channelMemberTimezonesCount,
@@ -48,7 +48,7 @@ class MMChannelMemberCountByGroup {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMChannelMemberCountByGroup &&
+      other is MmChannelMemberCountByGroup &&
           other.groupId == groupId &&
           other.channelMemberCount == channelMemberCount &&
           other.channelMemberTimezonesCount == channelMemberTimezonesCount;
@@ -62,7 +62,7 @@ class MMChannelMemberCountByGroup {
 
   @override
   String toString() =>
-      'MMChannelMemberCountByGroup[groupId=$groupId, channelMemberCount=$channelMemberCount, channelMemberTimezonesCount=$channelMemberTimezonesCount]';
+      'MmChannelMemberCountByGroup[groupId=$groupId, channelMemberCount=$channelMemberCount, channelMemberTimezonesCount=$channelMemberTimezonesCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -78,10 +78,10 @@ class MMChannelMemberCountByGroup {
     return _json;
   }
 
-  /// Returns a new [MMChannelMemberCountByGroup] instance and imports its values from
+  /// Returns a new [MmChannelMemberCountByGroup] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelMemberCountByGroup? fromJson(dynamic value) {
+  static MmChannelMemberCountByGroup? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -90,13 +90,13 @@ class MMChannelMemberCountByGroup {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelMemberCountByGroup[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelMemberCountByGroup[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelMemberCountByGroup[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelMemberCountByGroup[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelMemberCountByGroup(
+      return MmChannelMemberCountByGroup(
         groupId: mapValueOfType<String>(json, r'group_id'),
         channelMemberCount:
             json[r'channel_member_count'] == null ? null : num.parse(json[r'channel_member_count'].toString()),
@@ -108,14 +108,14 @@ class MMChannelMemberCountByGroup {
     return null;
   }
 
-  static List<MMChannelMemberCountByGroup>? listFromJson(
+  static List<MmChannelMemberCountByGroup>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelMemberCountByGroup>[];
+    final result = <MmChannelMemberCountByGroup>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelMemberCountByGroup.fromJson(row);
+        final value = MmChannelMemberCountByGroup.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -124,12 +124,12 @@ class MMChannelMemberCountByGroup {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelMemberCountByGroup> mapFromJson(dynamic json) {
-    final map = <String, MMChannelMemberCountByGroup>{};
+  static Map<String, MmChannelMemberCountByGroup> mapFromJson(dynamic json) {
+    final map = <String, MmChannelMemberCountByGroup>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberCountByGroup.fromJson(entry.value);
+        final value = MmChannelMemberCountByGroup.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -138,16 +138,16 @@ class MMChannelMemberCountByGroup {
     return map;
   }
 
-  // maps a json object with a list of MMChannelMemberCountByGroup-objects as value to a dart map
-  static Map<String, List<MMChannelMemberCountByGroup>> mapListFromJson(
+  // maps a json object with a list of MmChannelMemberCountByGroup-objects as value to a dart map
+  static Map<String, List<MmChannelMemberCountByGroup>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelMemberCountByGroup>>{};
+    final map = <String, List<MmChannelMemberCountByGroup>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelMemberCountByGroup.listFromJson(
+        final value = MmChannelMemberCountByGroup.listFromJson(
           entry.value,
           growable: growable,
         );

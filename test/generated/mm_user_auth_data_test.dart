@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserAuthData
+// tests for MmUserAuthData
 void main() {
-  // final instance = MMUserAuthData();
+  // final instance = MmUserAuthData();
 
-  group('test MMUserAuthData', () {
+  group('test MmUserAuthData', () {
     // Service-specific authentication data
     // String authData
     test('to test the property `authData`', () async {

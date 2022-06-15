@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateOAuthAppRequest
+// tests for MmCreateOAuthAppRequest
 void main() {
-  // final instance = MMCreateOAuthAppRequest();
+  // final instance = MmCreateOAuthAppRequest();
 
-  group('test MMCreateOAuthAppRequest', () {
+  group('test MmCreateOAuthAppRequest', () {
     // The name of the client application
     // String name
     test('to test the property `name`', () async {

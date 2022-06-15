@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateBotRequest
+// tests for MmCreateBotRequest
 void main() {
-  // final instance = MMCreateBotRequest();
+  // final instance = MmCreateBotRequest();
 
-  group('test MMCreateBotRequest', () {
+  group('test MmCreateBotRequest', () {
     // String username
     test('to test the property `username`', () async {
       // TODO

@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelData
+// tests for MmChannelData
 void main() {
-  // final instance = MMChannelData();
+  // final instance = MmChannelData();
 
-  group('test MMChannelData', () {
-    // MMChannel channel
+  group('test MmChannelData', () {
+    // MmChannel channel
     test('to test the property `channel`', () async {
       // TODO
     });
 
-    // MMChannelMember member
+    // MmChannelMember member
     test('to test the property `member`', () async {
       // TODO
     });

@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTeamMap
+// tests for MmTeamMap
 void main() {
-  // final instance = MMTeamMap();
+  // final instance = MmTeamMap();
 
-  group('test MMTeamMap', () {
-    // MMTeam teamId
+  group('test MmTeamMap', () {
+    // MmTeam teamId
     test('to test the property `teamId`', () async {
       // TODO
     });

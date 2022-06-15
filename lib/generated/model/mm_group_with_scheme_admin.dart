@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMGroupWithSchemeAdmin {
-  /// Returns a new [MMGroupWithSchemeAdmin] instance.
-  MMGroupWithSchemeAdmin({
+class MmGroupWithSchemeAdmin {
+  /// Returns a new [MmGroupWithSchemeAdmin] instance.
+  MmGroupWithSchemeAdmin({
     this.group,
     this.schemeAdmin,
   });
@@ -23,7 +23,7 @@ class MMGroupWithSchemeAdmin {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMGroup? group;
+  MmGroup? group;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -36,7 +36,7 @@ class MMGroupWithSchemeAdmin {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGroupWithSchemeAdmin && other.group == group && other.schemeAdmin == schemeAdmin;
+      other is MmGroupWithSchemeAdmin && other.group == group && other.schemeAdmin == schemeAdmin;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMGroupWithSchemeAdmin {
       (group == null ? 0 : group!.hashCode) + (schemeAdmin == null ? 0 : schemeAdmin!.hashCode);
 
   @override
-  String toString() => 'MMGroupWithSchemeAdmin[group=$group, schemeAdmin=$schemeAdmin]';
+  String toString() => 'MmGroupWithSchemeAdmin[group=$group, schemeAdmin=$schemeAdmin]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMGroupWithSchemeAdmin {
     return _json;
   }
 
-  /// Returns a new [MMGroupWithSchemeAdmin] instance and imports its values from
+  /// Returns a new [MmGroupWithSchemeAdmin] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGroupWithSchemeAdmin? fromJson(dynamic value) {
+  static MmGroupWithSchemeAdmin? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,28 +69,28 @@ class MMGroupWithSchemeAdmin {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGroupWithSchemeAdmin[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGroupWithSchemeAdmin[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGroupWithSchemeAdmin[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGroupWithSchemeAdmin[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGroupWithSchemeAdmin(
-        group: MMGroup.fromJson(json[r'group']),
+      return MmGroupWithSchemeAdmin(
+        group: MmGroup.fromJson(json[r'group']),
         schemeAdmin: mapValueOfType<bool>(json, r'scheme_admin'),
       );
     }
     return null;
   }
 
-  static List<MMGroupWithSchemeAdmin>? listFromJson(
+  static List<MmGroupWithSchemeAdmin>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGroupWithSchemeAdmin>[];
+    final result = <MmGroupWithSchemeAdmin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGroupWithSchemeAdmin.fromJson(row);
+        final value = MmGroupWithSchemeAdmin.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMGroupWithSchemeAdmin {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGroupWithSchemeAdmin> mapFromJson(dynamic json) {
-    final map = <String, MMGroupWithSchemeAdmin>{};
+  static Map<String, MmGroupWithSchemeAdmin> mapFromJson(dynamic json) {
+    final map = <String, MmGroupWithSchemeAdmin>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroupWithSchemeAdmin.fromJson(entry.value);
+        final value = MmGroupWithSchemeAdmin.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMGroupWithSchemeAdmin {
     return map;
   }
 
-  // maps a json object with a list of MMGroupWithSchemeAdmin-objects as value to a dart map
-  static Map<String, List<MMGroupWithSchemeAdmin>> mapListFromJson(
+  // maps a json object with a list of MmGroupWithSchemeAdmin-objects as value to a dart map
+  static Map<String, List<MmGroupWithSchemeAdmin>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGroupWithSchemeAdmin>>{};
+    final map = <String, List<MmGroupWithSchemeAdmin>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGroupWithSchemeAdmin.listFromJson(
+        final value = MmGroupWithSchemeAdmin.listFromJson(
           entry.value,
           growable: growable,
         );

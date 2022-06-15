@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPostLogRequest {
-  /// Returns a new [MMPostLogRequest] instance.
-  MMPostLogRequest({
+class MmPostLogRequest {
+  /// Returns a new [MmPostLogRequest] instance.
+  MmPostLogRequest({
     required this.level,
     required this.message,
   });
@@ -25,7 +25,7 @@ class MMPostLogRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPostLogRequest && other.level == level && other.message == message;
+      identical(this, other) || other is MmPostLogRequest && other.level == level && other.message == message;
 
   @override
   int get hashCode =>
@@ -33,7 +33,7 @@ class MMPostLogRequest {
       (level.hashCode) + (message.hashCode);
 
   @override
-  String toString() => 'MMPostLogRequest[level=$level, message=$message]';
+  String toString() => 'MmPostLogRequest[level=$level, message=$message]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -42,10 +42,10 @@ class MMPostLogRequest {
     return _json;
   }
 
-  /// Returns a new [MMPostLogRequest] instance and imports its values from
+  /// Returns a new [MmPostLogRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostLogRequest? fromJson(dynamic value) {
+  static MmPostLogRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -54,13 +54,13 @@ class MMPostLogRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostLogRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostLogRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostLogRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostLogRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostLogRequest(
+      return MmPostLogRequest(
         level: mapValueOfType<String>(json, r'level')!,
         message: mapValueOfType<String>(json, r'message')!,
       );
@@ -68,14 +68,14 @@ class MMPostLogRequest {
     return null;
   }
 
-  static List<MMPostLogRequest>? listFromJson(
+  static List<MmPostLogRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostLogRequest>[];
+    final result = <MmPostLogRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostLogRequest.fromJson(row);
+        final value = MmPostLogRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -84,12 +84,12 @@ class MMPostLogRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostLogRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPostLogRequest>{};
+  static Map<String, MmPostLogRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPostLogRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostLogRequest.fromJson(entry.value);
+        final value = MmPostLogRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -98,16 +98,16 @@ class MMPostLogRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPostLogRequest-objects as value to a dart map
-  static Map<String, List<MMPostLogRequest>> mapListFromJson(
+  // maps a json object with a list of MmPostLogRequest-objects as value to a dart map
+  static Map<String, List<MmPostLogRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostLogRequest>>{};
+    final map = <String, List<MmPostLogRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostLogRequest.listFromJson(
+        final value = MmPostLogRequest.listFromJson(
           entry.value,
           growable: growable,
         );

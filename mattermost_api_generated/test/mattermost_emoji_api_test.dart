@@ -21,7 +21,7 @@ void main() {
     //
     // Get a list of custom emoji with names starting with or matching the provided name. Returns a maximum of 100 results. ##### Permissions Must be authenticated.  __Minimum server version__: 4.7 
     //
-    //Future<MMEmoji> autocompleteEmoji(String name) async
+    //Future<MmEmoji> autocompleteEmoji(String name) async
     test('test autocompleteEmoji', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Create a custom emoji for the team. ##### Permissions Must be authenticated. 
     //
-    //Future<MMEmoji> createEmoji(MultipartFile image, String emoji) async
+    //Future<MmEmoji> createEmoji(MultipartFile image, String emoji) async
     test('test createEmoji', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Delete a custom emoji. ##### Permissions Must have the `manage_team` or `manage_system` permissions or be the user who created the emoji. 
     //
-    //Future<MMEmoji> deleteEmoji(String emojiId) async
+    //Future<MmEmoji> deleteEmoji(String emojiId) async
     test('test deleteEmoji', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get some metadata for a custom emoji. ##### Permissions Must be authenticated. 
     //
-    //Future<MMEmoji> getEmoji(String emojiId) async
+    //Future<MmEmoji> getEmoji(String emojiId) async
     test('test getEmoji', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Get some metadata for a custom emoji using its name. ##### Permissions Must be authenticated.  __Minimum server version__: 4.7 
     //
-    //Future<MMEmoji> getEmojiByName(String emojiName) async
+    //Future<MmEmoji> getEmojiByName(String emojiName) async
     test('test getEmojiByName', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get a page of metadata for custom emoji on the system. Since server version 4.7, sort using the `sort` query parameter. ##### Permissions Must be authenticated. 
     //
-    //Future<MMEmoji> getEmojiList({ int page, int perPage, String sort }) async
+    //Future<MmEmoji> getEmojiList({ int page, int perPage, String sort }) async
     test('test getEmojiList', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Search for custom emoji by name based on search criteria provided in the request body. A maximum of 200 results are returned. ##### Permissions Must be authenticated.  __Minimum server version__: 4.7 
     //
-    //Future<List<MMEmoji>> searchEmoji(MMSearchEmojiRequest mMSearchEmojiRequest) async
+    //Future<List<MmEmoji>> searchEmoji(MmSearchEmojiRequest mmSearchEmojiRequest) async
     test('test searchEmoji', () async {
       // TODO
     });

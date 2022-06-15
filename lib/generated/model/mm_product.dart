@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMProduct {
-  /// Returns a new [MMProduct] instance.
-  MMProduct({
+class MmProduct {
+  /// Returns a new [MmProduct] instance.
+  MmProduct({
     this.id,
     this.name,
     this.description,
@@ -52,12 +52,12 @@ class MMProduct {
   ///
   String? pricePerSeat;
 
-  List<MMAddOn> addOns;
+  List<MmAddOn> addOns;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMProduct &&
+      other is MmProduct &&
           other.id == id &&
           other.name == name &&
           other.description == description &&
@@ -75,7 +75,7 @@ class MMProduct {
 
   @override
   String toString() =>
-      'MMProduct[id=$id, name=$name, description=$description, pricePerSeat=$pricePerSeat, addOns=$addOns]';
+      'MmProduct[id=$id, name=$name, description=$description, pricePerSeat=$pricePerSeat, addOns=$addOns]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -95,10 +95,10 @@ class MMProduct {
     return _json;
   }
 
-  /// Returns a new [MMProduct] instance and imports its values from
+  /// Returns a new [MmProduct] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMProduct? fromJson(dynamic value) {
+  static MmProduct? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -107,31 +107,31 @@ class MMProduct {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMProduct[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMProduct[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmProduct[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmProduct[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMProduct(
+      return MmProduct(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         description: mapValueOfType<String>(json, r'description'),
         pricePerSeat: mapValueOfType<String>(json, r'price_per_seat'),
-        addOns: MMAddOn.listFromJson(json[r'add_ons']) ?? const [],
+        addOns: MmAddOn.listFromJson(json[r'add_ons']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMProduct>? listFromJson(
+  static List<MmProduct>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMProduct>[];
+    final result = <MmProduct>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMProduct.fromJson(row);
+        final value = MmProduct.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -140,12 +140,12 @@ class MMProduct {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMProduct> mapFromJson(dynamic json) {
-    final map = <String, MMProduct>{};
+  static Map<String, MmProduct> mapFromJson(dynamic json) {
+    final map = <String, MmProduct>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMProduct.fromJson(entry.value);
+        final value = MmProduct.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -154,16 +154,16 @@ class MMProduct {
     return map;
   }
 
-  // maps a json object with a list of MMProduct-objects as value to a dart map
-  static Map<String, List<MMProduct>> mapListFromJson(
+  // maps a json object with a list of MmProduct-objects as value to a dart map
+  static Map<String, List<MmProduct>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMProduct>>{};
+    final map = <String, List<MmProduct>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMProduct.listFromJson(
+        final value = MmProduct.listFromJson(
           entry.value,
           growable: growable,
         );

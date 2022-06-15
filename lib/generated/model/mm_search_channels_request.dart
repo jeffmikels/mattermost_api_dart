@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSearchChannelsRequest {
-  /// Returns a new [MMSearchChannelsRequest] instance.
-  MMSearchChannelsRequest({
+class MmSearchChannelsRequest {
+  /// Returns a new [MmSearchChannelsRequest] instance.
+  MmSearchChannelsRequest({
     required this.term,
   });
 
@@ -20,7 +20,7 @@ class MMSearchChannelsRequest {
   String term;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMSearchChannelsRequest && other.term == term;
+  bool operator ==(Object other) => identical(this, other) || other is MmSearchChannelsRequest && other.term == term;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMSearchChannelsRequest {
       (term.hashCode);
 
   @override
-  String toString() => 'MMSearchChannelsRequest[term=$term]';
+  String toString() => 'MmSearchChannelsRequest[term=$term]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class MMSearchChannelsRequest {
     return _json;
   }
 
-  /// Returns a new [MMSearchChannelsRequest] instance and imports its values from
+  /// Returns a new [MmSearchChannelsRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchChannelsRequest? fromJson(dynamic value) {
+  static MmSearchChannelsRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,27 +48,27 @@ class MMSearchChannelsRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSearchChannelsRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSearchChannelsRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSearchChannelsRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSearchChannelsRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchChannelsRequest(
+      return MmSearchChannelsRequest(
         term: mapValueOfType<String>(json, r'term')!,
       );
     }
     return null;
   }
 
-  static List<MMSearchChannelsRequest>? listFromJson(
+  static List<MmSearchChannelsRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchChannelsRequest>[];
+    final result = <MmSearchChannelsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchChannelsRequest.fromJson(row);
+        final value = MmSearchChannelsRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -77,12 +77,12 @@ class MMSearchChannelsRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchChannelsRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSearchChannelsRequest>{};
+  static Map<String, MmSearchChannelsRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSearchChannelsRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchChannelsRequest.fromJson(entry.value);
+        final value = MmSearchChannelsRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -91,16 +91,16 @@ class MMSearchChannelsRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSearchChannelsRequest-objects as value to a dart map
-  static Map<String, List<MMSearchChannelsRequest>> mapListFromJson(
+  // maps a json object with a list of MmSearchChannelsRequest-objects as value to a dart map
+  static Map<String, List<MmSearchChannelsRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchChannelsRequest>>{};
+    final map = <String, List<MmSearchChannelsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchChannelsRequest.listFromJson(
+        final value = MmSearchChannelsRequest.listFromJson(
           entry.value,
           growable: growable,
         );

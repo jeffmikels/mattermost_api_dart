@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCommandResponse {
-  /// Returns a new [MMCommandResponse] instance.
-  MMCommandResponse({
+class MmCommandResponse {
+  /// Returns a new [MmCommandResponse] instance.
+  MmCommandResponse({
     this.responseType,
     this.text,
     this.username,
@@ -62,12 +62,12 @@ class MMCommandResponse {
   ///
   String? gotoLocation;
 
-  List<MMSlackAttachment> attachments;
+  List<MmSlackAttachment> attachments;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCommandResponse &&
+      other is MmCommandResponse &&
           other.responseType == responseType &&
           other.text == text &&
           other.username == username &&
@@ -87,7 +87,7 @@ class MMCommandResponse {
 
   @override
   String toString() =>
-      'MMCommandResponse[responseType=$responseType, text=$text, username=$username, iconURL=$iconURL, gotoLocation=$gotoLocation, attachments=$attachments]';
+      'MmCommandResponse[responseType=$responseType, text=$text, username=$username, iconURL=$iconURL, gotoLocation=$gotoLocation, attachments=$attachments]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -110,10 +110,10 @@ class MMCommandResponse {
     return _json;
   }
 
-  /// Returns a new [MMCommandResponse] instance and imports its values from
+  /// Returns a new [MmCommandResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCommandResponse? fromJson(dynamic value) {
+  static MmCommandResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -122,32 +122,32 @@ class MMCommandResponse {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCommandResponse[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCommandResponse[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCommandResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCommandResponse[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCommandResponse(
+      return MmCommandResponse(
         responseType: mapValueOfType<String>(json, r'ResponseType'),
         text: mapValueOfType<String>(json, r'Text'),
         username: mapValueOfType<String>(json, r'Username'),
         iconURL: mapValueOfType<String>(json, r'IconURL'),
         gotoLocation: mapValueOfType<String>(json, r'GotoLocation'),
-        attachments: MMSlackAttachment.listFromJson(json[r'Attachments']) ?? const [],
+        attachments: MmSlackAttachment.listFromJson(json[r'Attachments']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMCommandResponse>? listFromJson(
+  static List<MmCommandResponse>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCommandResponse>[];
+    final result = <MmCommandResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCommandResponse.fromJson(row);
+        final value = MmCommandResponse.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -156,12 +156,12 @@ class MMCommandResponse {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCommandResponse> mapFromJson(dynamic json) {
-    final map = <String, MMCommandResponse>{};
+  static Map<String, MmCommandResponse> mapFromJson(dynamic json) {
+    final map = <String, MmCommandResponse>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCommandResponse.fromJson(entry.value);
+        final value = MmCommandResponse.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -170,16 +170,16 @@ class MMCommandResponse {
     return map;
   }
 
-  // maps a json object with a list of MMCommandResponse-objects as value to a dart map
-  static Map<String, List<MMCommandResponse>> mapListFromJson(
+  // maps a json object with a list of MmCommandResponse-objects as value to a dart map
+  static Map<String, List<MmCommandResponse>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCommandResponse>>{};
+    final map = <String, List<MmCommandResponse>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCommandResponse.listFromJson(
+        final value = MmCommandResponse.listFromJson(
           entry.value,
           growable: growable,
         );

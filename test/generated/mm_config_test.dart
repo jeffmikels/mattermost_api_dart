@@ -11,112 +11,112 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfig
+// tests for MmConfig
 void main() {
-  // final instance = MMConfig();
+  // final instance = MmConfig();
 
-  group('test MMConfig', () {
-    // MMConfigServiceSettings serviceSettings
+  group('test MmConfig', () {
+    // MmConfigServiceSettings serviceSettings
     test('to test the property `serviceSettings`', () async {
       // TODO
     });
 
-    // MMConfigTeamSettings teamSettings
+    // MmConfigTeamSettings teamSettings
     test('to test the property `teamSettings`', () async {
       // TODO
     });
 
-    // MMConfigSqlSettings sqlSettings
+    // MmConfigSqlSettings sqlSettings
     test('to test the property `sqlSettings`', () async {
       // TODO
     });
 
-    // MMConfigLogSettings logSettings
+    // MmConfigLogSettings logSettings
     test('to test the property `logSettings`', () async {
       // TODO
     });
 
-    // MMConfigPasswordSettings passwordSettings
+    // MmConfigPasswordSettings passwordSettings
     test('to test the property `passwordSettings`', () async {
       // TODO
     });
 
-    // MMConfigFileSettings fileSettings
+    // MmConfigFileSettings fileSettings
     test('to test the property `fileSettings`', () async {
       // TODO
     });
 
-    // MMConfigEmailSettings emailSettings
+    // MmConfigEmailSettings emailSettings
     test('to test the property `emailSettings`', () async {
       // TODO
     });
 
-    // MMConfigRateLimitSettings rateLimitSettings
+    // MmConfigRateLimitSettings rateLimitSettings
     test('to test the property `rateLimitSettings`', () async {
       // TODO
     });
 
-    // MMConfigPrivacySettings privacySettings
+    // MmConfigPrivacySettings privacySettings
     test('to test the property `privacySettings`', () async {
       // TODO
     });
 
-    // MMConfigSupportSettings supportSettings
+    // MmConfigSupportSettings supportSettings
     test('to test the property `supportSettings`', () async {
       // TODO
     });
 
-    // MMConfigGitLabSettings gitLabSettings
+    // MmConfigGitLabSettings gitLabSettings
     test('to test the property `gitLabSettings`', () async {
       // TODO
     });
 
-    // MMConfigGitLabSettings googleSettings
+    // MmConfigGitLabSettings googleSettings
     test('to test the property `googleSettings`', () async {
       // TODO
     });
 
-    // MMConfigGitLabSettings office365Settings
+    // MmConfigGitLabSettings office365Settings
     test('to test the property `office365Settings`', () async {
       // TODO
     });
 
-    // MMConfigLdapSettings ldapSettings
+    // MmConfigLdapSettings ldapSettings
     test('to test the property `ldapSettings`', () async {
       // TODO
     });
 
-    // MMConfigComplianceSettings complianceSettings
+    // MmConfigComplianceSettings complianceSettings
     test('to test the property `complianceSettings`', () async {
       // TODO
     });
 
-    // MMConfigLocalizationSettings localizationSettings
+    // MmConfigLocalizationSettings localizationSettings
     test('to test the property `localizationSettings`', () async {
       // TODO
     });
 
-    // MMConfigSamlSettings samlSettings
+    // MmConfigSamlSettings samlSettings
     test('to test the property `samlSettings`', () async {
       // TODO
     });
 
-    // MMConfigNativeAppSettings nativeAppSettings
+    // MmConfigNativeAppSettings nativeAppSettings
     test('to test the property `nativeAppSettings`', () async {
       // TODO
     });
 
-    // MMConfigClusterSettings clusterSettings
+    // MmConfigClusterSettings clusterSettings
     test('to test the property `clusterSettings`', () async {
       // TODO
     });
 
-    // MMConfigMetricsSettings metricsSettings
+    // MmConfigMetricsSettings metricsSettings
     test('to test the property `metricsSettings`', () async {
       // TODO
     });
 
-    // MMConfigAnalyticsSettings analyticsSettings
+    // MmConfigAnalyticsSettings analyticsSettings
     test('to test the property `analyticsSettings`', () async {
       // TODO
     });

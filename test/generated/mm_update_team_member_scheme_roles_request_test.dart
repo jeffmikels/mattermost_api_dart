@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateTeamMemberSchemeRolesRequest
+// tests for MmUpdateTeamMemberSchemeRolesRequest
 void main() {
-  // final instance = MMUpdateTeamMemberSchemeRolesRequest();
+  // final instance = MmUpdateTeamMemberSchemeRolesRequest();
 
-  group('test MMUpdateTeamMemberSchemeRolesRequest', () {
+  group('test MmUpdateTeamMemberSchemeRolesRequest', () {
     // bool schemeAdmin
     test('to test the property `schemeAdmin`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAppError {
-  /// Returns a new [MMAppError] instance.
-  MMAppError({
+class MmAppError {
+  /// Returns a new [MmAppError] instance.
+  MmAppError({
     this.statusCode,
     this.id,
     this.message,
@@ -54,7 +54,7 @@ class MMAppError {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMAppError &&
+      other is MmAppError &&
           other.statusCode == statusCode &&
           other.id == id &&
           other.message == message &&
@@ -69,7 +69,7 @@ class MMAppError {
       (requestId == null ? 0 : requestId!.hashCode);
 
   @override
-  String toString() => 'MMAppError[statusCode=$statusCode, id=$id, message=$message, requestId=$requestId]';
+  String toString() => 'MmAppError[statusCode=$statusCode, id=$id, message=$message, requestId=$requestId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -88,10 +88,10 @@ class MMAppError {
     return _json;
   }
 
-  /// Returns a new [MMAppError] instance and imports its values from
+  /// Returns a new [MmAppError] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAppError? fromJson(dynamic value) {
+  static MmAppError? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -100,13 +100,13 @@ class MMAppError {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAppError[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAppError[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAppError[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAppError[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAppError(
+      return MmAppError(
         statusCode: mapValueOfType<int>(json, r'status_code'),
         id: mapValueOfType<String>(json, r'id'),
         message: mapValueOfType<String>(json, r'message'),
@@ -116,14 +116,14 @@ class MMAppError {
     return null;
   }
 
-  static List<MMAppError>? listFromJson(
+  static List<MmAppError>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAppError>[];
+    final result = <MmAppError>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAppError.fromJson(row);
+        final value = MmAppError.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -132,12 +132,12 @@ class MMAppError {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAppError> mapFromJson(dynamic json) {
-    final map = <String, MMAppError>{};
+  static Map<String, MmAppError> mapFromJson(dynamic json) {
+    final map = <String, MmAppError>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAppError.fromJson(entry.value);
+        final value = MmAppError.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -146,16 +146,16 @@ class MMAppError {
     return map;
   }
 
-  // maps a json object with a list of MMAppError-objects as value to a dart map
-  static Map<String, List<MMAppError>> mapListFromJson(
+  // maps a json object with a list of MmAppError-objects as value to a dart map
+  static Map<String, List<MmAppError>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAppError>>{};
+    final map = <String, List<MmAppError>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAppError.listFromJson(
+        final value = MmAppError.listFromJson(
           entry.value,
           growable: growable,
         );

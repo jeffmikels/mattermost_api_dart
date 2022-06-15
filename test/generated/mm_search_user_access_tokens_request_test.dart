@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchUserAccessTokensRequest
+// tests for MmSearchUserAccessTokensRequest
 void main() {
-  // final instance = MMSearchUserAccessTokensRequest();
+  // final instance = MmSearchUserAccessTokensRequest();
 
-  group('test MMSearchUserAccessTokensRequest', () {
+  group('test MmSearchUserAccessTokensRequest', () {
     // The search term to match against the token id, user id or username.
     // String term
     test('to test the property `term`', () async {

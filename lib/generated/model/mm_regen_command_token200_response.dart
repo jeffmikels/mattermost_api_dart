@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRegenCommandToken200Response {
-  /// Returns a new [MMRegenCommandToken200Response] instance.
-  MMRegenCommandToken200Response({
+class MmRegenCommandToken200Response {
+  /// Returns a new [MmRegenCommandToken200Response] instance.
+  MmRegenCommandToken200Response({
     this.token,
   });
 
@@ -27,7 +27,7 @@ class MMRegenCommandToken200Response {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMRegenCommandToken200Response && other.token == token;
+      identical(this, other) || other is MmRegenCommandToken200Response && other.token == token;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMRegenCommandToken200Response {
       (token == null ? 0 : token!.hashCode);
 
   @override
-  String toString() => 'MMRegenCommandToken200Response[token=$token]';
+  String toString() => 'MmRegenCommandToken200Response[token=$token]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMRegenCommandToken200Response {
     return _json;
   }
 
-  /// Returns a new [MMRegenCommandToken200Response] instance and imports its values from
+  /// Returns a new [MmRegenCommandToken200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRegenCommandToken200Response? fromJson(dynamic value) {
+  static MmRegenCommandToken200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMRegenCommandToken200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRegenCommandToken200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRegenCommandToken200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRegenCommandToken200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRegenCommandToken200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRegenCommandToken200Response(
+      return MmRegenCommandToken200Response(
         token: mapValueOfType<String>(json, r'token'),
       );
     }
     return null;
   }
 
-  static List<MMRegenCommandToken200Response>? listFromJson(
+  static List<MmRegenCommandToken200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRegenCommandToken200Response>[];
+    final result = <MmRegenCommandToken200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRegenCommandToken200Response.fromJson(row);
+        final value = MmRegenCommandToken200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMRegenCommandToken200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRegenCommandToken200Response> mapFromJson(dynamic json) {
-    final map = <String, MMRegenCommandToken200Response>{};
+  static Map<String, MmRegenCommandToken200Response> mapFromJson(dynamic json) {
+    final map = <String, MmRegenCommandToken200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRegenCommandToken200Response.fromJson(entry.value);
+        final value = MmRegenCommandToken200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMRegenCommandToken200Response {
     return map;
   }
 
-  // maps a json object with a list of MMRegenCommandToken200Response-objects as value to a dart map
-  static Map<String, List<MMRegenCommandToken200Response>> mapListFromJson(
+  // maps a json object with a list of MmRegenCommandToken200Response-objects as value to a dart map
+  static Map<String, List<MmRegenCommandToken200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRegenCommandToken200Response>>{};
+    final map = <String, List<MmRegenCommandToken200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRegenCommandToken200Response.listFromJson(
+        final value = MmRegenCommandToken200Response.listFromJson(
           entry.value,
           growable: growable,
         );

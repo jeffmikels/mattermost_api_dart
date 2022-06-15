@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSendVerificationEmailRequest
+// tests for MmSendVerificationEmailRequest
 void main() {
-  // final instance = MMSendVerificationEmailRequest();
+  // final instance = MmSendVerificationEmailRequest();
 
-  group('test MMSendVerificationEmailRequest', () {
+  group('test MmSendVerificationEmailRequest', () {
     // Email of a user
     // String email
     test('to test the property `email`', () async {

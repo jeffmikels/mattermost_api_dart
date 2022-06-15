@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMIncomingWebhook
+// tests for MmIncomingWebhook
 void main() {
-  // final instance = MMIncomingWebhook();
+  // final instance = MmIncomingWebhook();
 
-  group('test MMIncomingWebhook', () {
+  group('test MmIncomingWebhook', () {
     // The unique identifier for this incoming webhook
     // String id
     test('to test the property `id`', () async {

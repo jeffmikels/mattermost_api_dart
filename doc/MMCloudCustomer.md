@@ -1,4 +1,4 @@
-# mattermost_api.model.MMCloudCustomer
+# mattermost_api.model.MmCloudCustomer
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMCloudCustomer example = await client.cloudCustomer.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmCloudCustomer example = await client.cloudCustomer.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -29,9 +29,9 @@ Name | Type | Description | Notes
 **numEmployees** | **String** |  | [optional] 
 **contactFirstName** | **String** |  | [optional] 
 **contactLastName** | **String** |  | [optional] 
-**billingAddress** | [**MMAddress**](MMAddress.md) |  | [optional] 
-**companyAddress** | [**MMAddress**](MMAddress.md) |  | [optional] 
-**paymentMethod** | [**MMPaymentMethod**](MMPaymentMethod.md) |  | [optional] 
+**billingAddress** | [**MmAddress**](MmAddress.md) |  | [optional] 
+**companyAddress** | [**MmAddress**](MmAddress.md) |  | [optional] 
+**paymentMethod** | [**MmPaymentMethod**](MmPaymentMethod.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

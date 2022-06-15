@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphAudiosInner
+// tests for MmOpenGraphAudiosInner
 void main() {
-  // final instance = MMOpenGraphAudiosInner();
+  // final instance = MmOpenGraphAudiosInner();
 
-  group('test MMOpenGraphAudiosInner', () {
+  group('test MmOpenGraphAudiosInner', () {
     // String url
     test('to test the property `url`', () async {
       // TODO

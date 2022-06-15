@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateTeamRequest
+// tests for MmCreateTeamRequest
 void main() {
-  // final instance = MMCreateTeamRequest();
+  // final instance = MmCreateTeamRequest();
 
-  group('test MMCreateTeamRequest', () {
+  group('test MmCreateTeamRequest', () {
     // Unique handler for a team, will be present in the team URL
     // String name
     test('to test the property `name`', () async {

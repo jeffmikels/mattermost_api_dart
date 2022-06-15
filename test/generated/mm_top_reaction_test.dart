@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTopReaction
+// tests for MmTopReaction
 void main() {
-  // final instance = MMTopReaction();
+  // final instance = MmTopReaction();
 
-  group('test MMTopReaction', () {
+  group('test MmTopReaction', () {
     // The name of the emoji used for this reaction.
     // String emojiName
     test('to test the property `emojiName`', () async {

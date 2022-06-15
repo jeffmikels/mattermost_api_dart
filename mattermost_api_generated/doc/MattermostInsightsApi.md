@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getTopChannelsForTeam**
-> MMTopChannelList getTopChannelsForTeam(teamId, timeRange, page, perPage)
+> MmTopChannelList getTopChannelsForTeam(teamId, timeRange, page, perPage)
 
 Get a list of the top channels for a team.
 
@@ -31,18 +31,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -52,7 +52,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-  final MMTopChannelList? result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage); // await the Future<MMTopChannelList?>
+  final MmTopChannelList? result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage); // await the Future<MmTopChannelList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopChannelsForTeam: $e\n');
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTopChannelList**](MMTopChannelList.md)
+[**MmTopChannelList**](MmTopChannelList.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTopChannelsForUser**
-> MMTopReactionList getTopChannelsForUser(userId, timeRange, page, perPage, teamId)
+> MmTopReactionList getTopChannelsForUser(userId, timeRange, page, perPage, teamId)
 
 Get a list of the top channels for a user.
 
@@ -100,18 +100,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -122,7 +122,7 @@ final int perPage = 56; // int | The number of items per page, up to a maximum o
 final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-  final MMTopReactionList? result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId); // await the Future<MMTopReactionList?>
+  final MmTopReactionList? result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId); // await the Future<MmTopReactionList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopChannelsForUser: $e\n');
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTopReactionList**](MMTopReactionList.md)
+[**MmTopReactionList**](MmTopReactionList.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTopReactionsForTeam**
-> MMTopReactionList getTopReactionsForTeam(teamId, timeRange, page, perPage)
+> MmTopReactionList getTopReactionsForTeam(teamId, timeRange, page, perPage)
 
 Get a list of the top reactions for a team.
 
@@ -171,18 +171,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -192,7 +192,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-  final MMTopReactionList? result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage); // await the Future<MMTopReactionList?>
+  final MmTopReactionList? result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage); // await the Future<MmTopReactionList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopReactionsForTeam: $e\n');
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTopReactionList**](MMTopReactionList.md)
+[**MmTopReactionList**](MmTopReactionList.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTopReactionsForUser**
-> MMTopReactionList getTopReactionsForUser(userId, timeRange, page, perPage, teamId)
+> MmTopReactionList getTopReactionsForUser(userId, timeRange, page, perPage, teamId)
 
 Get a list of the top reactions for a user.
 
@@ -240,18 +240,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -262,7 +262,7 @@ final int perPage = 56; // int | The number of items per page, up to a maximum o
 final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-  final MMTopReactionList? result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId); // await the Future<MMTopReactionList?>
+  final MmTopReactionList? result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId); // await the Future<MmTopReactionList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopReactionsForUser: $e\n');
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMTopReactionList**](MMTopReactionList.md)
+[**MmTopReactionList**](MmTopReactionList.md)
 
 ### Authorization
 

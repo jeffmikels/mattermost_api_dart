@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigFileSettings {
-  /// Returns a new [MMConfigFileSettings] instance.
-  MMConfigFileSettings({
+class MmConfigFileSettings {
+  /// Returns a new [MmConfigFileSettings] instance.
+  MmConfigFileSettings({
     this.maxFileSize,
     this.driverName,
     this.directory,
@@ -180,7 +180,7 @@ class MMConfigFileSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigFileSettings &&
+      other is MmConfigFileSettings &&
           other.maxFileSize == maxFileSize &&
           other.driverName == driverName &&
           other.directory == directory &&
@@ -224,7 +224,7 @@ class MMConfigFileSettings {
 
   @override
   String toString() =>
-      'MMConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
+      'MmConfigFileSettings[maxFileSize=$maxFileSize, driverName=$driverName, directory=$directory, enablePublicLink=$enablePublicLink, publicLinkSalt=$publicLinkSalt, thumbnailWidth=$thumbnailWidth, thumbnailHeight=$thumbnailHeight, previewWidth=$previewWidth, previewHeight=$previewHeight, profileWidth=$profileWidth, profileHeight=$profileHeight, initialFont=$initialFont, amazonS3AccessKeyId=$amazonS3AccessKeyId, amazonS3SecretAccessKey=$amazonS3SecretAccessKey, amazonS3Bucket=$amazonS3Bucket, amazonS3Region=$amazonS3Region, amazonS3Endpoint=$amazonS3Endpoint, amazonS3SSL=$amazonS3SSL]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -285,10 +285,10 @@ class MMConfigFileSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigFileSettings] instance and imports its values from
+  /// Returns a new [MmConfigFileSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigFileSettings? fromJson(dynamic value) {
+  static MmConfigFileSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -297,13 +297,13 @@ class MMConfigFileSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigFileSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigFileSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigFileSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigFileSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigFileSettings(
+      return MmConfigFileSettings(
         maxFileSize: mapValueOfType<int>(json, r'MaxFileSize'),
         driverName: mapValueOfType<String>(json, r'DriverName'),
         directory: mapValueOfType<String>(json, r'Directory'),
@@ -327,14 +327,14 @@ class MMConfigFileSettings {
     return null;
   }
 
-  static List<MMConfigFileSettings>? listFromJson(
+  static List<MmConfigFileSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigFileSettings>[];
+    final result = <MmConfigFileSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigFileSettings.fromJson(row);
+        final value = MmConfigFileSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -343,12 +343,12 @@ class MMConfigFileSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigFileSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigFileSettings>{};
+  static Map<String, MmConfigFileSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigFileSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigFileSettings.fromJson(entry.value);
+        final value = MmConfigFileSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -357,16 +357,16 @@ class MMConfigFileSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigFileSettings-objects as value to a dart map
-  static Map<String, List<MMConfigFileSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigFileSettings-objects as value to a dart map
+  static Map<String, List<MmConfigFileSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigFileSettings>>{};
+    final map = <String, List<MmConfigFileSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigFileSettings.listFromJson(
+        final value = MmConfigFileSettings.listFromJson(
           entry.value,
           growable: growable,
         );

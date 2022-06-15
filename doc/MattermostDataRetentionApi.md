@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **addChannelsToRetentionPolicy**
-> MMStatusOK addChannelsToRetentionPolicy(policyId, requestBody)
+> MmStatusOK addChannelsToRetentionPolicy(policyId, requestBody)
 
 Add channels to a granular data retention policy
 
@@ -44,18 +44,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -63,7 +63,7 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK? result = await client.dataRetention.addChannelsToRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.dataRetention.addChannelsToRetentionPolicy(policyId, requestBody); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->addChannelsToRetentionPolicy: $e\n');
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **addTeamsToRetentionPolicy**
-> MMStatusOK addTeamsToRetentionPolicy(policyId, requestBody)
+> MmStatusOK addTeamsToRetentionPolicy(policyId, requestBody)
 
 Add teams to a granular data retention policy
 
@@ -109,18 +109,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -128,7 +128,7 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK? result = await client.dataRetention.addTeamsToRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.dataRetention.addTeamsToRetentionPolicy(policyId, requestBody); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->addTeamsToRetentionPolicy: $e\n');
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createDataRetentionPolicy**
-> MMDataRetentionPolicyWithTeamAndChannelCounts createDataRetentionPolicy(mMDataRetentionPolicyCreate)
+> MmDataRetentionPolicyWithTeamAndChannelCounts createDataRetentionPolicy(mmDataRetentionPolicyCreate)
 
 Create a new granular data retention policy
 
@@ -174,25 +174,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMDataRetentionPolicyCreate mMDataRetentionPolicyCreate = MMDataRetentionPolicyCreate(); // MMDataRetentionPolicyCreate | 
+final MmDataRetentionPolicyCreate mmDataRetentionPolicyCreate = MmDataRetentionPolicyCreate(); // MmDataRetentionPolicyCreate | 
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.createDataRetentionPolicy(mMDataRetentionPolicyCreate); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  final MmDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.createDataRetentionPolicy(mmDataRetentionPolicyCreate); // await the Future<MmDataRetentionPolicyWithTeamAndChannelCounts?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->createDataRetentionPolicy: $e\n');
@@ -204,11 +204,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMDataRetentionPolicyCreate** | [**MMDataRetentionPolicyCreate**](MMDataRetentionPolicyCreate.md)|  | 
+ **mmDataRetentionPolicyCreate** | [**MmDataRetentionPolicyCreate**](MmDataRetentionPolicyCreate.md)|  | 
 
 ### Return type
 
-[**MMDataRetentionPolicyWithTeamAndChannelCounts**](MMDataRetentionPolicyWithTeamAndChannelCounts.md)
+[**MmDataRetentionPolicyWithTeamAndChannelCounts**](MmDataRetentionPolicyWithTeamAndChannelCounts.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteDataRetentionPolicy**
-> MMStatusOK deleteDataRetentionPolicy(policyId)
+> MmStatusOK deleteDataRetentionPolicy(policyId)
 
 Delete a granular data retention policy
 
@@ -237,25 +237,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
-  final MMStatusOK? result = await client.dataRetention.deleteDataRetentionPolicy(policyId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.dataRetention.deleteDataRetentionPolicy(policyId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->deleteDataRetentionPolicy: $e\n');
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelPoliciesForUser**
-> MMRetentionPolicyForChannelList getChannelPoliciesForUser(userId, page, perPage)
+> MmRetentionPolicyForChannelList getChannelPoliciesForUser(userId, page, perPage)
 
 Get the policies which are applied to a user's channels
 
@@ -300,18 +300,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -320,7 +320,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final MMRetentionPolicyForChannelList? result = await client.dataRetention.getChannelPoliciesForUser(userId, page, perPage); // await the Future<MMRetentionPolicyForChannelList?>
+  final MmRetentionPolicyForChannelList? result = await client.dataRetention.getChannelPoliciesForUser(userId, page, perPage); // await the Future<MmRetentionPolicyForChannelList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getChannelPoliciesForUser: $e\n');
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRetentionPolicyForChannelList**](MMRetentionPolicyForChannelList.md)
+[**MmRetentionPolicyForChannelList**](MmRetentionPolicyForChannelList.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelsForRetentionPolicy**
-> List<MMChannelWithTeamData> getChannelsForRetentionPolicy(policyId, page, perPage)
+> List<MmChannelWithTeamData> getChannelsForRetentionPolicy(policyId, page, perPage)
 
 Get the channels for a granular data retention policy
 
@@ -367,18 +367,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -387,7 +387,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of channels per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMChannelWithTeamData&gt;? result = await client.dataRetention.getChannelsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  final List&lt;MmChannelWithTeamData&gt;? result = await client.dataRetention.getChannelsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MmChannelWithTeamData&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getChannelsForRetentionPolicy: $e\n');
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelWithTeamData>**](MMChannelWithTeamData.md)
+[**List<MmChannelWithTeamData>**](MmChannelWithTeamData.md)
 
 ### Authorization
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getDataRetentionPolicies**
-> List<MMDataRetentionPolicyWithTeamAndChannelCounts> getDataRetentionPolicies(page, perPage)
+> List<MmDataRetentionPolicyWithTeamAndChannelCounts> getDataRetentionPolicies(page, perPage)
 
 Get the granular data retention policies
 
@@ -434,18 +434,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -453,7 +453,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt;? result = await client.dataRetention.getDataRetentionPolicies(page, perPage); // await the Future<List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt;?>
+  final List&lt;MmDataRetentionPolicyWithTeamAndChannelCounts&gt;? result = await client.dataRetention.getDataRetentionPolicies(page, perPage); // await the Future<List&lt;MmDataRetentionPolicyWithTeamAndChannelCounts&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicies: $e\n');
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMDataRetentionPolicyWithTeamAndChannelCounts>**](MMDataRetentionPolicyWithTeamAndChannelCounts.md)
+[**List<MmDataRetentionPolicyWithTeamAndChannelCounts>**](MmDataRetentionPolicyWithTeamAndChannelCounts.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getDataRetentionPoliciesCount**
-> MMGetDataRetentionPoliciesCount200Response getDataRetentionPoliciesCount()
+> MmGetDataRetentionPoliciesCount200Response getDataRetentionPoliciesCount()
 
 Get the number of granular data retention policies
 
@@ -499,24 +499,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMGetDataRetentionPoliciesCount200Response? result = await client.dataRetention.getDataRetentionPoliciesCount(); // await the Future<MMGetDataRetentionPoliciesCount200Response?>
+  final MmGetDataRetentionPoliciesCount200Response? result = await client.dataRetention.getDataRetentionPoliciesCount(); // await the Future<MmGetDataRetentionPoliciesCount200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPoliciesCount: $e\n');
@@ -529,7 +529,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMGetDataRetentionPoliciesCount200Response**](MMGetDataRetentionPoliciesCount200Response.md)
+[**MmGetDataRetentionPoliciesCount200Response**](MmGetDataRetentionPoliciesCount200Response.md)
 
 ### Authorization
 
@@ -543,7 +543,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getDataRetentionPolicy**
-> MMGlobalDataRetentionPolicy getDataRetentionPolicy()
+> MmGlobalDataRetentionPolicy getDataRetentionPolicy()
 
 Get the global data retention policy
 
@@ -558,24 +558,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMGlobalDataRetentionPolicy? result = await client.dataRetention.getDataRetentionPolicy(); // await the Future<MMGlobalDataRetentionPolicy?>
+  final MmGlobalDataRetentionPolicy? result = await client.dataRetention.getDataRetentionPolicy(); // await the Future<MmGlobalDataRetentionPolicy?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicy: $e\n');
@@ -588,7 +588,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMGlobalDataRetentionPolicy**](MMGlobalDataRetentionPolicy.md)
+[**MmGlobalDataRetentionPolicy**](MmGlobalDataRetentionPolicy.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getDataRetentionPolicyByID**
-> MMDataRetentionPolicyWithTeamAndChannelCounts getDataRetentionPolicyByID(policyId)
+> MmDataRetentionPolicyWithTeamAndChannelCounts getDataRetentionPolicyByID(policyId)
 
 Get a granular data retention policy
 
@@ -617,25 +617,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.getDataRetentionPolicyByID(policyId); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  final MmDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.getDataRetentionPolicyByID(policyId); // await the Future<MmDataRetentionPolicyWithTeamAndChannelCounts?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicyByID: $e\n');
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMDataRetentionPolicyWithTeamAndChannelCounts**](MMDataRetentionPolicyWithTeamAndChannelCounts.md)
+[**MmDataRetentionPolicyWithTeamAndChannelCounts**](MmDataRetentionPolicyWithTeamAndChannelCounts.md)
 
 ### Authorization
 
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamPoliciesForUser**
-> MMRetentionPolicyForTeamList getTeamPoliciesForUser(userId, page, perPage)
+> MmRetentionPolicyForTeamList getTeamPoliciesForUser(userId, page, perPage)
 
 Get the policies which are applied to a user's teams
 
@@ -680,18 +680,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -700,7 +700,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final MMRetentionPolicyForTeamList? result = await client.dataRetention.getTeamPoliciesForUser(userId, page, perPage); // await the Future<MMRetentionPolicyForTeamList?>
+  final MmRetentionPolicyForTeamList? result = await client.dataRetention.getTeamPoliciesForUser(userId, page, perPage); // await the Future<MmRetentionPolicyForTeamList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getTeamPoliciesForUser: $e\n');
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMRetentionPolicyForTeamList**](MMRetentionPolicyForTeamList.md)
+[**MmRetentionPolicyForTeamList**](MmRetentionPolicyForTeamList.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTeamsForRetentionPolicy**
-> List<MMTeam> getTeamsForRetentionPolicy(policyId, page, perPage)
+> List<MmTeam> getTeamsForRetentionPolicy(policyId, page, perPage)
 
 Get the teams for a granular data retention policy
 
@@ -747,18 +747,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -767,7 +767,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of teams per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMTeam&gt;? result = await client.dataRetention.getTeamsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MMTeam&gt;?>
+  final List&lt;MmTeam&gt;? result = await client.dataRetention.getTeamsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MmTeam&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getTeamsForRetentionPolicy: $e\n');
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMTeam>**](MMTeam.md)
+[**List<MmTeam>**](MmTeam.md)
 
 ### Authorization
 
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchDataRetentionPolicy**
-> MMDataRetentionPolicyWithTeamAndChannelCounts patchDataRetentionPolicy(policyId, mMDataRetentionPolicyWithTeamAndChannelIds)
+> MmDataRetentionPolicyWithTeamAndChannelCounts patchDataRetentionPolicy(policyId, mmDataRetentionPolicyWithTeamAndChannelIds)
 
 Patch a granular data retention policy
 
@@ -814,26 +814,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
-final MMDataRetentionPolicyWithTeamAndChannelIds mMDataRetentionPolicyWithTeamAndChannelIds = MMDataRetentionPolicyWithTeamAndChannelIds(); // MMDataRetentionPolicyWithTeamAndChannelIds | 
+final MmDataRetentionPolicyWithTeamAndChannelIds mmDataRetentionPolicyWithTeamAndChannelIds = MmDataRetentionPolicyWithTeamAndChannelIds(); // MmDataRetentionPolicyWithTeamAndChannelIds | 
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.patchDataRetentionPolicy(policyId, mMDataRetentionPolicyWithTeamAndChannelIds); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  final MmDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.patchDataRetentionPolicy(policyId, mmDataRetentionPolicyWithTeamAndChannelIds); // await the Future<MmDataRetentionPolicyWithTeamAndChannelCounts?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->patchDataRetentionPolicy: $e\n');
@@ -846,11 +846,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **String**| The ID of the granular retention policy. | 
- **mMDataRetentionPolicyWithTeamAndChannelIds** | [**MMDataRetentionPolicyWithTeamAndChannelIds**](MMDataRetentionPolicyWithTeamAndChannelIds.md)|  | 
+ **mmDataRetentionPolicyWithTeamAndChannelIds** | [**MmDataRetentionPolicyWithTeamAndChannelIds**](MmDataRetentionPolicyWithTeamAndChannelIds.md)|  | 
 
 ### Return type
 
-[**MMDataRetentionPolicyWithTeamAndChannelCounts**](MMDataRetentionPolicyWithTeamAndChannelCounts.md)
+[**MmDataRetentionPolicyWithTeamAndChannelCounts**](MmDataRetentionPolicyWithTeamAndChannelCounts.md)
 
 ### Authorization
 
@@ -864,7 +864,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeChannelsFromRetentionPolicy**
-> MMStatusOK removeChannelsFromRetentionPolicy(policyId, requestBody)
+> MmStatusOK removeChannelsFromRetentionPolicy(policyId, requestBody)
 
 Delete channels from a granular data retention policy
 
@@ -879,18 +879,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -898,7 +898,7 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK? result = await client.dataRetention.removeChannelsFromRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.dataRetention.removeChannelsFromRetentionPolicy(policyId, requestBody); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->removeChannelsFromRetentionPolicy: $e\n');
@@ -915,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeTeamsFromRetentionPolicy**
-> MMStatusOK removeTeamsFromRetentionPolicy(policyId, requestBody)
+> MmStatusOK removeTeamsFromRetentionPolicy(policyId, requestBody)
 
 Delete teams from a granular data retention policy
 
@@ -944,18 +944,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -963,7 +963,7 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK? result = await client.dataRetention.removeTeamsFromRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.dataRetention.removeTeamsFromRetentionPolicy(policyId, requestBody); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->removeTeamsFromRetentionPolicy: $e\n');
@@ -980,7 +980,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchChannelsForRetentionPolicy**
-> List<MMChannelWithTeamData> searchChannelsForRetentionPolicy(policyId, mMSearchChannelsForRetentionPolicyRequest)
+> List<MmChannelWithTeamData> searchChannelsForRetentionPolicy(policyId, mmSearchChannelsForRetentionPolicyRequest)
 
 Search for the channels in a granular data retention policy
 
@@ -1009,26 +1009,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
-final MMSearchChannelsForRetentionPolicyRequest mMSearchChannelsForRetentionPolicyRequest = MMSearchChannelsForRetentionPolicyRequest(); // MMSearchChannelsForRetentionPolicyRequest | 
+final MmSearchChannelsForRetentionPolicyRequest mmSearchChannelsForRetentionPolicyRequest = MmSearchChannelsForRetentionPolicyRequest(); // MmSearchChannelsForRetentionPolicyRequest | 
 
 try {
-  final List&lt;MMChannelWithTeamData&gt;? result = await client.dataRetention.searchChannelsForRetentionPolicy(policyId, mMSearchChannelsForRetentionPolicyRequest); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  final List&lt;MmChannelWithTeamData&gt;? result = await client.dataRetention.searchChannelsForRetentionPolicy(policyId, mmSearchChannelsForRetentionPolicyRequest); // await the Future<List&lt;MmChannelWithTeamData&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->searchChannelsForRetentionPolicy: $e\n');
@@ -1041,11 +1041,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **String**| The ID of the granular retention policy. | 
- **mMSearchChannelsForRetentionPolicyRequest** | [**MMSearchChannelsForRetentionPolicyRequest**](MMSearchChannelsForRetentionPolicyRequest.md)|  | 
+ **mmSearchChannelsForRetentionPolicyRequest** | [**MmSearchChannelsForRetentionPolicyRequest**](MmSearchChannelsForRetentionPolicyRequest.md)|  | 
 
 ### Return type
 
-[**List<MMChannelWithTeamData>**](MMChannelWithTeamData.md)
+[**List<MmChannelWithTeamData>**](MmChannelWithTeamData.md)
 
 ### Authorization
 
@@ -1059,7 +1059,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchTeamsForRetentionPolicy**
-> List<MMTeam> searchTeamsForRetentionPolicy(policyId, mMSearchTeamsForRetentionPolicyRequest)
+> List<MmTeam> searchTeamsForRetentionPolicy(policyId, mmSearchTeamsForRetentionPolicyRequest)
 
 Search for the teams in a granular data retention policy
 
@@ -1074,26 +1074,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
-final MMSearchTeamsForRetentionPolicyRequest mMSearchTeamsForRetentionPolicyRequest = MMSearchTeamsForRetentionPolicyRequest(); // MMSearchTeamsForRetentionPolicyRequest | 
+final MmSearchTeamsForRetentionPolicyRequest mmSearchTeamsForRetentionPolicyRequest = MmSearchTeamsForRetentionPolicyRequest(); // MmSearchTeamsForRetentionPolicyRequest | 
 
 try {
-  final List&lt;MMTeam&gt;? result = await client.dataRetention.searchTeamsForRetentionPolicy(policyId, mMSearchTeamsForRetentionPolicyRequest); // await the Future<List&lt;MMTeam&gt;?>
+  final List&lt;MmTeam&gt;? result = await client.dataRetention.searchTeamsForRetentionPolicy(policyId, mmSearchTeamsForRetentionPolicyRequest); // await the Future<List&lt;MmTeam&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->searchTeamsForRetentionPolicy: $e\n');
@@ -1106,11 +1106,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policyId** | **String**| The ID of the granular retention policy. | 
- **mMSearchTeamsForRetentionPolicyRequest** | [**MMSearchTeamsForRetentionPolicyRequest**](MMSearchTeamsForRetentionPolicyRequest.md)|  | 
+ **mmSearchTeamsForRetentionPolicyRequest** | [**MmSearchTeamsForRetentionPolicyRequest**](MmSearchTeamsForRetentionPolicyRequest.md)|  | 
 
 ### Return type
 
-[**List<MMTeam>**](MMTeam.md)
+[**List<MmTeam>**](MmTeam.md)
 
 ### Authorization
 

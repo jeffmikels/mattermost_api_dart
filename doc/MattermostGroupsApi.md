@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 
 # **addGroupMembers**
-> MMStatusOK addGroupMembers(groupId, mMAddGroupMembersRequest)
+> MmStatusOK addGroupMembers(groupId, mmAddGroupMembersRequest)
 
 Adds members to a custom group
 
@@ -51,26 +51,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | The ID of the group.
-final MMAddGroupMembersRequest mMAddGroupMembersRequest = MMAddGroupMembersRequest(); // MMAddGroupMembersRequest | 
+final MmAddGroupMembersRequest mmAddGroupMembersRequest = MmAddGroupMembersRequest(); // MmAddGroupMembersRequest | 
 
 try {
-  final MMStatusOK? result = await client.groups.addGroupMembers(groupId, mMAddGroupMembersRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.addGroupMembers(groupId, mmAddGroupMembersRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->addGroupMembers: $e\n');
@@ -83,11 +83,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| The ID of the group. | 
- **mMAddGroupMembersRequest** | [**MMAddGroupMembersRequest**](MMAddGroupMembersRequest.md)|  | 
+ **mmAddGroupMembersRequest** | [**MmAddGroupMembersRequest**](MmAddGroupMembersRequest.md)|  | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createGroup**
-> createGroup(mMCreateGroupRequest)
+> createGroup(mmCreateGroupRequest)
 
 Create a custom group
 
@@ -116,25 +116,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateGroupRequest mMCreateGroupRequest = MMCreateGroupRequest(); // MMCreateGroupRequest | Group object and initial members.
+final MmCreateGroupRequest mmCreateGroupRequest = MmCreateGroupRequest(); // MmCreateGroupRequest | Group object and initial members.
 
 try {
-  await client.groups.createGroup(mMCreateGroupRequest); 
+  await client.groups.createGroup(mmCreateGroupRequest); 
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->createGroup: $e\n');
 }
@@ -145,7 +145,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateGroupRequest** | [**MMCreateGroupRequest**](MMCreateGroupRequest.md)| Group object and initial members. | 
+ **mmCreateGroupRequest** | [**MmCreateGroupRequest**](MmCreateGroupRequest.md)| Group object and initial members. | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteGroup**
-> MMStatusOK deleteGroup(groupId)
+> MmStatusOK deleteGroup(groupId)
 
 Deletes a custom group
 
@@ -178,25 +178,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | The ID of the group.
 
 try {
-  final MMStatusOK? result = await client.groups.deleteGroup(groupId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.deleteGroup(groupId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->deleteGroup: $e\n');
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteGroupMembers**
-> MMStatusOK deleteGroupMembers(groupId, mMDeleteGroupMembersRequest)
+> MmStatusOK deleteGroupMembers(groupId, mmDeleteGroupMembersRequest)
 
 Removes members from a custom group
 
@@ -241,26 +241,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | The ID of the group to delete.
-final MMDeleteGroupMembersRequest mMDeleteGroupMembersRequest = MMDeleteGroupMembersRequest(); // MMDeleteGroupMembersRequest | 
+final MmDeleteGroupMembersRequest mmDeleteGroupMembersRequest = MmDeleteGroupMembersRequest(); // MmDeleteGroupMembersRequest | 
 
 try {
-  final MMStatusOK? result = await client.groups.deleteGroupMembers(groupId, mMDeleteGroupMembersRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.deleteGroupMembers(groupId, mmDeleteGroupMembersRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->deleteGroupMembers: $e\n');
@@ -273,11 +273,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| The ID of the group to delete. | 
- **mMDeleteGroupMembersRequest** | [**MMDeleteGroupMembersRequest**](MMDeleteGroupMembersRequest.md)|  | 
+ **mmDeleteGroupMembersRequest** | [**MmDeleteGroupMembersRequest**](MmDeleteGroupMembersRequest.md)|  | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroup**
-> MMGroup getGroup(groupId)
+> MmGroup getGroup(groupId)
 
 Get a group
 
@@ -306,25 +306,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final MMGroup? result = await client.groups.getGroup(groupId); // await the Future<MMGroup?>
+  final MmGroup? result = await client.groups.getGroup(groupId); // await the Future<MmGroup?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroup: $e\n');
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGroup**](MMGroup.md)
+[**MmGroup**](MmGroup.md)
 
 ### Authorization
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupStats**
-> MMGetGroupStats200Response getGroupStats(groupId)
+> MmGetGroupStats200Response getGroupStats(groupId)
 
 Get group stats
 
@@ -369,25 +369,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final MMGetGroupStats200Response? result = await client.groups.getGroupStats(groupId); // await the Future<MMGetGroupStats200Response?>
+  final MmGetGroupStats200Response? result = await client.groups.getGroupStats(groupId); // await the Future<MmGetGroupStats200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupStats: $e\n');
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGetGroupStats200Response**](MMGetGroupStats200Response.md)
+[**MmGetGroupStats200Response**](MmGetGroupStats200Response.md)
 
 ### Authorization
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupSyncableForChannelId**
-> MMGroupSyncableChannel getGroupSyncableForChannelId(groupId, channelId)
+> MmGroupSyncableChannel getGroupSyncableForChannelId(groupId, channelId)
 
 Get GroupSyncable from channel ID
 
@@ -432,18 +432,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -451,7 +451,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMGroupSyncableChannel? result = await client.groups.getGroupSyncableForChannelId(groupId, channelId); // await the Future<MMGroupSyncableChannel?>
+  final MmGroupSyncableChannel? result = await client.groups.getGroupSyncableForChannelId(groupId, channelId); // await the Future<MmGroupSyncableChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncableForChannelId: $e\n');
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGroupSyncableChannel**](MMGroupSyncableChannel.md)
+[**MmGroupSyncableChannel**](MmGroupSyncableChannel.md)
 
 ### Authorization
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupSyncableForTeamId**
-> MMGroupSyncableTeam getGroupSyncableForTeamId(groupId, teamId)
+> MmGroupSyncableTeam getGroupSyncableForTeamId(groupId, teamId)
 
 Get GroupSyncable from Team ID
 
@@ -497,18 +497,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -516,7 +516,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMGroupSyncableTeam? result = await client.groups.getGroupSyncableForTeamId(groupId, teamId); // await the Future<MMGroupSyncableTeam?>
+  final MmGroupSyncableTeam? result = await client.groups.getGroupSyncableForTeamId(groupId, teamId); // await the Future<MmGroupSyncableTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncableForTeamId: $e\n');
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGroupSyncableTeam**](MMGroupSyncableTeam.md)
+[**MmGroupSyncableTeam**](MmGroupSyncableTeam.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupSyncablesChannels**
-> List<MMGroupSyncableChannels> getGroupSyncablesChannels(groupId)
+> List<MmGroupSyncableChannels> getGroupSyncablesChannels(groupId)
 
 Get group channels
 
@@ -562,25 +562,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final List&lt;MMGroupSyncableChannels&gt;? result = await client.groups.getGroupSyncablesChannels(groupId); // await the Future<List&lt;MMGroupSyncableChannels&gt;?>
+  final List&lt;MmGroupSyncableChannels&gt;? result = await client.groups.getGroupSyncablesChannels(groupId); // await the Future<List&lt;MmGroupSyncableChannels&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncablesChannels: $e\n');
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroupSyncableChannels>**](MMGroupSyncableChannels.md)
+[**List<MmGroupSyncableChannels>**](MmGroupSyncableChannels.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupSyncablesTeams**
-> List<MMGroupSyncableTeams> getGroupSyncablesTeams(groupId)
+> List<MmGroupSyncableTeams> getGroupSyncablesTeams(groupId)
 
 Get group teams
 
@@ -625,25 +625,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final List&lt;MMGroupSyncableTeams&gt;? result = await client.groups.getGroupSyncablesTeams(groupId); // await the Future<List&lt;MMGroupSyncableTeams&gt;?>
+  final List&lt;MmGroupSyncableTeams&gt;? result = await client.groups.getGroupSyncablesTeams(groupId); // await the Future<List&lt;MmGroupSyncableTeams&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncablesTeams: $e\n');
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroupSyncableTeams>**](MMGroupSyncableTeams.md)
+[**List<MmGroupSyncableTeams>**](MmGroupSyncableTeams.md)
 
 ### Authorization
 
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupUsers**
-> MMGetGroupUsers200Response getGroupUsers(groupId, page, perPage)
+> MmGetGroupUsers200Response getGroupUsers(groupId, page, perPage)
 
 Get group users
 
@@ -688,18 +688,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -708,7 +708,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of groups per page.
 
 try {
-  final MMGetGroupUsers200Response? result = await client.groups.getGroupUsers(groupId, page, perPage); // await the Future<MMGetGroupUsers200Response?>
+  final MmGetGroupUsers200Response? result = await client.groups.getGroupUsers(groupId, page, perPage); // await the Future<MmGetGroupUsers200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupUsers: $e\n');
@@ -726,7 +726,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGetGroupUsers200Response**](MMGetGroupUsers200Response.md)
+[**MmGetGroupUsers200Response**](MmGetGroupUsers200Response.md)
 
 ### Authorization
 
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroups**
-> List<MMGroup> getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference)
+> List<MmGroup> getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference)
 
 Get groups
 
@@ -755,18 +755,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -780,7 +780,7 @@ final int since = 56; // int | Only return groups that have been modified since 
 final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt;? result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  final List&lt;MmGroup&gt;? result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference); // await the Future<List&lt;MmGroup&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroups: $e\n');
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroup>**](MMGroup.md)
+[**List<MmGroup>**](MmGroup.md)
 
 ### Authorization
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupsAssociatedToChannelsByTeam**
-> List<Map<String, List<MMGroupWithSchemeAdmin>>> getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate)
+> List<Map<String, List<MmGroupWithSchemeAdmin>>> getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate)
 
 Get team groups by channels
 
@@ -832,18 +832,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -854,7 +854,7 @@ final bool filterAllowReference = true; // bool | Boolean which filters in the g
 final bool paginate = true; // bool | Boolean to determine whether the pagination should be applied or not
 
 try {
-  final List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt;? result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate); // await the Future<List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt;?>
+  final List&lt;Map&lt;String, List&lt;MmGroupWithSchemeAdmin&gt;&gt;&gt;? result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate); // await the Future<List&lt;Map&lt;String, List&lt;MmGroupWithSchemeAdmin&gt;&gt;&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsAssociatedToChannelsByTeam: $e\n');
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Map<String, List<MMGroupWithSchemeAdmin>>>**](Map.md)
+[**List<Map<String, List<MmGroupWithSchemeAdmin>>>**](Map.md)
 
 ### Authorization
 
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupsByChannel**
-> List<MMGroup> getGroupsByChannel(channelId, page, perPage, filterAllowReference)
+> List<MmGroup> getGroupsByChannel(channelId, page, perPage, filterAllowReference)
 
 Get channel groups
 
@@ -903,18 +903,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -924,7 +924,7 @@ final int perPage = 56; // int | The number of groups per page.
 final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  final List&lt;MmGroup&gt;? result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference); // await the Future<List&lt;MmGroup&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByChannel: $e\n');
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroup>**](MMGroup.md)
+[**List<MmGroup>**](MmGroup.md)
 
 ### Authorization
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupsByTeam**
-> List<MMGroup> getGroupsByTeam(teamId, page, perPage, filterAllowReference)
+> List<MmGroup> getGroupsByTeam(teamId, page, perPage, filterAllowReference)
 
 Get team groups
 
@@ -972,18 +972,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -993,7 +993,7 @@ final int perPage = 56; // int | The number of groups per page.
 final bool filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  final List&lt;MmGroup&gt;? result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference); // await the Future<List&lt;MmGroup&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByTeam: $e\n');
@@ -1012,7 +1012,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroup>**](MMGroup.md)
+[**List<MmGroup>**](MmGroup.md)
 
 ### Authorization
 
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getGroupsByUserId**
-> List<MMGroup> getGroupsByUserId(userId)
+> List<MmGroup> getGroupsByUserId(userId)
 
 Get groups for a userId
 
@@ -1041,25 +1041,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByUserId(userId); // await the Future<List&lt;MMGroup&gt;?>
+  final List&lt;MmGroup&gt;? result = await client.groups.getGroupsByUserId(userId); // await the Future<List&lt;MmGroup&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByUserId: $e\n');
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMGroup>**](MMGroup.md)
+[**List<MmGroup>**](MmGroup.md)
 
 ### Authorization
 
@@ -1089,7 +1089,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **linkGroupSyncableForChannel**
-> MMGroupSyncableChannel linkGroupSyncableForChannel(groupId, channelId)
+> MmGroupSyncableChannel linkGroupSyncableForChannel(groupId, channelId)
 
 Link a channel to a group
 
@@ -1104,18 +1104,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1123,7 +1123,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMGroupSyncableChannel? result = await client.groups.linkGroupSyncableForChannel(groupId, channelId); // await the Future<MMGroupSyncableChannel?>
+  final MmGroupSyncableChannel? result = await client.groups.linkGroupSyncableForChannel(groupId, channelId); // await the Future<MmGroupSyncableChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->linkGroupSyncableForChannel: $e\n');
@@ -1140,7 +1140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGroupSyncableChannel**](MMGroupSyncableChannel.md)
+[**MmGroupSyncableChannel**](MmGroupSyncableChannel.md)
 
 ### Authorization
 
@@ -1154,7 +1154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **linkGroupSyncableForTeam**
-> MMGroupSyncableTeam linkGroupSyncableForTeam(groupId, teamId)
+> MmGroupSyncableTeam linkGroupSyncableForTeam(groupId, teamId)
 
 Link a team to a group
 
@@ -1169,18 +1169,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1188,7 +1188,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMGroupSyncableTeam? result = await client.groups.linkGroupSyncableForTeam(groupId, teamId); // await the Future<MMGroupSyncableTeam?>
+  final MmGroupSyncableTeam? result = await client.groups.linkGroupSyncableForTeam(groupId, teamId); // await the Future<MmGroupSyncableTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->linkGroupSyncableForTeam: $e\n');
@@ -1205,7 +1205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMGroupSyncableTeam**](MMGroupSyncableTeam.md)
+[**MmGroupSyncableTeam**](MmGroupSyncableTeam.md)
 
 ### Authorization
 
@@ -1219,7 +1219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchGroup**
-> MMGroup patchGroup(groupId, mMPatchGroupRequest)
+> MmGroup patchGroup(groupId, mmPatchGroupRequest)
 
 Patch a group
 
@@ -1234,26 +1234,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
-final MMPatchGroupRequest mMPatchGroupRequest = MMPatchGroupRequest(); // MMPatchGroupRequest | Group object that is to be updated
+final MmPatchGroupRequest mmPatchGroupRequest = MmPatchGroupRequest(); // MmPatchGroupRequest | Group object that is to be updated
 
 try {
-  final MMGroup? result = await client.groups.patchGroup(groupId, mMPatchGroupRequest); // await the Future<MMGroup?>
+  final MmGroup? result = await client.groups.patchGroup(groupId, mmPatchGroupRequest); // await the Future<MmGroup?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroup: $e\n');
@@ -1266,11 +1266,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| Group GUID | 
- **mMPatchGroupRequest** | [**MMPatchGroupRequest**](MMPatchGroupRequest.md)| Group object that is to be updated | 
+ **mmPatchGroupRequest** | [**MmPatchGroupRequest**](MmPatchGroupRequest.md)| Group object that is to be updated | 
 
 ### Return type
 
-[**MMGroup**](MMGroup.md)
+[**MmGroup**](MmGroup.md)
 
 ### Authorization
 
@@ -1284,7 +1284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchGroupSyncableForChannel**
-> MMGroupSyncableChannel patchGroupSyncableForChannel(groupId, channelId, mMPatchGroupSyncableForTeamRequest)
+> MmGroupSyncableChannel patchGroupSyncableForChannel(groupId, channelId, mmPatchGroupSyncableForTeamRequest)
 
 Patch a GroupSyncable associated to Channel
 
@@ -1299,27 +1299,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest = MMPatchGroupSyncableForTeamRequest(); // MMPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
+final MmPatchGroupSyncableForTeamRequest mmPatchGroupSyncableForTeamRequest = MmPatchGroupSyncableForTeamRequest(); // MmPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-  final MMGroupSyncableChannel? result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mMPatchGroupSyncableForTeamRequest); // await the Future<MMGroupSyncableChannel?>
+  final MmGroupSyncableChannel? result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mmPatchGroupSyncableForTeamRequest); // await the Future<MmGroupSyncableChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroupSyncableForChannel: $e\n');
@@ -1333,11 +1333,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| Group GUID | 
  **channelId** | **String**| Channel GUID | 
- **mMPatchGroupSyncableForTeamRequest** | [**MMPatchGroupSyncableForTeamRequest**](MMPatchGroupSyncableForTeamRequest.md)| GroupSyncable object that is to be updated | 
+ **mmPatchGroupSyncableForTeamRequest** | [**MmPatchGroupSyncableForTeamRequest**](MmPatchGroupSyncableForTeamRequest.md)| GroupSyncable object that is to be updated | 
 
 ### Return type
 
-[**MMGroupSyncableChannel**](MMGroupSyncableChannel.md)
+[**MmGroupSyncableChannel**](MmGroupSyncableChannel.md)
 
 ### Authorization
 
@@ -1351,7 +1351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchGroupSyncableForTeam**
-> MMGroupSyncableTeam patchGroupSyncableForTeam(groupId, teamId, mMPatchGroupSyncableForTeamRequest)
+> MmGroupSyncableTeam patchGroupSyncableForTeam(groupId, teamId, mmPatchGroupSyncableForTeamRequest)
 
 Patch a GroupSyncable associated to Team
 
@@ -1366,27 +1366,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest = MMPatchGroupSyncableForTeamRequest(); // MMPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
+final MmPatchGroupSyncableForTeamRequest mmPatchGroupSyncableForTeamRequest = MmPatchGroupSyncableForTeamRequest(); // MmPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-  final MMGroupSyncableTeam? result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mMPatchGroupSyncableForTeamRequest); // await the Future<MMGroupSyncableTeam?>
+  final MmGroupSyncableTeam? result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mmPatchGroupSyncableForTeamRequest); // await the Future<MmGroupSyncableTeam?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroupSyncableForTeam: $e\n');
@@ -1400,11 +1400,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| Group GUID | 
  **teamId** | **String**| Team GUID | 
- **mMPatchGroupSyncableForTeamRequest** | [**MMPatchGroupSyncableForTeamRequest**](MMPatchGroupSyncableForTeamRequest.md)| GroupSyncable object that is to be updated | 
+ **mmPatchGroupSyncableForTeamRequest** | [**MmPatchGroupSyncableForTeamRequest**](MmPatchGroupSyncableForTeamRequest.md)| GroupSyncable object that is to be updated | 
 
 ### Return type
 
-[**MMGroupSyncableTeam**](MMGroupSyncableTeam.md)
+[**MmGroupSyncableTeam**](MmGroupSyncableTeam.md)
 
 ### Authorization
 
@@ -1418,7 +1418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **unlinkGroupSyncableForChannel**
-> MMStatusOK unlinkGroupSyncableForChannel(groupId, channelId)
+> MmStatusOK unlinkGroupSyncableForChannel(groupId, channelId)
 
 Delete a link from a channel to a group
 
@@ -1433,18 +1433,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1452,7 +1452,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMStatusOK? result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForChannel: $e\n');
@@ -1469,7 +1469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1483,7 +1483,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **unlinkGroupSyncableForTeam**
-> MMStatusOK unlinkGroupSyncableForTeam(groupId, teamId)
+> MmStatusOK unlinkGroupSyncableForTeam(groupId, teamId)
 
 Delete a link from a team to a group
 
@@ -1498,18 +1498,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1517,7 +1517,7 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMStatusOK? result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForTeam: $e\n');
@@ -1534,7 +1534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -1548,7 +1548,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **unlinkLdapGroup**
-> MMStatusOK unlinkLdapGroup(remoteId)
+> MmStatusOK unlinkLdapGroup(remoteId)
 
 Delete a link for LDAP group
 
@@ -1563,25 +1563,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
-  final MMStatusOK? result = await client.groups.unlinkLdapGroup(remoteId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.groups.unlinkLdapGroup(remoteId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkLdapGroup: $e\n');
@@ -1597,7 +1597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

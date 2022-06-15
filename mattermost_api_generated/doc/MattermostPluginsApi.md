@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **disablePlugin**
-> MMStatusOK disablePlugin(pluginId)
+> MmStatusOK disablePlugin(pluginId)
 
 Disable plugin
 
@@ -38,25 +38,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK? result = await client.plugins.disablePlugin(pluginId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.plugins.disablePlugin(pluginId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **enablePlugin**
-> MMStatusOK enablePlugin(pluginId)
+> MmStatusOK enablePlugin(pluginId)
 
 Enable plugin
 
@@ -101,25 +101,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK? result = await client.plugins.enablePlugin(pluginId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.plugins.enablePlugin(pluginId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getMarketplacePlugins**
-> List<MMMarketplacePlugin> getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly)
+> List<MmMarketplacePlugin> getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly)
 
 Gets all the marketplace plugins
 
@@ -164,18 +164,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -186,7 +186,7 @@ final String serverVersion = 'serverVersion_example'; // String | Set to filter 
 final bool localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
-  final List&lt;MMMarketplacePlugin&gt;? result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly); // await the Future<List&lt;MMMarketplacePlugin&gt;?>
+  final List&lt;MmMarketplacePlugin&gt;? result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly); // await the Future<List&lt;MmMarketplacePlugin&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMMarketplacePlugin>**](MMMarketplacePlugin.md)
+[**List<MmMarketplacePlugin>**](MmMarketplacePlugin.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getMarketplaceVisitedByAdmin**
-> MMSystem getMarketplaceVisitedByAdmin()
+> MmSystem getMarketplaceVisitedByAdmin()
 
 Get if the Plugin Marketplace has been visited by at least an admin.
 
@@ -235,24 +235,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMSystem? result = await client.plugins.getMarketplaceVisitedByAdmin(); // await the Future<MMSystem?>
+  final MmSystem? result = await client.plugins.getMarketplaceVisitedByAdmin(); // await the Future<MmSystem?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
@@ -265,7 +265,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMSystem**](MMSystem.md)
+[**MmSystem**](MmSystem.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPluginStatuses**
-> List<MMPluginStatus> getPluginStatuses()
+> List<MmPluginStatus> getPluginStatuses()
 
 Get plugins status
 
@@ -294,24 +294,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMPluginStatus&gt;? result = await client.plugins.getPluginStatuses(); // await the Future<List&lt;MMPluginStatus&gt;?>
+  final List&lt;MmPluginStatus&gt;? result = await client.plugins.getPluginStatuses(); // await the Future<List&lt;MmPluginStatus&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
@@ -324,7 +324,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMPluginStatus>**](MMPluginStatus.md)
+[**List<MmPluginStatus>**](MmPluginStatus.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPlugins**
-> MMGetPlugins200Response getPlugins()
+> MmGetPlugins200Response getPlugins()
 
 Get plugins
 
@@ -353,24 +353,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMGetPlugins200Response? result = await client.plugins.getPlugins(); // await the Future<MMGetPlugins200Response?>
+  final MmGetPlugins200Response? result = await client.plugins.getPlugins(); // await the Future<MmGetPlugins200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
@@ -383,7 +383,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMGetPlugins200Response**](MMGetPlugins200Response.md)
+[**MmGetPlugins200Response**](MmGetPlugins200Response.md)
 
 ### Authorization
 
@@ -397,7 +397,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getWebappPlugins**
-> List<MMPluginManifestWebapp> getWebappPlugins()
+> List<MmPluginManifestWebapp> getWebappPlugins()
 
 Get webapp plugins
 
@@ -412,24 +412,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMPluginManifestWebapp&gt;? result = await client.plugins.getWebappPlugins(); // await the Future<List&lt;MMPluginManifestWebapp&gt;?>
+  final List&lt;MmPluginManifestWebapp&gt;? result = await client.plugins.getWebappPlugins(); // await the Future<List&lt;MmPluginManifestWebapp&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
@@ -442,7 +442,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMPluginManifestWebapp>**](MMPluginManifestWebapp.md)
+[**List<MmPluginManifestWebapp>**](MmPluginManifestWebapp.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **installMarketplacePlugin**
-> MMPluginManifest installMarketplacePlugin(mMInstallMarketplacePluginRequest)
+> MmPluginManifest installMarketplacePlugin(mmInstallMarketplacePluginRequest)
 
 Installs a marketplace plugin
 
@@ -471,25 +471,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest = MMInstallMarketplacePluginRequest(); // MMInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
+final MmInstallMarketplacePluginRequest mmInstallMarketplacePluginRequest = MmInstallMarketplacePluginRequest(); // MmInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
-  final MMPluginManifest? result = await client.plugins.installMarketplacePlugin(mMInstallMarketplacePluginRequest); // await the Future<MMPluginManifest?>
+  final MmPluginManifest? result = await client.plugins.installMarketplacePlugin(mmInstallMarketplacePluginRequest); // await the Future<MmPluginManifest?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
@@ -501,11 +501,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMInstallMarketplacePluginRequest** | [**MMInstallMarketplacePluginRequest**](MMInstallMarketplacePluginRequest.md)| The metadata identifying the plugin to install. | 
+ **mmInstallMarketplacePluginRequest** | [**MmInstallMarketplacePluginRequest**](MmInstallMarketplacePluginRequest.md)| The metadata identifying the plugin to install. | 
 
 ### Return type
 
-[**MMPluginManifest**](MMPluginManifest.md)
+[**MmPluginManifest**](MmPluginManifest.md)
 
 ### Authorization
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **installPluginFromUrl**
-> MMStatusOK installPluginFromUrl(pluginDownloadUrl, force)
+> MmStatusOK installPluginFromUrl(pluginDownloadUrl, force)
 
 Install plugin from url
 
@@ -534,18 +534,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -553,7 +553,7 @@ final String pluginDownloadUrl = 'pluginDownloadUrl_example'; // String | URL us
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final MMStatusOK? result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removePlugin**
-> MMStatusOK removePlugin(pluginId)
+> MmStatusOK removePlugin(pluginId)
 
 Remove plugin
 
@@ -599,25 +599,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK? result = await client.plugins.removePlugin(pluginId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.plugins.removePlugin(pluginId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **uploadPlugin**
-> MMStatusOK uploadPlugin(plugin, force)
+> MmStatusOK uploadPlugin(plugin, force)
 
 Upload plugin
 
@@ -662,18 +662,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -681,7 +681,7 @@ final MultipartFile plugin = BINARY_DATA_HERE; // MultipartFile | The plugin ima
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final MMStatusOK? result = await client.plugins.uploadPlugin(plugin, force); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.plugins.uploadPlugin(plugin, force); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

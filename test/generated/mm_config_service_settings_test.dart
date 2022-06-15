@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigServiceSettings
+// tests for MmConfigServiceSettings
 void main() {
-  // final instance = MMConfigServiceSettings();
+  // final instance = MmConfigServiceSettings();
 
-  group('test MMConfigServiceSettings', () {
+  group('test MmConfigServiceSettings', () {
     // String siteURL
     test('to test the property `siteURL`', () async {
       // TODO

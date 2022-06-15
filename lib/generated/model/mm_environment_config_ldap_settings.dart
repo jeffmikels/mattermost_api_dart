@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigLdapSettings {
-  /// Returns a new [MMEnvironmentConfigLdapSettings] instance.
-  MMEnvironmentConfigLdapSettings({
+class MmEnvironmentConfigLdapSettings {
+  /// Returns a new [MmEnvironmentConfigLdapSettings] instance.
+  MmEnvironmentConfigLdapSettings({
     this.enable,
     this.ldapServer,
     this.ldapPort,
@@ -198,7 +198,7 @@ class MMEnvironmentConfigLdapSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigLdapSettings &&
+      other is MmEnvironmentConfigLdapSettings &&
           other.enable == enable &&
           other.ldapServer == ldapServer &&
           other.ldapPort == ldapPort &&
@@ -246,7 +246,7 @@ class MMEnvironmentConfigLdapSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
+      'MmEnvironmentConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -313,10 +313,10 @@ class MMEnvironmentConfigLdapSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigLdapSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigLdapSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigLdapSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigLdapSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -325,13 +325,13 @@ class MMEnvironmentConfigLdapSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigLdapSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigLdapSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigLdapSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigLdapSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigLdapSettings(
+      return MmEnvironmentConfigLdapSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         ldapServer: mapValueOfType<bool>(json, r'LdapServer'),
         ldapPort: mapValueOfType<bool>(json, r'LdapPort'),
@@ -357,14 +357,14 @@ class MMEnvironmentConfigLdapSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigLdapSettings>? listFromJson(
+  static List<MmEnvironmentConfigLdapSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigLdapSettings>[];
+    final result = <MmEnvironmentConfigLdapSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigLdapSettings.fromJson(row);
+        final value = MmEnvironmentConfigLdapSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -373,12 +373,12 @@ class MMEnvironmentConfigLdapSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigLdapSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigLdapSettings>{};
+  static Map<String, MmEnvironmentConfigLdapSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigLdapSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigLdapSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigLdapSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -387,16 +387,16 @@ class MMEnvironmentConfigLdapSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigLdapSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigLdapSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigLdapSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigLdapSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigLdapSettings>>{};
+    final map = <String, List<MmEnvironmentConfigLdapSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigLdapSettings.listFromJson(
+        final value = MmEnvironmentConfigLdapSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSlackAttachment
+// tests for MmSlackAttachment
 void main() {
-  // final instance = MMSlackAttachment();
+  // final instance = MmSlackAttachment();
 
-  group('test MMSlackAttachment', () {
+  group('test MmSlackAttachment', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -66,7 +66,7 @@ void main() {
       // TODO
     });
 
-    // List<MMSlackAttachmentField> fields (default value: const [])
+    // List<MmSlackAttachmentField> fields (default value: const [])
     test('to test the property `fields`', () async {
       // TODO
     });

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSearchAllChannelsRequest {
-  /// Returns a new [MMSearchAllChannelsRequest] instance.
-  MMSearchAllChannelsRequest({
+class MmSearchAllChannelsRequest {
+  /// Returns a new [MmSearchAllChannelsRequest] instance.
+  MmSearchAllChannelsRequest({
     required this.term,
     this.notAssociatedToGroup,
     this.excludeDefaultChannels,
@@ -120,7 +120,7 @@ class MMSearchAllChannelsRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSearchAllChannelsRequest &&
+      other is MmSearchAllChannelsRequest &&
           other.term == term &&
           other.notAssociatedToGroup == notAssociatedToGroup &&
           other.excludeDefaultChannels == excludeDefaultChannels &&
@@ -152,7 +152,7 @@ class MMSearchAllChannelsRequest {
 
   @override
   String toString() =>
-      'MMSearchAllChannelsRequest[term=$term, notAssociatedToGroup=$notAssociatedToGroup, excludeDefaultChannels=$excludeDefaultChannels, teamIds=$teamIds, groupConstrained=$groupConstrained, excludeGroupConstrained=$excludeGroupConstrained, public=$public, private=$private, deleted=$deleted, page=$page, perPage=$perPage, excludePolicyConstrained=$excludePolicyConstrained]';
+      'MmSearchAllChannelsRequest[term=$term, notAssociatedToGroup=$notAssociatedToGroup, excludeDefaultChannels=$excludeDefaultChannels, teamIds=$teamIds, groupConstrained=$groupConstrained, excludeGroupConstrained=$excludeGroupConstrained, public=$public, private=$private, deleted=$deleted, page=$page, perPage=$perPage, excludePolicyConstrained=$excludePolicyConstrained]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -189,10 +189,10 @@ class MMSearchAllChannelsRequest {
     return _json;
   }
 
-  /// Returns a new [MMSearchAllChannelsRequest] instance and imports its values from
+  /// Returns a new [MmSearchAllChannelsRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchAllChannelsRequest? fromJson(dynamic value) {
+  static MmSearchAllChannelsRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -201,13 +201,13 @@ class MMSearchAllChannelsRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSearchAllChannelsRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSearchAllChannelsRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSearchAllChannelsRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSearchAllChannelsRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchAllChannelsRequest(
+      return MmSearchAllChannelsRequest(
         term: mapValueOfType<String>(json, r'term')!,
         notAssociatedToGroup: mapValueOfType<String>(json, r'not_associated_to_group'),
         excludeDefaultChannels: mapValueOfType<bool>(json, r'exclude_default_channels'),
@@ -225,14 +225,14 @@ class MMSearchAllChannelsRequest {
     return null;
   }
 
-  static List<MMSearchAllChannelsRequest>? listFromJson(
+  static List<MmSearchAllChannelsRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchAllChannelsRequest>[];
+    final result = <MmSearchAllChannelsRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchAllChannelsRequest.fromJson(row);
+        final value = MmSearchAllChannelsRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -241,12 +241,12 @@ class MMSearchAllChannelsRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchAllChannelsRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSearchAllChannelsRequest>{};
+  static Map<String, MmSearchAllChannelsRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSearchAllChannelsRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchAllChannelsRequest.fromJson(entry.value);
+        final value = MmSearchAllChannelsRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -255,16 +255,16 @@ class MMSearchAllChannelsRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSearchAllChannelsRequest-objects as value to a dart map
-  static Map<String, List<MMSearchAllChannelsRequest>> mapListFromJson(
+  // maps a json object with a list of MmSearchAllChannelsRequest-objects as value to a dart map
+  static Map<String, List<MmSearchAllChannelsRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchAllChannelsRequest>>{};
+    final map = <String, List<MmSearchAllChannelsRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchAllChannelsRequest.listFromJson(
+        final value = MmSearchAllChannelsRequest.listFromJson(
           entry.value,
           growable: growable,
         );

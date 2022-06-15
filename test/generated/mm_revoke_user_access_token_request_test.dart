@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRevokeUserAccessTokenRequest
+// tests for MmRevokeUserAccessTokenRequest
 void main() {
-  // final instance = MMRevokeUserAccessTokenRequest();
+  // final instance = MmRevokeUserAccessTokenRequest();
 
-  group('test MMRevokeUserAccessTokenRequest', () {
+  group('test MmRevokeUserAccessTokenRequest', () {
     // The user access token GUID to revoke
     // String tokenId
     test('to test the property `tokenId`', () async {

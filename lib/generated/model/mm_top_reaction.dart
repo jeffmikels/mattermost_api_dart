@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTopReaction {
-  /// Returns a new [MMTopReaction] instance.
-  MMTopReaction({
+class MmTopReaction {
+  /// Returns a new [MmTopReaction] instance.
+  MmTopReaction({
     this.emojiName,
     this.count,
   });
@@ -37,7 +37,7 @@ class MMTopReaction {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMTopReaction && other.emojiName == emojiName && other.count == count;
+      identical(this, other) || other is MmTopReaction && other.emojiName == emojiName && other.count == count;
 
   @override
   int get hashCode =>
@@ -45,7 +45,7 @@ class MMTopReaction {
       (emojiName == null ? 0 : emojiName!.hashCode) + (count == null ? 0 : count!.hashCode);
 
   @override
-  String toString() => 'MMTopReaction[emojiName=$emojiName, count=$count]';
+  String toString() => 'MmTopReaction[emojiName=$emojiName, count=$count]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class MMTopReaction {
     return _json;
   }
 
-  /// Returns a new [MMTopReaction] instance and imports its values from
+  /// Returns a new [MmTopReaction] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTopReaction? fromJson(dynamic value) {
+  static MmTopReaction? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,13 +70,13 @@ class MMTopReaction {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTopReaction[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTopReaction[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTopReaction[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTopReaction[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTopReaction(
+      return MmTopReaction(
         emojiName: mapValueOfType<String>(json, r'emoji_name'),
         count: mapValueOfType<int>(json, r'count'),
       );
@@ -84,14 +84,14 @@ class MMTopReaction {
     return null;
   }
 
-  static List<MMTopReaction>? listFromJson(
+  static List<MmTopReaction>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTopReaction>[];
+    final result = <MmTopReaction>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTopReaction.fromJson(row);
+        final value = MmTopReaction.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +100,12 @@ class MMTopReaction {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTopReaction> mapFromJson(dynamic json) {
-    final map = <String, MMTopReaction>{};
+  static Map<String, MmTopReaction> mapFromJson(dynamic json) {
+    final map = <String, MmTopReaction>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopReaction.fromJson(entry.value);
+        final value = MmTopReaction.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,16 +114,16 @@ class MMTopReaction {
     return map;
   }
 
-  // maps a json object with a list of MMTopReaction-objects as value to a dart map
-  static Map<String, List<MMTopReaction>> mapListFromJson(
+  // maps a json object with a list of MmTopReaction-objects as value to a dart map
+  static Map<String, List<MmTopReaction>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTopReaction>>{};
+    final map = <String, List<MmTopReaction>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopReaction.listFromJson(
+        final value = MmTopReaction.listFromJson(
           entry.value,
           growable: growable,
         );

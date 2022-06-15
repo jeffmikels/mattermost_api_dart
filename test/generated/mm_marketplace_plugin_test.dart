@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMarketplacePlugin
+// tests for MmMarketplacePlugin
 void main() {
-  // final instance = MMMarketplacePlugin();
+  // final instance = MmMarketplacePlugin();
 
-  group('test MMMarketplacePlugin', () {
+  group('test MmMarketplacePlugin', () {
     // URL that leads to the homepage of the plugin.
     // String homepageUrl
     test('to test the property `homepageUrl`', () async {
@@ -52,7 +52,7 @@ void main() {
       // TODO
     });
 
-    // MMPluginManifest manifest
+    // MmPluginManifest manifest
     test('to test the property `manifest`', () async {
       // TODO
     });

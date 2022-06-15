@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPluginManifestWebapp {
-  /// Returns a new [MMPluginManifestWebapp] instance.
-  MMPluginManifestWebapp({
+class MmPluginManifestWebapp {
+  /// Returns a new [MmPluginManifestWebapp] instance.
+  MmPluginManifestWebapp({
     this.bundlePath,
   });
 
@@ -27,7 +27,7 @@ class MMPluginManifestWebapp {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPluginManifestWebapp && other.bundlePath == bundlePath;
+      identical(this, other) || other is MmPluginManifestWebapp && other.bundlePath == bundlePath;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMPluginManifestWebapp {
       (bundlePath == null ? 0 : bundlePath!.hashCode);
 
   @override
-  String toString() => 'MMPluginManifestWebapp[bundlePath=$bundlePath]';
+  String toString() => 'MmPluginManifestWebapp[bundlePath=$bundlePath]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMPluginManifestWebapp {
     return _json;
   }
 
-  /// Returns a new [MMPluginManifestWebapp] instance and imports its values from
+  /// Returns a new [MmPluginManifestWebapp] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPluginManifestWebapp? fromJson(dynamic value) {
+  static MmPluginManifestWebapp? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMPluginManifestWebapp {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPluginManifestWebapp[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPluginManifestWebapp[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPluginManifestWebapp[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPluginManifestWebapp[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPluginManifestWebapp(
+      return MmPluginManifestWebapp(
         bundlePath: mapValueOfType<String>(json, r'bundle_path'),
       );
     }
     return null;
   }
 
-  static List<MMPluginManifestWebapp>? listFromJson(
+  static List<MmPluginManifestWebapp>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPluginManifestWebapp>[];
+    final result = <MmPluginManifestWebapp>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPluginManifestWebapp.fromJson(row);
+        final value = MmPluginManifestWebapp.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMPluginManifestWebapp {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPluginManifestWebapp> mapFromJson(dynamic json) {
-    final map = <String, MMPluginManifestWebapp>{};
+  static Map<String, MmPluginManifestWebapp> mapFromJson(dynamic json) {
+    final map = <String, MmPluginManifestWebapp>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestWebapp.fromJson(entry.value);
+        final value = MmPluginManifestWebapp.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMPluginManifestWebapp {
     return map;
   }
 
-  // maps a json object with a list of MMPluginManifestWebapp-objects as value to a dart map
-  static Map<String, List<MMPluginManifestWebapp>> mapListFromJson(
+  // maps a json object with a list of MmPluginManifestWebapp-objects as value to a dart map
+  static Map<String, List<MmPluginManifestWebapp>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPluginManifestWebapp>>{};
+    final map = <String, List<MmPluginManifestWebapp>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPluginManifestWebapp.listFromJson(
+        final value = MmPluginManifestWebapp.listFromJson(
           entry.value,
           growable: growable,
         );

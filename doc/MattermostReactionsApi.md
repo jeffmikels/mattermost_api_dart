@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **deleteReaction**
-> MMStatusOK deleteReaction(userId, postId, emojiName)
+> MmStatusOK deleteReaction(userId, postId, emojiName)
 
 Remove a reaction from a post
 
@@ -31,18 +31,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -51,7 +51,7 @@ final String postId = 'postId_example'; // String | ID of the post
 final String emojiName = 'emojiName_example'; // String | emoji name
 
 try {
-  final MMStatusOK? result = await client.reactions.deleteReaction(userId, postId, emojiName); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.reactions.deleteReaction(userId, postId, emojiName); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->deleteReaction: $e\n');
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getBulkReactions**
-> Map<String, List<MMReaction>> getBulkReactions(requestBody)
+> Map<String, List<MmReaction>> getBulkReactions(requestBody)
 
 Bulk get the reaction for posts
 
@@ -98,25 +98,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of post IDs
 
 try {
-  final Map&lt;String, List&lt;MMReaction&gt;&gt;? result = await client.reactions.getBulkReactions(requestBody); // await the Future<Map&lt;String, List&lt;MMReaction&gt;&gt;?>
+  final Map&lt;String, List&lt;MmReaction&gt;&gt;? result = await client.reactions.getBulkReactions(requestBody); // await the Future<Map&lt;String, List&lt;MmReaction&gt;&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->getBulkReactions: $e\n');
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, List<MMReaction>>**](List.md)
+[**Map<String, List<MmReaction>>**](List.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getReactions**
-> List<MMReaction> getReactions(postId)
+> List<MmReaction> getReactions(postId)
 
 Get a list of reactions to a post
 
@@ -161,25 +161,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String postId = 'postId_example'; // String | ID of a post
 
 try {
-  final List&lt;MMReaction&gt;? result = await client.reactions.getReactions(postId); // await the Future<List&lt;MMReaction&gt;?>
+  final List&lt;MmReaction&gt;? result = await client.reactions.getReactions(postId); // await the Future<List&lt;MmReaction&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->getReactions: $e\n');
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMReaction>**](MMReaction.md)
+[**List<MmReaction>**](MmReaction.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **saveReaction**
-> MMReaction saveReaction(mMReaction)
+> MmReaction saveReaction(mmReaction)
 
 Create a reaction
 
@@ -224,25 +224,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMReaction mMReaction = MMReaction(); // MMReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
+final MmReaction mmReaction = MmReaction(); // MmReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
 
 try {
-  final MMReaction? result = await client.reactions.saveReaction(mMReaction); // await the Future<MMReaction?>
+  final MmReaction? result = await client.reactions.saveReaction(mmReaction); // await the Future<MmReaction?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->saveReaction: $e\n');
@@ -254,11 +254,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMReaction** | [**MMReaction**](MMReaction.md)| The user's reaction with its post_id, user_id, and emoji_name fields set | 
+ **mmReaction** | [**MmReaction**](MmReaction.md)| The user's reaction with its post_id, user_id, and emoji_name fields set | 
 
 ### Return type
 
-[**MMReaction**](MMReaction.md)
+[**MmReaction**](MmReaction.md)
 
 ### Authorization
 

@@ -23,22 +23,22 @@ class MattermostPostsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreatePostRequest] mMCreatePostRequest (required):
+  /// * [MmCreatePostRequest] mmCreatePostRequest (required):
   ///   Post object to create
   ///
   /// * [bool] setOnline:
   ///   Whether to set the user status as online or not.
   Future<Response> createPostWithHttpInfo(
-    MMCreatePostRequest mMCreatePostRequest, {
+    MmCreatePostRequest mmCreatePostRequest, {
     bool? setOnline,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/posts';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreatePostRequest;
+    Object? postBody = mmCreatePostRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -65,21 +65,21 @@ class MattermostPostsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreatePostRequest] mMCreatePostRequest (required):
+  /// * [MmCreatePostRequest] mmCreatePostRequest (required):
   ///   Post object to create
   ///
   /// * [bool] setOnline:
   ///   Whether to set the user status as online or not.
-  Future<MMPost?> createPost(
-    MMCreatePostRequest mMCreatePostRequest, {
+  Future<MmPost?> createPost(
+    MmCreatePostRequest mmCreatePostRequest, {
     bool? setOnline,
   }) async {
     final response = await createPostWithHttpInfo(
-      mMCreatePostRequest,
+      mmCreatePostRequest,
       setOnline: setOnline,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -87,8 +87,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPost',
-      ) as MMPost;
+        'MmPost',
+      ) as MmPost;
     }
     return null;
   }
@@ -101,18 +101,18 @@ class MattermostPostsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreatePostEphemeralRequest] mMCreatePostEphemeralRequest (required):
+  /// * [MmCreatePostEphemeralRequest] mmCreatePostEphemeralRequest (required):
   ///   Ephemeral Post object to send
   Future<Response> createPostEphemeralWithHttpInfo(
-    MMCreatePostEphemeralRequest mMCreatePostEphemeralRequest,
+    MmCreatePostEphemeralRequest mmCreatePostEphemeralRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/ephemeral';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreatePostEphemeralRequest;
+    Object? postBody = mmCreatePostEphemeralRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -135,16 +135,16 @@ class MattermostPostsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreatePostEphemeralRequest] mMCreatePostEphemeralRequest (required):
+  /// * [MmCreatePostEphemeralRequest] mmCreatePostEphemeralRequest (required):
   ///   Ephemeral Post object to send
-  Future<MMPost?> createPostEphemeral(
-    MMCreatePostEphemeralRequest mMCreatePostEphemeralRequest,
+  Future<MmPost?> createPostEphemeral(
+    MmCreatePostEphemeralRequest mmCreatePostEphemeralRequest,
   ) async {
     final response = await createPostEphemeralWithHttpInfo(
-      mMCreatePostEphemeralRequest,
+      mmCreatePostEphemeralRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -152,8 +152,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPost',
-      ) as MMPost;
+        'MmPost',
+      ) as MmPost;
     }
     return null;
   }
@@ -177,7 +177,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -202,14 +202,14 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   ID of the post to delete
-  Future<MMStatusOK?> deletePost(
+  Future<MmStatusOK?> deletePost(
     String postId,
   ) async {
     final response = await deletePostWithHttpInfo(
       postId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -217,8 +217,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -247,7 +247,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -275,7 +275,7 @@ class MattermostPostsApi {
   ///
   /// * [String] actionId (required):
   ///   Action GUID
-  Future<MMStatusOK?> doPostAction(
+  Future<MmStatusOK?> doPostAction(
     String postId,
     String actionId,
   ) async {
@@ -284,7 +284,7 @@ class MattermostPostsApi {
       actionId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -292,8 +292,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -321,7 +321,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -353,7 +353,7 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<List<MMFileInfo>?> getFileInfosForPost(
+  Future<List<MmFileInfo>?> getFileInfosForPost(
     String postId, {
     bool? includeDeleted,
   }) async {
@@ -362,14 +362,14 @@ class MattermostPostsApi {
       includeDeleted: includeDeleted,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMFileInfo>') as List).cast<MMFileInfo>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmFileInfo>') as List).cast<MmFileInfo>().toList();
     }
     return null;
   }
@@ -409,7 +409,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -459,7 +459,7 @@ class MattermostPostsApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page
-  Future<List<MMPostList>?> getFlaggedPostsForUser(
+  Future<List<MmPostList>?> getFlaggedPostsForUser(
     String userId, {
     String? teamId,
     String? channelId,
@@ -474,14 +474,14 @@ class MattermostPostsApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMPostList>') as List).cast<MMPostList>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmPostList>') as List).cast<MmPostList>().toList();
     }
     return null;
   }
@@ -509,7 +509,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -541,7 +541,7 @@ class MattermostPostsApi {
   ///
   /// * [bool] includeDeleted:
   ///   Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
-  Future<MMPost?> getPost(
+  Future<MmPost?> getPost(
     String postId, {
     bool? includeDeleted,
   }) async {
@@ -550,7 +550,7 @@ class MattermostPostsApi {
       includeDeleted: includeDeleted,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -558,8 +558,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPost',
-      ) as MMPost;
+        'MmPost',
+      ) as MmPost;
     }
     return null;
   }
@@ -611,7 +611,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -679,7 +679,7 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<MMPostList?> getPostThread(
+  Future<MmPostList?> getPostThread(
     String postId, {
     int? perPage,
     String? fromPost,
@@ -700,7 +700,7 @@ class MattermostPostsApi {
       collapsedThreadsExtended: collapsedThreadsExtended,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -708,8 +708,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPostList',
-      ) as MMPostList;
+        'MmPostList',
+      ) as MmPostList;
     }
     return null;
   }
@@ -759,7 +759,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -818,7 +818,7 @@ class MattermostPostsApi {
   ///
   /// * [bool] collapsedThreadsExtended:
   ///   Whether to return the associated users as part of the response or not
-  Future<MMPostList?> getPostsAroundLastUnread(
+  Future<MmPostList?> getPostsAroundLastUnread(
     String userId,
     String channelId, {
     int? limitBefore,
@@ -837,7 +837,7 @@ class MattermostPostsApi {
       collapsedThreadsExtended: collapsedThreadsExtended,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -845,8 +845,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPostList',
-      ) as MMPostList;
+        'MmPostList',
+      ) as MmPostList;
     }
     return null;
   }
@@ -870,7 +870,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -895,21 +895,21 @@ class MattermostPostsApi {
   ///
   /// * [List<String>] requestBody (required):
   ///   List of post ids
-  Future<List<MMPost>?> getPostsByIds(
+  Future<List<MmPost>?> getPostsByIds(
     List<String> requestBody,
   ) async {
     final response = await getPostsByIdsWithHttpInfo(
       requestBody,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMPost>') as List).cast<MMPost>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmPost>') as List).cast<MmPost>().toList();
     }
     return null;
   }
@@ -953,7 +953,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1009,7 +1009,7 @@ class MattermostPostsApi {
   ///
   /// * [String] after:
   ///   A post id to select the posts that came after this one
-  Future<MMPostList?> getPostsForChannel(
+  Future<MmPostList?> getPostsForChannel(
     String channelId, {
     int? page,
     int? perPage,
@@ -1026,7 +1026,7 @@ class MattermostPostsApi {
       after: after,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1034,8 +1034,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPostList',
-      ) as MMPostList;
+        'MmPostList',
+      ) as MmPostList;
     }
     return null;
   }
@@ -1051,19 +1051,19 @@ class MattermostPostsApi {
   /// * [String] postId (required):
   ///   Post GUID
   ///
-  /// * [MMPatchPostRequest] mMPatchPostRequest (required):
+  /// * [MmPatchPostRequest] mmPatchPostRequest (required):
   ///   Post object that is to be updated
   Future<Response> patchPostWithHttpInfo(
     String postId,
-    MMPatchPostRequest mMPatchPostRequest,
+    MmPatchPostRequest mmPatchPostRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/{post_id}/patch'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMPatchPostRequest;
+    Object? postBody = mmPatchPostRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1089,18 +1089,18 @@ class MattermostPostsApi {
   /// * [String] postId (required):
   ///   Post GUID
   ///
-  /// * [MMPatchPostRequest] mMPatchPostRequest (required):
+  /// * [MmPatchPostRequest] mmPatchPostRequest (required):
   ///   Post object that is to be updated
-  Future<MMPost?> patchPost(
+  Future<MmPost?> patchPost(
     String postId,
-    MMPatchPostRequest mMPatchPostRequest,
+    MmPatchPostRequest mmPatchPostRequest,
   ) async {
     final response = await patchPostWithHttpInfo(
       postId,
-      mMPatchPostRequest,
+      mmPatchPostRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1108,8 +1108,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPost',
-      ) as MMPost;
+        'MmPost',
+      ) as MmPost;
     }
     return null;
   }
@@ -1133,7 +1133,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1158,14 +1158,14 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MMStatusOK?> pinPost(
+  Future<MmStatusOK?> pinPost(
     String postId,
   ) async {
     final response = await pinPostWithHttpInfo(
       postId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1173,8 +1173,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1190,19 +1190,19 @@ class MattermostPostsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchPostsRequest] mMSearchPostsRequest (required):
+  /// * [MmSearchPostsRequest] mmSearchPostsRequest (required):
   ///   The search terms and logic to use in the search.
   Future<Response> searchPostsWithHttpInfo(
     String teamId,
-    MMSearchPostsRequest mMSearchPostsRequest,
+    MmSearchPostsRequest mmSearchPostsRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/teams/{team_id}/posts/search'.replaceAll('{team_id}', teamId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMSearchPostsRequest;
+    Object? postBody = mmSearchPostsRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1228,18 +1228,18 @@ class MattermostPostsApi {
   /// * [String] teamId (required):
   ///   Team GUID
   ///
-  /// * [MMSearchPostsRequest] mMSearchPostsRequest (required):
+  /// * [MmSearchPostsRequest] mmSearchPostsRequest (required):
   ///   The search terms and logic to use in the search.
-  Future<MMPostListWithSearchMatches?> searchPosts(
+  Future<MmPostListWithSearchMatches?> searchPosts(
     String teamId,
-    MMSearchPostsRequest mMSearchPostsRequest,
+    MmSearchPostsRequest mmSearchPostsRequest,
   ) async {
     final response = await searchPostsWithHttpInfo(
       teamId,
-      mMSearchPostsRequest,
+      mmSearchPostsRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1247,8 +1247,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPostListWithSearchMatches',
-      ) as MMPostListWithSearchMatches;
+        'MmPostListWithSearchMatches',
+      ) as MmPostListWithSearchMatches;
     }
     return null;
   }
@@ -1277,7 +1277,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1305,7 +1305,7 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MMChannelUnreadAt?> setPostUnread(
+  Future<MmChannelUnreadAt?> setPostUnread(
     String userId,
     String postId,
   ) async {
@@ -1314,7 +1314,7 @@ class MattermostPostsApi {
       postId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1322,8 +1322,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMChannelUnreadAt',
-      ) as MMChannelUnreadAt;
+        'MmChannelUnreadAt',
+      ) as MmChannelUnreadAt;
     }
     return null;
   }
@@ -1347,7 +1347,7 @@ class MattermostPostsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1372,14 +1372,14 @@ class MattermostPostsApi {
   ///
   /// * [String] postId (required):
   ///   Post GUID
-  Future<MMStatusOK?> unpinPost(
+  Future<MmStatusOK?> unpinPost(
     String postId,
   ) async {
     final response = await unpinPostWithHttpInfo(
       postId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1387,8 +1387,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -1404,19 +1404,19 @@ class MattermostPostsApi {
   /// * [String] postId (required):
   ///   ID of the post to update
   ///
-  /// * [MMUpdatePostRequest] mMUpdatePostRequest (required):
+  /// * [MmUpdatePostRequest] mmUpdatePostRequest (required):
   ///   Post object that is to be updated
   Future<Response> updatePostWithHttpInfo(
     String postId,
-    MMUpdatePostRequest mMUpdatePostRequest,
+    MmUpdatePostRequest mmUpdatePostRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/posts/{post_id}'.replaceAll('{post_id}', postId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdatePostRequest;
+    Object? postBody = mmUpdatePostRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -1442,18 +1442,18 @@ class MattermostPostsApi {
   /// * [String] postId (required):
   ///   ID of the post to update
   ///
-  /// * [MMUpdatePostRequest] mMUpdatePostRequest (required):
+  /// * [MmUpdatePostRequest] mmUpdatePostRequest (required):
   ///   Post object that is to be updated
-  Future<MMPost?> updatePost(
+  Future<MmPost?> updatePost(
     String postId,
-    MMUpdatePostRequest mMUpdatePostRequest,
+    MmUpdatePostRequest mmUpdatePostRequest,
   ) async {
     final response = await updatePostWithHttpInfo(
       postId,
-      mMUpdatePostRequest,
+      mmUpdatePostRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1461,8 +1461,8 @@ class MattermostPostsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPost',
-      ) as MMPost;
+        'MmPost',
+      ) as MmPost;
     }
     return null;
   }

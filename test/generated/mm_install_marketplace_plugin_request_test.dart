@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMInstallMarketplacePluginRequest
+// tests for MmInstallMarketplacePluginRequest
 void main() {
-  // final instance = MMInstallMarketplacePluginRequest();
+  // final instance = MmInstallMarketplacePluginRequest();
 
-  group('test MMInstallMarketplacePluginRequest', () {
+  group('test MmInstallMarketplacePluginRequest', () {
     // The ID of the plugin to install.
     // String id
     test('to test the property `id`', () async {

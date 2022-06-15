@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMProduct
+// tests for MmProduct
 void main() {
-  // final instance = MMProduct();
+  // final instance = MmProduct();
 
-  group('test MMProduct', () {
+  group('test MmProduct', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -36,7 +36,7 @@ void main() {
       // TODO
     });
 
-    // List<MMAddOn> addOns (default value: const [])
+    // List<MmAddOn> addOns (default value: const [])
     test('to test the property `addOns`', () async {
       // TODO
     });

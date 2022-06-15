@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateIncomingWebhookRequest {
-  /// Returns a new [MMUpdateIncomingWebhookRequest] instance.
-  MMUpdateIncomingWebhookRequest({
+class MmUpdateIncomingWebhookRequest {
+  /// Returns a new [MmUpdateIncomingWebhookRequest] instance.
+  MmUpdateIncomingWebhookRequest({
     this.hookId,
     required this.channelId,
     required this.displayName,
@@ -60,7 +60,7 @@ class MMUpdateIncomingWebhookRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateIncomingWebhookRequest &&
+      other is MmUpdateIncomingWebhookRequest &&
           other.hookId == hookId &&
           other.channelId == channelId &&
           other.displayName == displayName &&
@@ -80,7 +80,7 @@ class MMUpdateIncomingWebhookRequest {
 
   @override
   String toString() =>
-      'MMUpdateIncomingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
+      'MmUpdateIncomingWebhookRequest[hookId=$hookId, channelId=$channelId, displayName=$displayName, description=$description, username=$username, iconUrl=$iconUrl]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -99,10 +99,10 @@ class MMUpdateIncomingWebhookRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateIncomingWebhookRequest] instance and imports its values from
+  /// Returns a new [MmUpdateIncomingWebhookRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateIncomingWebhookRequest? fromJson(dynamic value) {
+  static MmUpdateIncomingWebhookRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -111,13 +111,13 @@ class MMUpdateIncomingWebhookRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateIncomingWebhookRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateIncomingWebhookRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateIncomingWebhookRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateIncomingWebhookRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateIncomingWebhookRequest(
+      return MmUpdateIncomingWebhookRequest(
         hookId: mapValueOfType<String>(json, r'hook_id'),
         channelId: mapValueOfType<String>(json, r'channel_id')!,
         displayName: mapValueOfType<String>(json, r'display_name')!,
@@ -129,14 +129,14 @@ class MMUpdateIncomingWebhookRequest {
     return null;
   }
 
-  static List<MMUpdateIncomingWebhookRequest>? listFromJson(
+  static List<MmUpdateIncomingWebhookRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateIncomingWebhookRequest>[];
+    final result = <MmUpdateIncomingWebhookRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateIncomingWebhookRequest.fromJson(row);
+        final value = MmUpdateIncomingWebhookRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -145,12 +145,12 @@ class MMUpdateIncomingWebhookRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateIncomingWebhookRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateIncomingWebhookRequest>{};
+  static Map<String, MmUpdateIncomingWebhookRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateIncomingWebhookRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateIncomingWebhookRequest.fromJson(entry.value);
+        final value = MmUpdateIncomingWebhookRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -159,16 +159,16 @@ class MMUpdateIncomingWebhookRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateIncomingWebhookRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateIncomingWebhookRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateIncomingWebhookRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateIncomingWebhookRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateIncomingWebhookRequest>>{};
+    final map = <String, List<MmUpdateIncomingWebhookRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateIncomingWebhookRequest.listFromJson(
+        final value = MmUpdateIncomingWebhookRequest.listFromJson(
           entry.value,
           growable: growable,
         );

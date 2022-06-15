@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigTeamSettings
+// tests for MmConfigTeamSettings
 void main() {
-  // final instance = MMConfigTeamSettings();
+  // final instance = MmConfigTeamSettings();
 
-  group('test MMConfigTeamSettings', () {
+  group('test MmConfigTeamSettings', () {
     // String siteName
     test('to test the property `siteName`', () async {
       // TODO

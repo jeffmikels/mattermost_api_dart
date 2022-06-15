@@ -21,7 +21,7 @@ void main() {
     //
     // __Minimum server version__: 3.10 ##### Permissions Must be logged in. 
     //
-    //Future<MMPushNotification> acknowledgeNotification() async
+    //Future<MmPushNotification> acknowledgeNotification() async
     test('test acknowledgeNotification', () async {
       // TODO
     });

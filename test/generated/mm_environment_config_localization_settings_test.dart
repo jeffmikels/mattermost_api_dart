@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigLocalizationSettings
+// tests for MmEnvironmentConfigLocalizationSettings
 void main() {
-  // final instance = MMEnvironmentConfigLocalizationSettings();
+  // final instance = MmEnvironmentConfigLocalizationSettings();
 
-  group('test MMEnvironmentConfigLocalizationSettings', () {
+  group('test MmEnvironmentConfigLocalizationSettings', () {
     // bool defaultServerLocale
     test('to test the property `defaultServerLocale`', () async {
       // TODO

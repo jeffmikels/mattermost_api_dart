@@ -11,13 +11,13 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchAllChannels200Response
+// tests for MmSearchAllChannels200Response
 void main() {
-  // final instance = MMSearchAllChannels200Response();
+  // final instance = MmSearchAllChannels200Response();
 
-  group('test MMSearchAllChannels200Response', () {
+  group('test MmSearchAllChannels200Response', () {
     // The channels that matched the query.
-    // List<MMChannel> channels (default value: const [])
+    // List<MmChannel> channels (default value: const [])
     test('to test the property `channels`', () async {
       // TODO
     });

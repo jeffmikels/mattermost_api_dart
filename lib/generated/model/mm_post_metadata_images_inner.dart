@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPostMetadataImagesInner {
-  /// Returns a new [MMPostMetadataImagesInner] instance.
-  MMPostMetadataImagesInner({
+class MmPostMetadataImagesInner {
+  /// Returns a new [MmPostMetadataImagesInner] instance.
+  MmPostMetadataImagesInner({
     this.height,
     this.width,
   });
@@ -35,7 +35,7 @@ class MMPostMetadataImagesInner {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPostMetadataImagesInner && other.height == height && other.width == width;
+      identical(this, other) || other is MmPostMetadataImagesInner && other.height == height && other.width == width;
 
   @override
   int get hashCode =>
@@ -43,7 +43,7 @@ class MMPostMetadataImagesInner {
       (height == null ? 0 : height!.hashCode) + (width == null ? 0 : width!.hashCode);
 
   @override
-  String toString() => 'MMPostMetadataImagesInner[height=$height, width=$width]';
+  String toString() => 'MmPostMetadataImagesInner[height=$height, width=$width]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -56,10 +56,10 @@ class MMPostMetadataImagesInner {
     return _json;
   }
 
-  /// Returns a new [MMPostMetadataImagesInner] instance and imports its values from
+  /// Returns a new [MmPostMetadataImagesInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPostMetadataImagesInner? fromJson(dynamic value) {
+  static MmPostMetadataImagesInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,13 +68,13 @@ class MMPostMetadataImagesInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPostMetadataImagesInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPostMetadataImagesInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPostMetadataImagesInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPostMetadataImagesInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPostMetadataImagesInner(
+      return MmPostMetadataImagesInner(
         height: mapValueOfType<int>(json, r'height'),
         width: mapValueOfType<int>(json, r'width'),
       );
@@ -82,14 +82,14 @@ class MMPostMetadataImagesInner {
     return null;
   }
 
-  static List<MMPostMetadataImagesInner>? listFromJson(
+  static List<MmPostMetadataImagesInner>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPostMetadataImagesInner>[];
+    final result = <MmPostMetadataImagesInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPostMetadataImagesInner.fromJson(row);
+        final value = MmPostMetadataImagesInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -98,12 +98,12 @@ class MMPostMetadataImagesInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPostMetadataImagesInner> mapFromJson(dynamic json) {
-    final map = <String, MMPostMetadataImagesInner>{};
+  static Map<String, MmPostMetadataImagesInner> mapFromJson(dynamic json) {
+    final map = <String, MmPostMetadataImagesInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostMetadataImagesInner.fromJson(entry.value);
+        final value = MmPostMetadataImagesInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,16 +112,16 @@ class MMPostMetadataImagesInner {
     return map;
   }
 
-  // maps a json object with a list of MMPostMetadataImagesInner-objects as value to a dart map
-  static Map<String, List<MMPostMetadataImagesInner>> mapListFromJson(
+  // maps a json object with a list of MmPostMetadataImagesInner-objects as value to a dart map
+  static Map<String, List<MmPostMetadataImagesInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPostMetadataImagesInner>>{};
+    final map = <String, List<MmPostMetadataImagesInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPostMetadataImagesInner.listFromJson(
+        final value = MmPostMetadataImagesInner.listFromJson(
           entry.value,
           growable: growable,
         );

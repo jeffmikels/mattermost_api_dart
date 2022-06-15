@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphBook
+// tests for MmOpenGraphBook
 void main() {
-  // final instance = MMOpenGraphBook();
+  // final instance = MmOpenGraphBook();
 
-  group('test MMOpenGraphBook', () {
+  group('test MmOpenGraphBook', () {
     // String isbn
     test('to test the property `isbn`', () async {
       // TODO
@@ -31,7 +31,7 @@ void main() {
       // TODO
     });
 
-    // List<MMOpenGraphArticleAuthorsInner> authors (default value: const [])
+    // List<MmOpenGraphArticleAuthorsInner> authors (default value: const [])
     test('to test the property `authors`', () async {
       // TODO
     });

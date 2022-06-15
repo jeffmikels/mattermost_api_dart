@@ -23,18 +23,18 @@ class MattermostCommandsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateCommandRequest] mMCreateCommandRequest (required):
+  /// * [MmCreateCommandRequest] mmCreateCommandRequest (required):
   ///   command to be created
   Future<Response> createCommandWithHttpInfo(
-    MMCreateCommandRequest mMCreateCommandRequest,
+    MmCreateCommandRequest mmCreateCommandRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateCommandRequest;
+    Object? postBody = mmCreateCommandRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -57,16 +57,16 @@ class MattermostCommandsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateCommandRequest] mMCreateCommandRequest (required):
+  /// * [MmCreateCommandRequest] mmCreateCommandRequest (required):
   ///   command to be created
-  Future<MMCommand?> createCommand(
-    MMCreateCommandRequest mMCreateCommandRequest,
+  Future<MmCommand?> createCommand(
+    MmCreateCommandRequest mmCreateCommandRequest,
   ) async {
     final response = await createCommandWithHttpInfo(
-      mMCreateCommandRequest,
+      mmCreateCommandRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCommand',
-      ) as MMCommand;
+        'MmCommand',
+      ) as MmCommand;
     }
     return null;
   }
@@ -99,7 +99,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -124,14 +124,14 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to delete
-  Future<MMStatusOK?> deleteCommand(
+  Future<MmStatusOK?> deleteCommand(
     String commandId,
   ) async {
     final response = await deleteCommandWithHttpInfo(
       commandId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -139,8 +139,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -153,18 +153,18 @@ class MattermostCommandsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMExecuteCommandRequest] mMExecuteCommandRequest (required):
+  /// * [MmExecuteCommandRequest] mmExecuteCommandRequest (required):
   ///   command to be executed
   Future<Response> executeCommandWithHttpInfo(
-    MMExecuteCommandRequest mMExecuteCommandRequest,
+    MmExecuteCommandRequest mmExecuteCommandRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands/execute';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMExecuteCommandRequest;
+    Object? postBody = mmExecuteCommandRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -187,16 +187,16 @@ class MattermostCommandsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMExecuteCommandRequest] mMExecuteCommandRequest (required):
+  /// * [MmExecuteCommandRequest] mmExecuteCommandRequest (required):
   ///   command to be executed
-  Future<MMCommandResponse?> executeCommand(
-    MMExecuteCommandRequest mMExecuteCommandRequest,
+  Future<MmCommandResponse?> executeCommand(
+    MmExecuteCommandRequest mmExecuteCommandRequest,
   ) async {
     final response = await executeCommandWithHttpInfo(
-      mMExecuteCommandRequest,
+      mmExecuteCommandRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -204,8 +204,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCommandResponse',
-      ) as MMCommandResponse;
+        'MmCommandResponse',
+      ) as MmCommandResponse;
     }
     return null;
   }
@@ -229,7 +229,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -254,14 +254,14 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to get
-  Future<MMCommand?> getCommandById(
+  Future<MmCommand?> getCommandById(
     String commandId,
   ) async {
     final response = await getCommandByIdWithHttpInfo(
       commandId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -269,8 +269,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCommand',
-      ) as MMCommand;
+        'MmCommand',
+      ) as MmCommand;
     }
     return null;
   }
@@ -294,7 +294,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -319,21 +319,21 @@ class MattermostCommandsApi {
   ///
   /// * [String] teamId (required):
   ///   Team GUID
-  Future<List<MMCommand>?> listAutocompleteCommands(
+  Future<List<MmCommand>?> listAutocompleteCommands(
     String teamId,
   ) async {
     final response = await listAutocompleteCommandsWithHttpInfo(
       teamId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMCommand>') as List).cast<MMCommand>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmCommand>') as List).cast<MmCommand>().toList();
     }
     return null;
   }
@@ -361,7 +361,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -391,7 +391,7 @@ class MattermostCommandsApi {
   ///
   /// * [String] userInput (required):
   ///   String inputted by the user.
-  Future<List<MMAutocompleteSuggestion>?> listCommandAutocompleteSuggestions(
+  Future<List<MmAutocompleteSuggestion>?> listCommandAutocompleteSuggestions(
     String teamId,
     String userInput,
   ) async {
@@ -400,15 +400,15 @@ class MattermostCommandsApi {
       userInput,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMAutocompleteSuggestion>') as List)
-          .cast<MMAutocompleteSuggestion>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmAutocompleteSuggestion>') as List)
+          .cast<MmAutocompleteSuggestion>()
           .toList();
     }
     return null;
@@ -437,7 +437,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -472,7 +472,7 @@ class MattermostCommandsApi {
   ///
   /// * [bool] customOnly:
   ///   To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands.
-  Future<List<MMCommand>?> listCommands({
+  Future<List<MmCommand>?> listCommands({
     String? teamId,
     bool? customOnly,
   }) async {
@@ -481,14 +481,14 @@ class MattermostCommandsApi {
       customOnly: customOnly,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMCommand>') as List).cast<MMCommand>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmCommand>') as List).cast<MmCommand>().toList();
     }
     return null;
   }
@@ -504,18 +504,18 @@ class MattermostCommandsApi {
   /// * [String] commandId (required):
   ///   ID of the command to move
   ///
-  /// * [MMMoveCommandRequest] mMMoveCommandRequest (required):
+  /// * [MmMoveCommandRequest] mmMoveCommandRequest (required):
   Future<Response> moveCommandWithHttpInfo(
     String commandId,
-    MMMoveCommandRequest mMMoveCommandRequest,
+    MmMoveCommandRequest mmMoveCommandRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands/{command_id}/move'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMMoveCommandRequest;
+    Object? postBody = mmMoveCommandRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -541,17 +541,17 @@ class MattermostCommandsApi {
   /// * [String] commandId (required):
   ///   ID of the command to move
   ///
-  /// * [MMMoveCommandRequest] mMMoveCommandRequest (required):
-  Future<MMStatusOK?> moveCommand(
+  /// * [MmMoveCommandRequest] mmMoveCommandRequest (required):
+  Future<MmStatusOK?> moveCommand(
     String commandId,
-    MMMoveCommandRequest mMMoveCommandRequest,
+    MmMoveCommandRequest mmMoveCommandRequest,
   ) async {
     final response = await moveCommandWithHttpInfo(
       commandId,
-      mMMoveCommandRequest,
+      mmMoveCommandRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -559,8 +559,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -584,7 +584,7 @@ class MattermostCommandsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -609,14 +609,14 @@ class MattermostCommandsApi {
   ///
   /// * [String] commandId (required):
   ///   ID of the command to generate the new token
-  Future<MMRegenCommandToken200Response?> regenCommandToken(
+  Future<MmRegenCommandToken200Response?> regenCommandToken(
     String commandId,
   ) async {
     final response = await regenCommandTokenWithHttpInfo(
       commandId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -624,8 +624,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMRegenCommandToken200Response',
-      ) as MMRegenCommandToken200Response;
+        'MmRegenCommandToken200Response',
+      ) as MmRegenCommandToken200Response;
     }
     return null;
   }
@@ -641,18 +641,18 @@ class MattermostCommandsApi {
   /// * [String] commandId (required):
   ///   ID of the command to update
   ///
-  /// * [MMCommand] mMCommand (required):
+  /// * [MmCommand] mmCommand (required):
   Future<Response> updateCommandWithHttpInfo(
     String commandId,
-    MMCommand mMCommand,
+    MmCommand mmCommand,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/commands/{command_id}'.replaceAll('{command_id}', commandId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCommand;
+    Object? postBody = mmCommand;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -678,17 +678,17 @@ class MattermostCommandsApi {
   /// * [String] commandId (required):
   ///   ID of the command to update
   ///
-  /// * [MMCommand] mMCommand (required):
-  Future<MMCommand?> updateCommand(
+  /// * [MmCommand] mmCommand (required):
+  Future<MmCommand?> updateCommand(
     String commandId,
-    MMCommand mMCommand,
+    MmCommand mmCommand,
   ) async {
     final response = await updateCommandWithHttpInfo(
       commandId,
-      mMCommand,
+      mmCommand,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -696,8 +696,8 @@ class MattermostCommandsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCommand',
-      ) as MMCommand;
+        'MmCommand',
+      ) as MmCommand;
     }
     return null;
   }

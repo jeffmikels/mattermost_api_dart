@@ -11,12 +11,12 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGroupWithSchemeAdmin
+// tests for MmGroupWithSchemeAdmin
 void main() {
-  // final instance = MMGroupWithSchemeAdmin();
+  // final instance = MmGroupWithSchemeAdmin();
 
-  group('test MMGroupWithSchemeAdmin', () {
-    // MMGroup group
+  group('test MmGroupWithSchemeAdmin', () {
+    // MmGroup group
     test('to test the property `group`', () async {
       // TODO
     });

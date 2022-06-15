@@ -10,14 +10,14 @@
 
 part of mattermost.api;
 
-class MMHttpBasicAuthentication implements MMAuthentication {
-  MMHttpBasicAuthentication({this.username = '', this.password = ''});
+class MmHttpBasicAuthentication implements MmAuthentication {
+  MmHttpBasicAuthentication({this.username = '', this.password = ''});
 
   String username;
   String password;
 
   @override
-  void applyToParams(List<MMQueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(List<MmQueryParam> queryParams, Map<String, String> headerParams) {
     if (username.isNotEmpty && password.isNotEmpty) {
       final credentials = '$username:$password';
       headerParams['Authorization'] = 'Basic ${base64.encode(utf8.encode(credentials))}';

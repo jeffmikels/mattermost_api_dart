@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyWithTeamAndChannelCountsAllOf
+// tests for MmDataRetentionPolicyWithTeamAndChannelCountsAllOf
 void main() {
-  // final instance = MMDataRetentionPolicyWithTeamAndChannelCountsAllOf();
+  // final instance = MmDataRetentionPolicyWithTeamAndChannelCountsAllOf();
 
-  group('test MMDataRetentionPolicyWithTeamAndChannelCountsAllOf', () {
+  group('test MmDataRetentionPolicyWithTeamAndChannelCountsAllOf', () {
     // The number of teams to which this policy is applied.
     // int teamCount
     test('to test the property `teamCount`', () async {

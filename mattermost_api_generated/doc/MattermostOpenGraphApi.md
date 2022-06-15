@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **openGraph**
-> MMOpenGraph openGraph(mMOpenGraphRequest)
+> MmOpenGraph openGraph(mmOpenGraphRequest)
 
 Get open graph metadata for url
 
@@ -28,25 +28,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMOpenGraphRequest mMOpenGraphRequest = MMOpenGraphRequest(); // MMOpenGraphRequest | 
+final MmOpenGraphRequest mmOpenGraphRequest = MmOpenGraphRequest(); // MmOpenGraphRequest | 
 
 try {
-  final MMOpenGraph? result = await client.openGraph.openGraph(mMOpenGraphRequest); // await the Future<MMOpenGraph?>
+  final MmOpenGraph? result = await client.openGraph.openGraph(mmOpenGraphRequest); // await the Future<MmOpenGraph?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOpenGraphApi->openGraph: $e\n');
@@ -58,11 +58,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMOpenGraphRequest** | [**MMOpenGraphRequest**](MMOpenGraphRequest.md)|  | 
+ **mmOpenGraphRequest** | [**MmOpenGraphRequest**](MmOpenGraphRequest.md)|  | 
 
 ### Return type
 
-[**MMOpenGraph**](MMOpenGraph.md)
+[**MmOpenGraph**](MmOpenGraph.md)
 
 ### Authorization
 

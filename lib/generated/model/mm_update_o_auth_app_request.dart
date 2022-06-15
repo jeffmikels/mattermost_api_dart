@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateOAuthAppRequest {
-  /// Returns a new [MMUpdateOAuthAppRequest] instance.
-  MMUpdateOAuthAppRequest({
+class MmUpdateOAuthAppRequest {
+  /// Returns a new [MmUpdateOAuthAppRequest] instance.
+  MmUpdateOAuthAppRequest({
     required this.id,
     required this.name,
     required this.description,
@@ -58,7 +58,7 @@ class MMUpdateOAuthAppRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUpdateOAuthAppRequest &&
+      other is MmUpdateOAuthAppRequest &&
           other.id == id &&
           other.name == name &&
           other.description == description &&
@@ -80,7 +80,7 @@ class MMUpdateOAuthAppRequest {
 
   @override
   String toString() =>
-      'MMUpdateOAuthAppRequest[id=$id, name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
+      'MmUpdateOAuthAppRequest[id=$id, name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -98,10 +98,10 @@ class MMUpdateOAuthAppRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateOAuthAppRequest] instance and imports its values from
+  /// Returns a new [MmUpdateOAuthAppRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateOAuthAppRequest? fromJson(dynamic value) {
+  static MmUpdateOAuthAppRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -110,13 +110,13 @@ class MMUpdateOAuthAppRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateOAuthAppRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateOAuthAppRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateOAuthAppRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateOAuthAppRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateOAuthAppRequest(
+      return MmUpdateOAuthAppRequest(
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         description: mapValueOfType<String>(json, r'description')!,
@@ -129,14 +129,14 @@ class MMUpdateOAuthAppRequest {
     return null;
   }
 
-  static List<MMUpdateOAuthAppRequest>? listFromJson(
+  static List<MmUpdateOAuthAppRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateOAuthAppRequest>[];
+    final result = <MmUpdateOAuthAppRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateOAuthAppRequest.fromJson(row);
+        final value = MmUpdateOAuthAppRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -145,12 +145,12 @@ class MMUpdateOAuthAppRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateOAuthAppRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateOAuthAppRequest>{};
+  static Map<String, MmUpdateOAuthAppRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateOAuthAppRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateOAuthAppRequest.fromJson(entry.value);
+        final value = MmUpdateOAuthAppRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -159,16 +159,16 @@ class MMUpdateOAuthAppRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateOAuthAppRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateOAuthAppRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateOAuthAppRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateOAuthAppRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateOAuthAppRequest>>{};
+    final map = <String, List<MmUpdateOAuthAppRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateOAuthAppRequest.listFromJson(
+        final value = MmUpdateOAuthAppRequest.listFromJson(
           entry.value,
           growable: growable,
         );

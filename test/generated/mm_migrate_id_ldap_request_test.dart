@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMMigrateIdLdapRequest
+// tests for MmMigrateIdLdapRequest
 void main() {
-  // final instance = MMMigrateIdLdapRequest();
+  // final instance = MmMigrateIdLdapRequest();
 
-  group('test MMMigrateIdLdapRequest', () {
+  group('test MmMigrateIdLdapRequest', () {
     // New IdAttribute value
     // String toAttribute
     test('to test the property `toAttribute`', () async {

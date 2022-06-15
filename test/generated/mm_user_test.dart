@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUser
+// tests for MmUser
 void main() {
-  // final instance = MMUser();
+  // final instance = MmUser();
 
-  group('test MMUser', () {
+  group('test MmUser', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -84,7 +84,7 @@ void main() {
       // TODO
     });
 
-    // MMUserNotifyProps notifyProps
+    // MmUserNotifyProps notifyProps
     test('to test the property `notifyProps`', () async {
       // TODO
     });
@@ -114,7 +114,7 @@ void main() {
       // TODO
     });
 
-    // MMTimezone timezone
+    // MmTimezone timezone
     test('to test the property `timezone`', () async {
       // TODO
     });

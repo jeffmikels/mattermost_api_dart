@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMClusterInfo
+// tests for MmClusterInfo
 void main() {
-  // final instance = MMClusterInfo();
+  // final instance = MmClusterInfo();
 
-  group('test MMClusterInfo', () {
+  group('test MmClusterInfo', () {
     // The unique ID for the node
     // String id
     test('to test the property `id`', () async {

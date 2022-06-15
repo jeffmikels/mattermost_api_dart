@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpgradeToEnterpriseStatus200Response
+// tests for MmUpgradeToEnterpriseStatus200Response
 void main() {
-  // final instance = MMUpgradeToEnterpriseStatus200Response();
+  // final instance = MmUpgradeToEnterpriseStatus200Response();
 
-  group('test MMUpgradeToEnterpriseStatus200Response', () {
+  group('test MmUpgradeToEnterpriseStatus200Response', () {
     // Current percentage of the upgrade
     // int percentage
     test('to test the property `percentage`', () async {

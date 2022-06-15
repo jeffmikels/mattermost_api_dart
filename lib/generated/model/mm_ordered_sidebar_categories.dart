@@ -10,21 +10,21 @@
 
 part of mattermost.api;
 
-class MMOrderedSidebarCategories {
-  /// Returns a new [MMOrderedSidebarCategories] instance.
-  MMOrderedSidebarCategories({
+class MmOrderedSidebarCategories {
+  /// Returns a new [MmOrderedSidebarCategories] instance.
+  MmOrderedSidebarCategories({
     this.order = const [],
     this.categories = const [],
   });
 
   List<String> order;
 
-  List<MMSidebarCategoryWithChannels> categories;
+  List<MmSidebarCategoryWithChannels> categories;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOrderedSidebarCategories && other.order == order && other.categories == categories;
+      other is MmOrderedSidebarCategories && other.order == order && other.categories == categories;
 
   @override
   int get hashCode =>
@@ -32,7 +32,7 @@ class MMOrderedSidebarCategories {
       (order.hashCode) + (categories.hashCode);
 
   @override
-  String toString() => 'MMOrderedSidebarCategories[order=$order, categories=$categories]';
+  String toString() => 'MmOrderedSidebarCategories[order=$order, categories=$categories]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class MMOrderedSidebarCategories {
     return _json;
   }
 
-  /// Returns a new [MMOrderedSidebarCategories] instance and imports its values from
+  /// Returns a new [MmOrderedSidebarCategories] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOrderedSidebarCategories? fromJson(dynamic value) {
+  static MmOrderedSidebarCategories? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,28 +53,28 @@ class MMOrderedSidebarCategories {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOrderedSidebarCategories[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOrderedSidebarCategories[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOrderedSidebarCategories[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOrderedSidebarCategories[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOrderedSidebarCategories(
+      return MmOrderedSidebarCategories(
         order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
-        categories: MMSidebarCategoryWithChannels.listFromJson(json[r'categories']) ?? const [],
+        categories: MmSidebarCategoryWithChannels.listFromJson(json[r'categories']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMOrderedSidebarCategories>? listFromJson(
+  static List<MmOrderedSidebarCategories>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOrderedSidebarCategories>[];
+    final result = <MmOrderedSidebarCategories>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOrderedSidebarCategories.fromJson(row);
+        final value = MmOrderedSidebarCategories.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -83,12 +83,12 @@ class MMOrderedSidebarCategories {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOrderedSidebarCategories> mapFromJson(dynamic json) {
-    final map = <String, MMOrderedSidebarCategories>{};
+  static Map<String, MmOrderedSidebarCategories> mapFromJson(dynamic json) {
+    final map = <String, MmOrderedSidebarCategories>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOrderedSidebarCategories.fromJson(entry.value);
+        final value = MmOrderedSidebarCategories.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -97,16 +97,16 @@ class MMOrderedSidebarCategories {
     return map;
   }
 
-  // maps a json object with a list of MMOrderedSidebarCategories-objects as value to a dart map
-  static Map<String, List<MMOrderedSidebarCategories>> mapListFromJson(
+  // maps a json object with a list of MmOrderedSidebarCategories-objects as value to a dart map
+  static Map<String, List<MmOrderedSidebarCategories>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOrderedSidebarCategories>>{};
+    final map = <String, List<MmOrderedSidebarCategories>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOrderedSidebarCategories.listFromJson(
+        final value = MmOrderedSidebarCategories.listFromJson(
           entry.value,
           growable: growable,
         );

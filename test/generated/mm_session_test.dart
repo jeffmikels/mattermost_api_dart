@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSession
+// tests for MmSession
 void main() {
-  // final instance = MMSession();
+  // final instance = MmSession();
 
-  group('test MMSession', () {
+  group('test MmSession', () {
     // The time in milliseconds a session was created
     // int createAt
     test('to test the property `createAt`', () async {
@@ -59,7 +59,7 @@ void main() {
       // TODO
     });
 
-    // List<MMTeamMember> teamMembers (default value: const [])
+    // List<MmTeamMember> teamMembers (default value: const [])
     test('to test the property `teamMembers`', () async {
       // TODO
     });

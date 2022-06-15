@@ -21,7 +21,7 @@ void main() {
     //
     // Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to LDAP. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future migrateAuthToLdap({ MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest }) async
+    //Future migrateAuthToLdap({ MmMigrateAuthToLdapRequest mmMigrateAuthToLdapRequest }) async
     test('test migrateAuthToLdap', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Migrates accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to SAML. __Minimum server version__: 5.28 ##### Permissions Must have `manage_system` permission. 
     //
-    //Future migrateAuthToSaml({ MMMigrateAuthToSamlRequest mMMigrateAuthToSamlRequest }) async
+    //Future migrateAuthToSaml({ MmMigrateAuthToSamlRequest mmMigrateAuthToSamlRequest }) async
     test('test migrateAuthToSaml', () async {
       // TODO
     });

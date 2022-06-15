@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostMetadataEmbedsInner
+// tests for MmPostMetadataEmbedsInner
 void main() {
-  // final instance = MMPostMetadataEmbedsInner();
+  // final instance = MmPostMetadataEmbedsInner();
 
-  group('test MMPostMetadataEmbedsInner', () {
+  group('test MmPostMetadataEmbedsInner', () {
     // The type of content that is embedded in this point.
     // String type
     test('to test the property `type`', () async {

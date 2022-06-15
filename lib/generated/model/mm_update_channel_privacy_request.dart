@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUpdateChannelPrivacyRequest {
-  /// Returns a new [MMUpdateChannelPrivacyRequest] instance.
-  MMUpdateChannelPrivacyRequest({
+class MmUpdateChannelPrivacyRequest {
+  /// Returns a new [MmUpdateChannelPrivacyRequest] instance.
+  MmUpdateChannelPrivacyRequest({
     required this.privacy,
   });
 
@@ -21,7 +21,7 @@ class MMUpdateChannelPrivacyRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMUpdateChannelPrivacyRequest && other.privacy == privacy;
+      identical(this, other) || other is MmUpdateChannelPrivacyRequest && other.privacy == privacy;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMUpdateChannelPrivacyRequest {
       (privacy.hashCode);
 
   @override
-  String toString() => 'MMUpdateChannelPrivacyRequest[privacy=$privacy]';
+  String toString() => 'MmUpdateChannelPrivacyRequest[privacy=$privacy]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMUpdateChannelPrivacyRequest {
     return _json;
   }
 
-  /// Returns a new [MMUpdateChannelPrivacyRequest] instance and imports its values from
+  /// Returns a new [MmUpdateChannelPrivacyRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUpdateChannelPrivacyRequest? fromJson(dynamic value) {
+  static MmUpdateChannelPrivacyRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMUpdateChannelPrivacyRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUpdateChannelPrivacyRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUpdateChannelPrivacyRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUpdateChannelPrivacyRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUpdateChannelPrivacyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUpdateChannelPrivacyRequest(
+      return MmUpdateChannelPrivacyRequest(
         privacy: mapValueOfType<String>(json, r'privacy')!,
       );
     }
     return null;
   }
 
-  static List<MMUpdateChannelPrivacyRequest>? listFromJson(
+  static List<MmUpdateChannelPrivacyRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUpdateChannelPrivacyRequest>[];
+    final result = <MmUpdateChannelPrivacyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUpdateChannelPrivacyRequest.fromJson(row);
+        final value = MmUpdateChannelPrivacyRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMUpdateChannelPrivacyRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUpdateChannelPrivacyRequest> mapFromJson(dynamic json) {
-    final map = <String, MMUpdateChannelPrivacyRequest>{};
+  static Map<String, MmUpdateChannelPrivacyRequest> mapFromJson(dynamic json) {
+    final map = <String, MmUpdateChannelPrivacyRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateChannelPrivacyRequest.fromJson(entry.value);
+        final value = MmUpdateChannelPrivacyRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMUpdateChannelPrivacyRequest {
     return map;
   }
 
-  // maps a json object with a list of MMUpdateChannelPrivacyRequest-objects as value to a dart map
-  static Map<String, List<MMUpdateChannelPrivacyRequest>> mapListFromJson(
+  // maps a json object with a list of MmUpdateChannelPrivacyRequest-objects as value to a dart map
+  static Map<String, List<MmUpdateChannelPrivacyRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUpdateChannelPrivacyRequest>>{};
+    final map = <String, List<MmUpdateChannelPrivacyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUpdateChannelPrivacyRequest.listFromJson(
+        final value = MmUpdateChannelPrivacyRequest.listFromJson(
           entry.value,
           growable: growable,
         );

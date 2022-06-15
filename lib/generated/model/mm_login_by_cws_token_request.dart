@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMLoginByCwsTokenRequest {
-  /// Returns a new [MMLoginByCwsTokenRequest] instance.
-  MMLoginByCwsTokenRequest({
+class MmLoginByCwsTokenRequest {
+  /// Returns a new [MmLoginByCwsTokenRequest] instance.
+  MmLoginByCwsTokenRequest({
     this.loginId,
     this.cwsToken,
   });
@@ -36,7 +36,7 @@ class MMLoginByCwsTokenRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMLoginByCwsTokenRequest && other.loginId == loginId && other.cwsToken == cwsToken;
+      other is MmLoginByCwsTokenRequest && other.loginId == loginId && other.cwsToken == cwsToken;
 
   @override
   int get hashCode =>
@@ -44,7 +44,7 @@ class MMLoginByCwsTokenRequest {
       (loginId == null ? 0 : loginId!.hashCode) + (cwsToken == null ? 0 : cwsToken!.hashCode);
 
   @override
-  String toString() => 'MMLoginByCwsTokenRequest[loginId=$loginId, cwsToken=$cwsToken]';
+  String toString() => 'MmLoginByCwsTokenRequest[loginId=$loginId, cwsToken=$cwsToken]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -57,10 +57,10 @@ class MMLoginByCwsTokenRequest {
     return _json;
   }
 
-  /// Returns a new [MMLoginByCwsTokenRequest] instance and imports its values from
+  /// Returns a new [MmLoginByCwsTokenRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMLoginByCwsTokenRequest? fromJson(dynamic value) {
+  static MmLoginByCwsTokenRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,13 +69,13 @@ class MMLoginByCwsTokenRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMLoginByCwsTokenRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMLoginByCwsTokenRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmLoginByCwsTokenRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmLoginByCwsTokenRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMLoginByCwsTokenRequest(
+      return MmLoginByCwsTokenRequest(
         loginId: mapValueOfType<String>(json, r'login_id'),
         cwsToken: mapValueOfType<String>(json, r'cws_token'),
       );
@@ -83,14 +83,14 @@ class MMLoginByCwsTokenRequest {
     return null;
   }
 
-  static List<MMLoginByCwsTokenRequest>? listFromJson(
+  static List<MmLoginByCwsTokenRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMLoginByCwsTokenRequest>[];
+    final result = <MmLoginByCwsTokenRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMLoginByCwsTokenRequest.fromJson(row);
+        final value = MmLoginByCwsTokenRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +99,12 @@ class MMLoginByCwsTokenRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMLoginByCwsTokenRequest> mapFromJson(dynamic json) {
-    final map = <String, MMLoginByCwsTokenRequest>{};
+  static Map<String, MmLoginByCwsTokenRequest> mapFromJson(dynamic json) {
+    final map = <String, MmLoginByCwsTokenRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLoginByCwsTokenRequest.fromJson(entry.value);
+        final value = MmLoginByCwsTokenRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,16 +113,16 @@ class MMLoginByCwsTokenRequest {
     return map;
   }
 
-  // maps a json object with a list of MMLoginByCwsTokenRequest-objects as value to a dart map
-  static Map<String, List<MMLoginByCwsTokenRequest>> mapListFromJson(
+  // maps a json object with a list of MmLoginByCwsTokenRequest-objects as value to a dart map
+  static Map<String, List<MmLoginByCwsTokenRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMLoginByCwsTokenRequest>>{};
+    final map = <String, List<MmLoginByCwsTokenRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMLoginByCwsTokenRequest.listFromJson(
+        final value = MmLoginByCwsTokenRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchChannelsForRetentionPolicyRequest
+// tests for MmSearchChannelsForRetentionPolicyRequest
 void main() {
-  // final instance = MMSearchChannelsForRetentionPolicyRequest();
+  // final instance = MmSearchChannelsForRetentionPolicyRequest();
 
-  group('test MMSearchChannelsForRetentionPolicyRequest', () {
+  group('test MmSearchChannelsForRetentionPolicyRequest', () {
     // The string to search in the channel name, display name, and purpose.
     // String term
     test('to test the property `term`', () async {

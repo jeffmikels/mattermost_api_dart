@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchRoleRequest
+// tests for MmPatchRoleRequest
 void main() {
-  // final instance = MMPatchRoleRequest();
+  // final instance = MmPatchRoleRequest();
 
-  group('test MMPatchRoleRequest', () {
+  group('test MmPatchRoleRequest', () {
     // The permissions the role should grant.
     // List<String> permissions (default value: const [])
     test('to test the property `permissions`', () async {

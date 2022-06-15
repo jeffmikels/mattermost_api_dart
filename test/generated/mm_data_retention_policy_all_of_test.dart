@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyAllOf
+// tests for MmDataRetentionPolicyAllOf
 void main() {
-  // final instance = MMDataRetentionPolicyAllOf();
+  // final instance = MmDataRetentionPolicyAllOf();
 
-  group('test MMDataRetentionPolicyAllOf', () {
+  group('test MmDataRetentionPolicyAllOf', () {
     // The ID of this retention policy.
     // String id
     test('to test the property `id`', () async {

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMStatus {
-  /// Returns a new [MMStatus] instance.
-  MMStatus({
+class MmStatus {
+  /// Returns a new [MmStatus] instance.
+  MmStatus({
     this.userId,
     this.status,
     this.manual,
@@ -54,7 +54,7 @@ class MMStatus {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMStatus &&
+      other is MmStatus &&
           other.userId == userId &&
           other.status == status &&
           other.manual == manual &&
@@ -69,7 +69,7 @@ class MMStatus {
       (lastActivityAt == null ? 0 : lastActivityAt!.hashCode);
 
   @override
-  String toString() => 'MMStatus[userId=$userId, status=$status, manual=$manual, lastActivityAt=$lastActivityAt]';
+  String toString() => 'MmStatus[userId=$userId, status=$status, manual=$manual, lastActivityAt=$lastActivityAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -88,10 +88,10 @@ class MMStatus {
     return _json;
   }
 
-  /// Returns a new [MMStatus] instance and imports its values from
+  /// Returns a new [MmStatus] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMStatus? fromJson(dynamic value) {
+  static MmStatus? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -100,13 +100,13 @@ class MMStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMStatus[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmStatus[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmStatus[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMStatus(
+      return MmStatus(
         userId: mapValueOfType<String>(json, r'user_id'),
         status: mapValueOfType<String>(json, r'status'),
         manual: mapValueOfType<bool>(json, r'manual'),
@@ -116,14 +116,14 @@ class MMStatus {
     return null;
   }
 
-  static List<MMStatus>? listFromJson(
+  static List<MmStatus>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMStatus>[];
+    final result = <MmStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMStatus.fromJson(row);
+        final value = MmStatus.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -132,12 +132,12 @@ class MMStatus {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMStatus> mapFromJson(dynamic json) {
-    final map = <String, MMStatus>{};
+  static Map<String, MmStatus> mapFromJson(dynamic json) {
+    final map = <String, MmStatus>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMStatus.fromJson(entry.value);
+        final value = MmStatus.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -146,16 +146,16 @@ class MMStatus {
     return map;
   }
 
-  // maps a json object with a list of MMStatus-objects as value to a dart map
-  static Map<String, List<MMStatus>> mapListFromJson(
+  // maps a json object with a list of MmStatus-objects as value to a dart map
+  static Map<String, List<MmStatus>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMStatus>>{};
+    final map = <String, List<MmStatus>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMStatus.listFromJson(
+        final value = MmStatus.listFromJson(
           entry.value,
           growable: growable,
         );

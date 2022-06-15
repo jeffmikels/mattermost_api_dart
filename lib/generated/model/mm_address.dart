@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAddress {
-  /// Returns a new [MMAddress] instance.
-  MMAddress({
+class MmAddress {
+  /// Returns a new [MmAddress] instance.
+  MmAddress({
     this.city,
     this.country,
     this.line1,
@@ -72,7 +72,7 @@ class MMAddress {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMAddress &&
+      other is MmAddress &&
           other.city == city &&
           other.country == country &&
           other.line1 == line1 &&
@@ -92,7 +92,7 @@ class MMAddress {
 
   @override
   String toString() =>
-      'MMAddress[city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state]';
+      'MmAddress[city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMAddress {
     return _json;
   }
 
-  /// Returns a new [MMAddress] instance and imports its values from
+  /// Returns a new [MmAddress] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAddress? fromJson(dynamic value) {
+  static MmAddress? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -129,13 +129,13 @@ class MMAddress {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAddress[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAddress[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAddress[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAddress[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAddress(
+      return MmAddress(
         city: mapValueOfType<String>(json, r'city'),
         country: mapValueOfType<String>(json, r'country'),
         line1: mapValueOfType<String>(json, r'line1'),
@@ -147,14 +147,14 @@ class MMAddress {
     return null;
   }
 
-  static List<MMAddress>? listFromJson(
+  static List<MmAddress>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAddress>[];
+    final result = <MmAddress>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAddress.fromJson(row);
+        final value = MmAddress.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -163,12 +163,12 @@ class MMAddress {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAddress> mapFromJson(dynamic json) {
-    final map = <String, MMAddress>{};
+  static Map<String, MmAddress> mapFromJson(dynamic json) {
+    final map = <String, MmAddress>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddress.fromJson(entry.value);
+        final value = MmAddress.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,16 +177,16 @@ class MMAddress {
     return map;
   }
 
-  // maps a json object with a list of MMAddress-objects as value to a dart map
-  static Map<String, List<MMAddress>> mapListFromJson(
+  // maps a json object with a list of MmAddress-objects as value to a dart map
+  static Map<String, List<MmAddress>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAddress>>{};
+    final map = <String, List<MmAddress>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddress.listFromJson(
+        final value = MmAddress.listFromJson(
           entry.value,
           growable: growable,
         );

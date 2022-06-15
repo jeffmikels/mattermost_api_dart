@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigGitLabSettings {
-  /// Returns a new [MMEnvironmentConfigGitLabSettings] instance.
-  MMEnvironmentConfigGitLabSettings({
+class MmEnvironmentConfigGitLabSettings {
+  /// Returns a new [MmEnvironmentConfigGitLabSettings] instance.
+  MmEnvironmentConfigGitLabSettings({
     this.enable,
     this.secret,
     this.id,
@@ -81,7 +81,7 @@ class MMEnvironmentConfigGitLabSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigGitLabSettings &&
+      other is MmEnvironmentConfigGitLabSettings &&
           other.enable == enable &&
           other.secret == secret &&
           other.id == id &&
@@ -103,7 +103,7 @@ class MMEnvironmentConfigGitLabSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
+      'MmEnvironmentConfigGitLabSettings[enable=$enable, secret=$secret, id=$id, scope=$scope, authEndpoint=$authEndpoint, tokenEndpoint=$tokenEndpoint, userApiEndpoint=$userApiEndpoint]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -131,10 +131,10 @@ class MMEnvironmentConfigGitLabSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigGitLabSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigGitLabSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigGitLabSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigGitLabSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -143,13 +143,13 @@ class MMEnvironmentConfigGitLabSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigGitLabSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigGitLabSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigGitLabSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigGitLabSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigGitLabSettings(
+      return MmEnvironmentConfigGitLabSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         secret: mapValueOfType<bool>(json, r'Secret'),
         id: mapValueOfType<bool>(json, r'Id'),
@@ -162,14 +162,14 @@ class MMEnvironmentConfigGitLabSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigGitLabSettings>? listFromJson(
+  static List<MmEnvironmentConfigGitLabSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigGitLabSettings>[];
+    final result = <MmEnvironmentConfigGitLabSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigGitLabSettings.fromJson(row);
+        final value = MmEnvironmentConfigGitLabSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -178,12 +178,12 @@ class MMEnvironmentConfigGitLabSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigGitLabSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigGitLabSettings>{};
+  static Map<String, MmEnvironmentConfigGitLabSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigGitLabSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigGitLabSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigGitLabSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -192,16 +192,16 @@ class MMEnvironmentConfigGitLabSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigGitLabSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigGitLabSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigGitLabSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigGitLabSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigGitLabSettings>>{};
+    final map = <String, List<MmEnvironmentConfigGitLabSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigGitLabSettings.listFromJson(
+        final value = MmEnvironmentConfigGitLabSettings.listFromJson(
           entry.value,
           growable: growable,
         );

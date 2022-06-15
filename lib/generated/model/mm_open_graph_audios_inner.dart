@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraphAudiosInner {
-  /// Returns a new [MMOpenGraphAudiosInner] instance.
-  MMOpenGraphAudiosInner({
+class MmOpenGraphAudiosInner {
+  /// Returns a new [MmOpenGraphAudiosInner] instance.
+  MmOpenGraphAudiosInner({
     this.url,
     this.secureUrl,
     this.type,
@@ -45,7 +45,7 @@ class MMOpenGraphAudiosInner {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMOpenGraphAudiosInner && other.url == url && other.secureUrl == secureUrl && other.type == type;
+      other is MmOpenGraphAudiosInner && other.url == url && other.secureUrl == secureUrl && other.type == type;
 
   @override
   int get hashCode =>
@@ -55,7 +55,7 @@ class MMOpenGraphAudiosInner {
       (type == null ? 0 : type!.hashCode);
 
   @override
-  String toString() => 'MMOpenGraphAudiosInner[url=$url, secureUrl=$secureUrl, type=$type]';
+  String toString() => 'MmOpenGraphAudiosInner[url=$url, secureUrl=$secureUrl, type=$type]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -71,10 +71,10 @@ class MMOpenGraphAudiosInner {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraphAudiosInner] instance and imports its values from
+  /// Returns a new [MmOpenGraphAudiosInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraphAudiosInner? fromJson(dynamic value) {
+  static MmOpenGraphAudiosInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -83,13 +83,13 @@ class MMOpenGraphAudiosInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraphAudiosInner[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraphAudiosInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraphAudiosInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraphAudiosInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraphAudiosInner(
+      return MmOpenGraphAudiosInner(
         url: mapValueOfType<String>(json, r'url'),
         secureUrl: mapValueOfType<String>(json, r'secure_url'),
         type: mapValueOfType<String>(json, r'type'),
@@ -98,14 +98,14 @@ class MMOpenGraphAudiosInner {
     return null;
   }
 
-  static List<MMOpenGraphAudiosInner>? listFromJson(
+  static List<MmOpenGraphAudiosInner>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraphAudiosInner>[];
+    final result = <MmOpenGraphAudiosInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraphAudiosInner.fromJson(row);
+        final value = MmOpenGraphAudiosInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -114,12 +114,12 @@ class MMOpenGraphAudiosInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraphAudiosInner> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraphAudiosInner>{};
+  static Map<String, MmOpenGraphAudiosInner> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraphAudiosInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphAudiosInner.fromJson(entry.value);
+        final value = MmOpenGraphAudiosInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,16 +128,16 @@ class MMOpenGraphAudiosInner {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraphAudiosInner-objects as value to a dart map
-  static Map<String, List<MMOpenGraphAudiosInner>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraphAudiosInner-objects as value to a dart map
+  static Map<String, List<MmOpenGraphAudiosInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraphAudiosInner>>{};
+    final map = <String, List<MmOpenGraphAudiosInner>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphAudiosInner.listFromJson(
+        final value = MmOpenGraphAudiosInner.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigSupportSettings {
-  /// Returns a new [MMConfigSupportSettings] instance.
-  MMConfigSupportSettings({
+class MmConfigSupportSettings {
+  /// Returns a new [MmConfigSupportSettings] instance.
+  MmConfigSupportSettings({
     this.termsOfServiceLink,
     this.privacyPolicyLink,
     this.aboutLink,
@@ -72,7 +72,7 @@ class MMConfigSupportSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigSupportSettings &&
+      other is MmConfigSupportSettings &&
           other.termsOfServiceLink == termsOfServiceLink &&
           other.privacyPolicyLink == privacyPolicyLink &&
           other.aboutLink == aboutLink &&
@@ -92,7 +92,7 @@ class MMConfigSupportSettings {
 
   @override
   String toString() =>
-      'MMConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
+      'MmConfigSupportSettings[termsOfServiceLink=$termsOfServiceLink, privacyPolicyLink=$privacyPolicyLink, aboutLink=$aboutLink, helpLink=$helpLink, reportAProblemLink=$reportAProblemLink, supportEmail=$supportEmail]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMConfigSupportSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigSupportSettings] instance and imports its values from
+  /// Returns a new [MmConfigSupportSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigSupportSettings? fromJson(dynamic value) {
+  static MmConfigSupportSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -129,13 +129,13 @@ class MMConfigSupportSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigSupportSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigSupportSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigSupportSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigSupportSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigSupportSettings(
+      return MmConfigSupportSettings(
         termsOfServiceLink: mapValueOfType<String>(json, r'TermsOfServiceLink'),
         privacyPolicyLink: mapValueOfType<String>(json, r'PrivacyPolicyLink'),
         aboutLink: mapValueOfType<String>(json, r'AboutLink'),
@@ -147,14 +147,14 @@ class MMConfigSupportSettings {
     return null;
   }
 
-  static List<MMConfigSupportSettings>? listFromJson(
+  static List<MmConfigSupportSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigSupportSettings>[];
+    final result = <MmConfigSupportSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigSupportSettings.fromJson(row);
+        final value = MmConfigSupportSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -163,12 +163,12 @@ class MMConfigSupportSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigSupportSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigSupportSettings>{};
+  static Map<String, MmConfigSupportSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigSupportSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSupportSettings.fromJson(entry.value);
+        final value = MmConfigSupportSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,16 +177,16 @@ class MMConfigSupportSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigSupportSettings-objects as value to a dart map
-  static Map<String, List<MMConfigSupportSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigSupportSettings-objects as value to a dart map
+  static Map<String, List<MmConfigSupportSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigSupportSettings>>{};
+    final map = <String, List<MmConfigSupportSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSupportSettings.listFromJson(
+        final value = MmConfigSupportSettings.listFromJson(
           entry.value,
           growable: growable,
         );

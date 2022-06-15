@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMVerifyUserEmailRequest
+// tests for MmVerifyUserEmailRequest
 void main() {
-  // final instance = MMVerifyUserEmailRequest();
+  // final instance = MmVerifyUserEmailRequest();
 
-  group('test MMVerifyUserEmailRequest', () {
+  group('test MmVerifyUserEmailRequest', () {
     // The token given to validate the email
     // String token
     test('to test the property `token`', () async {

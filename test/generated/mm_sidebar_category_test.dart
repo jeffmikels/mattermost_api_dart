@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSidebarCategory
+// tests for MmSidebarCategory
 void main() {
-  // final instance = MMSidebarCategory();
+  // final instance = MmSidebarCategory();
 
-  group('test MMSidebarCategory', () {
+  group('test MmSidebarCategory', () {
     // String id
     test('to test the property `id`', () async {
       // TODO

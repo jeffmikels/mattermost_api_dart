@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMOpenGraphRequest {
-  /// Returns a new [MMOpenGraphRequest] instance.
-  MMOpenGraphRequest({
+class MmOpenGraphRequest {
+  /// Returns a new [MmOpenGraphRequest] instance.
+  MmOpenGraphRequest({
     required this.url,
   });
 
@@ -20,7 +20,7 @@ class MMOpenGraphRequest {
   String url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MMOpenGraphRequest && other.url == url;
+  bool operator ==(Object other) => identical(this, other) || other is MmOpenGraphRequest && other.url == url;
 
   @override
   int get hashCode =>
@@ -28,7 +28,7 @@ class MMOpenGraphRequest {
       (url.hashCode);
 
   @override
-  String toString() => 'MMOpenGraphRequest[url=$url]';
+  String toString() => 'MmOpenGraphRequest[url=$url]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class MMOpenGraphRequest {
     return _json;
   }
 
-  /// Returns a new [MMOpenGraphRequest] instance and imports its values from
+  /// Returns a new [MmOpenGraphRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMOpenGraphRequest? fromJson(dynamic value) {
+  static MmOpenGraphRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,27 +48,27 @@ class MMOpenGraphRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMOpenGraphRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMOpenGraphRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmOpenGraphRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmOpenGraphRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMOpenGraphRequest(
+      return MmOpenGraphRequest(
         url: mapValueOfType<String>(json, r'url')!,
       );
     }
     return null;
   }
 
-  static List<MMOpenGraphRequest>? listFromJson(
+  static List<MmOpenGraphRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMOpenGraphRequest>[];
+    final result = <MmOpenGraphRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMOpenGraphRequest.fromJson(row);
+        final value = MmOpenGraphRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -77,12 +77,12 @@ class MMOpenGraphRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMOpenGraphRequest> mapFromJson(dynamic json) {
-    final map = <String, MMOpenGraphRequest>{};
+  static Map<String, MmOpenGraphRequest> mapFromJson(dynamic json) {
+    final map = <String, MmOpenGraphRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphRequest.fromJson(entry.value);
+        final value = MmOpenGraphRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -91,16 +91,16 @@ class MMOpenGraphRequest {
     return map;
   }
 
-  // maps a json object with a list of MMOpenGraphRequest-objects as value to a dart map
-  static Map<String, List<MMOpenGraphRequest>> mapListFromJson(
+  // maps a json object with a list of MmOpenGraphRequest-objects as value to a dart map
+  static Map<String, List<MmOpenGraphRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMOpenGraphRequest>>{};
+    final map = <String, List<MmOpenGraphRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMOpenGraphRequest.listFromJson(
+        final value = MmOpenGraphRequest.listFromJson(
           entry.value,
           growable: growable,
         );

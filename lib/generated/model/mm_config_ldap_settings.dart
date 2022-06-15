@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigLdapSettings {
-  /// Returns a new [MMConfigLdapSettings] instance.
-  MMConfigLdapSettings({
+class MmConfigLdapSettings {
+  /// Returns a new [MmConfigLdapSettings] instance.
+  MmConfigLdapSettings({
     this.enable,
     this.ldapServer,
     this.ldapPort,
@@ -198,7 +198,7 @@ class MMConfigLdapSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigLdapSettings &&
+      other is MmConfigLdapSettings &&
           other.enable == enable &&
           other.ldapServer == ldapServer &&
           other.ldapPort == ldapPort &&
@@ -246,7 +246,7 @@ class MMConfigLdapSettings {
 
   @override
   String toString() =>
-      'MMConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
+      'MmConfigLdapSettings[enable=$enable, ldapServer=$ldapServer, ldapPort=$ldapPort, connectionSecurity=$connectionSecurity, baseDN=$baseDN, bindUsername=$bindUsername, bindPassword=$bindPassword, userFilter=$userFilter, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, idAttribute=$idAttribute, positionAttribute=$positionAttribute, syncIntervalMinutes=$syncIntervalMinutes, skipCertificateVerification=$skipCertificateVerification, queryTimeout=$queryTimeout, maxPageSize=$maxPageSize, loginFieldName=$loginFieldName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -313,10 +313,10 @@ class MMConfigLdapSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigLdapSettings] instance and imports its values from
+  /// Returns a new [MmConfigLdapSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigLdapSettings? fromJson(dynamic value) {
+  static MmConfigLdapSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -325,13 +325,13 @@ class MMConfigLdapSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigLdapSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigLdapSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigLdapSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigLdapSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigLdapSettings(
+      return MmConfigLdapSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         ldapServer: mapValueOfType<String>(json, r'LdapServer'),
         ldapPort: mapValueOfType<int>(json, r'LdapPort'),
@@ -357,14 +357,14 @@ class MMConfigLdapSettings {
     return null;
   }
 
-  static List<MMConfigLdapSettings>? listFromJson(
+  static List<MmConfigLdapSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigLdapSettings>[];
+    final result = <MmConfigLdapSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigLdapSettings.fromJson(row);
+        final value = MmConfigLdapSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -373,12 +373,12 @@ class MMConfigLdapSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigLdapSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigLdapSettings>{};
+  static Map<String, MmConfigLdapSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigLdapSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigLdapSettings.fromJson(entry.value);
+        final value = MmConfigLdapSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -387,16 +387,16 @@ class MMConfigLdapSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigLdapSettings-objects as value to a dart map
-  static Map<String, List<MMConfigLdapSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigLdapSettings-objects as value to a dart map
+  static Map<String, List<MmConfigLdapSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigLdapSettings>>{};
+    final map = <String, List<MmConfigLdapSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigLdapSettings.listFromJson(
+        final value = MmConfigLdapSettings.listFromJson(
           entry.value,
           growable: growable,
         );

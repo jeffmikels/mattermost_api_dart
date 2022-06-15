@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConvertBotToUserRequest {
-  /// Returns a new [MMConvertBotToUserRequest] instance.
-  MMConvertBotToUserRequest({
+class MmConvertBotToUserRequest {
+  /// Returns a new [MmConvertBotToUserRequest] instance.
+  MmConvertBotToUserRequest({
     this.email,
     this.username,
     this.password,
@@ -103,12 +103,12 @@ class MMConvertBotToUserRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMUserNotifyProps? notifyProps;
+  MmUserNotifyProps? notifyProps;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConvertBotToUserRequest &&
+      other is MmConvertBotToUserRequest &&
           other.email == email &&
           other.username == username &&
           other.password == password &&
@@ -136,7 +136,7 @@ class MMConvertBotToUserRequest {
 
   @override
   String toString() =>
-      'MMConvertBotToUserRequest[email=$email, username=$username, password=$password, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
+      'MmConvertBotToUserRequest[email=$email, username=$username, password=$password, firstName=$firstName, lastName=$lastName, nickname=$nickname, locale=$locale, position=$position, props=$props, notifyProps=$notifyProps]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -173,10 +173,10 @@ class MMConvertBotToUserRequest {
     return _json;
   }
 
-  /// Returns a new [MMConvertBotToUserRequest] instance and imports its values from
+  /// Returns a new [MmConvertBotToUserRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConvertBotToUserRequest? fromJson(dynamic value) {
+  static MmConvertBotToUserRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -185,13 +185,13 @@ class MMConvertBotToUserRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConvertBotToUserRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConvertBotToUserRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConvertBotToUserRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConvertBotToUserRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConvertBotToUserRequest(
+      return MmConvertBotToUserRequest(
         email: mapValueOfType<String>(json, r'email'),
         username: mapValueOfType<String>(json, r'username'),
         password: mapValueOfType<String>(json, r'password'),
@@ -201,20 +201,20 @@ class MMConvertBotToUserRequest {
         locale: mapValueOfType<String>(json, r'locale'),
         position: mapValueOfType<String>(json, r'position'),
         props: mapValueOfType<Map>(json, r'props'),
-        notifyProps: MMUserNotifyProps.fromJson(json[r'notify_props']),
+        notifyProps: MmUserNotifyProps.fromJson(json[r'notify_props']),
       );
     }
     return null;
   }
 
-  static List<MMConvertBotToUserRequest>? listFromJson(
+  static List<MmConvertBotToUserRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConvertBotToUserRequest>[];
+    final result = <MmConvertBotToUserRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConvertBotToUserRequest.fromJson(row);
+        final value = MmConvertBotToUserRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -223,12 +223,12 @@ class MMConvertBotToUserRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConvertBotToUserRequest> mapFromJson(dynamic json) {
-    final map = <String, MMConvertBotToUserRequest>{};
+  static Map<String, MmConvertBotToUserRequest> mapFromJson(dynamic json) {
+    final map = <String, MmConvertBotToUserRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConvertBotToUserRequest.fromJson(entry.value);
+        final value = MmConvertBotToUserRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -237,16 +237,16 @@ class MMConvertBotToUserRequest {
     return map;
   }
 
-  // maps a json object with a list of MMConvertBotToUserRequest-objects as value to a dart map
-  static Map<String, List<MMConvertBotToUserRequest>> mapListFromJson(
+  // maps a json object with a list of MmConvertBotToUserRequest-objects as value to a dart map
+  static Map<String, List<MmConvertBotToUserRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConvertBotToUserRequest>>{};
+    final map = <String, List<MmConvertBotToUserRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConvertBotToUserRequest.listFromJson(
+        final value = MmConvertBotToUserRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigNativeAppSettings
+// tests for MmConfigNativeAppSettings
 void main() {
-  // final instance = MMConfigNativeAppSettings();
+  // final instance = MmConfigNativeAppSettings();
 
-  group('test MMConfigNativeAppSettings', () {
+  group('test MmConfigNativeAppSettings', () {
     // String appDownloadLink
     test('to test the property `appDownloadLink`', () async {
       // TODO

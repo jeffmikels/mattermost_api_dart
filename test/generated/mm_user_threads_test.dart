@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserThreads
+// tests for MmUserThreads
 void main() {
-  // final instance = MMUserThreads();
+  // final instance = MmUserThreads();
 
-  group('test MMUserThreads', () {
+  group('test MmUserThreads', () {
     // Total number of threads (used for paging)
     // int total
     test('to test the property `total`', () async {
@@ -23,7 +23,7 @@ void main() {
     });
 
     // Array of threads
-    // List<MMUserThread> threads (default value: const [])
+    // List<MmUserThread> threads (default value: const [])
     test('to test the property `threads`', () async {
       // TODO
     });

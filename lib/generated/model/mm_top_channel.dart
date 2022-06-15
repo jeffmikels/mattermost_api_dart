@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTopChannel {
-  /// Returns a new [MMTopChannel] instance.
-  MMTopChannel({
+class MmTopChannel {
+  /// Returns a new [MmTopChannel] instance.
+  MmTopChannel({
     this.id,
     this.type,
     this.displayName,
@@ -73,7 +73,7 @@ class MMTopChannel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMTopChannel &&
+      other is MmTopChannel &&
           other.id == id &&
           other.type == type &&
           other.displayName == displayName &&
@@ -93,7 +93,7 @@ class MMTopChannel {
 
   @override
   String toString() =>
-      'MMTopChannel[id=$id, type=$type, displayName=$displayName, name=$name, teamId=$teamId, messageCount=$messageCount]';
+      'MmTopChannel[id=$id, type=$type, displayName=$displayName, name=$name, teamId=$teamId, messageCount=$messageCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -118,10 +118,10 @@ class MMTopChannel {
     return _json;
   }
 
-  /// Returns a new [MMTopChannel] instance and imports its values from
+  /// Returns a new [MmTopChannel] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTopChannel? fromJson(dynamic value) {
+  static MmTopChannel? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -130,13 +130,13 @@ class MMTopChannel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTopChannel[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTopChannel[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTopChannel[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTopChannel[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTopChannel(
+      return MmTopChannel(
         id: mapValueOfType<String>(json, r'id'),
         type: mapValueOfType<String>(json, r'type'),
         displayName: mapValueOfType<String>(json, r'display_name'),
@@ -148,14 +148,14 @@ class MMTopChannel {
     return null;
   }
 
-  static List<MMTopChannel>? listFromJson(
+  static List<MmTopChannel>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTopChannel>[];
+    final result = <MmTopChannel>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTopChannel.fromJson(row);
+        final value = MmTopChannel.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -164,12 +164,12 @@ class MMTopChannel {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTopChannel> mapFromJson(dynamic json) {
-    final map = <String, MMTopChannel>{};
+  static Map<String, MmTopChannel> mapFromJson(dynamic json) {
+    final map = <String, MmTopChannel>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopChannel.fromJson(entry.value);
+        final value = MmTopChannel.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -178,16 +178,16 @@ class MMTopChannel {
     return map;
   }
 
-  // maps a json object with a list of MMTopChannel-objects as value to a dart map
-  static Map<String, List<MMTopChannel>> mapListFromJson(
+  // maps a json object with a list of MmTopChannel-objects as value to a dart map
+  static Map<String, List<MmTopChannel>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTopChannel>>{};
+    final map = <String, List<MmTopChannel>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopChannel.listFromJson(
+        final value = MmTopChannel.listFromJson(
           entry.value,
           growable: growable,
         );

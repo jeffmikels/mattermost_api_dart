@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUploadSession
+// tests for MmUploadSession
 void main() {
-  // final instance = MMUploadSession();
+  // final instance = MmUploadSession();
 
-  group('test MMUploadSession', () {
+  group('test MmUploadSession', () {
     // The unique identifier for the upload.
     // String id
     test('to test the property `id`', () async {

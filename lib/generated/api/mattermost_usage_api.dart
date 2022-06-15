@@ -27,7 +27,7 @@ class MattermostUsageApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -47,10 +47,10 @@ class MattermostUsageApi {
   /// Get current usage of posts
   ///
   /// Retrieve rounded off total no. of posts for this instance. Example: returns 4000 instead of 4321 ##### Permissions Must be authenticated. __Minimum server version__: 7.0
-  Future<MMPostsUsage?> getPostsUsage() async {
+  Future<MmPostsUsage?> getPostsUsage() async {
     final response = await getPostsUsageWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -58,8 +58,8 @@ class MattermostUsageApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMPostsUsage',
-      ) as MMPostsUsage;
+        'MmPostsUsage',
+      ) as MmPostsUsage;
     }
     return null;
   }

@@ -1,4 +1,4 @@
-# mattermost_api.model.MMEnvironmentConfig
+# mattermost_api.model.MmEnvironmentConfig
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,38 +10,38 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMEnvironmentConfig example = await client.environmentConfig.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmEnvironmentConfig example = await client.environmentConfig.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**serviceSettings** | [**MMEnvironmentConfigServiceSettings**](MMEnvironmentConfigServiceSettings.md) |  | [optional] 
-**teamSettings** | [**MMEnvironmentConfigTeamSettings**](MMEnvironmentConfigTeamSettings.md) |  | [optional] 
-**sqlSettings** | [**MMEnvironmentConfigSqlSettings**](MMEnvironmentConfigSqlSettings.md) |  | [optional] 
-**logSettings** | [**MMEnvironmentConfigLogSettings**](MMEnvironmentConfigLogSettings.md) |  | [optional] 
-**passwordSettings** | [**MMEnvironmentConfigPasswordSettings**](MMEnvironmentConfigPasswordSettings.md) |  | [optional] 
-**fileSettings** | [**MMEnvironmentConfigFileSettings**](MMEnvironmentConfigFileSettings.md) |  | [optional] 
-**emailSettings** | [**MMEnvironmentConfigEmailSettings**](MMEnvironmentConfigEmailSettings.md) |  | [optional] 
-**rateLimitSettings** | [**MMEnvironmentConfigRateLimitSettings**](MMEnvironmentConfigRateLimitSettings.md) |  | [optional] 
-**privacySettings** | [**MMConfigPrivacySettings**](MMConfigPrivacySettings.md) |  | [optional] 
-**supportSettings** | [**MMEnvironmentConfigSupportSettings**](MMEnvironmentConfigSupportSettings.md) |  | [optional] 
-**gitLabSettings** | [**MMEnvironmentConfigGitLabSettings**](MMEnvironmentConfigGitLabSettings.md) |  | [optional] 
-**googleSettings** | [**MMEnvironmentConfigGitLabSettings**](MMEnvironmentConfigGitLabSettings.md) |  | [optional] 
-**office365Settings** | [**MMEnvironmentConfigGitLabSettings**](MMEnvironmentConfigGitLabSettings.md) |  | [optional] 
-**ldapSettings** | [**MMEnvironmentConfigLdapSettings**](MMEnvironmentConfigLdapSettings.md) |  | [optional] 
-**complianceSettings** | [**MMEnvironmentConfigComplianceSettings**](MMEnvironmentConfigComplianceSettings.md) |  | [optional] 
-**localizationSettings** | [**MMEnvironmentConfigLocalizationSettings**](MMEnvironmentConfigLocalizationSettings.md) |  | [optional] 
-**samlSettings** | [**MMEnvironmentConfigSamlSettings**](MMEnvironmentConfigSamlSettings.md) |  | [optional] 
-**nativeAppSettings** | [**MMEnvironmentConfigNativeAppSettings**](MMEnvironmentConfigNativeAppSettings.md) |  | [optional] 
-**clusterSettings** | [**MMEnvironmentConfigClusterSettings**](MMEnvironmentConfigClusterSettings.md) |  | [optional] 
-**metricsSettings** | [**MMEnvironmentConfigMetricsSettings**](MMEnvironmentConfigMetricsSettings.md) |  | [optional] 
-**analyticsSettings** | [**MMEnvironmentConfigAnalyticsSettings**](MMEnvironmentConfigAnalyticsSettings.md) |  | [optional] 
+**serviceSettings** | [**MmEnvironmentConfigServiceSettings**](MmEnvironmentConfigServiceSettings.md) |  | [optional] 
+**teamSettings** | [**MmEnvironmentConfigTeamSettings**](MmEnvironmentConfigTeamSettings.md) |  | [optional] 
+**sqlSettings** | [**MmEnvironmentConfigSqlSettings**](MmEnvironmentConfigSqlSettings.md) |  | [optional] 
+**logSettings** | [**MmEnvironmentConfigLogSettings**](MmEnvironmentConfigLogSettings.md) |  | [optional] 
+**passwordSettings** | [**MmEnvironmentConfigPasswordSettings**](MmEnvironmentConfigPasswordSettings.md) |  | [optional] 
+**fileSettings** | [**MmEnvironmentConfigFileSettings**](MmEnvironmentConfigFileSettings.md) |  | [optional] 
+**emailSettings** | [**MmEnvironmentConfigEmailSettings**](MmEnvironmentConfigEmailSettings.md) |  | [optional] 
+**rateLimitSettings** | [**MmEnvironmentConfigRateLimitSettings**](MmEnvironmentConfigRateLimitSettings.md) |  | [optional] 
+**privacySettings** | [**MmConfigPrivacySettings**](MmConfigPrivacySettings.md) |  | [optional] 
+**supportSettings** | [**MmEnvironmentConfigSupportSettings**](MmEnvironmentConfigSupportSettings.md) |  | [optional] 
+**gitLabSettings** | [**MmEnvironmentConfigGitLabSettings**](MmEnvironmentConfigGitLabSettings.md) |  | [optional] 
+**googleSettings** | [**MmEnvironmentConfigGitLabSettings**](MmEnvironmentConfigGitLabSettings.md) |  | [optional] 
+**office365Settings** | [**MmEnvironmentConfigGitLabSettings**](MmEnvironmentConfigGitLabSettings.md) |  | [optional] 
+**ldapSettings** | [**MmEnvironmentConfigLdapSettings**](MmEnvironmentConfigLdapSettings.md) |  | [optional] 
+**complianceSettings** | [**MmEnvironmentConfigComplianceSettings**](MmEnvironmentConfigComplianceSettings.md) |  | [optional] 
+**localizationSettings** | [**MmEnvironmentConfigLocalizationSettings**](MmEnvironmentConfigLocalizationSettings.md) |  | [optional] 
+**samlSettings** | [**MmEnvironmentConfigSamlSettings**](MmEnvironmentConfigSamlSettings.md) |  | [optional] 
+**nativeAppSettings** | [**MmEnvironmentConfigNativeAppSettings**](MmEnvironmentConfigNativeAppSettings.md) |  | [optional] 
+**clusterSettings** | [**MmEnvironmentConfigClusterSettings**](MmEnvironmentConfigClusterSettings.md) |  | [optional] 
+**metricsSettings** | [**MmEnvironmentConfigMetricsSettings**](MmEnvironmentConfigMetricsSettings.md) |  | [optional] 
+**analyticsSettings** | [**MmEnvironmentConfigAnalyticsSettings**](MmEnvironmentConfigAnalyticsSettings.md) |  | [optional] 
 
 [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 

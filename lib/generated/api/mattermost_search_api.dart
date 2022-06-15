@@ -58,7 +58,7 @@ class MattermostSearchApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -131,7 +131,7 @@ class MattermostSearchApi {
   ///
   /// * [int] perPage:
   ///   The number of posts per page. (Only works with Elasticsearch)
-  Future<MMFileInfoList?> searchFiles(
+  Future<MmFileInfoList?> searchFiles(
     String teamId,
     String terms,
     bool isOrSearch, {
@@ -150,7 +150,7 @@ class MattermostSearchApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -158,8 +158,8 @@ class MattermostSearchApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMFileInfoList',
-      ) as MMFileInfoList;
+        'MmFileInfoList',
+      ) as MmFileInfoList;
     }
     return null;
   }

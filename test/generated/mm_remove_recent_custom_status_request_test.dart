@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRemoveRecentCustomStatusRequest
+// tests for MmRemoveRecentCustomStatusRequest
 void main() {
-  // final instance = MMRemoveRecentCustomStatusRequest();
+  // final instance = MmRemoveRecentCustomStatusRequest();
 
-  group('test MMRemoveRecentCustomStatusRequest', () {
+  group('test MmRemoveRecentCustomStatusRequest', () {
     // Any emoji
     // String emoji
     test('to test the property `emoji`', () async {

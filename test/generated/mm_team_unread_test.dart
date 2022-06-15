@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTeamUnread
+// tests for MmTeamUnread
 void main() {
-  // final instance = MMTeamUnread();
+  // final instance = MmTeamUnread();
 
-  group('test MMTeamUnread', () {
+  group('test MmTeamUnread', () {
     // String teamId
     test('to test the property `teamId`', () async {
       // TODO

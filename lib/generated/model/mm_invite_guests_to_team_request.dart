@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMInviteGuestsToTeamRequest {
-  /// Returns a new [MMInviteGuestsToTeamRequest] instance.
-  MMInviteGuestsToTeamRequest({
+class MmInviteGuestsToTeamRequest {
+  /// Returns a new [MmInviteGuestsToTeamRequest] instance.
+  MmInviteGuestsToTeamRequest({
     this.emails = const [],
     this.channels = const [],
     this.message,
@@ -36,7 +36,7 @@ class MMInviteGuestsToTeamRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMInviteGuestsToTeamRequest &&
+      other is MmInviteGuestsToTeamRequest &&
           other.emails == emails &&
           other.channels == channels &&
           other.message == message;
@@ -47,7 +47,7 @@ class MMInviteGuestsToTeamRequest {
       (emails.hashCode) + (channels.hashCode) + (message == null ? 0 : message!.hashCode);
 
   @override
-  String toString() => 'MMInviteGuestsToTeamRequest[emails=$emails, channels=$channels, message=$message]';
+  String toString() => 'MmInviteGuestsToTeamRequest[emails=$emails, channels=$channels, message=$message]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -59,10 +59,10 @@ class MMInviteGuestsToTeamRequest {
     return _json;
   }
 
-  /// Returns a new [MMInviteGuestsToTeamRequest] instance and imports its values from
+  /// Returns a new [MmInviteGuestsToTeamRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMInviteGuestsToTeamRequest? fromJson(dynamic value) {
+  static MmInviteGuestsToTeamRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,13 +71,13 @@ class MMInviteGuestsToTeamRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMInviteGuestsToTeamRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMInviteGuestsToTeamRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmInviteGuestsToTeamRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmInviteGuestsToTeamRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMInviteGuestsToTeamRequest(
+      return MmInviteGuestsToTeamRequest(
         emails: json[r'emails'] is List ? (json[r'emails'] as List).cast<String>() : const [],
         channels: json[r'channels'] is List ? (json[r'channels'] as List).cast<String>() : const [],
         message: mapValueOfType<String>(json, r'message'),
@@ -86,14 +86,14 @@ class MMInviteGuestsToTeamRequest {
     return null;
   }
 
-  static List<MMInviteGuestsToTeamRequest>? listFromJson(
+  static List<MmInviteGuestsToTeamRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMInviteGuestsToTeamRequest>[];
+    final result = <MmInviteGuestsToTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMInviteGuestsToTeamRequest.fromJson(row);
+        final value = MmInviteGuestsToTeamRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -102,12 +102,12 @@ class MMInviteGuestsToTeamRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMInviteGuestsToTeamRequest> mapFromJson(dynamic json) {
-    final map = <String, MMInviteGuestsToTeamRequest>{};
+  static Map<String, MmInviteGuestsToTeamRequest> mapFromJson(dynamic json) {
+    final map = <String, MmInviteGuestsToTeamRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInviteGuestsToTeamRequest.fromJson(entry.value);
+        final value = MmInviteGuestsToTeamRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -116,16 +116,16 @@ class MMInviteGuestsToTeamRequest {
     return map;
   }
 
-  // maps a json object with a list of MMInviteGuestsToTeamRequest-objects as value to a dart map
-  static Map<String, List<MMInviteGuestsToTeamRequest>> mapListFromJson(
+  // maps a json object with a list of MmInviteGuestsToTeamRequest-objects as value to a dart map
+  static Map<String, List<MmInviteGuestsToTeamRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMInviteGuestsToTeamRequest>>{};
+    final map = <String, List<MmInviteGuestsToTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMInviteGuestsToTeamRequest.listFromJson(
+        final value = MmInviteGuestsToTeamRequest.listFromJson(
           entry.value,
           growable: growable,
         );

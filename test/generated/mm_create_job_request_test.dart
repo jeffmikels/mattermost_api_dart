@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateJobRequest
+// tests for MmCreateJobRequest
 void main() {
-  // final instance = MMCreateJobRequest();
+  // final instance = MmCreateJobRequest();
 
-  group('test MMCreateJobRequest', () {
+  group('test MmCreateJobRequest', () {
     // The type of job to create
     // String type
     test('to test the property `type`', () async {

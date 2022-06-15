@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetRedirectLocation200Response
+// tests for MmGetRedirectLocation200Response
 void main() {
-  // final instance = MMGetRedirectLocation200Response();
+  // final instance = MmGetRedirectLocation200Response();
 
-  group('test MMGetRedirectLocation200Response', () {
+  group('test MmGetRedirectLocation200Response', () {
     // String location
     test('to test the property `location`', () async {
       // TODO

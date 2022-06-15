@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigMetricsSettings
+// tests for MmConfigMetricsSettings
 void main() {
-  // final instance = MMConfigMetricsSettings();
+  // final instance = MmConfigMetricsSettings();
 
-  group('test MMConfigMetricsSettings', () {
+  group('test MmConfigMetricsSettings', () {
     // bool enable
     test('to test the property `enable`', () async {
       // TODO

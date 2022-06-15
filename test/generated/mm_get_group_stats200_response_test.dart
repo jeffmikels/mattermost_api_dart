@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMGetGroupStats200Response
+// tests for MmGetGroupStats200Response
 void main() {
-  // final instance = MMGetGroupStats200Response();
+  // final instance = MmGetGroupStats200Response();
 
-  group('test MMGetGroupStats200Response', () {
+  group('test MmGetGroupStats200Response', () {
     // String groupId
     test('to test the property `groupId`', () async {
       // TODO

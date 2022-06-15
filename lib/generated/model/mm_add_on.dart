@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMAddOn {
-  /// Returns a new [MMAddOn] instance.
-  MMAddOn({
+class MmAddOn {
+  /// Returns a new [MmAddOn] instance.
+  MmAddOn({
     this.id,
     this.name,
     this.displayName,
@@ -54,7 +54,7 @@ class MMAddOn {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMAddOn &&
+      other is MmAddOn &&
           other.id == id &&
           other.name == name &&
           other.displayName == displayName &&
@@ -69,7 +69,7 @@ class MMAddOn {
       (pricePerSeat == null ? 0 : pricePerSeat!.hashCode);
 
   @override
-  String toString() => 'MMAddOn[id=$id, name=$name, displayName=$displayName, pricePerSeat=$pricePerSeat]';
+  String toString() => 'MmAddOn[id=$id, name=$name, displayName=$displayName, pricePerSeat=$pricePerSeat]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -88,10 +88,10 @@ class MMAddOn {
     return _json;
   }
 
-  /// Returns a new [MMAddOn] instance and imports its values from
+  /// Returns a new [MmAddOn] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMAddOn? fromJson(dynamic value) {
+  static MmAddOn? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -100,13 +100,13 @@ class MMAddOn {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMAddOn[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMAddOn[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmAddOn[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmAddOn[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMAddOn(
+      return MmAddOn(
         id: mapValueOfType<String>(json, r'id'),
         name: mapValueOfType<String>(json, r'name'),
         displayName: mapValueOfType<String>(json, r'display_name'),
@@ -116,14 +116,14 @@ class MMAddOn {
     return null;
   }
 
-  static List<MMAddOn>? listFromJson(
+  static List<MmAddOn>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMAddOn>[];
+    final result = <MmAddOn>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMAddOn.fromJson(row);
+        final value = MmAddOn.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -132,12 +132,12 @@ class MMAddOn {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMAddOn> mapFromJson(dynamic json) {
-    final map = <String, MMAddOn>{};
+  static Map<String, MmAddOn> mapFromJson(dynamic json) {
+    final map = <String, MmAddOn>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddOn.fromJson(entry.value);
+        final value = MmAddOn.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -146,16 +146,16 @@ class MMAddOn {
     return map;
   }
 
-  // maps a json object with a list of MMAddOn-objects as value to a dart map
-  static Map<String, List<MMAddOn>> mapListFromJson(
+  // maps a json object with a list of MmAddOn-objects as value to a dart map
+  static Map<String, List<MmAddOn>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMAddOn>>{};
+    final map = <String, List<MmAddOn>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMAddOn.listFromJson(
+        final value = MmAddOn.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMConfigSqlSettings
+// tests for MmConfigSqlSettings
 void main() {
-  // final instance = MMConfigSqlSettings();
+  // final instance = MmConfigSqlSettings();
 
-  group('test MMConfigSqlSettings', () {
+  group('test MmConfigSqlSettings', () {
     // String driverName
     test('to test the property `driverName`', () async {
       // TODO

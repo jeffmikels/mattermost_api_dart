@@ -27,7 +27,7 @@ class MattermostComplianceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -47,10 +47,10 @@ class MattermostComplianceApi {
   /// Create report
   ///
   /// Create and save a compliance report. ##### Permissions Must have `manage_system` permission.
-  Future<MMCompliance?> createComplianceReport() async {
+  Future<MmCompliance?> createComplianceReport() async {
     final response = await createComplianceReportWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -58,8 +58,8 @@ class MattermostComplianceApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCompliance',
-      ) as MMCompliance;
+        'MmCompliance',
+      ) as MmCompliance;
     }
     return null;
   }
@@ -83,7 +83,7 @@ class MattermostComplianceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -115,7 +115,7 @@ class MattermostComplianceApi {
       reportId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -138,7 +138,7 @@ class MattermostComplianceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -163,14 +163,14 @@ class MattermostComplianceApi {
   ///
   /// * [String] reportId (required):
   ///   Compliance report GUID
-  Future<MMCompliance?> getComplianceReport(
+  Future<MmCompliance?> getComplianceReport(
     String reportId,
   ) async {
     final response = await getComplianceReportWithHttpInfo(
       reportId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -178,8 +178,8 @@ class MattermostComplianceApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMCompliance',
-      ) as MMCompliance;
+        'MmCompliance',
+      ) as MmCompliance;
     }
     return null;
   }
@@ -207,7 +207,7 @@ class MattermostComplianceApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -242,7 +242,7 @@ class MattermostComplianceApi {
   ///
   /// * [int] perPage:
   ///   The number of reports per page.
-  Future<List<MMCompliance>?> getComplianceReports({
+  Future<List<MmCompliance>?> getComplianceReports({
     int? page,
     int? perPage,
   }) async {
@@ -251,15 +251,15 @@ class MattermostComplianceApi {
       perPage: perPage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMCompliance>') as List)
-          .cast<MMCompliance>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmCompliance>') as List)
+          .cast<MmCompliance>()
           .toList();
     }
     return null;

@@ -1,4 +1,4 @@
-# mattermost_api.model.MMChannelMemberWithTeamData
+# mattermost_api.model.MmChannelMemberWithTeamData
 
 ## Load the package and get an instance of this class.
 ```dart
@@ -10,11 +10,11 @@ import 'package:mattermost_api/api.dart';
 // example client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-MMChannelMemberWithTeamData example = await client.channelMemberWithTeamData.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MmChannelMemberWithTeamData example = await client.channelMemberWithTeamData.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **lastViewedAt** | **int** | The time in milliseconds the channel was last viewed by the user | [optional] 
 **msgCount** | **int** |  | [optional] 
 **mentionCount** | **int** |  | [optional] 
-**notifyProps** | [**MMChannelNotifyProps**](MMChannelNotifyProps.md) |  | [optional] 
+**notifyProps** | [**MmChannelNotifyProps**](MmChannelNotifyProps.md) |  | [optional] 
 **lastUpdateAt** | **int** | The time in milliseconds the channel member was last updated | [optional] 
 **teamDisplayName** | **String** | The display name of the team to which this channel belongs. | [optional] 
 **teamName** | **String** | The name of the team to which this channel belongs. | [optional] 

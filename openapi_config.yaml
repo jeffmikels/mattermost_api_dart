@@ -10,7 +10,7 @@ additionalProperties:
   apiClientName: MattermostApiClient # takes precedent over prefix/suffix defaults to ApiClient if not specified
   apiNamePrefix: Mattermost
   apiNameSuffix: Api
-  modelNamePrefix: MM
+  modelNamePrefix: Mm
   modelNameSuffix:
   
 readmeName: GENERATED_README

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphRequest
+// tests for MmOpenGraphRequest
 void main() {
-  // final instance = MMOpenGraphRequest();
+  // final instance = MmOpenGraphRequest();
 
-  group('test MMOpenGraphRequest', () {
+  group('test MmOpenGraphRequest', () {
     // The URL to get Open Graph Metadata.
     // String url
     test('to test the property `url`', () async {

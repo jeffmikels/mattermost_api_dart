@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDeleteGroupMembersRequest
+// tests for MmDeleteGroupMembersRequest
 void main() {
-  // final instance = MMDeleteGroupMembersRequest();
+  // final instance = MmDeleteGroupMembersRequest();
 
-  group('test MMDeleteGroupMembersRequest', () {
+  group('test MmDeleteGroupMembersRequest', () {
     // List<int> userIds (default value: const [])
     test('to test the property `userIds`', () async {
       // TODO

@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMChannelModeration
+// tests for MmChannelModeration
 void main() {
-  // final instance = MMChannelModeration();
+  // final instance = MmChannelModeration();
 
-  group('test MMChannelModeration', () {
+  group('test MmChannelModeration', () {
     // String name
     test('to test the property `name`', () async {
       // TODO
     });
 
-    // MMChannelModeratedRoles roles
+    // MmChannelModeratedRoles roles
     test('to test the property `roles`', () async {
       // TODO
     });

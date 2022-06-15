@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigGitLabSettings
+// tests for MmEnvironmentConfigGitLabSettings
 void main() {
-  // final instance = MMEnvironmentConfigGitLabSettings();
+  // final instance = MmEnvironmentConfigGitLabSettings();
 
-  group('test MMEnvironmentConfigGitLabSettings', () {
+  group('test MmEnvironmentConfigGitLabSettings', () {
     // bool enable
     test('to test the property `enable`', () async {
       // TODO

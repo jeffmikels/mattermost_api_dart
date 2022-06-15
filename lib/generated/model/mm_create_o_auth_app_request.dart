@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateOAuthAppRequest {
-  /// Returns a new [MMCreateOAuthAppRequest] instance.
-  MMCreateOAuthAppRequest({
+class MmCreateOAuthAppRequest {
+  /// Returns a new [MmCreateOAuthAppRequest] instance.
+  MmCreateOAuthAppRequest({
     required this.name,
     required this.description,
     this.iconUrl,
@@ -54,7 +54,7 @@ class MMCreateOAuthAppRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreateOAuthAppRequest &&
+      other is MmCreateOAuthAppRequest &&
           other.name == name &&
           other.description == description &&
           other.iconUrl == iconUrl &&
@@ -74,7 +74,7 @@ class MMCreateOAuthAppRequest {
 
   @override
   String toString() =>
-      'MMCreateOAuthAppRequest[name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
+      'MmCreateOAuthAppRequest[name=$name, description=$description, iconUrl=$iconUrl, callbackUrls=$callbackUrls, homepage=$homepage, isTrusted=$isTrusted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -91,10 +91,10 @@ class MMCreateOAuthAppRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateOAuthAppRequest] instance and imports its values from
+  /// Returns a new [MmCreateOAuthAppRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateOAuthAppRequest? fromJson(dynamic value) {
+  static MmCreateOAuthAppRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -103,13 +103,13 @@ class MMCreateOAuthAppRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateOAuthAppRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateOAuthAppRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateOAuthAppRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateOAuthAppRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateOAuthAppRequest(
+      return MmCreateOAuthAppRequest(
         name: mapValueOfType<String>(json, r'name')!,
         description: mapValueOfType<String>(json, r'description')!,
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
@@ -121,14 +121,14 @@ class MMCreateOAuthAppRequest {
     return null;
   }
 
-  static List<MMCreateOAuthAppRequest>? listFromJson(
+  static List<MmCreateOAuthAppRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateOAuthAppRequest>[];
+    final result = <MmCreateOAuthAppRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateOAuthAppRequest.fromJson(row);
+        final value = MmCreateOAuthAppRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -137,12 +137,12 @@ class MMCreateOAuthAppRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateOAuthAppRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateOAuthAppRequest>{};
+  static Map<String, MmCreateOAuthAppRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateOAuthAppRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateOAuthAppRequest.fromJson(entry.value);
+        final value = MmCreateOAuthAppRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -151,16 +151,16 @@ class MMCreateOAuthAppRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateOAuthAppRequest-objects as value to a dart map
-  static Map<String, List<MMCreateOAuthAppRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateOAuthAppRequest-objects as value to a dart map
+  static Map<String, List<MmCreateOAuthAppRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateOAuthAppRequest>>{};
+    final map = <String, List<MmCreateOAuthAppRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateOAuthAppRequest.listFromJson(
+        final value = MmCreateOAuthAppRequest.listFromJson(
           entry.value,
           growable: growable,
         );

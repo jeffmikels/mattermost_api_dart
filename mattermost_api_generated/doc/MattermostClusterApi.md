@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getClusterStatus**
-> List<MMClusterInfo> getClusterStatus()
+> List<MmClusterInfo> getClusterStatus()
 
 Get cluster status
 
@@ -28,24 +28,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final List&lt;MMClusterInfo&gt;? result = await client.cluster.getClusterStatus(); // await the Future<List&lt;MMClusterInfo&gt;?>
+  final List&lt;MmClusterInfo&gt;? result = await client.cluster.getClusterStatus(); // await the Future<List&lt;MmClusterInfo&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostClusterApi->getClusterStatus: $e\n');
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MMClusterInfo>**](MMClusterInfo.md)
+[**List<MmClusterInfo>**](MmClusterInfo.md)
 
 ### Authorization
 

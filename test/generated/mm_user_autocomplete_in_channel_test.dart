@@ -11,19 +11,19 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUserAutocompleteInChannel
+// tests for MmUserAutocompleteInChannel
 void main() {
-  // final instance = MMUserAutocompleteInChannel();
+  // final instance = MmUserAutocompleteInChannel();
 
-  group('test MMUserAutocompleteInChannel', () {
+  group('test MmUserAutocompleteInChannel', () {
     // A list of user objects in the channel
-    // List<MMUser> inChannel (default value: const [])
+    // List<MmUser> inChannel (default value: const [])
     test('to test the property `inChannel`', () async {
       // TODO
     });
 
     // A list of user objects not in the channel
-    // List<MMUser> outOfChannel (default value: const [])
+    // List<MmUser> outOfChannel (default value: const [])
     test('to test the property `outOfChannel`', () async {
       // TODO
     });

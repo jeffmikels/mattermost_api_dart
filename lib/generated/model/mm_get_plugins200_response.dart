@@ -10,21 +10,21 @@
 
 part of mattermost.api;
 
-class MMGetPlugins200Response {
-  /// Returns a new [MMGetPlugins200Response] instance.
-  MMGetPlugins200Response({
+class MmGetPlugins200Response {
+  /// Returns a new [MmGetPlugins200Response] instance.
+  MmGetPlugins200Response({
     this.active = const [],
     this.inactive = const [],
   });
 
-  List<MMPluginManifest> active;
+  List<MmPluginManifest> active;
 
-  List<MMPluginManifest> inactive;
+  List<MmPluginManifest> inactive;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMGetPlugins200Response && other.active == active && other.inactive == inactive;
+      other is MmGetPlugins200Response && other.active == active && other.inactive == inactive;
 
   @override
   int get hashCode =>
@@ -32,7 +32,7 @@ class MMGetPlugins200Response {
       (active.hashCode) + (inactive.hashCode);
 
   @override
-  String toString() => 'MMGetPlugins200Response[active=$active, inactive=$inactive]';
+  String toString() => 'MmGetPlugins200Response[active=$active, inactive=$inactive]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class MMGetPlugins200Response {
     return _json;
   }
 
-  /// Returns a new [MMGetPlugins200Response] instance and imports its values from
+  /// Returns a new [MmGetPlugins200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMGetPlugins200Response? fromJson(dynamic value) {
+  static MmGetPlugins200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,28 +53,28 @@ class MMGetPlugins200Response {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMGetPlugins200Response[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMGetPlugins200Response[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmGetPlugins200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmGetPlugins200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMGetPlugins200Response(
-        active: MMPluginManifest.listFromJson(json[r'active']) ?? const [],
-        inactive: MMPluginManifest.listFromJson(json[r'inactive']) ?? const [],
+      return MmGetPlugins200Response(
+        active: MmPluginManifest.listFromJson(json[r'active']) ?? const [],
+        inactive: MmPluginManifest.listFromJson(json[r'inactive']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMGetPlugins200Response>? listFromJson(
+  static List<MmGetPlugins200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMGetPlugins200Response>[];
+    final result = <MmGetPlugins200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMGetPlugins200Response.fromJson(row);
+        final value = MmGetPlugins200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -83,12 +83,12 @@ class MMGetPlugins200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMGetPlugins200Response> mapFromJson(dynamic json) {
-    final map = <String, MMGetPlugins200Response>{};
+  static Map<String, MmGetPlugins200Response> mapFromJson(dynamic json) {
+    final map = <String, MmGetPlugins200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetPlugins200Response.fromJson(entry.value);
+        final value = MmGetPlugins200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -97,16 +97,16 @@ class MMGetPlugins200Response {
     return map;
   }
 
-  // maps a json object with a list of MMGetPlugins200Response-objects as value to a dart map
-  static Map<String, List<MMGetPlugins200Response>> mapListFromJson(
+  // maps a json object with a list of MmGetPlugins200Response-objects as value to a dart map
+  static Map<String, List<MmGetPlugins200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMGetPlugins200Response>>{};
+    final map = <String, List<MmGetPlugins200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMGetPlugins200Response.listFromJson(
+        final value = MmGetPlugins200Response.listFromJson(
           entry.value,
           growable: growable,
         );

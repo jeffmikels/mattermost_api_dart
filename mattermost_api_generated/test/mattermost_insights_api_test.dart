@@ -21,7 +21,7 @@ void main() {
     //
     // Get a list of the top public and private channels (the user is a member of) for a given team. ##### Permissions Must have `view_team` permission for the team. 
     //
-    //Future<MMTopChannelList> getTopChannelsForTeam(String teamId, String timeRange, { int page, int perPage }) async
+    //Future<MmTopChannelList> getTopChannelsForTeam(String teamId, String timeRange, { int page, int perPage }) async
     test('test getTopChannelsForTeam', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Get a list of the top public and private channels (the user is a member of) for a given user. ##### Permissions Must be logged in as the user. 
     //
-    //Future<MMTopReactionList> getTopChannelsForUser(String userId, String timeRange, { int page, int perPage, String teamId }) async
+    //Future<MmTopReactionList> getTopChannelsForUser(String userId, String timeRange, { int page, int perPage, String teamId }) async
     test('test getTopChannelsForUser', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get a list of the top reactions across all public and private channels (the user is a member of) for a given team. ##### Permissions Must have `view_team` permission for the team. 
     //
-    //Future<MMTopReactionList> getTopReactionsForTeam(String teamId, String timeRange, { int page, int perPage }) async
+    //Future<MmTopReactionList> getTopReactionsForTeam(String teamId, String timeRange, { int page, int perPage }) async
     test('test getTopReactionsForTeam', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Get a list of the top reactions across all public and private channels (the user is a member of) for a given user. If no `team_id` is provided, this will also include reactions posted by the given user in direct and group messages. ##### Permissions Must be logged in as the user. 
     //
-    //Future<MMTopReactionList> getTopReactionsForUser(String userId, String timeRange, { int page, int perPage, String teamId }) async
+    //Future<MmTopReactionList> getTopReactionsForUser(String userId, String timeRange, { int page, int perPage, String teamId }) async
     test('test getTopReactionsForUser', () async {
       // TODO
     });

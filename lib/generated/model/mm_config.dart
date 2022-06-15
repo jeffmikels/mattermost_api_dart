@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfig {
-  /// Returns a new [MMConfig] instance.
-  MMConfig({
+class MmConfig {
+  /// Returns a new [MmConfig] instance.
+  MmConfig({
     this.serviceSettings,
     this.teamSettings,
     this.sqlSettings,
@@ -42,7 +42,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigServiceSettings? serviceSettings;
+  MmConfigServiceSettings? serviceSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -50,7 +50,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigTeamSettings? teamSettings;
+  MmConfigTeamSettings? teamSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -58,7 +58,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigSqlSettings? sqlSettings;
+  MmConfigSqlSettings? sqlSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -66,7 +66,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigLogSettings? logSettings;
+  MmConfigLogSettings? logSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -74,7 +74,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigPasswordSettings? passwordSettings;
+  MmConfigPasswordSettings? passwordSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -82,7 +82,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigFileSettings? fileSettings;
+  MmConfigFileSettings? fileSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -90,7 +90,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigEmailSettings? emailSettings;
+  MmConfigEmailSettings? emailSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -98,7 +98,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigRateLimitSettings? rateLimitSettings;
+  MmConfigRateLimitSettings? rateLimitSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -106,7 +106,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigPrivacySettings? privacySettings;
+  MmConfigPrivacySettings? privacySettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -114,7 +114,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigSupportSettings? supportSettings;
+  MmConfigSupportSettings? supportSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -122,7 +122,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigGitLabSettings? gitLabSettings;
+  MmConfigGitLabSettings? gitLabSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -130,7 +130,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigGitLabSettings? googleSettings;
+  MmConfigGitLabSettings? googleSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -138,7 +138,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigGitLabSettings? office365Settings;
+  MmConfigGitLabSettings? office365Settings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -146,7 +146,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigLdapSettings? ldapSettings;
+  MmConfigLdapSettings? ldapSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -154,7 +154,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigComplianceSettings? complianceSettings;
+  MmConfigComplianceSettings? complianceSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -162,7 +162,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigLocalizationSettings? localizationSettings;
+  MmConfigLocalizationSettings? localizationSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -170,7 +170,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigSamlSettings? samlSettings;
+  MmConfigSamlSettings? samlSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -178,7 +178,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigNativeAppSettings? nativeAppSettings;
+  MmConfigNativeAppSettings? nativeAppSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -186,7 +186,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigClusterSettings? clusterSettings;
+  MmConfigClusterSettings? clusterSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -194,7 +194,7 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigMetricsSettings? metricsSettings;
+  MmConfigMetricsSettings? metricsSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -202,12 +202,12 @@ class MMConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigAnalyticsSettings? analyticsSettings;
+  MmConfigAnalyticsSettings? analyticsSettings;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfig &&
+      other is MmConfig &&
           other.serviceSettings == serviceSettings &&
           other.teamSettings == teamSettings &&
           other.sqlSettings == sqlSettings &&
@@ -257,7 +257,7 @@ class MMConfig {
 
   @override
   String toString() =>
-      'MMConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
+      'MmConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -327,10 +327,10 @@ class MMConfig {
     return _json;
   }
 
-  /// Returns a new [MMConfig] instance and imports its values from
+  /// Returns a new [MmConfig] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfig? fromJson(dynamic value) {
+  static MmConfig? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -339,47 +339,47 @@ class MMConfig {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfig[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfig[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfig[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfig[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfig(
-        serviceSettings: MMConfigServiceSettings.fromJson(json[r'ServiceSettings']),
-        teamSettings: MMConfigTeamSettings.fromJson(json[r'TeamSettings']),
-        sqlSettings: MMConfigSqlSettings.fromJson(json[r'SqlSettings']),
-        logSettings: MMConfigLogSettings.fromJson(json[r'LogSettings']),
-        passwordSettings: MMConfigPasswordSettings.fromJson(json[r'PasswordSettings']),
-        fileSettings: MMConfigFileSettings.fromJson(json[r'FileSettings']),
-        emailSettings: MMConfigEmailSettings.fromJson(json[r'EmailSettings']),
-        rateLimitSettings: MMConfigRateLimitSettings.fromJson(json[r'RateLimitSettings']),
-        privacySettings: MMConfigPrivacySettings.fromJson(json[r'PrivacySettings']),
-        supportSettings: MMConfigSupportSettings.fromJson(json[r'SupportSettings']),
-        gitLabSettings: MMConfigGitLabSettings.fromJson(json[r'GitLabSettings']),
-        googleSettings: MMConfigGitLabSettings.fromJson(json[r'GoogleSettings']),
-        office365Settings: MMConfigGitLabSettings.fromJson(json[r'Office365Settings']),
-        ldapSettings: MMConfigLdapSettings.fromJson(json[r'LdapSettings']),
-        complianceSettings: MMConfigComplianceSettings.fromJson(json[r'ComplianceSettings']),
-        localizationSettings: MMConfigLocalizationSettings.fromJson(json[r'LocalizationSettings']),
-        samlSettings: MMConfigSamlSettings.fromJson(json[r'SamlSettings']),
-        nativeAppSettings: MMConfigNativeAppSettings.fromJson(json[r'NativeAppSettings']),
-        clusterSettings: MMConfigClusterSettings.fromJson(json[r'ClusterSettings']),
-        metricsSettings: MMConfigMetricsSettings.fromJson(json[r'MetricsSettings']),
-        analyticsSettings: MMConfigAnalyticsSettings.fromJson(json[r'AnalyticsSettings']),
+      return MmConfig(
+        serviceSettings: MmConfigServiceSettings.fromJson(json[r'ServiceSettings']),
+        teamSettings: MmConfigTeamSettings.fromJson(json[r'TeamSettings']),
+        sqlSettings: MmConfigSqlSettings.fromJson(json[r'SqlSettings']),
+        logSettings: MmConfigLogSettings.fromJson(json[r'LogSettings']),
+        passwordSettings: MmConfigPasswordSettings.fromJson(json[r'PasswordSettings']),
+        fileSettings: MmConfigFileSettings.fromJson(json[r'FileSettings']),
+        emailSettings: MmConfigEmailSettings.fromJson(json[r'EmailSettings']),
+        rateLimitSettings: MmConfigRateLimitSettings.fromJson(json[r'RateLimitSettings']),
+        privacySettings: MmConfigPrivacySettings.fromJson(json[r'PrivacySettings']),
+        supportSettings: MmConfigSupportSettings.fromJson(json[r'SupportSettings']),
+        gitLabSettings: MmConfigGitLabSettings.fromJson(json[r'GitLabSettings']),
+        googleSettings: MmConfigGitLabSettings.fromJson(json[r'GoogleSettings']),
+        office365Settings: MmConfigGitLabSettings.fromJson(json[r'Office365Settings']),
+        ldapSettings: MmConfigLdapSettings.fromJson(json[r'LdapSettings']),
+        complianceSettings: MmConfigComplianceSettings.fromJson(json[r'ComplianceSettings']),
+        localizationSettings: MmConfigLocalizationSettings.fromJson(json[r'LocalizationSettings']),
+        samlSettings: MmConfigSamlSettings.fromJson(json[r'SamlSettings']),
+        nativeAppSettings: MmConfigNativeAppSettings.fromJson(json[r'NativeAppSettings']),
+        clusterSettings: MmConfigClusterSettings.fromJson(json[r'ClusterSettings']),
+        metricsSettings: MmConfigMetricsSettings.fromJson(json[r'MetricsSettings']),
+        analyticsSettings: MmConfigAnalyticsSettings.fromJson(json[r'AnalyticsSettings']),
       );
     }
     return null;
   }
 
-  static List<MMConfig>? listFromJson(
+  static List<MmConfig>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfig>[];
+    final result = <MmConfig>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfig.fromJson(row);
+        final value = MmConfig.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -388,12 +388,12 @@ class MMConfig {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfig> mapFromJson(dynamic json) {
-    final map = <String, MMConfig>{};
+  static Map<String, MmConfig> mapFromJson(dynamic json) {
+    final map = <String, MmConfig>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfig.fromJson(entry.value);
+        final value = MmConfig.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -402,16 +402,16 @@ class MMConfig {
     return map;
   }
 
-  // maps a json object with a list of MMConfig-objects as value to a dart map
-  static Map<String, List<MMConfig>> mapListFromJson(
+  // maps a json object with a list of MmConfig-objects as value to a dart map
+  static Map<String, List<MmConfig>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfig>>{};
+    final map = <String, List<MmConfig>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfig.listFromJson(
+        final value = MmConfig.listFromJson(
           entry.value,
           growable: growable,
         );

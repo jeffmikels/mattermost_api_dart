@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMCreateBotRequest {
-  /// Returns a new [MMCreateBotRequest] instance.
-  MMCreateBotRequest({
+class MmCreateBotRequest {
+  /// Returns a new [MmCreateBotRequest] instance.
+  MmCreateBotRequest({
     required this.username,
     this.displayName,
     this.description,
@@ -39,7 +39,7 @@ class MMCreateBotRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMCreateBotRequest &&
+      other is MmCreateBotRequest &&
           other.username == username &&
           other.displayName == displayName &&
           other.description == description;
@@ -52,7 +52,7 @@ class MMCreateBotRequest {
       (description == null ? 0 : description!.hashCode);
 
   @override
-  String toString() => 'MMCreateBotRequest[username=$username, displayName=$displayName, description=$description]';
+  String toString() => 'MmCreateBotRequest[username=$username, displayName=$displayName, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -66,10 +66,10 @@ class MMCreateBotRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateBotRequest] instance and imports its values from
+  /// Returns a new [MmCreateBotRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateBotRequest? fromJson(dynamic value) {
+  static MmCreateBotRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -78,13 +78,13 @@ class MMCreateBotRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateBotRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateBotRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateBotRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateBotRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateBotRequest(
+      return MmCreateBotRequest(
         username: mapValueOfType<String>(json, r'username')!,
         displayName: mapValueOfType<String>(json, r'display_name'),
         description: mapValueOfType<String>(json, r'description'),
@@ -93,14 +93,14 @@ class MMCreateBotRequest {
     return null;
   }
 
-  static List<MMCreateBotRequest>? listFromJson(
+  static List<MmCreateBotRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateBotRequest>[];
+    final result = <MmCreateBotRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateBotRequest.fromJson(row);
+        final value = MmCreateBotRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -109,12 +109,12 @@ class MMCreateBotRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateBotRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateBotRequest>{};
+  static Map<String, MmCreateBotRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateBotRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateBotRequest.fromJson(entry.value);
+        final value = MmCreateBotRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,16 +123,16 @@ class MMCreateBotRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateBotRequest-objects as value to a dart map
-  static Map<String, List<MMCreateBotRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateBotRequest-objects as value to a dart map
+  static Map<String, List<MmCreateBotRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateBotRequest>>{};
+    final map = <String, List<MmCreateBotRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateBotRequest.listFromJson(
+        final value = MmCreateBotRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMBot
+// tests for MmBot
 void main() {
-  // final instance = MMBot();
+  // final instance = MmBot();
 
-  group('test MMBot', () {
+  group('test MmBot', () {
     // The user id of the associated user entry.
     // String userId
     test('to test the property `userId`', () async {

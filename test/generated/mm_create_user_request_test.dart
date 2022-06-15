@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMCreateUserRequest
+// tests for MmCreateUserRequest
 void main() {
-  // final instance = MMCreateUserRequest();
+  // final instance = MmCreateUserRequest();
 
-  group('test MMCreateUserRequest', () {
+  group('test MmCreateUserRequest', () {
     // String email
     test('to test the property `email`', () async {
       // TODO
@@ -69,7 +69,7 @@ void main() {
       // TODO
     });
 
-    // MMUserNotifyProps notifyProps
+    // MmUserNotifyProps notifyProps
     test('to test the property `notifyProps`', () async {
       // TODO
     });

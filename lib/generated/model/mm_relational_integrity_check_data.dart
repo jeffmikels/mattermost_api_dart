@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRelationalIntegrityCheckData {
-  /// Returns a new [MMRelationalIntegrityCheckData] instance.
-  MMRelationalIntegrityCheckData({
+class MmRelationalIntegrityCheckData {
+  /// Returns a new [MmRelationalIntegrityCheckData] instance.
+  MmRelationalIntegrityCheckData({
     this.parentName,
     this.childName,
     this.parentIdAttr,
@@ -57,12 +57,12 @@ class MMRelationalIntegrityCheckData {
   String? childIdAttr;
 
   /// the list of orphaned records found.
-  List<MMOrphanedRecord> records;
+  List<MmOrphanedRecord> records;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRelationalIntegrityCheckData &&
+      other is MmRelationalIntegrityCheckData &&
           other.parentName == parentName &&
           other.childName == childName &&
           other.parentIdAttr == parentIdAttr &&
@@ -80,7 +80,7 @@ class MMRelationalIntegrityCheckData {
 
   @override
   String toString() =>
-      'MMRelationalIntegrityCheckData[parentName=$parentName, childName=$childName, parentIdAttr=$parentIdAttr, childIdAttr=$childIdAttr, records=$records]';
+      'MmRelationalIntegrityCheckData[parentName=$parentName, childName=$childName, parentIdAttr=$parentIdAttr, childIdAttr=$childIdAttr, records=$records]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -100,10 +100,10 @@ class MMRelationalIntegrityCheckData {
     return _json;
   }
 
-  /// Returns a new [MMRelationalIntegrityCheckData] instance and imports its values from
+  /// Returns a new [MmRelationalIntegrityCheckData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRelationalIntegrityCheckData? fromJson(dynamic value) {
+  static MmRelationalIntegrityCheckData? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -112,31 +112,31 @@ class MMRelationalIntegrityCheckData {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRelationalIntegrityCheckData[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRelationalIntegrityCheckData[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRelationalIntegrityCheckData[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRelationalIntegrityCheckData[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRelationalIntegrityCheckData(
+      return MmRelationalIntegrityCheckData(
         parentName: mapValueOfType<String>(json, r'parent_name'),
         childName: mapValueOfType<String>(json, r'child_name'),
         parentIdAttr: mapValueOfType<String>(json, r'parent_id_attr'),
         childIdAttr: mapValueOfType<String>(json, r'child_id_attr'),
-        records: MMOrphanedRecord.listFromJson(json[r'records']) ?? const [],
+        records: MmOrphanedRecord.listFromJson(json[r'records']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMRelationalIntegrityCheckData>? listFromJson(
+  static List<MmRelationalIntegrityCheckData>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRelationalIntegrityCheckData>[];
+    final result = <MmRelationalIntegrityCheckData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRelationalIntegrityCheckData.fromJson(row);
+        final value = MmRelationalIntegrityCheckData.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -145,12 +145,12 @@ class MMRelationalIntegrityCheckData {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRelationalIntegrityCheckData> mapFromJson(dynamic json) {
-    final map = <String, MMRelationalIntegrityCheckData>{};
+  static Map<String, MmRelationalIntegrityCheckData> mapFromJson(dynamic json) {
+    final map = <String, MmRelationalIntegrityCheckData>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRelationalIntegrityCheckData.fromJson(entry.value);
+        final value = MmRelationalIntegrityCheckData.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -159,16 +159,16 @@ class MMRelationalIntegrityCheckData {
     return map;
   }
 
-  // maps a json object with a list of MMRelationalIntegrityCheckData-objects as value to a dart map
-  static Map<String, List<MMRelationalIntegrityCheckData>> mapListFromJson(
+  // maps a json object with a list of MmRelationalIntegrityCheckData-objects as value to a dart map
+  static Map<String, List<MmRelationalIntegrityCheckData>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRelationalIntegrityCheckData>>{};
+    final map = <String, List<MmRelationalIntegrityCheckData>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRelationalIntegrityCheckData.listFromJson(
+        final value = MmRelationalIntegrityCheckData.listFromJson(
           entry.value,
           growable: growable,
         );

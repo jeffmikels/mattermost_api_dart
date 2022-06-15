@@ -39,7 +39,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -67,7 +67,7 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   The user ID to assign the bot to.
-  Future<MMBot?> assignBot(
+  Future<MmBot?> assignBot(
     String botUserId,
     String userId,
   ) async {
@@ -76,7 +76,7 @@ class MattermostBotsApi {
       userId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -84,8 +84,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -101,23 +101,23 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
+  /// * [MmConvertBotToUserRequest] mmConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
   Future<Response> convertBotToUserWithHttpInfo(
     String botUserId,
-    MMConvertBotToUserRequest mMConvertBotToUserRequest, {
+    MmConvertBotToUserRequest mmConvertBotToUserRequest, {
     bool? setSystemAdmin,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/bots/{bot_user_id}/convert_to_user'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMConvertBotToUserRequest;
+    Object? postBody = mmConvertBotToUserRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -147,23 +147,23 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MMConvertBotToUserRequest] mMConvertBotToUserRequest (required):
+  /// * [MmConvertBotToUserRequest] mmConvertBotToUserRequest (required):
   ///   Data to be used in the user creation
   ///
   /// * [bool] setSystemAdmin:
   ///   Whether to give the user the system admin role.
-  Future<MMStatusOK?> convertBotToUser(
+  Future<MmStatusOK?> convertBotToUser(
     String botUserId,
-    MMConvertBotToUserRequest mMConvertBotToUserRequest, {
+    MmConvertBotToUserRequest mmConvertBotToUserRequest, {
     bool? setSystemAdmin,
   }) async {
     final response = await convertBotToUserWithHttpInfo(
       botUserId,
-      mMConvertBotToUserRequest,
+      mmConvertBotToUserRequest,
       setSystemAdmin: setSystemAdmin,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -171,8 +171,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -196,7 +196,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -221,14 +221,14 @@ class MattermostBotsApi {
   ///
   /// * [String] userId (required):
   ///   User GUID
-  Future<MMStatusOK?> convertUserToBot(
+  Future<MmStatusOK?> convertUserToBot(
     String userId,
   ) async {
     final response = await convertUserToBotWithHttpInfo(
       userId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -236,8 +236,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -250,18 +250,18 @@ class MattermostBotsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
+  /// * [MmCreateBotRequest] mmCreateBotRequest (required):
   ///   Bot to be created
   Future<Response> createBotWithHttpInfo(
-    MMCreateBotRequest mMCreateBotRequest,
+    MmCreateBotRequest mmCreateBotRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/bots';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateBotRequest;
+    Object? postBody = mmCreateBotRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -284,16 +284,16 @@ class MattermostBotsApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
+  /// * [MmCreateBotRequest] mmCreateBotRequest (required):
   ///   Bot to be created
-  Future<MMBot?> createBot(
-    MMCreateBotRequest mMCreateBotRequest,
+  Future<MmBot?> createBot(
+    MmCreateBotRequest mmCreateBotRequest,
   ) async {
     final response = await createBotWithHttpInfo(
-      mMCreateBotRequest,
+      mmCreateBotRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -301,8 +301,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -326,7 +326,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -351,14 +351,14 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MMStatusOK?> deleteBotIconImage(
+  Future<MmStatusOK?> deleteBotIconImage(
     String botUserId,
   ) async {
     final response = await deleteBotIconImageWithHttpInfo(
       botUserId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -366,8 +366,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -391,7 +391,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -416,14 +416,14 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MMBot?> disableBot(
+  Future<MmBot?> disableBot(
     String botUserId,
   ) async {
     final response = await disableBotWithHttpInfo(
       botUserId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -431,8 +431,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -456,7 +456,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -481,14 +481,14 @@ class MattermostBotsApi {
   ///
   /// * [String] botUserId (required):
   ///   Bot user ID
-  Future<MMBot?> enableBot(
+  Future<MmBot?> enableBot(
     String botUserId,
   ) async {
     final response = await enableBotWithHttpInfo(
       botUserId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -496,8 +496,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -525,7 +525,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -557,7 +557,7 @@ class MattermostBotsApi {
   ///
   /// * [bool] includeDeleted:
   ///   If deleted bots should be returned.
-  Future<MMBot?> getBot(
+  Future<MmBot?> getBot(
     String botUserId, {
     bool? includeDeleted,
   }) async {
@@ -566,7 +566,7 @@ class MattermostBotsApi {
       includeDeleted: includeDeleted,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -574,8 +574,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -599,7 +599,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -631,7 +631,7 @@ class MattermostBotsApi {
       botUserId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
@@ -666,7 +666,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -713,7 +713,7 @@ class MattermostBotsApi {
   ///
   /// * [bool] onlyOrphaned:
   ///   When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
-  Future<List<MMBot>?> getBots({
+  Future<List<MmBot>?> getBots({
     int? page,
     int? perPage,
     bool? includeDeleted,
@@ -726,14 +726,14 @@ class MattermostBotsApi {
       onlyOrphaned: onlyOrphaned,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMBot>') as List).cast<MMBot>().toList();
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmBot>') as List).cast<MmBot>().toList();
     }
     return null;
   }
@@ -749,19 +749,19 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
+  /// * [MmCreateBotRequest] mmCreateBotRequest (required):
   ///   Bot to be created
   Future<Response> patchBotWithHttpInfo(
     String botUserId,
-    MMCreateBotRequest mMCreateBotRequest,
+    MmCreateBotRequest mmCreateBotRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/bots/{bot_user_id}'.replaceAll('{bot_user_id}', botUserId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateBotRequest;
+    Object? postBody = mmCreateBotRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -787,18 +787,18 @@ class MattermostBotsApi {
   /// * [String] botUserId (required):
   ///   Bot user ID
   ///
-  /// * [MMCreateBotRequest] mMCreateBotRequest (required):
+  /// * [MmCreateBotRequest] mmCreateBotRequest (required):
   ///   Bot to be created
-  Future<MMBot?> patchBot(
+  Future<MmBot?> patchBot(
     String botUserId,
-    MMCreateBotRequest mMCreateBotRequest,
+    MmCreateBotRequest mmCreateBotRequest,
   ) async {
     final response = await patchBotWithHttpInfo(
       botUserId,
-      mMCreateBotRequest,
+      mmCreateBotRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -806,8 +806,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMBot',
-      ) as MMBot;
+        'MmBot',
+      ) as MmBot;
     }
     return null;
   }
@@ -835,7 +835,7 @@ class MattermostBotsApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -874,7 +874,7 @@ class MattermostBotsApi {
   ///
   /// * [MultipartFile] image (required):
   ///   SVG icon image to be uploaded
-  Future<MMStatusOK?> setBotIconImage(
+  Future<MmStatusOK?> setBotIconImage(
     String botUserId,
     MultipartFile image,
   ) async {
@@ -883,7 +883,7 @@ class MattermostBotsApi {
       image,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -891,8 +891,8 @@ class MattermostBotsApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }

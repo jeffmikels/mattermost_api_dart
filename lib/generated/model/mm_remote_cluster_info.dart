@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMRemoteClusterInfo {
-  /// Returns a new [MMRemoteClusterInfo] instance.
-  MMRemoteClusterInfo({
+class MmRemoteClusterInfo {
+  /// Returns a new [MmRemoteClusterInfo] instance.
+  MmRemoteClusterInfo({
     this.displayName,
     this.createAt,
     this.lastPingAt,
@@ -48,7 +48,7 @@ class MMRemoteClusterInfo {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRemoteClusterInfo &&
+      other is MmRemoteClusterInfo &&
           other.displayName == displayName &&
           other.createAt == createAt &&
           other.lastPingAt == lastPingAt;
@@ -61,7 +61,7 @@ class MMRemoteClusterInfo {
       (lastPingAt == null ? 0 : lastPingAt!.hashCode);
 
   @override
-  String toString() => 'MMRemoteClusterInfo[displayName=$displayName, createAt=$createAt, lastPingAt=$lastPingAt]';
+  String toString() => 'MmRemoteClusterInfo[displayName=$displayName, createAt=$createAt, lastPingAt=$lastPingAt]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -77,10 +77,10 @@ class MMRemoteClusterInfo {
     return _json;
   }
 
-  /// Returns a new [MMRemoteClusterInfo] instance and imports its values from
+  /// Returns a new [MmRemoteClusterInfo] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRemoteClusterInfo? fromJson(dynamic value) {
+  static MmRemoteClusterInfo? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -89,13 +89,13 @@ class MMRemoteClusterInfo {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRemoteClusterInfo[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRemoteClusterInfo[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRemoteClusterInfo[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRemoteClusterInfo[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRemoteClusterInfo(
+      return MmRemoteClusterInfo(
         displayName: mapValueOfType<String>(json, r'display_name'),
         createAt: mapValueOfType<int>(json, r'create_at'),
         lastPingAt: mapValueOfType<int>(json, r'last_ping_at'),
@@ -104,14 +104,14 @@ class MMRemoteClusterInfo {
     return null;
   }
 
-  static List<MMRemoteClusterInfo>? listFromJson(
+  static List<MmRemoteClusterInfo>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRemoteClusterInfo>[];
+    final result = <MmRemoteClusterInfo>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRemoteClusterInfo.fromJson(row);
+        final value = MmRemoteClusterInfo.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -120,12 +120,12 @@ class MMRemoteClusterInfo {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRemoteClusterInfo> mapFromJson(dynamic json) {
-    final map = <String, MMRemoteClusterInfo>{};
+  static Map<String, MmRemoteClusterInfo> mapFromJson(dynamic json) {
+    final map = <String, MmRemoteClusterInfo>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRemoteClusterInfo.fromJson(entry.value);
+        final value = MmRemoteClusterInfo.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,16 +134,16 @@ class MMRemoteClusterInfo {
     return map;
   }
 
-  // maps a json object with a list of MMRemoteClusterInfo-objects as value to a dart map
-  static Map<String, List<MMRemoteClusterInfo>> mapListFromJson(
+  // maps a json object with a list of MmRemoteClusterInfo-objects as value to a dart map
+  static Map<String, List<MmRemoteClusterInfo>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRemoteClusterInfo>>{};
+    final map = <String, List<MmRemoteClusterInfo>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRemoteClusterInfo.listFromJson(
+        final value = MmRemoteClusterInfo.listFromJson(
           entry.value,
           growable: growable,
         );

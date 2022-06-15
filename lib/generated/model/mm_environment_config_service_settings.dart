@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigServiceSettings {
-  /// Returns a new [MMEnvironmentConfigServiceSettings] instance.
-  MMEnvironmentConfigServiceSettings({
+class MmEnvironmentConfigServiceSettings {
+  /// Returns a new [MmEnvironmentConfigServiceSettings] instance.
+  MmEnvironmentConfigServiceSettings({
     this.siteURL,
     this.listenAddress,
     this.connectionSecurity,
@@ -342,7 +342,7 @@ class MMEnvironmentConfigServiceSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigServiceSettings &&
+      other is MmEnvironmentConfigServiceSettings &&
           other.siteURL == siteURL &&
           other.listenAddress == listenAddress &&
           other.connectionSecurity == connectionSecurity &&
@@ -422,7 +422,7 @@ class MMEnvironmentConfigServiceSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
+      'MmEnvironmentConfigServiceSettings[siteURL=$siteURL, listenAddress=$listenAddress, connectionSecurity=$connectionSecurity, tLSCertFile=$tLSCertFile, tLSKeyFile=$tLSKeyFile, useLetsEncrypt=$useLetsEncrypt, letsEncryptCertificateCacheFile=$letsEncryptCertificateCacheFile, forward80To443=$forward80To443, readTimeout=$readTimeout, writeTimeout=$writeTimeout, maximumLoginAttempts=$maximumLoginAttempts, segmentDeveloperKey=$segmentDeveloperKey, googleDeveloperKey=$googleDeveloperKey, enableOAuthServiceProvider=$enableOAuthServiceProvider, enableIncomingWebhooks=$enableIncomingWebhooks, enableOutgoingWebhooks=$enableOutgoingWebhooks, enableCommands=$enableCommands, enableOnlyAdminIntegrations=$enableOnlyAdminIntegrations, enablePostUsernameOverride=$enablePostUsernameOverride, enablePostIconOverride=$enablePostIconOverride, enableTesting=$enableTesting, enableDeveloper=$enableDeveloper, enableSecurityFixAlert=$enableSecurityFixAlert, enableInsecureOutgoingConnections=$enableInsecureOutgoingConnections, enableMultifactorAuthentication=$enableMultifactorAuthentication, enforceMultifactorAuthentication=$enforceMultifactorAuthentication, allowCorsFrom=$allowCorsFrom, sessionLengthWebInDays=$sessionLengthWebInDays, sessionLengthMobileInDays=$sessionLengthMobileInDays, sessionLengthSSOInDays=$sessionLengthSSOInDays, sessionCacheInMinutes=$sessionCacheInMinutes, websocketSecurePort=$websocketSecurePort, websocketPort=$websocketPort, webserverMode=$webserverMode, enableCustomEmoji=$enableCustomEmoji, restrictCustomEmojiCreation=$restrictCustomEmojiCreation]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -537,10 +537,10 @@ class MMEnvironmentConfigServiceSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigServiceSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigServiceSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigServiceSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigServiceSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -550,14 +550,14 @@ class MMEnvironmentConfigServiceSettings {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMEnvironmentConfigServiceSettings[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmEnvironmentConfigServiceSettings[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMEnvironmentConfigServiceSettings[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmEnvironmentConfigServiceSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigServiceSettings(
+      return MmEnvironmentConfigServiceSettings(
         siteURL: mapValueOfType<bool>(json, r'SiteURL'),
         listenAddress: mapValueOfType<bool>(json, r'ListenAddress'),
         connectionSecurity: mapValueOfType<bool>(json, r'ConnectionSecurity'),
@@ -599,14 +599,14 @@ class MMEnvironmentConfigServiceSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigServiceSettings>? listFromJson(
+  static List<MmEnvironmentConfigServiceSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigServiceSettings>[];
+    final result = <MmEnvironmentConfigServiceSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigServiceSettings.fromJson(row);
+        final value = MmEnvironmentConfigServiceSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -615,12 +615,12 @@ class MMEnvironmentConfigServiceSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigServiceSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigServiceSettings>{};
+  static Map<String, MmEnvironmentConfigServiceSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigServiceSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigServiceSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigServiceSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -629,16 +629,16 @@ class MMEnvironmentConfigServiceSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigServiceSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigServiceSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigServiceSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigServiceSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigServiceSettings>>{};
+    final map = <String, List<MmEnvironmentConfigServiceSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigServiceSettings.listFromJson(
+        final value = MmEnvironmentConfigServiceSettings.listFromJson(
           entry.value,
           growable: growable,
         );

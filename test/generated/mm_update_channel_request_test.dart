@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateChannelRequest
+// tests for MmUpdateChannelRequest
 void main() {
-  // final instance = MMUpdateChannelRequest();
+  // final instance = MmUpdateChannelRequest();
 
-  group('test MMUpdateChannelRequest', () {
+  group('test MmUpdateChannelRequest', () {
     // The channel's id, not updatable
     // String id
     test('to test the property `id`', () async {

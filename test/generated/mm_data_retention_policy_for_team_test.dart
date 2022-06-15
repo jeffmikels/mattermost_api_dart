@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyForTeam
+// tests for MmDataRetentionPolicyForTeam
 void main() {
-  // final instance = MMDataRetentionPolicyForTeam();
+  // final instance = MmDataRetentionPolicyForTeam();
 
-  group('test MMDataRetentionPolicyForTeam', () {
+  group('test MmDataRetentionPolicyForTeam', () {
     // The team ID.
     // String teamId
     test('to test the property `teamId`', () async {

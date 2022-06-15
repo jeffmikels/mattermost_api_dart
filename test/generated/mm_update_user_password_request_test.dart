@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateUserPasswordRequest
+// tests for MmUpdateUserPasswordRequest
 void main() {
-  // final instance = MMUpdateUserPasswordRequest();
+  // final instance = MmUpdateUserPasswordRequest();
 
-  group('test MMUpdateUserPasswordRequest', () {
+  group('test MmUpdateUserPasswordRequest', () {
     // The current password for the user
     // String currentPassword
     test('to test the property `currentPassword`', () async {

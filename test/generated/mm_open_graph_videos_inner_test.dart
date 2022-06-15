@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMOpenGraphVideosInner
+// tests for MmOpenGraphVideosInner
 void main() {
-  // final instance = MMOpenGraphVideosInner();
+  // final instance = MmOpenGraphVideosInner();
 
-  group('test MMOpenGraphVideosInner', () {
+  group('test MmOpenGraphVideosInner', () {
     // String url
     test('to test the property `url`', () async {
       // TODO

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfig {
-  /// Returns a new [MMEnvironmentConfig] instance.
-  MMEnvironmentConfig({
+class MmEnvironmentConfig {
+  /// Returns a new [MmEnvironmentConfig] instance.
+  MmEnvironmentConfig({
     this.serviceSettings,
     this.teamSettings,
     this.sqlSettings,
@@ -42,7 +42,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigServiceSettings? serviceSettings;
+  MmEnvironmentConfigServiceSettings? serviceSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -50,7 +50,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigTeamSettings? teamSettings;
+  MmEnvironmentConfigTeamSettings? teamSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -58,7 +58,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigSqlSettings? sqlSettings;
+  MmEnvironmentConfigSqlSettings? sqlSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -66,7 +66,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigLogSettings? logSettings;
+  MmEnvironmentConfigLogSettings? logSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -74,7 +74,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigPasswordSettings? passwordSettings;
+  MmEnvironmentConfigPasswordSettings? passwordSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -82,7 +82,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigFileSettings? fileSettings;
+  MmEnvironmentConfigFileSettings? fileSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -90,7 +90,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigEmailSettings? emailSettings;
+  MmEnvironmentConfigEmailSettings? emailSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -98,7 +98,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigRateLimitSettings? rateLimitSettings;
+  MmEnvironmentConfigRateLimitSettings? rateLimitSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -106,7 +106,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMConfigPrivacySettings? privacySettings;
+  MmConfigPrivacySettings? privacySettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -114,7 +114,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigSupportSettings? supportSettings;
+  MmEnvironmentConfigSupportSettings? supportSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -122,7 +122,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigGitLabSettings? gitLabSettings;
+  MmEnvironmentConfigGitLabSettings? gitLabSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -130,7 +130,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigGitLabSettings? googleSettings;
+  MmEnvironmentConfigGitLabSettings? googleSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -138,7 +138,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigGitLabSettings? office365Settings;
+  MmEnvironmentConfigGitLabSettings? office365Settings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -146,7 +146,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigLdapSettings? ldapSettings;
+  MmEnvironmentConfigLdapSettings? ldapSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -154,7 +154,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigComplianceSettings? complianceSettings;
+  MmEnvironmentConfigComplianceSettings? complianceSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -162,7 +162,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigLocalizationSettings? localizationSettings;
+  MmEnvironmentConfigLocalizationSettings? localizationSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -170,7 +170,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigSamlSettings? samlSettings;
+  MmEnvironmentConfigSamlSettings? samlSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -178,7 +178,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigNativeAppSettings? nativeAppSettings;
+  MmEnvironmentConfigNativeAppSettings? nativeAppSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -186,7 +186,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigClusterSettings? clusterSettings;
+  MmEnvironmentConfigClusterSettings? clusterSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -194,7 +194,7 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigMetricsSettings? metricsSettings;
+  MmEnvironmentConfigMetricsSettings? metricsSettings;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -202,12 +202,12 @@ class MMEnvironmentConfig {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMEnvironmentConfigAnalyticsSettings? analyticsSettings;
+  MmEnvironmentConfigAnalyticsSettings? analyticsSettings;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfig &&
+      other is MmEnvironmentConfig &&
           other.serviceSettings == serviceSettings &&
           other.teamSettings == teamSettings &&
           other.sqlSettings == sqlSettings &&
@@ -257,7 +257,7 @@ class MMEnvironmentConfig {
 
   @override
   String toString() =>
-      'MMEnvironmentConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
+      'MmEnvironmentConfig[serviceSettings=$serviceSettings, teamSettings=$teamSettings, sqlSettings=$sqlSettings, logSettings=$logSettings, passwordSettings=$passwordSettings, fileSettings=$fileSettings, emailSettings=$emailSettings, rateLimitSettings=$rateLimitSettings, privacySettings=$privacySettings, supportSettings=$supportSettings, gitLabSettings=$gitLabSettings, googleSettings=$googleSettings, office365Settings=$office365Settings, ldapSettings=$ldapSettings, complianceSettings=$complianceSettings, localizationSettings=$localizationSettings, samlSettings=$samlSettings, nativeAppSettings=$nativeAppSettings, clusterSettings=$clusterSettings, metricsSettings=$metricsSettings, analyticsSettings=$analyticsSettings]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -327,10 +327,10 @@ class MMEnvironmentConfig {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfig] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfig] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfig? fromJson(dynamic value) {
+  static MmEnvironmentConfig? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -339,47 +339,47 @@ class MMEnvironmentConfig {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfig[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfig[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfig[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfig[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfig(
-        serviceSettings: MMEnvironmentConfigServiceSettings.fromJson(json[r'ServiceSettings']),
-        teamSettings: MMEnvironmentConfigTeamSettings.fromJson(json[r'TeamSettings']),
-        sqlSettings: MMEnvironmentConfigSqlSettings.fromJson(json[r'SqlSettings']),
-        logSettings: MMEnvironmentConfigLogSettings.fromJson(json[r'LogSettings']),
-        passwordSettings: MMEnvironmentConfigPasswordSettings.fromJson(json[r'PasswordSettings']),
-        fileSettings: MMEnvironmentConfigFileSettings.fromJson(json[r'FileSettings']),
-        emailSettings: MMEnvironmentConfigEmailSettings.fromJson(json[r'EmailSettings']),
-        rateLimitSettings: MMEnvironmentConfigRateLimitSettings.fromJson(json[r'RateLimitSettings']),
-        privacySettings: MMConfigPrivacySettings.fromJson(json[r'PrivacySettings']),
-        supportSettings: MMEnvironmentConfigSupportSettings.fromJson(json[r'SupportSettings']),
-        gitLabSettings: MMEnvironmentConfigGitLabSettings.fromJson(json[r'GitLabSettings']),
-        googleSettings: MMEnvironmentConfigGitLabSettings.fromJson(json[r'GoogleSettings']),
-        office365Settings: MMEnvironmentConfigGitLabSettings.fromJson(json[r'Office365Settings']),
-        ldapSettings: MMEnvironmentConfigLdapSettings.fromJson(json[r'LdapSettings']),
-        complianceSettings: MMEnvironmentConfigComplianceSettings.fromJson(json[r'ComplianceSettings']),
-        localizationSettings: MMEnvironmentConfigLocalizationSettings.fromJson(json[r'LocalizationSettings']),
-        samlSettings: MMEnvironmentConfigSamlSettings.fromJson(json[r'SamlSettings']),
-        nativeAppSettings: MMEnvironmentConfigNativeAppSettings.fromJson(json[r'NativeAppSettings']),
-        clusterSettings: MMEnvironmentConfigClusterSettings.fromJson(json[r'ClusterSettings']),
-        metricsSettings: MMEnvironmentConfigMetricsSettings.fromJson(json[r'MetricsSettings']),
-        analyticsSettings: MMEnvironmentConfigAnalyticsSettings.fromJson(json[r'AnalyticsSettings']),
+      return MmEnvironmentConfig(
+        serviceSettings: MmEnvironmentConfigServiceSettings.fromJson(json[r'ServiceSettings']),
+        teamSettings: MmEnvironmentConfigTeamSettings.fromJson(json[r'TeamSettings']),
+        sqlSettings: MmEnvironmentConfigSqlSettings.fromJson(json[r'SqlSettings']),
+        logSettings: MmEnvironmentConfigLogSettings.fromJson(json[r'LogSettings']),
+        passwordSettings: MmEnvironmentConfigPasswordSettings.fromJson(json[r'PasswordSettings']),
+        fileSettings: MmEnvironmentConfigFileSettings.fromJson(json[r'FileSettings']),
+        emailSettings: MmEnvironmentConfigEmailSettings.fromJson(json[r'EmailSettings']),
+        rateLimitSettings: MmEnvironmentConfigRateLimitSettings.fromJson(json[r'RateLimitSettings']),
+        privacySettings: MmConfigPrivacySettings.fromJson(json[r'PrivacySettings']),
+        supportSettings: MmEnvironmentConfigSupportSettings.fromJson(json[r'SupportSettings']),
+        gitLabSettings: MmEnvironmentConfigGitLabSettings.fromJson(json[r'GitLabSettings']),
+        googleSettings: MmEnvironmentConfigGitLabSettings.fromJson(json[r'GoogleSettings']),
+        office365Settings: MmEnvironmentConfigGitLabSettings.fromJson(json[r'Office365Settings']),
+        ldapSettings: MmEnvironmentConfigLdapSettings.fromJson(json[r'LdapSettings']),
+        complianceSettings: MmEnvironmentConfigComplianceSettings.fromJson(json[r'ComplianceSettings']),
+        localizationSettings: MmEnvironmentConfigLocalizationSettings.fromJson(json[r'LocalizationSettings']),
+        samlSettings: MmEnvironmentConfigSamlSettings.fromJson(json[r'SamlSettings']),
+        nativeAppSettings: MmEnvironmentConfigNativeAppSettings.fromJson(json[r'NativeAppSettings']),
+        clusterSettings: MmEnvironmentConfigClusterSettings.fromJson(json[r'ClusterSettings']),
+        metricsSettings: MmEnvironmentConfigMetricsSettings.fromJson(json[r'MetricsSettings']),
+        analyticsSettings: MmEnvironmentConfigAnalyticsSettings.fromJson(json[r'AnalyticsSettings']),
       );
     }
     return null;
   }
 
-  static List<MMEnvironmentConfig>? listFromJson(
+  static List<MmEnvironmentConfig>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfig>[];
+    final result = <MmEnvironmentConfig>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfig.fromJson(row);
+        final value = MmEnvironmentConfig.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -388,12 +388,12 @@ class MMEnvironmentConfig {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfig> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfig>{};
+  static Map<String, MmEnvironmentConfig> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfig>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfig.fromJson(entry.value);
+        final value = MmEnvironmentConfig.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -402,16 +402,16 @@ class MMEnvironmentConfig {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfig-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfig>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfig-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfig>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfig>>{};
+    final map = <String, List<MmEnvironmentConfig>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfig.listFromJson(
+        final value = MmEnvironmentConfig.listFromJson(
           entry.value,
           growable: growable,
         );

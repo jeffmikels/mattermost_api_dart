@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigRateLimitSettings {
-  /// Returns a new [MMConfigRateLimitSettings] instance.
-  MMConfigRateLimitSettings({
+class MmConfigRateLimitSettings {
+  /// Returns a new [MmConfigRateLimitSettings] instance.
+  MmConfigRateLimitSettings({
     this.enable,
     this.perSec,
     this.maxBurst,
@@ -72,7 +72,7 @@ class MMConfigRateLimitSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigRateLimitSettings &&
+      other is MmConfigRateLimitSettings &&
           other.enable == enable &&
           other.perSec == perSec &&
           other.maxBurst == maxBurst &&
@@ -92,7 +92,7 @@ class MMConfigRateLimitSettings {
 
   @override
   String toString() =>
-      'MMConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
+      'MmConfigRateLimitSettings[enable=$enable, perSec=$perSec, maxBurst=$maxBurst, memoryStoreSize=$memoryStoreSize, varyByRemoteAddr=$varyByRemoteAddr, varyByHeader=$varyByHeader]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -117,10 +117,10 @@ class MMConfigRateLimitSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigRateLimitSettings] instance and imports its values from
+  /// Returns a new [MmConfigRateLimitSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigRateLimitSettings? fromJson(dynamic value) {
+  static MmConfigRateLimitSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -129,13 +129,13 @@ class MMConfigRateLimitSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigRateLimitSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigRateLimitSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigRateLimitSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigRateLimitSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigRateLimitSettings(
+      return MmConfigRateLimitSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         perSec: mapValueOfType<int>(json, r'PerSec'),
         maxBurst: mapValueOfType<int>(json, r'MaxBurst'),
@@ -147,14 +147,14 @@ class MMConfigRateLimitSettings {
     return null;
   }
 
-  static List<MMConfigRateLimitSettings>? listFromJson(
+  static List<MmConfigRateLimitSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigRateLimitSettings>[];
+    final result = <MmConfigRateLimitSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigRateLimitSettings.fromJson(row);
+        final value = MmConfigRateLimitSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -163,12 +163,12 @@ class MMConfigRateLimitSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigRateLimitSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigRateLimitSettings>{};
+  static Map<String, MmConfigRateLimitSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigRateLimitSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigRateLimitSettings.fromJson(entry.value);
+        final value = MmConfigRateLimitSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -177,16 +177,16 @@ class MMConfigRateLimitSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigRateLimitSettings-objects as value to a dart map
-  static Map<String, List<MMConfigRateLimitSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigRateLimitSettings-objects as value to a dart map
+  static Map<String, List<MmConfigRateLimitSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigRateLimitSettings>>{};
+    final map = <String, List<MmConfigRateLimitSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigRateLimitSettings.listFromJson(
+        final value = MmConfigRateLimitSettings.listFromJson(
           entry.value,
           growable: growable,
         );

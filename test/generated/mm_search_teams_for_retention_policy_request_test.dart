@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSearchTeamsForRetentionPolicyRequest
+// tests for MmSearchTeamsForRetentionPolicyRequest
 void main() {
-  // final instance = MMSearchTeamsForRetentionPolicyRequest();
+  // final instance = MmSearchTeamsForRetentionPolicyRequest();
 
-  group('test MMSearchTeamsForRetentionPolicyRequest', () {
+  group('test MmSearchTeamsForRetentionPolicyRequest', () {
     // The search term to match against the name or display name of teams
     // String term
     test('to test the property `term`', () async {

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginManifest
+// tests for MmPluginManifest
 void main() {
-  // final instance = MMPluginManifest();
+  // final instance = MmPluginManifest();
 
-  group('test MMPluginManifest', () {
+  group('test MmPluginManifest', () {
     // Globally unique identifier that represents the plugin.
     // String id
     test('to test the property `id`', () async {
@@ -46,17 +46,17 @@ void main() {
       // TODO
     });
 
-    // MMPluginManifestBackend backend
+    // MmPluginManifestBackend backend
     test('to test the property `backend`', () async {
       // TODO
     });
 
-    // MMPluginManifestServer server
+    // MmPluginManifestServer server
     test('to test the property `server`', () async {
       // TODO
     });
 
-    // MMPluginManifestWebapp webapp
+    // MmPluginManifestWebapp webapp
     test('to test the property `webapp`', () async {
       // TODO
     });

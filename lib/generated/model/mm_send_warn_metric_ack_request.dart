@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSendWarnMetricAckRequest {
-  /// Returns a new [MMSendWarnMetricAckRequest] instance.
-  MMSendWarnMetricAckRequest({
+class MmSendWarnMetricAckRequest {
+  /// Returns a new [MmSendWarnMetricAckRequest] instance.
+  MmSendWarnMetricAckRequest({
     this.forceAck,
   });
 
@@ -27,7 +27,7 @@ class MMSendWarnMetricAckRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMSendWarnMetricAckRequest && other.forceAck == forceAck;
+      identical(this, other) || other is MmSendWarnMetricAckRequest && other.forceAck == forceAck;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMSendWarnMetricAckRequest {
       (forceAck == null ? 0 : forceAck!.hashCode);
 
   @override
-  String toString() => 'MMSendWarnMetricAckRequest[forceAck=$forceAck]';
+  String toString() => 'MmSendWarnMetricAckRequest[forceAck=$forceAck]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMSendWarnMetricAckRequest {
     return _json;
   }
 
-  /// Returns a new [MMSendWarnMetricAckRequest] instance and imports its values from
+  /// Returns a new [MmSendWarnMetricAckRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSendWarnMetricAckRequest? fromJson(dynamic value) {
+  static MmSendWarnMetricAckRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMSendWarnMetricAckRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSendWarnMetricAckRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSendWarnMetricAckRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSendWarnMetricAckRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSendWarnMetricAckRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSendWarnMetricAckRequest(
+      return MmSendWarnMetricAckRequest(
         forceAck: mapValueOfType<bool>(json, r'forceAck'),
       );
     }
     return null;
   }
 
-  static List<MMSendWarnMetricAckRequest>? listFromJson(
+  static List<MmSendWarnMetricAckRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSendWarnMetricAckRequest>[];
+    final result = <MmSendWarnMetricAckRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSendWarnMetricAckRequest.fromJson(row);
+        final value = MmSendWarnMetricAckRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMSendWarnMetricAckRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSendWarnMetricAckRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSendWarnMetricAckRequest>{};
+  static Map<String, MmSendWarnMetricAckRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSendWarnMetricAckRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSendWarnMetricAckRequest.fromJson(entry.value);
+        final value = MmSendWarnMetricAckRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMSendWarnMetricAckRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSendWarnMetricAckRequest-objects as value to a dart map
-  static Map<String, List<MMSendWarnMetricAckRequest>> mapListFromJson(
+  // maps a json object with a list of MmSendWarnMetricAckRequest-objects as value to a dart map
+  static Map<String, List<MmSendWarnMetricAckRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSendWarnMetricAckRequest>>{};
+    final map = <String, List<MmSendWarnMetricAckRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSendWarnMetricAckRequest.listFromJson(
+        final value = MmSendWarnMetricAckRequest.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMDataRetentionPolicyForChannel
+// tests for MmDataRetentionPolicyForChannel
 void main() {
-  // final instance = MMDataRetentionPolicyForChannel();
+  // final instance = MmDataRetentionPolicyForChannel();
 
-  group('test MMDataRetentionPolicyForChannel', () {
+  group('test MmDataRetentionPolicyForChannel', () {
     // The channel ID.
     // String channelId
     test('to test the property `channelId`', () async {

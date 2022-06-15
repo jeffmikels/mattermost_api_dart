@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSendPasswordResetEmailRequest {
-  /// Returns a new [MMSendPasswordResetEmailRequest] instance.
-  MMSendPasswordResetEmailRequest({
+class MmSendPasswordResetEmailRequest {
+  /// Returns a new [MmSendPasswordResetEmailRequest] instance.
+  MmSendPasswordResetEmailRequest({
     required this.email,
   });
 
@@ -21,7 +21,7 @@ class MMSendPasswordResetEmailRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMSendPasswordResetEmailRequest && other.email == email;
+      identical(this, other) || other is MmSendPasswordResetEmailRequest && other.email == email;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class MMSendPasswordResetEmailRequest {
       (email.hashCode);
 
   @override
-  String toString() => 'MMSendPasswordResetEmailRequest[email=$email]';
+  String toString() => 'MmSendPasswordResetEmailRequest[email=$email]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class MMSendPasswordResetEmailRequest {
     return _json;
   }
 
-  /// Returns a new [MMSendPasswordResetEmailRequest] instance and imports its values from
+  /// Returns a new [MmSendPasswordResetEmailRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSendPasswordResetEmailRequest? fromJson(dynamic value) {
+  static MmSendPasswordResetEmailRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -49,27 +49,27 @@ class MMSendPasswordResetEmailRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSendPasswordResetEmailRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSendPasswordResetEmailRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSendPasswordResetEmailRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSendPasswordResetEmailRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSendPasswordResetEmailRequest(
+      return MmSendPasswordResetEmailRequest(
         email: mapValueOfType<String>(json, r'email')!,
       );
     }
     return null;
   }
 
-  static List<MMSendPasswordResetEmailRequest>? listFromJson(
+  static List<MmSendPasswordResetEmailRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSendPasswordResetEmailRequest>[];
+    final result = <MmSendPasswordResetEmailRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSendPasswordResetEmailRequest.fromJson(row);
+        final value = MmSendPasswordResetEmailRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -78,12 +78,12 @@ class MMSendPasswordResetEmailRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSendPasswordResetEmailRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSendPasswordResetEmailRequest>{};
+  static Map<String, MmSendPasswordResetEmailRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSendPasswordResetEmailRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSendPasswordResetEmailRequest.fromJson(entry.value);
+        final value = MmSendPasswordResetEmailRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -92,16 +92,16 @@ class MMSendPasswordResetEmailRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSendPasswordResetEmailRequest-objects as value to a dart map
-  static Map<String, List<MMSendPasswordResetEmailRequest>> mapListFromJson(
+  // maps a json object with a list of MmSendPasswordResetEmailRequest-objects as value to a dart map
+  static Map<String, List<MmSendPasswordResetEmailRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSendPasswordResetEmailRequest>>{};
+    final map = <String, List<MmSendPasswordResetEmailRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSendPasswordResetEmailRequest.listFromJson(
+        final value = MmSendPasswordResetEmailRequest.listFromJson(
           entry.value,
           growable: growable,
         );

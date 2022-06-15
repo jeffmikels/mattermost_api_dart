@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **migrateAuthToLdap**
-> migrateAuthToLdap(mMMigrateAuthToLdapRequest)
+> migrateAuthToLdap(mmMigrateAuthToLdapRequest)
 
 Migrate user accounts authentication type to LDAP.
 
@@ -29,25 +29,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest = MMMigrateAuthToLdapRequest(); // MMMigrateAuthToLdapRequest | 
+final MmMigrateAuthToLdapRequest mmMigrateAuthToLdapRequest = MmMigrateAuthToLdapRequest(); // MmMigrateAuthToLdapRequest | 
 
 try {
-  await client.migrate.migrateAuthToLdap(mMMigrateAuthToLdapRequest); 
+  await client.migrate.migrateAuthToLdap(mmMigrateAuthToLdapRequest); 
 } catch (e) {
   print('Exception when calling MattermostMigrateApi->migrateAuthToLdap: $e\n');
 }
@@ -58,7 +58,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMMigrateAuthToLdapRequest** | [**MMMigrateAuthToLdapRequest**](MMMigrateAuthToLdapRequest.md)|  | [optional] 
+ **mmMigrateAuthToLdapRequest** | [**MmMigrateAuthToLdapRequest**](MmMigrateAuthToLdapRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -76,7 +76,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **migrateAuthToSaml**
-> migrateAuthToSaml(mMMigrateAuthToSamlRequest)
+> migrateAuthToSaml(mmMigrateAuthToSamlRequest)
 
 Migrate user accounts authentication type to SAML.
 
@@ -91,25 +91,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMMigrateAuthToSamlRequest mMMigrateAuthToSamlRequest = MMMigrateAuthToSamlRequest(); // MMMigrateAuthToSamlRequest | 
+final MmMigrateAuthToSamlRequest mmMigrateAuthToSamlRequest = MmMigrateAuthToSamlRequest(); // MmMigrateAuthToSamlRequest | 
 
 try {
-  await client.migrate.migrateAuthToSaml(mMMigrateAuthToSamlRequest); 
+  await client.migrate.migrateAuthToSaml(mmMigrateAuthToSamlRequest); 
 } catch (e) {
   print('Exception when calling MattermostMigrateApi->migrateAuthToSaml: $e\n');
 }
@@ -120,7 +120,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMMigrateAuthToSamlRequest** | [**MMMigrateAuthToSamlRequest**](MMMigrateAuthToSamlRequest.md)|  | [optional] 
+ **mmMigrateAuthToSamlRequest** | [**MmMigrateAuthToSamlRequest**](MmMigrateAuthToSamlRequest.md)|  | [optional] 
 
 ### Return type
 

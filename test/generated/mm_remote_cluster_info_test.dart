@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRemoteClusterInfo
+// tests for MmRemoteClusterInfo
 void main() {
-  // final instance = MMRemoteClusterInfo();
+  // final instance = MmRemoteClusterInfo();
 
-  group('test MMRemoteClusterInfo', () {
+  group('test MmRemoteClusterInfo', () {
     // The display name for the remote cluster
     // String displayName
     test('to test the property `displayName`', () async {

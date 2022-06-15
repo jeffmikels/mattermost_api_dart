@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigAnalyticsSettings {
-  /// Returns a new [MMConfigAnalyticsSettings] instance.
-  MMConfigAnalyticsSettings({
+class MmConfigAnalyticsSettings {
+  /// Returns a new [MmConfigAnalyticsSettings] instance.
+  MmConfigAnalyticsSettings({
     this.maxUsersForStatistics,
   });
 
@@ -27,7 +27,7 @@ class MMConfigAnalyticsSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigAnalyticsSettings && other.maxUsersForStatistics == maxUsersForStatistics;
+      other is MmConfigAnalyticsSettings && other.maxUsersForStatistics == maxUsersForStatistics;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMConfigAnalyticsSettings {
       (maxUsersForStatistics == null ? 0 : maxUsersForStatistics!.hashCode);
 
   @override
-  String toString() => 'MMConfigAnalyticsSettings[maxUsersForStatistics=$maxUsersForStatistics]';
+  String toString() => 'MmConfigAnalyticsSettings[maxUsersForStatistics=$maxUsersForStatistics]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMConfigAnalyticsSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigAnalyticsSettings] instance and imports its values from
+  /// Returns a new [MmConfigAnalyticsSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigAnalyticsSettings? fromJson(dynamic value) {
+  static MmConfigAnalyticsSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class MMConfigAnalyticsSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigAnalyticsSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigAnalyticsSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigAnalyticsSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigAnalyticsSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigAnalyticsSettings(
+      return MmConfigAnalyticsSettings(
         maxUsersForStatistics: mapValueOfType<int>(json, r'MaxUsersForStatistics'),
       );
     }
     return null;
   }
 
-  static List<MMConfigAnalyticsSettings>? listFromJson(
+  static List<MmConfigAnalyticsSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigAnalyticsSettings>[];
+    final result = <MmConfigAnalyticsSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigAnalyticsSettings.fromJson(row);
+        final value = MmConfigAnalyticsSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class MMConfigAnalyticsSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigAnalyticsSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigAnalyticsSettings>{};
+  static Map<String, MmConfigAnalyticsSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigAnalyticsSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigAnalyticsSettings.fromJson(entry.value);
+        final value = MmConfigAnalyticsSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class MMConfigAnalyticsSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigAnalyticsSettings-objects as value to a dart map
-  static Map<String, List<MMConfigAnalyticsSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigAnalyticsSettings-objects as value to a dart map
+  static Map<String, List<MmConfigAnalyticsSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigAnalyticsSettings>>{};
+    final map = <String, List<MmConfigAnalyticsSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigAnalyticsSettings.listFromJson(
+        final value = MmConfigAnalyticsSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -64,7 +64,7 @@ Method | HTTP request | Description
 
 
 # **addChannelMember**
-> MMChannelMember addChannelMember(channelId, mMAddChannelMemberRequest)
+> MmChannelMember addChannelMember(channelId, mmAddChannelMemberRequest)
 
 Add user to channel
 
@@ -79,26 +79,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | The channel ID
-final MMAddChannelMemberRequest mMAddChannelMemberRequest = MMAddChannelMemberRequest(); // MMAddChannelMemberRequest | 
+final MmAddChannelMemberRequest mmAddChannelMemberRequest = MmAddChannelMemberRequest(); // MmAddChannelMemberRequest | 
 
 try {
-  final MMChannelMember? result = await client.channels.addChannelMember(channelId, mMAddChannelMemberRequest); // await the Future<MMChannelMember?>
+  final MmChannelMember? result = await client.channels.addChannelMember(channelId, mmAddChannelMemberRequest); // await the Future<MmChannelMember?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->addChannelMember: $e\n');
@@ -111,11 +111,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| The channel ID | 
- **mMAddChannelMemberRequest** | [**MMAddChannelMemberRequest**](MMAddChannelMemberRequest.md)|  | 
+ **mmAddChannelMemberRequest** | [**MmAddChannelMemberRequest**](MmAddChannelMemberRequest.md)|  | 
 
 ### Return type
 
-[**MMChannelMember**](MMChannelMember.md)
+[**MmChannelMember**](MmChannelMember.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **autocompleteChannelsForTeam**
-> List<MMChannel> autocompleteChannelsForTeam(teamId, name)
+> List<MmChannel> autocompleteChannelsForTeam(teamId, name)
 
 Autocomplete channels
 
@@ -144,18 +144,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -163,7 +163,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.autocompleteChannelsForTeam(teamId, name); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.autocompleteChannelsForTeam(teamId, name); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeam: $e\n');
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **autocompleteChannelsForTeamForSearch**
-> List<MMChannel> autocompleteChannelsForTeamForSearch(teamId, name)
+> List<MmChannel> autocompleteChannelsForTeamForSearch(teamId, name)
 
 Autocomplete channels for search
 
@@ -209,18 +209,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -228,7 +228,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeamForSearch: $e\n');
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -274,18 +274,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -327,7 +327,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createChannel**
-> MMChannel createChannel(mMCreateChannelRequest)
+> MmChannel createChannel(mmCreateChannelRequest)
 
 Create a channel
 
@@ -342,25 +342,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateChannelRequest mMCreateChannelRequest = MMCreateChannelRequest(); // MMCreateChannelRequest | Channel object to be created
+final MmCreateChannelRequest mmCreateChannelRequest = MmCreateChannelRequest(); // MmCreateChannelRequest | Channel object to be created
 
 try {
-  final MMChannel? result = await client.channels.createChannel(mMCreateChannelRequest); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.createChannel(mmCreateChannelRequest); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createChannel: $e\n');
@@ -372,11 +372,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateChannelRequest** | [**MMCreateChannelRequest**](MMCreateChannelRequest.md)| Channel object to be created | 
+ **mmCreateChannelRequest** | [**MmCreateChannelRequest**](MmCreateChannelRequest.md)| Channel object to be created | 
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createDirectChannel**
-> MMChannel createDirectChannel(requestBody)
+> MmChannel createDirectChannel(requestBody)
 
 Create a direct message channel
 
@@ -405,25 +405,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
 
 try {
-  final MMChannel? result = await client.channels.createDirectChannel(requestBody); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.createDirectChannel(requestBody); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createDirectChannel: $e\n');
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createGroupChannel**
-> MMChannel createGroupChannel(requestBody)
+> MmChannel createGroupChannel(requestBody)
 
 Create a group message channel
 
@@ -468,25 +468,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
 
 try {
-  final MMChannel? result = await client.channels.createGroupChannel(requestBody); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.createGroupChannel(requestBody); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createGroupChannel: $e\n');
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createSidebarCategoryForTeamForUser**
-> MMSidebarCategory createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory)
+> MmSidebarCategory createSidebarCategoryForTeamForUser(teamId, userId, mmSidebarCategory)
 
 Create user's sidebar category
 
@@ -531,27 +531,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
+final MmSidebarCategory mmSidebarCategory = MmSidebarCategory(); // MmSidebarCategory | 
 
 try {
-  final MMSidebarCategory? result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  final MmSidebarCategory? result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mmSidebarCategory); // await the Future<MmSidebarCategory?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createSidebarCategoryForTeamForUser: $e\n');
@@ -565,11 +565,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
  **userId** | **String**| User GUID | 
- **mMSidebarCategory** | [**MMSidebarCategory**](MMSidebarCategory.md)|  | 
+ **mmSidebarCategory** | [**MmSidebarCategory**](MmSidebarCategory.md)|  | 
 
 ### Return type
 
-[**MMSidebarCategory**](MMSidebarCategory.md)
+[**MmSidebarCategory**](MmSidebarCategory.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteChannel**
-> MMStatusOK deleteChannel(channelId)
+> MmStatusOK deleteChannel(channelId)
 
 Delete a channel
 
@@ -598,25 +598,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMStatusOK? result = await client.channels.deleteChannel(channelId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.deleteChannel(channelId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->deleteChannel: $e\n');
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getAllChannels**
-> List<MMChannelWithTeamData> getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained)
+> List<MmChannelWithTeamData> getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained)
 
 Get a list of all channels
 
@@ -661,18 +661,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -685,7 +685,7 @@ final bool includeTotalCount = true; // bool | Appends a total count of returned
 final bool excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-  final List&lt;MMChannelWithTeamData&gt;? result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  final List&lt;MmChannelWithTeamData&gt;? result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained); // await the Future<List&lt;MmChannelWithTeamData&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getAllChannels: $e\n');
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelWithTeamData>**](MMChannelWithTeamData.md)
+[**List<MmChannelWithTeamData>**](MmChannelWithTeamData.md)
 
 ### Authorization
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannel**
-> MMChannel getChannel(channelId)
+> MmChannel getChannel(channelId)
 
 Get a channel
 
@@ -736,25 +736,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannel? result = await client.channels.getChannel(channelId); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.getChannel(channelId); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannel: $e\n');
@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelByName**
-> MMChannel getChannelByName(teamId, channelName, includeDeleted)
+> MmChannel getChannelByName(teamId, channelName, includeDeleted)
 
 Get a channel by name
 
@@ -799,18 +799,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -819,7 +819,7 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final MMChannel? result = await client.channels.getChannelByName(teamId, channelName, includeDeleted); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.getChannelByName(teamId, channelName, includeDeleted); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByName: $e\n');
@@ -837,7 +837,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelByNameForTeamName**
-> MMChannel getChannelByNameForTeamName(teamName, channelName, includeDeleted)
+> MmChannel getChannelByNameForTeamName(teamName, channelName, includeDeleted)
 
 Get a channel by name and team name
 
@@ -866,18 +866,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -886,7 +886,7 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final MMChannel? result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByNameForTeamName: $e\n');
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelMember**
-> MMChannelMember getChannelMember(channelId, userId)
+> MmChannelMember getChannelMember(channelId, userId)
 
 Get channel member
 
@@ -933,18 +933,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -952,7 +952,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMChannelMember? result = await client.channels.getChannelMember(channelId, userId); // await the Future<MMChannelMember?>
+  final MmChannelMember? result = await client.channels.getChannelMember(channelId, userId); // await the Future<MmChannelMember?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMember: $e\n');
@@ -969,7 +969,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannelMember**](MMChannelMember.md)
+[**MmChannelMember**](MmChannelMember.md)
 
 ### Authorization
 
@@ -998,18 +998,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1047,7 +1047,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelMembers**
-> List<MMChannelMember> getChannelMembers(channelId, page, perPage)
+> List<MmChannelMember> getChannelMembers(channelId, page, perPage)
 
 Get channel members
 
@@ -1062,18 +1062,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1082,7 +1082,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
 
 try {
-  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembers(channelId, page, perPage); // await the Future<List&lt;MMChannelMember&gt;?>
+  final List&lt;MmChannelMember&gt;? result = await client.channels.getChannelMembers(channelId, page, perPage); // await the Future<List&lt;MmChannelMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembers: $e\n');
@@ -1100,7 +1100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelMember>**](MMChannelMember.md)
+[**List<MmChannelMember>**](MmChannelMember.md)
 
 ### Authorization
 
@@ -1114,7 +1114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelMembersByIds**
-> List<MMChannelMember> getChannelMembersByIds(channelId, requestBody)
+> List<MmChannelMember> getChannelMembersByIds(channelId, requestBody)
 
 Get channel members by ids
 
@@ -1129,18 +1129,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1148,7 +1148,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembersByIds(channelId, requestBody); // await the Future<List&lt;MMChannelMember&gt;?>
+  final List&lt;MmChannelMember&gt;? result = await client.channels.getChannelMembersByIds(channelId, requestBody); // await the Future<List&lt;MmChannelMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersByIds: $e\n');
@@ -1165,7 +1165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelMember>**](MMChannelMember.md)
+[**List<MmChannelMember>**](MmChannelMember.md)
 
 ### Authorization
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelMembersForUser**
-> List<MMChannelMember> getChannelMembersForUser(userId, teamId)
+> List<MmChannelMember> getChannelMembersForUser(userId, teamId)
 
 Get channel memberships and roles for a user
 
@@ -1194,18 +1194,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1213,7 +1213,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembersForUser(userId, teamId); // await the Future<List&lt;MMChannelMember&gt;?>
+  final List&lt;MmChannelMember&gt;? result = await client.channels.getChannelMembersForUser(userId, teamId); // await the Future<List&lt;MmChannelMember&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersForUser: $e\n');
@@ -1230,7 +1230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelMember>**](MMChannelMember.md)
+[**List<MmChannelMember>**](MmChannelMember.md)
 
 ### Authorization
 
@@ -1259,18 +1259,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1307,7 +1307,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelModerations**
-> List<MMChannelModeration> getChannelModerations(channelId)
+> List<MmChannelModeration> getChannelModerations(channelId)
 
 Get information about channel's moderation.
 
@@ -1322,25 +1322,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final List&lt;MMChannelModeration&gt;? result = await client.channels.getChannelModerations(channelId); // await the Future<List&lt;MMChannelModeration&gt;?>
+  final List&lt;MmChannelModeration&gt;? result = await client.channels.getChannelModerations(channelId); // await the Future<List&lt;MmChannelModeration&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelModerations: $e\n');
@@ -1356,7 +1356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannelModeration>**](MMChannelModeration.md)
+[**List<MmChannelModeration>**](MmChannelModeration.md)
 
 ### Authorization
 
@@ -1370,7 +1370,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelStats**
-> MMChannelStats getChannelStats(channelId)
+> MmChannelStats getChannelStats(channelId)
 
 Get channel statistics
 
@@ -1385,25 +1385,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannelStats? result = await client.channels.getChannelStats(channelId); // await the Future<MMChannelStats?>
+  final MmChannelStats? result = await client.channels.getChannelStats(channelId); // await the Future<MmChannelStats?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelStats: $e\n');
@@ -1419,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannelStats**](MMChannelStats.md)
+[**MmChannelStats**](MmChannelStats.md)
 
 ### Authorization
 
@@ -1433,7 +1433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelUnread**
-> MMChannelUnread getChannelUnread(userId, channelId)
+> MmChannelUnread getChannelUnread(userId, channelId)
 
 Get unread messages
 
@@ -1448,18 +1448,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1467,7 +1467,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannelUnread? result = await client.channels.getChannelUnread(userId, channelId); // await the Future<MMChannelUnread?>
+  final MmChannelUnread? result = await client.channels.getChannelUnread(userId, channelId); // await the Future<MmChannelUnread?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelUnread: $e\n');
@@ -1484,7 +1484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannelUnread**](MMChannelUnread.md)
+[**MmChannelUnread**](MmChannelUnread.md)
 
 ### Authorization
 
@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelsForTeamForUser**
-> List<MMChannel> getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt)
+> List<MmChannel> getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt)
 
 Get channels for user
 
@@ -1513,18 +1513,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1534,7 +1534,7 @@ final bool includeDeleted = true; // bool | Defines if deleted channels should b
 final int lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForTeamForUser: $e\n');
@@ -1553,7 +1553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getChannelsForUser**
-> List<MMChannel> getChannelsForUser(userId, lastDeleteAt, includeDeleted)
+> List<MmChannel> getChannelsForUser(userId, lastDeleteAt, includeDeleted)
 
 Get all channels from all teams
 
@@ -1582,18 +1582,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1602,7 +1602,7 @@ final int lastDeleteAt = 56; // int | Filters the deleted channels by this time 
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForUser: $e\n');
@@ -1620,7 +1620,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1634,7 +1634,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getDeletedChannelsForTeam**
-> List<MMChannel> getDeletedChannelsForTeam(teamId, page, perPage)
+> List<MmChannel> getDeletedChannelsForTeam(teamId, page, perPage)
 
 Get deleted channels
 
@@ -1649,18 +1649,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1669,7 +1669,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getDeletedChannelsForTeam: $e\n');
@@ -1687,7 +1687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1701,7 +1701,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPinnedPosts**
-> MMPostList getPinnedPosts(channelId)
+> MmPostList getPinnedPosts(channelId)
 
 Get a channel's pinned posts
 
@@ -1716,25 +1716,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMPostList? result = await client.channels.getPinnedPosts(channelId); // await the Future<MMPostList?>
+  final MmPostList? result = await client.channels.getPinnedPosts(channelId); // await the Future<MmPostList?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPinnedPosts: $e\n');
@@ -1750,7 +1750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMPostList**](MMPostList.md)
+[**MmPostList**](MmPostList.md)
 
 ### Authorization
 
@@ -1764,7 +1764,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPrivateChannelsForTeam**
-> List<MMChannel> getPrivateChannelsForTeam(teamId, page, perPage)
+> List<MmChannel> getPrivateChannelsForTeam(teamId, page, perPage)
 
 Get private channels
 
@@ -1779,18 +1779,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1799,7 +1799,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of private channels per page.
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPrivateChannelsForTeam: $e\n');
@@ -1817,7 +1817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1831,7 +1831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPublicChannelsByIdsForTeam**
-> List<MMChannel> getPublicChannelsByIdsForTeam(teamId, requestBody)
+> List<MmChannel> getPublicChannelsByIdsForTeam(teamId, requestBody)
 
 Get a list of channels by ids
 
@@ -1846,18 +1846,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1865,7 +1865,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of channel ids
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsByIdsForTeam: $e\n');
@@ -1882,7 +1882,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1896,7 +1896,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getPublicChannelsForTeam**
-> List<MMChannel> getPublicChannelsForTeam(teamId, page, perPage)
+> List<MmChannel> getPublicChannelsForTeam(teamId, page, perPage)
 
 Get public channels
 
@@ -1911,18 +1911,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1931,7 +1931,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsForTeam: $e\n');
@@ -1949,7 +1949,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -1963,7 +1963,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSidebarCategoriesForTeamForUser**
-> List<MMOrderedSidebarCategories> getSidebarCategoriesForTeamForUser(teamId, userId)
+> List<MmOrderedSidebarCategories> getSidebarCategoriesForTeamForUser(teamId, userId)
 
 Get user's sidebar categories
 
@@ -1978,18 +1978,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -1997,7 +1997,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMOrderedSidebarCategories&gt;? result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId); // await the Future<List&lt;MMOrderedSidebarCategories&gt;?>
+  final List&lt;MmOrderedSidebarCategories&gt;? result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId); // await the Future<List&lt;MmOrderedSidebarCategories&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoriesForTeamForUser: $e\n');
@@ -2014,7 +2014,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMOrderedSidebarCategories>**](MMOrderedSidebarCategories.md)
+[**List<MmOrderedSidebarCategories>**](MmOrderedSidebarCategories.md)
 
 ### Authorization
 
@@ -2028,7 +2028,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getSidebarCategoryForTeamForUser**
-> MMSidebarCategory getSidebarCategoryForTeamForUser(teamId, userId, categoryId)
+> MmSidebarCategory getSidebarCategoryForTeamForUser(teamId, userId, categoryId)
 
 Get sidebar category
 
@@ -2043,18 +2043,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -2063,7 +2063,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final MMSidebarCategory? result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MMSidebarCategory?>
+  final MmSidebarCategory? result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MmSidebarCategory?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoryForTeamForUser: $e\n');
@@ -2081,7 +2081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMSidebarCategory**](MMSidebarCategory.md)
+[**MmSidebarCategory**](MmSidebarCategory.md)
 
 ### Authorization
 
@@ -2110,18 +2110,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -2160,7 +2160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **moveChannel**
-> MMChannel moveChannel(channelId, mMMoveChannelRequest)
+> MmChannel moveChannel(channelId, mmMoveChannelRequest)
 
 Move a channel
 
@@ -2175,26 +2175,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMMoveChannelRequest mMMoveChannelRequest = MMMoveChannelRequest(); // MMMoveChannelRequest | 
+final MmMoveChannelRequest mmMoveChannelRequest = MmMoveChannelRequest(); // MmMoveChannelRequest | 
 
 try {
-  final MMChannel? result = await client.channels.moveChannel(channelId, mMMoveChannelRequest); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.moveChannel(channelId, mmMoveChannelRequest); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->moveChannel: $e\n');
@@ -2207,11 +2207,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMMoveChannelRequest** | [**MMMoveChannelRequest**](MMMoveChannelRequest.md)|  | 
+ **mmMoveChannelRequest** | [**MmMoveChannelRequest**](MmMoveChannelRequest.md)|  | 
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -2225,7 +2225,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchChannel**
-> MMChannel patchChannel(channelId, mMPatchChannelRequest)
+> MmChannel patchChannel(channelId, mmPatchChannelRequest)
 
 Patch a channel
 
@@ -2240,26 +2240,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMPatchChannelRequest mMPatchChannelRequest = MMPatchChannelRequest(); // MMPatchChannelRequest | Channel object to be updated
+final MmPatchChannelRequest mmPatchChannelRequest = MmPatchChannelRequest(); // MmPatchChannelRequest | Channel object to be updated
 
 try {
-  final MMChannel? result = await client.channels.patchChannel(channelId, mMPatchChannelRequest); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.patchChannel(channelId, mmPatchChannelRequest); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannel: $e\n');
@@ -2272,11 +2272,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMPatchChannelRequest** | [**MMPatchChannelRequest**](MMPatchChannelRequest.md)| Channel object to be updated | 
+ **mmPatchChannelRequest** | [**MmPatchChannelRequest**](MmPatchChannelRequest.md)| Channel object to be updated | 
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -2290,7 +2290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchChannelModerations**
-> List<MMChannelModeration> patchChannelModerations(channelId, mMChannelModerationPatch)
+> List<MmChannelModeration> patchChannelModerations(channelId, mmChannelModerationPatch)
 
 Update a channel's moderation settings.
 
@@ -2305,26 +2305,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMChannelModerationPatch mMChannelModerationPatch = MMChannelModerationPatch(); // MMChannelModerationPatch | 
+final MmChannelModerationPatch mmChannelModerationPatch = MmChannelModerationPatch(); // MmChannelModerationPatch | 
 
 try {
-  final List&lt;MMChannelModeration&gt;? result = await client.channels.patchChannelModerations(channelId, mMChannelModerationPatch); // await the Future<List&lt;MMChannelModeration&gt;?>
+  final List&lt;MmChannelModeration&gt;? result = await client.channels.patchChannelModerations(channelId, mmChannelModerationPatch); // await the Future<List&lt;MmChannelModeration&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannelModerations: $e\n');
@@ -2337,11 +2337,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMChannelModerationPatch** | [**MMChannelModerationPatch**](MMChannelModerationPatch.md)|  | 
+ **mmChannelModerationPatch** | [**MmChannelModerationPatch**](MmChannelModerationPatch.md)|  | 
 
 ### Return type
 
-[**List<MMChannelModeration>**](MMChannelModeration.md)
+[**List<MmChannelModeration>**](MmChannelModeration.md)
 
 ### Authorization
 
@@ -2355,7 +2355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeSidebarCategoryForTeamForUser**
-> MMSidebarCategory removeSidebarCategoryForTeamForUser(teamId, userId, categoryId)
+> MmSidebarCategory removeSidebarCategoryForTeamForUser(teamId, userId, categoryId)
 
 Delete sidebar category
 
@@ -2370,18 +2370,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -2390,7 +2390,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final MMSidebarCategory? result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MMSidebarCategory?>
+  final MmSidebarCategory? result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MmSidebarCategory?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeSidebarCategoryForTeamForUser: $e\n');
@@ -2408,7 +2408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMSidebarCategory**](MMSidebarCategory.md)
+[**MmSidebarCategory**](MmSidebarCategory.md)
 
 ### Authorization
 
@@ -2422,7 +2422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **removeUserFromChannel**
-> MMStatusOK removeUserFromChannel(channelId, userId)
+> MmStatusOK removeUserFromChannel(channelId, userId)
 
 Remove user from channel
 
@@ -2437,18 +2437,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -2456,7 +2456,7 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK? result = await client.channels.removeUserFromChannel(channelId, userId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.removeUserFromChannel(channelId, userId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeUserFromChannel: $e\n');
@@ -2473,7 +2473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -2487,7 +2487,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **restoreChannel**
-> MMChannel restoreChannel(channelId)
+> MmChannel restoreChannel(channelId)
 
 Restore a channel
 
@@ -2502,25 +2502,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannel? result = await client.channels.restoreChannel(channelId); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.restoreChannel(channelId); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->restoreChannel: $e\n');
@@ -2536,7 +2536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -2550,7 +2550,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchAllChannels**
-> MMSearchAllChannels200Response searchAllChannels(mMSearchAllChannelsRequest, systemConsole)
+> MmSearchAllChannels200Response searchAllChannels(mmSearchAllChannelsRequest, systemConsole)
 
 Search all private and open type channels across all teams
 
@@ -2565,26 +2565,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMSearchAllChannelsRequest mMSearchAllChannelsRequest = MMSearchAllChannelsRequest(); // MMSearchAllChannelsRequest | The search terms and logic to use in the search.
+final MmSearchAllChannelsRequest mmSearchAllChannelsRequest = MmSearchAllChannelsRequest(); // MmSearchAllChannelsRequest | The search terms and logic to use in the search.
 final bool systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
 
 try {
-  final MMSearchAllChannels200Response? result = await client.channels.searchAllChannels(mMSearchAllChannelsRequest, systemConsole); // await the Future<MMSearchAllChannels200Response?>
+  final MmSearchAllChannels200Response? result = await client.channels.searchAllChannels(mmSearchAllChannelsRequest, systemConsole); // await the Future<MmSearchAllChannels200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchAllChannels: $e\n');
@@ -2596,12 +2596,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMSearchAllChannelsRequest** | [**MMSearchAllChannelsRequest**](MMSearchAllChannelsRequest.md)| The search terms and logic to use in the search. | 
+ **mmSearchAllChannelsRequest** | [**MmSearchAllChannelsRequest**](MmSearchAllChannelsRequest.md)| The search terms and logic to use in the search. | 
  **systemConsole** | **bool**| Is the request from system_console. If this is set to true, it filters channels by the logged in user.  | [optional] [default to true]
 
 ### Return type
 
-[**MMSearchAllChannels200Response**](MMSearchAllChannels200Response.md)
+[**MmSearchAllChannels200Response**](MmSearchAllChannels200Response.md)
 
 ### Authorization
 
@@ -2615,7 +2615,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchArchivedChannels**
-> List<MMChannel> searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest)
+> List<MmChannel> searchArchivedChannels(teamId, mmSearchArchivedChannelsRequest)
 
 Search archived channels
 
@@ -2630,26 +2630,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest = MMSearchArchivedChannelsRequest(); // MMSearchArchivedChannelsRequest | Search criteria
+final MmSearchArchivedChannelsRequest mmSearchArchivedChannelsRequest = MmSearchArchivedChannelsRequest(); // MmSearchArchivedChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.searchArchivedChannels(teamId, mmSearchArchivedChannelsRequest); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchArchivedChannels: $e\n');
@@ -2662,11 +2662,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMSearchArchivedChannelsRequest** | [**MMSearchArchivedChannelsRequest**](MMSearchArchivedChannelsRequest.md)| Search criteria | 
+ **mmSearchArchivedChannelsRequest** | [**MmSearchArchivedChannelsRequest**](MmSearchArchivedChannelsRequest.md)| Search criteria | 
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -2680,7 +2680,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchChannels**
-> List<MMChannel> searchChannels(teamId, mMSearchChannelsRequest)
+> List<MmChannel> searchChannels(teamId, mmSearchChannelsRequest)
 
 Search channels
 
@@ -2695,26 +2695,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
-final MMSearchChannelsRequest mMSearchChannelsRequest = MMSearchChannelsRequest(); // MMSearchChannelsRequest | Search criteria
+final MmSearchChannelsRequest mmSearchChannelsRequest = MmSearchChannelsRequest(); // MmSearchChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.searchChannels(teamId, mMSearchChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.searchChannels(teamId, mmSearchChannelsRequest); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchChannels: $e\n');
@@ -2727,11 +2727,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
- **mMSearchChannelsRequest** | [**MMSearchChannelsRequest**](MMSearchChannelsRequest.md)| Search criteria | 
+ **mmSearchChannelsRequest** | [**MmSearchChannelsRequest**](MmSearchChannelsRequest.md)| Search criteria | 
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -2745,7 +2745,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **searchGroupChannels**
-> List<MMChannel> searchGroupChannels(mMSearchGroupChannelsRequest)
+> List<MmChannel> searchGroupChannels(mmSearchGroupChannelsRequest)
 
 Search Group Channels
 
@@ -2760,25 +2760,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest = MMSearchGroupChannelsRequest(); // MMSearchGroupChannelsRequest | Search criteria
+final MmSearchGroupChannelsRequest mmSearchGroupChannelsRequest = MmSearchGroupChannelsRequest(); // MmSearchGroupChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt;? result = await client.channels.searchGroupChannels(mMSearchGroupChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  final List&lt;MmChannel&gt;? result = await client.channels.searchGroupChannels(mmSearchGroupChannelsRequest); // await the Future<List&lt;MmChannel&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchGroupChannels: $e\n');
@@ -2790,11 +2790,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMSearchGroupChannelsRequest** | [**MMSearchGroupChannelsRequest**](MMSearchGroupChannelsRequest.md)| Search criteria | 
+ **mmSearchGroupChannelsRequest** | [**MmSearchGroupChannelsRequest**](MmSearchGroupChannelsRequest.md)| Search criteria | 
 
 ### Return type
 
-[**List<MMChannel>**](MMChannel.md)
+[**List<MmChannel>**](MmChannel.md)
 
 ### Authorization
 
@@ -2808,7 +2808,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannel**
-> MMChannel updateChannel(channelId, mMUpdateChannelRequest)
+> MmChannel updateChannel(channelId, mmUpdateChannelRequest)
 
 Update a channel
 
@@ -2823,26 +2823,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMUpdateChannelRequest mMUpdateChannelRequest = MMUpdateChannelRequest(); // MMUpdateChannelRequest | Channel object to be updated
+final MmUpdateChannelRequest mmUpdateChannelRequest = MmUpdateChannelRequest(); // MmUpdateChannelRequest | Channel object to be updated
 
 try {
-  final MMChannel? result = await client.channels.updateChannel(channelId, mMUpdateChannelRequest); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.updateChannel(channelId, mmUpdateChannelRequest); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannel: $e\n');
@@ -2855,11 +2855,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMUpdateChannelRequest** | [**MMUpdateChannelRequest**](MMUpdateChannelRequest.md)| Channel object to be updated | 
+ **mmUpdateChannelRequest** | [**MmUpdateChannelRequest**](MmUpdateChannelRequest.md)| Channel object to be updated | 
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -2873,7 +2873,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannelMemberSchemeRoles**
-> MMStatusOK updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest)
+> MmStatusOK updateChannelMemberSchemeRoles(channelId, userId, mmUpdateTeamMemberSchemeRolesRequest)
 
 Update the scheme-derived roles of a channel member.
 
@@ -2888,27 +2888,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest = MMUpdateTeamMemberSchemeRolesRequest(); // MMUpdateTeamMemberSchemeRolesRequest | Scheme properties.
+final MmUpdateTeamMemberSchemeRolesRequest mmUpdateTeamMemberSchemeRolesRequest = MmUpdateTeamMemberSchemeRolesRequest(); // MmUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-  final MMStatusOK? result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mmUpdateTeamMemberSchemeRolesRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelMemberSchemeRoles: $e\n');
@@ -2922,11 +2922,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
  **userId** | **String**| User GUID | 
- **mMUpdateTeamMemberSchemeRolesRequest** | [**MMUpdateTeamMemberSchemeRolesRequest**](MMUpdateTeamMemberSchemeRolesRequest.md)| Scheme properties. | 
+ **mmUpdateTeamMemberSchemeRolesRequest** | [**MmUpdateTeamMemberSchemeRolesRequest**](MmUpdateTeamMemberSchemeRolesRequest.md)| Scheme properties. | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -2940,7 +2940,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannelNotifyProps**
-> MMStatusOK updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps)
+> MmStatusOK updateChannelNotifyProps(channelId, userId, mmChannelNotifyProps)
 
 Update channel notifications
 
@@ -2955,27 +2955,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMChannelNotifyProps mMChannelNotifyProps = MMChannelNotifyProps(); // MMChannelNotifyProps | 
+final MmChannelNotifyProps mmChannelNotifyProps = MmChannelNotifyProps(); // MmChannelNotifyProps | 
 
 try {
-  final MMStatusOK? result = await client.channels.updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.updateChannelNotifyProps(channelId, userId, mmChannelNotifyProps); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelNotifyProps: $e\n');
@@ -2989,11 +2989,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
  **userId** | **String**| User GUID | 
- **mMChannelNotifyProps** | [**MMChannelNotifyProps**](MMChannelNotifyProps.md)|  | 
+ **mmChannelNotifyProps** | [**MmChannelNotifyProps**](MmChannelNotifyProps.md)|  | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -3007,7 +3007,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannelPrivacy**
-> MMChannel updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest)
+> MmChannel updateChannelPrivacy(channelId, mmUpdateChannelPrivacyRequest)
 
 Update channel's privacy
 
@@ -3022,26 +3022,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest = MMUpdateChannelPrivacyRequest(); // MMUpdateChannelPrivacyRequest | 
+final MmUpdateChannelPrivacyRequest mmUpdateChannelPrivacyRequest = MmUpdateChannelPrivacyRequest(); // MmUpdateChannelPrivacyRequest | 
 
 try {
-  final MMChannel? result = await client.channels.updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest); // await the Future<MMChannel?>
+  final MmChannel? result = await client.channels.updateChannelPrivacy(channelId, mmUpdateChannelPrivacyRequest); // await the Future<MmChannel?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelPrivacy: $e\n');
@@ -3054,11 +3054,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMUpdateChannelPrivacyRequest** | [**MMUpdateChannelPrivacyRequest**](MMUpdateChannelPrivacyRequest.md)|  | 
+ **mmUpdateChannelPrivacyRequest** | [**MmUpdateChannelPrivacyRequest**](MmUpdateChannelPrivacyRequest.md)|  | 
 
 ### Return type
 
-[**MMChannel**](MMChannel.md)
+[**MmChannel**](MmChannel.md)
 
 ### Authorization
 
@@ -3072,7 +3072,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannelRoles**
-> MMStatusOK updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest)
+> MmStatusOK updateChannelRoles(channelId, userId, mmUpdateUserRolesRequest)
 
 Update channel roles
 
@@ -3087,27 +3087,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
-final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
+final MmUpdateUserRolesRequest mmUpdateUserRolesRequest = MmUpdateUserRolesRequest(); // MmUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
 
 try {
-  final MMStatusOK? result = await client.channels.updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.updateChannelRoles(channelId, userId, mmUpdateUserRolesRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelRoles: $e\n');
@@ -3121,11 +3121,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
  **userId** | **String**| User GUID | 
- **mMUpdateUserRolesRequest** | [**MMUpdateUserRolesRequest**](MMUpdateUserRolesRequest.md)| Space-delimited channel roles to assign to the user | 
+ **mmUpdateUserRolesRequest** | [**MmUpdateUserRolesRequest**](MmUpdateUserRolesRequest.md)| Space-delimited channel roles to assign to the user | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -3139,7 +3139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateChannelScheme**
-> MMStatusOK updateChannelScheme(channelId, mMUpdateTeamSchemeRequest)
+> MmStatusOK updateChannelScheme(channelId, mmUpdateTeamSchemeRequest)
 
 Set a channel's scheme
 
@@ -3154,26 +3154,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String channelId = 'channelId_example'; // String | Channel GUID
-final MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest = MMUpdateTeamSchemeRequest(); // MMUpdateTeamSchemeRequest | Scheme GUID
+final MmUpdateTeamSchemeRequest mmUpdateTeamSchemeRequest = MmUpdateTeamSchemeRequest(); // MmUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-  final MMStatusOK? result = await client.channels.updateChannelScheme(channelId, mMUpdateTeamSchemeRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.channels.updateChannelScheme(channelId, mmUpdateTeamSchemeRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelScheme: $e\n');
@@ -3186,11 +3186,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channelId** | **String**| Channel GUID | 
- **mMUpdateTeamSchemeRequest** | [**MMUpdateTeamSchemeRequest**](MMUpdateTeamSchemeRequest.md)| Scheme GUID | 
+ **mmUpdateTeamSchemeRequest** | [**MmUpdateTeamSchemeRequest**](MmUpdateTeamSchemeRequest.md)| Scheme GUID | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -3204,7 +3204,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateSidebarCategoriesForTeamForUser**
-> MMSidebarCategory updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory)
+> MmSidebarCategory updateSidebarCategoriesForTeamForUser(teamId, userId, mmSidebarCategory)
 
 Update user's sidebar categories
 
@@ -3219,27 +3219,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
-final List&lt;MMSidebarCategory&gt; mMSidebarCategory = [List<MMSidebarCategory>()]; // List<MMSidebarCategory> | 
+final List&lt;MmSidebarCategory&gt; mmSidebarCategory = [List<MmSidebarCategory>()]; // List<MmSidebarCategory> | 
 
 try {
-  final MMSidebarCategory? result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  final MmSidebarCategory? result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mmSidebarCategory); // await the Future<MmSidebarCategory?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoriesForTeamForUser: $e\n');
@@ -3253,11 +3253,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| Team GUID | 
  **userId** | **String**| User GUID | 
- **mMSidebarCategory** | [**List<MMSidebarCategory>**](MMSidebarCategory.md)|  | 
+ **mmSidebarCategory** | [**List<MmSidebarCategory>**](MmSidebarCategory.md)|  | 
 
 ### Return type
 
-[**MMSidebarCategory**](MMSidebarCategory.md)
+[**MmSidebarCategory**](MmSidebarCategory.md)
 
 ### Authorization
 
@@ -3271,7 +3271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **updateSidebarCategoryForTeamForUser**
-> MMSidebarCategory updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory)
+> MmSidebarCategory updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mmSidebarCategory)
 
 Update sidebar category
 
@@ -3286,28 +3286,28 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
-final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
+final MmSidebarCategory mmSidebarCategory = MmSidebarCategory(); // MmSidebarCategory | 
 
 try {
-  final MMSidebarCategory? result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  final MmSidebarCategory? result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mmSidebarCategory); // await the Future<MmSidebarCategory?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoryForTeamForUser: $e\n');
@@ -3322,11 +3322,11 @@ Name | Type | Description  | Notes
  **teamId** | **String**| Team GUID | 
  **userId** | **String**| User GUID | 
  **categoryId** | **String**| Category GUID | 
- **mMSidebarCategory** | [**MMSidebarCategory**](MMSidebarCategory.md)|  | 
+ **mmSidebarCategory** | [**MmSidebarCategory**](MmSidebarCategory.md)|  | 
 
 ### Return type
 
-[**MMSidebarCategory**](MMSidebarCategory.md)
+[**MmSidebarCategory**](MmSidebarCategory.md)
 
 ### Authorization
 
@@ -3355,18 +3355,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -3407,7 +3407,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **viewChannel**
-> MMViewChannel200Response viewChannel(userId, mMViewChannelRequest)
+> MmViewChannel200Response viewChannel(userId, mmViewChannelRequest)
 
 View channel
 
@@ -3422,26 +3422,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User ID to perform the view action for
-final MMViewChannelRequest mMViewChannelRequest = MMViewChannelRequest(); // MMViewChannelRequest | Paremeters affecting how and which channels to view
+final MmViewChannelRequest mmViewChannelRequest = MmViewChannelRequest(); // MmViewChannelRequest | Paremeters affecting how and which channels to view
 
 try {
-  final MMViewChannel200Response? result = await client.channels.viewChannel(userId, mMViewChannelRequest); // await the Future<MMViewChannel200Response?>
+  final MmViewChannel200Response? result = await client.channels.viewChannel(userId, mmViewChannelRequest); // await the Future<MmViewChannel200Response?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->viewChannel: $e\n');
@@ -3454,11 +3454,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User ID to perform the view action for | 
- **mMViewChannelRequest** | [**MMViewChannelRequest**](MMViewChannelRequest.md)| Paremeters affecting how and which channels to view | 
+ **mmViewChannelRequest** | [**MmViewChannelRequest**](MmViewChannelRequest.md)| Paremeters affecting how and which channels to view | 
 
 ### Return type
 
-[**MMViewChannel200Response**](MMViewChannel200Response.md)
+[**MmViewChannel200Response**](MmViewChannel200Response.md)
 
 ### Authorization
 

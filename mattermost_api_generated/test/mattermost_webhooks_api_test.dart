@@ -21,7 +21,7 @@ void main() {
     //
     // Create an incoming webhook for a channel. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_incoming_webhooks` for the team the webhook is in if the user is different than the requester. 
     //
-    //Future<MMIncomingWebhook> createIncomingWebhook(MMCreateIncomingWebhookRequest mMCreateIncomingWebhookRequest) async
+    //Future<MmIncomingWebhook> createIncomingWebhook(MmCreateIncomingWebhookRequest mmCreateIncomingWebhookRequest) async
     test('test createIncomingWebhook', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Create an outgoing webhook for a team. ##### Permissions `manage_webhooks` for the team the webhook is in.  `manage_others_outgoing_webhooks` for the team the webhook is in if the user is different than the requester. 
     //
-    //Future<MMOutgoingWebhook> createOutgoingWebhook(MMCreateOutgoingWebhookRequest mMCreateOutgoingWebhookRequest) async
+    //Future<MmOutgoingWebhook> createOutgoingWebhook(MmCreateOutgoingWebhookRequest mmCreateOutgoingWebhookRequest) async
     test('test createOutgoingWebhook', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Delete an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMStatusOK> deleteIncomingWebhook(String hookId) async
+    //Future<MmStatusOK> deleteIncomingWebhook(String hookId) async
     test('test deleteIncomingWebhook', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Delete an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMStatusOK> deleteOutgoingWebhook(String hookId) async
+    //Future<MmStatusOK> deleteOutgoingWebhook(String hookId) async
     test('test deleteOutgoingWebhook', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Get an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMIncomingWebhook> getIncomingWebhook(String hookId) async
+    //Future<MmIncomingWebhook> getIncomingWebhook(String hookId) async
     test('test getIncomingWebhook', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Get a page of a list of incoming webhooks. Optionally filter for a specific team using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team. 
     //
-    //Future<List<MMIncomingWebhook>> getIncomingWebhooks({ int page, int perPage, String teamId }) async
+    //Future<List<MmIncomingWebhook>> getIncomingWebhooks({ int page, int perPage, String teamId }) async
     test('test getIncomingWebhooks', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMOutgoingWebhook> getOutgoingWebhook(String hookId) async
+    //Future<MmOutgoingWebhook> getOutgoingWebhook(String hookId) async
     test('test getOutgoingWebhook', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Get a page of a list of outgoing webhooks. Optionally filter for a specific team or channel using query parameters. ##### Permissions `manage_webhooks` for the system or `manage_webhooks` for the specific team/channel. 
     //
-    //Future<List<MMOutgoingWebhook>> getOutgoingWebhooks({ int page, int perPage, String teamId, String channelId }) async
+    //Future<List<MmOutgoingWebhook>> getOutgoingWebhooks({ int page, int perPage, String teamId, String channelId }) async
     test('test getOutgoingWebhooks', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Regenerate the token for the outgoing webhook. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMStatusOK> regenOutgoingHookToken(String hookId) async
+    //Future<MmStatusOK> regenOutgoingHookToken(String hookId) async
     test('test regenOutgoingHookToken', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Update an incoming webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMIncomingWebhook> updateIncomingWebhook(String hookId, MMUpdateIncomingWebhookRequest mMUpdateIncomingWebhookRequest) async
+    //Future<MmIncomingWebhook> updateIncomingWebhook(String hookId, MmUpdateIncomingWebhookRequest mmUpdateIncomingWebhookRequest) async
     test('test updateIncomingWebhook', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Update an outgoing webhook given the hook id. ##### Permissions `manage_webhooks` for system or `manage_webhooks` for the specific team or `manage_webhooks` for the channel. 
     //
-    //Future<MMOutgoingWebhook> updateOutgoingWebhook(String hookId, MMUpdateOutgoingWebhookRequest mMUpdateOutgoingWebhookRequest) async
+    //Future<MmOutgoingWebhook> updateOutgoingWebhook(String hookId, MmUpdateOutgoingWebhookRequest mmUpdateOutgoingWebhookRequest) async
     test('test updateOutgoingWebhook', () async {
       // TODO
     });

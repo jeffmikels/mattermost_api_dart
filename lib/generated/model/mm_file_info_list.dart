@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMFileInfoList {
-  /// Returns a new [MMFileInfoList] instance.
-  MMFileInfoList({
+class MmFileInfoList {
+  /// Returns a new [MmFileInfoList] instance.
+  MmFileInfoList({
     this.order = const [],
     this.fileInfos = const {},
     this.nextFileId,
@@ -21,7 +21,7 @@ class MMFileInfoList {
 
   List<String> order;
 
-  Map<String, MMFileInfo> fileInfos;
+  Map<String, MmFileInfo> fileInfos;
 
   /// The ID of next file info. Not omitted when empty or not relevant.
   ///
@@ -44,7 +44,7 @@ class MMFileInfoList {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMFileInfoList &&
+      other is MmFileInfoList &&
           other.order == order &&
           other.fileInfos == fileInfos &&
           other.nextFileId == nextFileId &&
@@ -60,7 +60,7 @@ class MMFileInfoList {
 
   @override
   String toString() =>
-      'MMFileInfoList[order=$order, fileInfos=$fileInfos, nextFileId=$nextFileId, prevFileId=$prevFileId]';
+      'MmFileInfoList[order=$order, fileInfos=$fileInfos, nextFileId=$nextFileId, prevFileId=$prevFileId]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -75,10 +75,10 @@ class MMFileInfoList {
     return _json;
   }
 
-  /// Returns a new [MMFileInfoList] instance and imports its values from
+  /// Returns a new [MmFileInfoList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMFileInfoList? fromJson(dynamic value) {
+  static MmFileInfoList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -87,15 +87,15 @@ class MMFileInfoList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMFileInfoList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMFileInfoList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmFileInfoList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmFileInfoList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMFileInfoList(
+      return MmFileInfoList(
         order: json[r'order'] is List ? (json[r'order'] as List).cast<String>() : const [],
-        fileInfos: MMFileInfo.mapFromJson(json[r'file_infos'] ?? const {}),
+        fileInfos: MmFileInfo.mapFromJson(json[r'file_infos'] ?? const {}),
         nextFileId: mapValueOfType<String>(json, r'next_file_id'),
         prevFileId: mapValueOfType<String>(json, r'prev_file_id'),
       );
@@ -103,14 +103,14 @@ class MMFileInfoList {
     return null;
   }
 
-  static List<MMFileInfoList>? listFromJson(
+  static List<MmFileInfoList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMFileInfoList>[];
+    final result = <MmFileInfoList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMFileInfoList.fromJson(row);
+        final value = MmFileInfoList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -119,12 +119,12 @@ class MMFileInfoList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMFileInfoList> mapFromJson(dynamic json) {
-    final map = <String, MMFileInfoList>{};
+  static Map<String, MmFileInfoList> mapFromJson(dynamic json) {
+    final map = <String, MmFileInfoList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMFileInfoList.fromJson(entry.value);
+        final value = MmFileInfoList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -133,16 +133,16 @@ class MMFileInfoList {
     return map;
   }
 
-  // maps a json object with a list of MMFileInfoList-objects as value to a dart map
-  static Map<String, List<MMFileInfoList>> mapListFromJson(
+  // maps a json object with a list of MmFileInfoList-objects as value to a dart map
+  static Map<String, List<MmFileInfoList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMFileInfoList>>{};
+    final map = <String, List<MmFileInfoList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMFileInfoList.listFromJson(
+        final value = MmFileInfoList.listFromJson(
           entry.value,
           growable: growable,
         );

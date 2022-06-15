@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateUserRolesRequest
+// tests for MmUpdateUserRolesRequest
 void main() {
-  // final instance = MMUpdateUserRolesRequest();
+  // final instance = MmUpdateUserRolesRequest();
 
-  group('test MMUpdateUserRolesRequest', () {
+  group('test MmUpdateUserRolesRequest', () {
     // String roles
     test('to test the property `roles`', () async {
       // TODO

@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMScheme
+// tests for MmScheme
 void main() {
-  // final instance = MMScheme();
+  // final instance = MmScheme();
 
-  group('test MMScheme', () {
+  group('test MmScheme', () {
     // The unique identifier of the scheme.
     // String id
     test('to test the property `id`', () async {

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMResetSamlAuthDataToEmail200Response {
-  /// Returns a new [MMResetSamlAuthDataToEmail200Response] instance.
-  MMResetSamlAuthDataToEmail200Response({
+class MmResetSamlAuthDataToEmail200Response {
+  /// Returns a new [MmResetSamlAuthDataToEmail200Response] instance.
+  MmResetSamlAuthDataToEmail200Response({
     this.numAffected,
   });
 
@@ -27,7 +27,7 @@ class MMResetSamlAuthDataToEmail200Response {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMResetSamlAuthDataToEmail200Response && other.numAffected == numAffected;
+      identical(this, other) || other is MmResetSamlAuthDataToEmail200Response && other.numAffected == numAffected;
 
   @override
   int get hashCode =>
@@ -35,7 +35,7 @@ class MMResetSamlAuthDataToEmail200Response {
       (numAffected == null ? 0 : numAffected!.hashCode);
 
   @override
-  String toString() => 'MMResetSamlAuthDataToEmail200Response[numAffected=$numAffected]';
+  String toString() => 'MmResetSamlAuthDataToEmail200Response[numAffected=$numAffected]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class MMResetSamlAuthDataToEmail200Response {
     return _json;
   }
 
-  /// Returns a new [MMResetSamlAuthDataToEmail200Response] instance and imports its values from
+  /// Returns a new [MmResetSamlAuthDataToEmail200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMResetSamlAuthDataToEmail200Response? fromJson(dynamic value) {
+  static MmResetSamlAuthDataToEmail200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,28 +58,28 @@ class MMResetSamlAuthDataToEmail200Response {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMResetSamlAuthDataToEmail200Response[$key]" is missing from JSON.');
+              'Required key "MmResetSamlAuthDataToEmail200Response[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMResetSamlAuthDataToEmail200Response[$key]" has a null value in JSON.');
+              'Required key "MmResetSamlAuthDataToEmail200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMResetSamlAuthDataToEmail200Response(
+      return MmResetSamlAuthDataToEmail200Response(
         numAffected: mapValueOfType<int>(json, r'num_affected'),
       );
     }
     return null;
   }
 
-  static List<MMResetSamlAuthDataToEmail200Response>? listFromJson(
+  static List<MmResetSamlAuthDataToEmail200Response>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMResetSamlAuthDataToEmail200Response>[];
+    final result = <MmResetSamlAuthDataToEmail200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMResetSamlAuthDataToEmail200Response.fromJson(row);
+        final value = MmResetSamlAuthDataToEmail200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -88,12 +88,12 @@ class MMResetSamlAuthDataToEmail200Response {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMResetSamlAuthDataToEmail200Response> mapFromJson(dynamic json) {
-    final map = <String, MMResetSamlAuthDataToEmail200Response>{};
+  static Map<String, MmResetSamlAuthDataToEmail200Response> mapFromJson(dynamic json) {
+    final map = <String, MmResetSamlAuthDataToEmail200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMResetSamlAuthDataToEmail200Response.fromJson(entry.value);
+        final value = MmResetSamlAuthDataToEmail200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -102,16 +102,16 @@ class MMResetSamlAuthDataToEmail200Response {
     return map;
   }
 
-  // maps a json object with a list of MMResetSamlAuthDataToEmail200Response-objects as value to a dart map
-  static Map<String, List<MMResetSamlAuthDataToEmail200Response>> mapListFromJson(
+  // maps a json object with a list of MmResetSamlAuthDataToEmail200Response-objects as value to a dart map
+  static Map<String, List<MmResetSamlAuthDataToEmail200Response>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMResetSamlAuthDataToEmail200Response>>{};
+    final map = <String, List<MmResetSamlAuthDataToEmail200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMResetSamlAuthDataToEmail200Response.listFromJson(
+        final value = MmResetSamlAuthDataToEmail200Response.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMTopChannelList {
-  /// Returns a new [MMTopChannelList] instance.
-  MMTopChannelList({
+class MmTopChannelList {
+  /// Returns a new [MmTopChannelList] instance.
+  MmTopChannelList({
     this.hasNext,
     this.items = const [],
   });
@@ -27,11 +27,11 @@ class MMTopChannelList {
   bool? hasNext;
 
   /// List of channels.
-  List<MMTopChannel> items;
+  List<MmTopChannel> items;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMTopChannelList && other.hasNext == hasNext && other.items == items;
+      identical(this, other) || other is MmTopChannelList && other.hasNext == hasNext && other.items == items;
 
   @override
   int get hashCode =>
@@ -39,7 +39,7 @@ class MMTopChannelList {
       (hasNext == null ? 0 : hasNext!.hashCode) + (items.hashCode);
 
   @override
-  String toString() => 'MMTopChannelList[hasNext=$hasNext, items=$items]';
+  String toString() => 'MmTopChannelList[hasNext=$hasNext, items=$items]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMTopChannelList {
     return _json;
   }
 
-  /// Returns a new [MMTopChannelList] instance and imports its values from
+  /// Returns a new [MmTopChannelList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMTopChannelList? fromJson(dynamic value) {
+  static MmTopChannelList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,28 +62,28 @@ class MMTopChannelList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMTopChannelList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMTopChannelList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmTopChannelList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmTopChannelList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMTopChannelList(
+      return MmTopChannelList(
         hasNext: mapValueOfType<bool>(json, r'has_next'),
-        items: MMTopChannel.listFromJson(json[r'items']) ?? const [],
+        items: MmTopChannel.listFromJson(json[r'items']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMTopChannelList>? listFromJson(
+  static List<MmTopChannelList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMTopChannelList>[];
+    final result = <MmTopChannelList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMTopChannelList.fromJson(row);
+        final value = MmTopChannelList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -92,12 +92,12 @@ class MMTopChannelList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMTopChannelList> mapFromJson(dynamic json) {
-    final map = <String, MMTopChannelList>{};
+  static Map<String, MmTopChannelList> mapFromJson(dynamic json) {
+    final map = <String, MmTopChannelList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopChannelList.fromJson(entry.value);
+        final value = MmTopChannelList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,16 +106,16 @@ class MMTopChannelList {
     return map;
   }
 
-  // maps a json object with a list of MMTopChannelList-objects as value to a dart map
-  static Map<String, List<MMTopChannelList>> mapListFromJson(
+  // maps a json object with a list of MmTopChannelList-objects as value to a dart map
+  static Map<String, List<MmTopChannelList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMTopChannelList>>{};
+    final map = <String, List<MmTopChannelList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMTopChannelList.listFromJson(
+        final value = MmTopChannelList.listFromJson(
           entry.value,
           growable: growable,
         );

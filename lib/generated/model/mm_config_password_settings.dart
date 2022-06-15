@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigPasswordSettings {
-  /// Returns a new [MMConfigPasswordSettings] instance.
-  MMConfigPasswordSettings({
+class MmConfigPasswordSettings {
+  /// Returns a new [MmConfigPasswordSettings] instance.
+  MmConfigPasswordSettings({
     this.minimumLength,
     this.lowercase,
     this.number,
@@ -63,7 +63,7 @@ class MMConfigPasswordSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigPasswordSettings &&
+      other is MmConfigPasswordSettings &&
           other.minimumLength == minimumLength &&
           other.lowercase == lowercase &&
           other.number == number &&
@@ -81,7 +81,7 @@ class MMConfigPasswordSettings {
 
   @override
   String toString() =>
-      'MMConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
+      'MmConfigPasswordSettings[minimumLength=$minimumLength, lowercase=$lowercase, number=$number, uppercase=$uppercase, symbol=$symbol]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -103,10 +103,10 @@ class MMConfigPasswordSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigPasswordSettings] instance and imports its values from
+  /// Returns a new [MmConfigPasswordSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigPasswordSettings? fromJson(dynamic value) {
+  static MmConfigPasswordSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,13 +115,13 @@ class MMConfigPasswordSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigPasswordSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigPasswordSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigPasswordSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigPasswordSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigPasswordSettings(
+      return MmConfigPasswordSettings(
         minimumLength: mapValueOfType<int>(json, r'MinimumLength'),
         lowercase: mapValueOfType<bool>(json, r'Lowercase'),
         number: mapValueOfType<bool>(json, r'Number'),
@@ -132,14 +132,14 @@ class MMConfigPasswordSettings {
     return null;
   }
 
-  static List<MMConfigPasswordSettings>? listFromJson(
+  static List<MmConfigPasswordSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigPasswordSettings>[];
+    final result = <MmConfigPasswordSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigPasswordSettings.fromJson(row);
+        final value = MmConfigPasswordSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -148,12 +148,12 @@ class MMConfigPasswordSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigPasswordSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigPasswordSettings>{};
+  static Map<String, MmConfigPasswordSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigPasswordSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigPasswordSettings.fromJson(entry.value);
+        final value = MmConfigPasswordSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -162,16 +162,16 @@ class MMConfigPasswordSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigPasswordSettings-objects as value to a dart map
-  static Map<String, List<MMConfigPasswordSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigPasswordSettings-objects as value to a dart map
+  static Map<String, List<MmConfigPasswordSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigPasswordSettings>>{};
+    final map = <String, List<MmConfigPasswordSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigPasswordSettings.listFromJson(
+        final value = MmConfigPasswordSettings.listFromJson(
           entry.value,
           growable: growable,
         );

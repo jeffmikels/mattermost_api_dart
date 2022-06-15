@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTimezone
+// tests for MmTimezone
 void main() {
-  // final instance = MMTimezone();
+  // final instance = MmTimezone();
 
-  group('test MMTimezone', () {
+  group('test MmTimezone', () {
     // Set to \"true\" to use the browser/system timezone, \"false\" to set manually. Defaults to \"true\".
     // bool useAutomaticTimezone
     test('to test the property `useAutomaticTimezone`', () async {

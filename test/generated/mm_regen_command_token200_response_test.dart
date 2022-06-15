@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMRegenCommandToken200Response
+// tests for MmRegenCommandToken200Response
 void main() {
-  // final instance = MMRegenCommandToken200Response();
+  // final instance = MmRegenCommandToken200Response();
 
-  group('test MMRegenCommandToken200Response', () {
+  group('test MmRegenCommandToken200Response', () {
     // The new token
     // String token
     test('to test the property `token`', () async {

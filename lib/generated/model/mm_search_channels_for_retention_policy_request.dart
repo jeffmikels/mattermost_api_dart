@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSearchChannelsForRetentionPolicyRequest {
-  /// Returns a new [MMSearchChannelsForRetentionPolicyRequest] instance.
-  MMSearchChannelsForRetentionPolicyRequest({
+class MmSearchChannelsForRetentionPolicyRequest {
+  /// Returns a new [MmSearchChannelsForRetentionPolicyRequest] instance.
+  MmSearchChannelsForRetentionPolicyRequest({
     this.term,
     this.teamIds = const [],
     this.public,
@@ -62,7 +62,7 @@ class MMSearchChannelsForRetentionPolicyRequest {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSearchChannelsForRetentionPolicyRequest &&
+      other is MmSearchChannelsForRetentionPolicyRequest &&
           other.term == term &&
           other.teamIds == teamIds &&
           other.public == public &&
@@ -80,7 +80,7 @@ class MMSearchChannelsForRetentionPolicyRequest {
 
   @override
   String toString() =>
-      'MMSearchChannelsForRetentionPolicyRequest[term=$term, teamIds=$teamIds, public=$public, private=$private, deleted=$deleted]';
+      'MmSearchChannelsForRetentionPolicyRequest[term=$term, teamIds=$teamIds, public=$public, private=$private, deleted=$deleted]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -100,10 +100,10 @@ class MMSearchChannelsForRetentionPolicyRequest {
     return _json;
   }
 
-  /// Returns a new [MMSearchChannelsForRetentionPolicyRequest] instance and imports its values from
+  /// Returns a new [MmSearchChannelsForRetentionPolicyRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchChannelsForRetentionPolicyRequest? fromJson(dynamic value) {
+  static MmSearchChannelsForRetentionPolicyRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -113,14 +113,14 @@ class MMSearchChannelsForRetentionPolicyRequest {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MMSearchChannelsForRetentionPolicyRequest[$key]" is missing from JSON.');
+              'Required key "MmSearchChannelsForRetentionPolicyRequest[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MMSearchChannelsForRetentionPolicyRequest[$key]" has a null value in JSON.');
+              'Required key "MmSearchChannelsForRetentionPolicyRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchChannelsForRetentionPolicyRequest(
+      return MmSearchChannelsForRetentionPolicyRequest(
         term: mapValueOfType<String>(json, r'term'),
         teamIds: json[r'team_ids'] is List ? (json[r'team_ids'] as List).cast<String>() : const [],
         public: mapValueOfType<bool>(json, r'public'),
@@ -131,14 +131,14 @@ class MMSearchChannelsForRetentionPolicyRequest {
     return null;
   }
 
-  static List<MMSearchChannelsForRetentionPolicyRequest>? listFromJson(
+  static List<MmSearchChannelsForRetentionPolicyRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchChannelsForRetentionPolicyRequest>[];
+    final result = <MmSearchChannelsForRetentionPolicyRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchChannelsForRetentionPolicyRequest.fromJson(row);
+        final value = MmSearchChannelsForRetentionPolicyRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -147,12 +147,12 @@ class MMSearchChannelsForRetentionPolicyRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchChannelsForRetentionPolicyRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSearchChannelsForRetentionPolicyRequest>{};
+  static Map<String, MmSearchChannelsForRetentionPolicyRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSearchChannelsForRetentionPolicyRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchChannelsForRetentionPolicyRequest.fromJson(entry.value);
+        final value = MmSearchChannelsForRetentionPolicyRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,16 +161,16 @@ class MMSearchChannelsForRetentionPolicyRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSearchChannelsForRetentionPolicyRequest-objects as value to a dart map
-  static Map<String, List<MMSearchChannelsForRetentionPolicyRequest>> mapListFromJson(
+  // maps a json object with a list of MmSearchChannelsForRetentionPolicyRequest-objects as value to a dart map
+  static Map<String, List<MmSearchChannelsForRetentionPolicyRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchChannelsForRetentionPolicyRequest>>{};
+    final map = <String, List<MmSearchChannelsForRetentionPolicyRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchChannelsForRetentionPolicyRequest.listFromJson(
+        final value = MmSearchChannelsForRetentionPolicyRequest.listFromJson(
           entry.value,
           growable: growable,
         );

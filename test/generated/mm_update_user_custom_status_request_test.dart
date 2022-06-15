@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMUpdateUserCustomStatusRequest
+// tests for MmUpdateUserCustomStatusRequest
 void main() {
-  // final instance = MMUpdateUserCustomStatusRequest();
+  // final instance = MmUpdateUserCustomStatusRequest();
 
-  group('test MMUpdateUserCustomStatusRequest', () {
+  group('test MmUpdateUserCustomStatusRequest', () {
     // Any emoji
     // String emoji
     test('to test the property `emoji`', () async {

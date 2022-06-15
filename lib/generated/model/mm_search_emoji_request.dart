@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSearchEmojiRequest {
-  /// Returns a new [MMSearchEmojiRequest] instance.
-  MMSearchEmojiRequest({
+class MmSearchEmojiRequest {
+  /// Returns a new [MmSearchEmojiRequest] instance.
+  MmSearchEmojiRequest({
     required this.term,
     this.prefixOnly,
   });
@@ -31,7 +31,7 @@ class MMSearchEmojiRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMSearchEmojiRequest && other.term == term && other.prefixOnly == prefixOnly;
+      identical(this, other) || other is MmSearchEmojiRequest && other.term == term && other.prefixOnly == prefixOnly;
 
   @override
   int get hashCode =>
@@ -39,7 +39,7 @@ class MMSearchEmojiRequest {
       (term.hashCode) + (prefixOnly == null ? 0 : prefixOnly!.hashCode);
 
   @override
-  String toString() => 'MMSearchEmojiRequest[term=$term, prefixOnly=$prefixOnly]';
+  String toString() => 'MmSearchEmojiRequest[term=$term, prefixOnly=$prefixOnly]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMSearchEmojiRequest {
     return _json;
   }
 
-  /// Returns a new [MMSearchEmojiRequest] instance and imports its values from
+  /// Returns a new [MmSearchEmojiRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSearchEmojiRequest? fromJson(dynamic value) {
+  static MmSearchEmojiRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,13 +62,13 @@ class MMSearchEmojiRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSearchEmojiRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSearchEmojiRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSearchEmojiRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSearchEmojiRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSearchEmojiRequest(
+      return MmSearchEmojiRequest(
         term: mapValueOfType<String>(json, r'term')!,
         prefixOnly: mapValueOfType<String>(json, r'prefix_only'),
       );
@@ -76,14 +76,14 @@ class MMSearchEmojiRequest {
     return null;
   }
 
-  static List<MMSearchEmojiRequest>? listFromJson(
+  static List<MmSearchEmojiRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSearchEmojiRequest>[];
+    final result = <MmSearchEmojiRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSearchEmojiRequest.fromJson(row);
+        final value = MmSearchEmojiRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -92,12 +92,12 @@ class MMSearchEmojiRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSearchEmojiRequest> mapFromJson(dynamic json) {
-    final map = <String, MMSearchEmojiRequest>{};
+  static Map<String, MmSearchEmojiRequest> mapFromJson(dynamic json) {
+    final map = <String, MmSearchEmojiRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchEmojiRequest.fromJson(entry.value);
+        final value = MmSearchEmojiRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,16 +106,16 @@ class MMSearchEmojiRequest {
     return map;
   }
 
-  // maps a json object with a list of MMSearchEmojiRequest-objects as value to a dart map
-  static Map<String, List<MMSearchEmojiRequest>> mapListFromJson(
+  // maps a json object with a list of MmSearchEmojiRequest-objects as value to a dart map
+  static Map<String, List<MmSearchEmojiRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSearchEmojiRequest>>{};
+    final map = <String, List<MmSearchEmojiRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSearchEmojiRequest.listFromJson(
+        final value = MmSearchEmojiRequest.listFromJson(
           entry.value,
           growable: growable,
         );

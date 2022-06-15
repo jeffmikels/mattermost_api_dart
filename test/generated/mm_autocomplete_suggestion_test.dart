@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMAutocompleteSuggestion
+// tests for MmAutocompleteSuggestion
 void main() {
-  // final instance = MMAutocompleteSuggestion();
+  // final instance = MmAutocompleteSuggestion();
 
-  group('test MMAutocompleteSuggestion', () {
+  group('test MmAutocompleteSuggestion', () {
     // Completed suggestion
     // String complete
     test('to test the property `complete`', () async {

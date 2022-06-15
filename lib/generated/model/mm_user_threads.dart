@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUserThreads {
-  /// Returns a new [MMUserThreads] instance.
-  MMUserThreads({
+class MmUserThreads {
+  /// Returns a new [MmUserThreads] instance.
+  MmUserThreads({
     this.total,
     this.threads = const [],
   });
@@ -27,11 +27,11 @@ class MMUserThreads {
   int? total;
 
   /// Array of threads
-  List<MMUserThread> threads;
+  List<MmUserThread> threads;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMUserThreads && other.total == total && other.threads == threads;
+      identical(this, other) || other is MmUserThreads && other.total == total && other.threads == threads;
 
   @override
   int get hashCode =>
@@ -39,7 +39,7 @@ class MMUserThreads {
       (total == null ? 0 : total!.hashCode) + (threads.hashCode);
 
   @override
-  String toString() => 'MMUserThreads[total=$total, threads=$threads]';
+  String toString() => 'MmUserThreads[total=$total, threads=$threads]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -50,10 +50,10 @@ class MMUserThreads {
     return _json;
   }
 
-  /// Returns a new [MMUserThreads] instance and imports its values from
+  /// Returns a new [MmUserThreads] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserThreads? fromJson(dynamic value) {
+  static MmUserThreads? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,28 +62,28 @@ class MMUserThreads {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserThreads[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserThreads[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserThreads[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserThreads[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserThreads(
+      return MmUserThreads(
         total: mapValueOfType<int>(json, r'total'),
-        threads: MMUserThread.listFromJson(json[r'threads']) ?? const [],
+        threads: MmUserThread.listFromJson(json[r'threads']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<MMUserThreads>? listFromJson(
+  static List<MmUserThreads>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserThreads>[];
+    final result = <MmUserThreads>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserThreads.fromJson(row);
+        final value = MmUserThreads.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -92,12 +92,12 @@ class MMUserThreads {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserThreads> mapFromJson(dynamic json) {
-    final map = <String, MMUserThreads>{};
+  static Map<String, MmUserThreads> mapFromJson(dynamic json) {
+    final map = <String, MmUserThreads>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserThreads.fromJson(entry.value);
+        final value = MmUserThreads.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -106,16 +106,16 @@ class MMUserThreads {
     return map;
   }
 
-  // maps a json object with a list of MMUserThreads-objects as value to a dart map
-  static Map<String, List<MMUserThreads>> mapListFromJson(
+  // maps a json object with a list of MmUserThreads-objects as value to a dart map
+  static Map<String, List<MmUserThreads>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserThreads>>{};
+    final map = <String, List<MmUserThreads>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserThreads.listFromJson(
+        final value = MmUserThreads.listFromJson(
           entry.value,
           growable: growable,
         );

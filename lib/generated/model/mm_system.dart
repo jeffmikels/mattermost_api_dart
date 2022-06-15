@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSystem {
-  /// Returns a new [MMSystem] instance.
-  MMSystem({
+class MmSystem {
+  /// Returns a new [MmSystem] instance.
+  MmSystem({
     this.name,
     this.value,
   });
@@ -37,7 +37,7 @@ class MMSystem {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMSystem && other.name == name && other.value == value;
+      identical(this, other) || other is MmSystem && other.name == name && other.value == value;
 
   @override
   int get hashCode =>
@@ -45,7 +45,7 @@ class MMSystem {
       (name == null ? 0 : name!.hashCode) + (value == null ? 0 : value!.hashCode);
 
   @override
-  String toString() => 'MMSystem[name=$name, value=$value]';
+  String toString() => 'MmSystem[name=$name, value=$value]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class MMSystem {
     return _json;
   }
 
-  /// Returns a new [MMSystem] instance and imports its values from
+  /// Returns a new [MmSystem] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSystem? fromJson(dynamic value) {
+  static MmSystem? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,13 +70,13 @@ class MMSystem {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSystem[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSystem[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSystem[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSystem[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSystem(
+      return MmSystem(
         name: mapValueOfType<String>(json, r'name'),
         value: mapValueOfType<String>(json, r'value'),
       );
@@ -84,14 +84,14 @@ class MMSystem {
     return null;
   }
 
-  static List<MMSystem>? listFromJson(
+  static List<MmSystem>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSystem>[];
+    final result = <MmSystem>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSystem.fromJson(row);
+        final value = MmSystem.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +100,12 @@ class MMSystem {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSystem> mapFromJson(dynamic json) {
-    final map = <String, MMSystem>{};
+  static Map<String, MmSystem> mapFromJson(dynamic json) {
+    final map = <String, MmSystem>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSystem.fromJson(entry.value);
+        final value = MmSystem.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,16 +114,16 @@ class MMSystem {
     return map;
   }
 
-  // maps a json object with a list of MMSystem-objects as value to a dart map
-  static Map<String, List<MMSystem>> mapListFromJson(
+  // maps a json object with a list of MmSystem-objects as value to a dart map
+  static Map<String, List<MmSystem>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSystem>>{};
+    final map = <String, List<MmSystem>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSystem.listFromJson(
+        final value = MmSystem.listFromJson(
           entry.value,
           growable: growable,
         );

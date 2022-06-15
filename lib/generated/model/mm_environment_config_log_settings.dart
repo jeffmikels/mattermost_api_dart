@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMEnvironmentConfigLogSettings {
-  /// Returns a new [MMEnvironmentConfigLogSettings] instance.
-  MMEnvironmentConfigLogSettings({
+class MmEnvironmentConfigLogSettings {
+  /// Returns a new [MmEnvironmentConfigLogSettings] instance.
+  MmEnvironmentConfigLogSettings({
     this.enableConsole,
     this.consoleLevel,
     this.enableFile,
@@ -81,7 +81,7 @@ class MMEnvironmentConfigLogSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMEnvironmentConfigLogSettings &&
+      other is MmEnvironmentConfigLogSettings &&
           other.enableConsole == enableConsole &&
           other.consoleLevel == consoleLevel &&
           other.enableFile == enableFile &&
@@ -103,7 +103,7 @@ class MMEnvironmentConfigLogSettings {
 
   @override
   String toString() =>
-      'MMEnvironmentConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
+      'MmEnvironmentConfigLogSettings[enableConsole=$enableConsole, consoleLevel=$consoleLevel, enableFile=$enableFile, fileLevel=$fileLevel, fileLocation=$fileLocation, enableWebhookDebugging=$enableWebhookDebugging, enableDiagnostics=$enableDiagnostics]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -131,10 +131,10 @@ class MMEnvironmentConfigLogSettings {
     return _json;
   }
 
-  /// Returns a new [MMEnvironmentConfigLogSettings] instance and imports its values from
+  /// Returns a new [MmEnvironmentConfigLogSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMEnvironmentConfigLogSettings? fromJson(dynamic value) {
+  static MmEnvironmentConfigLogSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -143,13 +143,13 @@ class MMEnvironmentConfigLogSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMEnvironmentConfigLogSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMEnvironmentConfigLogSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmEnvironmentConfigLogSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmEnvironmentConfigLogSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMEnvironmentConfigLogSettings(
+      return MmEnvironmentConfigLogSettings(
         enableConsole: mapValueOfType<bool>(json, r'EnableConsole'),
         consoleLevel: mapValueOfType<bool>(json, r'ConsoleLevel'),
         enableFile: mapValueOfType<bool>(json, r'EnableFile'),
@@ -162,14 +162,14 @@ class MMEnvironmentConfigLogSettings {
     return null;
   }
 
-  static List<MMEnvironmentConfigLogSettings>? listFromJson(
+  static List<MmEnvironmentConfigLogSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMEnvironmentConfigLogSettings>[];
+    final result = <MmEnvironmentConfigLogSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMEnvironmentConfigLogSettings.fromJson(row);
+        final value = MmEnvironmentConfigLogSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -178,12 +178,12 @@ class MMEnvironmentConfigLogSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMEnvironmentConfigLogSettings> mapFromJson(dynamic json) {
-    final map = <String, MMEnvironmentConfigLogSettings>{};
+  static Map<String, MmEnvironmentConfigLogSettings> mapFromJson(dynamic json) {
+    final map = <String, MmEnvironmentConfigLogSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigLogSettings.fromJson(entry.value);
+        final value = MmEnvironmentConfigLogSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -192,16 +192,16 @@ class MMEnvironmentConfigLogSettings {
     return map;
   }
 
-  // maps a json object with a list of MMEnvironmentConfigLogSettings-objects as value to a dart map
-  static Map<String, List<MMEnvironmentConfigLogSettings>> mapListFromJson(
+  // maps a json object with a list of MmEnvironmentConfigLogSettings-objects as value to a dart map
+  static Map<String, List<MmEnvironmentConfigLogSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMEnvironmentConfigLogSettings>>{};
+    final map = <String, List<MmEnvironmentConfigLogSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMEnvironmentConfigLogSettings.listFromJson(
+        final value = MmEnvironmentConfigLogSettings.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -30,7 +30,7 @@ void main() {
     //
     // Gets a file's info. ##### Permissions Must have `read_channel` permission or be uploader of the file. 
     //
-    //Future<MMFileInfo> getFileInfo(String fileId) async
+    //Future<MmFileInfo> getFileInfo(String fileId) async
     test('test getFileInfo', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Gets a public link for a file that can be accessed without logging into Mattermost. ##### Permissions Must have `read_channel` permission or be uploader of the file. 
     //
-    //Future<MMGetFileLink200Response> getFileLink(String fileId) async
+    //Future<MmGetFileLink200Response> getFileLink(String fileId) async
     test('test getFileLink', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Search for files in a team based on file name, extention and file content (if file content extraction is enabled and supported for the files). __Minimum server version__: 5.34 ##### Permissions Must be authenticated and have the `view_team` permission. 
     //
-    //Future<MMFileInfoList> searchFiles(String teamId, String terms, bool isOrSearch, { int timeZoneOffset, bool includeDeletedChannels, int page, int perPage }) async
+    //Future<MmFileInfoList> searchFiles(String teamId, String terms, bool isOrSearch, { int timeZoneOffset, bool includeDeletedChannels, int page, int perPage }) async
     test('test searchFiles', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Uploads a file that can later be attached to a post.  This request can either be a multipart/form-data request with a channel_id, files and optional client_ids defined in the FormData, or it can be a request with the channel_id and filename defined as query parameters with the contents of a single file in the body of the request.  Only multipart/form-data requests are supported by server versions up to and including 4.7. Server versions 4.8 and higher support both types of requests.  ##### Permissions Must have `upload_file` permission. 
     //
-    //Future<MMUploadFile201Response> uploadFile({ String channelId, String filename, MultipartFile files, String channelId2, String clientIds }) async
+    //Future<MmUploadFile201Response> uploadFile({ String channelId, String filename, MultipartFile files, String channelId2, String clientIds }) async
     test('test uploadFile', () async {
       // TODO
     });

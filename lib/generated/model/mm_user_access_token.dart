@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMUserAccessToken {
-  /// Returns a new [MMUserAccessToken] instance.
-  MMUserAccessToken({
+class MmUserAccessToken {
+  /// Returns a new [MmUserAccessToken] instance.
+  MmUserAccessToken({
     this.id,
     this.token,
     this.userId,
@@ -58,7 +58,7 @@ class MMUserAccessToken {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMUserAccessToken &&
+      other is MmUserAccessToken &&
           other.id == id &&
           other.token == token &&
           other.userId == userId &&
@@ -73,7 +73,7 @@ class MMUserAccessToken {
       (description == null ? 0 : description!.hashCode);
 
   @override
-  String toString() => 'MMUserAccessToken[id=$id, token=$token, userId=$userId, description=$description]';
+  String toString() => 'MmUserAccessToken[id=$id, token=$token, userId=$userId, description=$description]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -92,10 +92,10 @@ class MMUserAccessToken {
     return _json;
   }
 
-  /// Returns a new [MMUserAccessToken] instance and imports its values from
+  /// Returns a new [MmUserAccessToken] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMUserAccessToken? fromJson(dynamic value) {
+  static MmUserAccessToken? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -104,13 +104,13 @@ class MMUserAccessToken {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMUserAccessToken[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMUserAccessToken[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmUserAccessToken[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmUserAccessToken[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMUserAccessToken(
+      return MmUserAccessToken(
         id: mapValueOfType<String>(json, r'id'),
         token: mapValueOfType<String>(json, r'token'),
         userId: mapValueOfType<String>(json, r'user_id'),
@@ -120,14 +120,14 @@ class MMUserAccessToken {
     return null;
   }
 
-  static List<MMUserAccessToken>? listFromJson(
+  static List<MmUserAccessToken>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMUserAccessToken>[];
+    final result = <MmUserAccessToken>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMUserAccessToken.fromJson(row);
+        final value = MmUserAccessToken.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -136,12 +136,12 @@ class MMUserAccessToken {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMUserAccessToken> mapFromJson(dynamic json) {
-    final map = <String, MMUserAccessToken>{};
+  static Map<String, MmUserAccessToken> mapFromJson(dynamic json) {
+    final map = <String, MmUserAccessToken>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAccessToken.fromJson(entry.value);
+        final value = MmUserAccessToken.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -150,16 +150,16 @@ class MMUserAccessToken {
     return map;
   }
 
-  // maps a json object with a list of MMUserAccessToken-objects as value to a dart map
-  static Map<String, List<MMUserAccessToken>> mapListFromJson(
+  // maps a json object with a list of MmUserAccessToken-objects as value to a dart map
+  static Map<String, List<MmUserAccessToken>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMUserAccessToken>>{};
+    final map = <String, List<MmUserAccessToken>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMUserAccessToken.listFromJson(
+        final value = MmUserAccessToken.listFromJson(
           entry.value,
           growable: growable,
         );

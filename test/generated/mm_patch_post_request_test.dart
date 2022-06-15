@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPatchPostRequest
+// tests for MmPatchPostRequest
 void main() {
-  // final instance = MMPatchPostRequest();
+  // final instance = MmPatchPostRequest();
 
-  group('test MMPatchPostRequest', () {
+  group('test MmPatchPostRequest', () {
     // Set to `true` to pin the post to the channel it is in
     // bool isPinned
     test('to test the property `isPinned`', () async {

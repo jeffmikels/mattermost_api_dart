@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 
 # **assignBot**
-> MMBot assignBot(botUserId, userId)
+> MmBot assignBot(botUserId, userId)
 
 Assign a bot to a user
 
@@ -39,18 +39,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -58,7 +58,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final String userId = 'userId_example'; // String | The user ID to assign the bot to.
 
 try {
-  final MMBot? result = await client.bots.assignBot(botUserId, userId); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.assignBot(botUserId, userId); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->assignBot: $e\n');
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **convertBotToUser**
-> MMStatusOK convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin)
+> MmStatusOK convertBotToUser(botUserId, mmConvertBotToUserRequest, setSystemAdmin)
 
 Convert a bot into a user
 
@@ -104,27 +104,27 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String botUserId = 'botUserId_example'; // String | Bot user ID
-final MMConvertBotToUserRequest mMConvertBotToUserRequest = MMConvertBotToUserRequest(); // MMConvertBotToUserRequest | Data to be used in the user creation
+final MmConvertBotToUserRequest mmConvertBotToUserRequest = MmConvertBotToUserRequest(); // MmConvertBotToUserRequest | Data to be used in the user creation
 final bool setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
-  final MMStatusOK? result = await client.bots.convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.bots.convertBotToUser(botUserId, mmConvertBotToUserRequest, setSystemAdmin); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->convertBotToUser: $e\n');
@@ -137,12 +137,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **botUserId** | **String**| Bot user ID | 
- **mMConvertBotToUserRequest** | [**MMConvertBotToUserRequest**](MMConvertBotToUserRequest.md)| Data to be used in the user creation | 
+ **mmConvertBotToUserRequest** | [**MmConvertBotToUserRequest**](MmConvertBotToUserRequest.md)| Data to be used in the user creation | 
  **setSystemAdmin** | **bool**| Whether to give the user the system admin role. | [optional] [default to false]
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **convertUserToBot**
-> MMStatusOK convertUserToBot(userId)
+> MmStatusOK convertUserToBot(userId)
 
 Convert a user into a bot
 
@@ -171,25 +171,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK? result = await client.bots.convertUserToBot(userId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.bots.convertUserToBot(userId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->convertUserToBot: $e\n');
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **createBot**
-> MMBot createBot(mMCreateBotRequest)
+> MmBot createBot(mmCreateBotRequest)
 
 Create a bot
 
@@ -234,25 +234,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
-final MMCreateBotRequest mMCreateBotRequest = MMCreateBotRequest(); // MMCreateBotRequest | Bot to be created
+final MmCreateBotRequest mmCreateBotRequest = MmCreateBotRequest(); // MmCreateBotRequest | Bot to be created
 
 try {
-  final MMBot? result = await client.bots.createBot(mMCreateBotRequest); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.createBot(mmCreateBotRequest); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->createBot: $e\n');
@@ -264,11 +264,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mMCreateBotRequest** | [**MMCreateBotRequest**](MMCreateBotRequest.md)| Bot to be created | 
+ **mmCreateBotRequest** | [**MmCreateBotRequest**](MmCreateBotRequest.md)| Bot to be created | 
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **deleteBotIconImage**
-> MMStatusOK deleteBotIconImage(botUserId)
+> MmStatusOK deleteBotIconImage(botUserId)
 
 Delete bot's LHS icon image
 
@@ -297,25 +297,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMStatusOK? result = await client.bots.deleteBotIconImage(botUserId); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.bots.deleteBotIconImage(botUserId); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->deleteBotIconImage: $e\n');
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **disableBot**
-> MMBot disableBot(botUserId)
+> MmBot disableBot(botUserId)
 
 Disable a bot
 
@@ -360,25 +360,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMBot? result = await client.bots.disableBot(botUserId); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.disableBot(botUserId); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->disableBot: $e\n');
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **enableBot**
-> MMBot enableBot(botUserId)
+> MmBot enableBot(botUserId)
 
 Enable a bot
 
@@ -423,25 +423,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMBot? result = await client.bots.enableBot(botUserId); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.enableBot(botUserId); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->enableBot: $e\n');
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getBot**
-> MMBot getBot(botUserId, includeDeleted)
+> MmBot getBot(botUserId, includeDeleted)
 
 Get a bot
 
@@ -486,18 +486,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -505,7 +505,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final bool includeDeleted = true; // bool | If deleted bots should be returned.
 
 try {
-  final MMBot? result = await client.bots.getBot(botUserId, includeDeleted); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.getBot(botUserId, includeDeleted); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->getBot: $e\n');
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -551,18 +551,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -598,7 +598,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getBots**
-> List<MMBot> getBots(page, perPage, includeDeleted, onlyOrphaned)
+> List<MmBot> getBots(page, perPage, includeDeleted, onlyOrphaned)
 
 Get bots
 
@@ -613,18 +613,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -634,7 +634,7 @@ final bool includeDeleted = true; // bool | If deleted bots should be returned.
 final bool onlyOrphaned = true; // bool | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
 
 try {
-  final List&lt;MMBot&gt;? result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned); // await the Future<List&lt;MMBot&gt;?>
+  final List&lt;MmBot&gt;? result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned); // await the Future<List&lt;MmBot&gt;?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->getBots: $e\n');
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<MMBot>**](MMBot.md)
+[**List<MmBot>**](MmBot.md)
 
 ### Authorization
 
@@ -667,7 +667,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **patchBot**
-> MMBot patchBot(botUserId, mMCreateBotRequest)
+> MmBot patchBot(botUserId, mmCreateBotRequest)
 
 Patch a bot
 
@@ -682,26 +682,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String botUserId = 'botUserId_example'; // String | Bot user ID
-final MMCreateBotRequest mMCreateBotRequest = MMCreateBotRequest(); // MMCreateBotRequest | Bot to be created
+final MmCreateBotRequest mmCreateBotRequest = MmCreateBotRequest(); // MmCreateBotRequest | Bot to be created
 
 try {
-  final MMBot? result = await client.bots.patchBot(botUserId, mMCreateBotRequest); // await the Future<MMBot?>
+  final MmBot? result = await client.bots.patchBot(botUserId, mmCreateBotRequest); // await the Future<MmBot?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->patchBot: $e\n');
@@ -714,11 +714,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **botUserId** | **String**| Bot user ID | 
- **mMCreateBotRequest** | [**MMCreateBotRequest**](MMCreateBotRequest.md)| Bot to be created | 
+ **mmCreateBotRequest** | [**MmCreateBotRequest**](MmCreateBotRequest.md)| Bot to be created | 
 
 ### Return type
 
-[**MMBot**](MMBot.md)
+[**MmBot**](MmBot.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **setBotIconImage**
-> MMStatusOK setBotIconImage(botUserId, image)
+> MmStatusOK setBotIconImage(botUserId, image)
 
 Set bot's LHS icon image
 
@@ -747,18 +747,18 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
@@ -766,7 +766,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | SVG icon image to be uploaded
 
 try {
-  final MMStatusOK? result = await client.bots.setBotIconImage(botUserId, image); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.bots.setBotIconImage(botUserId, image); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBotsApi->setBotIconImage: $e\n');
@@ -783,7 +783,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

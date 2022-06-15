@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPluginStatus
+// tests for MmPluginStatus
 void main() {
-  // final instance = MMPluginStatus();
+  // final instance = MmPluginStatus();
 
-  group('test MMPluginStatus', () {
+  group('test MmPluginStatus', () {
     // Globally unique identifier that represents the plugin.
     // String pluginId
     test('to test the property `pluginId`', () async {

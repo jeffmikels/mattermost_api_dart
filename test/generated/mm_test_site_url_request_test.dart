@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMTestSiteURLRequest
+// tests for MmTestSiteURLRequest
 void main() {
-  // final instance = MMTestSiteURLRequest();
+  // final instance = MmTestSiteURLRequest();
 
-  group('test MMTestSiteURLRequest', () {
+  group('test MmTestSiteURLRequest', () {
     // The Site URL to test
     // String siteUrl
     test('to test the property `siteUrl`', () async {

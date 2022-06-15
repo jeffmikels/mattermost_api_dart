@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMLoginByCwsTokenRequest
+// tests for MmLoginByCwsTokenRequest
 void main() {
-  // final instance = MMLoginByCwsTokenRequest();
+  // final instance = MmLoginByCwsTokenRequest();
 
-  group('test MMLoginByCwsTokenRequest', () {
+  group('test MmLoginByCwsTokenRequest', () {
     // String loginId
     test('to test the property `loginId`', () async {
       // TODO

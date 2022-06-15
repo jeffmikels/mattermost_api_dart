@@ -10,15 +10,15 @@
 
 part of mattermost.api;
 
-class MMRetentionPolicyForTeamList {
-  /// Returns a new [MMRetentionPolicyForTeamList] instance.
-  MMRetentionPolicyForTeamList({
+class MmRetentionPolicyForTeamList {
+  /// Returns a new [MmRetentionPolicyForTeamList] instance.
+  MmRetentionPolicyForTeamList({
     this.policies = const [],
     this.totalCount,
   });
 
   /// The list of team policies.
-  List<MMDataRetentionPolicyForTeam> policies;
+  List<MmDataRetentionPolicyForTeam> policies;
 
   /// The total number of team policies.
   ///
@@ -32,7 +32,7 @@ class MMRetentionPolicyForTeamList {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMRetentionPolicyForTeamList && other.policies == policies && other.totalCount == totalCount;
+      other is MmRetentionPolicyForTeamList && other.policies == policies && other.totalCount == totalCount;
 
   @override
   int get hashCode =>
@@ -40,7 +40,7 @@ class MMRetentionPolicyForTeamList {
       (policies.hashCode) + (totalCount == null ? 0 : totalCount!.hashCode);
 
   @override
-  String toString() => 'MMRetentionPolicyForTeamList[policies=$policies, totalCount=$totalCount]';
+  String toString() => 'MmRetentionPolicyForTeamList[policies=$policies, totalCount=$totalCount]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class MMRetentionPolicyForTeamList {
     return _json;
   }
 
-  /// Returns a new [MMRetentionPolicyForTeamList] instance and imports its values from
+  /// Returns a new [MmRetentionPolicyForTeamList] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMRetentionPolicyForTeamList? fromJson(dynamic value) {
+  static MmRetentionPolicyForTeamList? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,28 +63,28 @@ class MMRetentionPolicyForTeamList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMRetentionPolicyForTeamList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMRetentionPolicyForTeamList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmRetentionPolicyForTeamList[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmRetentionPolicyForTeamList[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMRetentionPolicyForTeamList(
-        policies: MMDataRetentionPolicyForTeam.listFromJson(json[r'policies']) ?? const [],
+      return MmRetentionPolicyForTeamList(
+        policies: MmDataRetentionPolicyForTeam.listFromJson(json[r'policies']) ?? const [],
         totalCount: mapValueOfType<int>(json, r'total_count'),
       );
     }
     return null;
   }
 
-  static List<MMRetentionPolicyForTeamList>? listFromJson(
+  static List<MmRetentionPolicyForTeamList>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMRetentionPolicyForTeamList>[];
+    final result = <MmRetentionPolicyForTeamList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMRetentionPolicyForTeamList.fromJson(row);
+        final value = MmRetentionPolicyForTeamList.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -93,12 +93,12 @@ class MMRetentionPolicyForTeamList {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMRetentionPolicyForTeamList> mapFromJson(dynamic json) {
-    final map = <String, MMRetentionPolicyForTeamList>{};
+  static Map<String, MmRetentionPolicyForTeamList> mapFromJson(dynamic json) {
+    final map = <String, MmRetentionPolicyForTeamList>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRetentionPolicyForTeamList.fromJson(entry.value);
+        final value = MmRetentionPolicyForTeamList.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,16 +107,16 @@ class MMRetentionPolicyForTeamList {
     return map;
   }
 
-  // maps a json object with a list of MMRetentionPolicyForTeamList-objects as value to a dart map
-  static Map<String, List<MMRetentionPolicyForTeamList>> mapListFromJson(
+  // maps a json object with a list of MmRetentionPolicyForTeamList-objects as value to a dart map
+  static Map<String, List<MmRetentionPolicyForTeamList>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMRetentionPolicyForTeamList>>{};
+    final map = <String, List<MmRetentionPolicyForTeamList>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMRetentionPolicyForTeamList.listFromJson(
+        final value = MmRetentionPolicyForTeamList.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPatchGroupSyncableForTeamRequest {
-  /// Returns a new [MMPatchGroupSyncableForTeamRequest] instance.
-  MMPatchGroupSyncableForTeamRequest({
+class MmPatchGroupSyncableForTeamRequest {
+  /// Returns a new [MmPatchGroupSyncableForTeamRequest] instance.
+  MmPatchGroupSyncableForTeamRequest({
     this.autoAdd,
   });
 
@@ -26,7 +26,7 @@ class MMPatchGroupSyncableForTeamRequest {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMPatchGroupSyncableForTeamRequest && other.autoAdd == autoAdd;
+      identical(this, other) || other is MmPatchGroupSyncableForTeamRequest && other.autoAdd == autoAdd;
 
   @override
   int get hashCode =>
@@ -34,7 +34,7 @@ class MMPatchGroupSyncableForTeamRequest {
       (autoAdd == null ? 0 : autoAdd!.hashCode);
 
   @override
-  String toString() => 'MMPatchGroupSyncableForTeamRequest[autoAdd=$autoAdd]';
+  String toString() => 'MmPatchGroupSyncableForTeamRequest[autoAdd=$autoAdd]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -44,10 +44,10 @@ class MMPatchGroupSyncableForTeamRequest {
     return _json;
   }
 
-  /// Returns a new [MMPatchGroupSyncableForTeamRequest] instance and imports its values from
+  /// Returns a new [MmPatchGroupSyncableForTeamRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPatchGroupSyncableForTeamRequest? fromJson(dynamic value) {
+  static MmPatchGroupSyncableForTeamRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,28 +57,28 @@ class MMPatchGroupSyncableForTeamRequest {
       assert(() {
         requiredKeys.forEach((key) {
           assert(
-              json.containsKey(key), 'Required key "MMPatchGroupSyncableForTeamRequest[$key]" is missing from JSON.');
+              json.containsKey(key), 'Required key "MmPatchGroupSyncableForTeamRequest[$key]" is missing from JSON.');
           assert(
-              json[key] != null, 'Required key "MMPatchGroupSyncableForTeamRequest[$key]" has a null value in JSON.');
+              json[key] != null, 'Required key "MmPatchGroupSyncableForTeamRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPatchGroupSyncableForTeamRequest(
+      return MmPatchGroupSyncableForTeamRequest(
         autoAdd: mapValueOfType<bool>(json, r'auto_add'),
       );
     }
     return null;
   }
 
-  static List<MMPatchGroupSyncableForTeamRequest>? listFromJson(
+  static List<MmPatchGroupSyncableForTeamRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPatchGroupSyncableForTeamRequest>[];
+    final result = <MmPatchGroupSyncableForTeamRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPatchGroupSyncableForTeamRequest.fromJson(row);
+        final value = MmPatchGroupSyncableForTeamRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -87,12 +87,12 @@ class MMPatchGroupSyncableForTeamRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPatchGroupSyncableForTeamRequest> mapFromJson(dynamic json) {
-    final map = <String, MMPatchGroupSyncableForTeamRequest>{};
+  static Map<String, MmPatchGroupSyncableForTeamRequest> mapFromJson(dynamic json) {
+    final map = <String, MmPatchGroupSyncableForTeamRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchGroupSyncableForTeamRequest.fromJson(entry.value);
+        final value = MmPatchGroupSyncableForTeamRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -101,16 +101,16 @@ class MMPatchGroupSyncableForTeamRequest {
     return map;
   }
 
-  // maps a json object with a list of MMPatchGroupSyncableForTeamRequest-objects as value to a dart map
-  static Map<String, List<MMPatchGroupSyncableForTeamRequest>> mapListFromJson(
+  // maps a json object with a list of MmPatchGroupSyncableForTeamRequest-objects as value to a dart map
+  static Map<String, List<MmPatchGroupSyncableForTeamRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPatchGroupSyncableForTeamRequest>>{};
+    final map = <String, List<MmPatchGroupSyncableForTeamRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPatchGroupSyncableForTeamRequest.listFromJson(
+        final value = MmPatchGroupSyncableForTeamRequest.listFromJson(
           entry.value,
           growable: growable,
         );

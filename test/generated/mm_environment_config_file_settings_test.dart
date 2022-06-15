@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigFileSettings
+// tests for MmEnvironmentConfigFileSettings
 void main() {
-  // final instance = MMEnvironmentConfigFileSettings();
+  // final instance = MmEnvironmentConfigFileSettings();
 
-  group('test MMEnvironmentConfigFileSettings', () {
+  group('test MmEnvironmentConfigFileSettings', () {
     // bool maxFileSize
     test('to test the property `maxFileSize`', () async {
       // TODO

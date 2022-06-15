@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMChannelModeration {
-  /// Returns a new [MMChannelModeration] instance.
-  MMChannelModeration({
+class MmChannelModeration {
+  /// Returns a new [MmChannelModeration] instance.
+  MmChannelModeration({
     this.name,
     this.roles,
   });
@@ -31,11 +31,11 @@ class MMChannelModeration {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MMChannelModeratedRoles? roles;
+  MmChannelModeratedRoles? roles;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMChannelModeration && other.name == name && other.roles == roles;
+      identical(this, other) || other is MmChannelModeration && other.name == name && other.roles == roles;
 
   @override
   int get hashCode =>
@@ -43,7 +43,7 @@ class MMChannelModeration {
       (name == null ? 0 : name!.hashCode) + (roles == null ? 0 : roles!.hashCode);
 
   @override
-  String toString() => 'MMChannelModeration[name=$name, roles=$roles]';
+  String toString() => 'MmChannelModeration[name=$name, roles=$roles]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -56,10 +56,10 @@ class MMChannelModeration {
     return _json;
   }
 
-  /// Returns a new [MMChannelModeration] instance and imports its values from
+  /// Returns a new [MmChannelModeration] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMChannelModeration? fromJson(dynamic value) {
+  static MmChannelModeration? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,28 +68,28 @@ class MMChannelModeration {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMChannelModeration[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMChannelModeration[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmChannelModeration[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmChannelModeration[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMChannelModeration(
+      return MmChannelModeration(
         name: mapValueOfType<String>(json, r'name'),
-        roles: MMChannelModeratedRoles.fromJson(json[r'roles']),
+        roles: MmChannelModeratedRoles.fromJson(json[r'roles']),
       );
     }
     return null;
   }
 
-  static List<MMChannelModeration>? listFromJson(
+  static List<MmChannelModeration>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMChannelModeration>[];
+    final result = <MmChannelModeration>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMChannelModeration.fromJson(row);
+        final value = MmChannelModeration.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -98,12 +98,12 @@ class MMChannelModeration {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMChannelModeration> mapFromJson(dynamic json) {
-    final map = <String, MMChannelModeration>{};
+  static Map<String, MmChannelModeration> mapFromJson(dynamic json) {
+    final map = <String, MmChannelModeration>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeration.fromJson(entry.value);
+        final value = MmChannelModeration.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,16 +112,16 @@ class MMChannelModeration {
     return map;
   }
 
-  // maps a json object with a list of MMChannelModeration-objects as value to a dart map
-  static Map<String, List<MMChannelModeration>> mapListFromJson(
+  // maps a json object with a list of MmChannelModeration-objects as value to a dart map
+  static Map<String, List<MmChannelModeration>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMChannelModeration>>{};
+    final map = <String, List<MmChannelModeration>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMChannelModeration.listFromJson(
+        final value = MmChannelModeration.listFromJson(
           entry.value,
           growable: growable,
         );

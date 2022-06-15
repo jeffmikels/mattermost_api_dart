@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSystemStatusResponse
+// tests for MmSystemStatusResponse
 void main() {
-  // final instance = MMSystemStatusResponse();
+  // final instance = MmSystemStatusResponse();
 
-  group('test MMSystemStatusResponse', () {
+  group('test MmSystemStatusResponse', () {
     // Latest Android version supported
     // String androidLatestVersion
     test('to test the property `androidLatestVersion`', () async {

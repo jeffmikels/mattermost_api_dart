@@ -11,37 +11,37 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostMetadata
+// tests for MmPostMetadata
 void main() {
-  // final instance = MMPostMetadata();
+  // final instance = MmPostMetadata();
 
-  group('test MMPostMetadata', () {
+  group('test MmPostMetadata', () {
     // Information about content embedded in the post including OpenGraph previews, image link previews, and message attachments. This field will be null if the post does not contain embedded content. 
-    // List<MMPostMetadataEmbedsInner> embeds (default value: const [])
+    // List<MmPostMetadataEmbedsInner> embeds (default value: const [])
     test('to test the property `embeds`', () async {
       // TODO
     });
 
     // The custom emojis that appear in this point or have been used in reactions to this post. This field will be null if the post does not contain custom emojis. 
-    // List<MMEmoji> emojis (default value: const [])
+    // List<MmEmoji> emojis (default value: const [])
     test('to test the property `emojis`', () async {
       // TODO
     });
 
     // The FileInfo objects for any files attached to the post. This field will be null if the post does not have any file attachments. 
-    // List<MMFileInfo> files (default value: const [])
+    // List<MmFileInfo> files (default value: const [])
     test('to test the property `files`', () async {
       // TODO
     });
 
     // An object mapping the URL of an external image to an object containing the dimensions of that image. This field will be null if the post or its embedded content does not reference any external images. 
-    // List<MMPostMetadataImagesInner> images (default value: const [])
+    // List<MmPostMetadataImagesInner> images (default value: const [])
     test('to test the property `images`', () async {
       // TODO
     });
 
     // Any reactions made to this point. This field will be null if no reactions have been made to this post. 
-    // List<MMReaction> reactions (default value: const [])
+    // List<MmReaction> reactions (default value: const [])
     test('to test the property `reactions`', () async {
       // TODO
     });

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **acknowledgeNotification**
-> MMPushNotification acknowledgeNotification()
+> MmPushNotification acknowledgeNotification()
 
 Acknowledge receiving of a notification
 
@@ -28,24 +28,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMPushNotification? result = await client.root.acknowledgeNotification(); // await the Future<MMPushNotification?>
+  final MmPushNotification? result = await client.root.acknowledgeNotification(); // await the Future<MmPushNotification?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostRootApi->acknowledgeNotification: $e\n');
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMPushNotification**](MMPushNotification.md)
+[**MmPushNotification**](MmPushNotification.md)
 
 ### Authorization
 

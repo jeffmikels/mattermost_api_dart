@@ -11,17 +11,17 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMPostList
+// tests for MmPostList
 void main() {
-  // final instance = MMPostList();
+  // final instance = MmPostList();
 
-  group('test MMPostList', () {
+  group('test MmPostList', () {
     // List<String> order (default value: const [])
     test('to test the property `order`', () async {
       // TODO
     });
 
-    // Map<String, MMPost> posts (default value: const {})
+    // Map<String, MmPost> posts (default value: const {})
     test('to test the property `posts`', () async {
       // TODO
     });

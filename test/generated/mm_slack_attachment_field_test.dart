@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMSlackAttachmentField
+// tests for MmSlackAttachmentField
 void main() {
-  // final instance = MMSlackAttachmentField();
+  // final instance = MmSlackAttachmentField();
 
-  group('test MMSlackAttachmentField', () {
+  group('test MmSlackAttachmentField', () {
     // String title
     test('to test the property `title`', () async {
       // TODO

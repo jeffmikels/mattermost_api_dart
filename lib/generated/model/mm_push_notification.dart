@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMPushNotification {
-  /// Returns a new [MMPushNotification] instance.
-  MMPushNotification({
+class MmPushNotification {
+  /// Returns a new [MmPushNotification] instance.
+  MmPushNotification({
     this.ackId,
     this.platform,
     this.serverId,
@@ -216,7 +216,7 @@ class MMPushNotification {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMPushNotification &&
+      other is MmPushNotification &&
           other.ackId == ackId &&
           other.platform == platform &&
           other.serverId == serverId &&
@@ -268,7 +268,7 @@ class MMPushNotification {
 
   @override
   String toString() =>
-      'MMPushNotification[ackId=$ackId, platform=$platform, serverId=$serverId, deviceId=$deviceId, postId=$postId, category=$category, sound=$sound, message=$message, badge=$badge, contAva=$contAva, teamId=$teamId, channelId=$channelId, rootId=$rootId, channelName=$channelName, type=$type, senderId=$senderId, senderName=$senderName, overrideUsername=$overrideUsername, overrideIconUrl=$overrideIconUrl, fromWebhook=$fromWebhook, version=$version, isIdLoaded=$isIdLoaded]';
+      'MmPushNotification[ackId=$ackId, platform=$platform, serverId=$serverId, deviceId=$deviceId, postId=$postId, category=$category, sound=$sound, message=$message, badge=$badge, contAva=$contAva, teamId=$teamId, channelId=$channelId, rootId=$rootId, channelName=$channelName, type=$type, senderId=$senderId, senderName=$senderName, overrideUsername=$overrideUsername, overrideIconUrl=$overrideIconUrl, fromWebhook=$fromWebhook, version=$version, isIdLoaded=$isIdLoaded]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -341,10 +341,10 @@ class MMPushNotification {
     return _json;
   }
 
-  /// Returns a new [MMPushNotification] instance and imports its values from
+  /// Returns a new [MmPushNotification] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMPushNotification? fromJson(dynamic value) {
+  static MmPushNotification? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -353,13 +353,13 @@ class MMPushNotification {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMPushNotification[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMPushNotification[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmPushNotification[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmPushNotification[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMPushNotification(
+      return MmPushNotification(
         ackId: mapValueOfType<String>(json, r'ack_id'),
         platform: mapValueOfType<String>(json, r'platform'),
         serverId: mapValueOfType<String>(json, r'server_id'),
@@ -387,14 +387,14 @@ class MMPushNotification {
     return null;
   }
 
-  static List<MMPushNotification>? listFromJson(
+  static List<MmPushNotification>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMPushNotification>[];
+    final result = <MmPushNotification>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMPushNotification.fromJson(row);
+        final value = MmPushNotification.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -403,12 +403,12 @@ class MMPushNotification {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMPushNotification> mapFromJson(dynamic json) {
-    final map = <String, MMPushNotification>{};
+  static Map<String, MmPushNotification> mapFromJson(dynamic json) {
+    final map = <String, MmPushNotification>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPushNotification.fromJson(entry.value);
+        final value = MmPushNotification.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -417,16 +417,16 @@ class MMPushNotification {
     return map;
   }
 
-  // maps a json object with a list of MMPushNotification-objects as value to a dart map
-  static Map<String, List<MMPushNotification>> mapListFromJson(
+  // maps a json object with a list of MmPushNotification-objects as value to a dart map
+  static Map<String, List<MmPushNotification>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMPushNotification>>{};
+    final map = <String, List<MmPushNotification>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMPushNotification.listFromJson(
+        final value = MmPushNotification.listFromJson(
           entry.value,
           growable: growable,
         );

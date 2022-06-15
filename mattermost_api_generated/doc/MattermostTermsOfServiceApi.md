@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **createTermsOfService**
-> MMTermsOfService createTermsOfService()
+> MmTermsOfService createTermsOfService()
 
 Creates a new terms of service
 
@@ -31,24 +31,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMTermsOfService? result = await client.termsOfService.createTermsOfService(); // await the Future<MMTermsOfService?>
+  final MmTermsOfService? result = await client.termsOfService.createTermsOfService(); // await the Future<MmTermsOfService?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->createTermsOfService: $e\n');
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMTermsOfService**](MMTermsOfService.md)
+[**MmTermsOfService**](MmTermsOfService.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getTermsOfService**
-> MMTermsOfService getTermsOfService()
+> MmTermsOfService getTermsOfService()
 
 Get latest terms of service
 
@@ -90,24 +90,24 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 
 try {
-  final MMTermsOfService? result = await client.termsOfService.getTermsOfService(); // await the Future<MMTermsOfService?>
+  final MmTermsOfService? result = await client.termsOfService.getTermsOfService(); // await the Future<MmTermsOfService?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getTermsOfService: $e\n');
@@ -120,7 +120,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MMTermsOfService**](MMTermsOfService.md)
+[**MmTermsOfService**](MmTermsOfService.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **getUserTermsOfService**
-> MMUserTermsOfService getUserTermsOfService(userId)
+> MmUserTermsOfService getUserTermsOfService(userId)
 
 Fetches user's latest terms of service action if the latest action was for acceptance.
 
@@ -149,25 +149,25 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMUserTermsOfService? result = await client.termsOfService.getUserTermsOfService(userId); // await the Future<MMUserTermsOfService?>
+  final MmUserTermsOfService? result = await client.termsOfService.getUserTermsOfService(userId); // await the Future<MmUserTermsOfService?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getUserTermsOfService: $e\n');
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MMUserTermsOfService**](MMUserTermsOfService.md)
+[**MmUserTermsOfService**](MmUserTermsOfService.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to README]](../GENERATED_README.md)
 
 # **registerTermsOfServiceAction**
-> MMStatusOK registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest)
+> MmStatusOK registerTermsOfServiceAction(userId, mmRegisterTermsOfServiceActionRequest)
 
 Records user action when they accept or decline custom terms of service
 
@@ -212,26 +212,26 @@ import 'package:mattermost_api/api.dart';
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+//   authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 // );
 // Configure client with HTTP Bearer authorization and function returning a string:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MMHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+//   authentication: MmHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
 
 // Configure client with HTTP Bearer authorization and string token:
 var client = MattermostApiClient(
   basePath: 'https://your-server.tld/api/v4',
-  authentication: MMHttpBearerAuthentication('YOUR TOKEN'),
+  authentication: MmHttpBearerAuthentication('YOUR TOKEN'),
 );
 
 
 final String userId = 'userId_example'; // String | User GUID
-final MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest = MMRegisterTermsOfServiceActionRequest(); // MMRegisterTermsOfServiceActionRequest | terms of service details
+final MmRegisterTermsOfServiceActionRequest mmRegisterTermsOfServiceActionRequest = MmRegisterTermsOfServiceActionRequest(); // MmRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-  final MMStatusOK? result = await client.termsOfService.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest); // await the Future<MMStatusOK?>
+  final MmStatusOK? result = await client.termsOfService.registerTermsOfServiceAction(userId, mmRegisterTermsOfServiceActionRequest); // await the Future<MmStatusOK?>
   print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->registerTermsOfServiceAction: $e\n');
@@ -244,11 +244,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User GUID | 
- **mMRegisterTermsOfServiceActionRequest** | [**MMRegisterTermsOfServiceActionRequest**](MMRegisterTermsOfServiceActionRequest.md)| terms of service details | 
+ **mmRegisterTermsOfServiceActionRequest** | [**MmRegisterTermsOfServiceActionRequest**](MmRegisterTermsOfServiceActionRequest.md)| terms of service details | 
 
 ### Return type
 
-[**MMStatusOK**](MMStatusOK.md)
+[**MmStatusOK**](MmStatusOK.md)
 
 ### Authorization
 

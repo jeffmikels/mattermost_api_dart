@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMConfigSamlSettings {
-  /// Returns a new [MMConfigSamlSettings] instance.
-  MMConfigSamlSettings({
+class MmConfigSamlSettings {
+  /// Returns a new [MmConfigSamlSettings] instance.
+  MmConfigSamlSettings({
     this.enable,
     this.verify,
     this.encrypt,
@@ -171,7 +171,7 @@ class MMConfigSamlSettings {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMConfigSamlSettings &&
+      other is MmConfigSamlSettings &&
           other.enable == enable &&
           other.verify == verify &&
           other.encrypt == encrypt &&
@@ -213,7 +213,7 @@ class MMConfigSamlSettings {
 
   @override
   String toString() =>
-      'MMConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
+      'MmConfigSamlSettings[enable=$enable, verify=$verify, encrypt=$encrypt, idpUrl=$idpUrl, idpDescriptorUrl=$idpDescriptorUrl, assertionConsumerServiceURL=$assertionConsumerServiceURL, idpCertificateFile=$idpCertificateFile, publicCertificateFile=$publicCertificateFile, privateKeyFile=$privateKeyFile, firstNameAttribute=$firstNameAttribute, lastNameAttribute=$lastNameAttribute, emailAttribute=$emailAttribute, usernameAttribute=$usernameAttribute, nicknameAttribute=$nicknameAttribute, localeAttribute=$localeAttribute, positionAttribute=$positionAttribute, loginButtonText=$loginButtonText]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -271,10 +271,10 @@ class MMConfigSamlSettings {
     return _json;
   }
 
-  /// Returns a new [MMConfigSamlSettings] instance and imports its values from
+  /// Returns a new [MmConfigSamlSettings] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMConfigSamlSettings? fromJson(dynamic value) {
+  static MmConfigSamlSettings? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -283,13 +283,13 @@ class MMConfigSamlSettings {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMConfigSamlSettings[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMConfigSamlSettings[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmConfigSamlSettings[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmConfigSamlSettings[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMConfigSamlSettings(
+      return MmConfigSamlSettings(
         enable: mapValueOfType<bool>(json, r'Enable'),
         verify: mapValueOfType<bool>(json, r'Verify'),
         encrypt: mapValueOfType<bool>(json, r'Encrypt'),
@@ -312,14 +312,14 @@ class MMConfigSamlSettings {
     return null;
   }
 
-  static List<MMConfigSamlSettings>? listFromJson(
+  static List<MmConfigSamlSettings>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMConfigSamlSettings>[];
+    final result = <MmConfigSamlSettings>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMConfigSamlSettings.fromJson(row);
+        final value = MmConfigSamlSettings.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -328,12 +328,12 @@ class MMConfigSamlSettings {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMConfigSamlSettings> mapFromJson(dynamic json) {
-    final map = <String, MMConfigSamlSettings>{};
+  static Map<String, MmConfigSamlSettings> mapFromJson(dynamic json) {
+    final map = <String, MmConfigSamlSettings>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSamlSettings.fromJson(entry.value);
+        final value = MmConfigSamlSettings.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -342,16 +342,16 @@ class MMConfigSamlSettings {
     return map;
   }
 
-  // maps a json object with a list of MMConfigSamlSettings-objects as value to a dart map
-  static Map<String, List<MMConfigSamlSettings>> mapListFromJson(
+  // maps a json object with a list of MmConfigSamlSettings-objects as value to a dart map
+  static Map<String, List<MmConfigSamlSettings>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMConfigSamlSettings>>{};
+    final map = <String, List<MmConfigSamlSettings>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMConfigSamlSettings.listFromJson(
+        final value = MmConfigSamlSettings.listFromJson(
           entry.value,
           growable: growable,
         );

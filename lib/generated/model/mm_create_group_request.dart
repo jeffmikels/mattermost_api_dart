@@ -10,21 +10,21 @@
 
 part of mattermost.api;
 
-class MMCreateGroupRequest {
-  /// Returns a new [MMCreateGroupRequest] instance.
-  MMCreateGroupRequest({
+class MmCreateGroupRequest {
+  /// Returns a new [MmCreateGroupRequest] instance.
+  MmCreateGroupRequest({
     required this.group,
     this.userIds = const [],
   });
 
-  MMCreateGroupRequestGroup group;
+  MmCreateGroupRequestGroup group;
 
   /// The user ids of the group members to add.
   List<int> userIds;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MMCreateGroupRequest && other.group == group && other.userIds == userIds;
+      identical(this, other) || other is MmCreateGroupRequest && other.group == group && other.userIds == userIds;
 
   @override
   int get hashCode =>
@@ -32,7 +32,7 @@ class MMCreateGroupRequest {
       (group.hashCode) + (userIds.hashCode);
 
   @override
-  String toString() => 'MMCreateGroupRequest[group=$group, userIds=$userIds]';
+  String toString() => 'MmCreateGroupRequest[group=$group, userIds=$userIds]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class MMCreateGroupRequest {
     return _json;
   }
 
-  /// Returns a new [MMCreateGroupRequest] instance and imports its values from
+  /// Returns a new [MmCreateGroupRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMCreateGroupRequest? fromJson(dynamic value) {
+  static MmCreateGroupRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,28 +53,28 @@ class MMCreateGroupRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMCreateGroupRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMCreateGroupRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmCreateGroupRequest[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmCreateGroupRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMCreateGroupRequest(
-        group: MMCreateGroupRequestGroup.fromJson(json[r'group'])!,
+      return MmCreateGroupRequest(
+        group: MmCreateGroupRequestGroup.fromJson(json[r'group'])!,
         userIds: json[r'user_ids'] is List ? (json[r'user_ids'] as List).cast<int>() : const [],
       );
     }
     return null;
   }
 
-  static List<MMCreateGroupRequest>? listFromJson(
+  static List<MmCreateGroupRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMCreateGroupRequest>[];
+    final result = <MmCreateGroupRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMCreateGroupRequest.fromJson(row);
+        final value = MmCreateGroupRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -83,12 +83,12 @@ class MMCreateGroupRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMCreateGroupRequest> mapFromJson(dynamic json) {
-    final map = <String, MMCreateGroupRequest>{};
+  static Map<String, MmCreateGroupRequest> mapFromJson(dynamic json) {
+    final map = <String, MmCreateGroupRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateGroupRequest.fromJson(entry.value);
+        final value = MmCreateGroupRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -97,16 +97,16 @@ class MMCreateGroupRequest {
     return map;
   }
 
-  // maps a json object with a list of MMCreateGroupRequest-objects as value to a dart map
-  static Map<String, List<MMCreateGroupRequest>> mapListFromJson(
+  // maps a json object with a list of MmCreateGroupRequest-objects as value to a dart map
+  static Map<String, List<MmCreateGroupRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMCreateGroupRequest>>{};
+    final map = <String, List<MmCreateGroupRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMCreateGroupRequest.listFromJson(
+        final value = MmCreateGroupRequest.listFromJson(
           entry.value,
           growable: growable,
         );

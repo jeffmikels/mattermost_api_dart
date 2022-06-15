@@ -10,9 +10,9 @@
 
 part of mattermost.api;
 
-class MMSlackAttachment {
-  /// Returns a new [MMSlackAttachment] instance.
-  MMSlackAttachment({
+class MmSlackAttachment {
+  /// Returns a new [MmSlackAttachment] instance.
+  MmSlackAttachment({
     this.id,
     this.fallback,
     this.color,
@@ -111,7 +111,7 @@ class MMSlackAttachment {
   ///
   String? text;
 
-  List<MMSlackAttachmentField> fields;
+  List<MmSlackAttachmentField> fields;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -157,7 +157,7 @@ class MMSlackAttachment {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MMSlackAttachment &&
+      other is MmSlackAttachment &&
           other.id == id &&
           other.fallback == fallback &&
           other.color == color &&
@@ -197,7 +197,7 @@ class MMSlackAttachment {
 
   @override
   String toString() =>
-      'MMSlackAttachment[id=$id, fallback=$fallback, color=$color, pretext=$pretext, authorName=$authorName, authorLink=$authorLink, authorIcon=$authorIcon, title=$title, titleLink=$titleLink, text=$text, fields=$fields, imageURL=$imageURL, thumbURL=$thumbURL, footer=$footer, footerIcon=$footerIcon, timestamp=$timestamp]';
+      'MmSlackAttachment[id=$id, fallback=$fallback, color=$color, pretext=$pretext, authorName=$authorName, authorLink=$authorLink, authorIcon=$authorIcon, title=$title, titleLink=$titleLink, text=$text, fields=$fields, imageURL=$imageURL, thumbURL=$thumbURL, footer=$footer, footerIcon=$footerIcon, timestamp=$timestamp]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -250,10 +250,10 @@ class MMSlackAttachment {
     return _json;
   }
 
-  /// Returns a new [MMSlackAttachment] instance and imports its values from
+  /// Returns a new [MmSlackAttachment] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MMSlackAttachment? fromJson(dynamic value) {
+  static MmSlackAttachment? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -262,13 +262,13 @@ class MMSlackAttachment {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MMSlackAttachment[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MMSlackAttachment[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MmSlackAttachment[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MmSlackAttachment[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MMSlackAttachment(
+      return MmSlackAttachment(
         id: mapValueOfType<String>(json, r'Id'),
         fallback: mapValueOfType<String>(json, r'Fallback'),
         color: mapValueOfType<String>(json, r'Color'),
@@ -279,7 +279,7 @@ class MMSlackAttachment {
         title: mapValueOfType<String>(json, r'Title'),
         titleLink: mapValueOfType<String>(json, r'TitleLink'),
         text: mapValueOfType<String>(json, r'Text'),
-        fields: MMSlackAttachmentField.listFromJson(json[r'Fields']) ?? const [],
+        fields: MmSlackAttachmentField.listFromJson(json[r'Fields']) ?? const [],
         imageURL: mapValueOfType<String>(json, r'ImageURL'),
         thumbURL: mapValueOfType<String>(json, r'ThumbURL'),
         footer: mapValueOfType<String>(json, r'Footer'),
@@ -290,14 +290,14 @@ class MMSlackAttachment {
     return null;
   }
 
-  static List<MMSlackAttachment>? listFromJson(
+  static List<MmSlackAttachment>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MMSlackAttachment>[];
+    final result = <MmSlackAttachment>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MMSlackAttachment.fromJson(row);
+        final value = MmSlackAttachment.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -306,12 +306,12 @@ class MMSlackAttachment {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MMSlackAttachment> mapFromJson(dynamic json) {
-    final map = <String, MMSlackAttachment>{};
+  static Map<String, MmSlackAttachment> mapFromJson(dynamic json) {
+    final map = <String, MmSlackAttachment>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSlackAttachment.fromJson(entry.value);
+        final value = MmSlackAttachment.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -320,16 +320,16 @@ class MMSlackAttachment {
     return map;
   }
 
-  // maps a json object with a list of MMSlackAttachment-objects as value to a dart map
-  static Map<String, List<MMSlackAttachment>> mapListFromJson(
+  // maps a json object with a list of MmSlackAttachment-objects as value to a dart map
+  static Map<String, List<MmSlackAttachment>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MMSlackAttachment>>{};
+    final map = <String, List<MmSlackAttachment>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MMSlackAttachment.listFromJson(
+        final value = MmSlackAttachment.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -23,18 +23,18 @@ class MattermostWebhooksApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateIncomingWebhookRequest] mMCreateIncomingWebhookRequest (required):
+  /// * [MmCreateIncomingWebhookRequest] mmCreateIncomingWebhookRequest (required):
   ///   Incoming webhook to be created
   Future<Response> createIncomingWebhookWithHttpInfo(
-    MMCreateIncomingWebhookRequest mMCreateIncomingWebhookRequest,
+    MmCreateIncomingWebhookRequest mmCreateIncomingWebhookRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/incoming';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateIncomingWebhookRequest;
+    Object? postBody = mmCreateIncomingWebhookRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -57,16 +57,16 @@ class MattermostWebhooksApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateIncomingWebhookRequest] mMCreateIncomingWebhookRequest (required):
+  /// * [MmCreateIncomingWebhookRequest] mmCreateIncomingWebhookRequest (required):
   ///   Incoming webhook to be created
-  Future<MMIncomingWebhook?> createIncomingWebhook(
-    MMCreateIncomingWebhookRequest mMCreateIncomingWebhookRequest,
+  Future<MmIncomingWebhook?> createIncomingWebhook(
+    MmCreateIncomingWebhookRequest mmCreateIncomingWebhookRequest,
   ) async {
     final response = await createIncomingWebhookWithHttpInfo(
-      mMCreateIncomingWebhookRequest,
+      mmCreateIncomingWebhookRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -74,8 +74,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMIncomingWebhook',
-      ) as MMIncomingWebhook;
+        'MmIncomingWebhook',
+      ) as MmIncomingWebhook;
     }
     return null;
   }
@@ -88,18 +88,18 @@ class MattermostWebhooksApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateOutgoingWebhookRequest] mMCreateOutgoingWebhookRequest (required):
+  /// * [MmCreateOutgoingWebhookRequest] mmCreateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be created
   Future<Response> createOutgoingWebhookWithHttpInfo(
-    MMCreateOutgoingWebhookRequest mMCreateOutgoingWebhookRequest,
+    MmCreateOutgoingWebhookRequest mmCreateOutgoingWebhookRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/outgoing';
 
     // ignore: prefer_final_locals
-    Object? postBody = mMCreateOutgoingWebhookRequest;
+    Object? postBody = mmCreateOutgoingWebhookRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -122,16 +122,16 @@ class MattermostWebhooksApi {
   ///
   /// Parameters:
   ///
-  /// * [MMCreateOutgoingWebhookRequest] mMCreateOutgoingWebhookRequest (required):
+  /// * [MmCreateOutgoingWebhookRequest] mmCreateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be created
-  Future<MMOutgoingWebhook?> createOutgoingWebhook(
-    MMCreateOutgoingWebhookRequest mMCreateOutgoingWebhookRequest,
+  Future<MmOutgoingWebhook?> createOutgoingWebhook(
+    MmCreateOutgoingWebhookRequest mmCreateOutgoingWebhookRequest,
   ) async {
     final response = await createOutgoingWebhookWithHttpInfo(
-      mMCreateOutgoingWebhookRequest,
+      mmCreateOutgoingWebhookRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -139,8 +139,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMOutgoingWebhook',
-      ) as MMOutgoingWebhook;
+        'MmOutgoingWebhook',
+      ) as MmOutgoingWebhook;
     }
     return null;
   }
@@ -164,7 +164,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -189,14 +189,14 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Incoming webhook GUID
-  Future<MMStatusOK?> deleteIncomingWebhook(
+  Future<MmStatusOK?> deleteIncomingWebhook(
     String hookId,
   ) async {
     final response = await deleteIncomingWebhookWithHttpInfo(
       hookId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -204,8 +204,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -229,7 +229,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -254,14 +254,14 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MMStatusOK?> deleteOutgoingWebhook(
+  Future<MmStatusOK?> deleteOutgoingWebhook(
     String hookId,
   ) async {
     final response = await deleteOutgoingWebhookWithHttpInfo(
       hookId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -269,8 +269,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -294,7 +294,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -319,14 +319,14 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Incoming Webhook GUID
-  Future<MMIncomingWebhook?> getIncomingWebhook(
+  Future<MmIncomingWebhook?> getIncomingWebhook(
     String hookId,
   ) async {
     final response = await getIncomingWebhookWithHttpInfo(
       hookId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -334,8 +334,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMIncomingWebhook',
-      ) as MMIncomingWebhook;
+        'MmIncomingWebhook',
+      ) as MmIncomingWebhook;
     }
     return null;
   }
@@ -367,7 +367,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -408,7 +408,7 @@ class MattermostWebhooksApi {
   ///
   /// * [String] teamId:
   ///   The ID of the team to get hooks for.
-  Future<List<MMIncomingWebhook>?> getIncomingWebhooks({
+  Future<List<MmIncomingWebhook>?> getIncomingWebhooks({
     int? page,
     int? perPage,
     String? teamId,
@@ -419,15 +419,15 @@ class MattermostWebhooksApi {
       teamId: teamId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMIncomingWebhook>') as List)
-          .cast<MMIncomingWebhook>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmIncomingWebhook>') as List)
+          .cast<MmIncomingWebhook>()
           .toList();
     }
     return null;
@@ -452,7 +452,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -477,14 +477,14 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MMOutgoingWebhook?> getOutgoingWebhook(
+  Future<MmOutgoingWebhook?> getOutgoingWebhook(
     String hookId,
   ) async {
     final response = await getOutgoingWebhookWithHttpInfo(
       hookId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -492,8 +492,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMOutgoingWebhook',
-      ) as MMOutgoingWebhook;
+        'MmOutgoingWebhook',
+      ) as MmOutgoingWebhook;
     }
     return null;
   }
@@ -529,7 +529,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -576,7 +576,7 @@ class MattermostWebhooksApi {
   ///
   /// * [String] channelId:
   ///   The ID of the channel to get hooks for.
-  Future<List<MMOutgoingWebhook>?> getOutgoingWebhooks({
+  Future<List<MmOutgoingWebhook>?> getOutgoingWebhooks({
     int? page,
     int? perPage,
     String? teamId,
@@ -589,15 +589,15 @@ class MattermostWebhooksApi {
       channelId: channelId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MMOutgoingWebhook>') as List)
-          .cast<MMOutgoingWebhook>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<MmOutgoingWebhook>') as List)
+          .cast<MmOutgoingWebhook>()
           .toList();
     }
     return null;
@@ -622,7 +622,7 @@ class MattermostWebhooksApi {
     // ignore: prefer_final_locals
     Object? postBody;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -647,14 +647,14 @@ class MattermostWebhooksApi {
   ///
   /// * [String] hookId (required):
   ///   Outgoing webhook GUID
-  Future<MMStatusOK?> regenOutgoingHookToken(
+  Future<MmStatusOK?> regenOutgoingHookToken(
     String hookId,
   ) async {
     final response = await regenOutgoingHookTokenWithHttpInfo(
       hookId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -662,8 +662,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMStatusOK',
-      ) as MMStatusOK;
+        'MmStatusOK',
+      ) as MmStatusOK;
     }
     return null;
   }
@@ -679,19 +679,19 @@ class MattermostWebhooksApi {
   /// * [String] hookId (required):
   ///   Incoming Webhook GUID
   ///
-  /// * [MMUpdateIncomingWebhookRequest] mMUpdateIncomingWebhookRequest (required):
+  /// * [MmUpdateIncomingWebhookRequest] mmUpdateIncomingWebhookRequest (required):
   ///   Incoming webhook to be updated
   Future<Response> updateIncomingWebhookWithHttpInfo(
     String hookId,
-    MMUpdateIncomingWebhookRequest mMUpdateIncomingWebhookRequest,
+    MmUpdateIncomingWebhookRequest mmUpdateIncomingWebhookRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/incoming/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateIncomingWebhookRequest;
+    Object? postBody = mmUpdateIncomingWebhookRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -717,18 +717,18 @@ class MattermostWebhooksApi {
   /// * [String] hookId (required):
   ///   Incoming Webhook GUID
   ///
-  /// * [MMUpdateIncomingWebhookRequest] mMUpdateIncomingWebhookRequest (required):
+  /// * [MmUpdateIncomingWebhookRequest] mmUpdateIncomingWebhookRequest (required):
   ///   Incoming webhook to be updated
-  Future<MMIncomingWebhook?> updateIncomingWebhook(
+  Future<MmIncomingWebhook?> updateIncomingWebhook(
     String hookId,
-    MMUpdateIncomingWebhookRequest mMUpdateIncomingWebhookRequest,
+    MmUpdateIncomingWebhookRequest mmUpdateIncomingWebhookRequest,
   ) async {
     final response = await updateIncomingWebhookWithHttpInfo(
       hookId,
-      mMUpdateIncomingWebhookRequest,
+      mmUpdateIncomingWebhookRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -736,8 +736,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMIncomingWebhook',
-      ) as MMIncomingWebhook;
+        'MmIncomingWebhook',
+      ) as MmIncomingWebhook;
     }
     return null;
   }
@@ -753,19 +753,19 @@ class MattermostWebhooksApi {
   /// * [String] hookId (required):
   ///   outgoing Webhook GUID
   ///
-  /// * [MMUpdateOutgoingWebhookRequest] mMUpdateOutgoingWebhookRequest (required):
+  /// * [MmUpdateOutgoingWebhookRequest] mmUpdateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be updated
   Future<Response> updateOutgoingWebhookWithHttpInfo(
     String hookId,
-    MMUpdateOutgoingWebhookRequest mMUpdateOutgoingWebhookRequest,
+    MmUpdateOutgoingWebhookRequest mmUpdateOutgoingWebhookRequest,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/hooks/outgoing/{hook_id}'.replaceAll('{hook_id}', hookId);
 
     // ignore: prefer_final_locals
-    Object? postBody = mMUpdateOutgoingWebhookRequest;
+    Object? postBody = mmUpdateOutgoingWebhookRequest;
 
-    final queryParams = <MMQueryParam>[];
+    final queryParams = <MmQueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
@@ -791,18 +791,18 @@ class MattermostWebhooksApi {
   /// * [String] hookId (required):
   ///   outgoing Webhook GUID
   ///
-  /// * [MMUpdateOutgoingWebhookRequest] mMUpdateOutgoingWebhookRequest (required):
+  /// * [MmUpdateOutgoingWebhookRequest] mmUpdateOutgoingWebhookRequest (required):
   ///   Outgoing webhook to be updated
-  Future<MMOutgoingWebhook?> updateOutgoingWebhook(
+  Future<MmOutgoingWebhook?> updateOutgoingWebhook(
     String hookId,
-    MMUpdateOutgoingWebhookRequest mMUpdateOutgoingWebhookRequest,
+    MmUpdateOutgoingWebhookRequest mmUpdateOutgoingWebhookRequest,
   ) async {
     final response = await updateOutgoingWebhookWithHttpInfo(
       hookId,
-      mMUpdateOutgoingWebhookRequest,
+      mmUpdateOutgoingWebhookRequest,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw MMApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw MmApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -810,8 +810,8 @@ class MattermostWebhooksApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'MMOutgoingWebhook',
-      ) as MMOutgoingWebhook;
+        'MmOutgoingWebhook',
+      ) as MmOutgoingWebhook;
     }
     return null;
   }

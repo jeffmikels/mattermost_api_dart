@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMEnvironmentConfigSupportSettings
+// tests for MmEnvironmentConfigSupportSettings
 void main() {
-  // final instance = MMEnvironmentConfigSupportSettings();
+  // final instance = MmEnvironmentConfigSupportSettings();
 
-  group('test MMEnvironmentConfigSupportSettings', () {
+  group('test MmEnvironmentConfigSupportSettings', () {
     // bool termsOfServiceLink
     test('to test the property `termsOfServiceLink`', () async {
       // TODO

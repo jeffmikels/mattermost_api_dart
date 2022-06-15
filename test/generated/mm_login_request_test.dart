@@ -11,11 +11,11 @@
 import 'package:mattermost_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for MMLoginRequest
+// tests for MmLoginRequest
 void main() {
-  // final instance = MMLoginRequest();
+  // final instance = MmLoginRequest();
 
-  group('test MMLoginRequest', () {
+  group('test MmLoginRequest', () {
     // String id
     test('to test the property `id`', () async {
       // TODO
