@@ -58,7 +58,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final String userId = 'userId_example'; // String | The user ID to assign the bot to.
 
 try {
-  final MMBot result = await client.bots.assignBot(botUserId, userId);
+  final MMBot result = await client.bots.assignBot(botUserId, userId); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->assignBot: $e\n');
@@ -124,7 +124,7 @@ final MMConvertBotToUserRequest mMConvertBotToUserRequest = MMConvertBotToUserRe
 final bool setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
-  final MMStatusOK result = await client.bots.convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin);
+  final MMStatusOK result = await client.bots.convertBotToUser(botUserId, mMConvertBotToUserRequest, setSystemAdmin); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->convertBotToUser: $e\n');
@@ -189,7 +189,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK result = await client.bots.convertUserToBot(userId);
+  final MMStatusOK result = await client.bots.convertUserToBot(userId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->convertUserToBot: $e\n');
@@ -252,7 +252,7 @@ var client = MattermostApiClient(
 final MMCreateBotRequest mMCreateBotRequest = MMCreateBotRequest(); // MMCreateBotRequest | Bot to be created
 
 try {
-  final MMBot result = await client.bots.createBot(mMCreateBotRequest);
+  final MMBot result = await client.bots.createBot(mMCreateBotRequest); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->createBot: $e\n');
@@ -315,7 +315,7 @@ var client = MattermostApiClient(
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMStatusOK result = await client.bots.deleteBotIconImage(botUserId);
+  final MMStatusOK result = await client.bots.deleteBotIconImage(botUserId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->deleteBotIconImage: $e\n');
@@ -378,7 +378,7 @@ var client = MattermostApiClient(
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMBot result = await client.bots.disableBot(botUserId);
+  final MMBot result = await client.bots.disableBot(botUserId); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->disableBot: $e\n');
@@ -441,7 +441,7 @@ var client = MattermostApiClient(
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  final MMBot result = await client.bots.enableBot(botUserId);
+  final MMBot result = await client.bots.enableBot(botUserId); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->enableBot: $e\n');
@@ -505,7 +505,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final bool includeDeleted = true; // bool | If deleted bots should be returned.
 
 try {
-  final MMBot result = await client.bots.getBot(botUserId, includeDeleted);
+  final MMBot result = await client.bots.getBot(botUserId, includeDeleted); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->getBot: $e\n');
@@ -569,7 +569,7 @@ var client = MattermostApiClient(
 final String botUserId = 'botUserId_example'; // String | Bot user ID
 
 try {
-  await client.bots.getBotIconImage(botUserId);
+  await client.bots.getBotIconImage(botUserId); 
 } catch (e) {
   print('Exception when calling MattermostBotsApi->getBotIconImage: $e\n');
 }
@@ -634,7 +634,7 @@ final bool includeDeleted = true; // bool | If deleted bots should be returned.
 final bool onlyOrphaned = true; // bool | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
 
 try {
-  final List&lt;MMBot&gt; result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned);
+  final List&lt;MMBot&gt; result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned); // returns List&lt;MMBot&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->getBots: $e\n');
@@ -701,7 +701,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final MMCreateBotRequest mMCreateBotRequest = MMCreateBotRequest(); // MMCreateBotRequest | Bot to be created
 
 try {
-  final MMBot result = await client.bots.patchBot(botUserId, mMCreateBotRequest);
+  final MMBot result = await client.bots.patchBot(botUserId, mMCreateBotRequest); // returns MMBot instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->patchBot: $e\n');
@@ -766,7 +766,7 @@ final String botUserId = 'botUserId_example'; // String | Bot user ID
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | SVG icon image to be uploaded
 
 try {
-  final MMStatusOK result = await client.bots.setBotIconImage(botUserId, image);
+  final MMStatusOK result = await client.bots.setBotIconImage(botUserId, image); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostBotsApi->setBotIconImage: $e\n');

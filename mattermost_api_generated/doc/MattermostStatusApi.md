@@ -52,7 +52,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User ID
 
 try {
-  final MMStatus result = await client.status.getUserStatus(userId);
+  final MMStatus result = await client.status.getUserStatus(userId); // returns MMStatus instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->getUserStatus: $e\n');
@@ -115,7 +115,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids to fetch
 
 try {
-  final List&lt;MMStatus&gt; result = await client.status.getUsersStatusesByIds(requestBody);
+  final List&lt;MMStatus&gt; result = await client.status.getUsersStatusesByIds(requestBody); // returns List&lt;MMStatus&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->getUsersStatusesByIds: $e\n');
@@ -179,7 +179,7 @@ final String userId = 'userId_example'; // String | User ID
 final MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest = MMRemoveRecentCustomStatusRequest(); // MMRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-  await client.status.postUserRecentCustomStatusDelete(userId, mMRemoveRecentCustomStatusRequest);
+  await client.status.postUserRecentCustomStatusDelete(userId, mMRemoveRecentCustomStatusRequest); 
 } catch (e) {
   print('Exception when calling MattermostStatusApi->postUserRecentCustomStatusDelete: $e\n');
 }
@@ -243,7 +243,7 @@ final String userId = 'userId_example'; // String | User ID
 final MMRemoveRecentCustomStatusRequest mMRemoveRecentCustomStatusRequest = MMRemoveRecentCustomStatusRequest(); // MMRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-  await client.status.removeRecentCustomStatus(userId, mMRemoveRecentCustomStatusRequest);
+  await client.status.removeRecentCustomStatus(userId, mMRemoveRecentCustomStatusRequest); 
 } catch (e) {
   print('Exception when calling MattermostStatusApi->removeRecentCustomStatus: $e\n');
 }
@@ -306,7 +306,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User ID
 
 try {
-  await client.status.unsetUserCustomStatus(userId);
+  await client.status.unsetUserCustomStatus(userId); 
 } catch (e) {
   print('Exception when calling MattermostStatusApi->unsetUserCustomStatus: $e\n');
 }
@@ -369,7 +369,7 @@ final String userId = 'userId_example'; // String | User ID
 final MMUpdateUserCustomStatusRequest mMUpdateUserCustomStatusRequest = MMUpdateUserCustomStatusRequest(); // MMUpdateUserCustomStatusRequest | Custom status object that is to be updated
 
 try {
-  await client.status.updateUserCustomStatus(userId, mMUpdateUserCustomStatusRequest);
+  await client.status.updateUserCustomStatus(userId, mMUpdateUserCustomStatusRequest); 
 } catch (e) {
   print('Exception when calling MattermostStatusApi->updateUserCustomStatus: $e\n');
 }
@@ -433,7 +433,7 @@ final String userId = 'userId_example'; // String | User ID
 final MMUpdateUserStatusRequest mMUpdateUserStatusRequest = MMUpdateUserStatusRequest(); // MMUpdateUserStatusRequest | Status object that is to be updated
 
 try {
-  final MMStatus result = await client.status.updateUserStatus(userId, mMUpdateUserStatusRequest);
+  final MMStatus result = await client.status.updateUserStatus(userId, mMUpdateUserStatusRequest); // returns MMStatus instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostStatusApi->updateUserStatus: $e\n');

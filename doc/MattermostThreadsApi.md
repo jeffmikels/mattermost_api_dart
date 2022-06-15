@@ -53,7 +53,7 @@ final String userId = 'userId_example'; // String | The ID of the user. This can
 final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
 
 try {
-  await client.threads.getThreadMentionCountsByChannel(userId, teamId);
+  await client.threads.getThreadMentionCountsByChannel(userId, teamId); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->getThreadMentionCountsByChannel: $e\n');
 }
@@ -118,7 +118,7 @@ final String teamId = 'teamId_example'; // String | The ID of the team in which 
 final String threadId = 'threadId_example'; // String | The ID of the thread to follow
 
 try {
-  await client.threads.getUserThread(userId, teamId, threadId);
+  await client.threads.getUserThread(userId, teamId, threadId); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->getUserThread: $e\n');
 }
@@ -189,7 +189,7 @@ final int pageSize = 56; // int | PageSize specifies the size of the returned ch
 final bool totalsOnly = true; // bool | Setting this to true will only return the total counts.
 
 try {
-  final MMUserThreads result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
+  final MMUserThreads result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly); // returns MMUserThreads instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->getUserThreads: $e\n');
@@ -261,7 +261,7 @@ final String teamId = 'teamId_example'; // String | The ID of the team in which 
 final String threadId = 'threadId_example'; // String | The ID of the thread to follow
 
 try {
-  await client.threads.startFollowingThread(userId, teamId, threadId);
+  await client.threads.startFollowingThread(userId, teamId, threadId); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->startFollowingThread: $e\n');
 }
@@ -327,7 +327,7 @@ final String teamId = 'teamId_example'; // String | The ID of the team in which 
 final String threadId = 'threadId_example'; // String | The ID of the thread to update
 
 try {
-  await client.threads.stopFollowingThread(userId, teamId, threadId);
+  await client.threads.stopFollowingThread(userId, teamId, threadId); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->stopFollowingThread: $e\n');
 }
@@ -394,7 +394,7 @@ final String threadId = 'threadId_example'; // String | The ID of the thread to 
 final String timestamp = 'timestamp_example'; // String | The timestamp to which the thread's \"last read\" state will be reset.
 
 try {
-  await client.threads.updateThreadReadForUser(userId, teamId, threadId, timestamp);
+  await client.threads.updateThreadReadForUser(userId, teamId, threadId, timestamp); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->updateThreadReadForUser: $e\n');
 }
@@ -460,7 +460,7 @@ final String userId = 'userId_example'; // String | The ID of the user. This can
 final String teamId = 'teamId_example'; // String | The ID of the team in which the thread is.
 
 try {
-  await client.threads.updateThreadsReadForUser(userId, teamId);
+  await client.threads.updateThreadsReadForUser(userId, teamId); 
 } catch (e) {
   print('Exception when calling MattermostThreadsApi->updateThreadsReadForUser: $e\n');
 }

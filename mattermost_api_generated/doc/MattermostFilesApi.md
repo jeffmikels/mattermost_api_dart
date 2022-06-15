@@ -53,7 +53,7 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
-  await client.files.getFile(fileId);
+  await client.files.getFile(fileId); 
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFile: $e\n');
 }
@@ -115,7 +115,7 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file info to get
 
 try {
-  final MMFileInfo result = await client.files.getFileInfo(fileId);
+  final MMFileInfo result = await client.files.getFileInfo(fileId); // returns MMFileInfo instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFileInfo: $e\n');
@@ -178,7 +178,7 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file to get a link for
 
 try {
-  final MMGetFileLink200Response result = await client.files.getFileLink(fileId);
+  final MMGetFileLink200Response result = await client.files.getFileLink(fileId); // returns MMGetFileLink200Response instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFileLink: $e\n');
@@ -241,7 +241,7 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
-  await client.files.getFilePreview(fileId);
+  await client.files.getFilePreview(fileId); 
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFilePreview: $e\n');
 }
@@ -304,7 +304,7 @@ final String fileId = 'fileId_example'; // String | The ID of the file to get
 final String h = 'h_example'; // String | File hash
 
 try {
-  await client.files.getFilePublic(fileId, h);
+  await client.files.getFilePublic(fileId, h); 
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFilePublic: $e\n');
 }
@@ -367,7 +367,7 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file to get
 
 try {
-  await client.files.getFileThumbnail(fileId);
+  await client.files.getFileThumbnail(fileId); 
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFileThumbnail: $e\n');
 }
@@ -435,7 +435,7 @@ final int page = 56; // int | The page to select. (Only works with Elasticsearch
 final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-  final MMFileInfoList result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+  final MMFileInfoList result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // returns MMFileInfoList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostFilesApi->searchFiles: $e\n');
@@ -508,7 +508,7 @@ final String channelId2 = 'channelId_example'; // String | The ID of the channel
 final String clientIds = 'clientIds_example'; // String | A unique identifier for the file that will be returned in the response
 
 try {
-  final MMUploadFile201Response result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds);
+  final MMUploadFile201Response result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds); // returns MMUploadFile201Response instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostFilesApi->uploadFile: $e\n');

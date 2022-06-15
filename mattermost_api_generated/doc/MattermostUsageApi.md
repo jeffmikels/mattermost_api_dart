@@ -45,7 +45,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMPostsUsage result = await client.usage.getPostsUsage();
+  final MMPostsUsage result = await client.usage.getPostsUsage(); // returns MMPostsUsage instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostUsageApi->getPostsUsage: $e\n');

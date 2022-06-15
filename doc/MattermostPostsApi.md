@@ -63,7 +63,7 @@ final MMCreatePostRequest mMCreatePostRequest = MMCreatePostRequest(); // MMCrea
 final bool setOnline = true; // bool | Whether to set the user status as online or not.
 
 try {
-  final MMPost result = await client.posts.createPost(mMCreatePostRequest, setOnline);
+  final MMPost result = await client.posts.createPost(mMCreatePostRequest, setOnline); // returns MMPost instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->createPost: $e\n');
@@ -127,7 +127,7 @@ var client = MattermostApiClient(
 final MMCreatePostEphemeralRequest mMCreatePostEphemeralRequest = MMCreatePostEphemeralRequest(); // MMCreatePostEphemeralRequest | Ephemeral Post object to send
 
 try {
-  final MMPost result = await client.posts.createPostEphemeral(mMCreatePostEphemeralRequest);
+  final MMPost result = await client.posts.createPostEphemeral(mMCreatePostEphemeralRequest); // returns MMPost instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->createPostEphemeral: $e\n');
@@ -190,7 +190,7 @@ var client = MattermostApiClient(
 final String postId = 'postId_example'; // String | ID of the post to delete
 
 try {
-  final MMStatusOK result = await client.posts.deletePost(postId);
+  final MMStatusOK result = await client.posts.deletePost(postId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->deletePost: $e\n');
@@ -254,7 +254,7 @@ final String postId = 'postId_example'; // String | Post GUID
 final String actionId = 'actionId_example'; // String | Action GUID
 
 try {
-  final MMStatusOK result = await client.posts.doPostAction(postId, actionId);
+  final MMStatusOK result = await client.posts.doPostAction(postId, actionId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->doPostAction: $e\n');
@@ -319,7 +319,7 @@ final String postId = 'postId_example'; // String | ID of the post
 final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-  final List&lt;MMFileInfo&gt; result = await client.posts.getFileInfosForPost(postId, includeDeleted);
+  final List&lt;MMFileInfo&gt; result = await client.posts.getFileInfosForPost(postId, includeDeleted); // returns List&lt;MMFileInfo&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getFileInfosForPost: $e\n');
@@ -387,7 +387,7 @@ final int page = 56; // int | The page to select
 final int perPage = 56; // int | The number of posts per page
 
 try {
-  final List&lt;MMPostList&gt; result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
+  final List&lt;MMPostList&gt; result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage); // returns List&lt;MMPostList&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getFlaggedPostsForUser: $e\n');
@@ -455,7 +455,7 @@ final String postId = 'postId_example'; // String | ID of the post to get
 final bool includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-  final MMPost result = await client.posts.getPost(postId, includeDeleted);
+  final MMPost result = await client.posts.getPost(postId, includeDeleted); // returns MMPost instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPost: $e\n');
@@ -526,7 +526,7 @@ final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
 final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-  final MMPostList result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+  final MMPostList result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // returns MMPostList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostThread: $e\n');
@@ -602,7 +602,7 @@ final bool collapsedThreads = true; // bool | Whether the client uses CRT or not
 final bool collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-  final MMPostList result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+  final MMPostList result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended); // returns MMPostList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsAroundLastUnread: $e\n');
@@ -671,7 +671,7 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of post ids
 
 try {
-  final List&lt;MMPost&gt; result = await client.posts.getPostsByIds(requestBody);
+  final List&lt;MMPost&gt; result = await client.posts.getPostsByIds(requestBody); // returns List&lt;MMPost&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsByIds: $e\n');
@@ -739,7 +739,7 @@ final String before = 'before_example'; // String | A post id to select the post
 final String after = 'after_example'; // String | A post id to select the posts that came after this one
 
 try {
-  final MMPostList result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after);
+  final MMPostList result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after); // returns MMPostList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->getPostsForChannel: $e\n');
@@ -808,7 +808,7 @@ final String postId = 'postId_example'; // String | Post GUID
 final MMPatchPostRequest mMPatchPostRequest = MMPatchPostRequest(); // MMPatchPostRequest | Post object that is to be updated
 
 try {
-  final MMPost result = await client.posts.patchPost(postId, mMPatchPostRequest);
+  final MMPost result = await client.posts.patchPost(postId, mMPatchPostRequest); // returns MMPost instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->patchPost: $e\n');
@@ -872,7 +872,7 @@ var client = MattermostApiClient(
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMStatusOK result = await client.posts.pinPost(postId);
+  final MMStatusOK result = await client.posts.pinPost(postId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->pinPost: $e\n');
@@ -936,7 +936,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMSearchPostsRequest mMSearchPostsRequest = MMSearchPostsRequest(); // MMSearchPostsRequest | The search terms and logic to use in the search.
 
 try {
-  final MMPostListWithSearchMatches result = await client.posts.searchPosts(teamId, mMSearchPostsRequest);
+  final MMPostListWithSearchMatches result = await client.posts.searchPosts(teamId, mMSearchPostsRequest); // returns MMPostListWithSearchMatches instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->searchPosts: $e\n');
@@ -1001,7 +1001,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMChannelUnreadAt result = await client.posts.setPostUnread(userId, postId);
+  final MMChannelUnreadAt result = await client.posts.setPostUnread(userId, postId); // returns MMChannelUnreadAt instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->setPostUnread: $e\n');
@@ -1065,7 +1065,7 @@ var client = MattermostApiClient(
 final String postId = 'postId_example'; // String | Post GUID
 
 try {
-  final MMStatusOK result = await client.posts.unpinPost(postId);
+  final MMStatusOK result = await client.posts.unpinPost(postId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->unpinPost: $e\n');
@@ -1129,7 +1129,7 @@ final String postId = 'postId_example'; // String | ID of the post to update
 final MMUpdatePostRequest mMUpdatePostRequest = MMUpdatePostRequest(); // MMUpdatePostRequest | Post object that is to be updated
 
 try {
-  final MMPost result = await client.posts.updatePost(postId, mMUpdatePostRequest);
+  final MMPost result = await client.posts.updatePost(postId, mMUpdatePostRequest); // returns MMPost instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostPostsApi->updatePost: $e\n');

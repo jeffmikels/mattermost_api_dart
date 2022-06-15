@@ -39,7 +39,7 @@ var client = MattermostApiClient(
 final MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest = MMMigrateAuthToLdapRequest(); // MMMigrateAuthToLdapRequest | 
 
 try {
-  await client.authentication.migrateAuthToLdap(mMMigrateAuthToLdapRequest);
+  await client.authentication.migrateAuthToLdap(mMMigrateAuthToLdapRequest); 
 } catch (e) {
   print('Exception when calling MattermostAuthenticationApi->migrateAuthToLdap: $e\n');
 }

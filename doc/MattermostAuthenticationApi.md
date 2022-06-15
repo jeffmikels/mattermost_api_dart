@@ -47,7 +47,7 @@ var client = MattermostApiClient(
 final MMMigrateAuthToLdapRequest mMMigrateAuthToLdapRequest = MMMigrateAuthToLdapRequest(); // MMMigrateAuthToLdapRequest | 
 
 try {
-  await client.authentication.migrateAuthToLdap(mMMigrateAuthToLdapRequest);
+  await client.authentication.migrateAuthToLdap(mMMigrateAuthToLdapRequest); 
 } catch (e) {
   print('Exception when calling MattermostAuthenticationApi->migrateAuthToLdap: $e\n');
 }
@@ -109,7 +109,7 @@ var client = MattermostApiClient(
 final MMMigrateAuthToSamlRequest mMMigrateAuthToSamlRequest = MMMigrateAuthToSamlRequest(); // MMMigrateAuthToSamlRequest | 
 
 try {
-  await client.authentication.migrateAuthToSaml(mMMigrateAuthToSamlRequest);
+  await client.authentication.migrateAuthToSaml(mMMigrateAuthToSamlRequest); 
 } catch (e) {
   print('Exception when calling MattermostAuthenticationApi->migrateAuthToSaml: $e\n');
 }

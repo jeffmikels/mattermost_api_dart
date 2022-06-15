@@ -83,7 +83,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMAddTeamMemberRequest mMAddTeamMemberRequest = MMAddTeamMemberRequest(); // MMAddTeamMemberRequest | 
 
 try {
-  final MMTeamMember result = await client.teams.addTeamMember(teamId, mMAddTeamMemberRequest);
+  final MMTeamMember result = await client.teams.addTeamMember(teamId, mMAddTeamMemberRequest); // returns MMTeamMember instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMember: $e\n');
@@ -147,7 +147,7 @@ var client = MattermostApiClient(
 final String token = 'token_example'; // String | Token id from the invitation
 
 try {
-  final MMTeamMember result = await client.teams.addTeamMemberFromInvite(token);
+  final MMTeamMember result = await client.teams.addTeamMemberFromInvite(token); // returns MMTeamMember instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMemberFromInvite: $e\n');
@@ -212,7 +212,7 @@ final List&lt;MMTeamMember&gt; mMTeamMember = [List<MMTeamMember>()]; // List<MM
 final bool graceful = true; // bool | Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]`
 
 try {
-  final List&lt;MMTeamMember&gt; result = await client.teams.addTeamMembers(teamId, mMTeamMember, graceful);
+  final List&lt;MMTeamMember&gt; result = await client.teams.addTeamMembers(teamId, mMTeamMember, graceful); // returns List&lt;MMTeamMember&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->addTeamMembers: $e\n');
@@ -277,7 +277,7 @@ var client = MattermostApiClient(
 final MMCreateTeamRequest mMCreateTeamRequest = MMCreateTeamRequest(); // MMCreateTeamRequest | Team that is to be created
 
 try {
-  final MMTeam result = await client.teams.createTeam(mMCreateTeamRequest);
+  final MMTeam result = await client.teams.createTeam(mMCreateTeamRequest); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->createTeam: $e\n');
@@ -343,7 +343,7 @@ final bool includeTotalCount = true; // bool |
 final bool excludePolicyConstrained = true; // bool | If set to true, teams which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-  final List&lt;MMTeam&gt; result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained);
+  final List&lt;MMTeam&gt; result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained); // returns List&lt;MMTeam&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getAllTeams: $e\n');
@@ -409,7 +409,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam result = await client.teams.getTeam(teamId);
+  final MMTeam result = await client.teams.getTeam(teamId); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeam: $e\n');
@@ -472,7 +472,7 @@ var client = MattermostApiClient(
 final String name = 'name_example'; // String | Team Name
 
 try {
-  final MMTeam result = await client.teams.getTeamByName(name);
+  final MMTeam result = await client.teams.getTeamByName(name); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamByName: $e\n');
@@ -535,7 +535,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  await client.teams.getTeamIcon(teamId);
+  await client.teams.getTeamIcon(teamId); 
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamIcon: $e\n');
 }
@@ -597,7 +597,7 @@ var client = MattermostApiClient(
 final String inviteId = 'inviteId_example'; // String | Invite id for a team
 
 try {
-  final MMGetTeamInviteInfo200Response result = await client.teams.getTeamInviteInfo(inviteId);
+  final MMGetTeamInviteInfo200Response result = await client.teams.getTeamInviteInfo(inviteId); // returns MMGetTeamInviteInfo200Response instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamInviteInfo: $e\n');
@@ -661,7 +661,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMTeamMember result = await client.teams.getTeamMember(teamId, userId);
+  final MMTeamMember result = await client.teams.getTeamMember(teamId, userId); // returns MMTeamMember instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMember: $e\n');
@@ -727,7 +727,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page.
 
 try {
-  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembers(teamId, page, perPage);
+  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembers(teamId, page, perPage); // returns List&lt;MMTeamMember&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembers: $e\n');
@@ -793,7 +793,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembersByIds(teamId, requestBody);
+  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembersByIds(teamId, requestBody); // returns List&lt;MMTeamMember&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembersByIds: $e\n');
@@ -857,7 +857,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembersForUser(userId);
+  final List&lt;MMTeamMember&gt; result = await client.teams.getTeamMembersForUser(userId); // returns List&lt;MMTeamMember&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamMembersForUser: $e\n');
@@ -920,7 +920,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeamStats result = await client.teams.getTeamStats(teamId);
+  final MMTeamStats result = await client.teams.getTeamStats(teamId); // returns MMTeamStats instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamStats: $e\n');
@@ -984,7 +984,7 @@ final String userId = 'userId_example'; // String | User GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeamUnread result = await client.teams.getTeamUnread(userId, teamId);
+  final MMTeamUnread result = await client.teams.getTeamUnread(userId, teamId); // returns MMTeamUnread instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamUnread: $e\n');
@@ -1048,7 +1048,7 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMTeam&gt; result = await client.teams.getTeamsForUser(userId);
+  final List&lt;MMTeam&gt; result = await client.teams.getTeamsForUser(userId); // returns List&lt;MMTeam&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamsForUser: $e\n');
@@ -1113,7 +1113,7 @@ final String excludeTeam = 'excludeTeam_example'; // String | Optional team id t
 final bool includeCollapsedThreads = true; // bool | Boolean to determine whether the collapsed threads should be included or not
 
 try {
-  final List&lt;MMTeamUnread&gt; result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads);
+  final List&lt;MMTeamUnread&gt; result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads); // returns List&lt;MMTeamUnread&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->getTeamsUnreadForUser: $e\n');
@@ -1181,7 +1181,7 @@ final int filesize = 56; // int | The size of the zip file to be imported.
 final String importFrom = 'importFrom_example'; // String | String that defines from which application the team was exported to be imported into Mattermost.
 
 try {
-  final MMImportTeam200Response result = await client.teams.importTeam(teamId, file, filesize, importFrom);
+  final MMImportTeam200Response result = await client.teams.importTeam(teamId, file, filesize, importFrom); // returns MMImportTeam200Response instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->importTeam: $e\n');
@@ -1246,7 +1246,7 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.teams.invalidateEmailInvites();
+  final MMStatusOK result = await client.teams.invalidateEmailInvites(); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->invalidateEmailInvites: $e\n');
@@ -1307,7 +1307,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMInviteGuestsToTeamRequest mMInviteGuestsToTeamRequest = MMInviteGuestsToTeamRequest(); // MMInviteGuestsToTeamRequest | Guests invite information
 
 try {
-  final MMStatusOK result = await client.teams.inviteGuestsToTeam(teamId, mMInviteGuestsToTeamRequest);
+  final MMStatusOK result = await client.teams.inviteGuestsToTeam(teamId, mMInviteGuestsToTeamRequest); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->inviteGuestsToTeam: $e\n');
@@ -1372,7 +1372,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user's email
 
 try {
-  final MMStatusOK result = await client.teams.inviteUsersToTeam(teamId, requestBody);
+  final MMStatusOK result = await client.teams.inviteUsersToTeam(teamId, requestBody); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->inviteUsersToTeam: $e\n');
@@ -1437,7 +1437,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMPatchTeamRequest mMPatchTeamRequest = MMPatchTeamRequest(); // MMPatchTeamRequest | Team object that is to be updated
 
 try {
-  final MMTeam result = await client.teams.patchTeam(teamId, mMPatchTeamRequest);
+  final MMTeam result = await client.teams.patchTeam(teamId, mMPatchTeamRequest); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->patchTeam: $e\n');
@@ -1501,7 +1501,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam result = await client.teams.regenerateTeamInviteId(teamId);
+  final MMTeam result = await client.teams.regenerateTeamInviteId(teamId); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->regenerateTeamInviteId: $e\n');
@@ -1564,7 +1564,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMStatusOK result = await client.teams.removeTeamIcon(teamId);
+  final MMStatusOK result = await client.teams.removeTeamIcon(teamId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->removeTeamIcon: $e\n');
@@ -1628,7 +1628,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK result = await client.teams.removeTeamMember(teamId, userId);
+  final MMStatusOK result = await client.teams.removeTeamMember(teamId, userId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->removeTeamMember: $e\n');
@@ -1692,7 +1692,7 @@ var client = MattermostApiClient(
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMTeam result = await client.teams.restoreTeam(teamId);
+  final MMTeam result = await client.teams.restoreTeam(teamId); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->restoreTeam: $e\n');
@@ -1761,7 +1761,7 @@ final int page = 56; // int | The page to select. (Only works with Elasticsearch
 final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-  final MMFileInfoList result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+  final MMFileInfoList result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // returns MMFileInfoList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->searchFiles: $e\n');
@@ -1830,7 +1830,7 @@ var client = MattermostApiClient(
 final MMSearchTeamsRequest mMSearchTeamsRequest = MMSearchTeamsRequest(); // MMSearchTeamsRequest | Search criteria
 
 try {
-  final MMSearchTeams200Response result = await client.teams.searchTeams(mMSearchTeamsRequest);
+  final MMSearchTeams200Response result = await client.teams.searchTeams(mMSearchTeamsRequest); // returns MMSearchTeams200Response instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->searchTeams: $e\n');
@@ -1894,7 +1894,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MultipartFile image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-  final MMStatusOK result = await client.teams.setTeamIcon(teamId, image);
+  final MMStatusOK result = await client.teams.setTeamIcon(teamId, image); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->setTeamIcon: $e\n');
@@ -1959,7 +1959,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final bool permanent = true; // bool | Permanently delete the team, to be used for compliance reasons only. As of server version 5.0, `ServiceSettings.EnableAPITeamDeletion` must be set to `true` in the server's configuration.
 
 try {
-  final MMStatusOK result = await client.teams.softDeleteTeam(teamId, permanent);
+  final MMStatusOK result = await client.teams.softDeleteTeam(teamId, permanent); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->softDeleteTeam: $e\n');
@@ -2023,7 +2023,7 @@ var client = MattermostApiClient(
 final String name = 'name_example'; // String | Team Name
 
 try {
-  final MMTeamExists result = await client.teams.teamExists(name);
+  final MMTeamExists result = await client.teams.teamExists(name); // returns MMTeamExists instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->teamExists: $e\n');
@@ -2089,7 +2089,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page.
 
 try {
-  await client.teams.teamMembersMinusGroupMembers(teamId, groupIds, page, perPage);
+  await client.teams.teamMembersMinusGroupMembers(teamId, groupIds, page, perPage); 
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->teamMembersMinusGroupMembers: $e\n');
 }
@@ -2155,7 +2155,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMUpdateTeamRequest mMUpdateTeamRequest = MMUpdateTeamRequest(); // MMUpdateTeamRequest | Team to update
 
 try {
-  final MMTeam result = await client.teams.updateTeam(teamId, mMUpdateTeamRequest);
+  final MMTeam result = await client.teams.updateTeam(teamId, mMUpdateTeamRequest); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeam: $e\n');
@@ -2221,7 +2221,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited team roles to assign to the user
 
 try {
-  final MMStatusOK result = await client.teams.updateTeamMemberRoles(teamId, userId, mMUpdateUserRolesRequest);
+  final MMStatusOK result = await client.teams.updateTeamMemberRoles(teamId, userId, mMUpdateUserRolesRequest); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamMemberRoles: $e\n');
@@ -2288,7 +2288,7 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest = MMUpdateTeamMemberSchemeRolesRequest(); // MMUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-  final MMStatusOK result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mMUpdateTeamMemberSchemeRolesRequest);
+  final MMStatusOK result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mMUpdateTeamMemberSchemeRolesRequest); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamMemberSchemeRoles: $e\n');
@@ -2354,7 +2354,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMUpdateTeamPrivacyRequest mMUpdateTeamPrivacyRequest = MMUpdateTeamPrivacyRequest(); // MMUpdateTeamPrivacyRequest | 
 
 try {
-  final MMTeam result = await client.teams.updateTeamPrivacy(teamId, mMUpdateTeamPrivacyRequest);
+  final MMTeam result = await client.teams.updateTeamPrivacy(teamId, mMUpdateTeamPrivacyRequest); // returns MMTeam instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamPrivacy: $e\n');
@@ -2419,7 +2419,7 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest = MMUpdateTeamSchemeRequest(); // MMUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-  final MMStatusOK result = await client.teams.updateTeamScheme(teamId, mMUpdateTeamSchemeRequest);
+  final MMStatusOK result = await client.teams.updateTeamScheme(teamId, mMUpdateTeamSchemeRequest); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostTeamsApi->updateTeamScheme: $e\n');

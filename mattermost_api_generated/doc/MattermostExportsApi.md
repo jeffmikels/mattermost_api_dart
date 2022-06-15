@@ -48,7 +48,7 @@ var client = MattermostApiClient(
 final String exportName = 'exportName_example'; // String | The name of the export file to delete
 
 try {
-  await client.exports.deleteExport(exportName);
+  await client.exports.deleteExport(exportName); 
 } catch (e) {
   print('Exception when calling MattermostExportsApi->deleteExport: $e\n');
 }
@@ -110,7 +110,7 @@ var client = MattermostApiClient(
 final String exportName = 'exportName_example'; // String | The name of the export file to download
 
 try {
-  await client.exports.downloadExport(exportName);
+  await client.exports.downloadExport(exportName); 
 } catch (e) {
   print('Exception when calling MattermostExportsApi->downloadExport: $e\n');
 }
@@ -171,7 +171,7 @@ var client = MattermostApiClient(
 
 
 try {
-  await client.exports.listExports();
+  await client.exports.listExports(); 
 } catch (e) {
   print('Exception when calling MattermostExportsApi->listExports: $e\n');
 }

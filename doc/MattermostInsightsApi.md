@@ -52,7 +52,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-  final MMTopChannelList result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage);
+  final MMTopChannelList result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage); // returns MMTopChannelList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopChannelsForTeam: $e\n');
@@ -122,7 +122,7 @@ final int perPage = 56; // int | The number of items per page, up to a maximum o
 final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-  final MMTopReactionList result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId);
+  final MMTopReactionList result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId); // returns MMTopReactionList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopChannelsForUser: $e\n');
@@ -192,7 +192,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-  final MMTopReactionList result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage);
+  final MMTopReactionList result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage); // returns MMTopReactionList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopReactionsForTeam: $e\n');
@@ -262,7 +262,7 @@ final int perPage = 56; // int | The number of items per page, up to a maximum o
 final String teamId = 'teamId_example'; // String | Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-  final MMTopReactionList result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId);
+  final MMTopReactionList result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId); // returns MMTopReactionList instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostInsightsApi->getTopReactionsForUser: $e\n');

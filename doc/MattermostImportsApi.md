@@ -45,7 +45,7 @@ var client = MattermostApiClient(
 
 
 try {
-  await client.imports.listImports();
+  await client.imports.listImports(); 
 } catch (e) {
   print('Exception when calling MattermostImportsApi->listImports: $e\n');
 }

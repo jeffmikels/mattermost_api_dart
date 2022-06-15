@@ -53,7 +53,7 @@ var client = MattermostApiClient(
 final MMCreateOAuthAppRequest mMCreateOAuthAppRequest = MMCreateOAuthAppRequest(); // MMCreateOAuthAppRequest | OAuth application to register
 
 try {
-  final MMOAuthApp result = await client.oAuth.createOAuthApp(mMCreateOAuthAppRequest);
+  final MMOAuthApp result = await client.oAuth.createOAuthApp(mMCreateOAuthAppRequest); // returns MMOAuthApp instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->createOAuthApp: $e\n');
@@ -116,7 +116,7 @@ var client = MattermostApiClient(
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMStatusOK result = await client.oAuth.deleteOAuthApp(appId);
+  final MMStatusOK result = await client.oAuth.deleteOAuthApp(appId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->deleteOAuthApp: $e\n');
@@ -181,7 +181,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of apps per page.
 
 try {
-  final List&lt;MMOAuthApp&gt; result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage);
+  final List&lt;MMOAuthApp&gt; result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage); // returns List&lt;MMOAuthApp&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getAuthorizedOAuthAppsForUser: $e\n');
@@ -246,7 +246,7 @@ var client = MattermostApiClient(
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp result = await client.oAuth.getOAuthApp(appId);
+  final MMOAuthApp result = await client.oAuth.getOAuthApp(appId); // returns MMOAuthApp instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthApp: $e\n');
@@ -309,7 +309,7 @@ var client = MattermostApiClient(
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp result = await client.oAuth.getOAuthAppInfo(appId);
+  final MMOAuthApp result = await client.oAuth.getOAuthAppInfo(appId); // returns MMOAuthApp instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthAppInfo: $e\n');
@@ -373,7 +373,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of apps per page.
 
 try {
-  final List&lt;MMOAuthApp&gt; result = await client.oAuth.getOAuthApps(page, perPage);
+  final List&lt;MMOAuthApp&gt; result = await client.oAuth.getOAuthApps(page, perPage); // returns List&lt;MMOAuthApp&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->getOAuthApps: $e\n');
@@ -437,7 +437,7 @@ var client = MattermostApiClient(
 final String appId = 'appId_example'; // String | Application client id
 
 try {
-  final MMOAuthApp result = await client.oAuth.regenerateOAuthAppSecret(appId);
+  final MMOAuthApp result = await client.oAuth.regenerateOAuthAppSecret(appId); // returns MMOAuthApp instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->regenerateOAuthAppSecret: $e\n');
@@ -501,7 +501,7 @@ final String appId = 'appId_example'; // String | Application client id
 final MMUpdateOAuthAppRequest mMUpdateOAuthAppRequest = MMUpdateOAuthAppRequest(); // MMUpdateOAuthAppRequest | OAuth application to update
 
 try {
-  final MMOAuthApp result = await client.oAuth.updateOAuthApp(appId, mMUpdateOAuthAppRequest);
+  final MMOAuthApp result = await client.oAuth.updateOAuthApp(appId, mMUpdateOAuthAppRequest); // returns MMOAuthApp instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostOAuthApi->updateOAuthApp: $e\n');

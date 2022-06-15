@@ -52,7 +52,7 @@ var client = MattermostApiClient(
 final MMCreateSchemeRequest mMCreateSchemeRequest = MMCreateSchemeRequest(); // MMCreateSchemeRequest | Scheme object to create
 
 try {
-  final MMScheme result = await client.schemes.createScheme(mMCreateSchemeRequest);
+  final MMScheme result = await client.schemes.createScheme(mMCreateSchemeRequest); // returns MMScheme instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->createScheme: $e\n');
@@ -115,7 +115,7 @@ var client = MattermostApiClient(
 final String schemeId = 'schemeId_example'; // String | ID of the scheme to delete
 
 try {
-  final MMStatusOK result = await client.schemes.deleteScheme(schemeId);
+  final MMStatusOK result = await client.schemes.deleteScheme(schemeId); // returns MMStatusOK instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->deleteScheme: $e\n');
@@ -180,7 +180,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of channels per page.
 
 try {
-  final List&lt;MMChannel&gt; result = await client.schemes.getChannelsForScheme(schemeId, page, perPage);
+  final List&lt;MMChannel&gt; result = await client.schemes.getChannelsForScheme(schemeId, page, perPage); // returns List&lt;MMChannel&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getChannelsForScheme: $e\n');
@@ -245,7 +245,7 @@ var client = MattermostApiClient(
 final String schemeId = 'schemeId_example'; // String | Scheme GUID
 
 try {
-  final MMScheme result = await client.schemes.getScheme(schemeId);
+  final MMScheme result = await client.schemes.getScheme(schemeId); // returns MMScheme instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getScheme: $e\n');
@@ -310,7 +310,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of schemes per page.
 
 try {
-  final List&lt;MMScheme&gt; result = await client.schemes.getSchemes(scope, page, perPage);
+  final List&lt;MMScheme&gt; result = await client.schemes.getSchemes(scope, page, perPage); // returns List&lt;MMScheme&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getSchemes: $e\n');
@@ -377,7 +377,7 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of teams per page.
 
 try {
-  final List&lt;MMTeam&gt; result = await client.schemes.getTeamsForScheme(schemeId, page, perPage);
+  final List&lt;MMTeam&gt; result = await client.schemes.getTeamsForScheme(schemeId, page, perPage); // returns List&lt;MMTeam&gt; instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->getTeamsForScheme: $e\n');
@@ -443,7 +443,7 @@ final String schemeId = 'schemeId_example'; // String | Scheme GUID
 final MMPatchSchemeRequest mMPatchSchemeRequest = MMPatchSchemeRequest(); // MMPatchSchemeRequest | Scheme object to be updated
 
 try {
-  final MMScheme result = await client.schemes.patchScheme(schemeId, mMPatchSchemeRequest);
+  final MMScheme result = await client.schemes.patchScheme(schemeId, mMPatchSchemeRequest); // returns MMScheme instance
   print(result);
 } catch (e) {
   print('Exception when calling MattermostSchemesApi->patchScheme: $e\n');
