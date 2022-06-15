@@ -36,7 +36,7 @@ Confirms the payment setup intent initiated when posting to `/cloud/payment`. ##
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -47,17 +47,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final stripeSetupIntentId = stripeSetupIntentId_example; // String | 
 
 try {
-    await client.cloud.confirmCustomerPayment(stripeSetupIntentId);
+  await client.cloud.confirmCustomerPayment(stripeSetupIntentId);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->confirmCustomerPayment: $e\n');
+  print('Exception when calling MattermostCloudApi->confirmCustomerPayment: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -92,7 +98,7 @@ Creates a customer setup payment intent for the given Mattermost cloud installat
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -103,17 +109,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.createCustomerPayment();
-    print(result);
+  final result = await client.cloud.createCustomerPayment();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->createCustomerPayment: $e\n');
+  print('Exception when calling MattermostCloudApi->createCustomerPayment: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -145,7 +157,7 @@ Retrieves the customer information for the Mattermost Cloud customer bound to th
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -156,17 +168,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getCloudCustomer();
-    print(result);
+  final result = await client.cloud.getCloudCustomer();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getCloudCustomer: $e\n');
+  print('Exception when calling MattermostCloudApi->getCloudCustomer: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -198,7 +216,7 @@ Retrieve any cloud workspace limits applicable to this instance. ##### Permissio
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -209,17 +227,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getCloudLimits();
-    print(result);
+  final result = await client.cloud.getCloudLimits();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getCloudLimits: $e\n');
+  print('Exception when calling MattermostCloudApi->getCloudLimits: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -251,7 +275,7 @@ Retrieve a list of all products that are offered for Mattermost Cloud. ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -262,17 +286,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getCloudProducts();
-    print(result);
+  final result = await client.cloud.getCloudProducts();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getCloudProducts: $e\n');
+  print('Exception when calling MattermostCloudApi->getCloudProducts: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -304,7 +334,7 @@ Retrieves the PDF for the invoice passed as parameter ##### Permissions Must hav
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -315,17 +345,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final invoiceId = invoiceId_example; // String | Invoice ID
 
 try {
-    await client.cloud.getInvoiceForSubscriptionAsPdf(invoiceId);
+  await client.cloud.getInvoiceForSubscriptionAsPdf(invoiceId);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getInvoiceForSubscriptionAsPdf: $e\n');
+  print('Exception when calling MattermostCloudApi->getInvoiceForSubscriptionAsPdf: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -360,7 +396,7 @@ Retrieves the invoices for the subscription bound to this installation. ##### Pe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -371,17 +407,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getInvoicesForSubscription();
-    print(result);
+  final result = await client.cloud.getInvoicesForSubscription();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getInvoicesForSubscription: $e\n');
+  print('Exception when calling MattermostCloudApi->getInvoicesForSubscription: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -413,7 +455,7 @@ Retrieves the subscription information for the Mattermost Cloud customer bound t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -424,17 +466,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getSubscription();
-    print(result);
+  final result = await client.cloud.getSubscription();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getSubscription: $e\n');
+  print('Exception when calling MattermostCloudApi->getSubscription: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -466,7 +514,7 @@ An endpoint that returns stats about a user's subscription. For example remainin
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -477,17 +525,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cloud.getSubscriptionStats();
-    print(result);
+  final result = await client.cloud.getSubscriptionStats();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->getSubscriptionStats: $e\n');
+  print('Exception when calling MattermostCloudApi->getSubscriptionStats: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -519,7 +573,7 @@ An endpoint for processing webhooks from the Customer Portal ##### Permissions T
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -530,16 +584,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.cloud.postEndpointForCwsWebhooks();
+  await client.cloud.postEndpointForCwsWebhooks();
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->postEndpointForCwsWebhooks: $e\n');
+  print('Exception when calling MattermostCloudApi->postEndpointForCwsWebhooks: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -571,7 +631,7 @@ An endpoint that triggers sending emails to all sys admins to request them to up
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -582,16 +642,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.cloud.sendAdminUpgradeRequestEmail();
+  await client.cloud.sendAdminUpgradeRequestEmail();
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->sendAdminUpgradeRequestEmail: $e\n');
+  print('Exception when calling MattermostCloudApi->sendAdminUpgradeRequestEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -623,7 +689,7 @@ An endpoint that triggers sending emails to all sys admins to request them to up
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -634,16 +700,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.cloud.sendAdminUpgradeRequestEmailOnJoin();
+  await client.cloud.sendAdminUpgradeRequestEmailOnJoin();
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->sendAdminUpgradeRequestEmailOnJoin: $e\n');
+  print('Exception when calling MattermostCloudApi->sendAdminUpgradeRequestEmailOnJoin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -675,7 +747,7 @@ Updates the customer information for the Mattermost Cloud customer bound to this
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -686,18 +758,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostUpdateCloudCustomerRequest = MattermostUpdateCloudCustomerRequest(); // MattermostUpdateCloudCustomerRequest | Customer patch including information to update
 
 try {
-    final result = await client.cloud.updateCloudCustomer(mattermostUpdateCloudCustomerRequest);
-    print(result);
+  final result = await client.cloud.updateCloudCustomer(mattermostUpdateCloudCustomerRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->updateCloudCustomer: $e\n');
+  print('Exception when calling MattermostCloudApi->updateCloudCustomer: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -732,7 +810,7 @@ Updates the company address for the Mattermost Cloud customer bound to this inst
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -743,18 +821,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCloudApi api instance
-// final MattermostCloudApi api_instance = client.cloud
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostAddress = MattermostAddress(); // MattermostAddress | Company address information to update
 
 try {
-    final result = await client.cloud.updateCloudCustomerAddress(mattermostAddress);
-    print(result);
+  final result = await client.cloud.updateCloudCustomerAddress(mattermostAddress);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCloudApi->updateCloudCustomerAddress: $e\n');
+  print('Exception when calling MattermostCloudApi->updateCloudCustomerAddress: $e\n');
 }
+
 ```
 
 ### Parameters

@@ -24,7 +24,7 @@ Open an interactive dialog using a trigger ID provided by a slash command, or so
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -35,18 +35,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostIntegrationActionsApi api instance
-// final MattermostIntegrationActionsApi api_instance = client.integrationActions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostOpenInteractiveDialogRequest = MattermostOpenInteractiveDialogRequest(); // MattermostOpenInteractiveDialogRequest | Metadata for the dialog to be opened
 
 try {
-    final result = await client.integrationActions.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
-    print(result);
+  final result = await client.integrationActions.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostIntegrationActionsApi->openInteractiveDialog: $e\n');
+  print('Exception when calling MattermostIntegrationActionsApi->openInteractiveDialog: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -81,7 +87,7 @@ Endpoint used by the Mattermost clients to submit a dialog. See https://docs.mat
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -92,18 +98,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostIntegrationActionsApi api instance
-// final MattermostIntegrationActionsApi api_instance = client.integrationActions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSubmitInteractiveDialogRequest = MattermostSubmitInteractiveDialogRequest(); // MattermostSubmitInteractiveDialogRequest | Dialog submission data
 
 try {
-    final result = await client.integrationActions.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);
-    print(result);
+  final result = await client.integrationActions.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostIntegrationActionsApi->submitInteractiveDialog: $e\n');
+  print('Exception when calling MattermostIntegrationActionsApi->submitInteractiveDialog: $e\n');
 }
+
 ```
 
 ### Parameters

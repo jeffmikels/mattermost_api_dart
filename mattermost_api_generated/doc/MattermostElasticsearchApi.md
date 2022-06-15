@@ -24,7 +24,7 @@ Deletes all Elasticsearch indexes and their contents. After calling this endpoin
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -35,17 +35,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostElasticsearchApi api instance
-// final MattermostElasticsearchApi api_instance = client.elasticsearch
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.elasticsearch.purgeElasticsearchIndexes();
-    print(result);
+  final result = await client.elasticsearch.purgeElasticsearchIndexes();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostElasticsearchApi->purgeElasticsearchIndexes: $e\n');
+  print('Exception when calling MattermostElasticsearchApi->purgeElasticsearchIndexes: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -77,7 +83,7 @@ Test the current Elasticsearch configuration to see if the Elasticsearch server 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -88,17 +94,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostElasticsearchApi api instance
-// final MattermostElasticsearchApi api_instance = client.elasticsearch
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.elasticsearch.testElasticsearch();
-    print(result);
+  final result = await client.elasticsearch.testElasticsearch();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostElasticsearchApi->testElasticsearch: $e\n');
+  print('Exception when calling MattermostElasticsearchApi->testElasticsearch: $e\n');
 }
+
 ```
 
 ### Parameters

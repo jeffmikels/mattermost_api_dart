@@ -23,7 +23,7 @@ Get a set of information for each node in the cluster, useful for checking the s
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,17 +34,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostClusterApi api instance
-// final MattermostClusterApi api_instance = client.cluster
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.cluster.getClusterStatus();
-    print(result);
+  final result = await client.cluster.getClusterStatus();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostClusterApi->getClusterStatus: $e\n');
+  print('Exception when calling MattermostClusterApi->getClusterStatus: $e\n');
 }
+
 ```
 
 ### Parameters

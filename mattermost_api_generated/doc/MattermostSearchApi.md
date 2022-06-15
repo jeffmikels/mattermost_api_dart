@@ -23,7 +23,7 @@ Search for files in a team based on file name, extention and file content (if fi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,9 +34,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSearchApi api instance
-// final MattermostSearchApi api_instance = client.search
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
@@ -47,11 +52,12 @@ final page = 56; // int | The page to select. (Only works with Elasticsearch)
 final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-    final result = await client.search.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
-    print(result);
+  final result = await client.search.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSearchApi->searchFiles: $e\n');
+  print('Exception when calling MattermostSearchApi->searchFiles: $e\n');
 }
+
 ```
 
 ### Parameters

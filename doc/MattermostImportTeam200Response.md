@@ -1,8 +1,21 @@
 # mattermost_api.model.MattermostImportTeam200Response
 
-## Load the model package
+## Load the package and get an instance of this class.
 ```dart
 import 'package:mattermost_api/api.dart';
+
+// TODO: Client options
+late MattermostApiClient client;
+
+// example client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
+
+MattermostImportTeam200Response = await client.importTeam200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+
 ```
 
 ## Properties

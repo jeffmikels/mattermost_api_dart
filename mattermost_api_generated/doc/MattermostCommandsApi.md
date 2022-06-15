@@ -32,7 +32,7 @@ Create a command for a team. ##### Permissions `manage_slash_commands` for the t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -43,18 +43,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateCommandRequest = MattermostCreateCommandRequest(); // MattermostCreateCommandRequest | command to be created
 
 try {
-    final result = await client.commands.createCommand(mattermostCreateCommandRequest);
-    print(result);
+  final result = await client.commands.createCommand(mattermostCreateCommandRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->createCommand: $e\n');
+  print('Exception when calling MattermostCommandsApi->createCommand: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -89,7 +95,7 @@ Delete a command based on command id string. ##### Permissions Must have `manage
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -100,18 +106,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final commandId = commandId_example; // String | ID of the command to delete
 
 try {
-    final result = await client.commands.deleteCommand(commandId);
-    print(result);
+  final result = await client.commands.deleteCommand(commandId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->deleteCommand: $e\n');
+  print('Exception when calling MattermostCommandsApi->deleteCommand: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -146,7 +158,7 @@ Execute a command on a team. ##### Permissions Must have `use_slash_commands` pe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -157,18 +169,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostExecuteCommandRequest = MattermostExecuteCommandRequest(); // MattermostExecuteCommandRequest | command to be executed
 
 try {
-    final result = await client.commands.executeCommand(mattermostExecuteCommandRequest);
-    print(result);
+  final result = await client.commands.executeCommand(mattermostExecuteCommandRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->executeCommand: $e\n');
+  print('Exception when calling MattermostCommandsApi->executeCommand: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -203,7 +221,7 @@ Get a command definition based on command id string. ##### Permissions Must have
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -214,18 +232,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final commandId = commandId_example; // String | ID of the command to get
 
 try {
-    final result = await client.commands.getCommandById(commandId);
-    print(result);
+  final result = await client.commands.getCommandById(commandId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->getCommandById: $e\n');
+  print('Exception when calling MattermostCommandsApi->getCommandById: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -260,7 +284,7 @@ List autocomplete commands in the team. ##### Permissions `view_team` for the te
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -271,18 +295,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = await client.commands.listAutocompleteCommands(teamId);
-    print(result);
+  final result = await client.commands.listAutocompleteCommands(teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->listAutocompleteCommands: $e\n');
+  print('Exception when calling MattermostCommandsApi->listAutocompleteCommands: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -317,7 +347,7 @@ List commands' autocomplete data for the team. ##### Permissions `view_team` for
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -328,19 +358,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final userInput = userInput_example; // String | String inputted by the user.
 
 try {
-    final result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
-    print(result);
+  final result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->listCommandAutocompleteSuggestions: $e\n');
+  print('Exception when calling MattermostCommandsApi->listCommandAutocompleteSuggestions: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -376,7 +412,7 @@ List commands for a team. ##### Permissions `manage_slash_commands` if need list
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -387,19 +423,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | The team id.
 final customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
 
 try {
-    final result = await client.commands.listCommands(teamId, customOnly);
-    print(result);
+  final result = await client.commands.listCommands(teamId, customOnly);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->listCommands: $e\n');
+  print('Exception when calling MattermostCommandsApi->listCommands: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -435,7 +477,7 @@ Move a command to a different team based on command id string. ##### Permissions
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -446,19 +488,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final commandId = commandId_example; // String | ID of the command to move
 final mattermostMoveCommandRequest = MattermostMoveCommandRequest(); // MattermostMoveCommandRequest | 
 
 try {
-    final result = await client.commands.moveCommand(commandId, mattermostMoveCommandRequest);
-    print(result);
+  final result = await client.commands.moveCommand(commandId, mattermostMoveCommandRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->moveCommand: $e\n');
+  print('Exception when calling MattermostCommandsApi->moveCommand: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -494,7 +542,7 @@ Generate a new token for the command based on command id string. ##### Permissio
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -505,18 +553,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final commandId = commandId_example; // String | ID of the command to generate the new token
 
 try {
-    final result = await client.commands.regenCommandToken(commandId);
-    print(result);
+  final result = await client.commands.regenCommandToken(commandId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->regenCommandToken: $e\n');
+  print('Exception when calling MattermostCommandsApi->regenCommandToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -551,7 +605,7 @@ Update a single command based on command id string and Command struct. ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -562,19 +616,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostCommandsApi api instance
-// final MattermostCommandsApi api_instance = client.commands
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final commandId = commandId_example; // String | ID of the command to update
 final mattermostCommand = MattermostCommand(); // MattermostCommand | 
 
 try {
-    final result = await client.commands.updateCommand(commandId, mattermostCommand);
-    print(result);
+  final result = await client.commands.updateCommand(commandId, mattermostCommand);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostCommandsApi->updateCommand: $e\n');
+  print('Exception when calling MattermostCommandsApi->updateCommand: $e\n');
 }
+
 ```
 
 ### Parameters

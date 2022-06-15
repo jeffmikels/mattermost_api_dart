@@ -39,7 +39,7 @@ Create a new post in a channel. To create the post as a comment on another post,
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -50,19 +50,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreatePostRequest = MattermostCreatePostRequest(); // MattermostCreatePostRequest | Post object to create
 final setOnline = true; // bool | Whether to set the user status as online or not.
 
 try {
-    final result = await client.posts.createPost(mattermostCreatePostRequest, setOnline);
-    print(result);
+  final result = await client.posts.createPost(mattermostCreatePostRequest, setOnline);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->createPost: $e\n');
+  print('Exception when calling MattermostPostsApi->createPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -98,7 +104,7 @@ Create a new ephemeral post in a channel. ##### Permissions Must have `create_po
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -109,18 +115,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreatePostEphemeralRequest = MattermostCreatePostEphemeralRequest(); // MattermostCreatePostEphemeralRequest | Ephemeral Post object to send
 
 try {
-    final result = await client.posts.createPostEphemeral(mattermostCreatePostEphemeralRequest);
-    print(result);
+  final result = await client.posts.createPostEphemeral(mattermostCreatePostEphemeralRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->createPostEphemeral: $e\n');
+  print('Exception when calling MattermostPostsApi->createPostEphemeral: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -155,7 +167,7 @@ Soft deletes a post, by marking the post as deleted in the database. Soft delete
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -166,18 +178,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of the post to delete
 
 try {
-    final result = await client.posts.deletePost(postId);
-    print(result);
+  final result = await client.posts.deletePost(postId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->deletePost: $e\n');
+  print('Exception when calling MattermostPostsApi->deletePost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -212,7 +230,7 @@ Perform a post action, which allows users to interact with integrations through 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -223,19 +241,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | Post GUID
 final actionId = actionId_example; // String | Action GUID
 
 try {
-    final result = await client.posts.doPostAction(postId, actionId);
-    print(result);
+  final result = await client.posts.doPostAction(postId, actionId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->doPostAction: $e\n');
+  print('Exception when calling MattermostPostsApi->doPostAction: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -271,7 +295,7 @@ Gets a list of file information objects for the files attached to a post. ##### 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -282,19 +306,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of the post
 final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-    final result = await client.posts.getFileInfosForPost(postId, includeDeleted);
-    print(result);
+  final result = await client.posts.getFileInfosForPost(postId, includeDeleted);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getFileInfosForPost: $e\n');
+  print('Exception when calling MattermostPostsApi->getFileInfosForPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -330,7 +360,7 @@ Get a page of flagged posts of a user provided user id string. Selects from a ch
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -341,9 +371,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | ID of the user
 final teamId = teamId_example; // String | Team ID
@@ -352,11 +387,12 @@ final page = 56; // int | The page to select
 final perPage = 56; // int | The number of posts per page
 
 try {
-    final result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
-    print(result);
+  final result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getFlaggedPostsForUser: $e\n');
+  print('Exception when calling MattermostPostsApi->getFlaggedPostsForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -395,7 +431,7 @@ Get a single post. ##### Permissions Must have `read_channel` permission for the
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -406,19 +442,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of the post to get
 final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-    final result = await client.posts.getPost(postId, includeDeleted);
-    print(result);
+  final result = await client.posts.getPost(postId, includeDeleted);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getPost: $e\n');
+  print('Exception when calling MattermostPostsApi->getPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -454,7 +496,7 @@ Get a post and the rest of the posts in the same thread. ##### Permissions Must 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -465,9 +507,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of a post in the thread
 final perPage = 56; // int | The number of posts per page
@@ -479,11 +526,12 @@ final collapsedThreads = true; // bool | Whether the client uses CRT or not
 final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-    final result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
-    print(result);
+  final result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getPostThread: $e\n');
+  print('Exception when calling MattermostPostsApi->getPostThread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -525,7 +573,7 @@ Get the oldest unread post in the channel for the given user as well as the post
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -536,9 +584,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | ID of the user
 final channelId = channelId_example; // String | The channel ID to get the posts for
@@ -549,11 +602,12 @@ final collapsedThreads = true; // bool | Whether the client uses CRT or not
 final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-    final result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
-    print(result);
+  final result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getPostsAroundLastUnread: $e\n');
+  print('Exception when calling MattermostPostsApi->getPostsAroundLastUnread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -594,7 +648,7 @@ Fetch a list of posts based on the provided postIDs ##### Permissions Must have 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -605,18 +659,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of post ids
 
 try {
-    final result = await client.posts.getPostsByIds(requestBody);
-    print(result);
+  final result = await client.posts.getPostsByIds(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getPostsByIds: $e\n');
+  print('Exception when calling MattermostPostsApi->getPostsByIds: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -651,7 +711,7 @@ Get a page of posts in a channel. Use the query parameters to modify the behavio
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -662,9 +722,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final channelId = channelId_example; // String | The channel ID to get the posts for
 final page = 56; // int | The page to select
@@ -674,11 +739,12 @@ final before = before_example; // String | A post id to select the posts that ca
 final after = after_example; // String | A post id to select the posts that came after this one
 
 try {
-    final result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after);
-    print(result);
+  final result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->getPostsForChannel: $e\n');
+  print('Exception when calling MattermostPostsApi->getPostsForChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -718,7 +784,7 @@ Partially update a post by providing only the fields you want to update. Omitted
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -729,19 +795,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | Post GUID
 final mattermostPatchPostRequest = MattermostPatchPostRequest(); // MattermostPatchPostRequest | Post object that is to be updated
 
 try {
-    final result = await client.posts.patchPost(postId, mattermostPatchPostRequest);
-    print(result);
+  final result = await client.posts.patchPost(postId, mattermostPatchPostRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->patchPost: $e\n');
+  print('Exception when calling MattermostPostsApi->patchPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -777,7 +849,7 @@ Pin a post to a channel it is in based from the provided post id string. ##### P
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -788,18 +860,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = await client.posts.pinPost(postId);
-    print(result);
+  final result = await client.posts.pinPost(postId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->pinPost: $e\n');
+  print('Exception when calling MattermostPostsApi->pinPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -834,7 +912,7 @@ Search posts in the team and from the provided terms string. ##### Permissions M
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -845,19 +923,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final mattermostSearchPostsRequest = MattermostSearchPostsRequest(); // MattermostSearchPostsRequest | The search terms and logic to use in the search.
 
 try {
-    final result = await client.posts.searchPosts(teamId, mattermostSearchPostsRequest);
-    print(result);
+  final result = await client.posts.searchPosts(teamId, mattermostSearchPostsRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->searchPosts: $e\n');
+  print('Exception when calling MattermostPostsApi->searchPosts: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -893,7 +977,7 @@ Mark a channel as being unread from a given post. ##### Permissions Must have `r
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -904,19 +988,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = await client.posts.setPostUnread(userId, postId);
-    print(result);
+  final result = await client.posts.setPostUnread(userId, postId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->setPostUnread: $e\n');
+  print('Exception when calling MattermostPostsApi->setPostUnread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -952,7 +1042,7 @@ Unpin a post to a channel it is in based from the provided post id string. #####
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -963,18 +1053,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = await client.posts.unpinPost(postId);
-    print(result);
+  final result = await client.posts.unpinPost(postId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->unpinPost: $e\n');
+  print('Exception when calling MattermostPostsApi->unpinPost: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1009,7 +1105,7 @@ Update a post. Only the fields listed below are updatable, omitted fields will b
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1020,19 +1116,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPostsApi api instance
-// final MattermostPostsApi api_instance = client.posts
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of the post to update
 final mattermostUpdatePostRequest = MattermostUpdatePostRequest(); // MattermostUpdatePostRequest | Post object that is to be updated
 
 try {
-    final result = await client.posts.updatePost(postId, mattermostUpdatePostRequest);
-    print(result);
+  final result = await client.posts.updatePost(postId, mattermostUpdatePostRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPostsApi->updatePost: $e\n');
+  print('Exception when calling MattermostPostsApi->updatePost: $e\n');
 }
+
 ```
 
 ### Parameters

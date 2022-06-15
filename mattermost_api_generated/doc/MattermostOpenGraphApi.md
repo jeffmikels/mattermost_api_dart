@@ -23,7 +23,7 @@ Get Open Graph Metadata for a specif URL. Use the Open Graph protocol to get som
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,18 +34,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOpenGraphApi api instance
-// final MattermostOpenGraphApi api_instance = client.openGraph
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostOpenGraphRequest = MattermostOpenGraphRequest(); // MattermostOpenGraphRequest | 
 
 try {
-    final result = await client.openGraph.openGraph(mattermostOpenGraphRequest);
-    print(result);
+  final result = await client.openGraph.openGraph(mattermostOpenGraphRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOpenGraphApi->openGraph: $e\n');
+  print('Exception when calling MattermostOpenGraphApi->openGraph: $e\n');
 }
+
 ```
 
 ### Parameters

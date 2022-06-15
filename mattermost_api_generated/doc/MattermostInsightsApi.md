@@ -26,7 +26,7 @@ Get a list of the top public and private channels (the user is a member of) for 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -37,9 +37,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostInsightsApi api instance
-// final MattermostInsightsApi api_instance = client.insights
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
@@ -47,11 +52,12 @@ final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-    final result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage);
-    print(result);
+  final result = await client.insights.getTopChannelsForTeam(teamId, timeRange, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostInsightsApi->getTopChannelsForTeam: $e\n');
+  print('Exception when calling MattermostInsightsApi->getTopChannelsForTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -89,7 +95,7 @@ Get a list of the top public and private channels (the user is a member of) for 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -100,9 +106,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostInsightsApi api instance
-// final MattermostInsightsApi api_instance = client.insights
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: channels with posts on the current day. - `7_day`: channels with posts in the last 7 days. - `28_day`: channels with posts in the last 28 days. 
@@ -111,11 +122,12 @@ final perPage = 56; // int | The number of items per page, up to a maximum of 20
 final teamId = teamId_example; // String | Team ID will scope the response to a given team. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-    final result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId);
-    print(result);
+  final result = await client.insights.getTopChannelsForUser(userId, timeRange, page, perPage, teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostInsightsApi->getTopChannelsForUser: $e\n');
+  print('Exception when calling MattermostInsightsApi->getTopChannelsForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -154,7 +166,7 @@ Get a list of the top reactions across all public and private channels (the user
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -165,9 +177,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostInsightsApi api instance
-// final MattermostInsightsApi api_instance = client.insights
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
@@ -175,11 +192,12 @@ final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of items per page, up to a maximum of 200.
 
 try {
-    final result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage);
-    print(result);
+  final result = await client.insights.getTopReactionsForTeam(teamId, timeRange, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostInsightsApi->getTopReactionsForTeam: $e\n');
+  print('Exception when calling MattermostInsightsApi->getTopReactionsForTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -217,7 +235,7 @@ Get a list of the top reactions across all public and private channels (the user
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -228,9 +246,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostInsightsApi api instance
-// final MattermostInsightsApi api_instance = client.insights
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final timeRange = timeRange_example; // String | Time range can be \"today\", \"7_day\", or \"28_day\". - `today`: reactions posted on the current day. - `7_day`: reactions posted in the last 7 days. - `28_day`: reactions posted in the last 28 days. 
@@ -239,11 +262,12 @@ final perPage = 56; // int | The number of items per page, up to a maximum of 20
 final teamId = teamId_example; // String | Team ID will scope the response to a given team and exclude direct and group messages. ##### Permissions Must have `view_team` permission for the team. 
 
 try {
-    final result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId);
-    print(result);
+  final result = await client.insights.getTopReactionsForUser(userId, timeRange, page, perPage, teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostInsightsApi->getTopReactionsForUser: $e\n');
+  print('Exception when calling MattermostInsightsApi->getTopReactionsForUser: $e\n');
 }
+
 ```
 
 ### Parameters

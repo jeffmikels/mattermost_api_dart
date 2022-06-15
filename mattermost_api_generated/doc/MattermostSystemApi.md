@@ -61,7 +61,7 @@ Performs a database integrity check.   __Note__: This check may temporarily harm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -72,17 +72,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.checkIntegrity();
-    print(result);
+  final result = await client.system.checkIntegrity();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->checkIntegrity: $e\n');
+  print('Exception when calling MattermostSystemApi->checkIntegrity: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -114,7 +120,7 @@ Marks the server as not having high load which re-enables non-critical services 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -125,17 +131,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.clearServerBusy();
-    print(result);
+  final result = await client.system.clearServerBusy();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->clearServerBusy: $e\n');
+  print('Exception when calling MattermostSystemApi->clearServerBusy: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -167,7 +179,7 @@ Recycle database connections by closing and reconnecting all connections to mast
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -178,17 +190,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.databaseRecycle();
-    print(result);
+  final result = await client.system.databaseRecycle();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->databaseRecycle: $e\n');
+  print('Exception when calling MattermostSystemApi->databaseRecycle: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -220,7 +238,7 @@ Download a zip file which contains helpful and useful information for troublesho
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -231,16 +249,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.system.generateSupportPacket();
+  await client.system.generateSupportPacket();
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->generateSupportPacket: $e\n');
+  print('Exception when calling MattermostSystemApi->generateSupportPacket: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -272,7 +296,7 @@ Get some analytics data about the system. This endpoint uses the old format, the
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -283,18 +307,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final name = name_example; // String | Possible values are \"standard\", \"bot_post_counts_day\", \"post_counts_day\", \"user_counts_with_posts_day\" or \"extra_counts\"
 final teamId = teamId_example; // String | The team ID to filter the data by
 
 try {
-    await client.system.getAnalyticsOld(name, teamId);
+  await client.system.getAnalyticsOld(name, teamId);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getAnalyticsOld: $e\n');
+  print('Exception when calling MattermostSystemApi->getAnalyticsOld: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -330,7 +360,7 @@ Get a page of audits for all users on the system, selected with `page` and `per_
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -341,19 +371,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of audits per page.
 
 try {
-    final result = await client.system.getAudits(page, perPage);
-    print(result);
+  final result = await client.system.getAudits(page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getAudits: $e\n');
+  print('Exception when calling MattermostSystemApi->getAudits: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -389,7 +425,7 @@ Get a subset of the server configuration needed by the client. ##### Permissions
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -400,17 +436,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final format = format_example; // String | Must be `old`, other formats not implemented yet
 
 try {
-    await client.system.getClientConfig(format);
+  await client.system.getClientConfig(format);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getClientConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->getClientConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -445,7 +487,7 @@ Get a subset of the server license needed by the client. ##### Permissions No pe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -456,17 +498,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final format = format_example; // String | Must be `old`, other formats not implemented yet
 
 try {
-    await client.system.getClientLicense(format);
+  await client.system.getClientLicense(format);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getClientLicense: $e\n');
+  print('Exception when calling MattermostSystemApi->getClientLicense: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -501,7 +549,7 @@ Retrieve the current server configuration ##### Permissions Must have `manage_sy
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -512,17 +560,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getConfig();
-    print(result);
+  final result = await client.system.getConfig();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->getConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -554,7 +608,7 @@ Retrieve a json object mirroring the server configuration where fields are set t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -565,17 +619,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getEnvironmentConfig();
-    print(result);
+  final result = await client.system.getEnvironmentConfig();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getEnvironmentConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->getEnvironmentConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -607,7 +667,7 @@ Fetches an image via Mattermost image proxy. __Minimum server version__: 3.10 ##
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -618,17 +678,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getImageByUrl();
-    print(result);
+  final result = await client.system.getImageByUrl();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getImageByUrl: $e\n');
+  print('Exception when calling MattermostSystemApi->getImageByUrl: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -660,7 +726,7 @@ Get a page of server logs, selected with `page` and `logs_per_page` query parame
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -671,19 +737,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final logsPerPage = logsPerPage_example; // String | The number of logs per page. There is a maximum limit of 10000 logs per page.
 
 try {
-    final result = await client.system.getLogs(page, logsPerPage);
-    print(result);
+  final result = await client.system.getLogs(page, logsPerPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getLogs: $e\n');
+  print('Exception when calling MattermostSystemApi->getLogs: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -719,7 +791,7 @@ Will return appropriate product notices for current user in the team specified b
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -730,9 +802,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final clientVersion = clientVersion_example; // String | Version of the client (desktop/mobile/web) that issues the request
 final client = client_example; // String | Client type (web/mobile-ios/mobile-android/desktop)
@@ -740,11 +817,12 @@ final teamId = teamId_example; // String | ID of the team
 final locale = locale_example; // String | Client locale
 
 try {
-    final result = await client.system.getNotices(clientVersion, client, teamId, locale);
-    print(result);
+  final result = await client.system.getNotices(clientVersion, client, teamId, locale);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getNotices: $e\n');
+  print('Exception when calling MattermostSystemApi->getNotices: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -782,7 +860,7 @@ Check if the server is up and healthy based on the configuration setting `GoRout
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -793,19 +871,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final getServerStatus = true; // bool | Check the status of the database and file storage as well
 final deviceId = deviceId_example; // String | Check whether this device id can receive push notifications
 
 try {
-    final result = await client.system.getPing(getServerStatus, deviceId);
-    print(result);
+  final result = await client.system.getPing(getServerStatus, deviceId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getPing: $e\n');
+  print('Exception when calling MattermostSystemApi->getPing: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -841,7 +925,7 @@ __Minimum server version__: 3.10 ##### Permissions Must be logged in.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -852,18 +936,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final url = url_example; // String | Url to check
 
 try {
-    final result = await client.system.getRedirectLocation(url);
-    print(result);
+  final result = await client.system.getRedirectLocation(url);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getRedirectLocation: $e\n');
+  print('Exception when calling MattermostSystemApi->getRedirectLocation: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -898,7 +988,7 @@ Gets the timestamp corresponding to when the server busy flag will be automatica
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -909,17 +999,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getServerBusyExpires();
-    print(result);
+  final result = await client.system.getServerBusyExpires();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getServerBusyExpires: $e\n');
+  print('Exception when calling MattermostSystemApi->getServerBusyExpires: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -951,7 +1047,7 @@ __Minimum server version__: 3.10 ##### Permissions Must be logged in.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -962,17 +1058,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getSupportedTimezone();
-    print(result);
+  final result = await client.system.getSupportedTimezone();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getSupportedTimezone: $e\n');
+  print('Exception when calling MattermostSystemApi->getSupportedTimezone: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1004,7 +1106,7 @@ Get the status of a set of metrics (enabled or disabled) from the Systems table.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1015,17 +1117,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.getWarnMetricsStatus();
-    print(result);
+  final result = await client.system.getWarnMetricsStatus();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->getWarnMetricsStatus: $e\n');
+  print('Exception when calling MattermostSystemApi->getWarnMetricsStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1057,7 +1165,7 @@ Purge all the in-memory caches for the Mattermost server. This can have a tempor
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1068,17 +1176,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.invalidateCaches();
-    print(result);
+  final result = await client.system.invalidateCaches();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->invalidateCaches: $e\n');
+  print('Exception when calling MattermostSystemApi->invalidateCaches: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1110,7 +1224,7 @@ Will mark the specified notices as 'viewed' by the logged in user. __Minimum ser
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1121,18 +1235,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | Array of notice IDs
 
 try {
-    final result = await client.system.markNoticesViewed(requestBody);
-    print(result);
+  final result = await client.system.markNoticesViewed(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->markNoticesViewed: $e\n');
+  print('Exception when calling MattermostSystemApi->markNoticesViewed: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1167,7 +1287,7 @@ Submit configuration to patch. As of server version 4.8, the `PluginSettings.Ena
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1178,18 +1298,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
-    final result = await client.system.patchConfig(mattermostConfig);
-    print(result);
+  final result = await client.system.patchConfig(mattermostConfig);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->patchConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->patchConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1224,7 +1350,7 @@ Add log messages to the server logs. ##### Permissions Users with `manage_system
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1235,18 +1361,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostPostLogRequest = MattermostPostLogRequest(); // MattermostPostLogRequest | 
 
 try {
-    final result = await client.system.postLog(mattermostPostLogRequest);
-    print(result);
+  final result = await client.system.postLog(mattermostPostLogRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->postLog: $e\n');
+  print('Exception when calling MattermostSystemApi->postLog: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1281,7 +1413,7 @@ Reload the configuration file to pick up on any changes made to it. ##### Permis
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1292,17 +1424,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.reloadConfig();
-    print(result);
+  final result = await client.system.reloadConfig();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->reloadConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->reloadConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1334,7 +1472,7 @@ Remove the license file from the server. This will disable all enterprise featur
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1345,16 +1483,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.system.removeLicenseFile();
+  await client.system.removeLicenseFile();
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->removeLicenseFile: $e\n');
+  print('Exception when calling MattermostSystemApi->removeLicenseFile: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1386,7 +1530,7 @@ Request the renewal link that would be used to start the license renewal process
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1397,17 +1541,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.requestLicenseRenewalLink();
-    print(result);
+  final result = await client.system.requestLicenseRenewalLink();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->requestLicenseRenewalLink: $e\n');
+  print('Exception when calling MattermostSystemApi->requestLicenseRenewalLink: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1439,7 +1589,7 @@ Request and install a trial license for your server __Minimum server version__: 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1450,17 +1600,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostRequestTrialLicenseRequest = MattermostRequestTrialLicenseRequest(); // MattermostRequestTrialLicenseRequest | License request
 
 try {
-    await client.system.requestTrialLicense(mattermostRequestTrialLicenseRequest);
+  await client.system.requestTrialLicense(mattermostRequestTrialLicenseRequest);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->requestTrialLicense: $e\n');
+  print('Exception when calling MattermostSystemApi->requestTrialLicense: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1495,7 +1651,7 @@ It restarts the current running mattermost instance to execute the new Enterpris
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1506,17 +1662,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.restartServer();
-    print(result);
+  final result = await client.system.restartServer();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->restartServer: $e\n');
+  print('Exception when calling MattermostSystemApi->restartServer: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1548,7 +1710,7 @@ Request a trial license and acknowledge a warning for the warn_metric_id metric 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1559,18 +1721,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final warnMetricId = warnMetricId_example; // String | Warn Metric Id.
 
 try {
-    final result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId);
-    print(result);
+  final result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->sendTrialLicenseWarnMetricAck: $e\n');
+  print('Exception when calling MattermostSystemApi->sendTrialLicenseWarnMetricAck: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1605,7 +1773,7 @@ Acknowledge a warning for the warn_metric_id metric crossing a threshold (or som
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1616,19 +1784,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final warnMetricId = warnMetricId_example; // String | Warn Metric Id.
 final mattermostSendWarnMetricAckRequest = MattermostSendWarnMetricAckRequest(); // MattermostSendWarnMetricAckRequest | payload that contains the ack flag
 
 try {
-    final result = await client.system.sendWarnMetricAck(warnMetricId, mattermostSendWarnMetricAckRequest);
-    print(result);
+  final result = await client.system.sendWarnMetricAck(warnMetricId, mattermostSendWarnMetricAckRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->sendWarnMetricAck: $e\n');
+  print('Exception when calling MattermostSystemApi->sendWarnMetricAck: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1664,7 +1838,7 @@ Marks the server as currently having high load which disables non-critical servi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1675,18 +1849,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final seconds = seconds_example; // String | Number of seconds until server is automatically marked as not busy.
 
 try {
-    final result = await client.system.setServerBusy(seconds);
-    print(result);
+  final result = await client.system.setServerBusy(seconds);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->setServerBusy: $e\n');
+  print('Exception when calling MattermostSystemApi->setServerBusy: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1721,7 +1901,7 @@ Send a test email to make sure you have your email settings configured correctly
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1732,18 +1912,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
-    final result = await client.system.testEmail(mattermostConfig);
-    print(result);
+  final result = await client.system.testEmail(mattermostConfig);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->testEmail: $e\n');
+  print('Exception when calling MattermostSystemApi->testEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1778,7 +1964,7 @@ Send a test to validate if can connect to AWS S3. Optionally provide a configura
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1789,18 +1975,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
-    final result = await client.system.testS3Connection(mattermostConfig);
-    print(result);
+  final result = await client.system.testS3Connection(mattermostConfig);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->testS3Connection: $e\n');
+  print('Exception when calling MattermostSystemApi->testS3Connection: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1835,7 +2027,7 @@ Sends a Ping request to the mattermost server using the specified Site URL.  ###
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1846,18 +2038,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostTestSiteURLRequest = MattermostTestSiteURLRequest(); // MattermostTestSiteURLRequest | 
 
 try {
-    final result = await client.system.testSiteURL(mattermostTestSiteURLRequest);
-    print(result);
+  final result = await client.system.testSiteURL(mattermostTestSiteURLRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->testSiteURL: $e\n');
+  print('Exception when calling MattermostSystemApi->testSiteURL: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1892,7 +2090,7 @@ Get the last trial license used on the sevrer __Minimum server version__: 5.36 #
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1903,16 +2101,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.system.trialLicensePrevGet();
+  await client.system.trialLicensePrevGet();
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->trialLicensePrevGet: $e\n');
+  print('Exception when calling MattermostSystemApi->trialLicensePrevGet: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1944,7 +2148,7 @@ Submit a new configuration for the server to use. As of server version 4.8, the 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1955,18 +2159,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostConfig = MattermostConfig(); // MattermostConfig | Mattermost configuration
 
 try {
-    final result = await client.system.updateConfig(mattermostConfig);
-    print(result);
+  final result = await client.system.updateConfig(mattermostConfig);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->updateConfig: $e\n');
+  print('Exception when calling MattermostSystemApi->updateConfig: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2001,7 +2211,7 @@ Stores the system-level status that specifies that at least an admin has visited
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2012,18 +2222,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSystem = MattermostSystem(); // MattermostSystem | 
 
 try {
-    final result = await client.system.updateMarketplaceVisitedByAdmin(mattermostSystem);
-    print(result);
+  final result = await client.system.updateMarketplaceVisitedByAdmin(mattermostSystem);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->updateMarketplaceVisitedByAdmin: $e\n');
+  print('Exception when calling MattermostSystemApi->updateMarketplaceVisitedByAdmin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2058,7 +2274,7 @@ It downloads the Mattermost Enterprise Edition of your current version and repla
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2069,17 +2285,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.upgradeToEnterprise();
-    print(result);
+  final result = await client.system.upgradeToEnterprise();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->upgradeToEnterprise: $e\n');
+  print('Exception when calling MattermostSystemApi->upgradeToEnterprise: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2111,7 +2333,7 @@ It returns the percentage of completion of the current upgrade or the error if t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2122,17 +2344,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.system.upgradeToEnterpriseStatus();
-    print(result);
+  final result = await client.system.upgradeToEnterpriseStatus();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->upgradeToEnterpriseStatus: $e\n');
+  print('Exception when calling MattermostSystemApi->upgradeToEnterpriseStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2164,7 +2392,7 @@ Upload a license to enable enterprise features.  __Minimum server version__: 4.0
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2175,18 +2403,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSystemApi api instance
-// final MattermostSystemApi api_instance = client.system
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final license = BINARY_DATA_HERE; // MultipartFile | The license to be uploaded
 
 try {
-    final result = await client.system.uploadLicenseFile(license);
-    print(result);
+  final result = await client.system.uploadLicenseFile(license);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSystemApi->uploadLicenseFile: $e\n');
+  print('Exception when calling MattermostSystemApi->uploadLicenseFile: $e\n');
 }
+
 ```
 
 ### Parameters

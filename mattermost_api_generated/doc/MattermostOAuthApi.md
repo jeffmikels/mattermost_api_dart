@@ -30,7 +30,7 @@ Register an OAuth 2.0 client application with Mattermost as the service provider
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -41,18 +41,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateOAuthAppRequest = MattermostCreateOAuthAppRequest(); // MattermostCreateOAuthAppRequest | OAuth application to register
 
 try {
-    final result = await client.oAuth.createOAuthApp(mattermostCreateOAuthAppRequest);
-    print(result);
+  final result = await client.oAuth.createOAuthApp(mattermostCreateOAuthAppRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->createOAuthApp: $e\n');
+  print('Exception when calling MattermostOAuthApi->createOAuthApp: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -87,7 +93,7 @@ Delete and unregister an OAuth 2.0 client application  ##### Permissions If app 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -98,18 +104,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final appId = appId_example; // String | Application client id
 
 try {
-    final result = await client.oAuth.deleteOAuthApp(appId);
-    print(result);
+  final result = await client.oAuth.deleteOAuthApp(appId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->deleteOAuthApp: $e\n');
+  print('Exception when calling MattermostOAuthApi->deleteOAuthApp: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -144,7 +156,7 @@ Get a page of OAuth 2.0 client applications authorized to access a user's accoun
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -155,20 +167,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of apps per page.
 
 try {
-    final result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage);
-    print(result);
+  final result = await client.oAuth.getAuthorizedOAuthAppsForUser(userId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->getAuthorizedOAuthAppsForUser: $e\n');
+  print('Exception when calling MattermostOAuthApi->getAuthorizedOAuthAppsForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -205,7 +223,7 @@ Get an OAuth 2.0 client application registered with Mattermost. ##### Permission
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -216,18 +234,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final appId = appId_example; // String | Application client id
 
 try {
-    final result = await client.oAuth.getOAuthApp(appId);
-    print(result);
+  final result = await client.oAuth.getOAuthApp(appId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->getOAuthApp: $e\n');
+  print('Exception when calling MattermostOAuthApi->getOAuthApp: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -262,7 +286,7 @@ Get public information about an OAuth 2.0 client application registered with Mat
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -273,18 +297,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final appId = appId_example; // String | Application client id
 
 try {
-    final result = await client.oAuth.getOAuthAppInfo(appId);
-    print(result);
+  final result = await client.oAuth.getOAuthAppInfo(appId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->getOAuthAppInfo: $e\n');
+  print('Exception when calling MattermostOAuthApi->getOAuthAppInfo: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -319,7 +349,7 @@ Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Pe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -330,19 +360,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of apps per page.
 
 try {
-    final result = await client.oAuth.getOAuthApps(page, perPage);
-    print(result);
+  final result = await client.oAuth.getOAuthApps(page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->getOAuthApps: $e\n');
+  print('Exception when calling MattermostOAuthApi->getOAuthApps: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -378,7 +414,7 @@ Regenerate the client secret for an OAuth 2.0 client application registered with
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -389,18 +425,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final appId = appId_example; // String | Application client id
 
 try {
-    final result = await client.oAuth.regenerateOAuthAppSecret(appId);
-    print(result);
+  final result = await client.oAuth.regenerateOAuthAppSecret(appId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->regenerateOAuthAppSecret: $e\n');
+  print('Exception when calling MattermostOAuthApi->regenerateOAuthAppSecret: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -435,7 +477,7 @@ Update an OAuth 2.0 client application based on OAuth struct. ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -446,19 +488,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostOAuthApi api instance
-// final MattermostOAuthApi api_instance = client.oAuth
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final appId = appId_example; // String | Application client id
 final mattermostUpdateOAuthAppRequest = MattermostUpdateOAuthAppRequest(); // MattermostUpdateOAuthAppRequest | OAuth application to update
 
 try {
-    final result = await client.oAuth.updateOAuthApp(appId, mattermostUpdateOAuthAppRequest);
-    print(result);
+  final result = await client.oAuth.updateOAuthApp(appId, mattermostUpdateOAuthAppRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostOAuthApi->updateOAuthApp: $e\n');
+  print('Exception when calling MattermostOAuthApi->updateOAuthApp: $e\n');
 }
+
 ```
 
 ### Parameters

@@ -25,7 +25,7 @@ Deletes an export file.   __Minimum server version__: 5.33  ##### Permissions  M
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -36,17 +36,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostExportsApi api instance
-// final MattermostExportsApi api_instance = client.exports
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final exportName = exportName_example; // String | The name of the export file to delete
 
 try {
-    await client.exports.deleteExport(exportName);
+  await client.exports.deleteExport(exportName);
 } catch (e) {
-    print('Exception when calling MattermostExportsApi->deleteExport: $e\n');
+  print('Exception when calling MattermostExportsApi->deleteExport: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -81,7 +87,7 @@ Downloads an export file.   __Minimum server version__: 5.33  ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -92,17 +98,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostExportsApi api instance
-// final MattermostExportsApi api_instance = client.exports
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final exportName = exportName_example; // String | The name of the export file to download
 
 try {
-    await client.exports.downloadExport(exportName);
+  await client.exports.downloadExport(exportName);
 } catch (e) {
-    print('Exception when calling MattermostExportsApi->downloadExport: $e\n');
+  print('Exception when calling MattermostExportsApi->downloadExport: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -137,7 +149,7 @@ Lists all available export files. __Minimum server version__: 5.33 ##### Permiss
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -148,16 +160,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostExportsApi api instance
-// final MattermostExportsApi api_instance = client.exports
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.exports.listExports();
+  await client.exports.listExports();
 } catch (e) {
-    print('Exception when calling MattermostExportsApi->listExports: $e\n');
+  print('Exception when calling MattermostExportsApi->listExports: $e\n');
 }
+
 ```
 
 ### Parameters

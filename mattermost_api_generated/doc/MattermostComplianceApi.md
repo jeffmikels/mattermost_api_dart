@@ -26,7 +26,7 @@ Create and save a compliance report. ##### Permissions Must have `manage_system`
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -37,17 +37,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostComplianceApi api instance
-// final MattermostComplianceApi api_instance = client.compliance
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.compliance.createComplianceReport();
-    print(result);
+  final result = await client.compliance.createComplianceReport();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostComplianceApi->createComplianceReport: $e\n');
+  print('Exception when calling MattermostComplianceApi->createComplianceReport: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -79,7 +85,7 @@ Download the full contents of a report as a file. ##### Permissions Must have `m
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -90,17 +96,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostComplianceApi api instance
-// final MattermostComplianceApi api_instance = client.compliance
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final reportId = reportId_example; // String | Compliance report GUID
 
 try {
-    await client.compliance.downloadComplianceReport(reportId);
+  await client.compliance.downloadComplianceReport(reportId);
 } catch (e) {
-    print('Exception when calling MattermostComplianceApi->downloadComplianceReport: $e\n');
+  print('Exception when calling MattermostComplianceApi->downloadComplianceReport: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -135,7 +147,7 @@ Get a compliance reports previously created. ##### Permissions Must have `manage
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -146,18 +158,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostComplianceApi api instance
-// final MattermostComplianceApi api_instance = client.compliance
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final reportId = reportId_example; // String | Compliance report GUID
 
 try {
-    final result = await client.compliance.getComplianceReport(reportId);
-    print(result);
+  final result = await client.compliance.getComplianceReport(reportId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostComplianceApi->getComplianceReport: $e\n');
+  print('Exception when calling MattermostComplianceApi->getComplianceReport: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -192,7 +210,7 @@ Get a list of compliance reports previously created by page, selected with `page
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -203,19 +221,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostComplianceApi api instance
-// final MattermostComplianceApi api_instance = client.compliance
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of reports per page.
 
 try {
-    final result = await client.compliance.getComplianceReports(page, perPage);
-    print(result);
+  final result = await client.compliance.getComplianceReports(page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostComplianceApi->getComplianceReports: $e\n');
+  print('Exception when calling MattermostComplianceApi->getComplianceReports: $e\n');
 }
+
 ```
 
 ### Parameters

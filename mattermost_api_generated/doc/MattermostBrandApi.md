@@ -25,7 +25,7 @@ Deletes the previously uploaded brand image. Returns 404 if no brand image has b
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -36,17 +36,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostBrandApi api instance
-// final MattermostBrandApi api_instance = client.brand
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.brand.deleteBrandImage();
-    print(result);
+  final result = await client.brand.deleteBrandImage();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostBrandApi->deleteBrandImage: $e\n');
+  print('Exception when calling MattermostBrandApi->deleteBrandImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -78,7 +84,7 @@ Get the previously uploaded brand image. Returns 404 if no brand image has been 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -89,17 +95,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostBrandApi api instance
-// final MattermostBrandApi api_instance = client.brand
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.brand.getBrandImage();
-    print(result);
+  final result = await client.brand.getBrandImage();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostBrandApi->getBrandImage: $e\n');
+  print('Exception when calling MattermostBrandApi->getBrandImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -131,7 +143,7 @@ Uploads a brand image. ##### Permissions Must have `manage_system` permission.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -142,18 +154,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostBrandApi api instance
-// final MattermostBrandApi api_instance = client.brand
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-    final result = await client.brand.uploadBrandImage(image);
-    print(result);
+  final result = await client.brand.uploadBrandImage(image);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostBrandApi->uploadBrandImage: $e\n');
+  print('Exception when calling MattermostBrandApi->uploadBrandImage: $e\n');
 }
+
 ```
 
 ### Parameters

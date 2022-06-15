@@ -24,7 +24,7 @@ Get all shared channels for a team.  __Minimum server version__: 5.50  ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -35,20 +35,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSharedChannelsApi api instance
-// final MattermostSharedChannelsApi api_instance = client.sharedChannels
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team Id
 final page = 56; // int | 
 final perPage = 56; // int | 
 
 try {
-    final result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage);
-    print(result);
+  final result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSharedChannelsApi->getAllSharedChannels: $e\n');
+  print('Exception when calling MattermostSharedChannelsApi->getAllSharedChannels: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -85,7 +91,7 @@ Get remote cluster info based on remoteId.  __Minimum server version__: 5.50  ##
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -96,18 +102,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSharedChannelsApi api instance
-// final MattermostSharedChannelsApi api_instance = client.sharedChannels
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final remoteId = remoteId_example; // String | Remote Cluster GUID
 
 try {
-    final result = await client.sharedChannels.getRemoteClusterInfo(remoteId);
-    print(result);
+  final result = await client.sharedChannels.getRemoteClusterInfo(remoteId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSharedChannelsApi->getRemoteClusterInfo: $e\n');
+  print('Exception when calling MattermostSharedChannelsApi->getRemoteClusterInfo: $e\n');
 }
+
 ```
 
 ### Parameters

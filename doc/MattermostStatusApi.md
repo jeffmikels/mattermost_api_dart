@@ -29,7 +29,7 @@ Get user status by id from the server. ##### Permissions Must be authenticated.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -40,18 +40,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 
 try {
-    final result = await client.status.getUserStatus(userId);
-    print(result);
+  final result = await client.status.getUserStatus(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->getUserStatus: $e\n');
+  print('Exception when calling MattermostStatusApi->getUserStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -86,7 +92,7 @@ Get a list of user statuses by id from the server. ##### Permissions Must be aut
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -97,18 +103,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of user ids to fetch
 
 try {
-    final result = await client.status.getUsersStatusesByIds(requestBody);
-    print(result);
+  final result = await client.status.getUsersStatusesByIds(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->getUsersStatusesByIds: $e\n');
+  print('Exception when calling MattermostStatusApi->getUsersStatusesByIds: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -143,7 +155,7 @@ Deletes a user's recent custom status by removing the specific status from the r
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -154,18 +166,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 final mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-    await client.status.postUserRecentCustomStatusDelete(userId, mattermostRemoveRecentCustomStatusRequest);
+  await client.status.postUserRecentCustomStatusDelete(userId, mattermostRemoveRecentCustomStatusRequest);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->postUserRecentCustomStatusDelete: $e\n');
+  print('Exception when calling MattermostStatusApi->postUserRecentCustomStatusDelete: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -201,7 +219,7 @@ Deletes a user's recent custom status by removing the specific status from the r
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -212,18 +230,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 final mattermostRemoveRecentCustomStatusRequest = MattermostRemoveRecentCustomStatusRequest(); // MattermostRemoveRecentCustomStatusRequest | Custom Status object that is to be removed from the recent custom statuses.
 
 try {
-    await client.status.removeRecentCustomStatus(userId, mattermostRemoveRecentCustomStatusRequest);
+  await client.status.removeRecentCustomStatus(userId, mattermostRemoveRecentCustomStatusRequest);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->removeRecentCustomStatus: $e\n');
+  print('Exception when calling MattermostStatusApi->removeRecentCustomStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -259,7 +283,7 @@ Unsets a user's custom status by updating the user's props and updates the user 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -270,17 +294,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 
 try {
-    await client.status.unsetUserCustomStatus(userId);
+  await client.status.unsetUserCustomStatus(userId);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->unsetUserCustomStatus: $e\n');
+  print('Exception when calling MattermostStatusApi->unsetUserCustomStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -315,7 +345,7 @@ Updates a user's custom status by setting the value in the user's props and upda
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -326,18 +356,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 final mattermostUpdateUserCustomStatusRequest = MattermostUpdateUserCustomStatusRequest(); // MattermostUpdateUserCustomStatusRequest | Custom status object that is to be updated
 
 try {
-    await client.status.updateUserCustomStatus(userId, mattermostUpdateUserCustomStatusRequest);
+  await client.status.updateUserCustomStatus(userId, mattermostUpdateUserCustomStatusRequest);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->updateUserCustomStatus: $e\n');
+  print('Exception when calling MattermostStatusApi->updateUserCustomStatus: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -373,7 +409,7 @@ Manually set a user's status. When setting a user's status, the status will rema
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -384,19 +420,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostStatusApi api instance
-// final MattermostStatusApi api_instance = client.status
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User ID
 final mattermostUpdateUserStatusRequest = MattermostUpdateUserStatusRequest(); // MattermostUpdateUserStatusRequest | Status object that is to be updated
 
 try {
-    final result = await client.status.updateUserStatus(userId, mattermostUpdateUserStatusRequest);
-    print(result);
+  final result = await client.status.updateUserStatus(userId, mattermostUpdateUserStatusRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostStatusApi->updateUserStatus: $e\n');
+  print('Exception when calling MattermostStatusApi->updateUserStatus: $e\n');
 }
+
 ```
 
 ### Parameters

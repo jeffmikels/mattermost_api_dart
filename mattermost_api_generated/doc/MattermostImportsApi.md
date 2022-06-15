@@ -23,7 +23,7 @@ Lists all available import files.  __Minimum server version__: 5.31 ##### Permis
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,16 +34,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostImportsApi api instance
-// final MattermostImportsApi api_instance = client.imports
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.imports.listImports();
+  await client.imports.listImports();
 } catch (e) {
-    print('Exception when calling MattermostImportsApi->listImports: $e\n');
+  print('Exception when calling MattermostImportsApi->listImports: $e\n');
 }
+
 ```
 
 ### Parameters

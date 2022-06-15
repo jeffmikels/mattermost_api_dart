@@ -23,7 +23,7 @@ Retrieve rounded off total no. of posts for this instance. Example: returns 4000
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,17 +34,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsageApi api instance
-// final MattermostUsageApi api_instance = client.usage
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.usage.getPostsUsage();
-    print(result);
+  final result = await client.usage.getPostsUsage();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsageApi->getPostsUsage: $e\n');
+  print('Exception when calling MattermostUsageApi->getPostsUsage: $e\n');
 }
+
 ```
 
 ### Parameters

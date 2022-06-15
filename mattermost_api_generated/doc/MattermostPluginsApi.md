@@ -33,7 +33,7 @@ Disable a previously enabled plugin. Plugins must be enabled in the server's con
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -44,18 +44,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = await client.plugins.disablePlugin(pluginId);
-    print(result);
+  final result = await client.plugins.disablePlugin(pluginId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
+  print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -90,7 +96,7 @@ Enable a previously uploaded plugin. Plugins must be enabled in the server's con
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -101,18 +107,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = await client.plugins.enablePlugin(pluginId);
-    print(result);
+  final result = await client.plugins.enablePlugin(pluginId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
+  print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -147,7 +159,7 @@ Gets all plugins from the marketplace server, merging data from locally installe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -158,9 +170,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | Page number to be fetched. (not yet implemented)
 final perPage = 56; // int | Number of item per page. (not yet implemented)
@@ -169,11 +186,12 @@ final serverVersion = serverVersion_example; // String | Set to filter minimum p
 final localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
-    final result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
-    print(result);
+  final result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
+  print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -212,7 +230,7 @@ Retrieves the status that specifies that at least one System Admin has visited t
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -223,17 +241,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.plugins.getMarketplaceVisitedByAdmin();
-    print(result);
+  final result = await client.plugins.getMarketplaceVisitedByAdmin();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
+  print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -265,7 +289,7 @@ Returns the status for plugins installed anywhere in the cluster  ##### Permissi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -276,17 +300,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.plugins.getPluginStatuses();
-    print(result);
+  final result = await client.plugins.getPluginStatuses();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
+  print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -318,7 +348,7 @@ Get a list of inactive and a list of active plugin manifests. Plugins must be en
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -329,17 +359,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.plugins.getPlugins();
-    print(result);
+  final result = await client.plugins.getPlugins();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
+  print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -371,7 +407,7 @@ Get a list of web app plugins installed and activated on the server.  ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -382,17 +418,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.plugins.getWebappPlugins();
-    print(result);
+  final result = await client.plugins.getWebappPlugins();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
+  print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -424,7 +466,7 @@ Installs a plugin listed in the marketplace server.  ##### Permissions Must have
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -435,18 +477,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostInstallMarketplacePluginRequest = MattermostInstallMarketplacePluginRequest(); // MattermostInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
-    final result = await client.plugins.installMarketplacePlugin(mattermostInstallMarketplacePluginRequest);
-    print(result);
+  final result = await client.plugins.installMarketplacePlugin(mattermostInstallMarketplacePluginRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
+  print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -481,7 +529,7 @@ Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled i
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -492,19 +540,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final pluginDownloadUrl = pluginDownloadUrl_example; // String | URL used to download the plugin
 final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-    final result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
-    print(result);
+  final result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
+  print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -540,7 +594,7 @@ Remove the plugin with the provided ID from the server. All plugin files are del
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -551,18 +605,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = await client.plugins.removePlugin(pluginId);
-    print(result);
+  final result = await client.plugins.removePlugin(pluginId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
+  print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -597,7 +657,7 @@ Upload a plugin that is contained within a compressed .tar.gz file. Plugins and 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -608,19 +668,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPluginsApi api instance
-// final MattermostPluginsApi api_instance = client.plugins
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final plugin = BINARY_DATA_HERE; // MultipartFile | The plugin image to be uploaded
 final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-    final result = await client.plugins.uploadPlugin(plugin, force);
-    print(result);
+  final result = await client.plugins.uploadPlugin(plugin, force);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');
+  print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');
 }
+
 ```
 
 ### Parameters

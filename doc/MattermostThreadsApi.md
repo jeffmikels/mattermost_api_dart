@@ -29,7 +29,7 @@ Get all unread mention counts from followed threads  __Minimum server version__:
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -40,18 +40,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
 
 try {
-    await client.threads.getThreadMentionCountsByChannel(userId, teamId);
+  await client.threads.getThreadMentionCountsByChannel(userId, teamId);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->getThreadMentionCountsByChannel: $e\n');
+  print('Exception when calling MattermostThreadsApi->getThreadMentionCountsByChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -87,7 +93,7 @@ Get a thread  __Minimum server version__: 5.29  ##### Permissions Must be logged
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -98,19 +104,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
 final threadId = threadId_example; // String | The ID of the thread to follow
 
 try {
-    await client.threads.getUserThread(userId, teamId, threadId);
+  await client.threads.getUserThread(userId, teamId, threadId);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->getUserThread: $e\n');
+  print('Exception when calling MattermostThreadsApi->getUserThread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -147,7 +159,7 @@ Get all threads that user is following  __Minimum server version__: 5.29  ##### 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -158,9 +170,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
@@ -172,11 +189,12 @@ final pageSize = 56; // int | PageSize specifies the size of the returned chunk 
 final totalsOnly = true; // bool | Setting this to true will only return the total counts.
 
 try {
-    final result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
-    print(result);
+  final result = await client.threads.getUserThreads(userId, teamId, since, deleted, extended, page, pageSize, totalsOnly);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->getUserThreads: $e\n');
+  print('Exception when calling MattermostThreadsApi->getUserThreads: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -218,7 +236,7 @@ Start following a thread  __Minimum server version__: 5.29  ##### Permissions Mu
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -229,19 +247,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
 final threadId = threadId_example; // String | The ID of the thread to follow
 
 try {
-    await client.threads.startFollowingThread(userId, teamId, threadId);
+  await client.threads.startFollowingThread(userId, teamId, threadId);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->startFollowingThread: $e\n');
+  print('Exception when calling MattermostThreadsApi->startFollowingThread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -278,7 +302,7 @@ Stop following a thread  __Minimum server version__: 5.29  ##### Permissions Mus
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -289,19 +313,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
 final threadId = threadId_example; // String | The ID of the thread to update
 
 try {
-    await client.threads.stopFollowingThread(userId, teamId, threadId);
+  await client.threads.stopFollowingThread(userId, teamId, threadId);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->stopFollowingThread: $e\n');
+  print('Exception when calling MattermostThreadsApi->stopFollowingThread: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -338,7 +368,7 @@ Mark a thread that user is following as read  __Minimum server version__: 5.29  
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -349,9 +379,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
@@ -359,10 +394,11 @@ final threadId = threadId_example; // String | The ID of the thread to update
 final timestamp = timestamp_example; // String | The timestamp to which the thread's \"last read\" state will be reset.
 
 try {
-    await client.threads.updateThreadReadForUser(userId, teamId, threadId, timestamp);
+  await client.threads.updateThreadReadForUser(userId, teamId, threadId, timestamp);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->updateThreadReadForUser: $e\n');
+  print('Exception when calling MattermostThreadsApi->updateThreadReadForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -400,7 +436,7 @@ Mark all threads that user is following as read  __Minimum server version__: 5.2
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -411,18 +447,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostThreadsApi api instance
-// final MattermostThreadsApi api_instance = client.threads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final teamId = teamId_example; // String | The ID of the team in which the thread is.
 
 try {
-    await client.threads.updateThreadsReadForUser(userId, teamId);
+  await client.threads.updateThreadsReadForUser(userId, teamId);
 } catch (e) {
-    print('Exception when calling MattermostThreadsApi->updateThreadsReadForUser: $e\n');
+  print('Exception when calling MattermostThreadsApi->updateThreadsReadForUser: $e\n');
 }
+
 ```
 
 ### Parameters

@@ -25,7 +25,7 @@ Creates a new upload session.  __Minimum server version__: 5.28 ##### Permission
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -36,18 +36,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUploadsApi api instance
-// final MattermostUploadsApi api_instance = client.uploads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateUploadRequest = MattermostCreateUploadRequest(); // MattermostCreateUploadRequest | 
 
 try {
-    final result = await client.uploads.createUpload(mattermostCreateUploadRequest);
-    print(result);
+  final result = await client.uploads.createUpload(mattermostCreateUploadRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUploadsApi->createUpload: $e\n');
+  print('Exception when calling MattermostUploadsApi->createUpload: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -82,7 +88,7 @@ Gets an upload session that has been previously created.  ##### Permissions Must
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -93,17 +99,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUploadsApi api instance
-// final MattermostUploadsApi api_instance = client.uploads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final uploadId = uploadId_example; // String | The ID of the upload session to get.
 
 try {
-    await client.uploads.getUpload(uploadId);
+  await client.uploads.getUpload(uploadId);
 } catch (e) {
-    print('Exception when calling MattermostUploadsApi->getUpload: $e\n');
+  print('Exception when calling MattermostUploadsApi->getUpload: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -138,7 +150,7 @@ Starts or resumes a file upload.   To resume an existing (incomplete) upload, da
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -149,18 +161,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUploadsApi api instance
-// final MattermostUploadsApi api_instance = client.uploads
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final uploadId = uploadId_example; // String | The ID of the upload session the data belongs to.
 
 try {
-    final result = await client.uploads.uploadData(uploadId);
-    print(result);
+  final result = await client.uploads.uploadData(uploadId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUploadsApi->uploadData: $e\n');
+  print('Exception when calling MattermostUploadsApi->uploadData: $e\n');
 }
+
 ```
 
 ### Parameters

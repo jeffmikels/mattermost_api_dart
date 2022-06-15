@@ -26,7 +26,7 @@ Deletes a reaction made by a user from the given post. ##### Permissions Must be
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -37,20 +37,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostReactionsApi api instance
-// final MattermostReactionsApi api_instance = client.reactions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | ID of the user
 final postId = postId_example; // String | ID of the post
 final emojiName = emojiName_example; // String | emoji name
 
 try {
-    final result = await client.reactions.deleteReaction(userId, postId, emojiName);
-    print(result);
+  final result = await client.reactions.deleteReaction(userId, postId, emojiName);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostReactionsApi->deleteReaction: $e\n');
+  print('Exception when calling MattermostReactionsApi->deleteReaction: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -87,7 +93,7 @@ Get a list of reactions made by all users to a given post. ##### Permissions Mus
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -98,18 +104,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostReactionsApi api instance
-// final MattermostReactionsApi api_instance = client.reactions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | Array of post IDs
 
 try {
-    final result = await client.reactions.getBulkReactions(requestBody);
-    print(result);
+  final result = await client.reactions.getBulkReactions(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostReactionsApi->getBulkReactions: $e\n');
+  print('Exception when calling MattermostReactionsApi->getBulkReactions: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -144,7 +156,7 @@ Get a list of reactions made by all users to a given post. ##### Permissions Mus
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -155,18 +167,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostReactionsApi api instance
-// final MattermostReactionsApi api_instance = client.reactions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final postId = postId_example; // String | ID of a post
 
 try {
-    final result = await client.reactions.getReactions(postId);
-    print(result);
+  final result = await client.reactions.getReactions(postId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostReactionsApi->getReactions: $e\n');
+  print('Exception when calling MattermostReactionsApi->getReactions: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -201,7 +219,7 @@ Create a reaction. ##### Permissions Must have `read_channel` permission for the
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -212,18 +230,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostReactionsApi api instance
-// final MattermostReactionsApi api_instance = client.reactions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostReaction = MattermostReaction(); // MattermostReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
 
 try {
-    final result = await client.reactions.saveReaction(mattermostReaction);
-    print(result);
+  final result = await client.reactions.saveReaction(mattermostReaction);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostReactionsApi->saveReaction: $e\n');
+  print('Exception when calling MattermostReactionsApi->saveReaction: $e\n');
 }
+
 ```
 
 ### Parameters

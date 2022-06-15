@@ -26,7 +26,7 @@ Creates new terms of service  __Minimum server version__: 5.4 ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -37,17 +37,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostTermsOfServiceApi api instance
-// final MattermostTermsOfServiceApi api_instance = client.termsOfService
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.termsOfService.createTermsOfService();
-    print(result);
+  final result = await client.termsOfService.createTermsOfService();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostTermsOfServiceApi->createTermsOfService: $e\n');
+  print('Exception when calling MattermostTermsOfServiceApi->createTermsOfService: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -79,7 +85,7 @@ Get latest terms of service from the server  __Minimum server version__: 5.4 ###
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -90,17 +96,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostTermsOfServiceApi api instance
-// final MattermostTermsOfServiceApi api_instance = client.termsOfService
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.termsOfService.getTermsOfService();
-    print(result);
+  final result = await client.termsOfService.getTermsOfService();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostTermsOfServiceApi->getTermsOfService: $e\n');
+  print('Exception when calling MattermostTermsOfServiceApi->getTermsOfService: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -132,7 +144,7 @@ Will be deprecated in v6.0 Fetches user's latest terms of service action if the 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -143,18 +155,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostTermsOfServiceApi api instance
-// final MattermostTermsOfServiceApi api_instance = client.termsOfService
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.termsOfService.getUserTermsOfService(userId);
-    print(result);
+  final result = await client.termsOfService.getUserTermsOfService(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostTermsOfServiceApi->getUserTermsOfService: $e\n');
+  print('Exception when calling MattermostTermsOfServiceApi->getUserTermsOfService: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -189,7 +207,7 @@ Records user action when they accept or decline custom terms of service. Records
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -200,19 +218,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostTermsOfServiceApi api instance
-// final MattermostTermsOfServiceApi api_instance = client.termsOfService
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-    final result = await client.termsOfService.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);
-    print(result);
+  final result = await client.termsOfService.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostTermsOfServiceApi->registerTermsOfServiceAction: $e\n');
+  print('Exception when calling MattermostTermsOfServiceApi->registerTermsOfServiceAction: $e\n');
 }
+
 ```
 
 ### Parameters

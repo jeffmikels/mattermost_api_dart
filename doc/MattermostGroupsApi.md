@@ -46,7 +46,7 @@ Adds members to a custom group.  ##### Permissions Must have `custom_group_manag
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -57,19 +57,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | The ID of the group.
 final mattermostAddGroupMembersRequest = MattermostAddGroupMembersRequest(); // MattermostAddGroupMembersRequest | 
 
 try {
-    final result = await client.groups.addGroupMembers(groupId, mattermostAddGroupMembersRequest);
-    print(result);
+  final result = await client.groups.addGroupMembers(groupId, mattermostAddGroupMembersRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->addGroupMembers: $e\n');
+  print('Exception when calling MattermostGroupsApi->addGroupMembers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -105,7 +111,7 @@ Create a `custom` type group.  #### Permission Must have `create_custom_group` p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -116,17 +122,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateGroupRequest = MattermostCreateGroupRequest(); // MattermostCreateGroupRequest | Group object and initial members.
 
 try {
-    await client.groups.createGroup(mattermostCreateGroupRequest);
+  await client.groups.createGroup(mattermostCreateGroupRequest);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->createGroup: $e\n');
+  print('Exception when calling MattermostGroupsApi->createGroup: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -161,7 +173,7 @@ Soft deletes a custom group.  ##### Permissions Must have `custom_group_delete` 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -172,18 +184,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | The ID of the group.
 
 try {
-    final result = await client.groups.deleteGroup(groupId);
-    print(result);
+  final result = await client.groups.deleteGroup(groupId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->deleteGroup: $e\n');
+  print('Exception when calling MattermostGroupsApi->deleteGroup: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -218,7 +236,7 @@ Soft deletes a custom group members.  ##### Permissions Must have `custom_group_
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -229,19 +247,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | The ID of the group to delete.
 final mattermostDeleteGroupMembersRequest = MattermostDeleteGroupMembersRequest(); // MattermostDeleteGroupMembersRequest | 
 
 try {
-    final result = await client.groups.deleteGroupMembers(groupId, mattermostDeleteGroupMembersRequest);
-    print(result);
+  final result = await client.groups.deleteGroupMembers(groupId, mattermostDeleteGroupMembersRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->deleteGroupMembers: $e\n');
+  print('Exception when calling MattermostGroupsApi->deleteGroupMembers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -277,7 +301,7 @@ Get group from the provided group id string  ##### Permissions Must have `manage
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -288,18 +312,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 
 try {
-    final result = await client.groups.getGroup(groupId);
-    print(result);
+  final result = await client.groups.getGroup(groupId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroup: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroup: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -334,7 +364,7 @@ Retrieve the stats of a given group.  ##### Permissions Must have `manage_system
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -345,18 +375,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 
 try {
-    final result = await client.groups.getGroupStats(groupId);
-    print(result);
+  final result = await client.groups.getGroupStats(groupId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupStats: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupStats: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -391,7 +427,7 @@ Get the GroupSyncable object with group_id and channel_id from params ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -402,19 +438,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = await client.groups.getGroupSyncableForChannelId(groupId, channelId);
-    print(result);
+  final result = await client.groups.getGroupSyncableForChannelId(groupId, channelId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupSyncableForChannelId: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupSyncableForChannelId: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -450,7 +492,7 @@ Get the GroupSyncable object with group_id and team_id from params ##### Permiss
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -461,19 +503,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = await client.groups.getGroupSyncableForTeamId(groupId, teamId);
-    print(result);
+  final result = await client.groups.getGroupSyncableForTeamId(groupId, teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupSyncableForTeamId: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupSyncableForTeamId: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -509,7 +557,7 @@ Retrieve the list of channels associated to the group ##### Permissions Must hav
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -520,18 +568,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 
 try {
-    final result = await client.groups.getGroupSyncablesChannels(groupId);
-    print(result);
+  final result = await client.groups.getGroupSyncablesChannels(groupId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupSyncablesChannels: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupSyncablesChannels: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -566,7 +620,7 @@ Retrieve the list of teams associated to the group ##### Permissions Must have `
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -577,18 +631,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 
 try {
-    final result = await client.groups.getGroupSyncablesTeams(groupId);
-    print(result);
+  final result = await client.groups.getGroupSyncablesTeams(groupId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupSyncablesTeams: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupSyncablesTeams: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -623,7 +683,7 @@ Retrieve the list of users associated with a given group.  ##### Permissions Mus
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -634,20 +694,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of groups per page.
 
 try {
-    final result = await client.groups.getGroupUsers(groupId, page, perPage);
-    print(result);
+  final result = await client.groups.getGroupUsers(groupId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupUsers: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -684,7 +750,7 @@ Retrieve a list of all groups not associated to a particular channel or team.  `
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -695,9 +761,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final notAssociatedToTeam = notAssociatedToTeam_example; // String | Team GUID which is used to return all the groups not associated to this team
 final notAssociatedToChannel = notAssociatedToChannel_example; // String | Group GUID which is used to return all the groups not associated to this channel
@@ -709,11 +780,12 @@ final since = 56; // int | Only return groups that have been modified since the 
 final filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-    final result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference);
-    print(result);
+  final result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroups: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroups: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -755,7 +827,7 @@ Retrieve the set of groups associated with the channels in the given team groupe
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -766,9 +838,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
@@ -777,11 +854,12 @@ final filterAllowReference = true; // bool | Boolean which filters in the group 
 final paginate = true; // bool | Boolean to determine whether the pagination should be applied or not
 
 try {
-    final result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate);
-    print(result);
+  final result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupsAssociatedToChannelsByTeam: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupsAssociatedToChannelsByTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -820,7 +898,7 @@ Retrieve the list of groups associated with a given channel.  ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -831,9 +909,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final channelId = channelId_example; // String | Channel GUID
 final page = 56; // int | The page to select.
@@ -841,11 +924,12 @@ final perPage = 56; // int | The number of groups per page.
 final filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-    final result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference);
-    print(result);
+  final result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupsByChannel: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupsByChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -883,7 +967,7 @@ Retrieve the list of groups associated with a given team.  __Minimum server vers
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -894,9 +978,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
@@ -904,11 +993,12 @@ final perPage = 56; // int | The number of groups per page.
 final filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
 
 try {
-    final result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference);
-    print(result);
+  final result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupsByTeam: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupsByTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -946,7 +1036,7 @@ Retrieve the list of groups associated to the user  __Minimum server version__: 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -957,18 +1047,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.groups.getGroupsByUserId(userId);
-    print(result);
+  final result = await client.groups.getGroupsByUserId(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->getGroupsByUserId: $e\n');
+  print('Exception when calling MattermostGroupsApi->getGroupsByUserId: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1003,7 +1099,7 @@ Link a channel to a group ##### Permissions If the channel is private, you must 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1014,19 +1110,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = await client.groups.linkGroupSyncableForChannel(groupId, channelId);
-    print(result);
+  final result = await client.groups.linkGroupSyncableForChannel(groupId, channelId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->linkGroupSyncableForChannel: $e\n');
+  print('Exception when calling MattermostGroupsApi->linkGroupSyncableForChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1062,7 +1164,7 @@ Link a team to a group ##### Permissions Must have `manage_team` permission.  __
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1073,19 +1175,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = await client.groups.linkGroupSyncableForTeam(groupId, teamId);
-    print(result);
+  final result = await client.groups.linkGroupSyncableForTeam(groupId, teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->linkGroupSyncableForTeam: $e\n');
+  print('Exception when calling MattermostGroupsApi->linkGroupSyncableForTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1121,7 +1229,7 @@ Partially update a group by providing only the fields you want to update. Omitte
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1132,19 +1240,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final mattermostPatchGroupRequest = MattermostPatchGroupRequest(); // MattermostPatchGroupRequest | Group object that is to be updated
 
 try {
-    final result = await client.groups.patchGroup(groupId, mattermostPatchGroupRequest);
-    print(result);
+  final result = await client.groups.patchGroup(groupId, mattermostPatchGroupRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->patchGroup: $e\n');
+  print('Exception when calling MattermostGroupsApi->patchGroup: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1180,7 +1294,7 @@ Partially update a GroupSyncable by providing only the fields you want to update
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1191,20 +1305,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final channelId = channelId_example; // String | Channel GUID
 final mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-    final result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mattermostPatchGroupSyncableForTeamRequest);
-    print(result);
+  final result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mattermostPatchGroupSyncableForTeamRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->patchGroupSyncableForChannel: $e\n');
+  print('Exception when calling MattermostGroupsApi->patchGroupSyncableForChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1241,7 +1361,7 @@ Partially update a GroupSyncable by providing only the fields you want to update
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1252,20 +1372,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final teamId = teamId_example; // String | Team GUID
 final mattermostPatchGroupSyncableForTeamRequest = MattermostPatchGroupSyncableForTeamRequest(); // MattermostPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-    final result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mattermostPatchGroupSyncableForTeamRequest);
-    print(result);
+  final result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mattermostPatchGroupSyncableForTeamRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->patchGroupSyncableForTeam: $e\n');
+  print('Exception when calling MattermostGroupsApi->patchGroupSyncableForTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1302,7 +1428,7 @@ Delete a link from a channel to a group ##### Permissions If the channel is priv
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1313,19 +1439,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId);
-    print(result);
+  final result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForChannel: $e\n');
+  print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForChannel: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1361,7 +1493,7 @@ Delete a link from a team to a group ##### Permissions Must have `manage_team` p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1372,19 +1504,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final groupId = groupId_example; // String | Group GUID
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId);
-    print(result);
+  final result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForTeam: $e\n');
+  print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForTeam: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1420,7 +1558,7 @@ Delete a link for LDAP group
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1431,18 +1569,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostGroupsApi api instance
-// final MattermostGroupsApi api_instance = client.groups
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final remoteId = remoteId_example; // String | Group GUID
 
 try {
-    final result = await client.groups.unlinkLdapGroup(remoteId);
-    print(result);
+  final result = await client.groups.unlinkLdapGroup(remoteId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostGroupsApi->unlinkLdapGroup: $e\n');
+  print('Exception when calling MattermostGroupsApi->unlinkLdapGroup: $e\n');
 }
+
 ```
 
 ### Parameters

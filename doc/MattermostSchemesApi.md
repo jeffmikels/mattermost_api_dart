@@ -29,7 +29,7 @@ Create a new scheme.  ##### Permissions Must have `manage_system` permission.  _
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -40,18 +40,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateSchemeRequest = MattermostCreateSchemeRequest(); // MattermostCreateSchemeRequest | Scheme object to create
 
 try {
-    final result = await client.schemes.createScheme(mattermostCreateSchemeRequest);
-    print(result);
+  final result = await client.schemes.createScheme(mattermostCreateSchemeRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->createScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->createScheme: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -86,7 +92,7 @@ Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -97,18 +103,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final schemeId = schemeId_example; // String | ID of the scheme to delete
 
 try {
-    final result = await client.schemes.deleteScheme(schemeId);
-    print(result);
+  final result = await client.schemes.deleteScheme(schemeId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->deleteScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->deleteScheme: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -143,7 +155,7 @@ Get a page of channels which use this scheme. The provided Scheme ID should be f
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -154,20 +166,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final schemeId = schemeId_example; // String | Scheme GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of channels per page.
 
 try {
-    final result = await client.schemes.getChannelsForScheme(schemeId, page, perPage);
-    print(result);
+  final result = await client.schemes.getChannelsForScheme(schemeId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->getChannelsForScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->getChannelsForScheme: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -204,7 +222,7 @@ Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_s
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -215,18 +233,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final schemeId = schemeId_example; // String | Scheme GUID
 
 try {
-    final result = await client.schemes.getScheme(schemeId);
-    print(result);
+  final result = await client.schemes.getScheme(schemeId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->getScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->getScheme: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -261,7 +285,7 @@ Get a page of schemes. Use the query parameters to modify the behaviour of this 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -272,20 +296,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final scope = scope_example; // String | Limit the results returned to the provided scope, either `team` or `channel`.
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of schemes per page.
 
 try {
-    final result = await client.schemes.getSchemes(scope, page, perPage);
-    print(result);
+  final result = await client.schemes.getSchemes(scope, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->getSchemes: $e\n');
+  print('Exception when calling MattermostSchemesApi->getSchemes: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -322,7 +352,7 @@ Get a page of teams which use this scheme. The provided Scheme ID should be for 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -333,20 +363,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final schemeId = schemeId_example; // String | Scheme GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of teams per page.
 
 try {
-    final result = await client.schemes.getTeamsForScheme(schemeId, page, perPage);
-    print(result);
+  final result = await client.schemes.getTeamsForScheme(schemeId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->getTeamsForScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->getTeamsForScheme: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -383,7 +419,7 @@ Partially update a scheme by providing only the fields you want to update. Omitt
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -394,19 +430,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostSchemesApi api instance
-// final MattermostSchemesApi api_instance = client.schemes
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final schemeId = schemeId_example; // String | Scheme GUID
 final mattermostPatchSchemeRequest = MattermostPatchSchemeRequest(); // MattermostPatchSchemeRequest | Scheme object to be updated
 
 try {
-    final result = await client.schemes.patchScheme(schemeId, mattermostPatchSchemeRequest);
-    print(result);
+  final result = await client.schemes.patchScheme(schemeId, mattermostPatchSchemeRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostSchemesApi->patchScheme: $e\n');
+  print('Exception when calling MattermostSchemesApi->patchScheme: $e\n');
 }
+
 ```
 
 ### Parameters

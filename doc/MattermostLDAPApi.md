@@ -32,7 +32,7 @@ Delete the current private key being used with your TLS verification. ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -43,17 +43,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.lDAP.deleteLdapPrivateCertificate();
-    print(result);
+  final result = await client.lDAP.deleteLdapPrivateCertificate();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
+  print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -85,7 +91,7 @@ Delete the current public certificate being used for TLS verification. ##### Per
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -96,17 +102,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.lDAP.deleteLdapPublicCertificate();
-    print(result);
+  final result = await client.lDAP.deleteLdapPublicCertificate();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
+  print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -138,7 +150,7 @@ Returns a list of LDAP groups
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -149,20 +161,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final q = q_example; // String | Search term
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 
 try {
-    final result = await client.lDAP.getLdapGroups(q, page, perPage);
-    print(result);
+  final result = await client.lDAP.getLdapGroups(q, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
+  print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -199,7 +217,7 @@ Link a LDAP group
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -210,18 +228,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final remoteId = remoteId_example; // String | Group GUID
 
 try {
-    final result = await client.lDAP.linkLdapGroup(remoteId);
-    print(result);
+  final result = await client.lDAP.linkLdapGroup(remoteId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
+  print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -256,7 +280,7 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -267,17 +291,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
-    await client.lDAP.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
+  await client.lDAP.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->migrateAuthToLdap: $e\n');
+  print('Exception when calling MattermostLDAPApi->migrateAuthToLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -312,7 +342,7 @@ Migrate LDAP IdAttribute to new value. ##### Permissions Must have `manage_syste
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -323,18 +353,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateIdLdapRequest = MattermostMigrateIdLdapRequest(); // MattermostMigrateIdLdapRequest | 
 
 try {
-    final result = await client.lDAP.migrateIdLdap(mattermostMigrateIdLdapRequest);
-    print(result);
+  final result = await client.lDAP.migrateIdLdap(mattermostMigrateIdLdapRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
+  print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -369,7 +405,7 @@ Synchronize any user attribute changes in the configured AD/LDAP server with Mat
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -380,17 +416,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.lDAP.syncLdap();
-    print(result);
+  final result = await client.lDAP.syncLdap();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
+  print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -422,7 +464,7 @@ Test the current AD/LDAP configuration to see if the AD/LDAP server can be conta
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -433,17 +475,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.lDAP.testLdap();
-    print(result);
+  final result = await client.lDAP.testLdap();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
+  print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -475,7 +523,7 @@ Upload the private key to be used for TLS verification. The server will pick a h
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -486,18 +534,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-    final result = await client.lDAP.uploadLdapPrivateCertificate(certificate);
-    print(result);
+  final result = await client.lDAP.uploadLdapPrivateCertificate(certificate);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
+  print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -532,7 +586,7 @@ Upload the public certificate to be used for TLS verification. The server will p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -543,18 +597,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostLDAPApi api instance
-// final MattermostLDAPApi api_instance = client.lDAP
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-    final result = await client.lDAP.uploadLdapPublicCertificate(certificate);
-    print(result);
+  final result = await client.lDAP.uploadLdapPublicCertificate(certificate);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');
+  print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');
 }
+
 ```
 
 ### Parameters

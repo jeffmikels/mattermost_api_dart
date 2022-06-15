@@ -23,7 +23,7 @@ Returns all the ancillary permissions for the corresponding system console subse
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,18 +34,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPermissionsApi api instance
-// final MattermostPermissionsApi api_instance = client.permissions
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final subsectionPermissions = subsectionPermissions_example; // String | The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels 
 
 try {
-    final result = await client.permissions.getAncillaryPermissions(subsectionPermissions);
-    print(result);
+  final result = await client.permissions.getAncillaryPermissions(subsectionPermissions);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPermissionsApi->getAncillaryPermissions: $e\n');
+  print('Exception when calling MattermostPermissionsApi->getAncillaryPermissions: $e\n');
 }
+
 ```
 
 ### Parameters

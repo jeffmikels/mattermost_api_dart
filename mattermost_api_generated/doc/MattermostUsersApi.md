@@ -84,7 +84,7 @@ Attach a mobile device id to the currently logged in session. This will enable p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -95,18 +95,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostAttachDeviceIdRequest = MattermostAttachDeviceIdRequest(); // MattermostAttachDeviceIdRequest | 
 
 try {
-    final result = await client.users.attachDeviceId(mattermostAttachDeviceIdRequest);
-    print(result);
+  final result = await client.users.attachDeviceId(mattermostAttachDeviceIdRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->attachDeviceId: $e\n');
+  print('Exception when calling MattermostUsersApi->attachDeviceId: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -141,7 +147,7 @@ Get a list of users for the purpose of autocompleting based on the provided sear
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -152,9 +158,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final name = name_example; // String | Username, nickname first name or last name
 final teamId = teamId_example; // String | Team ID
@@ -162,11 +173,12 @@ final channelId = channelId_example; // String | Channel ID
 final limit = 56; // int | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__ 
 
 try {
-    final result = await client.users.autocompleteUsers(name, teamId, channelId, limit);
-    print(result);
+  final result = await client.users.autocompleteUsers(name, teamId, channelId, limit);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->autocompleteUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->autocompleteUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -204,7 +216,7 @@ Check if a user has multi-factor authentication active on their account by provi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -215,18 +227,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCheckUserMfaRequest = MattermostCheckUserMfaRequest(); // MattermostCheckUserMfaRequest | 
 
 try {
-    final result = await client.users.checkUserMfa(mattermostCheckUserMfaRequest);
-    print(result);
+  final result = await client.users.checkUserMfa(mattermostCheckUserMfaRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->checkUserMfa: $e\n');
+  print('Exception when calling MattermostUsersApi->checkUserMfa: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -261,7 +279,7 @@ Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -272,20 +290,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final botUserId = botUserId_example; // String | Bot user ID
 final mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
 final setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
-    final result = await client.users.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
-    print(result);
+  final result = await client.users.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->convertBotToUser: $e\n');
+  print('Exception when calling MattermostUsersApi->convertBotToUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -322,7 +346,7 @@ Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -333,18 +357,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.convertUserToBot(userId);
-    print(result);
+  final result = await client.users.convertUserToBot(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->convertUserToBot: $e\n');
+  print('Exception when calling MattermostUsersApi->convertUserToBot: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -379,7 +409,7 @@ Create a new user on the system. Password is required for email login. For other
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -390,20 +420,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateUserRequest = MattermostCreateUserRequest(); // MattermostCreateUserRequest | User object to be created
 final t = t_example; // String | Token id from an email invitation
 final iid = iid_example; // String | Token id from an invitation link
 
 try {
-    final result = await client.users.createUser(mattermostCreateUserRequest, t, iid);
-    print(result);
+  final result = await client.users.createUser(mattermostCreateUserRequest, t, iid);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->createUser: $e\n');
+  print('Exception when calling MattermostUsersApi->createUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -440,7 +476,7 @@ Generate a user access token that can be used to authenticate with the Mattermos
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -451,19 +487,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostCreateUserAccessTokenRequest = MattermostCreateUserAccessTokenRequest(); // MattermostCreateUserAccessTokenRequest | 
 
 try {
-    final result = await client.users.createUserAccessToken(userId, mattermostCreateUserAccessTokenRequest);
-    print(result);
+  final result = await client.users.createUserAccessToken(userId, mattermostCreateUserAccessTokenRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->createUserAccessToken: $e\n');
+  print('Exception when calling MattermostUsersApi->createUserAccessToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -499,7 +541,7 @@ Deactivates the user and revokes all its sessions by archiving its user object. 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -510,18 +552,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.deleteUser(userId);
-    print(result);
+  final result = await client.users.deleteUser(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->deleteUser: $e\n');
+  print('Exception when calling MattermostUsersApi->deleteUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -556,7 +604,7 @@ Convert a regular user into a guest. This will convert the user into a guest for
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -567,18 +615,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.demoteUserToGuest(userId);
-    print(result);
+  final result = await client.users.demoteUserToGuest(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->demoteUserToGuest: $e\n');
+  print('Exception when calling MattermostUsersApi->demoteUserToGuest: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -613,7 +667,7 @@ Disable a personal access token and delete any sessions using the token. The tok
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -624,18 +678,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostDisableUserAccessTokenRequest = MattermostDisableUserAccessTokenRequest(); // MattermostDisableUserAccessTokenRequest | 
 
 try {
-    final result = await client.users.disableUserAccessToken(mattermostDisableUserAccessTokenRequest);
-    print(result);
+  final result = await client.users.disableUserAccessToken(mattermostDisableUserAccessTokenRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->disableUserAccessToken: $e\n');
+  print('Exception when calling MattermostUsersApi->disableUserAccessToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -670,7 +730,7 @@ Re-enable a personal access token that has been disabled.  __Minimum server vers
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -681,18 +741,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostEnableUserAccessTokenRequest = MattermostEnableUserAccessTokenRequest(); // MattermostEnableUserAccessTokenRequest | 
 
 try {
-    final result = await client.users.enableUserAccessToken(mattermostEnableUserAccessTokenRequest);
-    print(result);
+  final result = await client.users.enableUserAccessToken(mattermostEnableUserAccessTokenRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->enableUserAccessToken: $e\n');
+  print('Exception when calling MattermostUsersApi->enableUserAccessToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -727,7 +793,7 @@ Generates an multi-factor authentication secret for a user and returns it as a s
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -738,18 +804,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.generateMfaSecret(userId);
-    print(result);
+  final result = await client.users.generateMfaSecret(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->generateMfaSecret: $e\n');
+  print('Exception when calling MattermostUsersApi->generateMfaSecret: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -784,7 +856,7 @@ Get all channel members from all teams for a user.  __Minimum server version__: 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -795,20 +867,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final page = 56; // int | Page specifies which part of the results to return, by PageSize.
 final pageSize = 56; // int | PageSize specifies the size of the returned chunk of results.
 
 try {
-    final result = await client.users.getChannelMembersWithTeamDataForUser(userId, page, pageSize);
-    print(result);
+  final result = await client.users.getChannelMembersWithTeamDataForUser(userId, page, pageSize);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getChannelMembersWithTeamDataForUser: $e\n');
+  print('Exception when calling MattermostUsersApi->getChannelMembersWithTeamDataForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -845,7 +923,7 @@ Returns the default (generated) user profile image based on user_id string param
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -856,17 +934,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    await client.users.getDefaultProfileImage(userId);
+  await client.users.getDefaultProfileImage(userId);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getDefaultProfileImage: $e\n');
+  print('Exception when calling MattermostUsersApi->getDefaultProfileImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -901,7 +985,7 @@ Get the list of user IDs of users with any direct relationship with a user. That
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -912,17 +996,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.users.getKnownUsers();
-    print(result);
+  final result = await client.users.getKnownUsers();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getKnownUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->getKnownUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -954,7 +1044,7 @@ Get a user's profile image based on user_id string parameter. ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -965,18 +1055,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final q = 8.14; // num | Not used by the server. Clients can pass in the last picture update time of the user to potentially take advantage of caching
 
 try {
-    await client.users.getProfileImage(userId, q);
+  await client.users.getProfileImage(userId, q);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getProfileImage: $e\n');
+  print('Exception when calling MattermostUsersApi->getProfileImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1012,7 +1108,7 @@ Get a list of sessions by providing the user GUID. Sensitive information will be
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1023,18 +1119,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.getSessions(userId);
-    print(result);
+  final result = await client.users.getSessions(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getSessions: $e\n');
+  print('Exception when calling MattermostUsersApi->getSessions: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1069,7 +1171,7 @@ Get a total count of users in the system. ##### Permissions Must be authenticate
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1080,17 +1182,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.users.getTotalUsersStats();
-    print(result);
+  final result = await client.users.getTotalUsersStats();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getTotalUsersStats: $e\n');
+  print('Exception when calling MattermostUsersApi->getTotalUsersStats: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1122,7 +1230,7 @@ Get a count of users in the system matching the specified filters.  __Minimum se
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1133,9 +1241,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final inTeam = inTeam_example; // String | The ID of the team to get user stats for.
 final inChannel = inChannel_example; // String | The ID of the channel to get user stats for.
@@ -1146,11 +1259,12 @@ final channelRoles = channelRoles_example; // String | Comma separated string us
 final teamRoles = teamRoles_example; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will include users that are only team users and not admins or guests 
 
 try {
-    final result = await client.users.getTotalUsersStatsFiltered(inTeam, inChannel, includeDeleted, includeBots, roles, channelRoles, teamRoles);
-    print(result);
+  final result = await client.users.getTotalUsersStatsFiltered(inTeam, inChannel, includeDeleted, includeBots, roles, channelRoles, teamRoles);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getTotalUsersStatsFiltered: $e\n');
+  print('Exception when calling MattermostUsersApi->getTotalUsersStatsFiltered: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1191,7 +1305,7 @@ Gets all the upload sessions belonging to a user.  __Minimum server version__: 5
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1202,18 +1316,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 
 try {
-    final result = await client.users.getUploadsForUser(userId);
-    print(result);
+  final result = await client.users.getUploadsForUser(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUploadsForUser: $e\n');
+  print('Exception when calling MattermostUsersApi->getUploadsForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1248,7 +1368,7 @@ Get a user a object. Sensitive information will be sanitized out. ##### Permissi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1259,18 +1379,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID. This can also be \"me\" which will point to the current user.
 
 try {
-    final result = await client.users.getUser(userId);
-    print(result);
+  final result = await client.users.getUser(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUser: $e\n');
+  print('Exception when calling MattermostUsersApi->getUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1305,7 +1431,7 @@ Get a user access token. Does not include the actual authentication token.  __Mi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1316,18 +1442,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final tokenId = tokenId_example; // String | User access token GUID
 
 try {
-    final result = await client.users.getUserAccessToken(tokenId);
-    print(result);
+  final result = await client.users.getUserAccessToken(tokenId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserAccessToken: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserAccessToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1362,7 +1494,7 @@ Get a page of user access tokens for users on the system. Does not include the a
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1373,19 +1505,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of tokens per page.
 
 try {
-    final result = await client.users.getUserAccessTokens(page, perPage);
-    print(result);
+  final result = await client.users.getUserAccessTokens(page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserAccessTokens: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserAccessTokens: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1421,7 +1559,7 @@ Get a list of user access tokens for a user. Does not include the actual authent
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1432,20 +1570,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of tokens per page.
 
 try {
-    final result = await client.users.getUserAccessTokensForUser(userId, page, perPage);
-    print(result);
+  final result = await client.users.getUserAccessTokensForUser(userId, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserAccessTokensForUser: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserAccessTokensForUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1482,7 +1626,7 @@ Get a list of audit by providing the user GUID. ##### Permissions Must be logged
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1493,18 +1637,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.getUserAudits(userId);
-    print(result);
+  final result = await client.users.getUserAudits(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserAudits: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserAudits: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1539,7 +1689,7 @@ Get a user object by providing a user email. Sensitive information will be sanit
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1550,18 +1700,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final email = email_example; // String | User Email
 
 try {
-    final result = await client.users.getUserByEmail(email);
-    print(result);
+  final result = await client.users.getUserByEmail(email);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserByEmail: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserByEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1596,7 +1752,7 @@ Get a user object by providing a username. Sensitive information will be sanitiz
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1607,18 +1763,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final username = username_example; // String | Username
 
 try {
-    final result = await client.users.getUserByUsername(username);
-    print(result);
+  final result = await client.users.getUserByUsername(username);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserByUsername: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserByUsername: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1653,7 +1815,7 @@ Will be deprecated in v6.0 Fetches user's latest terms of service action if the 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1664,18 +1826,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.getUserTermsOfService(userId);
-    print(result);
+  final result = await client.users.getUserTermsOfService(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUserTermsOfService: $e\n');
+  print('Exception when calling MattermostUsersApi->getUserTermsOfService: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1710,7 +1878,7 @@ Get a page of a list of users. Based on query string parameters, select users fr
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1721,9 +1889,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
@@ -1743,11 +1916,12 @@ final channelRoles = channelRoles_example; // String | Comma separated string us
 final teamRoles = teamRoles_example; // String | Comma separated string used to filter users based on any of the specified team roles, can only be used in conjunction with `in_team`  Example: `?in_team=4eb6axxw7fg3je5iyasnfudc5y&team_roles=team_user` will return users that are only team users and not admins or guests  __Minimum server version__: 5.26 
 
 try {
-    final result = await client.users.getUsers(page, perPage, inTeam, notInTeam, inChannel, notInChannel, inGroup, groupConstrained, withoutTeam, active, inactive, role, sort, roles, channelRoles, teamRoles);
-    print(result);
+  final result = await client.users.getUsers(page, perPage, inTeam, notInTeam, inChannel, notInChannel, inGroup, groupConstrained, withoutTeam, active, inactive, role, sort, roles, channelRoles, teamRoles);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->getUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1797,7 +1971,7 @@ Get an object containing a key per group channel id in the query and its value a
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1808,18 +1982,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of group channel ids
 
 try {
-    final result = await client.users.getUsersByGroupChannelIds(requestBody);
-    print(result);
+  final result = await client.users.getUsersByGroupChannelIds(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUsersByGroupChannelIds: $e\n');
+  print('Exception when calling MattermostUsersApi->getUsersByGroupChannelIds: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1854,7 +2034,7 @@ Get a list of users based on a provided list of user ids. ##### Permissions Requ
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1865,19 +2045,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of user ids
 final since = 56; // int | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14 
 
 try {
-    final result = await client.users.getUsersByIds(requestBody, since);
-    print(result);
+  final result = await client.users.getUsersByIds(requestBody, since);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUsersByIds: $e\n');
+  print('Exception when calling MattermostUsersApi->getUsersByIds: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1913,7 +2099,7 @@ Get a list of users based on a provided list of usernames. ##### Permissions Req
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1924,18 +2110,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of usernames
 
 try {
-    final result = await client.users.getUsersByUsernames(requestBody);
-    print(result);
+  final result = await client.users.getUsersByUsernames(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->getUsersByUsernames: $e\n');
+  print('Exception when calling MattermostUsersApi->getUsersByUsernames: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -1970,7 +2162,7 @@ Login to Mattermost server
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -1981,18 +2173,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostLoginRequest = MattermostLoginRequest(); // MattermostLoginRequest | User authentication object
 
 try {
-    final result = await client.users.login(mattermostLoginRequest);
-    print(result);
+  final result = await client.users.login(mattermostLoginRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->login: $e\n');
+  print('Exception when calling MattermostUsersApi->login: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2027,7 +2225,7 @@ CWS stands for Customer Web Server which is the cloud service used to manage clo
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2038,17 +2236,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostLoginByCwsTokenRequest = MattermostLoginByCwsTokenRequest(); // MattermostLoginByCwsTokenRequest | User authentication object
 
 try {
-    await client.users.loginByCwsToken(mattermostLoginByCwsTokenRequest);
+  await client.users.loginByCwsToken(mattermostLoginByCwsTokenRequest);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->loginByCwsToken: $e\n');
+  print('Exception when calling MattermostUsersApi->loginByCwsToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2083,7 +2287,7 @@ Logout from the Mattermost server
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2094,17 +2298,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.users.logout();
-    print(result);
+  final result = await client.users.logout();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->logout: $e\n');
+  print('Exception when calling MattermostUsersApi->logout: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2136,7 +2346,7 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2147,17 +2357,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
-    await client.users.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
+  await client.users.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->migrateAuthToLdap: $e\n');
+  print('Exception when calling MattermostUsersApi->migrateAuthToLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2192,7 +2408,7 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2203,17 +2419,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
-    await client.users.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
+  await client.users.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->migrateAuthToSaml: $e\n');
+  print('Exception when calling MattermostUsersApi->migrateAuthToSaml: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2248,7 +2470,7 @@ Partially update a user by providing only the fields you want to update. Omitted
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2259,19 +2481,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostPatchUserRequest = MattermostPatchUserRequest(); // MattermostPatchUserRequest | User object that is to be updated
 
 try {
-    final result = await client.users.patchUser(userId, mattermostPatchUserRequest);
-    print(result);
+  final result = await client.users.patchUser(userId, mattermostPatchUserRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->patchUser: $e\n');
+  print('Exception when calling MattermostUsersApi->patchUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2307,7 +2535,7 @@ Permanently deletes all users and all their related information, including posts
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2318,16 +2546,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.users.permanentDeleteAllUsers();
+  await client.users.permanentDeleteAllUsers();
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->permanentDeleteAllUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->permanentDeleteAllUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2359,7 +2593,7 @@ Convert a guest into a regular user. This will convert the guest into a user for
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2370,18 +2604,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.promoteGuestToUser(userId);
-    print(result);
+  final result = await client.users.promoteGuestToUser(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->promoteGuestToUser: $e\n');
+  print('Exception when calling MattermostUsersApi->promoteGuestToUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2416,7 +2656,7 @@ Notify users in the given channel via websocket that the given user is typing. _
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2427,18 +2667,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostPublishUserTypingRequest = MattermostPublishUserTypingRequest(); // MattermostPublishUserTypingRequest | 
 
 try {
-    await client.users.publishUserTyping(userId, mattermostPublishUserTypingRequest);
+  await client.users.publishUserTyping(userId, mattermostPublishUserTypingRequest);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->publishUserTyping: $e\n');
+  print('Exception when calling MattermostUsersApi->publishUserTyping: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2474,7 +2720,7 @@ Records user action when they accept or decline custom terms of service. Records
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2485,19 +2731,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostRegisterTermsOfServiceActionRequest = MattermostRegisterTermsOfServiceActionRequest(); // MattermostRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-    final result = await client.users.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);
-    print(result);
+  final result = await client.users.registerTermsOfServiceAction(userId, mattermostRegisterTermsOfServiceActionRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->registerTermsOfServiceAction: $e\n');
+  print('Exception when calling MattermostUsersApi->registerTermsOfServiceAction: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2533,7 +2785,7 @@ Update the password for a user using a one-use, timed recovery code tied to the 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2544,18 +2796,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostResetPasswordRequest = MattermostResetPasswordRequest(); // MattermostResetPasswordRequest | 
 
 try {
-    final result = await client.users.resetPassword(mattermostResetPasswordRequest);
-    print(result);
+  final result = await client.users.resetPassword(mattermostResetPasswordRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->resetPassword: $e\n');
+  print('Exception when calling MattermostUsersApi->resetPassword: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2590,7 +2848,7 @@ Revokes all user sessions from the provided user id and session id strings. ####
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2601,18 +2859,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.revokeAllSessions(userId);
-    print(result);
+  final result = await client.users.revokeAllSessions(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->revokeAllSessions: $e\n');
+  print('Exception when calling MattermostUsersApi->revokeAllSessions: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2647,7 +2911,7 @@ Revokes a user session from the provided user id and session id strings. ##### P
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2658,19 +2922,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostRevokeSessionRequest = MattermostRevokeSessionRequest(); // MattermostRevokeSessionRequest | 
 
 try {
-    final result = await client.users.revokeSession(userId, mattermostRevokeSessionRequest);
-    print(result);
+  final result = await client.users.revokeSession(userId, mattermostRevokeSessionRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->revokeSession: $e\n');
+  print('Exception when calling MattermostUsersApi->revokeSession: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2706,7 +2976,7 @@ For any session currently on the server (including admin) it will be revoked. Cl
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2717,16 +2987,22 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    await client.users.revokeSessionsFromAllUsers();
+  await client.users.revokeSessionsFromAllUsers();
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->revokeSessionsFromAllUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->revokeSessionsFromAllUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2758,7 +3034,7 @@ Revoke a user access token and delete any sessions using the token.  __Minimum s
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2769,18 +3045,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostRevokeUserAccessTokenRequest = MattermostRevokeUserAccessTokenRequest(); // MattermostRevokeUserAccessTokenRequest | 
 
 try {
-    final result = await client.users.revokeUserAccessToken(mattermostRevokeUserAccessTokenRequest);
-    print(result);
+  final result = await client.users.revokeUserAccessToken(mattermostRevokeUserAccessTokenRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->revokeUserAccessToken: $e\n');
+  print('Exception when calling MattermostUsersApi->revokeUserAccessToken: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2815,7 +3097,7 @@ Get a list of tokens based on search criteria provided in the request body. Sear
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2826,18 +3108,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSearchUserAccessTokensRequest = MattermostSearchUserAccessTokensRequest(); // MattermostSearchUserAccessTokensRequest | Search criteria
 
 try {
-    final result = await client.users.searchUserAccessTokens(mattermostSearchUserAccessTokensRequest);
-    print(result);
+  final result = await client.users.searchUserAccessTokens(mattermostSearchUserAccessTokensRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->searchUserAccessTokens: $e\n');
+  print('Exception when calling MattermostUsersApi->searchUserAccessTokens: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2872,7 +3160,7 @@ Get a list of users based on search criteria provided in the request body. Searc
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2883,18 +3171,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSearchUsersRequest = MattermostSearchUsersRequest(); // MattermostSearchUsersRequest | Search criteria
 
 try {
-    final result = await client.users.searchUsers(mattermostSearchUsersRequest);
-    print(result);
+  final result = await client.users.searchUsers(mattermostSearchUsersRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->searchUsers: $e\n');
+  print('Exception when calling MattermostUsersApi->searchUsers: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2929,7 +3223,7 @@ Send an email containing a link for resetting the user's password. The link will
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2940,18 +3234,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSendPasswordResetEmailRequest = MattermostSendPasswordResetEmailRequest(); // MattermostSendPasswordResetEmailRequest | 
 
 try {
-    final result = await client.users.sendPasswordResetEmail(mattermostSendPasswordResetEmailRequest);
-    print(result);
+  final result = await client.users.sendPasswordResetEmail(mattermostSendPasswordResetEmailRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->sendPasswordResetEmail: $e\n');
+  print('Exception when calling MattermostUsersApi->sendPasswordResetEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -2986,7 +3286,7 @@ Send an email with a verification link to a user that has an email matching the 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -2997,18 +3297,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSendVerificationEmailRequest = MattermostSendVerificationEmailRequest(); // MattermostSendVerificationEmailRequest | 
 
 try {
-    final result = await client.users.sendVerificationEmail(mattermostSendVerificationEmailRequest);
-    print(result);
+  final result = await client.users.sendVerificationEmail(mattermostSendVerificationEmailRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->sendVerificationEmail: $e\n');
+  print('Exception when calling MattermostUsersApi->sendVerificationEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3043,7 +3349,7 @@ Delete user's profile image and reset to default image based on user_id string p
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3054,18 +3360,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.setDefaultProfileImage(userId);
-    print(result);
+  final result = await client.users.setDefaultProfileImage(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->setDefaultProfileImage: $e\n');
+  print('Exception when calling MattermostUsersApi->setDefaultProfileImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3100,7 +3412,7 @@ Set a user's profile image based on user_id string parameter. ##### Permissions 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3111,19 +3423,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-    final result = await client.users.setProfileImage(userId, image);
-    print(result);
+  final result = await client.users.setProfileImage(userId, image);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->setProfileImage: $e\n');
+  print('Exception when calling MattermostUsersApi->setProfileImage: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3159,7 +3477,7 @@ Switch a user's login method from using email to OAuth2/SAML/LDAP or back to ema
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3170,18 +3488,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostSwitchAccountTypeRequest = MattermostSwitchAccountTypeRequest(); // MattermostSwitchAccountTypeRequest | 
 
 try {
-    final result = await client.users.switchAccountType(mattermostSwitchAccountTypeRequest);
-    print(result);
+  final result = await client.users.switchAccountType(mattermostSwitchAccountTypeRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->switchAccountType: $e\n');
+  print('Exception when calling MattermostUsersApi->switchAccountType: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3216,7 +3540,7 @@ Update a user by providing the user object. The fields that can be updated are d
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3227,19 +3551,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserRequest = MattermostUpdateUserRequest(); // MattermostUpdateUserRequest | User object that is to be updated
 
 try {
-    final result = await client.users.updateUser(userId, mattermostUpdateUserRequest);
-    print(result);
+  final result = await client.users.updateUser(userId, mattermostUpdateUserRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUser: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUser: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3275,7 +3605,7 @@ Update user active or inactive status.  __Since server version 4.6, users using 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3286,19 +3616,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserActiveRequest = MattermostUpdateUserActiveRequest(); // MattermostUpdateUserActiveRequest | Use `true` to set the user active, `false` for inactive
 
 try {
-    final result = await client.users.updateUserActive(userId, mattermostUpdateUserActiveRequest);
-    print(result);
+  final result = await client.users.updateUserActive(userId, mattermostUpdateUserActiveRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUserActive: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUserActive: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3334,7 +3670,7 @@ Updates a user's authentication method. This can be used to change them to/from 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3345,19 +3681,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUserAuthData = MattermostUserAuthData(); // MattermostUserAuthData | 
 
 try {
-    final result = await client.users.updateUserAuth(userId, mattermostUserAuthData);
-    print(result);
+  final result = await client.users.updateUserAuth(userId, mattermostUserAuthData);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUserAuth: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUserAuth: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3393,7 +3735,7 @@ Activates multi-factor authentication for the user if `activate` is true and a v
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3404,19 +3746,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserMfaRequest = MattermostUpdateUserMfaRequest(); // MattermostUpdateUserMfaRequest | 
 
 try {
-    final result = await client.users.updateUserMfa(userId, mattermostUpdateUserMfaRequest);
-    print(result);
+  final result = await client.users.updateUserMfa(userId, mattermostUpdateUserMfaRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUserMfa: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUserMfa: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3452,7 +3800,7 @@ Update a user's password. New password must meet password policy set by server c
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3463,19 +3811,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserPasswordRequest = MattermostUpdateUserPasswordRequest(); // MattermostUpdateUserPasswordRequest | 
 
 try {
-    final result = await client.users.updateUserPassword(userId, mattermostUpdateUserPasswordRequest);
-    print(result);
+  final result = await client.users.updateUserPassword(userId, mattermostUpdateUserPasswordRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUserPassword: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUserPassword: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3511,7 +3865,7 @@ Update a user's system-level roles. Valid user roles are \"system_user\", \"syst
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3522,19 +3876,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited system roles to assign to the user
 
 try {
-    final result = await client.users.updateUserRoles(userId, mattermostUpdateUserRolesRequest);
-    print(result);
+  final result = await client.users.updateUserRoles(userId, mattermostUpdateUserRolesRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->updateUserRoles: $e\n');
+  print('Exception when calling MattermostUsersApi->updateUserRoles: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3570,7 +3930,7 @@ Verify the email used by a user to sign-up their account with. ##### Permissions
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3581,18 +3941,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostVerifyUserEmailRequest = MattermostVerifyUserEmailRequest(); // MattermostVerifyUserEmailRequest | 
 
 try {
-    final result = await client.users.verifyUserEmail(mattermostVerifyUserEmailRequest);
-    print(result);
+  final result = await client.users.verifyUserEmail(mattermostVerifyUserEmailRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->verifyUserEmail: $e\n');
+  print('Exception when calling MattermostUsersApi->verifyUserEmail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -3627,7 +3993,7 @@ Verify the email used by a user without a token.  __Minimum server version__: 5.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -3638,18 +4004,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostUsersApi api instance
-// final MattermostUsersApi api_instance = client.users
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.users.verifyUserEmailWithoutToken(userId);
-    print(result);
+  final result = await client.users.verifyUserEmailWithoutToken(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostUsersApi->verifyUserEmailWithoutToken: $e\n');
+  print('Exception when calling MattermostUsersApi->verifyUserEmailWithoutToken: $e\n');
 }
+
 ```
 
 ### Parameters

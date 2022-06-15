@@ -26,54 +26,7 @@ For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}})
 import 'package:{{{pubName}}}/api.dart';
 
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-// TODO: Set up the client
-{{#hasAuthMethods}}
-{{#authMethods}}
-{{#isBasic}}
-{{#isBasicBasic}}
-// Configure client with HTTP basic authorization:
-// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
-//   basePath: 'https://your-server.tld/api/v4',
-//   authentication: {{{modelNamePrefix}}}HttpBasicAuthentication{{{modelNameSuffix}}}(
-//     username: 'USERNAME',
-//     password: 'PASSWORD',
-//   ),
-// );
-{{/isBasicBasic}}
-{{#isBasicBearer}}
-// Configure client with HTTP Bearer authorization and string token:
-// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
-//   basePath: 'https://your-server.tld/api/v4',
-//   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}('YOUR TOKEN'),
-// );
-// Configure client with HTTP Bearer authorization and function returning a string:
-// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
-//   basePath: 'https://your-server.tld/api/v4',
-//   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}(()=>'ACCESS TOKEN FROM FUNCTION'),
-// );
-{{/isBasicBearer}}
-{{/isBasic}}
-{{#isApiKey}}
-// Configure client with ApiKey authorization:
-// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
-//   basePath: 'https://your-server.tld/api/v4',
-//   authentication: MattermostApiKeyAuthentication(
-//     HttpLocation.query,
-//     'PARAM_NAME',
-//     'API_KEY',
-//     apiKeyPrefix: 'PREFIX',
-//   ),
-// );
-{{/isApiKey}}
-{{#isOAuth}}
-// Configure client with OAuth authorization:
-// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
-//   basePath: 'https://your-server.tld/api/v4',
-//   authentication: {{{modelNamePrefix}}}OAuth{{{modelNameSuffix}}}(accessToken: 'YOUR TOKEN'),
-// );
-{{/isOAuth}}
-{{/authMethods}}
-{{/hasAuthMethods}}
+{{>client_example}}
 
 // Then, access {{{classname}}} api instance
 // final {{{classname}}} api_instance = client.{{classVarName}}

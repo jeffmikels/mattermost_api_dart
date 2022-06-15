@@ -30,7 +30,7 @@ Gets a file that has been uploaded previously. ##### Permissions Must have `read
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -41,17 +41,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file to get
 
 try {
-    await client.files.getFile(fileId);
+  await client.files.getFile(fileId);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFile: $e\n');
+  print('Exception when calling MattermostFilesApi->getFile: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -86,7 +92,7 @@ Gets a file's info. ##### Permissions Must have `read_channel` permission or be 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -97,18 +103,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file info to get
 
 try {
-    final result = await client.files.getFileInfo(fileId);
-    print(result);
+  final result = await client.files.getFileInfo(fileId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFileInfo: $e\n');
+  print('Exception when calling MattermostFilesApi->getFileInfo: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -143,7 +155,7 @@ Gets a public link for a file that can be accessed without logging into Mattermo
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -154,18 +166,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file to get a link for
 
 try {
-    final result = await client.files.getFileLink(fileId);
-    print(result);
+  final result = await client.files.getFileLink(fileId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFileLink: $e\n');
+  print('Exception when calling MattermostFilesApi->getFileLink: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -200,7 +218,7 @@ Gets a file's preview. ##### Permissions Must have `read_channel` permission or 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -211,17 +229,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file to get
 
 try {
-    await client.files.getFilePreview(fileId);
+  await client.files.getFilePreview(fileId);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFilePreview: $e\n');
+  print('Exception when calling MattermostFilesApi->getFilePreview: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -256,7 +280,7 @@ Get a public file
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -267,18 +291,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file to get
 final h = h_example; // String | File hash
 
 try {
-    await client.files.getFilePublic(fileId, h);
+  await client.files.getFilePublic(fileId, h);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFilePublic: $e\n');
+  print('Exception when calling MattermostFilesApi->getFilePublic: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -314,7 +344,7 @@ Gets a file's thumbnail. ##### Permissions Must have `read_channel` permission o
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -325,17 +355,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final fileId = fileId_example; // String | The ID of the file to get
 
 try {
-    await client.files.getFileThumbnail(fileId);
+  await client.files.getFileThumbnail(fileId);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->getFileThumbnail: $e\n');
+  print('Exception when calling MattermostFilesApi->getFileThumbnail: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -370,7 +406,7 @@ Search for files in a team based on file name, extention and file content (if fi
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -381,9 +417,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final teamId = teamId_example; // String | Team GUID
 final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
@@ -394,11 +435,12 @@ final page = 56; // int | The page to select. (Only works with Elasticsearch)
 final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-    final result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
-    print(result);
+  final result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->searchFiles: $e\n');
+  print('Exception when calling MattermostFilesApi->searchFiles: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -439,7 +481,7 @@ Uploads a file that can later be attached to a post.  This request can either be
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -450,9 +492,14 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostFilesApi api instance
-// final MattermostFilesApi api_instance = client.files
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final channelId = channelId_example; // String | The ID of the channel that this file will be uploaded to
 final filename = filename_example; // String | The name of the file to be uploaded
@@ -461,11 +508,12 @@ final channelId2 = channelId_example; // String | The ID of the channel that thi
 final clientIds = clientIds_example; // String | A unique identifier for the file that will be returned in the response
 
 try {
-    final result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds);
-    print(result);
+  final result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostFilesApi->uploadFile: $e\n');
+  print('Exception when calling MattermostFilesApi->uploadFile: $e\n');
 }
+
 ```
 
 ### Parameters

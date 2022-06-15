@@ -27,7 +27,7 @@ Delete a list of the user's preferences. ##### Permissions Must be logged in as 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -38,19 +38,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPreferencesApi api instance
-// final MattermostPreferencesApi api_instance = client.preferences
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
-    final result = await client.preferences.deletePreferences(userId, mattermostPreference);
-    print(result);
+  final result = await client.preferences.deletePreferences(userId, mattermostPreference);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPreferencesApi->deletePreferences: $e\n');
+  print('Exception when calling MattermostPreferencesApi->deletePreferences: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -86,7 +92,7 @@ Get a list of the user's preferences. ##### Permissions Must be logged in as the
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -97,18 +103,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPreferencesApi api instance
-// final MattermostPreferencesApi api_instance = client.preferences
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = await client.preferences.getPreferences(userId);
-    print(result);
+  final result = await client.preferences.getPreferences(userId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPreferencesApi->getPreferences: $e\n');
+  print('Exception when calling MattermostPreferencesApi->getPreferences: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -143,7 +155,7 @@ Lists the current user's stored preferences in the given category. ##### Permiss
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -154,19 +166,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPreferencesApi api instance
-// final MattermostPreferencesApi api_instance = client.preferences
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final category = category_example; // String | The category of a group of preferences
 
 try {
-    final result = await client.preferences.getPreferencesByCategory(userId, category);
-    print(result);
+  final result = await client.preferences.getPreferencesByCategory(userId, category);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPreferencesApi->getPreferencesByCategory: $e\n');
+  print('Exception when calling MattermostPreferencesApi->getPreferencesByCategory: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -202,7 +220,7 @@ Gets a single preference for the current user with the given category and name. 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -213,20 +231,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPreferencesApi api instance
-// final MattermostPreferencesApi api_instance = client.preferences
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final category = category_example; // String | The category of a group of preferences
 final preferenceName = preferenceName_example; // String | The name of the preference
 
 try {
-    final result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName);
-    print(result);
+  final result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPreferencesApi->getPreferencesByCategoryByName: $e\n');
+  print('Exception when calling MattermostPreferencesApi->getPreferencesByCategoryByName: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -263,7 +287,7 @@ Save a list of the user's preferences. ##### Permissions Must be logged in as th
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -274,19 +298,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostPreferencesApi api instance
-// final MattermostPreferencesApi api_instance = client.preferences
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final userId = userId_example; // String | User GUID
 final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
-    final result = await client.preferences.updatePreferences(userId, mattermostPreference);
-    print(result);
+  final result = await client.preferences.updatePreferences(userId, mattermostPreference);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostPreferencesApi->updatePreferences: $e\n');
+  print('Exception when calling MattermostPreferencesApi->updatePreferences: $e\n');
 }
+
 ```
 
 ### Parameters

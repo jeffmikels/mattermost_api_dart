@@ -27,7 +27,7 @@ Get a list of all the roles
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -38,17 +38,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRolesApi api instance
-// final MattermostRolesApi api_instance = client.roles
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.roles.getAllRoles();
-    print(result);
+  final result = await client.roles.getAllRoles();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRolesApi->getAllRoles: $e\n');
+  print('Exception when calling MattermostRolesApi->getAllRoles: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -80,7 +86,7 @@ Get a role from the provided role id.  ##### Permissions Requires an active sess
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -91,18 +97,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRolesApi api instance
-// final MattermostRolesApi api_instance = client.roles
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final roleId = roleId_example; // String | Role GUID
 
 try {
-    final result = await client.roles.getRole(roleId);
-    print(result);
+  final result = await client.roles.getRole(roleId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRolesApi->getRole: $e\n');
+  print('Exception when calling MattermostRolesApi->getRole: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -137,7 +149,7 @@ Get a role from the provided role name.  ##### Permissions Requires an active se
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -148,18 +160,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRolesApi api instance
-// final MattermostRolesApi api_instance = client.roles
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final roleName = roleName_example; // String | Role Name
 
 try {
-    final result = await client.roles.getRoleByName(roleName);
-    print(result);
+  final result = await client.roles.getRoleByName(roleName);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRolesApi->getRoleByName: $e\n');
+  print('Exception when calling MattermostRolesApi->getRoleByName: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -194,7 +212,7 @@ Get a list of roles from their names.  ##### Permissions Requires an active sess
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -205,18 +223,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRolesApi api instance
-// final MattermostRolesApi api_instance = client.roles
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final requestBody = [List<String>()]; // List<String> | List of role names
 
 try {
-    final result = await client.roles.getRolesByNames(requestBody);
-    print(result);
+  final result = await client.roles.getRolesByNames(requestBody);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRolesApi->getRolesByNames: $e\n');
+  print('Exception when calling MattermostRolesApi->getRolesByNames: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -251,7 +275,7 @@ Partially update a role by providing only the fields you want to update. Omitted
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -262,19 +286,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRolesApi api instance
-// final MattermostRolesApi api_instance = client.roles
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final roleId = roleId_example; // String | Role GUID
 final mattermostPatchRoleRequest = MattermostPatchRoleRequest(); // MattermostPatchRoleRequest | Role object to be updated
 
 try {
-    final result = await client.roles.patchRole(roleId, mattermostPatchRoleRequest);
-    print(result);
+  final result = await client.roles.patchRole(roleId, mattermostPatchRoleRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRolesApi->patchRole: $e\n');
+  print('Exception when calling MattermostRolesApi->patchRole: $e\n');
 }
+
 ```
 
 ### Parameters

@@ -28,7 +28,7 @@ Cancel a job. __Minimum server version: 4.1__ ##### Permissions Must have `manag
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -39,18 +39,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final jobId = jobId_example; // String | Job GUID
 
 try {
-    final result = await client.jobs.cancelJob(jobId);
-    print(result);
+  final result = await client.jobs.cancelJob(jobId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->cancelJob: $e\n');
+  print('Exception when calling MattermostJobsApi->cancelJob: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -85,7 +91,7 @@ Create a new job. __Minimum server version: 4.1__ ##### Permissions Must have `m
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -96,18 +102,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostCreateJobRequest = MattermostCreateJobRequest(); // MattermostCreateJobRequest | Job object to be created
 
 try {
-    final result = await client.jobs.createJob(mattermostCreateJobRequest);
-    print(result);
+  final result = await client.jobs.createJob(mattermostCreateJobRequest);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->createJob: $e\n');
+  print('Exception when calling MattermostJobsApi->createJob: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -142,7 +154,7 @@ Download the result of a single job. __Minimum server version: 5.28__ ##### Perm
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -153,17 +165,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final jobId = jobId_example; // String | Job GUID
 
 try {
-    await client.jobs.downloadJob(jobId);
+  await client.jobs.downloadJob(jobId);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->downloadJob: $e\n');
+  print('Exception when calling MattermostJobsApi->downloadJob: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -198,7 +216,7 @@ Gets a single job. __Minimum server version: 4.1__ ##### Permissions Must have `
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -209,18 +227,24 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final jobId = jobId_example; // String | Job GUID
 
 try {
-    final result = await client.jobs.getJob(jobId);
-    print(result);
+  final result = await client.jobs.getJob(jobId);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->getJob: $e\n');
+  print('Exception when calling MattermostJobsApi->getJob: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -255,7 +279,7 @@ Get a page of jobs. Use the query parameters to modify the behaviour of this end
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -266,19 +290,25 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of jobs per page.
 
 try {
-    final result = await client.jobs.getJobs(page, perPage);
-    print(result);
+  final result = await client.jobs.getJobs(page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->getJobs: $e\n');
+  print('Exception when calling MattermostJobsApi->getJobs: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -314,7 +344,7 @@ Get a page of jobs of the given type. Use the query parameters to modify the beh
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -325,20 +355,26 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostJobsApi api instance
-// final MattermostJobsApi api_instance = client.jobs
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final type = type_example; // String | Job type
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of jobs per page.
 
 try {
-    final result = await client.jobs.getJobsByType(type, page, perPage);
-    print(result);
+  final result = await client.jobs.getJobsByType(type, page, perPage);
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostJobsApi->getJobsByType: $e\n');
+  print('Exception when calling MattermostJobsApi->getJobsByType: $e\n');
 }
+
 ```
 
 ### Parameters

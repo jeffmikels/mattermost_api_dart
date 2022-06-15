@@ -24,7 +24,7 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -35,17 +35,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostMigrateApi api instance
-// final MattermostMigrateApi api_instance = client.migrate
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateAuthToLdapRequest = MattermostMigrateAuthToLdapRequest(); // MattermostMigrateAuthToLdapRequest | 
 
 try {
-    await client.migrate.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
+  await client.migrate.migrateAuthToLdap(mattermostMigrateAuthToLdapRequest);
 } catch (e) {
-    print('Exception when calling MattermostMigrateApi->migrateAuthToLdap: $e\n');
+  print('Exception when calling MattermostMigrateApi->migrateAuthToLdap: $e\n');
 }
+
 ```
 
 ### Parameters
@@ -80,7 +86,7 @@ Migrates accounts from one authentication provider to another. For example, you 
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -91,17 +97,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostMigrateApi api instance
-// final MattermostMigrateApi api_instance = client.migrate
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
-    await client.migrate.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
+  await client.migrate.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
 } catch (e) {
-    print('Exception when calling MattermostMigrateApi->migrateAuthToSaml: $e\n');
+  print('Exception when calling MattermostMigrateApi->migrateAuthToSaml: $e\n');
 }
+
 ```
 
 ### Parameters

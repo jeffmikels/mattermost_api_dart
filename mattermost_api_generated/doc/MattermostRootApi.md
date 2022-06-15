@@ -23,7 +23,7 @@ __Minimum server version__: 3.10 ##### Permissions Must be logged in.
 ```dart
 import 'package:mattermost_api/api.dart';
 
-// TODO: Set up the client
+// TODO: Client options
 // Configure client with HTTP Bearer authorization and string token:
 // client = MattermostApiClient(
 //   basePath: 'https://your-server.tld/api/v4',
@@ -34,17 +34,23 @@ import 'package:mattermost_api/api.dart';
 //   basePath: 'https://your-server.tld/api/v4',
 //   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
 // );
+late MattermostApiClient client;
 
-// Then, access MattermostRootApi api instance
-// final MattermostRootApi api_instance = client.root
+// Configure client with HTTP Bearer authorization and string token:
+client = MattermostApiClient(
+  basePath: 'https://your-server.tld/api/v4',
+  authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+);
+
 
 
 try {
-    final result = await client.root.acknowledgeNotification();
-    print(result);
+  final result = await client.root.acknowledgeNotification();
+  print(result);
 } catch (e) {
-    print('Exception when calling MattermostRootApi->acknowledgeNotification: $e\n');
+  print('Exception when calling MattermostRootApi->acknowledgeNotification: $e\n');
 }
+
 ```
 
 ### Parameters
