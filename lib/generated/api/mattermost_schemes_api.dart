@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostSchemesApi {
-  MattermostSchemesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostSchemesApi(this.apiClient);
 
   /// Create a scheme
   ///

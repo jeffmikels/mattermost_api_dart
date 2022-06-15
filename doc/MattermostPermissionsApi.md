@@ -22,18 +22,26 @@ Returns all the ancillary permissions for the corresponding system console subse
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPermissionsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPermissionsApi api instance
+// final MattermostPermissionsApi api_instance = client.permissions
+
 final subsectionPermissions = subsectionPermissions_example; // String | The subsection permissions to return the ancillary permissions for. These values are comma seperated. Ex. subsection_permissions=sysconsole_read_reporting_site_statistics,sysconsole_write_reporting_site_statistics,sysconsole_write_user_management_channels 
 
 try {
-    final result = api_instance.getAncillaryPermissions(subsectionPermissions);
+    final result = await client.permissions.getAncillaryPermissions(subsectionPermissions);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPermissionsApi->getAncillaryPermissions: $e\n');

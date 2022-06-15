@@ -32,17 +32,25 @@ Delete the current IDP certificate being used with your SAML configuration. This
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 
 try {
-    final result = api_instance.deleteSamlIdpCertificate();
+    final result = await client.sAML.deleteSamlIdpCertificate();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->deleteSamlIdpCertificate: $e\n');
@@ -77,17 +85,25 @@ Delete the current private key being used with your SAML configuration. This wil
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 
 try {
-    final result = api_instance.deleteSamlPrivateCertificate();
+    final result = await client.sAML.deleteSamlPrivateCertificate();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->deleteSamlPrivateCertificate: $e\n');
@@ -122,17 +138,25 @@ Delete the current public certificate being used with your SAML configuration. T
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 
 try {
-    final result = api_instance.deleteSamlPublicCertificate();
+    final result = await client.sAML.deleteSamlPublicCertificate();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->deleteSamlPublicCertificate: $e\n');
@@ -167,17 +191,25 @@ Get the status of the uploaded certificates and keys in use by your SAML configu
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 
 try {
-    final result = api_instance.getSamlCertificateStatus();
+    final result = await client.sAML.getSamlCertificateStatus();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->getSamlCertificateStatus: $e\n');
@@ -212,17 +244,25 @@ Get SAML metadata from the server. SAML must be configured properly. ##### Permi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 
 try {
-    final result = api_instance.getSamlMetadata();
+    final result = await client.sAML.getSamlMetadata();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->getSamlMetadata: $e\n');
@@ -257,18 +297,26 @@ Get SAML metadata from the Identity Provider. SAML must be configured properly. 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final mattermostGetSamlMetadataFromIdpRequest = MattermostGetSamlMetadataFromIdpRequest(); // MattermostGetSamlMetadataFromIdpRequest | 
 
 try {
-    final result = api_instance.getSamlMetadataFromIdp(mattermostGetSamlMetadataFromIdpRequest);
+    final result = await client.sAML.getSamlMetadataFromIdp(mattermostGetSamlMetadataFromIdpRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->getSamlMetadataFromIdp: $e\n');
@@ -306,18 +354,26 @@ Migrates accounts from one authentication provider to another. For example, you 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final mattermostMigrateAuthToSamlRequest = MattermostMigrateAuthToSamlRequest(); // MattermostMigrateAuthToSamlRequest | 
 
 try {
-    api_instance.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
+    await client.sAML.migrateAuthToSaml(mattermostMigrateAuthToSamlRequest);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->migrateAuthToSaml: $e\n');
 }
@@ -354,18 +410,26 @@ Reset the AuthData field of SAML users to their email. This is meant to be used 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final mattermostResetSamlAuthDataToEmailRequest = MattermostResetSamlAuthDataToEmailRequest(); // MattermostResetSamlAuthDataToEmailRequest | 
 
 try {
-    final result = api_instance.resetSamlAuthDataToEmail(mattermostResetSamlAuthDataToEmailRequest);
+    final result = await client.sAML.resetSamlAuthDataToEmail(mattermostResetSamlAuthDataToEmailRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->resetSamlAuthDataToEmail: $e\n');
@@ -403,18 +467,26 @@ Upload the IDP certificate to be used with your SAML configuration. The server w
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final certificate = BINARY_DATA_HERE; // MultipartFile | The IDP certificate file
 
 try {
-    final result = api_instance.uploadSamlIdpCertificate(certificate);
+    final result = await client.sAML.uploadSamlIdpCertificate(certificate);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->uploadSamlIdpCertificate: $e\n');
@@ -452,18 +524,26 @@ Upload the private key to be used for encryption with your SAML configuration. T
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-    final result = api_instance.uploadSamlPrivateCertificate(certificate);
+    final result = await client.sAML.uploadSamlPrivateCertificate(certificate);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->uploadSamlPrivateCertificate: $e\n');
@@ -501,18 +581,26 @@ Upload the public certificate to be used for encryption with your SAML configura
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSAMLApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSAMLApi api instance
+// final MattermostSAMLApi api_instance = client.sAML
+
 final certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-    final result = api_instance.uploadSamlPublicCertificate(certificate);
+    final result = await client.sAML.uploadSamlPublicCertificate(certificate);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSAMLApi->uploadSamlPublicCertificate: $e\n');

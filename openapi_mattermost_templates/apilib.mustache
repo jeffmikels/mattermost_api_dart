@@ -33,5 +33,6 @@ extension {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNam
 	{{/apis}}{{/apiInfo}}
 }
 
+enum HttpLocation{header, query, cookie}
 
-{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}();
+// {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}();

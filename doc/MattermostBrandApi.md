@@ -24,17 +24,25 @@ Deletes the previously uploaded brand image. Returns 404 if no brand image has b
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBrandApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBrandApi api instance
+// final MattermostBrandApi api_instance = client.brand
+
 
 try {
-    final result = api_instance.deleteBrandImage();
+    final result = await client.brand.deleteBrandImage();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBrandApi->deleteBrandImage: $e\n');
@@ -69,17 +77,25 @@ Get the previously uploaded brand image. Returns 404 if no brand image has been 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBrandApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBrandApi api instance
+// final MattermostBrandApi api_instance = client.brand
+
 
 try {
-    final result = api_instance.getBrandImage();
+    final result = await client.brand.getBrandImage();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBrandApi->getBrandImage: $e\n');
@@ -114,18 +130,26 @@ Uploads a brand image. ##### Permissions Must have `manage_system` permission.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBrandApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBrandApi api instance
+// final MattermostBrandApi api_instance = client.brand
+
 final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-    final result = api_instance.uploadBrandImage(image);
+    final result = await client.brand.uploadBrandImage(image);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBrandApi->uploadBrandImage: $e\n');

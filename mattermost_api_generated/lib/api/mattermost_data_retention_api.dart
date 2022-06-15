@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostDataRetentionApi {
-  MattermostDataRetentionApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostDataRetentionApi(this.apiClient);
+
 
   /// Add channels to a granular data retention policy
   ///

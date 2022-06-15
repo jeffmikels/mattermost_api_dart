@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostImportsApi {
-  MattermostImportsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostImportsApi(this.apiClient);
 
   /// List import files
   ///

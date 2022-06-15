@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostClusterApi {
-  MattermostClusterApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostClusterApi(this.apiClient);
+
 
   /// Get cluster status
   ///

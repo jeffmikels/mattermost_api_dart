@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostPluginsApi {
-  MattermostPluginsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostPluginsApi(this.apiClient);
+
 
   /// Disable plugin
   ///

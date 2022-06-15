@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostThreadsApi {
-  MattermostThreadsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostThreadsApi(this.apiClient);
 
   /// Get all unread mention counts from followed threads, per-channel
   ///

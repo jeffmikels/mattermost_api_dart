@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostPermissionsApi {
-  MattermostPermissionsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostPermissionsApi(this.apiClient);
+
 
   /// Return all system console subsection ancillary permissions
   ///

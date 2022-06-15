@@ -414,4 +414,6 @@ extension MattermostApiClientExtension on MattermostApiClient {
   MattermostWebhooksApi get webhooks => MattermostWebhooksApi(this);
 }
 
-MattermostApiClient defaultMattermostApiClient = MattermostApiClient();
+enum HttpLocation { header, query, cookie }
+
+// MattermostApiClient defaultMattermostApiClient = MattermostApiClient();

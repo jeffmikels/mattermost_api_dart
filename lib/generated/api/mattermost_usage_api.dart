@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostUsageApi {
-  MattermostUsageApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostUsageApi(this.apiClient);
 
   /// Get current usage of posts
   ///

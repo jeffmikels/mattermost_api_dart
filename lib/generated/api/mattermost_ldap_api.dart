@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostLDAPApi {
-  MattermostLDAPApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostLDAPApi(this.apiClient);
 
   /// Remove private key
   ///

@@ -32,18 +32,26 @@ Disable a previously enabled plugin. Plugins must be enabled in the server's con
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = api_instance.disablePlugin(pluginId);
+    final result = await client.plugins.disablePlugin(pluginId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
@@ -81,18 +89,26 @@ Enable a previously uploaded plugin. Plugins must be enabled in the server's con
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = api_instance.enablePlugin(pluginId);
+    final result = await client.plugins.enablePlugin(pluginId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
@@ -130,14 +146,22 @@ Gets all plugins from the marketplace server, merging data from locally installe
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final page = 56; // int | Page number to be fetched. (not yet implemented)
 final perPage = 56; // int | Number of item per page. (not yet implemented)
 final filter = filter_example; // String | Set to filter plugins by ID, name, or description.
@@ -145,7 +169,7 @@ final serverVersion = serverVersion_example; // String | Set to filter minimum p
 final localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
-    final result = api_instance.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
+    final result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
@@ -187,17 +211,25 @@ Retrieves the status that specifies that at least one System Admin has visited t
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 
 try {
-    final result = api_instance.getMarketplaceVisitedByAdmin();
+    final result = await client.plugins.getMarketplaceVisitedByAdmin();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
@@ -232,17 +264,25 @@ Returns the status for plugins installed anywhere in the cluster  ##### Permissi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 
 try {
-    final result = api_instance.getPluginStatuses();
+    final result = await client.plugins.getPluginStatuses();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
@@ -277,17 +317,25 @@ Get a list of inactive and a list of active plugin manifests. Plugins must be en
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 
 try {
-    final result = api_instance.getPlugins();
+    final result = await client.plugins.getPlugins();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
@@ -322,17 +370,25 @@ Get a list of web app plugins installed and activated on the server.  ##### Perm
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 
 try {
-    final result = api_instance.getWebappPlugins();
+    final result = await client.plugins.getWebappPlugins();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
@@ -367,18 +423,26 @@ Installs a plugin listed in the marketplace server.  ##### Permissions Must have
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final mattermostInstallMarketplacePluginRequest = MattermostInstallMarketplacePluginRequest(); // MattermostInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
-    final result = api_instance.installMarketplacePlugin(mattermostInstallMarketplacePluginRequest);
+    final result = await client.plugins.installMarketplacePlugin(mattermostInstallMarketplacePluginRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
@@ -416,19 +480,27 @@ Supply a URL to a plugin compressed in a .tar.gz file. Plugins must be enabled i
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final pluginDownloadUrl = pluginDownloadUrl_example; // String | URL used to download the plugin
 final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-    final result = api_instance.installPluginFromUrl(pluginDownloadUrl, force);
+    final result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
@@ -467,18 +539,26 @@ Remove the plugin with the provided ID from the server. All plugin files are del
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final pluginId = pluginId_example; // String | 
 
 try {
-    final result = api_instance.removePlugin(pluginId);
+    final result = await client.plugins.removePlugin(pluginId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
@@ -516,19 +596,27 @@ Upload a plugin that is contained within a compressed .tar.gz file. Plugins and 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPluginsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPluginsApi api instance
+// final MattermostPluginsApi api_instance = client.plugins
+
 final plugin = BINARY_DATA_HERE; // MultipartFile | The plugin image to be uploaded
 final force = force_example; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-    final result = api_instance.uploadPlugin(plugin, force);
+    final result = await client.plugins.uploadPlugin(plugin, force);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');

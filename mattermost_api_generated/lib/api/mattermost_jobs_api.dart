@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostJobsApi {
-  MattermostJobsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostJobsApi(this.apiClient);
+
 
   /// Cancel a job.
   ///

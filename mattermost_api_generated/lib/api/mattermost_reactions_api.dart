@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostReactionsApi {
-  MattermostReactionsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostReactionsApi(this.apiClient);
+
 
   /// Remove a reaction from a post
   ///

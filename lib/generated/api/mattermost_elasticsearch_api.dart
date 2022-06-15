@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostElasticsearchApi {
-  MattermostElasticsearchApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostElasticsearchApi(this.apiClient);
 
   /// Purge all Elasticsearch indexes
   ///

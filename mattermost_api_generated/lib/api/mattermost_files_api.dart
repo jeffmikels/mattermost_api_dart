@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostFilesApi {
-  MattermostFilesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostFilesApi(this.apiClient);
+
 
   /// Get a file
   ///

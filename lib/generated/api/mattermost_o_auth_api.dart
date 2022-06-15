@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostOAuthApi {
-  MattermostOAuthApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostOAuthApi(this.apiClient);
 
   /// Register OAuth app
   ///

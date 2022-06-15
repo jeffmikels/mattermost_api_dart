@@ -11,10 +11,9 @@
 part of mattermost.api;
 
 class MattermostIntegrationActionsApi {
-  MattermostIntegrationActionsApi([MattermostApiClient? apiClient])
-      : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostIntegrationActionsApi(this.apiClient);
 
   /// Open a dialog
   ///

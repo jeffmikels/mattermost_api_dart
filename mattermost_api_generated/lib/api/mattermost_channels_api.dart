@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostChannelsApi {
-  MattermostChannelsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostChannelsApi(this.apiClient);
+
 
   /// Add user to channel
   ///

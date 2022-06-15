@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostUploadsApi {
-  MattermostUploadsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostUploadsApi(this.apiClient);
 
   /// Create an upload
   ///

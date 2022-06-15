@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostExportsApi {
-  MattermostExportsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostExportsApi(this.apiClient);
 
   /// Delete an export file
   ///

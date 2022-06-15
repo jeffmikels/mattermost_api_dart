@@ -23,18 +23,26 @@ Open an interactive dialog using a trigger ID provided by a slash command, or so
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostIntegrationActionsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostIntegrationActionsApi api instance
+// final MattermostIntegrationActionsApi api_instance = client.integrationActions
+
 final mattermostOpenInteractiveDialogRequest = MattermostOpenInteractiveDialogRequest(); // MattermostOpenInteractiveDialogRequest | Metadata for the dialog to be opened
 
 try {
-    final result = api_instance.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
+    final result = await client.integrationActions.openInteractiveDialog(mattermostOpenInteractiveDialogRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostIntegrationActionsApi->openInteractiveDialog: $e\n');
@@ -72,18 +80,26 @@ Endpoint used by the Mattermost clients to submit a dialog. See https://docs.mat
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostIntegrationActionsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostIntegrationActionsApi api instance
+// final MattermostIntegrationActionsApi api_instance = client.integrationActions
+
 final mattermostSubmitInteractiveDialogRequest = MattermostSubmitInteractiveDialogRequest(); // MattermostSubmitInteractiveDialogRequest | Dialog submission data
 
 try {
-    final result = api_instance.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);
+    final result = await client.integrationActions.submitInteractiveDialog(mattermostSubmitInteractiveDialogRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostIntegrationActionsApi->submitInteractiveDialog: $e\n');

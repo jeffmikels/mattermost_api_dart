@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostBrandApi {
-  MattermostBrandApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostBrandApi(this.apiClient);
+
 
   /// Delete current brand image
   ///

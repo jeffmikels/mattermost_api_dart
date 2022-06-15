@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostRootApi {
-  MattermostRootApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostRootApi(this.apiClient);
+
 
   /// Acknowledge receiving of a notification
   ///

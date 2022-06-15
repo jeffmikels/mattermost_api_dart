@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostSharedChannelsApi {
-  MattermostSharedChannelsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostSharedChannelsApi(this.apiClient);
+
 
   /// Get all shared channels for team.
   ///

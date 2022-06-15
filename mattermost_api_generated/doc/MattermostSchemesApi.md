@@ -28,18 +28,26 @@ Create a new scheme.  ##### Permissions Must have `manage_system` permission.  _
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final mattermostCreateSchemeRequest = MattermostCreateSchemeRequest(); // MattermostCreateSchemeRequest | Scheme object to create
 
 try {
-    final result = api_instance.createScheme(mattermostCreateSchemeRequest);
+    final result = await client.schemes.createScheme(mattermostCreateSchemeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->createScheme: $e\n');
@@ -77,18 +85,26 @@ Soft deletes a scheme, by marking the scheme as deleted in the database.  ##### 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final schemeId = schemeId_example; // String | ID of the scheme to delete
 
 try {
-    final result = api_instance.deleteScheme(schemeId);
+    final result = await client.schemes.deleteScheme(schemeId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->deleteScheme: $e\n');
@@ -126,20 +142,28 @@ Get a page of channels which use this scheme. The provided Scheme ID should be f
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final schemeId = schemeId_example; // String | Scheme GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of channels per page.
 
 try {
-    final result = api_instance.getChannelsForScheme(schemeId, page, perPage);
+    final result = await client.schemes.getChannelsForScheme(schemeId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->getChannelsForScheme: $e\n');
@@ -179,18 +203,26 @@ Get a scheme from the provided scheme id.  ##### Permissions Must have `manage_s
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final schemeId = schemeId_example; // String | Scheme GUID
 
 try {
-    final result = api_instance.getScheme(schemeId);
+    final result = await client.schemes.getScheme(schemeId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->getScheme: $e\n');
@@ -228,20 +260,28 @@ Get a page of schemes. Use the query parameters to modify the behaviour of this 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final scope = scope_example; // String | Limit the results returned to the provided scope, either `team` or `channel`.
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of schemes per page.
 
 try {
-    final result = api_instance.getSchemes(scope, page, perPage);
+    final result = await client.schemes.getSchemes(scope, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->getSchemes: $e\n');
@@ -281,20 +321,28 @@ Get a page of teams which use this scheme. The provided Scheme ID should be for 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final schemeId = schemeId_example; // String | Scheme GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of teams per page.
 
 try {
-    final result = api_instance.getTeamsForScheme(schemeId, page, perPage);
+    final result = await client.schemes.getTeamsForScheme(schemeId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->getTeamsForScheme: $e\n');
@@ -334,19 +382,27 @@ Partially update a scheme by providing only the fields you want to update. Omitt
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostSchemesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostSchemesApi api instance
+// final MattermostSchemesApi api_instance = client.schemes
+
 final schemeId = schemeId_example; // String | Scheme GUID
 final mattermostPatchSchemeRequest = MattermostPatchSchemeRequest(); // MattermostPatchSchemeRequest | Scheme object to be updated
 
 try {
-    final result = api_instance.patchScheme(schemeId, mattermostPatchSchemeRequest);
+    final result = await client.schemes.patchScheme(schemeId, mattermostPatchSchemeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostSchemesApi->patchScheme: $e\n');

@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostCloudApi {
-  MattermostCloudApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostCloudApi(this.apiClient);
+
 
   /// Completes the payment setup intent
   ///

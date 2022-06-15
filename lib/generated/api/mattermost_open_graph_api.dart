@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostOpenGraphApi {
-  MattermostOpenGraphApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostOpenGraphApi(this.apiClient);
 
   /// Get open graph metadata for url
   ///

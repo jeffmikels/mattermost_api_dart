@@ -26,19 +26,27 @@ Delete a list of the user's preferences. ##### Permissions Must be logged in as 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPreferencesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPreferencesApi api instance
+// final MattermostPreferencesApi api_instance = client.preferences
+
 final userId = userId_example; // String | User GUID
 final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
-    final result = api_instance.deletePreferences(userId, mattermostPreference);
+    final result = await client.preferences.deletePreferences(userId, mattermostPreference);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPreferencesApi->deletePreferences: $e\n');
@@ -77,18 +85,26 @@ Get a list of the user's preferences. ##### Permissions Must be logged in as the
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPreferencesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPreferencesApi api instance
+// final MattermostPreferencesApi api_instance = client.preferences
+
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getPreferences(userId);
+    final result = await client.preferences.getPreferences(userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPreferencesApi->getPreferences: $e\n');
@@ -126,19 +142,27 @@ Lists the current user's stored preferences in the given category. ##### Permiss
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPreferencesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPreferencesApi api instance
+// final MattermostPreferencesApi api_instance = client.preferences
+
 final userId = userId_example; // String | User GUID
 final category = category_example; // String | The category of a group of preferences
 
 try {
-    final result = api_instance.getPreferencesByCategory(userId, category);
+    final result = await client.preferences.getPreferencesByCategory(userId, category);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPreferencesApi->getPreferencesByCategory: $e\n');
@@ -177,20 +201,28 @@ Gets a single preference for the current user with the given category and name. 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPreferencesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPreferencesApi api instance
+// final MattermostPreferencesApi api_instance = client.preferences
+
 final userId = userId_example; // String | User GUID
 final category = category_example; // String | The category of a group of preferences
 final preferenceName = preferenceName_example; // String | The name of the preference
 
 try {
-    final result = api_instance.getPreferencesByCategoryByName(userId, category, preferenceName);
+    final result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPreferencesApi->getPreferencesByCategoryByName: $e\n');
@@ -230,19 +262,27 @@ Save a list of the user's preferences. ##### Permissions Must be logged in as th
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPreferencesApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPreferencesApi api instance
+// final MattermostPreferencesApi api_instance = client.preferences
+
 final userId = userId_example; // String | User GUID
 final mattermostPreference = [List<MattermostPreference>()]; // List<MattermostPreference> | List of preference objects
 
 try {
-    final result = api_instance.updatePreferences(userId, mattermostPreference);
+    final result = await client.preferences.updatePreferences(userId, mattermostPreference);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPreferencesApi->updatePreferences: $e\n');

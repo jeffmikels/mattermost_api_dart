@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostGroupsApi {
-  MattermostGroupsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostGroupsApi(this.apiClient);
 
   /// Adds members to a custom group
   ///

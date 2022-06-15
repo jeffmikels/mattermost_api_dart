@@ -38,19 +38,27 @@ Create a new post in a channel. To create the post as a comment on another post,
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final mattermostCreatePostRequest = MattermostCreatePostRequest(); // MattermostCreatePostRequest | Post object to create
 final setOnline = true; // bool | Whether to set the user status as online or not.
 
 try {
-    final result = api_instance.createPost(mattermostCreatePostRequest, setOnline);
+    final result = await client.posts.createPost(mattermostCreatePostRequest, setOnline);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->createPost: $e\n');
@@ -89,18 +97,26 @@ Create a new ephemeral post in a channel. ##### Permissions Must have `create_po
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final mattermostCreatePostEphemeralRequest = MattermostCreatePostEphemeralRequest(); // MattermostCreatePostEphemeralRequest | Ephemeral Post object to send
 
 try {
-    final result = api_instance.createPostEphemeral(mattermostCreatePostEphemeralRequest);
+    final result = await client.posts.createPostEphemeral(mattermostCreatePostEphemeralRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->createPostEphemeral: $e\n');
@@ -138,18 +154,26 @@ Soft deletes a post, by marking the post as deleted in the database. Soft delete
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | ID of the post to delete
 
 try {
-    final result = api_instance.deletePost(postId);
+    final result = await client.posts.deletePost(postId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->deletePost: $e\n');
@@ -187,19 +211,27 @@ Perform a post action, which allows users to interact with integrations through 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | Post GUID
 final actionId = actionId_example; // String | Action GUID
 
 try {
-    final result = api_instance.doPostAction(postId, actionId);
+    final result = await client.posts.doPostAction(postId, actionId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->doPostAction: $e\n');
@@ -238,19 +270,27 @@ Gets a list of file information objects for the files attached to a post. ##### 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | ID of the post
 final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-    final result = api_instance.getFileInfosForPost(postId, includeDeleted);
+    final result = await client.posts.getFileInfosForPost(postId, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getFileInfosForPost: $e\n');
@@ -289,14 +329,22 @@ Get a page of flagged posts of a user provided user id string. Selects from a ch
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final userId = userId_example; // String | ID of the user
 final teamId = teamId_example; // String | Team ID
 final channelId = channelId_example; // String | Channel ID
@@ -304,7 +352,7 @@ final page = 56; // int | The page to select
 final perPage = 56; // int | The number of posts per page
 
 try {
-    final result = api_instance.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
+    final result = await client.posts.getFlaggedPostsForUser(userId, teamId, channelId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getFlaggedPostsForUser: $e\n');
@@ -346,19 +394,27 @@ Get a single post. ##### Permissions Must have `read_channel` permission for the
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | ID of the post to get
 final includeDeleted = true; // bool | Defines if result should include deleted posts, must have 'manage_system' (admin) permission.
 
 try {
-    final result = api_instance.getPost(postId, includeDeleted);
+    final result = await client.posts.getPost(postId, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getPost: $e\n');
@@ -397,14 +453,22 @@ Get a post and the rest of the posts in the same thread. ##### Permissions Must 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | ID of a post in the thread
 final perPage = 56; // int | The number of posts per page
 final fromPost = fromPost_example; // String | The post_id to return the next page of posts from
@@ -415,7 +479,7 @@ final collapsedThreads = true; // bool | Whether the client uses CRT or not
 final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-    final result = api_instance.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+    final result = await client.posts.getPostThread(postId, perPage, fromPost, fromCreateAt, direction, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getPostThread: $e\n');
@@ -460,14 +524,22 @@ Get the oldest unread post in the channel for the given user as well as the post
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final userId = userId_example; // String | ID of the user
 final channelId = channelId_example; // String | The channel ID to get the posts for
 final limitBefore = 56; // int | Number of posts before the oldest unread posts. Maximum is 200 posts if limit is set greater than that.
@@ -477,7 +549,7 @@ final collapsedThreads = true; // bool | Whether the client uses CRT or not
 final collapsedThreadsExtended = true; // bool | Whether to return the associated users as part of the response or not
 
 try {
-    final result = api_instance.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
+    final result = await client.posts.getPostsAroundLastUnread(userId, channelId, limitBefore, limitAfter, skipFetchThreads, collapsedThreads, collapsedThreadsExtended);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getPostsAroundLastUnread: $e\n');
@@ -521,18 +593,26 @@ Fetch a list of posts based on the provided postIDs ##### Permissions Must have 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final requestBody = [List<String>()]; // List<String> | List of post ids
 
 try {
-    final result = api_instance.getPostsByIds(requestBody);
+    final result = await client.posts.getPostsByIds(requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getPostsByIds: $e\n');
@@ -570,14 +650,22 @@ Get a page of posts in a channel. Use the query parameters to modify the behavio
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final channelId = channelId_example; // String | The channel ID to get the posts for
 final page = 56; // int | The page to select
 final perPage = 56; // int | The number of posts per page
@@ -586,7 +674,7 @@ final before = before_example; // String | A post id to select the posts that ca
 final after = after_example; // String | A post id to select the posts that came after this one
 
 try {
-    final result = api_instance.getPostsForChannel(channelId, page, perPage, since, before, after);
+    final result = await client.posts.getPostsForChannel(channelId, page, perPage, since, before, after);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->getPostsForChannel: $e\n');
@@ -629,19 +717,27 @@ Partially update a post by providing only the fields you want to update. Omitted
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | Post GUID
 final mattermostPatchPostRequest = MattermostPatchPostRequest(); // MattermostPatchPostRequest | Post object that is to be updated
 
 try {
-    final result = api_instance.patchPost(postId, mattermostPatchPostRequest);
+    final result = await client.posts.patchPost(postId, mattermostPatchPostRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->patchPost: $e\n');
@@ -680,18 +776,26 @@ Pin a post to a channel it is in based from the provided post id string. ##### P
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = api_instance.pinPost(postId);
+    final result = await client.posts.pinPost(postId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->pinPost: $e\n');
@@ -729,19 +833,27 @@ Search posts in the team and from the provided terms string. ##### Permissions M
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostSearchPostsRequest = MattermostSearchPostsRequest(); // MattermostSearchPostsRequest | The search terms and logic to use in the search.
 
 try {
-    final result = api_instance.searchPosts(teamId, mattermostSearchPostsRequest);
+    final result = await client.posts.searchPosts(teamId, mattermostSearchPostsRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->searchPosts: $e\n');
@@ -780,19 +892,27 @@ Mark a channel as being unread from a given post. ##### Permissions Must have `r
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final userId = userId_example; // String | User GUID
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = api_instance.setPostUnread(userId, postId);
+    final result = await client.posts.setPostUnread(userId, postId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->setPostUnread: $e\n');
@@ -831,18 +951,26 @@ Unpin a post to a channel it is in based from the provided post id string. #####
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | Post GUID
 
 try {
-    final result = api_instance.unpinPost(postId);
+    final result = await client.posts.unpinPost(postId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->unpinPost: $e\n');
@@ -880,19 +1008,27 @@ Update a post. Only the fields listed below are updatable, omitted fields will b
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostPostsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostPostsApi api instance
+// final MattermostPostsApi api_instance = client.posts
+
 final postId = postId_example; // String | ID of the post to update
 final mattermostUpdatePostRequest = MattermostUpdatePostRequest(); // MattermostUpdatePostRequest | Post object that is to be updated
 
 try {
-    final result = api_instance.updatePost(postId, mattermostUpdatePostRequest);
+    final result = await client.posts.updatePost(postId, mattermostUpdatePostRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostPostsApi->updatePost: $e\n');

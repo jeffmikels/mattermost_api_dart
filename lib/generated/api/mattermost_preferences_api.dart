@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostPreferencesApi {
-  MattermostPreferencesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostPreferencesApi(this.apiClient);
 
   /// Delete user's preferences
   ///

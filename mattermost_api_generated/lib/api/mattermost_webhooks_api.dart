@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostWebhooksApi {
-  MattermostWebhooksApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostWebhooksApi(this.apiClient);
+
 
   /// Create an incoming webhook
   ///

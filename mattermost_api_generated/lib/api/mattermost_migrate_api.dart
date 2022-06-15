@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostMigrateApi {
-  MattermostMigrateApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostMigrateApi(this.apiClient);
+
 
   /// Migrate user accounts authentication type to LDAP.
   ///

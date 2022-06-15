@@ -24,13 +24,13 @@ Import the package in your Dart file
 import 'package:mattermost_api/api.dart';
 ```
 
-Authenticate your client.
+## Creating a client
 
 ```dart
 var mmClient = MattermostApiClient(
-		basePath: '$mmBaseUrl/api/v4',
-		authentication: MattermostHttpBearerAuthentication(config.mmToken),
-	);
+  basePath: '$mmBaseUrl/api/v4',
+  authentication: MattermostHttpBearerAuthentication(config.mmToken),
+);
 ```
 
 Available authentication classes:
@@ -40,13 +40,20 @@ Available authentication classes:
 -   `MattermostHttpBearerAuthentication`
 -   `MattermostOAuth`
 
+## Accessing the API endpoints
+
 There are many sub-apis available on Mattermost and they are exposed by getters on the `MattermostApiClient` object or may be created on their own.
 
 Make your requests:
 
 ```dart
+// using getters on the client instance
 MattermostTeam? team = await mmClient.teams.getTeamByName(myTeamName);
 MattermostChannel? channel = await mmClient.channels.getChannel(myChannelId);
+
+// using the classes directly
+var channelApi = MattermostChannelsApi(mmClient)
+MattermostChannel? channel = await channelApi.getChannel(myChannelId);
 ```
 
 Everything in the library is prefixed with the word `Mattermost` so if you are using an IDE, simply start typing `Mattermost` and your IDE should show you what's available.

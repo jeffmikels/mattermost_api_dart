@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostTeamsApi {
-  MattermostTeamsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostTeamsApi(this.apiClient);
+
 
   /// Add user to team
   ///

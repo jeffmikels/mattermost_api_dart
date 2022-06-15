@@ -31,18 +31,26 @@ Create a command for a team. ##### Permissions `manage_slash_commands` for the t
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final mattermostCreateCommandRequest = MattermostCreateCommandRequest(); // MattermostCreateCommandRequest | command to be created
 
 try {
-    final result = api_instance.createCommand(mattermostCreateCommandRequest);
+    final result = await client.commands.createCommand(mattermostCreateCommandRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->createCommand: $e\n');
@@ -80,18 +88,26 @@ Delete a command based on command id string. ##### Permissions Must have `manage
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final commandId = commandId_example; // String | ID of the command to delete
 
 try {
-    final result = api_instance.deleteCommand(commandId);
+    final result = await client.commands.deleteCommand(commandId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->deleteCommand: $e\n');
@@ -129,18 +145,26 @@ Execute a command on a team. ##### Permissions Must have `use_slash_commands` pe
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final mattermostExecuteCommandRequest = MattermostExecuteCommandRequest(); // MattermostExecuteCommandRequest | command to be executed
 
 try {
-    final result = api_instance.executeCommand(mattermostExecuteCommandRequest);
+    final result = await client.commands.executeCommand(mattermostExecuteCommandRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->executeCommand: $e\n');
@@ -178,18 +202,26 @@ Get a command definition based on command id string. ##### Permissions Must have
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final commandId = commandId_example; // String | ID of the command to get
 
 try {
-    final result = api_instance.getCommandById(commandId);
+    final result = await client.commands.getCommandById(commandId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->getCommandById: $e\n');
@@ -227,18 +259,26 @@ List autocomplete commands in the team. ##### Permissions `view_team` for the te
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.listAutocompleteCommands(teamId);
+    final result = await client.commands.listAutocompleteCommands(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->listAutocompleteCommands: $e\n');
@@ -276,19 +316,27 @@ List commands' autocomplete data for the team. ##### Permissions `view_team` for
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final teamId = teamId_example; // String | Team GUID
 final userInput = userInput_example; // String | String inputted by the user.
 
 try {
-    final result = api_instance.listCommandAutocompleteSuggestions(teamId, userInput);
+    final result = await client.commands.listCommandAutocompleteSuggestions(teamId, userInput);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->listCommandAutocompleteSuggestions: $e\n');
@@ -327,19 +375,27 @@ List commands for a team. ##### Permissions `manage_slash_commands` if need list
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final teamId = teamId_example; // String | The team id.
 final customOnly = true; // bool | To get only the custom commands. If set to false will get the custom if the user have access plus the system commands, otherwise just the system commands. 
 
 try {
-    final result = api_instance.listCommands(teamId, customOnly);
+    final result = await client.commands.listCommands(teamId, customOnly);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->listCommands: $e\n');
@@ -378,19 +434,27 @@ Move a command to a different team based on command id string. ##### Permissions
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final commandId = commandId_example; // String | ID of the command to move
 final mattermostMoveCommandRequest = MattermostMoveCommandRequest(); // MattermostMoveCommandRequest | 
 
 try {
-    final result = api_instance.moveCommand(commandId, mattermostMoveCommandRequest);
+    final result = await client.commands.moveCommand(commandId, mattermostMoveCommandRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->moveCommand: $e\n');
@@ -429,18 +493,26 @@ Generate a new token for the command based on command id string. ##### Permissio
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final commandId = commandId_example; // String | ID of the command to generate the new token
 
 try {
-    final result = api_instance.regenCommandToken(commandId);
+    final result = await client.commands.regenCommandToken(commandId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->regenCommandToken: $e\n');
@@ -478,19 +550,27 @@ Update a single command based on command id string and Command struct. ##### Per
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostCommandsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostCommandsApi api instance
+// final MattermostCommandsApi api_instance = client.commands
+
 final commandId = commandId_example; // String | ID of the command to update
 final mattermostCommand = MattermostCommand(); // MattermostCommand | 
 
 try {
-    final result = api_instance.updateCommand(commandId, mattermostCommand);
+    final result = await client.commands.updateCommand(commandId, mattermostCommand);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostCommandsApi->updateCommand: $e\n');

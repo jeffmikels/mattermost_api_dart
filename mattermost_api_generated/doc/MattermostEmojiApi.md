@@ -29,18 +29,26 @@ Get a list of custom emoji with names starting with or matching the provided nam
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final name = name_example; // String | The emoji name to search.
 
 try {
-    final result = api_instance.autocompleteEmoji(name);
+    final result = await client.emoji.autocompleteEmoji(name);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->autocompleteEmoji: $e\n');
@@ -78,19 +86,27 @@ Create a custom emoji for the team. ##### Permissions Must be authenticated.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final image = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded
 final emoji = emoji_example; // String | A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
 
 try {
-    final result = api_instance.createEmoji(image, emoji);
+    final result = await client.emoji.createEmoji(image, emoji);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->createEmoji: $e\n');
@@ -129,18 +145,26 @@ Delete a custom emoji. ##### Permissions Must have the `manage_team` or `manage_
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final emojiId = emojiId_example; // String | Emoji GUID
 
 try {
-    final result = api_instance.deleteEmoji(emojiId);
+    final result = await client.emoji.deleteEmoji(emojiId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->deleteEmoji: $e\n');
@@ -178,18 +202,26 @@ Get some metadata for a custom emoji. ##### Permissions Must be authenticated.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final emojiId = emojiId_example; // String | Emoji GUID
 
 try {
-    final result = api_instance.getEmoji(emojiId);
+    final result = await client.emoji.getEmoji(emojiId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->getEmoji: $e\n');
@@ -227,18 +259,26 @@ Get some metadata for a custom emoji using its name. ##### Permissions Must be a
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final emojiName = emojiName_example; // String | Emoji name
 
 try {
-    final result = api_instance.getEmojiByName(emojiName);
+    final result = await client.emoji.getEmojiByName(emojiName);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->getEmojiByName: $e\n');
@@ -276,18 +316,26 @@ Get the image for a custom emoji. ##### Permissions Must be authenticated.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final emojiId = emojiId_example; // String | Emoji GUID
 
 try {
-    api_instance.getEmojiImage(emojiId);
+    await client.emoji.getEmojiImage(emojiId);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->getEmojiImage: $e\n');
 }
@@ -324,20 +372,28 @@ Get a page of metadata for custom emoji on the system. Since server version 4.7,
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of emojis per page.
 final sort = sort_example; // String | Either blank for no sorting or \"name\" to sort by emoji names. Minimum server version for sorting is 4.7.
 
 try {
-    final result = api_instance.getEmojiList(page, perPage, sort);
+    final result = await client.emoji.getEmojiList(page, perPage, sort);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->getEmojiList: $e\n');
@@ -377,18 +433,26 @@ Search for custom emoji by name based on search criteria provided in the request
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostEmojiApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostEmojiApi api instance
+// final MattermostEmojiApi api_instance = client.emoji
+
 final mattermostSearchEmojiRequest = MattermostSearchEmojiRequest(); // MattermostSearchEmojiRequest | Search criteria
 
 try {
-    final result = api_instance.searchEmoji(mattermostSearchEmojiRequest);
+    final result = await client.emoji.searchEmoji(mattermostSearchEmojiRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostEmojiApi->searchEmoji: $e\n');

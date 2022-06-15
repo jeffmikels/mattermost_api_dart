@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostUsersApi {
-  MattermostUsersApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostUsersApi(this.apiClient);
 
   /// Attach mobile device
   ///

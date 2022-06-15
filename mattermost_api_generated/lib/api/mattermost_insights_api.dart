@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostInsightsApi {
-  MattermostInsightsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostInsightsApi(this.apiClient);
+
 
   /// Get a list of the top channels for a team.
   ///

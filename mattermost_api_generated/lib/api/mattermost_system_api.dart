@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostSystemApi {
-  MattermostSystemApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostSystemApi(this.apiClient);
+
 
   /// Perform a database integrity check
   ///

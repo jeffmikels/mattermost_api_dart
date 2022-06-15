@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostComplianceApi {
-  MattermostComplianceApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostComplianceApi(this.apiClient);
 
   /// Create report
   ///

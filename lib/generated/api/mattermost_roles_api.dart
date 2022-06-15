@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostRolesApi {
-  MattermostRolesApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostRolesApi(this.apiClient);
 
   /// Get a list of all the roles
   ///

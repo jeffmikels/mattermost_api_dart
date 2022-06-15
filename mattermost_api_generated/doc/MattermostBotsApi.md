@@ -33,19 +33,27 @@ Assign a bot to a specified user. ##### Permissions Must have `manage_bots` perm
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 final userId = userId_example; // String | The user ID to assign the bot to.
 
 try {
-    final result = api_instance.assignBot(botUserId, userId);
+    final result = await client.bots.assignBot(botUserId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->assignBot: $e\n');
@@ -84,20 +92,28 @@ Convert a bot into a user.  __Minimum server version__: 5.26  ##### Permissions 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 final mattermostConvertBotToUserRequest = MattermostConvertBotToUserRequest(); // MattermostConvertBotToUserRequest | Data to be used in the user creation
 final setSystemAdmin = true; // bool | Whether to give the user the system admin role.
 
 try {
-    final result = api_instance.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
+    final result = await client.bots.convertBotToUser(botUserId, mattermostConvertBotToUserRequest, setSystemAdmin);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->convertBotToUser: $e\n');
@@ -137,18 +153,26 @@ Convert a user into a bot.  __Minimum server version__: 5.26  ##### Permissions 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.convertUserToBot(userId);
+    final result = await client.bots.convertUserToBot(userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->convertUserToBot: $e\n');
@@ -186,18 +210,26 @@ Create a new bot account on the system. Username is required. ##### Permissions 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
 
 try {
-    final result = api_instance.createBot(mattermostCreateBotRequest);
+    final result = await client.bots.createBot(mattermostCreateBotRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->createBot: $e\n');
@@ -235,18 +267,26 @@ Delete bot's LHS icon image based on bot_user_id string parameter. ##### Permiss
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 
 try {
-    final result = api_instance.deleteBotIconImage(botUserId);
+    final result = await client.bots.deleteBotIconImage(botUserId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->deleteBotIconImage: $e\n');
@@ -284,18 +324,26 @@ Disable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 
 try {
-    final result = api_instance.disableBot(botUserId);
+    final result = await client.bots.disableBot(botUserId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->disableBot: $e\n');
@@ -333,18 +381,26 @@ Enable a bot. ##### Permissions Must have `manage_bots` permission.  __Minimum s
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 
 try {
-    final result = api_instance.enableBot(botUserId);
+    final result = await client.bots.enableBot(botUserId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->enableBot: $e\n');
@@ -382,19 +438,27 @@ Get a bot specified by its bot id. ##### Permissions Must have `read_bots` permi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 final includeDeleted = true; // bool | If deleted bots should be returned.
 
 try {
-    final result = api_instance.getBot(botUserId, includeDeleted);
+    final result = await client.bots.getBot(botUserId, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->getBot: $e\n');
@@ -433,18 +497,26 @@ Get a bot's LHS icon image based on bot_user_id string parameter. ##### Permissi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 
 try {
-    api_instance.getBotIconImage(botUserId);
+    await client.bots.getBotIconImage(botUserId);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->getBotIconImage: $e\n');
 }
@@ -481,21 +553,29 @@ Get a page of a list of bots. ##### Permissions Must have `read_bots` permission
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 final includeDeleted = true; // bool | If deleted bots should be returned.
 final onlyOrphaned = true; // bool | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated.
 
 try {
-    final result = api_instance.getBots(page, perPage, includeDeleted, onlyOrphaned);
+    final result = await client.bots.getBots(page, perPage, includeDeleted, onlyOrphaned);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->getBots: $e\n');
@@ -536,19 +616,27 @@ Partially update a bot by providing only the fields you want to update. Omitted 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 final mattermostCreateBotRequest = MattermostCreateBotRequest(); // MattermostCreateBotRequest | Bot to be created
 
 try {
-    final result = api_instance.patchBot(botUserId, mattermostCreateBotRequest);
+    final result = await client.bots.patchBot(botUserId, mattermostCreateBotRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->patchBot: $e\n');
@@ -587,19 +675,27 @@ Set a bot's LHS icon image based on bot_user_id string parameter. Icon image mus
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostBotsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostBotsApi api instance
+// final MattermostBotsApi api_instance = client.bots
+
 final botUserId = botUserId_example; // String | Bot user ID
 final image = BINARY_DATA_HERE; // MultipartFile | SVG icon image to be uploaded
 
 try {
-    final result = api_instance.setBotIconImage(botUserId, image);
+    final result = await client.bots.setBotIconImage(botUserId, image);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostBotsApi->setBotIconImage: $e\n');

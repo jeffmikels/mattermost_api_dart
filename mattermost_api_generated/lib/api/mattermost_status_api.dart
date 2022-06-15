@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostStatusApi {
-  MattermostStatusApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostStatusApi(this.apiClient);
+
 
   /// Get user status
   ///

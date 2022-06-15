@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostPostsApi {
-  MattermostPostsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostPostsApi(this.apiClient);
+
 
   /// Create a post
   ///

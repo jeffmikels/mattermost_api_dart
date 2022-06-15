@@ -2,10 +2,15 @@
 {{>part_of}}
 {{#operations}}
 
+{{#summary}}
+/// {{{.}}}
+{{/summary}}
 class {{{classname}}} {
-  {{{classname}}}([{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}? apiClient]) : apiClient = apiClient ?? default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}};
 
   final {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}} apiClient;
+  
+  {{{classname}}}(this.apiClient);
+
   {{#operation}}
 
   {{#summary}}

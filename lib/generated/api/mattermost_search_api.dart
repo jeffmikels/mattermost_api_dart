@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostSearchApi {
-  MattermostSearchApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostSearchApi(this.apiClient);
 
   /// Search files in a team
   ///

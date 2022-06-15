@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostBleveApi {
-  MattermostBleveApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostBleveApi(this.apiClient);
 
   /// Purge all Bleve indexes
   ///

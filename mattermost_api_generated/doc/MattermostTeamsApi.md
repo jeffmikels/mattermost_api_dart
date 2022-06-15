@@ -58,19 +58,27 @@ Add user to the team by user_id. ##### Permissions Must be authenticated and tea
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostAddTeamMemberRequest = MattermostAddTeamMemberRequest(); // MattermostAddTeamMemberRequest | 
 
 try {
-    final result = api_instance.addTeamMember(teamId, mattermostAddTeamMemberRequest);
+    final result = await client.teams.addTeamMember(teamId, mattermostAddTeamMemberRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->addTeamMember: $e\n');
@@ -109,18 +117,26 @@ Using either an invite id or hash/data pair from an email invite link, add a use
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final token = token_example; // String | Token id from the invitation
 
 try {
-    final result = api_instance.addTeamMemberFromInvite(token);
+    final result = await client.teams.addTeamMemberFromInvite(token);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->addTeamMemberFromInvite: $e\n');
@@ -158,20 +174,28 @@ Add a number of users to the team by user_id. ##### Permissions Must be authenti
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostTeamMember = [List<MattermostTeamMember>()]; // List<MattermostTeamMember> | 
 final graceful = true; // bool | Instead of aborting the operation if a user cannot be added, return an arrray that will contain both the success and added members and the ones with error, in form of `[{\"member\": {...}, \"user_id\", \"...\", \"error\": {...}}]`
 
 try {
-    final result = api_instance.addTeamMembers(teamId, mattermostTeamMember, graceful);
+    final result = await client.teams.addTeamMembers(teamId, mattermostTeamMember, graceful);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->addTeamMembers: $e\n');
@@ -211,18 +235,26 @@ Create a new team on the system. ##### Permissions Must be authenticated and hav
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final mattermostCreateTeamRequest = MattermostCreateTeamRequest(); // MattermostCreateTeamRequest | Team that is to be created
 
 try {
-    final result = api_instance.createTeam(mattermostCreateTeamRequest);
+    final result = await client.teams.createTeam(mattermostCreateTeamRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->createTeam: $e\n');
@@ -260,21 +292,29 @@ For regular users only returns open teams. Users with the \"manage_system\" perm
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of teams per page.
 final includeTotalCount = true; // bool | 
 final excludePolicyConstrained = true; // bool | If set to true, teams which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-    final result = api_instance.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained);
+    final result = await client.teams.getAllTeams(page, perPage, includeTotalCount, excludePolicyConstrained);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getAllTeams: $e\n');
@@ -315,18 +355,26 @@ Get a team on the system. ##### Permissions Must be authenticated and have the `
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.getTeam(teamId);
+    final result = await client.teams.getTeam(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeam: $e\n');
@@ -364,18 +412,26 @@ Get a team based on provided name string ##### Permissions Must be authenticated
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final name = name_example; // String | Team Name
 
 try {
-    final result = api_instance.getTeamByName(name);
+    final result = await client.teams.getTeamByName(name);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamByName: $e\n');
@@ -413,18 +469,26 @@ Get the team icon of the team.  __Minimum server version__: 4.9  ##### Permissio
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    api_instance.getTeamIcon(teamId);
+    await client.teams.getTeamIcon(teamId);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamIcon: $e\n');
 }
@@ -461,18 +525,26 @@ Get the `name`, `display_name`, `description` and `id` for a team from the invit
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final inviteId = inviteId_example; // String | Invite id for a team
 
 try {
-    final result = api_instance.getTeamInviteInfo(inviteId);
+    final result = await client.teams.getTeamInviteInfo(inviteId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamInviteInfo: $e\n');
@@ -510,19 +582,27 @@ Get a team member on the system. ##### Permissions Must be authenticated and hav
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getTeamMember(teamId, userId);
+    final result = await client.teams.getTeamMember(teamId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamMember: $e\n');
@@ -561,20 +641,28 @@ Get a page team members list based on query string parameters - team id, page an
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page.
 
 try {
-    final result = api_instance.getTeamMembers(teamId, page, perPage);
+    final result = await client.teams.getTeamMembers(teamId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamMembers: $e\n');
@@ -614,19 +702,27 @@ Get a list of team members based on a provided array of user ids. ##### Permissi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-    final result = api_instance.getTeamMembersByIds(teamId, requestBody);
+    final result = await client.teams.getTeamMembersByIds(teamId, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamMembersByIds: $e\n');
@@ -665,18 +761,26 @@ Get a list of team members for a user. Useful for getting the ids of teams the u
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getTeamMembersForUser(userId);
+    final result = await client.teams.getTeamMembersForUser(userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamMembersForUser: $e\n');
@@ -714,18 +818,26 @@ Get a team stats on the system. ##### Permissions Must be authenticated and have
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.getTeamStats(teamId);
+    final result = await client.teams.getTeamStats(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamStats: $e\n');
@@ -763,19 +875,27 @@ Get the unread mention and message counts for a team for the specified user. ###
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final userId = userId_example; // String | User GUID
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.getTeamUnread(userId, teamId);
+    final result = await client.teams.getTeamUnread(userId, teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamUnread: $e\n');
@@ -814,18 +934,26 @@ Get a list of teams that a user is on. ##### Permissions Must be authenticated a
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getTeamsForUser(userId);
+    final result = await client.teams.getTeamsForUser(userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamsForUser: $e\n');
@@ -863,20 +991,28 @@ Get the count for unread messages and mentions in the teams the user is a member
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final userId = userId_example; // String | User GUID
 final excludeTeam = excludeTeam_example; // String | Optional team id to be excluded from the results
 final includeCollapsedThreads = true; // bool | Boolean to determine whether the collapsed threads should be included or not
 
 try {
-    final result = api_instance.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads);
+    final result = await client.teams.getTeamsUnreadForUser(userId, excludeTeam, includeCollapsedThreads);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->getTeamsUnreadForUser: $e\n');
@@ -916,21 +1052,29 @@ Import a team into a existing team. Import users, channels, posts, hooks. ##### 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final file = BINARY_DATA_HERE; // MultipartFile | A file to be uploaded in zip format.
 final filesize = 56; // int | The size of the zip file to be imported.
 final importFrom = importFrom_example; // String | String that defines from which application the team was exported to be imported into Mattermost.
 
 try {
-    final result = api_instance.importTeam(teamId, file, filesize, importFrom);
+    final result = await client.teams.importTeam(teamId, file, filesize, importFrom);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->importTeam: $e\n');
@@ -971,17 +1115,25 @@ Invalidate active email invitations that have not been accepted by the user. ###
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 
 try {
-    final result = api_instance.invalidateEmailInvites();
+    final result = await client.teams.invalidateEmailInvites();
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->invalidateEmailInvites: $e\n');
@@ -1016,19 +1168,27 @@ Invite guests to existing team channels usign the user's email.  The number of e
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostInviteGuestsToTeamRequest = MattermostInviteGuestsToTeamRequest(); // MattermostInviteGuestsToTeamRequest | Guests invite information
 
 try {
-    final result = api_instance.inviteGuestsToTeam(teamId, mattermostInviteGuestsToTeamRequest);
+    final result = await client.teams.inviteGuestsToTeam(teamId, mattermostInviteGuestsToTeamRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->inviteGuestsToTeam: $e\n');
@@ -1067,19 +1227,27 @@ Invite users to the existing team using the user's email.  The number of emails 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final requestBody = [List<String>()]; // List<String> | List of user's email
 
 try {
-    final result = api_instance.inviteUsersToTeam(teamId, requestBody);
+    final result = await client.teams.inviteUsersToTeam(teamId, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->inviteUsersToTeam: $e\n');
@@ -1118,19 +1286,27 @@ Partially update a team by providing only the fields you want to update. Omitted
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostPatchTeamRequest = MattermostPatchTeamRequest(); // MattermostPatchTeamRequest | Team object that is to be updated
 
 try {
-    final result = api_instance.patchTeam(teamId, mattermostPatchTeamRequest);
+    final result = await client.teams.patchTeam(teamId, mattermostPatchTeamRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->patchTeam: $e\n');
@@ -1169,18 +1345,26 @@ Regenerates the invite ID used in invite links of a team ##### Permissions Must 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.regenerateTeamInviteId(teamId);
+    final result = await client.teams.regenerateTeamInviteId(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->regenerateTeamInviteId: $e\n');
@@ -1218,18 +1402,26 @@ Remove the team icon for the team.  __Minimum server version__: 4.10  ##### Perm
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.removeTeamIcon(teamId);
+    final result = await client.teams.removeTeamIcon(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->removeTeamIcon: $e\n');
@@ -1267,19 +1459,27 @@ Delete the team member object for a user, effectively removing them from a team.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.removeTeamMember(teamId, userId);
+    final result = await client.teams.removeTeamMember(teamId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->removeTeamMember: $e\n');
@@ -1318,18 +1518,26 @@ Restore a team that was previously soft deleted.  __Minimum server version__: 5.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.restoreTeam(teamId);
+    final result = await client.teams.restoreTeam(teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->restoreTeam: $e\n');
@@ -1367,14 +1575,22 @@ Search for files in a team based on file name, extention and file content (if fi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final terms = terms_example; // String | The search terms as inputed by the user. To search for files from a user include `from:someusername`, using a user's username. To search in a specific channel include `in:somechannel`, using the channel name (not the display name). To search for specific extensions included `ext:extension`.
 final isOrSearch = true; // bool | Set to true if an Or search should be performed vs an And search.
@@ -1384,7 +1600,7 @@ final page = 56; // int | The page to select. (Only works with Elasticsearch)
 final perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-    final result = api_instance.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
+    final result = await client.teams.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->searchFiles: $e\n');
@@ -1428,18 +1644,26 @@ Search teams based on search term and options provided in the request body.  ###
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final mattermostSearchTeamsRequest = MattermostSearchTeamsRequest(); // MattermostSearchTeamsRequest | Search criteria
 
 try {
-    final result = api_instance.searchTeams(mattermostSearchTeamsRequest);
+    final result = await client.teams.searchTeams(mattermostSearchTeamsRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->searchTeams: $e\n');
@@ -1477,19 +1701,27 @@ Sets the team icon for the team.  __Minimum server version__: 4.9  ##### Permiss
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final image = BINARY_DATA_HERE; // MultipartFile | The image to be uploaded
 
 try {
-    final result = api_instance.setTeamIcon(teamId, image);
+    final result = await client.teams.setTeamIcon(teamId, image);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->setTeamIcon: $e\n');
@@ -1528,19 +1760,27 @@ Soft deletes a team, by marking the team as deleted in the database. Soft delete
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final permanent = true; // bool | Permanently delete the team, to be used for compliance reasons only. As of server version 5.0, `ServiceSettings.EnableAPITeamDeletion` must be set to `true` in the server's configuration.
 
 try {
-    final result = api_instance.softDeleteTeam(teamId, permanent);
+    final result = await client.teams.softDeleteTeam(teamId, permanent);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->softDeleteTeam: $e\n');
@@ -1579,18 +1819,26 @@ Check if the team exists based on a team name. ##### Permissions Must be authent
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final name = name_example; // String | Team Name
 
 try {
-    final result = api_instance.teamExists(name);
+    final result = await client.teams.teamExists(name);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->teamExists: $e\n');
@@ -1628,21 +1876,29 @@ Get the set of users who are members of the team minus the set of users who are 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final groupIds = groupIds_example; // String | A comma-separated list of group ids.
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page.
 
 try {
-    api_instance.teamMembersMinusGroupMembers(teamId, groupIds, page, perPage);
+    await client.teams.teamMembersMinusGroupMembers(teamId, groupIds, page, perPage);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->teamMembersMinusGroupMembers: $e\n');
 }
@@ -1682,19 +1938,27 @@ Update a team by providing the team object. The fields that can be updated are d
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostUpdateTeamRequest = MattermostUpdateTeamRequest(); // MattermostUpdateTeamRequest | Team to update
 
 try {
-    final result = api_instance.updateTeam(teamId, mattermostUpdateTeamRequest);
+    final result = await client.teams.updateTeam(teamId, mattermostUpdateTeamRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->updateTeam: $e\n');
@@ -1733,20 +1997,28 @@ Update a team member roles. Valid team roles are \"team_user\", \"team_admin\" o
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited team roles to assign to the user
 
 try {
-    final result = api_instance.updateTeamMemberRoles(teamId, userId, mattermostUpdateUserRolesRequest);
+    final result = await client.teams.updateTeamMemberRoles(teamId, userId, mattermostUpdateUserRolesRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->updateTeamMemberRoles: $e\n');
@@ -1786,20 +2058,28 @@ Update a team member's scheme_admin/scheme_user properties. Typically this shoul
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-    final result = api_instance.updateTeamMemberSchemeRoles(teamId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
+    final result = await client.teams.updateTeamMemberSchemeRoles(teamId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->updateTeamMemberSchemeRoles: $e\n');
@@ -1839,19 +2119,27 @@ Updates team's privacy allowing changing a team from Public (open) to Private (i
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostUpdateTeamPrivacyRequest = MattermostUpdateTeamPrivacyRequest(); // MattermostUpdateTeamPrivacyRequest | 
 
 try {
-    final result = api_instance.updateTeamPrivacy(teamId, mattermostUpdateTeamPrivacyRequest);
+    final result = await client.teams.updateTeamPrivacy(teamId, mattermostUpdateTeamPrivacyRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->updateTeamPrivacy: $e\n');
@@ -1890,19 +2178,27 @@ Set a team's scheme, more specifically sets the scheme_id value of a team record
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostTeamsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostTeamsApi api instance
+// final MattermostTeamsApi api_instance = client.teams
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-    final result = api_instance.updateTeamScheme(teamId, mattermostUpdateTeamSchemeRequest);
+    final result = await client.teams.updateTeamScheme(teamId, mattermostUpdateTeamSchemeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostTeamsApi->updateTeamScheme: $e\n');

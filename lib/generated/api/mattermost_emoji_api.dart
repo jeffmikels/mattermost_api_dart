@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostEmojiApi {
-  MattermostEmojiApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostEmojiApi(this.apiClient);
 
   /// Autocomplete custom emoji
   ///

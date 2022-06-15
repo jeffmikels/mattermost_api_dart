@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostSAMLApi {
-  MattermostSAMLApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostSAMLApi(this.apiClient);
+
 
   /// Remove IDP certificate
   ///

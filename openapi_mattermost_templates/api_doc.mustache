@@ -25,43 +25,65 @@ Method | HTTP request | Description
 ### Example
 ```dart
 import 'package:{{{pubName}}}/api.dart';
+
+// TODO: Set up the client
 {{#hasAuthMethods}}
 {{#authMethods}}
 {{#isBasic}}
 {{#isBasicBasic}}
-// TODO Configure HTTP basic authorization: {{{name}}}
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<HttpBasicAuth>('{{{name}}}').username = 'YOUR_USERNAME'
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<HttpBasicAuth>('{{{name}}}').password = 'YOUR_PASSWORD';
+// Configure client with HTTP basic authorization:
+// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: {{{modelNamePrefix}}}HttpBasicAuthentication{{{modelNameSuffix}}}(
+//     username: 'USERNAME',
+//     password: 'PASSWORD',
+//   ),
+// );
 {{/isBasicBasic}}
 {{#isBasicBearer}}
-// TODO Configure HTTP Bearer authorization: {{{name}}}
-// Case 1. Use String Token
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<HttpBearerAuth>('{{{name}}}').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<HttpBearerAuth>('{{{name}}}').setAccessToken(yourTokenGeneratorFunction);
+// Configure client with HTTP Bearer authorization and string token:
+// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: {{{modelNamePrefix}}}HttpBearerAuthentication{{{modelNameSuffix}}}(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
 {{/isBasicBearer}}
 {{/isBasic}}
 {{#isApiKey}}
-// TODO Configure API key authorization: {{{name}}}
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<ApiKeyAuth>('{{{name}}}').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<ApiKeyAuth>('{{{name}}}').apiKeyPrefix = 'Bearer';
+// Configure client with ApiKey authorization:
+// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostApiKeyAuthentication(
+//     HttpLocation.query,
+//     'PARAM_NAME',
+//     'API_KEY',
+//     apiKeyPrefix: 'PREFIX',
+//   ),
+// );
 {{/isApiKey}}
 {{#isOAuth}}
-// TODO Configure OAuth2 access token for authorization: {{{name}}}
-//default{{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}.getAuthentication<OAuth>('{{{name}}}').accessToken = 'YOUR_ACCESS_TOKEN';
+// Configure client with OAuth authorization:
+// client = {{#apiClientName}}{{.}}{{/apiClientName}}{{^apiClientName}}{{{modelNamePrefix}}}ApiClient{{{modelNameSuffix}}}{{/apiClientName}}(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: {{{modelNamePrefix}}}OAuth{{{modelNameSuffix}}}(accessToken: 'YOUR TOKEN'),
+// );
 {{/isOAuth}}
 {{/authMethods}}
 {{/hasAuthMethods}}
 
-final api_instance = {{{classname}}}();
+// Then, access {{{classname}}} api instance
+// final {{{classname}}} api_instance = client.{{classVarName}}
+
 {{#allParams}}
 final {{{paramName}}} = {{#isArray}}[{{/isArray}}{{#isBodyParam}}{{{dataType}}}(){{/isBodyParam}}{{^isBodyParam}}{{{example}}}{{/isBodyParam}}{{#isArray}}]{{/isArray}}; // {{{dataType}}} | {{{description}}}
 {{/allParams}}
 
 try {
-    {{#returnType}}final result = {{/returnType}}api_instance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+    {{#returnType}}final result = {{/returnType}}await client.{{classVarName}}.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
     {{#returnType}}
     print(result);
     {{/returnType}}

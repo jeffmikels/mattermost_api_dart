@@ -11,9 +11,9 @@
 part of mattermost.api;
 
 class MattermostTermsOfServiceApi {
-  MattermostTermsOfServiceApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
-
   final MattermostApiClient apiClient;
+
+  MattermostTermsOfServiceApi(this.apiClient);
 
   /// Creates a new terms of service
   ///

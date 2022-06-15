@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostBotsApi {
-  MattermostBotsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostBotsApi(this.apiClient);
+
 
   /// Assign a bot to a user
   ///

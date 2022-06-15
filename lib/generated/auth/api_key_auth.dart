@@ -11,12 +11,18 @@
 part of mattermost.api;
 
 class MattermostApiKeyAuthentication implements MattermostAuthentication {
-  MattermostApiKeyAuthentication(this.location, this.paramName);
+  MattermostApiKeyAuthentication(this.location, this.paramName, this.apiKey, {this.apiKeyPrefix = ''});
 
-  final String location;
+  /// `location` can be 'query', 'header', or 'cookie'
+  final HttpLocation location;
+
+  /// `paramName` is the name of the parameter to use for sending the api key
   final String paramName;
 
+  /// if set, the `apiKeyPrefix` will be prepended to the `apiKey`
+  /// and separated by a space character
   String apiKeyPrefix = '';
+
   String apiKey = '';
 
   @override
@@ -24,11 +30,11 @@ class MattermostApiKeyAuthentication implements MattermostAuthentication {
     final paramValue = apiKeyPrefix.isEmpty ? apiKey : '$apiKeyPrefix $apiKey';
 
     if (paramValue.isNotEmpty) {
-      if (location == 'query') {
+      if (location == HttpLocation.query) {
         queryParams.add(MattermostQueryParam(paramName, paramValue));
-      } else if (location == 'header') {
+      } else if (location == HttpLocation.header) {
         headerParams[paramName] = paramValue;
-      } else if (location == 'cookie') {
+      } else if (location == HttpLocation.cookie) {
         headerParams.update(
           'Cookie',
           (existingCookie) => '$existingCookie; $paramName=$paramValue',

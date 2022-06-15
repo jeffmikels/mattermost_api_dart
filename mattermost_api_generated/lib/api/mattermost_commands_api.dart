@@ -12,9 +12,11 @@ part of mattermost.api;
 
 
 class MattermostCommandsApi {
-  MattermostCommandsApi([MattermostApiClient? apiClient]) : apiClient = apiClient ?? defaultMattermostApiClient;
 
   final MattermostApiClient apiClient;
+  
+  MattermostCommandsApi(this.apiClient);
+
 
   /// Create a command
   ///

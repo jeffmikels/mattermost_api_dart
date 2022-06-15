@@ -416,5 +416,6 @@ extension MattermostApiClientExtension on MattermostApiClient {
 	
 }
 
+enum HttpLocation{header, query, cookie}
 
-MattermostApiClient defaultMattermostApiClient = MattermostApiClient();
+// MattermostApiClient defaultMattermostApiClient = MattermostApiClient();

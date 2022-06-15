@@ -73,19 +73,27 @@ Add a user to a channel by creating a channel member object.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | The channel ID
 final mattermostAddChannelMemberRequest = MattermostAddChannelMemberRequest(); // MattermostAddChannelMemberRequest | 
 
 try {
-    final result = api_instance.addChannelMember(channelId, mattermostAddChannelMemberRequest);
+    final result = await client.channels.addChannelMember(channelId, mattermostAddChannelMemberRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->addChannelMember: $e\n');
@@ -124,19 +132,27 @@ Autocomplete public channels on a team based on the search term provided in the 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final name = name_example; // String | Name or display name
 
 try {
-    final result = api_instance.autocompleteChannelsForTeam(teamId, name);
+    final result = await client.channels.autocompleteChannelsForTeam(teamId, name);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeam: $e\n');
@@ -175,19 +191,27 @@ Autocomplete your channels on a team based on the search term provided in the re
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final name = name_example; // String | Name or display name
 
 try {
-    final result = api_instance.autocompleteChannelsForTeamForSearch(teamId, name);
+    final result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeamForSearch: $e\n');
@@ -226,21 +250,29 @@ Get the set of users who are members of the channel minus the set of users who a
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final groupIds = groupIds_example; // String | A comma-separated list of group ids.
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of users per page.
 
 try {
-    api_instance.channelMembersMinusGroupMembers(channelId, groupIds, page, perPage);
+    await client.channels.channelMembersMinusGroupMembers(channelId, groupIds, page, perPage);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->channelMembersMinusGroupMembers: $e\n');
 }
@@ -280,18 +312,26 @@ Create a new channel. ##### Permissions If creating a public channel, `create_pu
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final mattermostCreateChannelRequest = MattermostCreateChannelRequest(); // MattermostCreateChannelRequest | Channel object to be created
 
 try {
-    final result = api_instance.createChannel(mattermostCreateChannelRequest);
+    final result = await client.channels.createChannel(mattermostCreateChannelRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->createChannel: $e\n');
@@ -329,18 +369,26 @@ Create a new direct message channel between two users. ##### Permissions Must be
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
 
 try {
-    final result = api_instance.createDirectChannel(requestBody);
+    final result = await client.channels.createDirectChannel(requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->createDirectChannel: $e\n');
@@ -378,18 +426,26 @@ Create a new group message channel to group of users. If the logged in user's id
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
 
 try {
-    final result = api_instance.createGroupChannel(requestBody);
+    final result = await client.channels.createGroupChannel(requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->createGroupChannel: $e\n');
@@ -427,20 +483,28 @@ Create a custom sidebar category for the user on the given team. __Minimum serve
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
 
 try {
-    final result = api_instance.createSidebarCategoryForTeamForUser(teamId, userId, mattermostSidebarCategory);
+    final result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mattermostSidebarCategory);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->createSidebarCategoryForTeamForUser: $e\n');
@@ -480,18 +544,26 @@ Archives a channel. This will set the `deleteAt` to the current timestamp in the
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.deleteChannel(channelId);
+    final result = await client.channels.deleteChannel(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->deleteChannel: $e\n');
@@ -529,14 +601,22 @@ Get a list of all channels
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final notAssociatedToGroup = notAssociatedToGroup_example; // String | A group id to exclude channels that are associated with that group via GroupChannel records. This can also be left blank with `not_associated_to_group=`.
 final page = 56; // int | 
 final perPage = 56; // int | 
@@ -546,7 +626,7 @@ final includeTotalCount = true; // bool | Appends a total count of returned chan
 final excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-    final result = api_instance.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained);
+    final result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getAllChannels: $e\n');
@@ -590,18 +670,26 @@ Get channel from the provided channel id string. ##### Permissions `read_channel
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getChannel(channelId);
+    final result = await client.channels.getChannel(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannel: $e\n');
@@ -639,20 +727,28 @@ Gets channel from the provided team id and channel name strings. ##### Permissio
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final channelName = channelName_example; // String | Channel Name
 final includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-    final result = api_instance.getChannelByName(teamId, channelName, includeDeleted);
+    final result = await client.channels.getChannelByName(teamId, channelName, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelByName: $e\n');
@@ -692,20 +788,28 @@ Gets a channel from the provided team name and channel name strings. ##### Permi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamName = teamName_example; // String | Team Name
 final channelName = channelName_example; // String | Channel Name
 final includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-    final result = api_instance.getChannelByNameForTeamName(teamName, channelName, includeDeleted);
+    final result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelByNameForTeamName: $e\n');
@@ -745,19 +849,27 @@ Get a channel member. ##### Permissions `read_channel` permission for the channe
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getChannelMember(channelId, userId);
+    final result = await client.channels.getChannelMember(channelId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMember: $e\n');
@@ -796,19 +908,27 @@ Returns a set of ChannelMemberCountByGroup objects which contain a `group_id`, `
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final includeTimezones = true; // bool | Defines if member timezone counts should be returned or not
 
 try {
-    api_instance.getChannelMemberCountsByGroup(channelId, includeTimezones);
+    await client.channels.getChannelMemberCountsByGroup(channelId, includeTimezones);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMemberCountsByGroup: $e\n');
 }
@@ -846,20 +966,28 @@ Get a page of members for a channel. ##### Permissions `read_channel` permission
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
 
 try {
-    final result = api_instance.getChannelMembers(channelId, page, perPage);
+    final result = await client.channels.getChannelMembers(channelId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMembers: $e\n');
@@ -899,19 +1027,27 @@ Get a list of channel members based on the provided user ids. ##### Permissions 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-    final result = api_instance.getChannelMembersByIds(channelId, requestBody);
+    final result = await client.channels.getChannelMembersByIds(channelId, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMembersByIds: $e\n');
@@ -950,19 +1086,27 @@ Get all channel memberships and associated membership roles (i.e. `channel_user`
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final userId = userId_example; // String | User GUID
 final teamId = teamId_example; // String | Team GUID
 
 try {
-    final result = api_instance.getChannelMembersForUser(userId, teamId);
+    final result = await client.channels.getChannelMembersForUser(userId, teamId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMembersForUser: $e\n');
@@ -1001,18 +1145,26 @@ Get a list of timezones for the users who are in this channel.  __Minimum server
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getChannelMembersTimezones(channelId);
+    final result = await client.channels.getChannelMembersTimezones(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelMembersTimezones: $e\n');
@@ -1050,18 +1202,26 @@ Get information about channel's moderation.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getChannelModerations(channelId);
+    final result = await client.channels.getChannelModerations(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelModerations: $e\n');
@@ -1099,18 +1259,26 @@ Get statistics for a channel. ##### Permissions Must have the `read_channel` per
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getChannelStats(channelId);
+    final result = await client.channels.getChannelStats(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelStats: $e\n');
@@ -1148,19 +1316,27 @@ Get the total unread messages and mentions for a channel for a user. ##### Permi
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final userId = userId_example; // String | User GUID
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getChannelUnread(userId, channelId);
+    final result = await client.channels.getChannelUnread(userId, channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelUnread: $e\n');
@@ -1199,21 +1375,29 @@ Get all the channels on a team for a user. ##### Permissions Logged in as the us
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final userId = userId_example; // String | User GUID
 final teamId = teamId_example; // String | Team GUID
 final includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 final lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 
 try {
-    final result = api_instance.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt);
+    final result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelsForTeamForUser: $e\n');
@@ -1254,20 +1438,28 @@ Get all channels from all teams that a user is a member of.  __Minimum server ve
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final userId = userId_example; // String | The ID of the user. This can also be \"me\" which will point to the current user.
 final lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 final includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 
 try {
-    final result = api_instance.getChannelsForUser(userId, lastDeleteAt, includeDeleted);
+    final result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getChannelsForUser: $e\n');
@@ -1307,20 +1499,28 @@ Get a page of deleted channels on a team based on query string parameters - team
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of public channels per page.
 
 try {
-    final result = api_instance.getDeletedChannelsForTeam(teamId, page, perPage);
+    final result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getDeletedChannelsForTeam: $e\n');
@@ -1360,18 +1560,26 @@ Get a list of pinned posts for channel.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.getPinnedPosts(channelId);
+    final result = await client.channels.getPinnedPosts(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getPinnedPosts: $e\n');
@@ -1409,20 +1617,28 @@ Get a page of private channels on a team based on query string parameters - team
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of private channels per page.
 
 try {
-    final result = api_instance.getPrivateChannelsForTeam(teamId, page, perPage);
+    final result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getPrivateChannelsForTeam: $e\n');
@@ -1462,19 +1678,27 @@ Get a list of public channels on a team by id. ##### Permissions `view_team` for
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final requestBody = [List<String>()]; // List<String> | List of channel ids
 
 try {
-    final result = api_instance.getPublicChannelsByIdsForTeam(teamId, requestBody);
+    final result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getPublicChannelsByIdsForTeam: $e\n');
@@ -1513,20 +1737,28 @@ Get a page of public channels on a team based on query string parameters - page 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final page = 56; // int | The page to select.
 final perPage = 56; // int | The number of public channels per page.
 
 try {
-    final result = api_instance.getPublicChannelsForTeam(teamId, page, perPage);
+    final result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getPublicChannelsForTeam: $e\n');
@@ -1566,19 +1798,27 @@ Get a list of sidebar categories that will appear in the user's sidebar on the g
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getSidebarCategoriesForTeamForUser(teamId, userId);
+    final result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getSidebarCategoriesForTeamForUser: $e\n');
@@ -1617,20 +1857,28 @@ Returns a single sidebar category for the user on the given team. __Minimum serv
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final categoryId = categoryId_example; // String | Category GUID
 
 try {
-    final result = api_instance.getSidebarCategoryForTeamForUser(teamId, userId, categoryId);
+    final result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getSidebarCategoryForTeamForUser: $e\n');
@@ -1670,19 +1918,27 @@ Returns the order of the sidebar categories for a user on the given team as an a
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.getSidebarCategoryOrderForTeamForUser(teamId, userId);
+    final result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->getSidebarCategoryOrderForTeamForUser: $e\n');
@@ -1721,19 +1977,27 @@ Move a channel to another team.  __Minimum server version__: 5.26  ##### Permiss
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostMoveChannelRequest = MattermostMoveChannelRequest(); // MattermostMoveChannelRequest | 
 
 try {
-    final result = api_instance.moveChannel(channelId, mattermostMoveChannelRequest);
+    final result = await client.channels.moveChannel(channelId, mattermostMoveChannelRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->moveChannel: $e\n');
@@ -1772,19 +2036,27 @@ Partially update a channel by providing only the fields you want to update. Omit
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostPatchChannelRequest = MattermostPatchChannelRequest(); // MattermostPatchChannelRequest | Channel object to be updated
 
 try {
-    final result = api_instance.patchChannel(channelId, mattermostPatchChannelRequest);
+    final result = await client.channels.patchChannel(channelId, mattermostPatchChannelRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->patchChannel: $e\n');
@@ -1823,19 +2095,27 @@ Update a channel's moderation settings.
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostChannelModerationPatch = MattermostChannelModerationPatch(); // MattermostChannelModerationPatch | 
 
 try {
-    final result = api_instance.patchChannelModerations(channelId, mattermostChannelModerationPatch);
+    final result = await client.channels.patchChannelModerations(channelId, mattermostChannelModerationPatch);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->patchChannelModerations: $e\n');
@@ -1874,20 +2154,28 @@ Deletes a single sidebar category for the user on the given team. Only custom ca
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final categoryId = categoryId_example; // String | Category GUID
 
 try {
-    final result = api_instance.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId);
+    final result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->removeSidebarCategoryForTeamForUser: $e\n');
@@ -1927,19 +2215,27 @@ Delete a channel member, effectively removing them from a channel.  In server ve
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final userId = userId_example; // String | User GUID
 
 try {
-    final result = api_instance.removeUserFromChannel(channelId, userId);
+    final result = await client.channels.removeUserFromChannel(channelId, userId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->removeUserFromChannel: $e\n');
@@ -1978,18 +2274,26 @@ Restore channel from the provided channel id string.  __Minimum server version__
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 
 try {
-    final result = api_instance.restoreChannel(channelId);
+    final result = await client.channels.restoreChannel(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->restoreChannel: $e\n');
@@ -2027,19 +2331,27 @@ Returns all private and open type channels where 'term' matches on the name, dis
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final mattermostSearchAllChannelsRequest = MattermostSearchAllChannelsRequest(); // MattermostSearchAllChannelsRequest | The search terms and logic to use in the search.
 final systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
 
 try {
-    final result = api_instance.searchAllChannels(mattermostSearchAllChannelsRequest, systemConsole);
+    final result = await client.channels.searchAllChannels(mattermostSearchAllChannelsRequest, systemConsole);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->searchAllChannels: $e\n');
@@ -2078,19 +2390,27 @@ Search archived channels on a team based on the search term provided in the requ
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostSearchArchivedChannelsRequest = MattermostSearchArchivedChannelsRequest(); // MattermostSearchArchivedChannelsRequest | Search criteria
 
 try {
-    final result = api_instance.searchArchivedChannels(teamId, mattermostSearchArchivedChannelsRequest);
+    final result = await client.channels.searchArchivedChannels(teamId, mattermostSearchArchivedChannelsRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->searchArchivedChannels: $e\n');
@@ -2129,19 +2449,27 @@ Search public channels on a team based on the search term provided in the reques
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final mattermostSearchChannelsRequest = MattermostSearchChannelsRequest(); // MattermostSearchChannelsRequest | Search criteria
 
 try {
-    final result = api_instance.searchChannels(teamId, mattermostSearchChannelsRequest);
+    final result = await client.channels.searchChannels(teamId, mattermostSearchChannelsRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->searchChannels: $e\n');
@@ -2180,18 +2508,26 @@ Get a list of group channels for a user which members' usernames match the searc
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final mattermostSearchGroupChannelsRequest = MattermostSearchGroupChannelsRequest(); // MattermostSearchGroupChannelsRequest | Search criteria
 
 try {
-    final result = api_instance.searchGroupChannels(mattermostSearchGroupChannelsRequest);
+    final result = await client.channels.searchGroupChannels(mattermostSearchGroupChannelsRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->searchGroupChannels: $e\n');
@@ -2229,19 +2565,27 @@ Update a channel. The fields that can be updated are listed as parameters. Omitt
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostUpdateChannelRequest = MattermostUpdateChannelRequest(); // MattermostUpdateChannelRequest | Channel object to be updated
 
 try {
-    final result = api_instance.updateChannel(channelId, mattermostUpdateChannelRequest);
+    final result = await client.channels.updateChannel(channelId, mattermostUpdateChannelRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannel: $e\n');
@@ -2280,20 +2624,28 @@ Update a channel member's scheme_admin/scheme_user properties. Typically this sh
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final userId = userId_example; // String | User GUID
 final mattermostUpdateTeamMemberSchemeRolesRequest = MattermostUpdateTeamMemberSchemeRolesRequest(); // MattermostUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-    final result = api_instance.updateChannelMemberSchemeRoles(channelId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
+    final result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mattermostUpdateTeamMemberSchemeRolesRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannelMemberSchemeRoles: $e\n');
@@ -2333,20 +2685,28 @@ Update a user's notification properties for a channel. Only the provided fields 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final userId = userId_example; // String | User GUID
 final mattermostChannelNotifyProps = MattermostChannelNotifyProps(); // MattermostChannelNotifyProps | 
 
 try {
-    final result = api_instance.updateChannelNotifyProps(channelId, userId, mattermostChannelNotifyProps);
+    final result = await client.channels.updateChannelNotifyProps(channelId, userId, mattermostChannelNotifyProps);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannelNotifyProps: $e\n');
@@ -2386,19 +2746,27 @@ Updates channel's privacy allowing changing a channel from Public to Private and
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostUpdateChannelPrivacyRequest = MattermostUpdateChannelPrivacyRequest(); // MattermostUpdateChannelPrivacyRequest | 
 
 try {
-    final result = api_instance.updateChannelPrivacy(channelId, mattermostUpdateChannelPrivacyRequest);
+    final result = await client.channels.updateChannelPrivacy(channelId, mattermostUpdateChannelPrivacyRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannelPrivacy: $e\n');
@@ -2437,20 +2805,28 @@ Update a user's roles for a channel. ##### Permissions Must have `manage_channel
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final userId = userId_example; // String | User GUID
 final mattermostUpdateUserRolesRequest = MattermostUpdateUserRolesRequest(); // MattermostUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
 
 try {
-    final result = api_instance.updateChannelRoles(channelId, userId, mattermostUpdateUserRolesRequest);
+    final result = await client.channels.updateChannelRoles(channelId, userId, mattermostUpdateUserRolesRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannelRoles: $e\n');
@@ -2490,19 +2866,27 @@ Set a channel's scheme, more specifically sets the scheme_id value of a channel 
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final channelId = channelId_example; // String | Channel GUID
 final mattermostUpdateTeamSchemeRequest = MattermostUpdateTeamSchemeRequest(); // MattermostUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-    final result = api_instance.updateChannelScheme(channelId, mattermostUpdateTeamSchemeRequest);
+    final result = await client.channels.updateChannelScheme(channelId, mattermostUpdateTeamSchemeRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateChannelScheme: $e\n');
@@ -2541,20 +2925,28 @@ Update any number of sidebar categories for the user on the given team. This can
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final mattermostSidebarCategory = [List<MattermostSidebarCategory>()]; // List<MattermostSidebarCategory> | 
 
 try {
-    final result = api_instance.updateSidebarCategoriesForTeamForUser(teamId, userId, mattermostSidebarCategory);
+    final result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mattermostSidebarCategory);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateSidebarCategoriesForTeamForUser: $e\n');
@@ -2594,21 +2986,29 @@ Updates a single sidebar category for the user on the given team. __Minimum serv
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final categoryId = categoryId_example; // String | Category GUID
 final mattermostSidebarCategory = MattermostSidebarCategory(); // MattermostSidebarCategory | 
 
 try {
-    final result = api_instance.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mattermostSidebarCategory);
+    final result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mattermostSidebarCategory);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateSidebarCategoryForTeamForUser: $e\n');
@@ -2649,20 +3049,28 @@ Updates the order of the sidebar categories for a user on the given team. The pr
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final teamId = teamId_example; // String | Team GUID
 final userId = userId_example; // String | User GUID
 final requestBody = [List<String>()]; // List<String> | 
 
 try {
-    final result = api_instance.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody);
+    final result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->updateSidebarCategoryOrderForTeamForUser: $e\n');
@@ -2702,19 +3110,27 @@ Perform all the actions involved in viewing a channel. This includes marking cha
 ### Example
 ```dart
 import 'package:mattermost_api/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultMattermostApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
-final api_instance = MattermostChannelsApi();
+// TODO: Set up the client
+// Configure client with HTTP Bearer authorization and string token:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication('YOUR TOKEN'),
+// );
+// Configure client with HTTP Bearer authorization and function returning a string:
+// client = MattermostApiClient(
+//   basePath: 'https://your-server.tld/api/v4',
+//   authentication: MattermostHttpBearerAuthentication(()=>'ACCESS TOKEN FROM FUNCTION'),
+// );
+
+// Then, access MattermostChannelsApi api instance
+// final MattermostChannelsApi api_instance = client.channels
+
 final userId = userId_example; // String | User ID to perform the view action for
 final mattermostViewChannelRequest = MattermostViewChannelRequest(); // MattermostViewChannelRequest | Paremeters affecting how and which channels to view
 
 try {
-    final result = api_instance.viewChannel(userId, mattermostViewChannelRequest);
+    final result = await client.channels.viewChannel(userId, mattermostViewChannelRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MattermostChannelsApi->viewChannel: $e\n');
