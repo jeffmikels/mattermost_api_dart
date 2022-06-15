@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **state** | **String** | State sent when the dialog was opened | [optional] 
 **cancelled** | **bool** | Set to true if the dialog was cancelled | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

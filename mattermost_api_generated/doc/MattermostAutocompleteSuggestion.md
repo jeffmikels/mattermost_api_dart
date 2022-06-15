@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the suggested command | [optional] 
 **iconData** | **String** | Base64 encoded svg image | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

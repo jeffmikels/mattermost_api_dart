@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **type** | **String** | The type of job to create | 
 **data** | [**Map**](.md) | An object containing any additional data required for this job type | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

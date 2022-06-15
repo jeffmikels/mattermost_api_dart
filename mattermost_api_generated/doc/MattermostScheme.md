@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **defaultChannelAdminRole** | **String** | The id of the default channel admin role for this scheme. | [optional] 
 **defaultChannelUserRole** | **String** | The id of the default channel user role for this scheme. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

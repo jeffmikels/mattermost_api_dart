@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **header** | **String** | Markdown-formatted text to display in the header of the channel | [optional] 
 **type** | **String** | 'O' for a public channel, 'P' for a private channel | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

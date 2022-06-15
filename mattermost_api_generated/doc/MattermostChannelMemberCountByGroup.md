@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **channelMemberCount** | **num** | Total number of group members in the channel | [optional] 
 **channelMemberTimezonesCount** | **num** | Total number of unique timezones for the group members in the channel | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

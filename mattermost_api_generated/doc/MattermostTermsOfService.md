@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **userId** | **String** | The unique identifier of the user who created these terms of service. | [optional] 
 **text** | **String** | The text of terms of service. Supports Markdown. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

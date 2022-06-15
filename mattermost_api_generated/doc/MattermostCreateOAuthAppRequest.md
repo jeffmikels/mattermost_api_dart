@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **homepage** | **String** | A link to the website of the application | 
 **isTrusted** | **bool** | Set this to `true` to skip asking users for permission | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

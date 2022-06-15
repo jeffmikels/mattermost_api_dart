@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **progress** | **int** | The progress (as a percentage) of the job | [optional] 
 **data** | [**Map**](.md) | A freeform data field containing additional information about the job | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

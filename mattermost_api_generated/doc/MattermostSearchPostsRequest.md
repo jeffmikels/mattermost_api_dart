@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **page** | **int** | The page to select. (Only works with Elasticsearch) | [optional] [default to 0]
 **perPage** | **int** | The number of posts per page. (Only works with Elasticsearch) | [optional] [default to 60]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

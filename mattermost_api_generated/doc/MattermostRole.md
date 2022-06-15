@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **permissions** | **List<String>** | A list of the unique names of the permissions this role grants. | [optional] [default to const []]
 **schemeManaged** | **bool** | indicates if this role is managed by a scheme (true), or is a custom stand-alone role (false). | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

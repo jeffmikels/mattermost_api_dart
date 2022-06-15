@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **currentPassword** | **String** | The current password for the user | [optional] 
 **newPassword** | **String** | The new password for the user | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

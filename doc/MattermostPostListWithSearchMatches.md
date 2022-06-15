@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **posts** | [**Map<String, MattermostPost>**](MattermostPost.md) |  | [optional] [default to const {}]
 **matches** | [**Map<String, List<String>>**](List.md) | A mapping of post IDs to a list of matched terms within the post. This field will only be populated on servers running version 5.1 or greater with Elasticsearch enabled. | [optional] [default to const {}]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

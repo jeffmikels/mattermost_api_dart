@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **image** | **String** | URL of image to display | [optional] 
 **title** | **String** | Notice title. Use {{Mattermost}} instead of plain text to support white-labeling. Text supports Markdown. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

@@ -135,7 +135,7 @@ os.system(f'rsync -av "{test}/" test/generated/')
 doc = os.path.join(OUTPUT, 'doc')
 os.system(f'rsync -av "{doc}/" doc/')
 
-readme = os.path.join(OUTPUT, 'README.md')
+readme = os.path.join(OUTPUT, 'GENERATED_README.md')
 os.system(f'cp "{readme}" GENERATED_README.md')
 
 os.system(f'dart format --line-length 120 lib/generated/')

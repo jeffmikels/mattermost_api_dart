@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **pluginPath** | **String** | Path to the plugin on the server | [optional] 
 **state** | **String** | State of the plugin | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

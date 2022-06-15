@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **hasReactions** | **bool** | Set to `true` if the post has reactions to it | [optional] 
 **props** | **String** | A general JSON property bag to attach to the post | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **mentionCount** | **int** | No. of mentions the user has within the unread posts of the channel. | [optional] 
 **lastViewedAt** | **int** | time in milliseconds when the user last viewed the channel. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

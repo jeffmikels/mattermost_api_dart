@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **teamName** | **String** | The name of the team to which this channel belongs. | [optional] 
 **teamUpdateAt** | **int** | The time at which the team to which this channel belongs was last updated. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

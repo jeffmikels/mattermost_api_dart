@@ -19,6 +19,6 @@ Name | Type | Description | Notes
 **createAt** | **int** | The time of registration for the application | [optional] 
 **updateAt** | **int** | The last time of update for the application | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **description** | **String** | A description of the token usage | [optional] 
 **isActive** | **bool** | Indicates whether the token is active | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

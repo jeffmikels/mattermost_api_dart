@@ -11,6 +11,8 @@ additionalProperties:
   apiNamePrefix: Mattermost
   modelNamePrefix: Mattermost
   modelNameSuffix:
+  
+readmeName: GENERATED_README
 
 templateDir: openapi_mattermost_templates
 # templateDir: /Users/Jeff/Development/@Dart/openapi-working/openapi-generator/modules/openapi-generator/src/main/resources/dart2

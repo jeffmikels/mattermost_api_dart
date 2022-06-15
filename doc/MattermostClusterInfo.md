@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **lastPing** | **int** | The time of the last ping to this node | [optional] 
 **isAlive** | **bool** | Whether or not the node is alive and well | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

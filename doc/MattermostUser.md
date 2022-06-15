@@ -31,6 +31,6 @@ Name | Type | Description | Notes
 **termsOfServiceId** | **String** | ID of accepted terms of service, if any. This field is not present if empty. | [optional] 
 **termsOfServiceCreateAt** | **int** | The time in milliseconds the user accepted the terms of service | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

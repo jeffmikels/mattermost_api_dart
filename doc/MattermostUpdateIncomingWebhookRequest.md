@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **username** | **String** | The username this incoming webhook will post as. | [optional] 
 **iconUrl** | **String** | The profile picture this incoming webhook will use when posting. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

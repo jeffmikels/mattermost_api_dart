@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **notifyOnCancel** | **bool** | Set true to receive payloads when user cancels a dialog | [optional] 
 **state** | **String** | Set some state to be echoed back with the dialog submission | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 

@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **images** | [**List<MattermostPostMetadataImagesInner>**](MattermostPostMetadataImagesInner.md) | An object mapping the URL of an external image to an object containing the dimensions of that image. This field will be null if the post or its embedded content does not reference any external images.  | [optional] [default to const []]
 **reactions** | [**List<MattermostReaction>**](MattermostReaction.md) | Any reactions made to this point. This field will be null if no reactions have been made to this post.  | [optional] [default to const []]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../GENERATED_README.md#documentation-for-models) [[Back to API list]](../GENERATED_README.md#documentation-for-api-endpoints) [[Back to README]](../GENERATED_README.md)
 
 
