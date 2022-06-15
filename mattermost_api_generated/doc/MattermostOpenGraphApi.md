@@ -46,8 +46,8 @@ var client = MattermostApiClient(
 final MMOpenGraphRequest mMOpenGraphRequest = MMOpenGraphRequest(); // MMOpenGraphRequest | 
 
 try {
-  final MMOpenGraph result = await client.openGraph.openGraph(mMOpenGraphRequest); // returns MMOpenGraph instance
-  print(result);
+  final MMOpenGraph? result = await client.openGraph.openGraph(mMOpenGraphRequest); // await the Future<MMOpenGraph?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostOpenGraphApi->openGraph: $e\n');
 }

@@ -55,8 +55,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.sAML.deleteSamlIdpCertificate(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.deleteSamlIdpCertificate(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlIdpCertificate: $e\n');
 }
@@ -114,8 +114,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.sAML.deleteSamlPrivateCertificate(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.deleteSamlPrivateCertificate(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlPrivateCertificate: $e\n');
 }
@@ -173,8 +173,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.sAML.deleteSamlPublicCertificate(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.deleteSamlPublicCertificate(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->deleteSamlPublicCertificate: $e\n');
 }
@@ -232,8 +232,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMSamlCertificateStatus result = await client.sAML.getSamlCertificateStatus(); // returns MMSamlCertificateStatus instance
-  print(result);
+  final MMSamlCertificateStatus? result = await client.sAML.getSamlCertificateStatus(); // await the Future<MMSamlCertificateStatus?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->getSamlCertificateStatus: $e\n');
 }
@@ -291,8 +291,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final String result = await client.sAML.getSamlMetadata(); // returns String instance
-  print(result);
+  final String? result = await client.sAML.getSamlMetadata(); // await the Future<String?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->getSamlMetadata: $e\n');
 }
@@ -351,8 +351,8 @@ var client = MattermostApiClient(
 final MMGetSamlMetadataFromIdpRequest mMGetSamlMetadataFromIdpRequest = MMGetSamlMetadataFromIdpRequest(); // MMGetSamlMetadataFromIdpRequest | 
 
 try {
-  final String result = await client.sAML.getSamlMetadataFromIdp(mMGetSamlMetadataFromIdpRequest); // returns String instance
-  print(result);
+  final String? result = await client.sAML.getSamlMetadataFromIdp(mMGetSamlMetadataFromIdpRequest); // await the Future<String?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->getSamlMetadataFromIdp: $e\n');
 }
@@ -476,8 +476,8 @@ var client = MattermostApiClient(
 final MMResetSamlAuthDataToEmailRequest mMResetSamlAuthDataToEmailRequest = MMResetSamlAuthDataToEmailRequest(); // MMResetSamlAuthDataToEmailRequest | 
 
 try {
-  final MMResetSamlAuthDataToEmail200Response result = await client.sAML.resetSamlAuthDataToEmail(mMResetSamlAuthDataToEmailRequest); // returns MMResetSamlAuthDataToEmail200Response instance
-  print(result);
+  final MMResetSamlAuthDataToEmail200Response? result = await client.sAML.resetSamlAuthDataToEmail(mMResetSamlAuthDataToEmailRequest); // await the Future<MMResetSamlAuthDataToEmail200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->resetSamlAuthDataToEmail: $e\n');
 }
@@ -539,8 +539,8 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The IDP certificate file
 
 try {
-  final MMStatusOK result = await client.sAML.uploadSamlIdpCertificate(certificate); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.uploadSamlIdpCertificate(certificate); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlIdpCertificate: $e\n');
 }
@@ -602,8 +602,8 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-  final MMStatusOK result = await client.sAML.uploadSamlPrivateCertificate(certificate); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.uploadSamlPrivateCertificate(certificate); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlPrivateCertificate: $e\n');
 }
@@ -665,8 +665,8 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-  final MMStatusOK result = await client.sAML.uploadSamlPublicCertificate(certificate); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.sAML.uploadSamlPublicCertificate(certificate); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSAMLApi->uploadSamlPublicCertificate: $e\n');
 }

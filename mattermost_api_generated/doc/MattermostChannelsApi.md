@@ -98,8 +98,8 @@ final String channelId = 'channelId_example'; // String | The channel ID
 final MMAddChannelMemberRequest mMAddChannelMemberRequest = MMAddChannelMemberRequest(); // MMAddChannelMemberRequest | 
 
 try {
-  final MMChannelMember result = await client.channels.addChannelMember(channelId, mMAddChannelMemberRequest); // returns MMChannelMember instance
-  print(result);
+  final MMChannelMember? result = await client.channels.addChannelMember(channelId, mMAddChannelMemberRequest); // await the Future<MMChannelMember?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->addChannelMember: $e\n');
 }
@@ -163,8 +163,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.autocompleteChannelsForTeam(teamId, name); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.autocompleteChannelsForTeam(teamId, name); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeam: $e\n');
 }
@@ -228,8 +228,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String name = 'name_example'; // String | Name or display name
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.autocompleteChannelsForTeamForSearch(teamId, name); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->autocompleteChannelsForTeamForSearch: $e\n');
 }
@@ -360,8 +360,8 @@ var client = MattermostApiClient(
 final MMCreateChannelRequest mMCreateChannelRequest = MMCreateChannelRequest(); // MMCreateChannelRequest | Channel object to be created
 
 try {
-  final MMChannel result = await client.channels.createChannel(mMCreateChannelRequest); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.createChannel(mMCreateChannelRequest); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createChannel: $e\n');
 }
@@ -423,8 +423,8 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | The two user ids to be in the direct message
 
 try {
-  final MMChannel result = await client.channels.createDirectChannel(requestBody); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.createDirectChannel(requestBody); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createDirectChannel: $e\n');
 }
@@ -486,8 +486,8 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | User ids to be in the group message channel
 
 try {
-  final MMChannel result = await client.channels.createGroupChannel(requestBody); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.createGroupChannel(requestBody); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createGroupChannel: $e\n');
 }
@@ -551,8 +551,8 @@ final String userId = 'userId_example'; // String | User GUID
 final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
 
 try {
-  final MMSidebarCategory result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory); // returns MMSidebarCategory instance
-  print(result);
+  final MMSidebarCategory? result = await client.channels.createSidebarCategoryForTeamForUser(teamId, userId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->createSidebarCategoryForTeamForUser: $e\n');
 }
@@ -616,8 +616,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMStatusOK result = await client.channels.deleteChannel(channelId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.deleteChannel(channelId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->deleteChannel: $e\n');
 }
@@ -685,8 +685,8 @@ final bool includeTotalCount = true; // bool | Appends a total count of returned
 final bool excludePolicyConstrained = true; // bool | If set to true, channels which are part of a data retention policy will be excluded. The `sysconsole_read_compliance` permission is required to use this parameter. __Minimum server version__: 5.35
 
 try {
-  final List&lt;MMChannelWithTeamData&gt; result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained); // returns List&lt;MMChannelWithTeamData&gt; instance
-  print(result);
+  final List&lt;MMChannelWithTeamData&gt;? result = await client.channels.getAllChannels(notAssociatedToGroup, page, perPage, excludeDefaultChannels, includeDeleted, includeTotalCount, excludePolicyConstrained); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getAllChannels: $e\n');
 }
@@ -754,8 +754,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannel result = await client.channels.getChannel(channelId); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.getChannel(channelId); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannel: $e\n');
 }
@@ -819,8 +819,8 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final MMChannel result = await client.channels.getChannelByName(teamId, channelName, includeDeleted); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.getChannelByName(teamId, channelName, includeDeleted); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByName: $e\n');
 }
@@ -886,8 +886,8 @@ final String channelName = 'channelName_example'; // String | Channel Name
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not (Mattermost Server 5.26.0+)
 
 try {
-  final MMChannel result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.getChannelByNameForTeamName(teamName, channelName, includeDeleted); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelByNameForTeamName: $e\n');
 }
@@ -952,8 +952,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMChannelMember result = await client.channels.getChannelMember(channelId, userId); // returns MMChannelMember instance
-  print(result);
+  final MMChannelMember? result = await client.channels.getChannelMember(channelId, userId); // await the Future<MMChannelMember?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMember: $e\n');
 }
@@ -1082,8 +1082,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of members per page. There is a maximum limit of 200 members.
 
 try {
-  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembers(channelId, page, perPage); // returns List&lt;MMChannelMember&gt; instance
-  print(result);
+  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembers(channelId, page, perPage); // await the Future<List&lt;MMChannelMember&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembers: $e\n');
 }
@@ -1148,8 +1148,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids
 
 try {
-  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembersByIds(channelId, requestBody); // returns List&lt;MMChannelMember&gt; instance
-  print(result);
+  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembersByIds(channelId, requestBody); // await the Future<List&lt;MMChannelMember&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersByIds: $e\n');
 }
@@ -1213,8 +1213,8 @@ final String userId = 'userId_example'; // String | User GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final List&lt;MMChannelMember&gt; result = await client.channels.getChannelMembersForUser(userId, teamId); // returns List&lt;MMChannelMember&gt; instance
-  print(result);
+  final List&lt;MMChannelMember&gt;? result = await client.channels.getChannelMembersForUser(userId, teamId); // await the Future<List&lt;MMChannelMember&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersForUser: $e\n');
 }
@@ -1277,8 +1277,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final List&lt;String&gt; result = await client.channels.getChannelMembersTimezones(channelId); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.channels.getChannelMembersTimezones(channelId); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelMembersTimezones: $e\n');
 }
@@ -1340,8 +1340,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final List&lt;MMChannelModeration&gt; result = await client.channels.getChannelModerations(channelId); // returns List&lt;MMChannelModeration&gt; instance
-  print(result);
+  final List&lt;MMChannelModeration&gt;? result = await client.channels.getChannelModerations(channelId); // await the Future<List&lt;MMChannelModeration&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelModerations: $e\n');
 }
@@ -1403,8 +1403,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannelStats result = await client.channels.getChannelStats(channelId); // returns MMChannelStats instance
-  print(result);
+  final MMChannelStats? result = await client.channels.getChannelStats(channelId); // await the Future<MMChannelStats?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelStats: $e\n');
 }
@@ -1467,8 +1467,8 @@ final String userId = 'userId_example'; // String | User GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannelUnread result = await client.channels.getChannelUnread(userId, channelId); // returns MMChannelUnread instance
-  print(result);
+  final MMChannelUnread? result = await client.channels.getChannelUnread(userId, channelId); // await the Future<MMChannelUnread?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelUnread: $e\n');
 }
@@ -1534,8 +1534,8 @@ final bool includeDeleted = true; // bool | Defines if deleted channels should b
 final int lastDeleteAt = 56; // int | Filters the deleted channels by this time in epoch format. Does not have any effect if include_deleted is set to false.
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getChannelsForTeamForUser(userId, teamId, includeDeleted, lastDeleteAt); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForTeamForUser: $e\n');
 }
@@ -1602,8 +1602,8 @@ final int lastDeleteAt = 56; // int | Filters the deleted channels by this time 
 final bool includeDeleted = true; // bool | Defines if deleted channels should be returned or not
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getChannelsForUser(userId, lastDeleteAt, includeDeleted); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getChannelsForUser: $e\n');
 }
@@ -1669,8 +1669,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getDeletedChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getDeletedChannelsForTeam: $e\n');
 }
@@ -1734,8 +1734,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMPostList result = await client.channels.getPinnedPosts(channelId); // returns MMPostList instance
-  print(result);
+  final MMPostList? result = await client.channels.getPinnedPosts(channelId); // await the Future<MMPostList?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPinnedPosts: $e\n');
 }
@@ -1799,8 +1799,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of private channels per page.
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getPrivateChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPrivateChannelsForTeam: $e\n');
 }
@@ -1865,8 +1865,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of channel ids
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getPublicChannelsByIdsForTeam(teamId, requestBody); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsByIdsForTeam: $e\n');
 }
@@ -1931,8 +1931,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of public channels per page.
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.getPublicChannelsForTeam(teamId, page, perPage); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getPublicChannelsForTeam: $e\n');
 }
@@ -1997,8 +1997,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMOrderedSidebarCategories&gt; result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId); // returns List&lt;MMOrderedSidebarCategories&gt; instance
-  print(result);
+  final List&lt;MMOrderedSidebarCategories&gt;? result = await client.channels.getSidebarCategoriesForTeamForUser(teamId, userId); // await the Future<List&lt;MMOrderedSidebarCategories&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoriesForTeamForUser: $e\n');
 }
@@ -2063,8 +2063,8 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final MMSidebarCategory result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId); // returns MMSidebarCategory instance
-  print(result);
+  final MMSidebarCategory? result = await client.channels.getSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MMSidebarCategory?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoryForTeamForUser: $e\n');
 }
@@ -2129,8 +2129,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;String&gt; result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.channels.getSidebarCategoryOrderForTeamForUser(teamId, userId); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->getSidebarCategoryOrderForTeamForUser: $e\n');
 }
@@ -2194,8 +2194,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMMoveChannelRequest mMMoveChannelRequest = MMMoveChannelRequest(); // MMMoveChannelRequest | 
 
 try {
-  final MMChannel result = await client.channels.moveChannel(channelId, mMMoveChannelRequest); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.moveChannel(channelId, mMMoveChannelRequest); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->moveChannel: $e\n');
 }
@@ -2259,8 +2259,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMPatchChannelRequest mMPatchChannelRequest = MMPatchChannelRequest(); // MMPatchChannelRequest | Channel object to be updated
 
 try {
-  final MMChannel result = await client.channels.patchChannel(channelId, mMPatchChannelRequest); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.patchChannel(channelId, mMPatchChannelRequest); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannel: $e\n');
 }
@@ -2324,8 +2324,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMChannelModerationPatch mMChannelModerationPatch = MMChannelModerationPatch(); // MMChannelModerationPatch | 
 
 try {
-  final List&lt;MMChannelModeration&gt; result = await client.channels.patchChannelModerations(channelId, mMChannelModerationPatch); // returns List&lt;MMChannelModeration&gt; instance
-  print(result);
+  final List&lt;MMChannelModeration&gt;? result = await client.channels.patchChannelModerations(channelId, mMChannelModerationPatch); // await the Future<List&lt;MMChannelModeration&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->patchChannelModerations: $e\n');
 }
@@ -2390,8 +2390,8 @@ final String userId = 'userId_example'; // String | User GUID
 final String categoryId = 'categoryId_example'; // String | Category GUID
 
 try {
-  final MMSidebarCategory result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId); // returns MMSidebarCategory instance
-  print(result);
+  final MMSidebarCategory? result = await client.channels.removeSidebarCategoryForTeamForUser(teamId, userId, categoryId); // await the Future<MMSidebarCategory?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeSidebarCategoryForTeamForUser: $e\n');
 }
@@ -2456,8 +2456,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMStatusOK result = await client.channels.removeUserFromChannel(channelId, userId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.removeUserFromChannel(channelId, userId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->removeUserFromChannel: $e\n');
 }
@@ -2520,8 +2520,8 @@ var client = MattermostApiClient(
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMChannel result = await client.channels.restoreChannel(channelId); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.restoreChannel(channelId); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->restoreChannel: $e\n');
 }
@@ -2584,8 +2584,8 @@ final MMSearchAllChannelsRequest mMSearchAllChannelsRequest = MMSearchAllChannel
 final bool systemConsole = true; // bool | Is the request from system_console. If this is set to true, it filters channels by the logged in user. 
 
 try {
-  final MMSearchAllChannels200Response result = await client.channels.searchAllChannels(mMSearchAllChannelsRequest, systemConsole); // returns MMSearchAllChannels200Response instance
-  print(result);
+  final MMSearchAllChannels200Response? result = await client.channels.searchAllChannels(mMSearchAllChannelsRequest, systemConsole); // await the Future<MMSearchAllChannels200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchAllChannels: $e\n');
 }
@@ -2649,8 +2649,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMSearchArchivedChannelsRequest mMSearchArchivedChannelsRequest = MMSearchArchivedChannelsRequest(); // MMSearchArchivedChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.searchArchivedChannels(teamId, mMSearchArchivedChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchArchivedChannels: $e\n');
 }
@@ -2714,8 +2714,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMSearchChannelsRequest mMSearchChannelsRequest = MMSearchChannelsRequest(); // MMSearchChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.searchChannels(teamId, mMSearchChannelsRequest); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.searchChannels(teamId, mMSearchChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchChannels: $e\n');
 }
@@ -2778,8 +2778,8 @@ var client = MattermostApiClient(
 final MMSearchGroupChannelsRequest mMSearchGroupChannelsRequest = MMSearchGroupChannelsRequest(); // MMSearchGroupChannelsRequest | Search criteria
 
 try {
-  final List&lt;MMChannel&gt; result = await client.channels.searchGroupChannels(mMSearchGroupChannelsRequest); // returns List&lt;MMChannel&gt; instance
-  print(result);
+  final List&lt;MMChannel&gt;? result = await client.channels.searchGroupChannels(mMSearchGroupChannelsRequest); // await the Future<List&lt;MMChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->searchGroupChannels: $e\n');
 }
@@ -2842,8 +2842,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateChannelRequest mMUpdateChannelRequest = MMUpdateChannelRequest(); // MMUpdateChannelRequest | Channel object to be updated
 
 try {
-  final MMChannel result = await client.channels.updateChannel(channelId, mMUpdateChannelRequest); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.updateChannel(channelId, mMUpdateChannelRequest); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannel: $e\n');
 }
@@ -2908,8 +2908,8 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateTeamMemberSchemeRolesRequest mMUpdateTeamMemberSchemeRolesRequest = MMUpdateTeamMemberSchemeRolesRequest(); // MMUpdateTeamMemberSchemeRolesRequest | Scheme properties.
 
 try {
-  final MMStatusOK result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.updateChannelMemberSchemeRoles(channelId, userId, mMUpdateTeamMemberSchemeRolesRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelMemberSchemeRoles: $e\n');
 }
@@ -2975,8 +2975,8 @@ final String userId = 'userId_example'; // String | User GUID
 final MMChannelNotifyProps mMChannelNotifyProps = MMChannelNotifyProps(); // MMChannelNotifyProps | 
 
 try {
-  final MMStatusOK result = await client.channels.updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.updateChannelNotifyProps(channelId, userId, mMChannelNotifyProps); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelNotifyProps: $e\n');
 }
@@ -3041,8 +3041,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateChannelPrivacyRequest mMUpdateChannelPrivacyRequest = MMUpdateChannelPrivacyRequest(); // MMUpdateChannelPrivacyRequest | 
 
 try {
-  final MMChannel result = await client.channels.updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest); // returns MMChannel instance
-  print(result);
+  final MMChannel? result = await client.channels.updateChannelPrivacy(channelId, mMUpdateChannelPrivacyRequest); // await the Future<MMChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelPrivacy: $e\n');
 }
@@ -3107,8 +3107,8 @@ final String userId = 'userId_example'; // String | User GUID
 final MMUpdateUserRolesRequest mMUpdateUserRolesRequest = MMUpdateUserRolesRequest(); // MMUpdateUserRolesRequest | Space-delimited channel roles to assign to the user
 
 try {
-  final MMStatusOK result = await client.channels.updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.updateChannelRoles(channelId, userId, mMUpdateUserRolesRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelRoles: $e\n');
 }
@@ -3173,8 +3173,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMUpdateTeamSchemeRequest mMUpdateTeamSchemeRequest = MMUpdateTeamSchemeRequest(); // MMUpdateTeamSchemeRequest | Scheme GUID
 
 try {
-  final MMStatusOK result = await client.channels.updateChannelScheme(channelId, mMUpdateTeamSchemeRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.channels.updateChannelScheme(channelId, mMUpdateTeamSchemeRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateChannelScheme: $e\n');
 }
@@ -3239,8 +3239,8 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;MMSidebarCategory&gt; mMSidebarCategory = [List<MMSidebarCategory>()]; // List<MMSidebarCategory> | 
 
 try {
-  final MMSidebarCategory result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory); // returns MMSidebarCategory instance
-  print(result);
+  final MMSidebarCategory? result = await client.channels.updateSidebarCategoriesForTeamForUser(teamId, userId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoriesForTeamForUser: $e\n');
 }
@@ -3307,8 +3307,8 @@ final String categoryId = 'categoryId_example'; // String | Category GUID
 final MMSidebarCategory mMSidebarCategory = MMSidebarCategory(); // MMSidebarCategory | 
 
 try {
-  final MMSidebarCategory result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory); // returns MMSidebarCategory instance
-  print(result);
+  final MMSidebarCategory? result = await client.channels.updateSidebarCategoryForTeamForUser(teamId, userId, categoryId, mMSidebarCategory); // await the Future<MMSidebarCategory?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoryForTeamForUser: $e\n');
 }
@@ -3375,8 +3375,8 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final List&lt;String&gt; result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.channels.updateSidebarCategoryOrderForTeamForUser(teamId, userId, requestBody); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->updateSidebarCategoryOrderForTeamForUser: $e\n');
 }
@@ -3441,8 +3441,8 @@ final String userId = 'userId_example'; // String | User ID to perform the view 
 final MMViewChannelRequest mMViewChannelRequest = MMViewChannelRequest(); // MMViewChannelRequest | Paremeters affecting how and which channels to view
 
 try {
-  final MMViewChannel200Response result = await client.channels.viewChannel(userId, mMViewChannelRequest); // returns MMViewChannel200Response instance
-  print(result);
+  final MMViewChannel200Response? result = await client.channels.viewChannel(userId, mMViewChannelRequest); // await the Future<MMViewChannel200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostChannelsApi->viewChannel: $e\n');
 }

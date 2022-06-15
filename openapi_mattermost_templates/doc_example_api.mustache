@@ -7,9 +7,9 @@ final {{dataType}} {{{paramName}}} = {{#isString}}'{{/isString}}{{#isArray}}[{{/
 {{/allParams}}
 
 try {
-  {{#returnType}}final {{.}} result = {{/returnType}}await client.{{classVarName}}.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}}); {{#returnType}}// returns {{.}} instance{{/returnType}}
+  {{#returnType}}final {{.}}? result = {{/returnType}}await client.{{classVarName}}.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}}); {{#returnType}}// await the Future<{{.}}?>{{/returnType}}
   {{#returnType}}
-  print(result);
+  print(result ?? 'resolved to null');
   {{/returnType}}
 } catch (e) {
   print('Exception when calling {{{classname}}}->{{{operationId}}}: $e\n');

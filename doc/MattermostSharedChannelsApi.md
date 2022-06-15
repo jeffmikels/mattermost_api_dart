@@ -49,8 +49,8 @@ final int page = 56; // int |
 final int perPage = 56; // int | 
 
 try {
-  final List&lt;MMSharedChannel&gt; result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage); // returns List&lt;MMSharedChannel&gt; instance
-  print(result);
+  final List&lt;MMSharedChannel&gt;? result = await client.sharedChannels.getAllSharedChannels(teamId, page, perPage); // await the Future<List&lt;MMSharedChannel&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSharedChannelsApi->getAllSharedChannels: $e\n');
 }
@@ -114,8 +114,8 @@ var client = MattermostApiClient(
 final String remoteId = 'remoteId_example'; // String | Remote Cluster GUID
 
 try {
-  final MMRemoteClusterInfo result = await client.sharedChannels.getRemoteClusterInfo(remoteId); // returns MMRemoteClusterInfo instance
-  print(result);
+  final MMRemoteClusterInfo? result = await client.sharedChannels.getRemoteClusterInfo(remoteId); // await the Future<MMRemoteClusterInfo?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSharedChannelsApi->getRemoteClusterInfo: $e\n');
 }

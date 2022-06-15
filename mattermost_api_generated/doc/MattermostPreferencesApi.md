@@ -51,8 +51,8 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;MMPreference&gt; mMPreference = [List<MMPreference>()]; // List<MMPreference> | List of preference objects
 
 try {
-  final MMStatusOK result = await client.preferences.deletePreferences(userId, mMPreference); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.preferences.deletePreferences(userId, mMPreference); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->deletePreferences: $e\n');
 }
@@ -115,8 +115,8 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMPreference&gt; result = await client.preferences.getPreferences(userId); // returns List&lt;MMPreference&gt; instance
-  print(result);
+  final List&lt;MMPreference&gt;? result = await client.preferences.getPreferences(userId); // await the Future<List&lt;MMPreference&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferences: $e\n');
 }
@@ -179,8 +179,8 @@ final String userId = 'userId_example'; // String | User GUID
 final String category = 'category_example'; // String | The category of a group of preferences
 
 try {
-  final List&lt;MMPreference&gt; result = await client.preferences.getPreferencesByCategory(userId, category); // returns List&lt;MMPreference&gt; instance
-  print(result);
+  final List&lt;MMPreference&gt;? result = await client.preferences.getPreferencesByCategory(userId, category); // await the Future<List&lt;MMPreference&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferencesByCategory: $e\n');
 }
@@ -245,8 +245,8 @@ final String category = 'category_example'; // String | The category of a group 
 final String preferenceName = 'preferenceName_example'; // String | The name of the preference
 
 try {
-  final MMPreference result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName); // returns MMPreference instance
-  print(result);
+  final MMPreference? result = await client.preferences.getPreferencesByCategoryByName(userId, category, preferenceName); // await the Future<MMPreference?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->getPreferencesByCategoryByName: $e\n');
 }
@@ -311,8 +311,8 @@ final String userId = 'userId_example'; // String | User GUID
 final List&lt;MMPreference&gt; mMPreference = [List<MMPreference>()]; // List<MMPreference> | List of preference objects
 
 try {
-  final MMStatusOK result = await client.preferences.updatePreferences(userId, mMPreference); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.preferences.updatePreferences(userId, mMPreference); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPreferencesApi->updatePreferences: $e\n');
 }

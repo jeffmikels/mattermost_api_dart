@@ -48,8 +48,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMTermsOfService result = await client.termsOfService.createTermsOfService(); // returns MMTermsOfService instance
-  print(result);
+  final MMTermsOfService? result = await client.termsOfService.createTermsOfService(); // await the Future<MMTermsOfService?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->createTermsOfService: $e\n');
 }
@@ -107,8 +107,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMTermsOfService result = await client.termsOfService.getTermsOfService(); // returns MMTermsOfService instance
-  print(result);
+  final MMTermsOfService? result = await client.termsOfService.getTermsOfService(); // await the Future<MMTermsOfService?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getTermsOfService: $e\n');
 }
@@ -167,8 +167,8 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final MMUserTermsOfService result = await client.termsOfService.getUserTermsOfService(userId); // returns MMUserTermsOfService instance
-  print(result);
+  final MMUserTermsOfService? result = await client.termsOfService.getUserTermsOfService(userId); // await the Future<MMUserTermsOfService?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->getUserTermsOfService: $e\n');
 }
@@ -231,8 +231,8 @@ final String userId = 'userId_example'; // String | User GUID
 final MMRegisterTermsOfServiceActionRequest mMRegisterTermsOfServiceActionRequest = MMRegisterTermsOfServiceActionRequest(); // MMRegisterTermsOfServiceActionRequest | terms of service details
 
 try {
-  final MMStatusOK result = await client.termsOfService.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.termsOfService.registerTermsOfServiceAction(userId, mMRegisterTermsOfServiceActionRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostTermsOfServiceApi->registerTermsOfServiceAction: $e\n');
 }

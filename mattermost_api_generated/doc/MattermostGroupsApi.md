@@ -70,8 +70,8 @@ final String groupId = 'groupId_example'; // String | The ID of the group.
 final MMAddGroupMembersRequest mMAddGroupMembersRequest = MMAddGroupMembersRequest(); // MMAddGroupMembersRequest | 
 
 try {
-  final MMStatusOK result = await client.groups.addGroupMembers(groupId, mMAddGroupMembersRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.addGroupMembers(groupId, mMAddGroupMembersRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->addGroupMembers: $e\n');
 }
@@ -196,8 +196,8 @@ var client = MattermostApiClient(
 final String groupId = 'groupId_example'; // String | The ID of the group.
 
 try {
-  final MMStatusOK result = await client.groups.deleteGroup(groupId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.deleteGroup(groupId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->deleteGroup: $e\n');
 }
@@ -260,8 +260,8 @@ final String groupId = 'groupId_example'; // String | The ID of the group to del
 final MMDeleteGroupMembersRequest mMDeleteGroupMembersRequest = MMDeleteGroupMembersRequest(); // MMDeleteGroupMembersRequest | 
 
 try {
-  final MMStatusOK result = await client.groups.deleteGroupMembers(groupId, mMDeleteGroupMembersRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.deleteGroupMembers(groupId, mMDeleteGroupMembersRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->deleteGroupMembers: $e\n');
 }
@@ -324,8 +324,8 @@ var client = MattermostApiClient(
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final MMGroup result = await client.groups.getGroup(groupId); // returns MMGroup instance
-  print(result);
+  final MMGroup? result = await client.groups.getGroup(groupId); // await the Future<MMGroup?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroup: $e\n');
 }
@@ -387,8 +387,8 @@ var client = MattermostApiClient(
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final MMGetGroupStats200Response result = await client.groups.getGroupStats(groupId); // returns MMGetGroupStats200Response instance
-  print(result);
+  final MMGetGroupStats200Response? result = await client.groups.getGroupStats(groupId); // await the Future<MMGetGroupStats200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupStats: $e\n');
 }
@@ -451,8 +451,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMGroupSyncableChannel result = await client.groups.getGroupSyncableForChannelId(groupId, channelId); // returns MMGroupSyncableChannel instance
-  print(result);
+  final MMGroupSyncableChannel? result = await client.groups.getGroupSyncableForChannelId(groupId, channelId); // await the Future<MMGroupSyncableChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncableForChannelId: $e\n');
 }
@@ -516,8 +516,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMGroupSyncableTeam result = await client.groups.getGroupSyncableForTeamId(groupId, teamId); // returns MMGroupSyncableTeam instance
-  print(result);
+  final MMGroupSyncableTeam? result = await client.groups.getGroupSyncableForTeamId(groupId, teamId); // await the Future<MMGroupSyncableTeam?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncableForTeamId: $e\n');
 }
@@ -580,8 +580,8 @@ var client = MattermostApiClient(
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final List&lt;MMGroupSyncableChannels&gt; result = await client.groups.getGroupSyncablesChannels(groupId); // returns List&lt;MMGroupSyncableChannels&gt; instance
-  print(result);
+  final List&lt;MMGroupSyncableChannels&gt;? result = await client.groups.getGroupSyncablesChannels(groupId); // await the Future<List&lt;MMGroupSyncableChannels&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncablesChannels: $e\n');
 }
@@ -643,8 +643,8 @@ var client = MattermostApiClient(
 final String groupId = 'groupId_example'; // String | Group GUID
 
 try {
-  final List&lt;MMGroupSyncableTeams&gt; result = await client.groups.getGroupSyncablesTeams(groupId); // returns List&lt;MMGroupSyncableTeams&gt; instance
-  print(result);
+  final List&lt;MMGroupSyncableTeams&gt;? result = await client.groups.getGroupSyncablesTeams(groupId); // await the Future<List&lt;MMGroupSyncableTeams&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupSyncablesTeams: $e\n');
 }
@@ -708,8 +708,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of groups per page.
 
 try {
-  final MMGetGroupUsers200Response result = await client.groups.getGroupUsers(groupId, page, perPage); // returns MMGetGroupUsers200Response instance
-  print(result);
+  final MMGetGroupUsers200Response? result = await client.groups.getGroupUsers(groupId, page, perPage); // await the Future<MMGetGroupUsers200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupUsers: $e\n');
 }
@@ -780,8 +780,8 @@ final int since = 56; // int | Only return groups that have been modified since 
 final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt; result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference); // returns List&lt;MMGroup&gt; instance
-  print(result);
+  final List&lt;MMGroup&gt;? result = await client.groups.getGroups(notAssociatedToTeam, notAssociatedToChannel, page, perPage, q, includeMemberCount, since, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroups: $e\n');
 }
@@ -854,8 +854,8 @@ final bool filterAllowReference = true; // bool | Boolean which filters in the g
 final bool paginate = true; // bool | Boolean to determine whether the pagination should be applied or not
 
 try {
-  final List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt; result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate); // returns List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt; instance
-  print(result);
+  final List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt;? result = await client.groups.getGroupsAssociatedToChannelsByTeam(teamId, page, perPage, filterAllowReference, paginate); // await the Future<List&lt;Map&lt;String, List&lt;MMGroupWithSchemeAdmin&gt;&gt;&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsAssociatedToChannelsByTeam: $e\n');
 }
@@ -924,8 +924,8 @@ final int perPage = 56; // int | The number of groups per page.
 final bool filterAllowReference = true; // bool | Boolean which filters the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt; result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference); // returns List&lt;MMGroup&gt; instance
-  print(result);
+  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByChannel(channelId, page, perPage, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByChannel: $e\n');
 }
@@ -993,8 +993,8 @@ final int perPage = 56; // int | The number of groups per page.
 final bool filterAllowReference = true; // bool | Boolean which filters in the group entries with the `allow_reference` attribute set.
 
 try {
-  final List&lt;MMGroup&gt; result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference); // returns List&lt;MMGroup&gt; instance
-  print(result);
+  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByTeam(teamId, page, perPage, filterAllowReference); // await the Future<List&lt;MMGroup&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByTeam: $e\n');
 }
@@ -1059,8 +1059,8 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User GUID
 
 try {
-  final List&lt;MMGroup&gt; result = await client.groups.getGroupsByUserId(userId); // returns List&lt;MMGroup&gt; instance
-  print(result);
+  final List&lt;MMGroup&gt;? result = await client.groups.getGroupsByUserId(userId); // await the Future<List&lt;MMGroup&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->getGroupsByUserId: $e\n');
 }
@@ -1123,8 +1123,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMGroupSyncableChannel result = await client.groups.linkGroupSyncableForChannel(groupId, channelId); // returns MMGroupSyncableChannel instance
-  print(result);
+  final MMGroupSyncableChannel? result = await client.groups.linkGroupSyncableForChannel(groupId, channelId); // await the Future<MMGroupSyncableChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->linkGroupSyncableForChannel: $e\n');
 }
@@ -1188,8 +1188,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMGroupSyncableTeam result = await client.groups.linkGroupSyncableForTeam(groupId, teamId); // returns MMGroupSyncableTeam instance
-  print(result);
+  final MMGroupSyncableTeam? result = await client.groups.linkGroupSyncableForTeam(groupId, teamId); // await the Future<MMGroupSyncableTeam?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->linkGroupSyncableForTeam: $e\n');
 }
@@ -1253,8 +1253,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final MMPatchGroupRequest mMPatchGroupRequest = MMPatchGroupRequest(); // MMPatchGroupRequest | Group object that is to be updated
 
 try {
-  final MMGroup result = await client.groups.patchGroup(groupId, mMPatchGroupRequest); // returns MMGroup instance
-  print(result);
+  final MMGroup? result = await client.groups.patchGroup(groupId, mMPatchGroupRequest); // await the Future<MMGroup?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroup: $e\n');
 }
@@ -1319,8 +1319,8 @@ final String channelId = 'channelId_example'; // String | Channel GUID
 final MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest = MMPatchGroupSyncableForTeamRequest(); // MMPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-  final MMGroupSyncableChannel result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mMPatchGroupSyncableForTeamRequest); // returns MMGroupSyncableChannel instance
-  print(result);
+  final MMGroupSyncableChannel? result = await client.groups.patchGroupSyncableForChannel(groupId, channelId, mMPatchGroupSyncableForTeamRequest); // await the Future<MMGroupSyncableChannel?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroupSyncableForChannel: $e\n');
 }
@@ -1386,8 +1386,8 @@ final String teamId = 'teamId_example'; // String | Team GUID
 final MMPatchGroupSyncableForTeamRequest mMPatchGroupSyncableForTeamRequest = MMPatchGroupSyncableForTeamRequest(); // MMPatchGroupSyncableForTeamRequest | GroupSyncable object that is to be updated
 
 try {
-  final MMGroupSyncableTeam result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mMPatchGroupSyncableForTeamRequest); // returns MMGroupSyncableTeam instance
-  print(result);
+  final MMGroupSyncableTeam? result = await client.groups.patchGroupSyncableForTeam(groupId, teamId, mMPatchGroupSyncableForTeamRequest); // await the Future<MMGroupSyncableTeam?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->patchGroupSyncableForTeam: $e\n');
 }
@@ -1452,8 +1452,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String channelId = 'channelId_example'; // String | Channel GUID
 
 try {
-  final MMStatusOK result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.unlinkGroupSyncableForChannel(groupId, channelId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForChannel: $e\n');
 }
@@ -1517,8 +1517,8 @@ final String groupId = 'groupId_example'; // String | Group GUID
 final String teamId = 'teamId_example'; // String | Team GUID
 
 try {
-  final MMStatusOK result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.unlinkGroupSyncableForTeam(groupId, teamId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkGroupSyncableForTeam: $e\n');
 }
@@ -1581,8 +1581,8 @@ var client = MattermostApiClient(
 final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
-  final MMStatusOK result = await client.groups.unlinkLdapGroup(remoteId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.groups.unlinkLdapGroup(remoteId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostGroupsApi->unlinkLdapGroup: $e\n');
 }

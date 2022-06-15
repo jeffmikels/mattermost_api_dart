@@ -63,8 +63,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK result = await client.dataRetention.addChannelsToRetentionPolicy(policyId, requestBody); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.dataRetention.addChannelsToRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->addChannelsToRetentionPolicy: $e\n');
 }
@@ -128,8 +128,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK result = await client.dataRetention.addTeamsToRetentionPolicy(policyId, requestBody); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.dataRetention.addTeamsToRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->addTeamsToRetentionPolicy: $e\n');
 }
@@ -192,8 +192,8 @@ var client = MattermostApiClient(
 final MMDataRetentionPolicyCreate mMDataRetentionPolicyCreate = MMDataRetentionPolicyCreate(); // MMDataRetentionPolicyCreate | 
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts result = await client.dataRetention.createDataRetentionPolicy(mMDataRetentionPolicyCreate); // returns MMDataRetentionPolicyWithTeamAndChannelCounts instance
-  print(result);
+  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.createDataRetentionPolicy(mMDataRetentionPolicyCreate); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->createDataRetentionPolicy: $e\n');
 }
@@ -255,8 +255,8 @@ var client = MattermostApiClient(
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
-  final MMStatusOK result = await client.dataRetention.deleteDataRetentionPolicy(policyId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.dataRetention.deleteDataRetentionPolicy(policyId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->deleteDataRetentionPolicy: $e\n');
 }
@@ -320,8 +320,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final MMRetentionPolicyForChannelList result = await client.dataRetention.getChannelPoliciesForUser(userId, page, perPage); // returns MMRetentionPolicyForChannelList instance
-  print(result);
+  final MMRetentionPolicyForChannelList? result = await client.dataRetention.getChannelPoliciesForUser(userId, page, perPage); // await the Future<MMRetentionPolicyForChannelList?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getChannelPoliciesForUser: $e\n');
 }
@@ -387,8 +387,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of channels per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMChannelWithTeamData&gt; result = await client.dataRetention.getChannelsForRetentionPolicy(policyId, page, perPage); // returns List&lt;MMChannelWithTeamData&gt; instance
-  print(result);
+  final List&lt;MMChannelWithTeamData&gt;? result = await client.dataRetention.getChannelsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getChannelsForRetentionPolicy: $e\n');
 }
@@ -453,8 +453,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt; result = await client.dataRetention.getDataRetentionPolicies(page, perPage); // returns List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt; instance
-  print(result);
+  final List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt;? result = await client.dataRetention.getDataRetentionPolicies(page, perPage); // await the Future<List&lt;MMDataRetentionPolicyWithTeamAndChannelCounts&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicies: $e\n');
 }
@@ -516,8 +516,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMGetDataRetentionPoliciesCount200Response result = await client.dataRetention.getDataRetentionPoliciesCount(); // returns MMGetDataRetentionPoliciesCount200Response instance
-  print(result);
+  final MMGetDataRetentionPoliciesCount200Response? result = await client.dataRetention.getDataRetentionPoliciesCount(); // await the Future<MMGetDataRetentionPoliciesCount200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPoliciesCount: $e\n');
 }
@@ -575,8 +575,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMGlobalDataRetentionPolicy result = await client.dataRetention.getDataRetentionPolicy(); // returns MMGlobalDataRetentionPolicy instance
-  print(result);
+  final MMGlobalDataRetentionPolicy? result = await client.dataRetention.getDataRetentionPolicy(); // await the Future<MMGlobalDataRetentionPolicy?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicy: $e\n');
 }
@@ -635,8 +635,8 @@ var client = MattermostApiClient(
 final String policyId = 'policyId_example'; // String | The ID of the granular retention policy.
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts result = await client.dataRetention.getDataRetentionPolicyByID(policyId); // returns MMDataRetentionPolicyWithTeamAndChannelCounts instance
-  print(result);
+  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.getDataRetentionPolicyByID(policyId); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getDataRetentionPolicyByID: $e\n');
 }
@@ -700,8 +700,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of policies per page. There is a maximum limit of 200 per page.
 
 try {
-  final MMRetentionPolicyForTeamList result = await client.dataRetention.getTeamPoliciesForUser(userId, page, perPage); // returns MMRetentionPolicyForTeamList instance
-  print(result);
+  final MMRetentionPolicyForTeamList? result = await client.dataRetention.getTeamPoliciesForUser(userId, page, perPage); // await the Future<MMRetentionPolicyForTeamList?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getTeamPoliciesForUser: $e\n');
 }
@@ -767,8 +767,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of teams per page. There is a maximum limit of 200 per page.
 
 try {
-  final List&lt;MMTeam&gt; result = await client.dataRetention.getTeamsForRetentionPolicy(policyId, page, perPage); // returns List&lt;MMTeam&gt; instance
-  print(result);
+  final List&lt;MMTeam&gt;? result = await client.dataRetention.getTeamsForRetentionPolicy(policyId, page, perPage); // await the Future<List&lt;MMTeam&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->getTeamsForRetentionPolicy: $e\n');
 }
@@ -833,8 +833,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final MMDataRetentionPolicyWithTeamAndChannelIds mMDataRetentionPolicyWithTeamAndChannelIds = MMDataRetentionPolicyWithTeamAndChannelIds(); // MMDataRetentionPolicyWithTeamAndChannelIds | 
 
 try {
-  final MMDataRetentionPolicyWithTeamAndChannelCounts result = await client.dataRetention.patchDataRetentionPolicy(policyId, mMDataRetentionPolicyWithTeamAndChannelIds); // returns MMDataRetentionPolicyWithTeamAndChannelCounts instance
-  print(result);
+  final MMDataRetentionPolicyWithTeamAndChannelCounts? result = await client.dataRetention.patchDataRetentionPolicy(policyId, mMDataRetentionPolicyWithTeamAndChannelIds); // await the Future<MMDataRetentionPolicyWithTeamAndChannelCounts?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->patchDataRetentionPolicy: $e\n');
 }
@@ -898,8 +898,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK result = await client.dataRetention.removeChannelsFromRetentionPolicy(policyId, requestBody); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.dataRetention.removeChannelsFromRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->removeChannelsFromRetentionPolicy: $e\n');
 }
@@ -963,8 +963,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | 
 
 try {
-  final MMStatusOK result = await client.dataRetention.removeTeamsFromRetentionPolicy(policyId, requestBody); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.dataRetention.removeTeamsFromRetentionPolicy(policyId, requestBody); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->removeTeamsFromRetentionPolicy: $e\n');
 }
@@ -1028,8 +1028,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final MMSearchChannelsForRetentionPolicyRequest mMSearchChannelsForRetentionPolicyRequest = MMSearchChannelsForRetentionPolicyRequest(); // MMSearchChannelsForRetentionPolicyRequest | 
 
 try {
-  final List&lt;MMChannelWithTeamData&gt; result = await client.dataRetention.searchChannelsForRetentionPolicy(policyId, mMSearchChannelsForRetentionPolicyRequest); // returns List&lt;MMChannelWithTeamData&gt; instance
-  print(result);
+  final List&lt;MMChannelWithTeamData&gt;? result = await client.dataRetention.searchChannelsForRetentionPolicy(policyId, mMSearchChannelsForRetentionPolicyRequest); // await the Future<List&lt;MMChannelWithTeamData&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->searchChannelsForRetentionPolicy: $e\n');
 }
@@ -1093,8 +1093,8 @@ final String policyId = 'policyId_example'; // String | The ID of the granular r
 final MMSearchTeamsForRetentionPolicyRequest mMSearchTeamsForRetentionPolicyRequest = MMSearchTeamsForRetentionPolicyRequest(); // MMSearchTeamsForRetentionPolicyRequest | 
 
 try {
-  final List&lt;MMTeam&gt; result = await client.dataRetention.searchTeamsForRetentionPolicy(policyId, mMSearchTeamsForRetentionPolicyRequest); // returns List&lt;MMTeam&gt; instance
-  print(result);
+  final List&lt;MMTeam&gt;? result = await client.dataRetention.searchTeamsForRetentionPolicy(policyId, mMSearchTeamsForRetentionPolicyRequest); // await the Future<List&lt;MMTeam&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostDataRetentionApi->searchTeamsForRetentionPolicy: $e\n');
 }

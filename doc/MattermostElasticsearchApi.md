@@ -46,8 +46,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.elasticsearch.purgeElasticsearchIndexes(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.elasticsearch.purgeElasticsearchIndexes(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostElasticsearchApi->purgeElasticsearchIndexes: $e\n');
 }
@@ -105,8 +105,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.elasticsearch.testElasticsearch(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.elasticsearch.testElasticsearch(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostElasticsearchApi->testElasticsearch: $e\n');
 }

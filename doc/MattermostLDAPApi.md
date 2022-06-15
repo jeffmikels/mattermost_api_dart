@@ -54,8 +54,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.lDAP.deleteLdapPrivateCertificate(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.deleteLdapPrivateCertificate(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPrivateCertificate: $e\n');
 }
@@ -113,8 +113,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.lDAP.deleteLdapPublicCertificate(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.deleteLdapPublicCertificate(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->deleteLdapPublicCertificate: $e\n');
 }
@@ -175,8 +175,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of users per page. There is a maximum limit of 200 users per page.
 
 try {
-  final List&lt;MMLDAPGroupsPaged&gt; result = await client.lDAP.getLdapGroups(q, page, perPage); // returns List&lt;MMLDAPGroupsPaged&gt; instance
-  print(result);
+  final List&lt;MMLDAPGroupsPaged&gt;? result = await client.lDAP.getLdapGroups(q, page, perPage); // await the Future<List&lt;MMLDAPGroupsPaged&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->getLdapGroups: $e\n');
 }
@@ -240,8 +240,8 @@ var client = MattermostApiClient(
 final String remoteId = 'remoteId_example'; // String | Group GUID
 
 try {
-  final MMStatusOK result = await client.lDAP.linkLdapGroup(remoteId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.linkLdapGroup(remoteId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->linkLdapGroup: $e\n');
 }
@@ -365,8 +365,8 @@ var client = MattermostApiClient(
 final MMMigrateIdLdapRequest mMMigrateIdLdapRequest = MMMigrateIdLdapRequest(); // MMMigrateIdLdapRequest | 
 
 try {
-  final MMStatusOK result = await client.lDAP.migrateIdLdap(mMMigrateIdLdapRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.migrateIdLdap(mMMigrateIdLdapRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->migrateIdLdap: $e\n');
 }
@@ -427,8 +427,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.lDAP.syncLdap(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.syncLdap(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->syncLdap: $e\n');
 }
@@ -486,8 +486,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.lDAP.testLdap(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.testLdap(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->testLdap: $e\n');
 }
@@ -546,8 +546,8 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The private key file
 
 try {
-  final MMStatusOK result = await client.lDAP.uploadLdapPrivateCertificate(certificate); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.uploadLdapPrivateCertificate(certificate); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPrivateCertificate: $e\n');
 }
@@ -609,8 +609,8 @@ var client = MattermostApiClient(
 final MultipartFile certificate = BINARY_DATA_HERE; // MultipartFile | The public certificate file
 
 try {
-  final MMStatusOK result = await client.lDAP.uploadLdapPublicCertificate(certificate); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.lDAP.uploadLdapPublicCertificate(certificate); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostLDAPApi->uploadLdapPublicCertificate: $e\n');
 }

@@ -47,8 +47,8 @@ var client = MattermostApiClient(
 final MMOpenInteractiveDialogRequest mMOpenInteractiveDialogRequest = MMOpenInteractiveDialogRequest(); // MMOpenInteractiveDialogRequest | Metadata for the dialog to be opened
 
 try {
-  final MMStatusOK result = await client.integrationActions.openInteractiveDialog(mMOpenInteractiveDialogRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.integrationActions.openInteractiveDialog(mMOpenInteractiveDialogRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostIntegrationActionsApi->openInteractiveDialog: $e\n');
 }
@@ -110,8 +110,8 @@ var client = MattermostApiClient(
 final MMSubmitInteractiveDialogRequest mMSubmitInteractiveDialogRequest = MMSubmitInteractiveDialogRequest(); // MMSubmitInteractiveDialogRequest | Dialog submission data
 
 try {
-  final MMStatusOK result = await client.integrationActions.submitInteractiveDialog(mMSubmitInteractiveDialogRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.integrationActions.submitInteractiveDialog(mMSubmitInteractiveDialogRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostIntegrationActionsApi->submitInteractiveDialog: $e\n');
 }

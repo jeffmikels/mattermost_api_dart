@@ -45,8 +45,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.bleve.purgeBleveIndexes(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.bleve.purgeBleveIndexes(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostBleveApi->purgeBleveIndexes: $e\n');
 }

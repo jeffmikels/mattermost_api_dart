@@ -48,8 +48,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMCompliance result = await client.compliance.createComplianceReport(); // returns MMCompliance instance
-  print(result);
+  final MMCompliance? result = await client.compliance.createComplianceReport(); // await the Future<MMCompliance?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostComplianceApi->createComplianceReport: $e\n');
 }
@@ -170,8 +170,8 @@ var client = MattermostApiClient(
 final String reportId = 'reportId_example'; // String | Compliance report GUID
 
 try {
-  final MMCompliance result = await client.compliance.getComplianceReport(reportId); // returns MMCompliance instance
-  print(result);
+  final MMCompliance? result = await client.compliance.getComplianceReport(reportId); // await the Future<MMCompliance?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostComplianceApi->getComplianceReport: $e\n');
 }
@@ -234,8 +234,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of reports per page.
 
 try {
-  final List&lt;MMCompliance&gt; result = await client.compliance.getComplianceReports(page, perPage); // returns List&lt;MMCompliance&gt; instance
-  print(result);
+  final List&lt;MMCompliance&gt;? result = await client.compliance.getComplianceReports(page, perPage); // await the Future<List&lt;MMCompliance&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostComplianceApi->getComplianceReports: $e\n');
 }

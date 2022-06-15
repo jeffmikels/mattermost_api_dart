@@ -45,8 +45,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMClusterInfo&gt; result = await client.cluster.getClusterStatus(); // returns List&lt;MMClusterInfo&gt; instance
-  print(result);
+  final List&lt;MMClusterInfo&gt;? result = await client.cluster.getClusterStatus(); // await the Future<List&lt;MMClusterInfo&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostClusterApi->getClusterStatus: $e\n');
 }

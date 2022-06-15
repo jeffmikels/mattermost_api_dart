@@ -83,8 +83,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMIntegrityCheckResult&gt; result = await client.system.checkIntegrity(); // returns List&lt;MMIntegrityCheckResult&gt; instance
-  print(result);
+  final List&lt;MMIntegrityCheckResult&gt;? result = await client.system.checkIntegrity(); // await the Future<List&lt;MMIntegrityCheckResult&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->checkIntegrity: $e\n');
 }
@@ -142,8 +142,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.clearServerBusy(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.clearServerBusy(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->clearServerBusy: $e\n');
 }
@@ -201,8 +201,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.databaseRecycle(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.databaseRecycle(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->databaseRecycle: $e\n');
 }
@@ -384,8 +384,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of audits per page.
 
 try {
-  final List&lt;MMAudit&gt; result = await client.system.getAudits(page, perPage); // returns List&lt;MMAudit&gt; instance
-  print(result);
+  final List&lt;MMAudit&gt;? result = await client.system.getAudits(page, perPage); // await the Future<List&lt;MMAudit&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getAudits: $e\n');
 }
@@ -571,8 +571,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMConfig result = await client.system.getConfig(); // returns MMConfig instance
-  print(result);
+  final MMConfig? result = await client.system.getConfig(); // await the Future<MMConfig?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getConfig: $e\n');
 }
@@ -630,8 +630,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMEnvironmentConfig result = await client.system.getEnvironmentConfig(); // returns MMEnvironmentConfig instance
-  print(result);
+  final MMEnvironmentConfig? result = await client.system.getEnvironmentConfig(); // await the Future<MMEnvironmentConfig?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getEnvironmentConfig: $e\n');
 }
@@ -689,8 +689,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MultipartFile result = await client.system.getImageByUrl(); // returns MultipartFile instance
-  print(result);
+  final MultipartFile? result = await client.system.getImageByUrl(); // await the Future<MultipartFile?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getImageByUrl: $e\n');
 }
@@ -750,8 +750,8 @@ final int page = 56; // int | The page to select.
 final String logsPerPage = 'logsPerPage_example'; // String | The number of logs per page. There is a maximum limit of 10000 logs per page.
 
 try {
-  final List&lt;String&gt; result = await client.system.getLogs(page, logsPerPage); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.system.getLogs(page, logsPerPage); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getLogs: $e\n');
 }
@@ -817,8 +817,8 @@ final String teamId = 'teamId_example'; // String | ID of the team
 final String locale = 'locale_example'; // String | Client locale
 
 try {
-  final List&lt;MMNotice&gt; result = await client.system.getNotices(clientVersion, client, teamId, locale); // returns List&lt;MMNotice&gt; instance
-  print(result);
+  final List&lt;MMNotice&gt;? result = await client.system.getNotices(clientVersion, client, teamId, locale); // await the Future<List&lt;MMNotice&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getNotices: $e\n');
 }
@@ -884,8 +884,8 @@ final bool getServerStatus = true; // bool | Check the status of the database an
 final String deviceId = 'deviceId_example'; // String | Check whether this device id can receive push notifications
 
 try {
-  final MMSystemStatusResponse result = await client.system.getPing(getServerStatus, deviceId); // returns MMSystemStatusResponse instance
-  print(result);
+  final MMSystemStatusResponse? result = await client.system.getPing(getServerStatus, deviceId); // await the Future<MMSystemStatusResponse?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getPing: $e\n');
 }
@@ -948,8 +948,8 @@ var client = MattermostApiClient(
 final String url = 'url_example'; // String | Url to check
 
 try {
-  final MMGetRedirectLocation200Response result = await client.system.getRedirectLocation(url); // returns MMGetRedirectLocation200Response instance
-  print(result);
+  final MMGetRedirectLocation200Response? result = await client.system.getRedirectLocation(url); // await the Future<MMGetRedirectLocation200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getRedirectLocation: $e\n');
 }
@@ -1010,8 +1010,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMServerBusy result = await client.system.getServerBusyExpires(); // returns MMServerBusy instance
-  print(result);
+  final MMServerBusy? result = await client.system.getServerBusyExpires(); // await the Future<MMServerBusy?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getServerBusyExpires: $e\n');
 }
@@ -1069,8 +1069,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;String&gt; result = await client.system.getSupportedTimezone(); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.system.getSupportedTimezone(); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getSupportedTimezone: $e\n');
 }
@@ -1128,8 +1128,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.getWarnMetricsStatus(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.getWarnMetricsStatus(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->getWarnMetricsStatus: $e\n');
 }
@@ -1187,8 +1187,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.invalidateCaches(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.invalidateCaches(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->invalidateCaches: $e\n');
 }
@@ -1247,8 +1247,8 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of notice IDs
 
 try {
-  final MMStatusOK result = await client.system.markNoticesViewed(requestBody); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.markNoticesViewed(requestBody); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->markNoticesViewed: $e\n');
 }
@@ -1310,8 +1310,8 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final MMConfig result = await client.system.patchConfig(mMConfig); // returns MMConfig instance
-  print(result);
+  final MMConfig? result = await client.system.patchConfig(mMConfig); // await the Future<MMConfig?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->patchConfig: $e\n');
 }
@@ -1373,8 +1373,8 @@ var client = MattermostApiClient(
 final MMPostLogRequest mMPostLogRequest = MMPostLogRequest(); // MMPostLogRequest | 
 
 try {
-  final List&lt;String&gt; result = await client.system.postLog(mMPostLogRequest); // returns List&lt;String&gt; instance
-  print(result);
+  final List&lt;String&gt;? result = await client.system.postLog(mMPostLogRequest); // await the Future<List&lt;String&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->postLog: $e\n');
 }
@@ -1435,8 +1435,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.reloadConfig(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.reloadConfig(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->reloadConfig: $e\n');
 }
@@ -1552,8 +1552,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMLicenseRenewalLink result = await client.system.requestLicenseRenewalLink(); // returns MMLicenseRenewalLink instance
-  print(result);
+  final MMLicenseRenewalLink? result = await client.system.requestLicenseRenewalLink(); // await the Future<MMLicenseRenewalLink?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->requestLicenseRenewalLink: $e\n');
 }
@@ -1673,8 +1673,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMStatusOK result = await client.system.restartServer(); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.restartServer(); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->restartServer: $e\n');
 }
@@ -1733,8 +1733,8 @@ var client = MattermostApiClient(
 final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
 
 try {
-  final MMStatusOK result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.sendTrialLicenseWarnMetricAck(warnMetricId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->sendTrialLicenseWarnMetricAck: $e\n');
 }
@@ -1797,8 +1797,8 @@ final String warnMetricId = 'warnMetricId_example'; // String | Warn Metric Id.
 final MMSendWarnMetricAckRequest mMSendWarnMetricAckRequest = MMSendWarnMetricAckRequest(); // MMSendWarnMetricAckRequest | payload that contains the ack flag
 
 try {
-  final MMStatusOK result = await client.system.sendWarnMetricAck(warnMetricId, mMSendWarnMetricAckRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.sendWarnMetricAck(warnMetricId, mMSendWarnMetricAckRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->sendWarnMetricAck: $e\n');
 }
@@ -1861,8 +1861,8 @@ var client = MattermostApiClient(
 final String seconds = 'seconds_example'; // String | Number of seconds until server is automatically marked as not busy.
 
 try {
-  final MMStatusOK result = await client.system.setServerBusy(seconds); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.setServerBusy(seconds); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->setServerBusy: $e\n');
 }
@@ -1924,8 +1924,8 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final MMStatusOK result = await client.system.testEmail(mMConfig); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.testEmail(mMConfig); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testEmail: $e\n');
 }
@@ -1987,8 +1987,8 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final MMStatusOK result = await client.system.testS3Connection(mMConfig); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.testS3Connection(mMConfig); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testS3Connection: $e\n');
 }
@@ -2050,8 +2050,8 @@ var client = MattermostApiClient(
 final MMTestSiteURLRequest mMTestSiteURLRequest = MMTestSiteURLRequest(); // MMTestSiteURLRequest | 
 
 try {
-  final MMStatusOK result = await client.system.testSiteURL(mMTestSiteURLRequest); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.testSiteURL(mMTestSiteURLRequest); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->testSiteURL: $e\n');
 }
@@ -2171,8 +2171,8 @@ var client = MattermostApiClient(
 final MMConfig mMConfig = MMConfig(); // MMConfig | Mattermost configuration
 
 try {
-  final MMConfig result = await client.system.updateConfig(mMConfig); // returns MMConfig instance
-  print(result);
+  final MMConfig? result = await client.system.updateConfig(mMConfig); // await the Future<MMConfig?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->updateConfig: $e\n');
 }
@@ -2234,8 +2234,8 @@ var client = MattermostApiClient(
 final MMSystem mMSystem = MMSystem(); // MMSystem | 
 
 try {
-  final MMStatusOK result = await client.system.updateMarketplaceVisitedByAdmin(mMSystem); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.updateMarketplaceVisitedByAdmin(mMSystem); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->updateMarketplaceVisitedByAdmin: $e\n');
 }
@@ -2296,8 +2296,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMPushNotification result = await client.system.upgradeToEnterprise(); // returns MMPushNotification instance
-  print(result);
+  final MMPushNotification? result = await client.system.upgradeToEnterprise(); // await the Future<MMPushNotification?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->upgradeToEnterprise: $e\n');
 }
@@ -2355,8 +2355,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMUpgradeToEnterpriseStatus200Response result = await client.system.upgradeToEnterpriseStatus(); // returns MMUpgradeToEnterpriseStatus200Response instance
-  print(result);
+  final MMUpgradeToEnterpriseStatus200Response? result = await client.system.upgradeToEnterpriseStatus(); // await the Future<MMUpgradeToEnterpriseStatus200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->upgradeToEnterpriseStatus: $e\n');
 }
@@ -2415,8 +2415,8 @@ var client = MattermostApiClient(
 final MultipartFile license = BINARY_DATA_HERE; // MultipartFile | The license to be uploaded
 
 try {
-  final MMStatusOK result = await client.system.uploadLicenseFile(license); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.system.uploadLicenseFile(license); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostSystemApi->uploadLicenseFile: $e\n');
 }

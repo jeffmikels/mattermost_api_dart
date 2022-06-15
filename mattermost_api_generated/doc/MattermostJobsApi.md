@@ -51,8 +51,8 @@ var client = MattermostApiClient(
 final String jobId = 'jobId_example'; // String | Job GUID
 
 try {
-  final MMStatusOK result = await client.jobs.cancelJob(jobId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.jobs.cancelJob(jobId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostJobsApi->cancelJob: $e\n');
 }
@@ -114,8 +114,8 @@ var client = MattermostApiClient(
 final MMCreateJobRequest mMCreateJobRequest = MMCreateJobRequest(); // MMCreateJobRequest | Job object to be created
 
 try {
-  final MMJob result = await client.jobs.createJob(mMCreateJobRequest); // returns MMJob instance
-  print(result);
+  final MMJob? result = await client.jobs.createJob(mMCreateJobRequest); // await the Future<MMJob?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostJobsApi->createJob: $e\n');
 }
@@ -239,8 +239,8 @@ var client = MattermostApiClient(
 final String jobId = 'jobId_example'; // String | Job GUID
 
 try {
-  final MMJob result = await client.jobs.getJob(jobId); // returns MMJob instance
-  print(result);
+  final MMJob? result = await client.jobs.getJob(jobId); // await the Future<MMJob?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostJobsApi->getJob: $e\n');
 }
@@ -303,8 +303,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of jobs per page.
 
 try {
-  final List&lt;MMJob&gt; result = await client.jobs.getJobs(page, perPage); // returns List&lt;MMJob&gt; instance
-  print(result);
+  final List&lt;MMJob&gt;? result = await client.jobs.getJobs(page, perPage); // await the Future<List&lt;MMJob&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostJobsApi->getJobs: $e\n');
 }
@@ -369,8 +369,8 @@ final int page = 56; // int | The page to select.
 final int perPage = 56; // int | The number of jobs per page.
 
 try {
-  final List&lt;MMJob&gt; result = await client.jobs.getJobsByType(type, page, perPage); // returns List&lt;MMJob&gt; instance
-  print(result);
+  final List&lt;MMJob&gt;? result = await client.jobs.getJobsByType(type, page, perPage); // await the Future<List&lt;MMJob&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostJobsApi->getJobsByType: $e\n');
 }

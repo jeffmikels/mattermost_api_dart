@@ -51,8 +51,8 @@ final String postId = 'postId_example'; // String | ID of the post
 final String emojiName = 'emojiName_example'; // String | emoji name
 
 try {
-  final MMStatusOK result = await client.reactions.deleteReaction(userId, postId, emojiName); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.reactions.deleteReaction(userId, postId, emojiName); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->deleteReaction: $e\n');
 }
@@ -116,8 +116,8 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | Array of post IDs
 
 try {
-  final Map&lt;String, List&lt;MMReaction&gt;&gt; result = await client.reactions.getBulkReactions(requestBody); // returns Map&lt;String, List&lt;MMReaction&gt;&gt; instance
-  print(result);
+  final Map&lt;String, List&lt;MMReaction&gt;&gt;? result = await client.reactions.getBulkReactions(requestBody); // await the Future<Map&lt;String, List&lt;MMReaction&gt;&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->getBulkReactions: $e\n');
 }
@@ -179,8 +179,8 @@ var client = MattermostApiClient(
 final String postId = 'postId_example'; // String | ID of a post
 
 try {
-  final List&lt;MMReaction&gt; result = await client.reactions.getReactions(postId); // returns List&lt;MMReaction&gt; instance
-  print(result);
+  final List&lt;MMReaction&gt;? result = await client.reactions.getReactions(postId); // await the Future<List&lt;MMReaction&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->getReactions: $e\n');
 }
@@ -242,8 +242,8 @@ var client = MattermostApiClient(
 final MMReaction mMReaction = MMReaction(); // MMReaction | The user's reaction with its post_id, user_id, and emoji_name fields set
 
 try {
-  final MMReaction result = await client.reactions.saveReaction(mMReaction); // returns MMReaction instance
-  print(result);
+  final MMReaction? result = await client.reactions.saveReaction(mMReaction); // await the Future<MMReaction?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostReactionsApi->saveReaction: $e\n');
 }

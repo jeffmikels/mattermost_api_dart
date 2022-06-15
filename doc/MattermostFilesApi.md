@@ -115,8 +115,8 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file info to get
 
 try {
-  final MMFileInfo result = await client.files.getFileInfo(fileId); // returns MMFileInfo instance
-  print(result);
+  final MMFileInfo? result = await client.files.getFileInfo(fileId); // await the Future<MMFileInfo?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFileInfo: $e\n');
 }
@@ -178,8 +178,8 @@ var client = MattermostApiClient(
 final String fileId = 'fileId_example'; // String | The ID of the file to get a link for
 
 try {
-  final MMGetFileLink200Response result = await client.files.getFileLink(fileId); // returns MMGetFileLink200Response instance
-  print(result);
+  final MMGetFileLink200Response? result = await client.files.getFileLink(fileId); // await the Future<MMGetFileLink200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostFilesApi->getFileLink: $e\n');
 }
@@ -435,8 +435,8 @@ final int page = 56; // int | The page to select. (Only works with Elasticsearch
 final int perPage = 56; // int | The number of posts per page. (Only works with Elasticsearch)
 
 try {
-  final MMFileInfoList result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // returns MMFileInfoList instance
-  print(result);
+  final MMFileInfoList? result = await client.files.searchFiles(teamId, terms, isOrSearch, timeZoneOffset, includeDeletedChannels, page, perPage); // await the Future<MMFileInfoList?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostFilesApi->searchFiles: $e\n');
 }
@@ -508,8 +508,8 @@ final String channelId2 = 'channelId_example'; // String | The ID of the channel
 final String clientIds = 'clientIds_example'; // String | A unique identifier for the file that will be returned in the response
 
 try {
-  final MMUploadFile201Response result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds); // returns MMUploadFile201Response instance
-  print(result);
+  final MMUploadFile201Response? result = await client.files.uploadFile(channelId, filename, files, channelId2, clientIds); // await the Future<MMUploadFile201Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostFilesApi->uploadFile: $e\n');
 }

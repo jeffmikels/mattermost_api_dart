@@ -120,8 +120,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMPaymentSetupIntent result = await client.cloud.createCustomerPayment(); // returns MMPaymentSetupIntent instance
-  print(result);
+  final MMPaymentSetupIntent? result = await client.cloud.createCustomerPayment(); // await the Future<MMPaymentSetupIntent?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->createCustomerPayment: $e\n');
 }
@@ -179,8 +179,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMCloudCustomer result = await client.cloud.getCloudCustomer(); // returns MMCloudCustomer instance
-  print(result);
+  final MMCloudCustomer? result = await client.cloud.getCloudCustomer(); // await the Future<MMCloudCustomer?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudCustomer: $e\n');
 }
@@ -238,8 +238,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMProductLimits result = await client.cloud.getCloudLimits(); // returns MMProductLimits instance
-  print(result);
+  final MMProductLimits? result = await client.cloud.getCloudLimits(); // await the Future<MMProductLimits?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudLimits: $e\n');
 }
@@ -297,8 +297,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMProduct&gt; result = await client.cloud.getCloudProducts(); // returns List&lt;MMProduct&gt; instance
-  print(result);
+  final List&lt;MMProduct&gt;? result = await client.cloud.getCloudProducts(); // await the Future<List&lt;MMProduct&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getCloudProducts: $e\n');
 }
@@ -418,8 +418,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMInvoice&gt; result = await client.cloud.getInvoicesForSubscription(); // returns List&lt;MMInvoice&gt; instance
-  print(result);
+  final List&lt;MMInvoice&gt;? result = await client.cloud.getInvoicesForSubscription(); // await the Future<List&lt;MMInvoice&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getInvoicesForSubscription: $e\n');
 }
@@ -477,8 +477,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMSubscription result = await client.cloud.getSubscription(); // returns MMSubscription instance
-  print(result);
+  final MMSubscription? result = await client.cloud.getSubscription(); // await the Future<MMSubscription?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscription: $e\n');
 }
@@ -536,8 +536,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMSubscriptionStats result = await client.cloud.getSubscriptionStats(); // returns MMSubscriptionStats instance
-  print(result);
+  final MMSubscriptionStats? result = await client.cloud.getSubscriptionStats(); // await the Future<MMSubscriptionStats?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->getSubscriptionStats: $e\n');
 }
@@ -770,8 +770,8 @@ var client = MattermostApiClient(
 final MMUpdateCloudCustomerRequest mMUpdateCloudCustomerRequest = MMUpdateCloudCustomerRequest(); // MMUpdateCloudCustomerRequest | Customer patch including information to update
 
 try {
-  final MMCloudCustomer result = await client.cloud.updateCloudCustomer(mMUpdateCloudCustomerRequest); // returns MMCloudCustomer instance
-  print(result);
+  final MMCloudCustomer? result = await client.cloud.updateCloudCustomer(mMUpdateCloudCustomerRequest); // await the Future<MMCloudCustomer?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomer: $e\n');
 }
@@ -833,8 +833,8 @@ var client = MattermostApiClient(
 final MMAddress mMAddress = MMAddress(); // MMAddress | Company address information to update
 
 try {
-  final MMCloudCustomer result = await client.cloud.updateCloudCustomerAddress(mMAddress); // returns MMCloudCustomer instance
-  print(result);
+  final MMCloudCustomer? result = await client.cloud.updateCloudCustomerAddress(mMAddress); // await the Future<MMCloudCustomer?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostCloudApi->updateCloudCustomerAddress: $e\n');
 }

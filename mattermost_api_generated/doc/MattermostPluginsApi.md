@@ -56,8 +56,8 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK result = await client.plugins.disablePlugin(pluginId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.plugins.disablePlugin(pluginId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->disablePlugin: $e\n');
 }
@@ -119,8 +119,8 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK result = await client.plugins.enablePlugin(pluginId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.plugins.enablePlugin(pluginId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->enablePlugin: $e\n');
 }
@@ -186,8 +186,8 @@ final String serverVersion = 'serverVersion_example'; // String | Set to filter 
 final bool localOnly = true; // bool | Set true to only retrieve local plugins.
 
 try {
-  final List&lt;MMMarketplacePlugin&gt; result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly); // returns List&lt;MMMarketplacePlugin&gt; instance
-  print(result);
+  final List&lt;MMMarketplacePlugin&gt;? result = await client.plugins.getMarketplacePlugins(page, perPage, filter, serverVersion, localOnly); // await the Future<List&lt;MMMarketplacePlugin&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplacePlugins: $e\n');
 }
@@ -252,8 +252,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMSystem result = await client.plugins.getMarketplaceVisitedByAdmin(); // returns MMSystem instance
-  print(result);
+  final MMSystem? result = await client.plugins.getMarketplaceVisitedByAdmin(); // await the Future<MMSystem?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getMarketplaceVisitedByAdmin: $e\n');
 }
@@ -311,8 +311,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMPluginStatus&gt; result = await client.plugins.getPluginStatuses(); // returns List&lt;MMPluginStatus&gt; instance
-  print(result);
+  final List&lt;MMPluginStatus&gt;? result = await client.plugins.getPluginStatuses(); // await the Future<List&lt;MMPluginStatus&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPluginStatuses: $e\n');
 }
@@ -370,8 +370,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final MMGetPlugins200Response result = await client.plugins.getPlugins(); // returns MMGetPlugins200Response instance
-  print(result);
+  final MMGetPlugins200Response? result = await client.plugins.getPlugins(); // await the Future<MMGetPlugins200Response?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getPlugins: $e\n');
 }
@@ -429,8 +429,8 @@ var client = MattermostApiClient(
 
 
 try {
-  final List&lt;MMPluginManifestWebapp&gt; result = await client.plugins.getWebappPlugins(); // returns List&lt;MMPluginManifestWebapp&gt; instance
-  print(result);
+  final List&lt;MMPluginManifestWebapp&gt;? result = await client.plugins.getWebappPlugins(); // await the Future<List&lt;MMPluginManifestWebapp&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->getWebappPlugins: $e\n');
 }
@@ -489,8 +489,8 @@ var client = MattermostApiClient(
 final MMInstallMarketplacePluginRequest mMInstallMarketplacePluginRequest = MMInstallMarketplacePluginRequest(); // MMInstallMarketplacePluginRequest | The metadata identifying the plugin to install.
 
 try {
-  final MMPluginManifest result = await client.plugins.installMarketplacePlugin(mMInstallMarketplacePluginRequest); // returns MMPluginManifest instance
-  print(result);
+  final MMPluginManifest? result = await client.plugins.installMarketplacePlugin(mMInstallMarketplacePluginRequest); // await the Future<MMPluginManifest?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installMarketplacePlugin: $e\n');
 }
@@ -553,8 +553,8 @@ final String pluginDownloadUrl = 'pluginDownloadUrl_example'; // String | URL us
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final MMStatusOK result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.plugins.installPluginFromUrl(pluginDownloadUrl, force); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->installPluginFromUrl: $e\n');
 }
@@ -617,8 +617,8 @@ var client = MattermostApiClient(
 final String pluginId = 'pluginId_example'; // String | 
 
 try {
-  final MMStatusOK result = await client.plugins.removePlugin(pluginId); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.plugins.removePlugin(pluginId); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->removePlugin: $e\n');
 }
@@ -681,8 +681,8 @@ final MultipartFile plugin = BINARY_DATA_HERE; // MultipartFile | The plugin ima
 final String force = 'force_example'; // String | Set to 'true' to overwrite a previously installed plugin with the same ID, if any
 
 try {
-  final MMStatusOK result = await client.plugins.uploadPlugin(plugin, force); // returns MMStatusOK instance
-  print(result);
+  final MMStatusOK? result = await client.plugins.uploadPlugin(plugin, force); // await the Future<MMStatusOK?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostPluginsApi->uploadPlugin: $e\n');
 }

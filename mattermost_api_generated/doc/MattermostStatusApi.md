@@ -52,8 +52,8 @@ var client = MattermostApiClient(
 final String userId = 'userId_example'; // String | User ID
 
 try {
-  final MMStatus result = await client.status.getUserStatus(userId); // returns MMStatus instance
-  print(result);
+  final MMStatus? result = await client.status.getUserStatus(userId); // await the Future<MMStatus?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostStatusApi->getUserStatus: $e\n');
 }
@@ -115,8 +115,8 @@ var client = MattermostApiClient(
 final List&lt;String&gt; requestBody = [List<String>()]; // List<String> | List of user ids to fetch
 
 try {
-  final List&lt;MMStatus&gt; result = await client.status.getUsersStatusesByIds(requestBody); // returns List&lt;MMStatus&gt; instance
-  print(result);
+  final List&lt;MMStatus&gt;? result = await client.status.getUsersStatusesByIds(requestBody); // await the Future<List&lt;MMStatus&gt;?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostStatusApi->getUsersStatusesByIds: $e\n');
 }
@@ -433,8 +433,8 @@ final String userId = 'userId_example'; // String | User ID
 final MMUpdateUserStatusRequest mMUpdateUserStatusRequest = MMUpdateUserStatusRequest(); // MMUpdateUserStatusRequest | Status object that is to be updated
 
 try {
-  final MMStatus result = await client.status.updateUserStatus(userId, mMUpdateUserStatusRequest); // returns MMStatus instance
-  print(result);
+  final MMStatus? result = await client.status.updateUserStatus(userId, mMUpdateUserStatusRequest); // await the Future<MMStatus?>
+  print(result ?? 'resolved to null');
 } catch (e) {
   print('Exception when calling MattermostStatusApi->updateUserStatus: $e\n');
 }
