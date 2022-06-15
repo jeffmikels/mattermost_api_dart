@@ -26,23 +26,8 @@ For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}})
 import 'package:{{{pubName}}}/api.dart';
 
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-{{>client_example}}
+{{>doc_example_api}}
 
-// Then, access {{{classname}}} api instance
-// final {{{classname}}} api_instance = client.{{classVarName}}
-
-{{#allParams}}
-final {{{paramName}}} = {{#isArray}}[{{/isArray}}{{#isBodyParam}}{{{dataType}}}(){{/isBodyParam}}{{^isBodyParam}}{{{example}}}{{/isBodyParam}}{{#isArray}}]{{/isArray}}; // {{{dataType}}} | {{{description}}}
-{{/allParams}}
-
-try {
-    {{#returnType}}final result = {{/returnType}}await client.{{classVarName}}.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
-    {{#returnType}}
-    print(result);
-    {{/returnType}}
-} catch (e) {
-    print('Exception when calling {{{classname}}}->{{{operationId}}}: $e\n');
-}
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 ```
 
