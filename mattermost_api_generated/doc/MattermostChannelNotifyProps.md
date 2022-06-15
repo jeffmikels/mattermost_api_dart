@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelNotifyProps = await client.channelNotifyProps.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelNotifyProps example = await client.channelNotifyProps.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

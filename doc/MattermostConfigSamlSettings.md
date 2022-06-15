@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigSamlSettings = await client.configSamlSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigSamlSettings example = await client.configSamlSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

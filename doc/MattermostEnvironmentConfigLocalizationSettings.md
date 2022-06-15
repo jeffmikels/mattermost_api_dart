@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigLocalizationSettings = await client.environmentConfigLocalizationSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigLocalizationSettings example = await client.environmentConfigLocalizationSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

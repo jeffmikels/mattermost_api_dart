@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostStatus = await client.status.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostStatus example = await client.status.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostServerBusy = await client.serverBusy.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostServerBusy example = await client.serverBusy.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

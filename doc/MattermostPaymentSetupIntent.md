@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPaymentSetupIntent = await client.paymentSetupIntent.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPaymentSetupIntent example = await client.paymentSetupIntent.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

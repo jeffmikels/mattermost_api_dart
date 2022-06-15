@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTopChannelList = await client.topChannelList.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTopChannelList example = await client.topChannelList.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

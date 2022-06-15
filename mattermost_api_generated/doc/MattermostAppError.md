@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAppError = await client.appError.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAppError example = await client.appError.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

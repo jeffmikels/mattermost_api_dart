@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostLoginByCwsTokenRequest = await client.loginByCwsTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostLoginByCwsTokenRequest example = await client.loginByCwsTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

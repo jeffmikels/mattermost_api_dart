@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMoveCommandRequest = await client.moveCommandRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMoveCommandRequest example = await client.moveCommandRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRelationalIntegrityCheckData = await client.relationalIntegrityCheckData.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRelationalIntegrityCheckData example = await client.relationalIntegrityCheckData.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

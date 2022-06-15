@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostLDAPGroup = await client.lDAPGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostLDAPGroup example = await client.lDAPGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

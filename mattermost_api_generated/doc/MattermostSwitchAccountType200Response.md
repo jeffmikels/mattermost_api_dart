@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSwitchAccountType200Response = await client.switchAccountType200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSwitchAccountType200Response example = await client.switchAccountType200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

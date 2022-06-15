@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateChannelRequest = await client.createChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateChannelRequest example = await client.createChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

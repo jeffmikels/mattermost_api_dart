@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPublishUserTypingRequest = await client.publishUserTypingRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPublishUserTypingRequest example = await client.publishUserTypingRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

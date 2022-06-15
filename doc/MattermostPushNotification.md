@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPushNotification = await client.pushNotification.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPushNotification example = await client.pushNotification.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

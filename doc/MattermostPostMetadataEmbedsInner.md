@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPostMetadataEmbedsInner = await client.postMetadataEmbedsInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPostMetadataEmbedsInner example = await client.postMetadataEmbedsInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

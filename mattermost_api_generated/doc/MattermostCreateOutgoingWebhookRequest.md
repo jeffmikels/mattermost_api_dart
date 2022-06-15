@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateOutgoingWebhookRequest = await client.createOutgoingWebhookRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateOutgoingWebhookRequest example = await client.createOutgoingWebhookRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

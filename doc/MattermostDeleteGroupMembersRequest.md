@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostDeleteGroupMembersRequest = await client.deleteGroupMembersRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostDeleteGroupMembersRequest example = await client.deleteGroupMembersRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

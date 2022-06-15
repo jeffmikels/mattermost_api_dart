@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAttachDeviceIdRequest = await client.attachDeviceIdRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAttachDeviceIdRequest example = await client.attachDeviceIdRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

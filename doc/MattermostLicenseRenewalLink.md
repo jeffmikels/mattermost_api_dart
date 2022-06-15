@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostLicenseRenewalLink = await client.licenseRenewalLink.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostLicenseRenewalLink example = await client.licenseRenewalLink.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

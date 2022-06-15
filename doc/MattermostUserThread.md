@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUserThread = await client.userThread.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUserThread example = await client.userThread.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostResetPasswordRequest = await client.resetPasswordRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostResetPasswordRequest example = await client.resetPasswordRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

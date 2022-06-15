@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCheckUserMfa200Response = await client.checkUserMfa200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCheckUserMfa200Response example = await client.checkUserMfa200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

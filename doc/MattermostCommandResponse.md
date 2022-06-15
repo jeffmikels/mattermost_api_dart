@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCommandResponse = await client.commandResponse.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCommandResponse example = await client.commandResponse.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

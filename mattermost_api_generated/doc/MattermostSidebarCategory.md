@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSidebarCategory = await client.sidebarCategory.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSidebarCategory example = await client.sidebarCategory.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

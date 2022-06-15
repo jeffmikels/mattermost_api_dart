@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigSupportSettings = await client.configSupportSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigSupportSettings example = await client.configSupportSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

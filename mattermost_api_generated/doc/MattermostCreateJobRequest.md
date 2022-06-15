@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateJobRequest = await client.createJobRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateJobRequest example = await client.createJobRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

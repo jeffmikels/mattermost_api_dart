@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchRoleRequest = await client.patchRoleRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchRoleRequest example = await client.patchRoleRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

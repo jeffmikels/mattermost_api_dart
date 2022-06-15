@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMarketplacePlugin = await client.marketplacePlugin.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMarketplacePlugin example = await client.marketplacePlugin.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

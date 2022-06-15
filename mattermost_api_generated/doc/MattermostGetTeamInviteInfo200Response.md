@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetTeamInviteInfo200Response = await client.getTeamInviteInfo200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetTeamInviteInfo200Response example = await client.getTeamInviteInfo200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

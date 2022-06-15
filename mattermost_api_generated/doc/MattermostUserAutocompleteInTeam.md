@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUserAutocompleteInTeam = await client.userAutocompleteInTeam.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUserAutocompleteInTeam example = await client.userAutocompleteInTeam.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

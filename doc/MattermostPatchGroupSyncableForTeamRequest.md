@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchGroupSyncableForTeamRequest = await client.patchGroupSyncableForTeamRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchGroupSyncableForTeamRequest example = await client.patchGroupSyncableForTeamRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

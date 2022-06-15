@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpgradeToEnterpriseStatus200Response = await client.upgradeToEnterpriseStatus200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpgradeToEnterpriseStatus200Response example = await client.upgradeToEnterpriseStatus200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

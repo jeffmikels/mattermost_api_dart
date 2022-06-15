@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigEmailSettings = await client.configEmailSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigEmailSettings example = await client.configEmailSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUserAuthData = await client.userAuthData.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUserAuthData example = await client.userAuthData.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

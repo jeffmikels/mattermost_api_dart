@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetGroupStats200Response = await client.getGroupStats200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetGroupStats200Response example = await client.getGroupStats200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

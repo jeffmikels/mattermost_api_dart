@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostBot = await client.bot.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostBot example = await client.bot.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

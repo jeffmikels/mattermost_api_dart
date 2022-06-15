@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMoveChannelRequest = await client.moveChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMoveChannelRequest example = await client.moveChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

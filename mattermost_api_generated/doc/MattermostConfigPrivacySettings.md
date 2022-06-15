@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigPrivacySettings = await client.configPrivacySettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigPrivacySettings example = await client.configPrivacySettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateCommandRequest = await client.createCommandRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateCommandRequest example = await client.createCommandRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

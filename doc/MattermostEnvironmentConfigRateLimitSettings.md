@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigRateLimitSettings = await client.environmentConfigRateLimitSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigRateLimitSettings example = await client.environmentConfigRateLimitSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

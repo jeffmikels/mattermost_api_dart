@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelData = await client.channelData.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelData example = await client.channelData.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

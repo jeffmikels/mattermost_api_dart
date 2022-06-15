@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTeamExists = await client.teamExists.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTeamExists example = await client.teamExists.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

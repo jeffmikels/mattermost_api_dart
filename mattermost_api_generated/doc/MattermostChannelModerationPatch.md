@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelModerationPatch = await client.channelModerationPatch.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelModerationPatch example = await client.channelModerationPatch.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

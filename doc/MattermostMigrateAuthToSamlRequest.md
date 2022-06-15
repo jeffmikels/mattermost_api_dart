@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMigrateAuthToSamlRequest = await client.migrateAuthToSamlRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMigrateAuthToSamlRequest example = await client.migrateAuthToSamlRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

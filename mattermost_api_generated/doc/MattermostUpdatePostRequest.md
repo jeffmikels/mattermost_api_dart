@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdatePostRequest = await client.updatePostRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdatePostRequest example = await client.updatePostRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

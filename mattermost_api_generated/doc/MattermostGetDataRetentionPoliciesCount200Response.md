@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetDataRetentionPoliciesCount200Response = await client.getDataRetentionPoliciesCount200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetDataRetentionPoliciesCount200Response example = await client.getDataRetentionPoliciesCount200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

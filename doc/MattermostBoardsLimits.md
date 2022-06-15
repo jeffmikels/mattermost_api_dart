@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostBoardsLimits = await client.boardsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostBoardsLimits example = await client.boardsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

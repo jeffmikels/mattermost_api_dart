@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUserAutocompleteInChannel = await client.userAutocompleteInChannel.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUserAutocompleteInChannel example = await client.userAutocompleteInChannel.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchEmojiRequest = await client.searchEmojiRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchEmojiRequest example = await client.searchEmojiRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

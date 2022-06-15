@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostJob = await client.job.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostJob example = await client.job.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

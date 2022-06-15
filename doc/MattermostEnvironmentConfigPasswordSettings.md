@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigPasswordSettings = await client.environmentConfigPasswordSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigPasswordSettings example = await client.environmentConfigPasswordSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

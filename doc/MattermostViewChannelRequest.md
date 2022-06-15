@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostViewChannelRequest = await client.viewChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostViewChannelRequest example = await client.viewChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

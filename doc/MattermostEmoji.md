@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEmoji = await client.emoji.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEmoji example = await client.emoji.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

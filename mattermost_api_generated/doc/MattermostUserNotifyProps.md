@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUserNotifyProps = await client.userNotifyProps.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUserNotifyProps example = await client.userNotifyProps.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

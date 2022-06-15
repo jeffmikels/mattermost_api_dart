@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigComplianceSettings = await client.environmentConfigComplianceSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigComplianceSettings example = await client.environmentConfigComplianceSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

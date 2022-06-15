@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRegenCommandToken200Response = await client.regenCommandToken200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRegenCommandToken200Response example = await client.regenCommandToken200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

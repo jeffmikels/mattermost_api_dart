@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateOAuthAppRequest = await client.updateOAuthAppRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateOAuthAppRequest example = await client.updateOAuthAppRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAddress = await client.address.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAddress example = await client.address.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

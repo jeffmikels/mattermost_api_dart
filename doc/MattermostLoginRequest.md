@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostLoginRequest = await client.loginRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostLoginRequest example = await client.loginRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

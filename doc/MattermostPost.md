@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPost = await client.post.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPost example = await client.post.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRevokeSessionRequest = await client.revokeSessionRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRevokeSessionRequest example = await client.revokeSessionRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

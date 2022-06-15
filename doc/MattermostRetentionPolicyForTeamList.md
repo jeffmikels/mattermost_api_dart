@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRetentionPolicyForTeamList = await client.retentionPolicyForTeamList.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRetentionPolicyForTeamList example = await client.retentionPolicyForTeamList.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

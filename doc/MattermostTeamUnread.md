@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTeamUnread = await client.teamUnread.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTeamUnread example = await client.teamUnread.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

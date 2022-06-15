@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTeamMap = await client.teamMap.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTeamMap example = await client.teamMap.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

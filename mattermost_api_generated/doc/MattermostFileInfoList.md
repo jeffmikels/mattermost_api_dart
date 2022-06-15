@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostFileInfoList = await client.fileInfoList.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostFileInfoList example = await client.fileInfoList.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

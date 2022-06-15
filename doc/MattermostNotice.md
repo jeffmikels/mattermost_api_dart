@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostNotice = await client.notice.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostNotice example = await client.notice.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

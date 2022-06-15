@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUploadFile201Response = await client.uploadFile201Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUploadFile201Response example = await client.uploadFile201Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSendVerificationEmailRequest = await client.sendVerificationEmailRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSendVerificationEmailRequest example = await client.sendVerificationEmailRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

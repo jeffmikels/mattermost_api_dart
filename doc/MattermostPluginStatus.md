@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPluginStatus = await client.pluginStatus.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPluginStatus example = await client.pluginStatus.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

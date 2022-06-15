@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRemoteClusterInfo = await client.remoteClusterInfo.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRemoteClusterInfo example = await client.remoteClusterInfo.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchSchemeRequest = await client.patchSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchSchemeRequest example = await client.patchSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

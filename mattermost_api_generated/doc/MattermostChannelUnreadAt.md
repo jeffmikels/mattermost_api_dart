@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelUnreadAt = await client.channelUnreadAt.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelUnreadAt example = await client.channelUnreadAt.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

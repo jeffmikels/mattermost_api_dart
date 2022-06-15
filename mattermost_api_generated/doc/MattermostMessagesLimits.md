@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMessagesLimits = await client.messagesLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMessagesLimits example = await client.messagesLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

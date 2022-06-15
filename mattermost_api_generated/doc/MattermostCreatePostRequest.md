@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreatePostRequest = await client.createPostRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreatePostRequest example = await client.createPostRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

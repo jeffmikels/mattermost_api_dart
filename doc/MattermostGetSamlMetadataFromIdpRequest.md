@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetSamlMetadataFromIdpRequest = await client.getSamlMetadataFromIdpRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetSamlMetadataFromIdpRequest example = await client.getSamlMetadataFromIdpRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

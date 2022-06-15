@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPluginManifest = await client.pluginManifest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPluginManifest example = await client.pluginManifest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

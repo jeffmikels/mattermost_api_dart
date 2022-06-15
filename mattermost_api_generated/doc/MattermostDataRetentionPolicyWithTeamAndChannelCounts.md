@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostDataRetentionPolicyWithTeamAndChannelCounts = await client.dataRetentionPolicyWithTeamAndChannelCounts.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostDataRetentionPolicyWithTeamAndChannelCounts example = await client.dataRetentionPolicyWithTeamAndChannelCounts.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

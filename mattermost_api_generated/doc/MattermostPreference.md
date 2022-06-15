@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPreference = await client.preference.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPreference example = await client.preference.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

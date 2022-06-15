@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchAllChannels200Response = await client.searchAllChannels200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchAllChannels200Response example = await client.searchAllChannels200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

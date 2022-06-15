@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchChannelsForRetentionPolicyRequest = await client.searchChannelsForRetentionPolicyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchChannelsForRetentionPolicyRequest example = await client.searchChannelsForRetentionPolicyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

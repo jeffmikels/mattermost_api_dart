@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGroupSyncableChannel = await client.groupSyncableChannel.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGroupSyncableChannel example = await client.groupSyncableChannel.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

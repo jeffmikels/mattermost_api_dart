@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchChannelRequest = await client.patchChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchChannelRequest example = await client.patchChannelRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

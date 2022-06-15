@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenGraphBook = await client.openGraphBook.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenGraphBook example = await client.openGraphBook.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

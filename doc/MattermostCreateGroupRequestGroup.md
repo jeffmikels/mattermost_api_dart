@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateGroupRequestGroup = await client.createGroupRequestGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateGroupRequestGroup example = await client.createGroupRequestGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchUsersRequest = await client.searchUsersRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchUsersRequest example = await client.searchUsersRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

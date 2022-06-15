@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostDataRetentionPolicyAllOf = await client.dataRetentionPolicyAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostDataRetentionPolicyAllOf example = await client.dataRetentionPolicyAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

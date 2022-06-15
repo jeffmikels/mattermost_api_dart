@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPaymentMethod = await client.paymentMethod.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPaymentMethod example = await client.paymentMethod.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

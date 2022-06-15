@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMigrateAuthToLdapRequest = await client.migrateAuthToLdapRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMigrateAuthToLdapRequest example = await client.migrateAuthToLdapRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

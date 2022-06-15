@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConvertBotToUserRequest = await client.convertBotToUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConvertBotToUserRequest example = await client.convertBotToUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

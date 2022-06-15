@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSubscriptionStats = await client.subscriptionStats.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSubscriptionStats example = await client.subscriptionStats.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

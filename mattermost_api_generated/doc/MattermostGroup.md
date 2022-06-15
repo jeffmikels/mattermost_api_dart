@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGroup = await client.group.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGroup example = await client.group.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

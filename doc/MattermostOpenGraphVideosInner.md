@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenGraphVideosInner = await client.openGraphVideosInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenGraphVideosInner example = await client.openGraphVideosInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

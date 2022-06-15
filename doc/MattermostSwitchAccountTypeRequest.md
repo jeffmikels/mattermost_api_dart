@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSwitchAccountTypeRequest = await client.switchAccountTypeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSwitchAccountTypeRequest example = await client.switchAccountTypeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

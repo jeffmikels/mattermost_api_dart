@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTestSiteURLRequest = await client.testSiteURLRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTestSiteURLRequest example = await client.testSiteURLRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

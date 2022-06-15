@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostMigrateIdLdapRequest = await client.migrateIdLdapRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostMigrateIdLdapRequest example = await client.migrateIdLdapRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

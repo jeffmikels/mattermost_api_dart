@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateUserPasswordRequest = await client.updateUserPasswordRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateUserPasswordRequest example = await client.updateUserPasswordRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPostsUsage = await client.postsUsage.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPostsUsage example = await client.postsUsage.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

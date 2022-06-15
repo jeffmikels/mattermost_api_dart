@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGroupWithSchemeAdmin = await client.groupWithSchemeAdmin.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGroupWithSchemeAdmin example = await client.groupWithSchemeAdmin.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

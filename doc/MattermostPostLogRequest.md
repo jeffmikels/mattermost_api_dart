@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPostLogRequest = await client.postLogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPostLogRequest example = await client.postLogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

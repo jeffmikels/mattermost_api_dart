@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSubmitInteractiveDialogRequest = await client.submitInteractiveDialogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSubmitInteractiveDialogRequest example = await client.submitInteractiveDialogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

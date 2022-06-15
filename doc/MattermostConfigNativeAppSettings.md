@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigNativeAppSettings = await client.configNativeAppSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigNativeAppSettings example = await client.configNativeAppSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

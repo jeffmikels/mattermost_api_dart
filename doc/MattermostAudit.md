@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAudit = await client.audit.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAudit example = await client.audit.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

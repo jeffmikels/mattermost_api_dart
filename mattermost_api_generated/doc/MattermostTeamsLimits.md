@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTeamsLimits = await client.teamsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTeamsLimits example = await client.teamsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

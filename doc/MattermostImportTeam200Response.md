@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostImportTeam200Response = await client.importTeam200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostImportTeam200Response example = await client.importTeam200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

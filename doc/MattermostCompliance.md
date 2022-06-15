@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCompliance = await client.compliance.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCompliance example = await client.compliance.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenInteractiveDialogRequest = await client.openInteractiveDialogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenInteractiveDialogRequest example = await client.openInteractiveDialogRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

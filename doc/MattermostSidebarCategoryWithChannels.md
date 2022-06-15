@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSidebarCategoryWithChannels = await client.sidebarCategoryWithChannels.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSidebarCategoryWithChannels example = await client.sidebarCategoryWithChannels.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

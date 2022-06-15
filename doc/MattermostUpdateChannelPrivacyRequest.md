@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateChannelPrivacyRequest = await client.updateChannelPrivacyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateChannelPrivacyRequest example = await client.updateChannelPrivacyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRole = await client.role.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRole example = await client.role.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

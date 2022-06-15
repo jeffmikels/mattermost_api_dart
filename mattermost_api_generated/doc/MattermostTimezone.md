@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTimezone = await client.timezone.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTimezone example = await client.timezone.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

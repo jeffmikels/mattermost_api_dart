@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreatePostEphemeralRequest = await client.createPostEphemeralRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreatePostEphemeralRequest example = await client.createPostEphemeralRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

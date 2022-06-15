@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateTeamSchemeRequest = await client.updateTeamSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateTeamSchemeRequest example = await client.updateTeamSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

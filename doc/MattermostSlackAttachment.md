@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSlackAttachment = await client.slackAttachment.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSlackAttachment example = await client.slackAttachment.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigGitLabSettings = await client.environmentConfigGitLabSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigGitLabSettings example = await client.environmentConfigGitLabSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

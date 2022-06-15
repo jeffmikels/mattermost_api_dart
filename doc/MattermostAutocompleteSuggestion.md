@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAutocompleteSuggestion = await client.autocompleteSuggestion.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAutocompleteSuggestion example = await client.autocompleteSuggestion.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

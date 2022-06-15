@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSession = await client.session.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSession example = await client.session.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

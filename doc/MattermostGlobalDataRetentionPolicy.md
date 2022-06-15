@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGlobalDataRetentionPolicy = await client.globalDataRetentionPolicy.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGlobalDataRetentionPolicy example = await client.globalDataRetentionPolicy.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

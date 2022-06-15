@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateUserRolesRequest = await client.updateUserRolesRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateUserRolesRequest example = await client.updateUserRolesRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

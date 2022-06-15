@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostInviteGuestsToTeamRequest = await client.inviteGuestsToTeamRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostInviteGuestsToTeamRequest example = await client.inviteGuestsToTeamRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

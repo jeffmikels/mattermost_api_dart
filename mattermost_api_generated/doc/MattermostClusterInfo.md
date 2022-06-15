@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostClusterInfo = await client.clusterInfo.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostClusterInfo example = await client.clusterInfo.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

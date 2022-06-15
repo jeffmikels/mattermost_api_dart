@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostInvoiceLineItem = await client.invoiceLineItem.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostInvoiceLineItem example = await client.invoiceLineItem.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

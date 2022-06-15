@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateUserRequest = await client.createUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateUserRequest example = await client.createUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

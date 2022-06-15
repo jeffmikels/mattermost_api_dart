@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSamlCertificateStatus = await client.samlCertificateStatus.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSamlCertificateStatus example = await client.samlCertificateStatus.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

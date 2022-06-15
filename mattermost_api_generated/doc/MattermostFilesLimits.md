@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostFilesLimits = await client.filesLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostFilesLimits example = await client.filesLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

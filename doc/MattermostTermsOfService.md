@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostTermsOfService = await client.termsOfService.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostTermsOfService example = await client.termsOfService.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

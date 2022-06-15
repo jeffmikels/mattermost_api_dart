@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRemoveRecentCustomStatusRequest = await client.removeRecentCustomStatusRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRemoveRecentCustomStatusRequest example = await client.removeRecentCustomStatusRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

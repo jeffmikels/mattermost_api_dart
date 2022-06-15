@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPluginManifestServerExecutables = await client.pluginManifestServerExecutables.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPluginManifestServerExecutables example = await client.pluginManifestServerExecutables.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostIntegrationsLimits = await client.integrationsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostIntegrationsLimits example = await client.integrationsLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

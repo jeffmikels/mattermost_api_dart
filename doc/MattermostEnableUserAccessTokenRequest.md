@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnableUserAccessTokenRequest = await client.enableUserAccessTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnableUserAccessTokenRequest example = await client.enableUserAccessTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOrderedSidebarCategories = await client.orderedSidebarCategories.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOrderedSidebarCategories example = await client.orderedSidebarCategories.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

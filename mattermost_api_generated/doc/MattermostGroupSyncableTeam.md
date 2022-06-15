@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGroupSyncableTeam = await client.groupSyncableTeam.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGroupSyncableTeam example = await client.groupSyncableTeam.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

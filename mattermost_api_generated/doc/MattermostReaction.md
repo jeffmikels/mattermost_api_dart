@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostReaction = await client.reaction.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostReaction example = await client.reaction.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

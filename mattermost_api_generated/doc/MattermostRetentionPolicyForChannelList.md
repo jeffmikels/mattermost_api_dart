@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRetentionPolicyForChannelList = await client.retentionPolicyForChannelList.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRetentionPolicyForChannelList example = await client.retentionPolicyForChannelList.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

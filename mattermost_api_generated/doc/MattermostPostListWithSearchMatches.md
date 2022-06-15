@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPostListWithSearchMatches = await client.postListWithSearchMatches.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPostListWithSearchMatches example = await client.postListWithSearchMatches.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

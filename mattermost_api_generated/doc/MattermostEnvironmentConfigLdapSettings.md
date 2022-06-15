@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigLdapSettings = await client.environmentConfigLdapSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigLdapSettings example = await client.environmentConfigLdapSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

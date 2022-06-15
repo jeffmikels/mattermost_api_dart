@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenGraphArticleAuthorsInner = await client.openGraphArticleAuthorsInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenGraphArticleAuthorsInner example = await client.openGraphArticleAuthorsInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

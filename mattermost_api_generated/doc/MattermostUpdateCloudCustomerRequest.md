@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateCloudCustomerRequest = await client.updateCloudCustomerRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateCloudCustomerRequest example = await client.updateCloudCustomerRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

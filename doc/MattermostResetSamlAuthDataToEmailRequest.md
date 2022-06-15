@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostResetSamlAuthDataToEmailRequest = await client.resetSamlAuthDataToEmailRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostResetSamlAuthDataToEmailRequest example = await client.resetSamlAuthDataToEmailRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

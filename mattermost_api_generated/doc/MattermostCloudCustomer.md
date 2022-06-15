@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCloudCustomer = await client.cloudCustomer.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCloudCustomer example = await client.cloudCustomer.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

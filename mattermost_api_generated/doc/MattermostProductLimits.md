@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostProductLimits = await client.productLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostProductLimits example = await client.productLimits.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

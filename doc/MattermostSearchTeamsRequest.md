@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchTeamsRequest = await client.searchTeamsRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchTeamsRequest example = await client.searchTeamsRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

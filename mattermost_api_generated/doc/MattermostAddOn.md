@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostAddOn = await client.addOn.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostAddOn example = await client.addOn.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

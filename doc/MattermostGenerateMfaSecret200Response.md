@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGenerateMfaSecret200Response = await client.generateMfaSecret200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGenerateMfaSecret200Response example = await client.generateMfaSecret200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

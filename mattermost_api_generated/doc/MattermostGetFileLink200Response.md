@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetFileLink200Response = await client.getFileLink200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetFileLink200Response example = await client.getFileLink200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

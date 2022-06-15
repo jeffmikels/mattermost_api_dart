@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigLdapSettings = await client.configLdapSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigLdapSettings example = await client.configLdapSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchUserAccessTokensRequest = await client.searchUserAccessTokensRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchUserAccessTokensRequest example = await client.searchUserAccessTokensRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

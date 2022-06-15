@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostEnvironmentConfigEmailSettings = await client.environmentConfigEmailSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostEnvironmentConfigEmailSettings example = await client.environmentConfigEmailSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

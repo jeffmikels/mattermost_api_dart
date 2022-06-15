@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostProduct = await client.product.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostProduct example = await client.product.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

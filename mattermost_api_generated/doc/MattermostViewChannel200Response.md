@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostViewChannel200Response = await client.viewChannel200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostViewChannel200Response example = await client.viewChannel200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

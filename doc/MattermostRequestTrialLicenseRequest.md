@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRequestTrialLicenseRequest = await client.requestTrialLicenseRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRequestTrialLicenseRequest example = await client.requestTrialLicenseRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

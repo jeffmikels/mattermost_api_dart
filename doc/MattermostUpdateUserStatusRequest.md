@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateUserStatusRequest = await client.updateUserStatusRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateUserStatusRequest example = await client.updateUserStatusRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

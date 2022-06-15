@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostSearchGroupChannelsRequest = await client.searchGroupChannelsRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostSearchGroupChannelsRequest example = await client.searchGroupChannelsRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

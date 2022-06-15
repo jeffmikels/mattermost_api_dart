@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetPlugins200Response = await client.getPlugins200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetPlugins200Response example = await client.getPlugins200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

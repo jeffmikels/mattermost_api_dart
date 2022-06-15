@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchUserRequest = await client.patchUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchUserRequest example = await client.patchUserRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

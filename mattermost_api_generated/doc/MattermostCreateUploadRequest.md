@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateUploadRequest = await client.createUploadRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateUploadRequest example = await client.createUploadRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

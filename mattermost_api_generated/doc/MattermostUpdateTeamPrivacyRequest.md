@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUpdateTeamPrivacyRequest = await client.updateTeamPrivacyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUpdateTeamPrivacyRequest example = await client.updateTeamPrivacyRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

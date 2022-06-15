@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostCreateSchemeRequest = await client.createSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostCreateSchemeRequest example = await client.createSchemeRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

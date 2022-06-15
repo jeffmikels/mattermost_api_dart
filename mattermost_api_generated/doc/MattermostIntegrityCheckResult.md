@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostIntegrityCheckResult = await client.integrityCheckResult.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostIntegrityCheckResult example = await client.integrityCheckResult.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

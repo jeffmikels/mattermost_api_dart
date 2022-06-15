@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenGraphAudiosInner = await client.openGraphAudiosInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenGraphAudiosInner example = await client.openGraphAudiosInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

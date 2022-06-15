@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostUploadSession = await client.uploadSession.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostUploadSession example = await client.uploadSession.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

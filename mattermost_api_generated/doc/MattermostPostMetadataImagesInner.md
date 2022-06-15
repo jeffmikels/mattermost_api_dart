@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPostMetadataImagesInner = await client.postMetadataImagesInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPostMetadataImagesInner example = await client.postMetadataImagesInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

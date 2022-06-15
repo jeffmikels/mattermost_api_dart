@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostConfigSqlSettings = await client.configSqlSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostConfigSqlSettings example = await client.configSqlSettings.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

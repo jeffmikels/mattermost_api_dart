@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostPatchGroupRequest = await client.patchGroupRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostPatchGroupRequest example = await client.patchGroupRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostGetRedirectLocation200Response = await client.getRedirectLocation200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostGetRedirectLocation200Response example = await client.getRedirectLocation200Response.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOrphanedRecord = await client.orphanedRecord.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOrphanedRecord example = await client.orphanedRecord.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

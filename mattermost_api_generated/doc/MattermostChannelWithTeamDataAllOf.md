@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelWithTeamDataAllOf = await client.channelWithTeamDataAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelWithTeamDataAllOf example = await client.channelWithTeamDataAllOf.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostOpenGraphImagesInner = await client.openGraphImagesInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostOpenGraphImagesInner example = await client.openGraphImagesInner.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

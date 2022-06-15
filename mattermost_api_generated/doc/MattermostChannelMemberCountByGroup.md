@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostChannelMemberCountByGroup = await client.channelMemberCountByGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostChannelMemberCountByGroup example = await client.channelMemberCountByGroup.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

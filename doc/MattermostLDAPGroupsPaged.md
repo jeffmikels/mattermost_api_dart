@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostLDAPGroupsPaged = await client.lDAPGroupsPaged.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostLDAPGroupsPaged example = await client.lDAPGroupsPaged.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 

@@ -14,7 +14,7 @@ client = MattermostApiClient(
 );
 
 
-MattermostRevokeUserAccessTokenRequest = await client.revokeUserAccessTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
+MattermostRevokeUserAccessTokenRequest example = await client.revokeUserAccessTokenRequest.FUNCTION_THAT_RETURNS_THIS_CLASS();
 
 ```
 
