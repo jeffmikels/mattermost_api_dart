@@ -58,6 +58,39 @@ MmChannel? channel = await channelApi.getChannel(myChannelId);
 
 Every API model in the library is prefixed with the word `Mattermost` and every object class is prefixed with the letters `Mm` so if you are using an IDE, simply start typing either `Mattermost` or `Mm` and your IDE should pick up everything that's available.
 
+## Using the Websocket Client for Real-time Updates
+
+The library also exposes a simple wrapper around the Mattermost Websocket API for retrieving real-time updates. This is essential for bot accounts that need to reply to channel messages or direct messages.
+
+Here's an example.
+
+```dart
+var token = 'BEARER_TOKEN';
+var url = 'wss://BASE_URL/api/v4/websocket';
+var ws = MattermostWebsocketClient(
+  url,
+  headers: {'Authorization': 'Bearer $token'},
+  onEvent: (MmWsEvent mm) {
+    if (mm is MmWsEventPosted) print('a user just posted a message!');
+    print(mm.toJson());
+  },
+);
+
+await Future.delayed(Duration(seconds: 2));
+var res = await ws.userTyping('CHANNEL_ID_WHERE_USER_IS_TYPING');
+print(res.toJson());
+Future.delayed(Duration(seconds: 2));
+res = await ws.getStatuses();
+print(res.toJson());
+await Future.delayed(Duration(seconds: 2));
+res = await ws.getStatusesByIds(['USER_ID_TO_GET']);
+print(res.toJson());
+```
+
+Note: the websocket API is significantly different from the REST API, and this library is still limited in its support. All `event`s are supported through the `MmWsEvent` wrapper class, and as this library improves, we will add wrapper classes for the other events too.
+
+[Mattermost Websocket Documentation](https://api.mattermost.com/#tag/WebSocket)
+
 ## More Details
 
 [Read the Auto-Generated Documentation](GENERATED_README.md).

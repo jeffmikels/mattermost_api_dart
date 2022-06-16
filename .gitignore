@@ -5,6 +5,9 @@
 build/
 pubspec.lock  # Except for application packages
 
+# Secrets
+quicktest.dart
+
 # IntelliJ
 *.iml
 *.ipr

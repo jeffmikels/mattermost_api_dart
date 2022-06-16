@@ -1,3 +1,10 @@
+## 0.2.0
+
+-   Implemented a websocket client for real-time updates from Mattermost.
+-   websocket client supports all websocket API actions with functions returning `Future<MmWsReply>`.
+-   websocket client wraps all websocket events in child classes of `MmWsEvent`.
+-   also added `MmWsEventPosted` class to wrap websocket `posted` events.
+
 ## 0.1.5
 
 -   removed extraneous docs, and fixed capitalization of the class prefix. Was `MM`, but now is `Mm` because it makes the automatically generated variable names more pleasant.

@@ -10,6 +10,7 @@ fix_templates.py
 mattermost-codegen.dart
 push_templates.sh
 push-and-publish.sh
+quicktest.dart
 
 # other stuff
 .vscode
