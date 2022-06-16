@@ -93,8 +93,8 @@ Note: the websocket API is significantly different from the REST API, and this l
 
 ## More Details
 
-[Read the Auto-Generated Documentation](GENERATED_README.md).
-[Read the Dart Api Docs](https://pub.dev/documentation/mattermost_api/latest/mattermost.api/MattermostApiClientExtension.html)
+- [Read the Auto-Generated Documentation](GENERATED_README.md).
+- [Read the Dart API Docs](https://pub.dev/documentation/mattermost_api/latest/mattermost.api/MattermostApiClient-class.html)
 
 ## Issues Resolved
 
